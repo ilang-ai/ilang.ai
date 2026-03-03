@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-Lang — AI-Native Compression Protocol</title>
+<meta name="description" content="Compress prompts by 40-60%. The language AI speaks when humans aren't listening.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --border: #1e1e22;
+    --border-focus: #2a2a30;
+    --text: #e8e6e3;
+    --text-dim: #6b6966;
+    --text-muted: #3a3835;
+    --accent: #c4a882;
+    --accent-dim: rgba(196, 168, 130, 0.08);
+    --accent-glow: rgba(196, 168, 130, 0.15);
+    --green: #7dba6a;
+    --red: #ba6a6a;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Instrument Serif', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .protocol-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    margin-bottom: 24px;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-dim);
+    letter-spacing: 0.3px;
+  }
+
+  /* Main workspace */
+  .workspace {
+    margin-bottom: 48px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 2px;
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+
+  .panel:focus-within {
+    border-color: var(--border-focus);
+  }
+
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .token-count {
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: color 0.3s;
+  }
+
+  .token-count.active {
+    color: var(--text);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: 16px;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    resize: vertical;
+    outline: none;
+  }
+
+  textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  .output-area {
+    min-height: 120px;
+    padding: 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--accent);
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .output-area.empty {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Action bar */
+  .action-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .compress-btn {
+    flex: 1;
+    padding: 14px 24px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .compress-btn:hover {
+    background: var(--accent-dim);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  .compress-btn:active {
+    transform: scale(0.99);
+  }
+
+  .compress-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .compress-btn.loading {
+    color: var(--text-muted);
+    border-color: var(--border);
+  }
+
+  .copy-btn {
+    padding: 14px 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .copy-btn:hover {
+    border-color: var(--text-dim);
+    color: var(--text);
+  }
+
+  /* Stats bar */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 20px 0;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.5s ease;
+  }
+
+  .stats.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-value.saved {
+    color: var(--green);
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* Separator */
+  .sep {
+    width: 48px;
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto 48px;
+  }
+
+  /* How it works */
+  .section-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  .example {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+
+  .example-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .example-human {
+    color: var(--text-dim);
+    font-size: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .example-ilang {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .example-savings {
+    float: right;
+    color: var(--green);
+    font-size: 11px;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .cta-text {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .cta-link {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+  }
+
+  .cta-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-brand {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header { animation: fadeIn 0.8s ease both; }
+  .workspace { animation: fadeIn 0.8s ease 0.15s both; }
+  .examples { animation: fadeIn 0.8s ease 0.3s both; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 48px 16px 40px; }
+    .logo { font-size: 44px; }
+    .tagline { font-size: 15px; }
+    .stats { gap: 20px; }
+    .stat-value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div class="protocol-tag">v2.0 — Public Protocol</div>
+    <div class="logo">I-<span>Lang</span></div>
+    <div class="tagline">The language AI speaks when humans aren't listening</div>
+  </div>
+
+  <!-- Workspace -->
+  <div class="workspace">
+    <div class="panel" id="inputPanel">
+      <div class="panel-header">
+        <span>Input — Natural Language</span>
+        <span class="token-count" id="inputTokens">0 tokens</span>
+      </div>
+      <textarea id="inputText" placeholder="Paste your prompt here..."></textarea>
+    </div>
+
+    <div class="action-bar">
+      <button class="compress-btn" id="compressBtn" onclick="compress()">
+        Compress
+      </button>
+      <button class="copy-btn" id="copyBtn" onclick="copyOutput()" style="display:none;">
+        Copy
+      </button>
+    </div>
+
+    <div class="panel" id="outputPanel" style="display:none;">
+      <div class="panel-header">
+        <span>Output — I-Lang</span>
+        <span class="token-count active" id="outputTokens">0 tokens</span>
+      </div>
+      <div class="output-area" id="outputText"></div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats" id="stats">
+    <div class="stat">
+      <div class="stat-value" id="statOriginal">—</div>
+      <div class="stat-label">Original</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="statCompressed">—</div>
+      <div class="stat-label">Compressed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value saved" id="statSaved">—</div>
+      <div class="stat-label">Saved</div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- Examples -->
+  <div class="section-title">How it works</div>
+  <div class="examples">
+    <div class="example">
+      <div class="example-label">Before</div>
+      <div class="example-human">Go to this URL, extract the main text content, and format it as clean Markdown for me to read.</div>
+      <div class="example-label">After <span class="example-savings">−58%</span></div>
+      <div class="example-ilang">[SCRP:@ISEE|url=tgt]=>[FMT|fmt=md]=>[Ω]</div>
+    </div>
+    <div class="example">
+      <div class="example-label">Before</div>
+      <div class="example-human">Read all the Markdown files in the local directory, merge them together into one document, and output the result.</div>
+      <div class="example-label">After <span class="example-savings">−65%</span></div>
+      <div class="example-ilang">[LIST:@LOCAL|mch="*.md"]=>[Π:READ]=>[Σ]=>[Ω]</div>
+    </div>
+    <div class="example">
+      <div class="example-label">Before</div>
+      <div class="example-human">Summarize the previous output into exactly 3 bullet points in a professional tone.</div>
+      <div class="example-label">After <span class="example-savings">−52%</span></div>
+      <div class="example-ilang">[Σ:@PREV|sty=bullets,len=3,ton=pro]</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-text">Auto-compress every prompt in your OpenClaw agent</div>
+    <a href="https://github.com/ilang-ai" class="cta-link" target="_blank">Install OpenClaw Skill →</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">Palm Media Technology © 2026</div>
+    <div class="footer-links">
+      <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
+      <a href="https://i.ilang.ai" target="_blank">API</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIG — Set your Cloudflare Worker endpoint here
+  // The worker proxies requests to Gemini API with your key
+  // ============================================================
+  const API_ENDPOINT = 'https://api.ilang.ai/compress'; // CF Worker URL
+
+  // Simple token estimator (roughly 1 token per 4 chars for English)
+  function estimateTokens(text) {
+    if (!text.trim()) return 0;
+    return Math.ceil(text.length / 4);
+  }
+
+  // Update input token count on typing
+  const inputText = document.getElementById('inputText');
+  const inputTokens = document.getElementById('inputTokens');
+
+  inputText.addEventListener('input', () => {
+    const tokens = estimateTokens(inputText.value);
+    inputTokens.textContent = tokens + ' tokens';
+  });
+
+  // Compress function
+  async function compress() {
+    const input = inputText.value.trim();
+    if (!input) return;
+
+    const btn = document.getElementById('compressBtn');
+    const outputPanel = document.getElementById('outputPanel');
+    const outputText = document.getElementById('outputText');
+    const outputTokens = document.getElementById('outputTokens');
+    const copyBtn = document.getElementById('copyBtn');
+    const stats = document.getElementById('stats');
+
+    // Loading state
+    btn.disabled = true;
+    btn.classList.add('loading');
+    btn.textContent = 'Compressing...';
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input: input })
+      });
+
+      if (!response.ok) throw new Error('API error');
+
+      const data = await response.json();
+      const compressed = data.output || data.compressed || '';
+
+      // Show output
+      outputPanel.style.display = 'block';
+      outputText.textContent = compressed;
+      outputText.classList.remove('empty');
+      copyBtn.style.display = 'block';
+
+      // Calculate stats
+      const originalTokens = estimateTokens(input);
+      const compressedTokens = estimateTokens(compressed);
+      const savedPct = Math.round((1 - compressedTokens / originalTokens) * 100);
+
+      outputTokens.textContent = compressedTokens + ' tokens';
+
+      // Animate stats
+      document.getElementById('statOriginal').textContent = originalTokens;
+      document.getElementById('statCompressed').textContent = compressedTokens;
+      document.getElementById('statSaved').textContent = savedPct + '%';
+      stats.classList.add('visible');
+
+    } catch (err) {
+      outputPanel.style.display = 'block';
+      outputText.textContent = '::ILANG:ERR::[ε:E500|msg="Service unavailable. Deploy your CF Worker endpoint."]';
+      outputText.classList.add('empty');
+    }
+
+    // Reset button
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    btn.textContent = 'Compress';
+  }
+
+  // Copy to clipboard
+  async function copyOutput() {
+    const text = document.getElementById('outputText').textContent;
+    await navigator.clipboard.writeText(text);
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+  }
+
+  // Allow Ctrl+Enter to compress
+  inputText.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      compress();
+    }
+  });
+</script>
+
+</body>
+</html>
