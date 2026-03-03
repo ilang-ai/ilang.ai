@@ -4,117 +4,144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>I-Lang — AI-Native Compression Protocol</title>
-<meta name="description" content="Compress prompts by 40-65%. AI understands it natively. Free, instant, no registration.">
-<meta property="og:title" content="I-Lang — The language AI speaks when humans aren't listening">
-<meta property="og:description" content="Compress prompts by 40-65%. Give your AI eyes to see any webpage. Free forever.">
+<meta name="description" content="I-Lang compresses natural language prompts into dense AI-native instructions. 40-65% token savings. No training required.">
+<meta property="og:title" content="I-Lang — AI-Native Compression Protocol">
+<meta property="og:description" content="Compress prompts by 40-65%. Give your AI eyes to see any webpage. Free, open protocol.">
 <meta property="og:url" content="https://ilang.ai">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://ilang.ai/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="I-Lang — AI-Native Compression Protocol">
 <meta name="twitter:description" content="Compress prompts by 40-65%. Give your AI eyes to see any webpage.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#955;</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0c;--surface:#111114;--border:#1e1e24;--text:#e8e6e3;--dim:#6b6a6a;--accent:#c4f042;--accent2:#42f0c8;--glow:rgba(196,240,66,0.08)}
-body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+:root{
+  --bg:#faf8f4;
+  --surface:#ffffff;
+  --border:#e8e4dd;
+  --border-light:#f0ece6;
+  --text:#2c2c2c;
+  --text-secondary:#6b6560;
+  --text-dim:#9a948d;
+  --accent:#8b4513;
+  --accent-light:#a0522d;
+  --accent-bg:rgba(139,69,19,0.06);
+  --accent-border:rgba(139,69,19,0.15);
+  --highlight:#2d5016;
+  --highlight-bg:rgba(45,80,22,0.06);
+  --highlight-border:rgba(45,80,22,0.15);
+  --code-bg:#f5f2ec;
+  --shadow:0 1px 3px rgba(0,0,0,0.06);
+  --shadow-lg:0 4px 12px rgba(0,0,0,0.08);
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-weight:400;min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-border);transition:all 0.2s}
+a:hover{border-bottom-color:var(--accent);color:var(--accent-light)}
 
-.container{max-width:680px;margin:0 auto;padding:20px 16px}
+.container{max-width:640px;margin:0 auto;padding:24px 20px}
 
 /* Header */
-.header{text-align:center;padding:32px 0 24px}
-.logo{font-family:'Instrument Serif',serif;font-size:2.4rem;font-weight:400;letter-spacing:-0.02em;color:var(--text)}
-.logo span{color:var(--accent)}
-.tagline{font-size:0.7rem;color:var(--dim);margin-top:6px;letter-spacing:0.08em;text-transform:uppercase}
+.header{text-align:center;padding:48px 0 16px;border-bottom:1px solid var(--border)}
+.logo{font-family:'Crimson Pro',serif;font-size:2.8rem;font-weight:300;letter-spacing:-0.01em;color:var(--text)}
+.logo em{font-style:italic;color:var(--accent);font-weight:400}
+.subtitle{font-family:'Crimson Pro',serif;font-size:1.05rem;color:var(--text-secondary);margin-top:4px;font-weight:300;letter-spacing:0.02em}
+.version{font-size:0.7rem;color:var(--text-dim);margin-top:10px;letter-spacing:0.08em;text-transform:uppercase;font-family:'Source Code Pro',monospace}
+
+/* Abstract */
+.abstract{padding:28px 0;border-bottom:1px solid var(--border)}
+.abstract-label{font-family:'Crimson Pro',serif;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);margin-bottom:10px}
+.abstract p{font-family:'Crimson Pro',serif;font-size:1.05rem;line-height:1.8;color:var(--text-secondary)}
 
 /* Gift Section */
-.gift-section{background:linear-gradient(135deg,rgba(196,240,66,0.04),rgba(66,240,200,0.04));border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
-.gift-title{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--accent);margin-bottom:10px}
-.gift-desc{font-size:0.75rem;color:var(--dim);line-height:1.7}
+.gift-section{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;margin:28px 0;box-shadow:var(--shadow)}
+.gift-title{font-family:'Crimson Pro',serif;font-size:1.25rem;color:var(--accent);margin-bottom:10px;font-weight:600}
+.gift-desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.8}
 .gift-desc strong{color:var(--text);font-weight:500}
 
 /* Input Area */
 .input-area{margin-bottom:16px}
-.input-area textarea{width:100%;min-height:120px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.8rem;padding:14px;resize:vertical;line-height:1.6;transition:border-color 0.2s}
-.input-area textarea:focus{outline:none;border-color:var(--accent)}
-.input-area textarea::placeholder{color:var(--dim)}
-.char-count{text-align:right;font-size:0.65rem;color:var(--dim);margin-top:4px}
-.char-count.warn{color:#f04242}
+.input-label{font-family:'Crimson Pro',serif;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:8px}
+.input-area textarea{width:100%;min-height:120px;background:var(--surface);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'Source Code Pro',monospace;font-size:0.8rem;padding:16px;resize:vertical;line-height:1.7;transition:border-color 0.2s;box-shadow:inset 0 1px 2px rgba(0,0,0,0.04)}
+.input-area textarea:focus{outline:none;border-color:var(--accent);box-shadow:inset 0 1px 2px rgba(0,0,0,0.04),0 0 0 3px var(--accent-bg)}
+.char-count{text-align:right;font-size:0.65rem;color:var(--text-dim);margin-top:6px;font-family:'Source Code Pro',monospace}
+.char-count.warn{color:#c44}
 
 /* Buttons */
-.btn-row{display:flex;gap:10px;margin-bottom:20px}
-.btn{flex:1;padding:14px 16px;border:none;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
-.btn:active{transform:scale(0.97)}
-.btn-gift{background:var(--accent);color:#0a0a0c}
-.btn-gift:hover{background:#d4ff52;box-shadow:0 0 24px rgba(196,240,66,0.3)}
+.btn-row{display:flex;gap:12px;margin-bottom:24px}
+.btn{flex:1;padding:13px 16px;border:none;border-radius:4px;font-family:'Crimson Pro',serif;font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.01em}
+.btn:active{transform:scale(0.98)}
+.btn-gift{background:var(--accent);color:#fff}
+.btn-gift:hover{background:var(--accent-light);box-shadow:var(--shadow-lg)}
 .btn-compress{background:var(--surface);color:var(--text);border:1px solid var(--border)}
 .btn-compress:hover{border-color:var(--accent);color:var(--accent)}
 .btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 
 /* Output Area */
 .output-area{display:none}
-.output-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;position:relative;margin-bottom:12px}
-.output-text{font-size:0.8rem;line-height:1.7;word-break:break-all;color:var(--accent);min-height:40px;user-select:all}
-.output-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
-.token-info{font-size:0.65rem;color:var(--dim)}
-.token-saved{color:var(--accent);font-weight:700;font-size:0.85rem}
-.btn-copy{background:var(--accent);color:#0a0a0c;border:none;padding:8px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;cursor:pointer;transition:all 0.15s}
-.btn-copy:hover{background:#d4ff52}
-.btn-copy.copied{background:var(--accent2);color:#0a0a0c}
+.output-box{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:16px;position:relative;margin-bottom:14px;box-shadow:var(--shadow)}
+.output-label{font-family:'Crimson Pro',serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:8px}
+.output-text{font-family:'Source Code Pro',monospace;font-size:0.82rem;line-height:1.7;word-break:break-all;color:var(--accent);min-height:40px;user-select:all}
+.output-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border-light)}
+.token-info{font-size:0.7rem;color:var(--text-dim);font-family:'Source Code Pro',monospace}
+.token-saved{color:var(--highlight);font-weight:600;font-size:0.85rem}
+.btn-copy{background:var(--accent);color:#fff;border:none;padding:8px 18px;border-radius:4px;font-family:'Crimson Pro',serif;font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.15s}
+.btn-copy:hover{background:var(--accent-light)}
+.btn-copy.copied{background:var(--highlight)}
 
 /* Tip Section */
-.tip-box{background:rgba(66,240,200,0.05);border:1px solid rgba(66,240,200,0.15);border-radius:8px;padding:14px;margin-bottom:12px}
-.tip-label{font-size:0.65rem;color:var(--accent2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
-.tip-text{font-size:0.75rem;color:var(--dim);line-height:1.7}
-.tip-text code{background:rgba(66,240,200,0.1);padding:2px 6px;border-radius:4px;color:var(--accent2);font-size:0.72rem}
+.tip-box{background:var(--highlight-bg);border:1px solid var(--highlight-border);border-radius:4px;padding:16px;margin-bottom:14px}
+.tip-label{font-family:'Crimson Pro',serif;font-size:0.7rem;color:var(--highlight);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;font-weight:600}
+.tip-text{font-size:0.8rem;color:var(--text-secondary);line-height:1.8}
+.tip-text code{background:var(--code-bg);padding:2px 7px;border-radius:3px;color:var(--highlight);font-family:'Source Code Pro',monospace;font-size:0.78rem;border:1px solid var(--highlight-border)}
 
 /* Footer Links */
-.output-footer{font-size:0.65rem;color:var(--dim);text-align:center;padding:8px 0}
-.output-footer a{color:var(--accent);margin:0 8px}
+.output-footer{font-size:0.7rem;color:var(--text-dim);text-align:center;padding:8px 0}
+.output-footer a{color:var(--accent);margin:0 8px;border-bottom:none}
+.output-footer a:hover{border-bottom:1px solid var(--accent)}
 
 /* Error */
-.error-box{background:rgba(240,66,66,0.08);border:1px solid rgba(240,66,66,0.2);border-radius:8px;padding:14px;margin-bottom:12px;display:none}
-.error-text{font-size:0.75rem;color:#f07070;line-height:1.6}
-.error-text a{color:#f07070;text-decoration:underline}
+.error-box{background:rgba(204,60,60,0.06);border:1px solid rgba(204,60,60,0.15);border-radius:4px;padding:14px;margin-bottom:14px;display:none}
+.error-text{font-size:0.8rem;color:#a03030;line-height:1.6}
+.error-text a{color:#a03030;border-bottom-color:rgba(160,48,48,0.3)}
 
 /* Loading */
 .loading{display:none;text-align:center;padding:32px 0}
-.loading-dots{display:inline-flex;gap:6px}
-.loading-dots span{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 1.2s infinite}
-.loading-dots span:nth-child(2){animation-delay:0.2s}
-.loading-dots span:nth-child(3){animation-delay:0.4s}
-@keyframes pulse{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+.loading-text{font-family:'Crimson Pro',serif;font-style:italic;color:var(--text-dim);font-size:0.95rem}
+.loading-dots{display:inline}
+.loading-dots::after{content:'...';animation:dots 1.5s steps(4,end) infinite}
+@keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
 
 /* Examples */
-.examples{margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
-.examples-title{font-size:0.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px}
-.example{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px}
-.example-before{font-size:0.72rem;color:var(--dim);line-height:1.6;margin-bottom:8px}
-.example-after{font-size:0.72rem;color:var(--accent);font-weight:500}
-.example-saved{font-size:0.65rem;color:var(--accent2);float:right;margin-top:-18px}
+.examples{margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.section-title{font-family:'Crimson Pro',serif;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);margin-bottom:16px}
+.example{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+.example-before{font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:8px}
+.example-after{font-family:'Source Code Pro',monospace;font-size:0.78rem;color:var(--accent)}
+.example-saved{font-family:'Source Code Pro',monospace;font-size:0.7rem;color:var(--highlight);float:right;margin-top:-18px;font-weight:600}
 
 /* Counter */
-.counter{text-align:center;padding:24px 0 16px;font-size:0.65rem;color:var(--dim);letter-spacing:0.05em}
-.counter-num{color:var(--accent);font-weight:700;font-size:0.8rem}
+.counter{text-align:center;padding:24px 0 8px;font-size:0.7rem;color:var(--text-dim);font-family:'Source Code Pro',monospace;letter-spacing:0.03em}
+.counter-num{color:var(--accent);font-weight:600}
 
 /* Site Footer */
-.site-footer{text-align:center;padding:16px 0 32px;font-size:0.6rem;color:var(--dim);border-top:1px solid var(--border);margin-top:8px}
-.site-footer a{color:var(--dim);margin:0 6px}
+.site-footer{text-align:center;padding:20px 0 40px;font-size:0.7rem;color:var(--text-dim);border-top:1px solid var(--border);margin-top:8px;font-family:'Crimson Pro',serif}
+.site-footer a{color:var(--text-dim);margin:0 8px;border-bottom:none;font-family:'Source Code Pro',monospace;font-size:0.65rem}
 .site-footer a:hover{color:var(--accent)}
+.site-footer .credit{margin-top:10px;font-style:italic;color:var(--text-dim)}
 
 /* Mobile */
 @media(max-width:480px){
-  .container{padding:16px 12px}
-  .header{padding:24px 0 16px}
-  .logo{font-size:1.8rem}
-  .gift-section{padding:16px}
+  .container{padding:16px 14px}
+  .header{padding:32px 0 14px}
+  .logo{font-size:2.2rem}
+  .subtitle{font-size:0.95rem}
+  .gift-section{padding:18px}
   .gift-title{font-size:1.1rem}
   .btn-row{flex-direction:column;gap:8px}
-  .btn{padding:16px;font-size:0.85rem}
+  .btn{padding:15px;font-size:1rem}
   .input-area textarea{min-height:100px;font-size:0.78rem}
+  .abstract{padding:20px 0}
 }
 </style>
 </head>
@@ -122,20 +149,27 @@ a:hover{text-decoration:underline}
 <div class="container">
 
   <header class="header">
-    <div class="logo">I-<span>Lang</span></div>
-    <div class="tagline">AI-Native Compression Protocol</div>
+    <div class="logo">I-<em>Lang</em></div>
+    <div class="subtitle">AI-Native Compression Protocol</div>
+    <div class="version">v2.0 &mdash; Public Specification</div>
   </header>
+
+  <section class="abstract">
+    <div class="abstract-label">Abstract</div>
+    <p>I-Lang is a compression protocol for AI systems. It reduces natural language prompts into dense, structured instructions that AI models understand natively &mdash; without training or fine-tuning. Typical compression yields 40&ndash;65% token savings with equivalent output quality.</p>
+  </section>
 
   <section class="gift-section">
     <div class="gift-title">Your First I-Lang</div>
     <div class="gift-desc">
-      Hit <strong>Generate My Gift</strong> and your AI will paint a unique cyberpunk vision of AI changing everything.
+      Hit <strong>Generate My Gift</strong> and this protocol will compress an image prompt for you.
       Copy the result into any AI conversation &mdash; ChatGPT, Gemini, Claude, Midjourney.
       Every person gets a different painting. <strong>The beauty of your image depends on how well your AI knows you. Good luck.</strong>
     </div>
   </section>
 
   <div class="input-area">
+    <div class="input-label">Input Prompt</div>
     <textarea id="input" maxlength="2000">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea>
     <div class="char-count" id="charCount">0 / 2,000</div>
   </div>
@@ -146,7 +180,7 @@ a:hover{text-decoration:underline}
   </div>
 
   <div class="loading" id="loading">
-    <div class="loading-dots"><span></span><span></span><span></span></div>
+    <div class="loading-text">Compressing<span class="loading-dots"></span></div>
   </div>
 
   <div class="error-box" id="errorBox">
@@ -155,6 +189,7 @@ a:hover{text-decoration:underline}
 
   <div class="output-area" id="outputArea">
     <div class="output-box">
+      <div class="output-label">Compressed Output</div>
       <div class="output-text" id="outputText"></div>
       <div class="output-meta">
         <div class="token-info" id="tokenInfo"></div>
@@ -163,16 +198,16 @@ a:hover{text-decoration:underline}
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Superpower unlocked</div>
+      <div class="tip-label">Superpower</div>
       <div class="tip-text">
-        Your AI can now <strong>read any webpage</strong>. Just send it:<br>
+        Your AI can now <strong>read any webpage</strong>. Send it:<br>
         <code>i.ilang.ai/https://any-url-you-want</code><br>
         Paste this into your AI conversation. It will see the page and respond.
       </div>
     </div>
 
     <div class="output-footer">
-      <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">I-Lang Dictionary</a>
+      <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a>
       &middot;
       <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
       &middot;
@@ -181,15 +216,15 @@ a:hover{text-decoration:underline}
   </div>
 
   <section class="examples">
-    <div class="examples-title">Compression Examples</div>
+    <div class="section-title">Compression Examples</div>
     <div class="example">
       <div class="example-before">Extract text from a URL and format as Markdown</div>
-      <div class="example-after">[SCRP:@ISEE|url=tgt]=>[FMT|fmt=md]=>[&Omega;]</div>
+      <div class="example-after">[SCRP:@ISEE|url=tgt]=&gt;[FMT|fmt=md]=&gt;[&Omega;]</div>
       <div class="example-saved">&minus;58%</div>
     </div>
     <div class="example">
       <div class="example-before">Read all .md files, merge into one, output result</div>
-      <div class="example-after">[LIST:@LOCAL|mch="*.md"]=>[&Pi;:READ]=>[&Sigma;]=>[&Omega;]</div>
+      <div class="example-after">[LIST:@LOCAL|mch="*.md"]=&gt;[&Pi;:READ]=&gt;[&Sigma;]=&gt;[&Omega;]</div>
       <div class="example-saved">&minus;65%</div>
     </div>
     <div class="example">
@@ -200,15 +235,14 @@ a:hover{text-decoration:underline}
   </section>
 
   <div class="counter">
-    <span class="counter-num" id="counterNum">0</span> prompts compressed today
+    <span class="counter-num" id="counterNum">0</span> compressions served
   </div>
 
   <footer class="site-footer">
-    <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
-    <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a>
-    <a href="https://github.com/ilang-ai/ilang-spec" target="_blank">Spec</a>
-    <br><br>
-    Palm Media Technology &copy; 2026
+    <a href="https://github.com/ilang-ai" target="_blank">github</a>
+    <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">dictionary</a>
+    <a href="https://github.com/ilang-ai/ilang-spec" target="_blank">specification</a>
+    <div class="credit">Palm Media Technology &copy; 2026</div>
   </footer>
 
 </div>
@@ -259,7 +293,7 @@ async function compress(isGift) {
 
     document.getElementById('outputText').textContent = data.output;
     document.getElementById('tokenInfo').innerHTML =
-      '<span class="token-saved">' + data.tokens.saved + ' saved</span> &nbsp; ' +
+      '<span class="token-saved">' + data.tokens.saved + ' saved</span> &nbsp;&middot;&nbsp; ' +
       data.tokens.input + ' &rarr; ' + data.tokens.output + ' tokens';
     outputArea.style.display = 'block';
     outputArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -277,8 +311,8 @@ async function compress(isGift) {
 
 function copyResult() {
   const text = document.getElementById('outputText').textContent;
-  const tip = '\n\n---\nI-Lang v2.0 | Dictionary: github.com/ilang-ai/ilang-dict | Give your AI eyes: i.ilang.ai/{any-url}';
-  navigator.clipboard.writeText(text + tip).then(() => {
+  const footer = '\n\n---\nI-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.\n静水流深 | Palm Media Technology | ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict | Eyes: i.ilang.ai/{url}';
+  navigator.clipboard.writeText(text + footer).then(() => {
     const btn = document.getElementById('btnCopy');
     btn.textContent = 'Copied!';
     btn.classList.add('copied');
