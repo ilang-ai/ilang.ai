@@ -2,608 +2,299 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>I-Lang — AI-Native Compression Protocol</title>
-<meta name="description" content="Compress prompts by 40-60%. The language AI speaks when humans aren't listening.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta name="description" content="Compress prompts by 40-65%. AI understands it natively. Free, instant, no registration.">
+<meta property="og:title" content="I-Lang — The language AI speaks when humans aren't listening">
+<meta property="og:description" content="Compress prompts by 40-65%. Give your AI eyes to see any webpage. Free forever.">
+<meta property="og:url" content="https://ilang.ai">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ilang.ai/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I-Lang — AI-Native Compression Protocol">
+<meta name="twitter:description" content="Compress prompts by 40-65%. Give your AI eyes to see any webpage.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#955;</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0a0b;
-    --surface: #111113;
-    --border: #1e1e22;
-    --border-focus: #2a2a30;
-    --text: #e8e6e3;
-    --text-dim: #6b6966;
-    --text-muted: #3a3835;
-    --accent: #c4a882;
-    --accent-dim: rgba(196, 168, 130, 0.08);
-    --accent-glow: rgba(196, 168, 130, 0.15);
-    --green: #7dba6a;
-    --red: #ba6a6a;
-    --mono: 'JetBrains Mono', monospace;
-    --serif: 'Instrument Serif', Georgia, serif;
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0c;--surface:#111114;--border:#1e1e24;--text:#e8e6e3;--dim:#6b6a6a;--accent:#c4f042;--accent2:#42f0c8;--glow:rgba(196,240,66,0.08)}
+body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+.container{max-width:680px;margin:0 auto;padding:20px 16px}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 14px;
-    line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+/* Header */
+.header{text-align:center;padding:32px 0 24px}
+.logo{font-family:'Instrument Serif',serif;font-size:2.4rem;font-weight:400;letter-spacing:-0.02em;color:var(--text)}
+.logo span{color:var(--accent)}
+.tagline{font-size:0.7rem;color:var(--dim);margin-top:6px;letter-spacing:0.08em;text-transform:uppercase}
 
-  /* Subtle grain texture */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
+/* Gift Section */
+.gift-section{background:linear-gradient(135deg,rgba(196,240,66,0.04),rgba(66,240,200,0.04));border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.gift-title{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--accent);margin-bottom:10px}
+.gift-desc{font-size:0.75rem;color:var(--dim);line-height:1.7}
+.gift-desc strong{color:var(--text);font-weight:500}
 
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 80px 24px 60px;
-  }
+/* Input Area */
+.input-area{margin-bottom:16px}
+.input-area textarea{width:100%;min-height:120px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:0.8rem;padding:14px;resize:vertical;line-height:1.6;transition:border-color 0.2s}
+.input-area textarea:focus{outline:none;border-color:var(--accent)}
+.input-area textarea::placeholder{color:var(--dim)}
+.char-count{text-align:right;font-size:0.65rem;color:var(--dim);margin-top:4px}
+.char-count.warn{color:#f04242}
 
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
+/* Buttons */
+.btn-row{display:flex;gap:10px;margin-bottom:20px}
+.btn{flex:1;padding:14px 16px;border:none;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
+.btn:active{transform:scale(0.97)}
+.btn-gift{background:var(--accent);color:#0a0a0c}
+.btn-gift:hover{background:#d4ff52;box-shadow:0 0 24px rgba(196,240,66,0.3)}
+.btn-compress{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+.btn-compress:hover{border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 
-  .protocol-tag {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-    padding: 4px 12px;
-    margin-bottom: 24px;
-  }
+/* Output Area */
+.output-area{display:none}
+.output-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;position:relative;margin-bottom:12px}
+.output-text{font-size:0.8rem;line-height:1.7;word-break:break-all;color:var(--accent);min-height:40px;user-select:all}
+.output-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
+.token-info{font-size:0.65rem;color:var(--dim)}
+.token-saved{color:var(--accent);font-weight:700;font-size:0.85rem}
+.btn-copy{background:var(--accent);color:#0a0a0c;border:none;padding:8px 16px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:500;cursor:pointer;transition:all 0.15s}
+.btn-copy:hover{background:#d4ff52}
+.btn-copy.copied{background:var(--accent2);color:#0a0a0c}
 
-  .logo {
-    font-family: var(--serif);
-    font-size: 64px;
-    font-weight: 400;
-    letter-spacing: -2px;
-    color: var(--text);
-    margin-bottom: 12px;
-  }
+/* Tip Section */
+.tip-box{background:rgba(66,240,200,0.05);border:1px solid rgba(66,240,200,0.15);border-radius:8px;padding:14px;margin-bottom:12px}
+.tip-label{font-size:0.65rem;color:var(--accent2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+.tip-text{font-size:0.75rem;color:var(--dim);line-height:1.7}
+.tip-text code{background:rgba(66,240,200,0.1);padding:2px 6px;border-radius:4px;color:var(--accent2);font-size:0.72rem}
 
-  .logo span {
-    color: var(--accent);
-  }
+/* Footer Links */
+.output-footer{font-size:0.65rem;color:var(--dim);text-align:center;padding:8px 0}
+.output-footer a{color:var(--accent);margin:0 8px}
 
-  .tagline {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 18px;
-    color: var(--text-dim);
-    letter-spacing: 0.3px;
-  }
+/* Error */
+.error-box{background:rgba(240,66,66,0.08);border:1px solid rgba(240,66,66,0.2);border-radius:8px;padding:14px;margin-bottom:12px;display:none}
+.error-text{font-size:0.75rem;color:#f07070;line-height:1.6}
+.error-text a{color:#f07070;text-decoration:underline}
 
-  /* Main workspace */
-  .workspace {
-    margin-bottom: 48px;
-  }
+/* Loading */
+.loading{display:none;text-align:center;padding:32px 0}
+.loading-dots{display:inline-flex;gap:6px}
+.loading-dots span{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 1.2s infinite}
+.loading-dots span:nth-child(2){animation-delay:0.2s}
+.loading-dots span:nth-child(3){animation-delay:0.4s}
+@keyframes pulse{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
 
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    margin-bottom: 2px;
-    position: relative;
-    transition: border-color 0.3s ease;
-  }
+/* Examples */
+.examples{margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
+.examples-title{font-size:0.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px}
+.example{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px}
+.example-before{font-size:0.72rem;color:var(--dim);line-height:1.6;margin-bottom:8px}
+.example-after{font-size:0.72rem;color:var(--accent);font-weight:500}
+.example-saved{font-size:0.65rem;color:var(--accent2);float:right;margin-top:-18px}
 
-  .panel:focus-within {
-    border-color: var(--border-focus);
-  }
+/* Counter */
+.counter{text-align:center;padding:24px 0 16px;font-size:0.65rem;color:var(--dim);letter-spacing:0.05em}
+.counter-num{color:var(--accent);font-weight:700;font-size:0.8rem}
 
-  .panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+/* Site Footer */
+.site-footer{text-align:center;padding:16px 0 32px;font-size:0.6rem;color:var(--dim);border-top:1px solid var(--border);margin-top:8px}
+.site-footer a{color:var(--dim);margin:0 6px}
+.site-footer a:hover{color:var(--accent)}
 
-  .token-count {
-    color: var(--text-dim);
-    font-size: 11px;
-    letter-spacing: 0;
-    text-transform: none;
-    transition: color 0.3s;
-  }
-
-  .token-count.active {
-    color: var(--text);
-  }
-
-  textarea {
-    width: 100%;
-    min-height: 160px;
-    padding: 16px;
-    background: transparent;
-    border: none;
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 13px;
-    line-height: 1.7;
-    resize: vertical;
-    outline: none;
-  }
-
-  textarea::placeholder {
-    color: var(--text-muted);
-  }
-
-  .output-area {
-    min-height: 120px;
-    padding: 16px;
-    font-family: var(--mono);
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--accent);
-    white-space: pre-wrap;
-    word-break: break-all;
-  }
-
-  .output-area.empty {
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  /* Action bar */
-  .action-bar {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-
-  .compress-btn {
-    flex: 1;
-    padding: 14px 24px;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .compress-btn:hover {
-    background: var(--accent-dim);
-    box-shadow: 0 0 20px var(--accent-glow);
-  }
-
-  .compress-btn:active {
-    transform: scale(0.99);
-  }
-
-  .compress-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-
-  .compress-btn.loading {
-    color: var(--text-muted);
-    border-color: var(--border);
-  }
-
-  .copy-btn {
-    padding: 14px 20px;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .copy-btn:hover {
-    border-color: var(--text-dim);
-    color: var(--text);
-  }
-
-  /* Stats bar */
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    padding: 20px 0;
-    margin-bottom: 48px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: all 0.5s ease;
-  }
-
-  .stats.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-value {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -1px;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-value.saved {
-    color: var(--green);
-  }
-
-  .stat-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  /* Separator */
-  .sep {
-    width: 48px;
-    height: 1px;
-    background: var(--border);
-    margin: 0 auto 48px;
-  }
-
-  /* How it works */
-  .section-title {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
-  .examples {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 64px;
-  }
-
-  .example {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 20px;
-  }
-
-  .example-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  .example-human {
-    color: var(--text-dim);
-    font-size: 12px;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .example-ilang {
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 500;
-  }
-
-  .example-savings {
-    float: right;
-    color: var(--green);
-    font-size: 11px;
-  }
-
-  /* CTA */
-  .cta {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .cta-text {
-    font-family: var(--serif);
-    font-size: 16px;
-    color: var(--text-dim);
-    margin-bottom: 16px;
-  }
-
-  .cta-link {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-    transition: opacity 0.3s;
-  }
-
-  .cta-link:hover {
-    opacity: 0.7;
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer-brand {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .footer-links a {
-    font-size: 11px;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover {
-    color: var(--accent);
-  }
-
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .header { animation: fadeIn 0.8s ease both; }
-  .workspace { animation: fadeIn 0.8s ease 0.15s both; }
-  .examples { animation: fadeIn 0.8s ease 0.3s both; }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .container { padding: 48px 16px 40px; }
-    .logo { font-size: 44px; }
-    .tagline { font-size: 15px; }
-    .stats { gap: 20px; }
-    .stat-value { font-size: 22px; }
-  }
+/* Mobile */
+@media(max-width:480px){
+  .container{padding:16px 12px}
+  .header{padding:24px 0 16px}
+  .logo{font-size:1.8rem}
+  .gift-section{padding:16px}
+  .gift-title{font-size:1.1rem}
+  .btn-row{flex-direction:column;gap:8px}
+  .btn{padding:16px;font-size:0.85rem}
+  .input-area textarea{min-height:100px;font-size:0.78rem}
+}
 </style>
 </head>
 <body>
-
 <div class="container">
-  <!-- Header -->
-  <div class="header">
-    <div class="protocol-tag">v2.0 — Public Protocol</div>
+
+  <header class="header">
     <div class="logo">I-<span>Lang</span></div>
-    <div class="tagline">The language AI speaks when humans aren't listening</div>
+    <div class="tagline">AI-Native Compression Protocol</div>
+  </header>
+
+  <section class="gift-section">
+    <div class="gift-title">Your First I-Lang</div>
+    <div class="gift-desc">
+      Hit <strong>Generate My Gift</strong> and your AI will paint a unique cyberpunk vision of AI changing everything.
+      Copy the result into any AI conversation &mdash; ChatGPT, Gemini, Claude, Midjourney.
+      Every person gets a different painting. <strong>The beauty of your image depends on how well your AI knows you. Good luck.</strong>
+    </div>
+  </section>
+
+  <div class="input-area">
+    <textarea id="input" maxlength="2000">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea>
+    <div class="char-count" id="charCount">0 / 2,000</div>
   </div>
 
-  <!-- Workspace -->
-  <div class="workspace">
-    <div class="panel" id="inputPanel">
-      <div class="panel-header">
-        <span>Input — Natural Language</span>
-        <span class="token-count" id="inputTokens">0 tokens</span>
+  <div class="btn-row">
+    <button class="btn btn-gift" id="btnGift" onclick="compress(true)">Generate My Gift</button>
+    <button class="btn btn-compress" id="btnCompress" onclick="compress(false)">Compress</button>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="error-box" id="errorBox">
+    <div class="error-text" id="errorText"></div>
+  </div>
+
+  <div class="output-area" id="outputArea">
+    <div class="output-box">
+      <div class="output-text" id="outputText"></div>
+      <div class="output-meta">
+        <div class="token-info" id="tokenInfo"></div>
+        <button class="btn-copy" id="btnCopy" onclick="copyResult()">Copy</button>
       </div>
-      <textarea id="inputText" placeholder="Paste your prompt here..."></textarea>
     </div>
 
-    <div class="action-bar">
-      <button class="compress-btn" id="compressBtn" onclick="compress()">
-        Compress
-      </button>
-      <button class="copy-btn" id="copyBtn" onclick="copyOutput()" style="display:none;">
-        Copy
-      </button>
-    </div>
-
-    <div class="panel" id="outputPanel" style="display:none;">
-      <div class="panel-header">
-        <span>Output — I-Lang</span>
-        <span class="token-count active" id="outputTokens">0 tokens</span>
+    <div class="tip-box">
+      <div class="tip-label">Superpower unlocked</div>
+      <div class="tip-text">
+        Your AI can now <strong>read any webpage</strong>. Just send it:<br>
+        <code>i.ilang.ai/https://any-url-you-want</code><br>
+        Paste this into your AI conversation. It will see the page and respond.
       </div>
-      <div class="output-area" id="outputText"></div>
     </div>
-  </div>
 
-  <!-- Stats -->
-  <div class="stats" id="stats">
-    <div class="stat">
-      <div class="stat-value" id="statOriginal">—</div>
-      <div class="stat-label">Original</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value" id="statCompressed">—</div>
-      <div class="stat-label">Compressed</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value saved" id="statSaved">—</div>
-      <div class="stat-label">Saved</div>
-    </div>
-  </div>
-
-  <div class="sep"></div>
-
-  <!-- Examples -->
-  <div class="section-title">How it works</div>
-  <div class="examples">
-    <div class="example">
-      <div class="example-label">Before</div>
-      <div class="example-human">Go to this URL, extract the main text content, and format it as clean Markdown for me to read.</div>
-      <div class="example-label">After <span class="example-savings">−58%</span></div>
-      <div class="example-ilang">[SCRP:@ISEE|url=tgt]=>[FMT|fmt=md]=>[Ω]</div>
-    </div>
-    <div class="example">
-      <div class="example-label">Before</div>
-      <div class="example-human">Read all the Markdown files in the local directory, merge them together into one document, and output the result.</div>
-      <div class="example-label">After <span class="example-savings">−65%</span></div>
-      <div class="example-ilang">[LIST:@LOCAL|mch="*.md"]=>[Π:READ]=>[Σ]=>[Ω]</div>
-    </div>
-    <div class="example">
-      <div class="example-label">Before</div>
-      <div class="example-human">Summarize the previous output into exactly 3 bullet points in a professional tone.</div>
-      <div class="example-label">After <span class="example-savings">−52%</span></div>
-      <div class="example-ilang">[Σ:@PREV|sty=bullets,len=3,ton=pro]</div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta">
-    <div class="cta-text">Auto-compress every prompt in your OpenClaw agent</div>
-    <a href="https://github.com/ilang-ai" class="cta-link" target="_blank">Install OpenClaw Skill →</a>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <div class="footer-brand">Palm Media Technology © 2026</div>
-    <div class="footer-links">
+    <div class="output-footer">
+      <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">I-Lang Dictionary</a>
+      &middot;
       <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
-      <a href="https://i.ilang.ai" target="_blank">API</a>
+      &middot;
+      I-Lang v2.0
     </div>
   </div>
+
+  <section class="examples">
+    <div class="examples-title">Compression Examples</div>
+    <div class="example">
+      <div class="example-before">Extract text from a URL and format as Markdown</div>
+      <div class="example-after">[SCRP:@ISEE|url=tgt]=>[FMT|fmt=md]=>[&Omega;]</div>
+      <div class="example-saved">&minus;58%</div>
+    </div>
+    <div class="example">
+      <div class="example-before">Read all .md files, merge into one, output result</div>
+      <div class="example-after">[LIST:@LOCAL|mch="*.md"]=>[&Pi;:READ]=>[&Sigma;]=>[&Omega;]</div>
+      <div class="example-saved">&minus;65%</div>
+    </div>
+    <div class="example">
+      <div class="example-before">Summarize previous output in 3 professional bullet points</div>
+      <div class="example-after">[&Sigma;:@PREV|sty=bullets,len=3,ton=pro]</div>
+      <div class="example-saved">&minus;52%</div>
+    </div>
+  </section>
+
+  <div class="counter">
+    <span class="counter-num" id="counterNum">0</span> prompts compressed today
+  </div>
+
+  <footer class="site-footer">
+    <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
+    <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a>
+    <a href="https://github.com/ilang-ai/ilang-spec" target="_blank">Spec</a>
+    <br><br>
+    Palm Media Technology &copy; 2026
+  </footer>
+
 </div>
 
 <script>
-  // ============================================================
-  // CONFIG — Set your Cloudflare Worker endpoint here
-  // The worker proxies requests to Gemini API with your key
-  // ============================================================
-  const API_ENDPOINT = 'https://api.ilang.ai/compress'; // CF Worker URL
+const API = 'https://api.ilang.ai';
+const input = document.getElementById('input');
+const charCount = document.getElementById('charCount');
 
-  // Simple token estimator (roughly 1 token per 4 chars for English)
-  function estimateTokens(text) {
-    if (!text.trim()) return 0;
-    return Math.ceil(text.length / 4);
-  }
+function updateCharCount() {
+  const len = input.value.length;
+  charCount.textContent = len.toLocaleString() + ' / 2,000';
+  charCount.className = len > 1800 ? 'char-count warn' : 'char-count';
+}
+input.addEventListener('input', updateCharCount);
+updateCharCount();
 
-  // Update input token count on typing
-  const inputText = document.getElementById('inputText');
-  const inputTokens = document.getElementById('inputTokens');
+async function compress(isGift) {
+  const text = input.value.trim();
+  if (!text) return;
 
-  inputText.addEventListener('input', () => {
-    const tokens = estimateTokens(inputText.value);
-    inputTokens.textContent = tokens + ' tokens';
-  });
+  const btnGift = document.getElementById('btnGift');
+  const btnCompress = document.getElementById('btnCompress');
+  const loading = document.getElementById('loading');
+  const outputArea = document.getElementById('outputArea');
+  const errorBox = document.getElementById('errorBox');
 
-  // Compress function
-  async function compress() {
-    const input = inputText.value.trim();
-    if (!input) return;
+  btnGift.disabled = true;
+  btnCompress.disabled = true;
+  loading.style.display = 'block';
+  outputArea.style.display = 'none';
+  errorBox.style.display = 'none';
 
-    const btn = document.getElementById('compressBtn');
-    const outputPanel = document.getElementById('outputPanel');
-    const outputText = document.getElementById('outputText');
-    const outputTokens = document.getElementById('outputTokens');
-    const copyBtn = document.getElementById('copyBtn');
-    const stats = document.getElementById('stats');
+  try {
+    const res = await fetch(API + '/compress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input: text }),
+    });
 
-    // Loading state
-    btn.disabled = true;
-    btn.classList.add('loading');
-    btn.textContent = 'Compressing...';
+    const data = await res.json();
 
-    try {
-      const response = await fetch(API_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ input: input })
-      });
-
-      if (!response.ok) throw new Error('API error');
-
-      const data = await response.json();
-      const compressed = data.output || data.compressed || '';
-
-      // Show output
-      outputPanel.style.display = 'block';
-      outputText.textContent = compressed;
-      outputText.classList.remove('empty');
-      copyBtn.style.display = 'block';
-
-      // Calculate stats
-      const originalTokens = estimateTokens(input);
-      const compressedTokens = estimateTokens(compressed);
-      const savedPct = Math.round((1 - compressedTokens / originalTokens) * 100);
-
-      outputTokens.textContent = compressedTokens + ' tokens';
-
-      // Animate stats
-      document.getElementById('statOriginal').textContent = originalTokens;
-      document.getElementById('statCompressed').textContent = compressedTokens;
-      document.getElementById('statSaved').textContent = savedPct + '%';
-      stats.classList.add('visible');
-
-    } catch (err) {
-      outputPanel.style.display = 'block';
-      outputText.textContent = '::ILANG:ERR::[ε:E500|msg="Service unavailable. Deploy your CF Worker endpoint."]';
-      outputText.classList.add('empty');
+    if (!res.ok) {
+      document.getElementById('errorText').innerHTML = data.error || 'Something went wrong.';
+      errorBox.style.display = 'block';
+      return;
     }
 
-    // Reset button
-    btn.disabled = false;
-    btn.classList.remove('loading');
-    btn.textContent = 'Compress';
-  }
+    document.getElementById('outputText').textContent = data.output;
+    document.getElementById('tokenInfo').innerHTML =
+      '<span class="token-saved">' + data.tokens.saved + ' saved</span> &nbsp; ' +
+      data.tokens.input + ' &rarr; ' + data.tokens.output + ' tokens';
+    outputArea.style.display = 'block';
+    outputArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-  // Copy to clipboard
-  async function copyOutput() {
-    const text = document.getElementById('outputText').textContent;
-    await navigator.clipboard.writeText(text);
-    const btn = document.getElementById('copyBtn');
-    btn.textContent = 'Copied';
-    setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+    fetchStats();
+  } catch (err) {
+    document.getElementById('errorText').textContent = 'Network error. Please try again.';
+    errorBox.style.display = 'block';
+  } finally {
+    loading.style.display = 'none';
+    btnGift.disabled = false;
+    btnCompress.disabled = false;
   }
+}
 
-  // Allow Ctrl+Enter to compress
-  inputText.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-      e.preventDefault();
-      compress();
-    }
+function copyResult() {
+  const text = document.getElementById('outputText').textContent;
+  const tip = '\n\n---\nI-Lang v2.0 | Dictionary: github.com/ilang-ai/ilang-dict | Give your AI eyes: i.ilang.ai/{any-url}';
+  navigator.clipboard.writeText(text + tip).then(() => {
+    const btn = document.getElementById('btnCopy');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   });
+}
+
+async function fetchStats() {
+  try {
+    const res = await fetch(API + '/stats');
+    const data = await res.json();
+    document.getElementById('counterNum').textContent = (data.today || 0).toLocaleString();
+  } catch(e) {}
+}
+
+fetchStats();
 </script>
-
 </body>
 </html>
