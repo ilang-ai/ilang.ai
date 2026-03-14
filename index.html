@@ -12,9 +12,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="I-Lang — AI-Native Compression Protocol">
 <meta name="twitter:description" content="Compress prompts by 40-65%. Give your AI eyes to see any webpage.">
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -32,42 +32,72 @@
   --highlight:#0969da;
   --highlight-bg:rgba(9,105,218,0.06);
   --highlight-border:rgba(9,105,218,0.15);
+  --green:#1a7f37;
+  --green-bg:rgba(26,127,55,0.06);
+  --green-border:rgba(26,127,55,0.15);
   --code-bg:#f6f8fa;
   --shadow:0 1px 2px rgba(0,0,0,0.04);
   --shadow-lg:0 2px 8px rgba(0,0,0,0.06);
 }
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;font-weight:400;min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;font-weight:400;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}
 a{color:var(--highlight);text-decoration:none;transition:all 0.2s}
 a:hover{text-decoration:underline}
 
-.container{max-width:620px;margin:0 auto;padding:24px 20px}
+.container{max-width:860px;margin:0 auto;padding:24px 28px}
 
 /* Nav */
-.nav{display:flex;justify-content:center;gap:24px;padding:12px 0 0;font-size:0.82rem}
+.nav{display:flex;justify-content:center;gap:24px;padding:12px 0 0;font-size:0.82rem;flex-wrap:wrap}
 .nav a{color:var(--text-secondary);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
 .nav a:hover{color:var(--text);border-bottom-color:var(--text)}
 .nav a.active{color:var(--text);font-weight:500;border-bottom-color:var(--text)}
 
 /* Header */
-.header{text-align:center;padding:40px 0 20px;border-bottom:1px solid var(--border)}
+.header{text-align:center;padding:36px 0 20px;border-bottom:1px solid var(--border)}
 .header-logo{margin-bottom:12px}
-.header-logo img{width:100px;height:100px;border-radius:50%;border:1px solid var(--border)}
+.header-logo img{width:100px;height:100px;border-radius:50%;border:1px solid var(--border);display:inline-block}
 .logo{font-size:1.8rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
 .subtitle{font-size:0.95rem;color:var(--text-secondary);margin-top:4px;font-weight:400;line-height:1.6}
 .version{font-size:0.7rem;color:var(--text-dim);margin-top:8px;letter-spacing:0.04em;font-family:monospace}
 
 /* Social Icons */
-.social-icons{display:flex;justify-content:center;gap:16px;margin-top:14px}
+.social-icons{display:flex;justify-content:center;gap:14px;margin-top:14px;flex-wrap:wrap}
 .social-icons a{color:var(--text-dim);font-size:0.72rem;text-decoration:none;font-family:monospace;padding:3px 8px;border:1px solid var(--border);border-radius:3px;transition:all 0.2s}
 .social-icons a:hover{color:var(--text);border-color:var(--text)}
 
+/* Section Label */
+.section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:8px;font-weight:600}
+
+/* Two Column Layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+
 /* Abstract */
 .abstract{padding:24px 0;border-bottom:1px solid var(--border)}
-.section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:8px;font-weight:600}
 .abstract p{font-size:0.92rem;line-height:1.8;color:var(--text-secondary)}
 
+/* About Section */
+.about{padding:24px 0;border-bottom:1px solid var(--border)}
+.about h3{font-size:0.95rem;margin-bottom:6px;font-weight:600}
+.about p{font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:12px}
+.about ul{list-style:none;padding:0}
+.about li{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;padding-left:16px;position:relative}
+.about li::before{content:"·";position:absolute;left:4px;color:var(--text-dim)}
+
+/* Dictionary Section */
+.dictionary{padding:24px 0;border-bottom:1px solid var(--border)}
+.dict-category{margin-bottom:18px}
+.dict-category-title{font-size:0.78rem;font-weight:600;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em}
+.dict-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px}
+.dict-item{font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.72rem;color:var(--highlight);background:var(--code-bg);padding:4px 8px;border-radius:4px;border:1px solid var(--border)}
+.dict-stats{display:flex;gap:20px;margin-bottom:16px}
+.dict-stat{font-family:monospace;font-size:0.78rem}
+.dict-stat-num{font-weight:700;color:var(--text);font-size:1rem}
+.dict-stat-label{color:var(--text-dim);font-size:0.7rem}
+
+/* Tool Section */
+.tool-section{padding:24px 0;border-bottom:1px solid var(--border)}
+
 /* Gift Section */
-.gift-section{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;margin:24px 0;box-shadow:var(--shadow)}
+.gift-section{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;margin-bottom:20px;box-shadow:var(--shadow)}
 .gift-title{font-size:1rem;color:var(--text);margin-bottom:8px;font-weight:600}
 .gift-desc{font-size:0.82rem;color:var(--text-secondary);line-height:1.8}
 .gift-desc strong{color:var(--text);font-weight:500}
@@ -97,25 +127,50 @@ a:hover{text-decoration:underline}
 .output-text{font-family:'SF Mono',SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:0.78rem;line-height:1.7;word-break:break-all;color:var(--highlight);min-height:40px;user-select:all}
 .output-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light)}
 .token-info{font-size:0.68rem;color:var(--text-dim);font-family:monospace}
-.token-saved{color:#1a7f37;font-weight:600;font-size:0.82rem}
+.token-saved{color:var(--green);font-weight:600;font-size:0.82rem}
 .btn-copy{background:var(--text);color:#fff;border:none;padding:7px 16px;border-radius:6px;font-size:0.78rem;font-weight:500;cursor:pointer;transition:all 0.15s}
 .btn-copy:hover{background:var(--accent-light)}
-.btn-copy.copied{background:#1a7f37}
+.btn-copy.copied{background:var(--green)}
 
 /* Tip Section */
-.tip-box{background:var(--highlight-bg);border:1px solid var(--highlight-border);border-radius:6px;padding:14px;margin-bottom:12px}
-.tip-label{font-size:0.68rem;color:var(--highlight);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;font-weight:600}
+.tip-box{background:var(--green-bg);border:1px solid var(--green-border);border-radius:6px;padding:14px;margin-bottom:12px}
+.tip-label{font-size:0.68rem;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;font-weight:600}
 .tip-text{font-size:0.78rem;color:var(--text-secondary);line-height:1.8}
-.tip-text code{background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--highlight);font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.76rem;border:1px solid var(--highlight-border)}
+.tip-text code{background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--green);font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.76rem;border:1px solid var(--green-border)}
 
-/* Footer Links */
-.output-footer{font-size:0.68rem;color:var(--text-dim);text-align:center;padding:8px 0}
-.output-footer a{color:var(--highlight);margin:0 6px}
+/* Examples */
+.examples{padding:24px 0;border-bottom:1px solid var(--border)}
+.example{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow)}
+.example-before{font-size:0.78rem;color:var(--text-secondary);line-height:1.6;margin-bottom:6px}
+.example-after{font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.76rem;color:var(--highlight)}
+.example-saved{font-family:monospace;font-size:0.68rem;color:var(--green);float:right;margin-top:-16px;font-weight:600}
+
+/* Architecture Table */
+.arch-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:10px}
+.arch-table th{text-align:left;font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dim);padding:8px 12px;border-bottom:2px solid var(--border)}
+.arch-table td{padding:8px 12px;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-size:0.82rem}
+.arch-table td:first-child{font-weight:500;color:var(--text)}
+.arch-table code{background:var(--code-bg);padding:1px 5px;border-radius:3px;font-size:0.76rem;color:var(--highlight)}
+
+/* Counter */
+.counter{text-align:center;padding:20px 0 8px;font-size:0.68rem;color:var(--text-dim);font-family:monospace}
+.counter-num{color:var(--text);font-weight:600}
+
+/* Discussion */
+.discussion{text-align:center;padding:14px 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.8}
+
+/* Origin Block */
+.origin{background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin:20px 0;font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.7rem;line-height:1.8;color:var(--text-dim)}
+
+/* Site Footer */
+.site-footer{text-align:center;padding:20px 0 40px;font-size:0.72rem;color:var(--text-dim);border-top:1px solid var(--border);margin-top:8px;line-height:2}
+.site-footer a{color:var(--text-dim);margin:0 8px;font-family:monospace;font-size:0.68rem}
+.site-footer a:hover{color:var(--text);text-decoration:none}
+.site-footer .credit{margin-top:8px;color:var(--text-dim)}
 
 /* Error */
 .error-box{background:rgba(207,34,46,0.06);border:1px solid rgba(207,34,46,0.15);border-radius:6px;padding:12px;margin-bottom:12px;display:none}
 .error-text{font-size:0.78rem;color:#cf222e;line-height:1.6}
-.error-text a{color:#cf222e}
 
 /* Loading */
 .loading{display:none;text-align:center;padding:28px 0}
@@ -124,40 +179,26 @@ a:hover{text-decoration:underline}
 .loading-dots::after{content:'...';animation:dots 1.5s steps(4,end) infinite}
 @keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
 
-/* Examples */
-.examples{margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
-.example{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow)}
-.example-before{font-size:0.78rem;color:var(--text-secondary);line-height:1.6;margin-bottom:6px}
-.example-after{font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.76rem;color:var(--highlight)}
-.example-saved{font-family:monospace;font-size:0.68rem;color:#1a7f37;float:right;margin-top:-16px;font-weight:600}
-
-/* Counter */
-.counter{text-align:center;padding:20px 0 8px;font-size:0.68rem;color:var(--text-dim);font-family:monospace}
-.counter-num{color:var(--text);font-weight:600}
-
-/* Discussion Links */
-.discussion{text-align:center;padding:14px 0;font-size:0.78rem;color:var(--text-secondary);line-height:1.8}
-
-/* Site Footer */
-.site-footer{text-align:center;padding:20px 0 40px;font-size:0.72rem;color:var(--text-dim);border-top:1px solid var(--border);margin-top:8px;line-height:2}
-.site-footer a{color:var(--text-dim);margin:0 8px;font-family:monospace;font-size:0.68rem}
-.site-footer a:hover{color:var(--text);text-decoration:none}
-.site-footer .credit{margin-top:8px;color:var(--text-dim)}
+/* Output Footer */
+.output-footer{font-size:0.68rem;color:var(--text-dim);text-align:center;padding:8px 0}
+.output-footer a{color:var(--highlight);margin:0 6px}
 
 /* Mobile */
-@media(max-width:480px){
+@media(max-width:680px){
   .container{padding:16px 14px}
+  .two-col{grid-template-columns:1fr}
   .header{padding:28px 0 16px}
   .header-logo img{width:80px;height:80px}
   .logo{font-size:1.5rem}
   .subtitle{font-size:0.88rem}
-  .nav{gap:16px;font-size:0.78rem}
+  .nav{gap:14px;font-size:0.78rem}
   .gift-section{padding:16px}
   .btn-row{flex-direction:column;gap:8px}
   .btn{padding:13px;font-size:0.92rem}
   .input-area textarea{min-height:90px;font-size:0.76rem}
-  .abstract{padding:18px 0}
-  .social-icons{gap:10px}
+  .dict-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+  .dict-stats{flex-wrap:wrap;gap:14px}
+  .social-icons{gap:8px}
   .social-icons a{font-size:0.68rem;padding:2px 6px}
 }
 </style>
@@ -168,12 +209,13 @@ a:hover{text-decoration:underline}
   <nav class="nav">
     <a href="https://ilang.ai" class="active">Protocol</a>
     <a href="https://research.ilang.ai">Research</a>
-    <a href="https://github.com/ilang-ai">GitHub</a>
+    <a href="https://i.ilang.ai" title="AI See — Give AI Eyes">AI See</a>
     <a href="https://github.com/ilang-ai/ilang-dict">Dictionary</a>
+    <a href="https://github.com/ilang-ai">GitHub</a>
   </nav>
 
   <header class="header">
-    <div class="header-logo"><img src="logo.png" alt="I-Lang"></div>
+    <div class="header-logo"><img src="/logo.png" alt="I-Lang"></div>
     <div class="logo">I-Lang</div>
     <div class="subtitle">AI-Native Compression Protocol</div>
     <div class="version">v2.0 — Public Specification</div>
@@ -182,70 +224,159 @@ a:hover{text-decoration:underline}
       <a href="https://github.com/ilang-ai">github</a>
       <a href="https://orcid.org/0009-0004-4540-8082">orcid</a>
       <a href="https://research.ilang.ai">research</a>
+      <a href="https://i.ilang.ai">ai see</a>
     </div>
   </header>
 
+  <!-- Abstract -->
   <section class="abstract">
     <div class="section-label">Abstract</div>
-    <p>I-Lang is a compression protocol for AI systems. It reduces natural language prompts into dense, structured instructions that AI models understand natively — without training or fine-tuning. Typical compression yields 40–65% token savings with equivalent output quality.</p>
+    <p>I-Lang is a compression protocol for AI systems. It reduces natural language prompts into dense, structured instructions that AI models understand natively — without training or fine-tuning. Typical compression yields 40–65% token savings with equivalent output quality. The protocol is cross-model compatible, working with ChatGPT, Claude, Gemini, DeepSeek, Kimi, and any other LLM.</p>
   </section>
 
-  <section class="gift-section">
-    <div class="gift-title">Your First I-Lang</div>
-    <div class="gift-desc">
-      Hit <strong>Generate My Gift</strong> and this protocol will compress an image prompt for you.
-      Copy the result into any AI conversation — ChatGPT, Gemini, Claude, Midjourney.
-      Every person gets a different painting. <strong>The beauty of your image depends on how well your AI knows you. Good luck.</strong>
+  <!-- About -->
+  <section class="about">
+    <div class="section-label">About the Protocol</div>
+    <div class="two-col">
+      <div>
+        <h3>What I-Lang Does</h3>
+        <p>I-Lang compresses verbose human prompts into structured instructions that any AI model can parse instantly. No SDK, no API key, no installation. Copy, paste, done.</p>
+        <h3>Design Principles</h3>
+        <ul>
+          <li>Zero-friction adoption — works the moment AI reads it</li>
+          <li>Cross-model compatibility — not locked to any vendor</li>
+          <li>Semantic preservation — compression never loses meaning</li>
+          <li>Born secure — three-layer architecture by design</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Architecture</h3>
+        <table class="arch-table">
+          <tr><th>Layer</th><th>Access</th><th>Compression</th></tr>
+          <tr><td>PUBLIC</td><td>Open</td><td>Up to 60%</td></tr>
+          <tr><td>PRIVATE</td><td>Restricted</td><td>60–95%</td></tr>
+          <tr><td>SOUL</td><td>Internal</td><td>—</td></tr>
+        </table>
+        <h3 style="margin-top:16px">AI See — Give AI Eyes</h3>
+        <p>Any AI can read any webpage. Just send:<br>
+        <code style="background:var(--code-bg);padding:3px 8px;border-radius:4px;font-size:0.78rem;color:var(--green);border:1px solid var(--green-border)">i.ilang.ai/https://any-url</code><br>
+        Zero cost. Zero registration. Zero API key.</p>
+      </div>
     </div>
   </section>
 
-  <div class="input-area">
-    <div class="input-label">Input Prompt</div>
-    <textarea id="input" maxlength="2000">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea>
-    <div class="char-count" id="charCount">0 / 2,000</div>
-  </div>
+  <!-- Dictionary -->
+  <section class="dictionary">
+    <div class="section-label">Public Dictionary — v2.1</div>
+    <div class="dict-stats">
+      <div class="dict-stat"><div class="dict-stat-num">52</div><div class="dict-stat-label">verbs</div></div>
+      <div class="dict-stat"><div class="dict-stat-num">28</div><div class="dict-stat-label">modifiers</div></div>
+      <div class="dict-stat"><div class="dict-stat-num">14</div><div class="dict-stat-label">entities</div></div>
+    </div>
+    <div class="dict-category">
+      <div class="dict-category-title">Data I/O</div>
+      <div class="dict-grid">
+        <div class="dict-item">READ</div><div class="dict-item">WRITE</div><div class="dict-item">SCRP</div><div class="dict-item">SEND</div><div class="dict-item">RECV</div><div class="dict-item">LIST</div><div class="dict-item">STRM</div><div class="dict-item">FETCH</div>
+      </div>
+    </div>
+    <div class="dict-category">
+      <div class="dict-category-title">Transform</div>
+      <div class="dict-grid">
+        <div class="dict-item">FMT</div><div class="dict-item">CONV</div><div class="dict-item">SPLIT</div><div class="dict-item">MERGE</div><div class="dict-item">MAP</div><div class="dict-item">FILT</div><div class="dict-item">SORT</div><div class="dict-item">DEDUP</div><div class="dict-item">FLAT</div><div class="dict-item">NEST</div>
+      </div>
+    </div>
+    <div class="dict-category">
+      <div class="dict-category-title">Analysis</div>
+      <div class="dict-grid">
+        <div class="dict-item">CMP</div><div class="dict-item">DIFF</div><div class="dict-item">RANK</div><div class="dict-item">EVAL</div><div class="dict-item">SCAN</div><div class="dict-item">MATCH</div><div class="dict-item">COUNT</div><div class="dict-item">STATS</div>
+      </div>
+    </div>
+    <div class="dict-category">
+      <div class="dict-category-title">Generation</div>
+      <div class="dict-grid">
+        <div class="dict-item">GEN</div><div class="dict-item">DRAFT</div><div class="dict-item">EXPAND</div><div class="dict-item">REWRITE</div><div class="dict-item">SYNTH</div><div class="dict-item">MOCK</div><div class="dict-item">FILL</div><div class="dict-item">VARY</div>
+      </div>
+    </div>
+    <div class="dict-category">
+      <div class="dict-category-title">Output</div>
+      <div class="dict-grid">
+        <div class="dict-item">Ω (OUT)</div><div class="dict-item">Σ (SUM)</div><div class="dict-item">Π (LOOP)</div><div class="dict-item">Δ (DIFF)</div><div class="dict-item">EMIT</div><div class="dict-item">LOG</div><div class="dict-item">ALERT</div><div class="dict-item">RENDER</div>
+      </div>
+    </div>
+    <div class="dict-category">
+      <div class="dict-category-title">Meta</div>
+      <div class="dict-grid">
+        <div class="dict-item">SET</div><div class="dict-item">GET</div><div class="dict-item">DEL</div><div class="dict-item">RESET</div><div class="dict-item">HELP</div><div class="dict-item">VER</div><div class="dict-item">LANG</div><div class="dict-item">MODE</div><div class="dict-item">CTX</div><div class="dict-item">BATCH</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:0.78rem;color:var(--text-secondary)">
+      Full dictionary with syntax, modifiers, entities, pipes, and error codes:
+      <a href="https://github.com/ilang-ai/ilang-dict">github.com/ilang-ai/ilang-dict</a>
+    </div>
+  </section>
 
-  <div class="btn-row">
-    <button class="btn btn-gift" id="btnGift" onclick="compress(true)">Generate My Gift</button>
-    <button class="btn btn-compress" id="btnCompress" onclick="compress(false)">Compress</button>
-  </div>
+  <!-- Compression Tool -->
+  <section class="tool-section">
+    <div class="section-label">Try It — Compression Tool</div>
 
-  <div class="loading" id="loading">
-    <div class="loading-text">Compressing<span class="loading-dots"></span></div>
-  </div>
-
-  <div class="error-box" id="errorBox">
-    <div class="error-text" id="errorText"></div>
-  </div>
-
-  <div class="output-area" id="outputArea">
-    <div class="output-box">
-      <div class="output-label">Compressed Output</div>
-      <div class="output-text" id="outputText"></div>
-      <div class="output-meta">
-        <div class="token-info" id="tokenInfo"></div>
-        <button class="btn-copy" id="btnCopy" onclick="copyResult()">Copy</button>
+    <div class="gift-section">
+      <div class="gift-title">Your First I-Lang</div>
+      <div class="gift-desc">
+        Hit <strong>Generate My Gift</strong> and this protocol will compress an image prompt for you.
+        Copy the result into any AI conversation — ChatGPT, Gemini, Claude, Midjourney.
+        Every person gets a different painting. <strong>The beauty of your image depends on how well your AI knows you. Good luck.</strong>
       </div>
     </div>
 
-    <div class="tip-box">
-      <div class="tip-label">Superpower</div>
-      <div class="tip-text">
-        Your AI can now <strong>read any webpage</strong>. Send it:<br>
-        <code>i.ilang.ai/https://any-url-you-want</code><br>
-        Paste this into your AI conversation. It will see the page and respond.
+    <div class="input-area">
+      <div class="input-label">Input Prompt</div>
+      <textarea id="input" maxlength="2000">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea>
+      <div class="char-count" id="charCount">0 / 2,000</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-gift" id="btnGift" onclick="compress(true)">Generate My Gift</button>
+      <button class="btn btn-compress" id="btnCompress" onclick="compress(false)">Compress</button>
+    </div>
+
+    <div class="loading" id="loading">
+      <div class="loading-text">Compressing<span class="loading-dots"></span></div>
+    </div>
+
+    <div class="error-box" id="errorBox">
+      <div class="error-text" id="errorText"></div>
+    </div>
+
+    <div class="output-area" id="outputArea">
+      <div class="output-box">
+        <div class="output-label">Compressed Output</div>
+        <div class="output-text" id="outputText"></div>
+        <div class="output-meta">
+          <div class="token-info" id="tokenInfo"></div>
+          <button class="btn-copy" id="btnCopy" onclick="copyResult()">Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">Superpower</div>
+        <div class="tip-text">
+          Your AI can now <strong>read any webpage</strong>. Send it:<br>
+          <code>i.ilang.ai/https://any-url-you-want</code><br>
+          Paste this into your AI conversation. It will see the page and respond.
+        </div>
+      </div>
+
+      <div class="output-footer">
+        <a href="https://github.com/ilang-ai/ilang-dict">Dictionary</a>
+        ·
+        <a href="https://github.com/ilang-ai">GitHub</a>
+        ·
+        I-Lang v2.0
       </div>
     </div>
+  </section>
 
-    <div class="output-footer">
-      <a href="https://github.com/ilang-ai/ilang-dict">Dictionary</a>
-      ·
-      <a href="https://github.com/ilang-ai">GitHub</a>
-      ·
-      I-Lang v2.0
-    </div>
-  </div>
-
+  <!-- Examples -->
   <section class="examples">
     <div class="section-label">Compression Examples</div>
     <div class="example">
@@ -269,6 +400,13 @@ a:hover{text-decoration:underline}
     <span class="counter-num" id="counterNum">0</span> compressions served
   </div>
 
+  <!-- Origin Block -->
+  <div class="origin">
+I-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.<br>
+Protocol security: Cognitive Identity Authentication<br>
+静水流深 | Palm Media Technology | ilang:genesis:2026-03-04
+  </div>
+
   <div class="discussion">
     Questions? <a href="https://github.com/ilang-ai/ilang-dict/issues">Discuss on GitHub</a><br>
     If I-Lang saved your tokens, <a href="https://github.com/ilang-ai/ilang-dict">give us a star ★</a>
@@ -277,9 +415,11 @@ a:hover{text-decoration:underline}
   <footer class="site-footer">
     <a href="https://ilang.ai">protocol</a>
     <a href="https://research.ilang.ai">research</a>
+    <a href="https://i.ilang.ai">ai see</a>
     <a href="https://github.com/ilang-ai/ilang-dict">dictionary</a>
     <a href="https://github.com/ilang-ai/ilang-spec">specification</a>
     <a href="https://github.com/ilang-ai">github</a>
+    <a href="/privacy.html">privacy</a>
     <div class="credit">I-Lang Research · Eastsoft Inc. · Canada · © 2026</div>
   </footer>
 
