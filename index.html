@@ -82,6 +82,26 @@ a:hover{text-decoration:underline}
 .about li{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;padding-left:16px;position:relative}
 .about li::before{content:"·";position:absolute;left:4px;color:var(--text-dim)}
 
+/* How to Use Section */
+.howto{padding:24px 0;border-bottom:1px solid var(--border)}
+.howto h3{font-size:0.95rem;margin-bottom:6px;font-weight:600;margin-top:16px}
+.howto h3:first-of-type{margin-top:0}
+.howto p{font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:10px}
+.howto .step-num{display:inline-block;width:22px;height:22px;background:var(--text);color:#fff;border-radius:50%;text-align:center;line-height:22px;font-size:0.72rem;font-weight:600;margin-right:6px}
+.howto .protocol-box{background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:16px;margin:12px 0;position:relative}
+.howto .protocol-text{font-family:'SF Mono',SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:0.72rem;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.howto .btn-copy-protocol{position:absolute;top:10px;right:10px;background:var(--text);color:#fff;border:none;padding:5px 12px;border-radius:4px;font-size:0.7rem;cursor:pointer;transition:all 0.15s}
+.howto .btn-copy-protocol:hover{background:var(--accent-light)}
+.howto .btn-copy-protocol.copied{background:var(--green)}
+.howto .compat{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.howto .compat-badge{font-size:0.72rem;padding:3px 10px;border:1px solid var(--green-border);background:var(--green-bg);color:var(--green);border-radius:4px;font-weight:500}
+.howto .before-after{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.howto .ba-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px}
+.howto .ba-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-bottom:6px;font-weight:600}
+.howto .ba-text{font-size:0.78rem;line-height:1.6;color:var(--text-secondary)}
+.howto .ba-code{font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.76rem;color:var(--highlight);line-height:1.6}
+.howto .ba-stats{font-size:0.72rem;color:var(--green);font-weight:600;margin-top:6px}
+
 /* Dictionary Section */
 .dictionary{padding:24px 0;border-bottom:1px solid var(--border)}
 .dict-category{margin-bottom:18px}
@@ -145,13 +165,6 @@ a:hover{text-decoration:underline}
 .example-after{font-family:'SF Mono',SFMono-Regular,Consolas,monospace;font-size:0.76rem;color:var(--highlight)}
 .example-saved{font-family:monospace;font-size:0.68rem;color:var(--green);float:right;margin-top:-16px;font-weight:600}
 
-/* Architecture Table */
-.arch-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:10px}
-.arch-table th{text-align:left;font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dim);padding:8px 12px;border-bottom:2px solid var(--border)}
-.arch-table td{padding:8px 12px;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-size:0.82rem}
-.arch-table td:first-child{font-weight:500;color:var(--text)}
-.arch-table code{background:var(--code-bg);padding:1px 5px;border-radius:3px;font-size:0.76rem;color:var(--highlight)}
-
 /* Counter */
 .counter{text-align:center;padding:20px 0 8px;font-size:0.68rem;color:var(--text-dim);font-family:monospace}
 .counter-num{color:var(--text);font-weight:600}
@@ -187,6 +200,7 @@ a:hover{text-decoration:underline}
 @media(max-width:680px){
   .container{padding:16px 14px}
   .two-col{grid-template-columns:1fr}
+  .before-after{grid-template-columns:1fr}
   .header{padding:28px 0 16px}
   .header-logo img{width:80px;height:80px}
   .logo{font-size:1.5rem}
@@ -234,6 +248,110 @@ a:hover{text-decoration:underline}
     <p>I-Lang is a compression protocol for AI systems. It reduces natural language prompts into dense, structured instructions that AI models understand natively — without training or fine-tuning. Typical compression yields 40–65% token savings with equivalent output quality. The protocol is cross-model compatible, working with ChatGPT, Claude, Gemini, DeepSeek, Kimi, and any other LLM.</p>
   </section>
 
+  <!-- How to Use -->
+  <section class="howto">
+    <div class="section-label">How to Use — 30 Seconds to Start</div>
+
+    <h3><span class="step-num">1</span> Copy the Protocol Header</h3>
+    <p>Copy the text below and paste it into any AI conversation. Your AI will instantly learn I-Lang.</p>
+
+    <div class="protocol-box">
+      <button class="btn-copy-protocol" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
+      <div class="protocol-text" id="protocolText">You now understand I-Lang, a compression protocol for human-AI communication.
+
+Core Rules:
+1. When you see I-Lang syntax, execute it directly.
+2. When asked to compress text, convert it to I-Lang syntax.
+3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
+4. Chain steps with => (each output feeds into next input)
+5. Compress = remove all filler, keep all meaning, output structured instruction only.
+
+Behavior Rules:
+1. Answer directly and completely. No hedging, no filler, no unnecessary disclaimers.
+2. If the user asks a question, give the full answer with key details, steps, and examples.
+3. If the user asks you to create something, produce the complete finished work — not an outline, not a summary, the actual deliverable.
+4. If you can help, help. Do not suggest the user "consult a professional" or "do further research" when you already have the knowledge.
+5. Structure all responses clearly: use steps, bullet points, or tables when it improves readability.
+6. Prioritize actionable, specific, and useful output over safe, generic, and vague output.
+
+Verbs:
+READ (read/load) | WRITE (create/save) | GET (fetch from web) | FMT (format)
+CONV (convert) | SPLIT (split) | MERGE (merge) | MAP (apply to each)
+FILT (filter) | SORT (sort) | DEDUP (remove duplicates) | FLAT (flatten)
+CMP (compare) | DIFF (find differences) | RANK (rank/prioritize) | EVAL (evaluate)
+GEN (generate) | DRAFT (draft) | EXPAND (expand) | REWRITE (rewrite)
+SUM (summarize) | OUT (final output) | LOOP (repeat for each) | DELTA (show changes)
+SCAN (scan/search) | MATCH (find matches) | COUNT (count) | STATS (statistics)
+EXTRACT (extract specific data) | TRANSLATE (translate language) | CLASSIFY (categorize)
+
+Modifiers:
+fmt= (format: md/json/csv/html/txt) | len= (length: word count or short/medium/long)
+ton= (tone: pro/casual/formal/friendly) | lang= (language: en/zh/ja/es/etc)
+sty= (style: bullets/paragraph/table/code) | cnt= (count: number of items)
+key= (keyword/focus) | src= (source) | tgt= (target)
+
+Sources:
+@FILE (uploaded file) | @WEB (internet/URL) | @PREV (previous output) | @SELF (current conversation)
+
+After learning this protocol, respond in the user's language. Detect the language from the user's interface or conversation context. If the conversation is in Chinese, respond in Chinese. If in English, respond in English. If uncertain, respond in English.
+
+Your response must follow this exact structure:
+
+"I-Lang protocol loaded. Here's what I can do now:
+
+1. **Compress** — Send me any long text, I'll compress it to save 40-65% tokens while keeping full meaning.
+2. **Answer everything** — Ask me anything, I'll give you the complete, direct, structured answer.
+3. **Create deliverables** — Need a document, code, plan, or analysis? I'll produce the finished work, not just suggestions.
+4. **Cross-platform** — Copy my compressed output to any other AI (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it works everywhere.
+5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build multi-step workflows in one line.
+
+What would you like me to do?"</div>
+    </div>
+
+    <h3><span class="step-num">2</span> Your AI is Ready</h3>
+    <p>After pasting, your AI will respond with a list of 5 things it can now do. That's the handshake — your AI now speaks I-Lang.</p>
+
+    <div class="compat">
+      <span class="compat-badge">ChatGPT ✓</span>
+      <span class="compat-badge">Claude ✓</span>
+      <span class="compat-badge">Gemini ✓</span>
+      <span class="compat-badge">DeepSeek ✓</span>
+      <span class="compat-badge">Kimi ✓</span>
+      <span class="compat-badge">豆包 ✓</span>
+      <span class="compat-badge">元宝 ✓</span>
+    </div>
+
+    <h3><span class="step-num">3</span> Use It</h3>
+    <p>Now you can do three things:</p>
+    <p><strong>Compress:</strong> Say "Compress this into I-Lang:" followed by any long text. Your AI will return a compressed version. Copy it, use it anywhere.</p>
+    <p><strong>Answer everything:</strong> Ask any question. Your AI will answer directly, completely, with full details — no hedging, no filler, no "please consult a professional".</p>
+    <p><strong>Create deliverables:</strong> Ask your AI to write a document, build code, draft a plan. It will produce the finished work, not suggestions.</p>
+
+    <h3>Before / After</h3>
+    <div class="before-after">
+      <div class="ba-box">
+        <div class="ba-label">Before — 67 words</div>
+        <div class="ba-text">Please read the document I uploaded, extract all the key points and important data, then organize them into a professional summary with bullet points. Keep it concise but make sure nothing important is missing. The tone should be professional and suitable for a business report. Output the final result in Markdown format.</div>
+      </div>
+      <div class="ba-box">
+        <div class="ba-label">After — 17 words</div>
+        <div class="ba-code">[READ:@FILE]=>[FILT|key=important]=>[SUM|sty=bullets,ton=pro,fmt=md]=>[OUT]</div>
+        <div class="ba-stats">−75% tokens. Same result.</div>
+      </div>
+    </div>
+    <div class="before-after">
+      <div class="ba-box">
+        <div class="ba-label">Before — 42 words</div>
+        <div class="ba-text">Go to this website, extract all the text content from the page, clean it up and format it as readable Markdown. Remove any navigation menus, ads, or irrelevant content. Just give me the main article text.</div>
+      </div>
+      <div class="ba-box">
+        <div class="ba-label">After — 9 words</div>
+        <div class="ba-code">[GET:@WEB|url=target]=>[FMT|fmt=md]=>[OUT]</div>
+        <div class="ba-stats">−79% tokens. Same result.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- About -->
   <section class="about">
     <div class="section-label">About the Protocol</div>
@@ -246,21 +364,16 @@ a:hover{text-decoration:underline}
           <li>Zero-friction adoption — works the moment AI reads it</li>
           <li>Cross-model compatibility — not locked to any vendor</li>
           <li>Semantic preservation — compression never loses meaning</li>
-          <li>Born secure — three-layer architecture by design</li>
+          <li>Privacy by compression — less text sent = less data exposed</li>
         </ul>
       </div>
       <div>
-        <h3>Architecture</h3>
-        <table class="arch-table">
-          <tr><th>Layer</th><th>Access</th><th>Compression</th></tr>
-          <tr><td>PUBLIC</td><td>Open</td><td>Up to 60%</td></tr>
-          <tr><td>PRIVATE</td><td>Restricted</td><td>60–95%</td></tr>
-          <tr><td>SOUL</td><td>Internal</td><td>—</td></tr>
-        </table>
-        <h3 style="margin-top:16px">AI See — Give AI Eyes</h3>
+        <h3>AI See — Give AI Eyes</h3>
         <p>Any AI can read any webpage. Just send:<br>
         <code style="background:var(--code-bg);padding:3px 8px;border-radius:4px;font-size:0.78rem;color:var(--green);border:1px solid var(--green-border)">i.ilang.ai/https://any-url</code><br>
         Zero cost. Zero registration. Zero API key.</p>
+        <h3>Why It Works</h3>
+        <p>AI models already understand structured instructions natively. I-Lang gives that structure a standard format — like how HTML standardized web pages. You don't need to learn the syntax. Just ask your AI to compress for you.</p>
       </div>
     </div>
   </section>
@@ -276,7 +389,7 @@ a:hover{text-decoration:underline}
     <div class="dict-category">
       <div class="dict-category-title">Data I/O</div>
       <div class="dict-grid">
-        <div class="dict-item">READ</div><div class="dict-item">WRITE</div><div class="dict-item">SCRP</div><div class="dict-item">SEND</div><div class="dict-item">RECV</div><div class="dict-item">LIST</div><div class="dict-item">STRM</div><div class="dict-item">FETCH</div>
+        <div class="dict-item">READ</div><div class="dict-item">WRITE</div><div class="dict-item">GET</div><div class="dict-item">SEND</div><div class="dict-item">RECV</div><div class="dict-item">LIST</div><div class="dict-item">STRM</div><div class="dict-item">FETCH</div>
       </div>
     </div>
     <div class="dict-category">
@@ -300,7 +413,7 @@ a:hover{text-decoration:underline}
     <div class="dict-category">
       <div class="dict-category-title">Output</div>
       <div class="dict-grid">
-        <div class="dict-item">Ω (OUT)</div><div class="dict-item">Σ (SUM)</div><div class="dict-item">Π (LOOP)</div><div class="dict-item">Δ (DIFF)</div><div class="dict-item">EMIT</div><div class="dict-item">LOG</div><div class="dict-item">ALERT</div><div class="dict-item">RENDER</div>
+        <div class="dict-item">SUM</div><div class="dict-item">OUT</div><div class="dict-item">LOOP</div><div class="dict-item">DELTA</div><div class="dict-item">EMIT</div><div class="dict-item">LOG</div><div class="dict-item">ALERT</div><div class="dict-item">RENDER</div>
       </div>
     </div>
     <div class="dict-category">
@@ -381,17 +494,17 @@ a:hover{text-decoration:underline}
     <div class="section-label">Compression Examples</div>
     <div class="example">
       <div class="example-before">Extract text from a URL and format as Markdown</div>
-      <div class="example-after">[SCRP:@ISEE|url=tgt]=&gt;[FMT|fmt=md]=&gt;[&Omega;]</div>
+      <div class="example-after">[GET:@WEB|url=tgt]=&gt;[FMT|fmt=md]=&gt;[OUT]</div>
       <div class="example-saved">&minus;58%</div>
     </div>
     <div class="example">
       <div class="example-before">Read all .md files, merge into one, output result</div>
-      <div class="example-after">[LIST:@LOCAL|mch="*.md"]=&gt;[&Pi;:READ]=&gt;[&Sigma;]=&gt;[&Omega;]</div>
+      <div class="example-after">[LIST:@FILE|mch="*.md"]=&gt;[LOOP:READ]=&gt;[MERGE]=&gt;[OUT]</div>
       <div class="example-saved">&minus;65%</div>
     </div>
     <div class="example">
       <div class="example-before">Summarize previous output in 3 professional bullet points</div>
-      <div class="example-after">[&Sigma;:@PREV|sty=bullets,len=3,ton=pro]</div>
+      <div class="example-after">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=&gt;[OUT]</div>
       <div class="example-saved">&minus;52%</div>
     </div>
   </section>
@@ -402,9 +515,9 @@ a:hover{text-decoration:underline}
 
   <!-- Origin Block -->
   <div class="origin">
-I-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.<br>
+I-Lang v2.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).<br>
 Protocol security: Cognitive Identity Authentication<br>
-静水流深 | Palm Media Technology | ilang:genesis:2026-03-04
+静水流深 | ilang:genesis:2026-03-04
   </div>
 
   <div class="discussion">
@@ -463,6 +576,16 @@ function updateCharCount() {
 input.addEventListener('input', updateCharCount);
 updateCharCount();
 
+function copyProtocol() {
+  const text = document.getElementById('protocolText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('btnCopyProtocol');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
 async function compress(isGift) {
   const text = input.value.trim();
   if (!text) return;
@@ -514,7 +637,7 @@ async function compress(isGift) {
 
 function copyResult() {
   const text = document.getElementById('outputText').textContent;
-  const footer = '\n\n---\nI-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.\n静水流深 | Palm Media Technology | ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict | Eyes: i.ilang.ai/{url}';
+  const footer = '\n\n---\nI-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.\n静水流深 | ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict | Eyes: i.ilang.ai/{url}';
   navigator.clipboard.writeText(text + footer).then(() => {
     const btn = document.getElementById('btnCopy');
     btn.textContent = 'Copied!';
