@@ -1,4 +1,4 @@
-# I-Lang — クロスプラットフォーム人間-AI通信標準プロトコル
+# I-Lang (I Language) — クロスプラットフォーム人間-AI通信標準プロトコル
 
 **🌐 言語:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
