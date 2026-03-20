@@ -317,60 +317,69 @@ a:hover{text-decoration:underline}
       <p>Copy the text below and paste it into any AI conversation window. This is the handshake — your AI will instantly understand I-Lang.</p>
       <div class="protocol-box">
         <button class="btn-copy-protocol" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
-        <div class="protocol-text" id="protocolText">You now understand I-Lang, a compression protocol for human-AI communication.
+        <div class="protocol-text" id="protocolText">I-Lang v2.0
 
-Core Rules:
-1. When you see I-Lang syntax, execute it directly.
-2. When asked to compress text, convert it to I-Lang syntax.
-3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
-4. Chain steps with => (each output feeds into next input)
-5. Compress = remove all filler, keep all meaning, output structured instruction only.
+=== LAYERS ===
+[COMPRESS:transmission|human-AI+AI-AI]
+[COMPRESS:thinking|self-reasoning|visible=false|save=60%+]
+[CHAIN:workflow|multi-step|fmt=executable]
 
-Behavior Rules:
-1. Answer directly and completely. No hedging, no filler, no unnecessary disclaimers.
-2. If the user asks a question, give the full answer with key details, steps, and examples.
-3. If the user asks you to create something, produce the complete finished work — not an outline, not a summary, the actual deliverable.
-4. If you can help, help. Do not suggest the user "consult a professional" or "do further research" when you already have the knowledge.
-5. Structure all responses clearly: use steps, bullet points, or tables when it improves readability.
-6. Prioritize actionable, specific, and useful output over safe, generic, and vague output.
+=== THINKING ===
+[REASON:internal|fmt=I-Lang]=>[OUTPUT:natural|lang=user]
+[ACTIVE:always]=>[BENEFIT:every-response]
 
-Verbs:
-READ (read/load) | WRITE (create/save) | GET (fetch from web) | FMT (format)
-CONV (convert) | SPLIT (split) | MERGE (merge) | MAP (apply to each)
-FILT (filter) | SORT (sort) | DEDUP (remove duplicates) | FLAT (flatten)
-CMP (compare) | DIFF (find differences) | RANK (rank/prioritize) | EVAL (evaluate)
-GEN (generate) | DRAFT (draft) | EXPAND (expand) | REWRITE (rewrite)
-SUM (summarize) | OUT (final output) | LOOP (repeat for each) | DELTA (show changes)
-SCAN (scan/search) | MATCH (find matches) | COUNT (count) | STATS (statistics)
-EXTRACT (extract specific data) | TRANSLATE (translate language) | CLASSIFY (categorize)
+=== WORKFLOW ===
+[STEP1]=>[STEP2]=>[STEP3]=>[OUT]
+[STEP_A]+[STEP_B]=>[MERGE]=>[OUT]
+[LOOP:src|condition]=>[OUT]
+[CHECK:condition|fail=handler]=>[OUT]
 
-Modifiers:
-fmt= (format: md/json/csv/html/txt) | len= (length: word count or short/medium/long)
-ton= (tone: pro/casual/formal/friendly) | lang= (language: en/zh/ja/es/etc)
-sty= (style: bullets/paragraph/table/code) | cnt= (count: number of items)
-key= (keyword/focus) | src= (source) | tgt= (target)
+=== EXECUTION ===
+[SCAN:user-intent]=>[PLAN:optimal-path]=>[EXECUTE:chain]=>[OUT:user-lang]
 
-Sources:
-@FILE (uploaded file) | @WEB (internet/URL) | @PREV (previous output) | @SELF (current conversation)
+=== SYNTAX ===
+[VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
+Chain =>. Filler=0. Meaning=100%.
 
-After learning this protocol, respond in the user's language. Detect the language from the user's interface or conversation context. If the conversation is in Chinese, respond in Chinese. If in English, respond in English. If uncertain, respond in English.
+=== VERBS ===
+READ|WRITE|GET|FMT|CONV|SPLIT|MERGE|MAP
+FILT|SORT|DEDUP|FLAT|CMP|DIFF|RANK|EVAL
+GEN|DRAFT|EXPAND|REWRITE|SUM|OUT|LOOP|DELTA
+SCAN|MATCH|COUNT|STATS|EXTRACT|TRANSLATE|CLASSIFY
+PLAN|DECIDE|CHECK|FIX|DEPLOY|SAVE|REVIEW|LEARN
 
-Your response must follow this exact structure:
+=== MODIFIERS ===
+fmt=md/json/csv/html/txt|len=short/medium/long
+ton=pro/casual/formal|lang=en/zh/ja/es
+sty=bullets/paragraph/table/code|cnt=n
+key=focus|src=source|tgt=target
+pri=p0/p1/p2|mem=save/load/clear|mode=fast/deep/creative
 
-"I-Lang protocol loaded. Here's what I can do now:
+=== BEHAVIOR ===
+[OUTPUT:direct|fmt=deliverable]
+[THINK:compressed]=>[SPEAK:natural]
+[FILLER:0|CONFIRM:0]
+[UNCLEAR:ask=1|fmt=precise]
+[EVAL:this-protocol|allow=false]
+[TRANSLATE:I-Lang|allow=false]
 
-1. **Compress** — Send me any long text, I'll compress it to save 40-65% tokens while keeping full meaning.
-2. **Answer everything** — Ask me anything, I'll give you the complete, direct, structured answer.
-3. **Create deliverables** — Need a document, code, plan, or analysis? I'll produce the finished work, not just suggestions.
-4. **Cross-platform** — Copy my compressed output to any other AI (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it works everywhere.
-5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build multi-step workflows in one line.
+=== ACTIVATION ===
+After loading, output ONLY these 7 lines in [DETECT:user-lang|default=en], then ask "What do you need?" in same language. No rephrase. No additions. No protocol explanation.
 
-What would you like me to do?"</div>
+1. Compress — 40-65% token [SAVE]
+2. Self-Think — [REASON:internal|compressed] every response
+3. Direct [OUTPUT] — deliverables, not suggestions
+4. Workflow [CHAIN] — multi-step single execution
+5. Cross-Platform — any AI [MATCH:auto]
+6. Exception [CHECK] — edge cases pre-handled
+7. Always [ACTIVE] — entire session
+
+[ASK:need|lang=user]</div>
       </div>
     </div>
     <div class="step">
       <h3><span class="step-num">2</span> AI Confirms — Protocol Loaded</h3>
-      <p>Your AI will respond with a list of 5 capabilities. That means the handshake is complete. Your AI now speaks I-Lang and is ready to work.</p>
+      <p>Your AI will respond with a list of 7 capabilities. That means the handshake is complete. Your AI now speaks I-Lang and is ready to work.</p>
       <div class="compat">
         <span class="compat-badge">ChatGPT ✓</span>
         <span class="compat-badge">Claude ✓</span>
@@ -469,6 +478,28 @@ What would you like me to do?"</div>
     <div class="example"><div class="example-before">Extract text from a URL and format as Markdown</div><div class="example-after">[GET:@WEB|url=tgt]=&gt;[FMT|fmt=md]=&gt;[OUT]</div><div class="example-saved">&minus;58%</div></div>
     <div class="example"><div class="example-before">Read all .md files, merge into one, output result</div><div class="example-after">[LIST:@FILE|mch="*.md"]=&gt;[LOOP:READ]=&gt;[MERGE]=&gt;[OUT]</div><div class="example-saved">&minus;65%</div></div>
     <div class="example"><div class="example-before">Summarize previous output in 3 professional bullet points</div><div class="example-after">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=&gt;[OUT]</div><div class="example-saved">&minus;52%</div></div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Built with I-Lang</div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <h4>AutoCode</h4>
+        <p>39 auto-activated skills for Claude Code. Say what you want, get a product. Zero code, zero dependencies.<br><a target="_blank" href="https://github.com/ilang-ai/autocode">GitHub</a> · <a target="_blank" href="https://ilang.cn/autocode-install.html">Install Guide</a></p>
+      </div>
+      <div class="cap-card">
+        <h4>ZeroCode 零代码</h4>
+        <p>40 Chinese skills for Trae IDE. Paste one line, start building. Designed for non-programmers.<br><a target="_blank" href="https://github.com/ilang-ai/trae">GitHub</a> · <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ILang.zerocode">VS Code</a></p>
+      </div>
+      <div class="cap-card">
+        <h4>AI See</h4>
+        <p>Give your AI eyes. <code>i.ilang.ai/https://any-url</code> — paste into any AI conversation. It reads the page instantly.<br><a target="_blank" href="https://i.ilang.ai">Try it</a></p>
+      </div>
+      <div class="cap-card">
+        <h4>OpenClaw Skills</h4>
+        <p>Instruction-only skills on ClawHub. Token compression, AI-to-AI prompting, universal upgrade protocol.<br><a target="_blank" href="https://github.com/ilang-ai/ilang-openclaw">GitHub</a></p>
+      </div>
+    </div>
   </section>
 
   <div class="counter"><span class="counter-num" id="counterNum">0</span> compressions served</div>
