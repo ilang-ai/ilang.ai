@@ -22,42 +22,516 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"I-Lang","description":"I-Lang is the cross-platform standard protocol for human-AI communication.","url":"https://ilang.ai","applicationCategory":"AI Communication Protocol","operatingSystem":"Cross-platform","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"I-Lang Research, Eastsoft Inc.","url":"https://research.ilang.ai"},"license":"https://opensource.org/licenses/MIT"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"I-Lang","url":"https://ilang.ai","description":"Cross-platform human-AI communication standard protocol","potentialAction":{"@type":"SearchAction","target":"https://ilang.ai/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use I-Lang Protocol","description":"Copy the I-Lang protocol header, paste into any AI conversation, start using immediately.","step":[{"@type":"HowToStep","name":"Copy Protocol Header","text":"Copy the I-Lang protocol header from ilang.ai."},{"@type":"HowToStep","name":"Paste into AI","text":"Paste into any AI conversation: ChatGPT, Claude, Gemini, DeepSeek, Kimi."},{"@type":"HowToStep","name":"Start Using","text":"Compress prompts, ask anything, create deliverables."}]}</script>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-body{font-family:'Inter',sans-serif}
-.bg-gradient-hero{background:linear-gradient(180deg,#E6F0FA 0%,#FFF 100%)}
-.card-gradient{background:linear-gradient(180deg,#EBF3FC 0%,#D4E6FA 100%)}
-.code-bg{background:#1F242C}.code-key{color:#E06C75}.code-str{color:#98C379}.code-kw{color:#C678DD}.code-def{color:#ABB2BF}.code-cmt{color:#5C6370}
-.btn-copied{background:#1a7f37!important}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a202c;
+  --ink-light:#4a5568;
+  --ink-muted:#718096;
+  --accent:#2563eb;
+  --accent-light:#3b82f6;
+  --bg:#ffffff;
+  --bg-soft:#f7fafc;
+  --bg-muted:#edf2f7;
+  --border:#e2e8f0;
+  --success:#22c55e;
+  --error:#ef4444;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* Animated gradient background */
+.hero-bg{
+  background:linear-gradient(135deg,#e0e7ff 0%,#f0f9ff 25%,#faf5ff 50%,#f0fdf4 75%,#e0f2fe 100%);
+  background-size:400% 400%;
+  animation:gradientShift 15s ease infinite;
+  position:relative;
+  overflow:hidden;
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Floating particles */
+.particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:6px;height:6px;background:rgba(37,99,235,0.15);border-radius:50%;animation:float 20s infinite}
+.particle:nth-child(1){left:10%;animation-delay:0s;animation-duration:25s}
+.particle:nth-child(2){left:20%;animation-delay:2s;animation-duration:20s}
+.particle:nth-child(3){left:30%;animation-delay:4s;animation-duration:28s}
+.particle:nth-child(4){left:40%;animation-delay:1s;animation-duration:22s}
+.particle:nth-child(5){left:50%;animation-delay:3s;animation-duration:24s}
+.particle:nth-child(6){left:60%;animation-delay:5s;animation-duration:26s}
+.particle:nth-child(7){left:70%;animation-delay:2s;animation-duration:21s}
+.particle:nth-child(8){left:80%;animation-delay:4s;animation-duration:23s}
+.particle:nth-child(9){left:90%;animation-delay:1s;animation-duration:27s}
+.particle:nth-child(10){left:5%;animation-delay:3s;animation-duration:19s}
+@keyframes float{
+  0%,100%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:1;transform:translateY(90vh) scale(1)}
+  90%{opacity:1;transform:translateY(-10vh) scale(1)}
+  100%{transform:translateY(-20vh) scale(0);opacity:0}
+}
+
+/* Navigation */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 2rem;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5rem;font-weight:800;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:0.5rem}
+.logo i{color:#ef4444}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--ink-light);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width 0.3s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+
+/* Hero */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+  padding:8rem 2rem 6rem;
+  position:relative;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.5rem 1.25rem;
+  background:rgba(37,99,235,0.1);
+  border:1px solid rgba(37,99,235,0.2);
+  border-radius:100px;
+  font-size:0.85rem;font-weight:600;
+  color:var(--accent);
+  margin-bottom:2rem;
+  animation:fadeInUp 0.8s ease;
+}
+.hero h1{
+  font-size:clamp(2.5rem,7vw,4.5rem);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-0.03em;
+  margin-bottom:1.5rem;
+  animation:fadeInUp 0.8s ease 0.1s both;
+}
+.hero h1 .gradient-text{
+  background:linear-gradient(135deg,var(--accent) 0%,#7c3aed 50%,#ec4899 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.25rem);
+  color:var(--ink-light);
+  max-width:600px;
+  margin-bottom:2.5rem;
+  line-height:1.7;
+  animation:fadeInUp 0.8s ease 0.2s both;
+}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeInUp 0.8s ease 0.3s both}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.875rem 1.75rem;
+  font-size:0.95rem;font-weight:600;
+  text-decoration:none;border-radius:10px;
+  transition:all 0.3s;cursor:pointer;border:none;
+}
+.btn-primary{
+  background:var(--ink);color:white;
+  box-shadow:0 4px 14px rgba(26,32,44,0.25);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(26,32,44,0.3);
+}
+.btn-secondary{
+  background:white;color:var(--ink);
+  border:1.5px solid var(--border);
+}
+.btn-secondary:hover{
+  border-color:var(--ink);
+  background:var(--bg-soft);
+}
+
+/* Feature Cards */
+.features{padding:6rem 2rem;background:var(--bg)}
+.features-container{max-width:1100px;margin:0 auto}
+.section-label{
+  font-size:0.75rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--accent);text-align:center;
+  margin-bottom:0.75rem;
+}
+.section-title{
+  font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;
+  text-align:center;margin-bottom:3.5rem;
+  letter-spacing:-0.02em;
+}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.feature-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+  overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),#7c3aed,#ec4899);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s;
+}
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  border-color:transparent;
+}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-icon{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#e0e7ff,#dbeafe);
+  border-radius:14px;
+  margin-bottom:1.25rem;
+  font-size:1.5rem;
+  transition:transform 0.3s;
+}
+.feature-card:hover .feature-icon{transform:scale(1.1) rotate(-5deg)}
+.feature-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;color:var(--ink)}
+.feature-card p{color:var(--ink-light);font-size:0.9rem;line-height:1.6}
+
+/* Protocol Section */
+.protocol{padding:6rem 2rem;background:var(--bg-soft)}
+.protocol-container{max-width:900px;margin:0 auto}
+.protocol-box{
+  background:#1e293b;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 25px 50px rgba(0,0,0,0.15);
+}
+.protocol-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;
+  background:#0f172a;
+  border-bottom:1px solid #334155;
+}
+.protocol-dots{display:flex;gap:8px}
+.protocol-dot{width:12px;height:12px;border-radius:50%}
+.protocol-dot.red{background:#f87171}
+.protocol-dot.yellow{background:#fbbf24}
+.protocol-dot.green{background:#34d399}
+.protocol-copy{
+  background:rgba(255,255,255,0.1);
+  border:none;color:white;
+  padding:0.5rem 1rem;border-radius:6px;
+  font-size:0.8rem;font-weight:500;
+  cursor:pointer;transition:all 0.2s;
+}
+.protocol-copy:hover{background:rgba(255,255,255,0.2)}
+.protocol-copy.copied{background:var(--success)}
+.protocol-body{padding:1.5rem;overflow-x:auto}
+.protocol-body code{
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:0.72rem;line-height:1.8;
+  color:#e2e8f0;white-space:pre;
+}
+
+/* Compression Demo */
+.demo{padding:6rem 2rem;background:var(--bg)}
+.demo-container{max-width:800px;margin:0 auto}
+.compression-row{
+  display:grid;grid-template-columns:1fr 50px 1fr;
+  gap:1rem;align-items:center;
+  margin-bottom:1.25rem;
+  animation:fadeInUp 0.6s ease both;
+}
+.compression-row:nth-child(2){animation-delay:0.1s}
+.compression-row:nth-child(3){animation-delay:0.2s}
+.compression-box{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.25rem;
+  transition:all 0.3s;
+}
+.compression-box:hover{box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+.compression-label{
+  font-size:0.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.05em;
+  color:var(--ink-muted);margin-bottom:0.5rem;
+}
+.compression-text{font-size:0.9rem;color:var(--ink-light);line-height:1.5}
+.compression-box.after .compression-text{
+  font-family:'SF Mono','Fira Code',monospace;
+  color:var(--accent);font-weight:500;
+}
+.compression-arrow{
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-muted);font-size:1.25rem;
+}
+.compression-savings{
+  display:inline-block;
+  background:linear-gradient(135deg,#dcfce7,#d1fae5);
+  color:#15803d;
+  font-size:0.75rem;font-weight:700;
+  padding:0.3rem 0.6rem;border-radius:6px;
+  margin-top:0.75rem;
+}
+
+/* Try It Section */
+.try-it{padding:6rem 2rem;background:linear-gradient(180deg,#f0f9ff 0%,#ffffff 100%)}
+.try-container{max-width:700px;margin:0 auto}
+.try-textarea{
+  width:100%;
+  border:2px solid var(--border);
+  border-radius:12px;
+  padding:1.25rem;
+  font-size:0.95rem;
+  resize:none;
+  transition:all 0.3s;
+  font-family:'Inter',sans-serif;
+}
+.try-textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(37,99,235,0.1);
+}
+.try-buttons{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0}
+.try-output{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-top:1rem;
+}
+.output-text{
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:0.9rem;
+  color:var(--ink);
+  white-space:pre-wrap;
+  margin-bottom:1rem;
+}
+.token-info{font-size:0.8rem;color:var(--ink-muted)}
+.token-saved{color:var(--success);font-weight:600}
 .loading-dots::after{content:'';animation:dots 1.5s infinite}
 @keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
-.token-saved{color:#1a7f37;font-weight:600}
+
+/* Products */
+.products{padding:6rem 2rem;background:var(--bg-soft)}
+.products-container{max-width:1000px;margin:0 auto}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.product-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.75rem;
+  transition:all 0.3s;
+}
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.06);
+}
+.product-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.product-card p{color:var(--ink-light);font-size:0.875rem;margin-bottom:1.25rem;line-height:1.6}
+.product-links{display:flex;gap:1.25rem}
+.product-links a{
+  font-size:0.85rem;font-weight:600;
+  color:var(--accent);text-decoration:none;
+  transition:opacity 0.2s;
+}
+.product-links a:hover{opacity:0.7}
+
+/* Dictionary */
+.dictionary{padding:5rem 2rem;background:var(--bg)}
+.dict-container{max-width:900px;margin:0 auto}
+.dict-group{margin-bottom:1.5rem}
+.dict-label{
+  font-size:0.7rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--ink-muted);margin-bottom:0.75rem;
+}
+.dict-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.dict-tag{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:0.4rem 0.75rem;
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:0.75rem;
+  color:var(--accent);
+  transition:all 0.2s;
+}
+.dict-tag:hover{
+  border-color:var(--accent);
+  background:rgba(37,99,235,0.05);
+}
+
+/* Footer */
+.credits{
+  padding:3rem 2rem;
+  text-align:center;
+  border-top:1px solid var(--border);
+}
+.credits p{
+  font-size:0.85rem;
+  color:var(--ink-muted);
+  line-height:1.8;
+}
+footer{
+  background:var(--bg-soft);
+  padding:2rem;
+  border-top:1px solid var(--border);
+}
+.footer-inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
+.footer-links a{
+  color:var(--ink-light);
+  text-decoration:none;font-size:0.875rem;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--ink)}
+.footer-copy{color:var(--ink-muted);font-size:0.8rem}
+
+/* WeChat Guard */
+#wxguard{display:none;position:fixed;inset:0;z-index:9999;background:#fafafa;font-family:Inter,sans-serif}
+.wxguard-inner{max-width:360px;margin:120px auto;text-align:center;padding:0 24px}
 @keyframes wxbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* Responsive */
+@media(max-width:900px){
+  .features-grid,.products-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:640px){
+  .hero{padding:7rem 1.5rem 4rem}
+  .compression-row{grid-template-columns:1fr;gap:0.75rem}
+  .compression-arrow{transform:rotate(90deg)}
+  .footer-inner{flex-direction:column;text-align:center}
+}
 </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-<div id="wxguard" style="display:none;position:fixed;inset:0;z-index:9999;background:#fafafa;font-family:Inter,sans-serif"><div style="max-width:360px;margin:120px auto;text-align:center;padding:0 24px"><div style="font-size:1.6rem;font-weight:700;margin-bottom:24px">I-Lang</div><h2 style="font-size:16px;margin-bottom:12px">Human-AI Communication Standard Protocol</h2><p style="font-size:14px;color:#585858;line-height:1.8;margin-bottom:32px">当前环境受限，请点击右上角<br>选择「在浏览器中打开」<br>即可正常访问</p><div style="position:fixed;top:12px;right:16px;animation:wxbounce 1.5s infinite"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#212121" stroke-width="2"><path d="M12 5v14M5 12l7-7 7 7"/></svg></div></div></div>
+<body>
+<!-- WeChat/QQ Guard -->
+<div id="wxguard">
+  <div class="wxguard-inner">
+    <div style="font-size:1.6rem;font-weight:700;margin-bottom:24px">I-Lang</div>
+    <h2 style="font-size:16px;margin-bottom:12px">Human-AI Communication Standard Protocol</h2>
+    <p style="font-size:14px;color:#585858;line-height:1.8;margin-bottom:32px">当前环境受限，请点击右上角<br>选择「在浏览器中打开」<br>即可正常访问</p>
+    <div style="position:fixed;top:12px;right:16px;animation:wxbounce 1.5s infinite">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#212121" stroke-width="2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+    </div>
+  </div>
+</div>
+
 <div id="mainContent">
-<header class="border-b border-gray-100 py-4 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
-<div><h1 class="text-2xl font-bold flex items-center gap-2">I-Lang <i class="fa-solid fa-heart text-red-500"></i></h1><p class="text-xs text-gray-600 font-medium">Cross-Platform Human-AI Communication Standard Protocol</p></div>
-<nav class="flex items-center gap-6 text-sm font-medium"><a class="hover:text-gray-600 transition-colors" href="https://ilang.ai">Protocol</a><a class="hover:text-gray-600 transition-colors" href="https://research.ilang.ai" target="_blank">Research</a><a class="hover:text-gray-600 transition-colors" href="https://i.ilang.ai" target="_blank">AI See</a><a class="hover:text-gray-600 transition-colors" href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a><a class="hover:text-gray-600 transition-colors" href="https://github.com/ilang-ai" target="_blank">GitHub</a></nav>
-</header>
-<section class="bg-gradient-hero pt-20 pb-24 px-6 text-center"><div class="max-w-3xl mx-auto"><h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">The Open Protocol for<br>Human-AI Communication</h2><p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">Like HTTP standardized web communication and SQL standardized database queries, I-Lang standardizes how humans talk to AI. One protocol, every AI platform, no vendor lock-in.</p><div class="flex flex-col sm:flex-row justify-center gap-4"><a class="bg-[#1E60CE] hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors shadow-sm" href="#try-it">Try I-Lang</a><a class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2.5 px-6 rounded-md transition-colors shadow-sm" href="https://github.com/ilang-ai" target="_blank">View on GitHub</a></div></div></section>
-<section class="py-16 px-6 md:px-12 max-w-6xl mx-auto -mt-16"><div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="card-gradient rounded-xl p-8 shadow-sm border border-blue-50/50 flex flex-col"><div class="text-4xl text-blue-500 mb-4"><i class="fa-solid fa-layer-group"></i></div><h3 class="text-xl font-bold mb-3">Compress</h3><p class="text-gray-700 text-sm mb-6 flex-grow leading-relaxed">Reduce prompts by 40-65%. Same meaning, fewer tokens, lower cost. AI self-thinking compression goes even further.</p><a class="text-blue-600 font-medium text-sm flex items-center gap-1 hover:underline mt-auto" href="#try-it">Try compression <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></div>
-<div class="card-gradient rounded-xl p-8 shadow-sm border border-blue-50/50 flex flex-col"><div class="text-4xl text-blue-400 mb-4"><i class="fa-solid fa-check"></i></div><h3 class="text-xl font-bold mb-3">Answer Everything</h3><p class="text-gray-700 text-sm mb-6 flex-grow leading-relaxed">Make your AI respond directly and completely. No hedging, no refusal, no padding. Structured instructions eliminate ambiguity.</p><a class="text-blue-600 font-medium text-sm flex items-center gap-1 hover:underline mt-auto" href="https://github.com/ilang-ai/ilang-dict" target="_blank">See dictionary <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></div>
-<div class="card-gradient rounded-xl p-8 shadow-sm border border-blue-50/50 flex flex-col"><div class="text-4xl text-blue-500 mb-4"><i class="fa-solid fa-shield-halved"></i></div><h3 class="text-xl font-bold mb-3">Protect Privacy</h3><p class="text-gray-700 text-sm mb-6 flex-grow leading-relaxed">Compressed text sends less data to AI servers. Less text transmitted means less data exposed. Protocol-level privacy by design.</p><a class="text-blue-600 font-medium text-sm flex items-center gap-1 hover:underline mt-auto" href="/privacy.html">Privacy policy <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></div>
-</div></section>
-<section class="py-16 px-6 max-w-4xl mx-auto"><h2 class="text-3xl font-bold text-center mb-10">Why I-Lang Exists</h2><div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm"><div class="grid grid-cols-2 text-center text-white font-medium text-sm sm:text-base"><div class="bg-[#B01A24] py-3">Without I-Lang</div><div class="bg-[#369A4C] py-3">With I-Lang</div></div><div class="bg-white">
-<div class="grid grid-cols-2 border-b border-gray-100 text-sm"><div class="p-4 sm:p-5 flex items-start gap-3 border-r border-gray-100"><i class="fa-solid fa-xmark text-red-600 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">Long, verbose prompts waste tokens and money.</span></div><div class="p-4 sm:p-5 flex items-start gap-3"><i class="fa-solid fa-square-check text-green-500 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">Compress 40-65%. Same meaning, fewer tokens, lower cost.</span></div></div>
-<div class="grid grid-cols-2 border-b border-gray-100 text-sm"><div class="p-4 sm:p-5 flex items-start gap-3 border-r border-gray-100"><i class="fa-solid fa-xmark text-red-600 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">AI hedges, refuses, or gives wishy-washy answers.</span></div><div class="p-4 sm:p-5 flex items-start gap-3"><i class="fa-solid fa-square-check text-green-500 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">Structured instructions make AI respond directly and completely.</span></div></div>
-<div class="grid grid-cols-2 border-b border-gray-100 text-sm"><div class="p-4 sm:p-5 flex items-start gap-3 border-r border-gray-100"><i class="fa-solid fa-xmark text-red-600 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">Prompts locked to one AI platform. Switch and start over.</span></div><div class="p-4 sm:p-5 flex items-start gap-3"><i class="fa-solid fa-square-check text-green-500 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">One protocol works on ChatGPT, Claude, Gemini, DeepSeek, Kimi.</span></div></div>
-<div class="grid grid-cols-2 border-b border-gray-100 text-sm"><div class="p-4 sm:p-5 flex items-start gap-3 border-r border-gray-100"><i class="fa-solid fa-xmark text-red-600 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">More text sent to AI servers means more data exposed.</span></div><div class="p-4 sm:p-5 flex items-start gap-3"><i class="fa-solid fa-square-check text-green-500 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">Compressed text sends less data. Privacy by design.</span></div></div>
-<div class="grid grid-cols-2 text-sm"><div class="p-4 sm:p-5 flex items-start gap-3 border-r border-gray-100"><i class="fa-solid fa-xmark text-red-600 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">No standard. Every person prompts differently.</span></div><div class="p-4 sm:p-5 flex items-start gap-3"><i class="fa-solid fa-square-check text-green-500 text-lg mt-0.5 shrink-0"></i><span class="text-gray-700">Open protocol with formal dictionary, specification, and tools.</span></div></div>
-</div></div></section>
-<section class="bg-[#F8F9FB] py-20 px-6 border-t border-gray-100"><div class="max-w-4xl mx-auto text-center"><h2 class="text-3xl font-bold mb-4">Copy the Protocol Header</h2><p class="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed text-sm">Copy the text below and paste it into any AI conversation window to activate I-Lang protocol. Works on ChatGPT, Claude, Gemini, DeepSeek, Kimi.</p><div class="relative text-left max-w-3xl mx-auto"><button id="btnCopyProtocol" onclick="copyProtocol()" class="absolute top-4 right-4 bg-gray-700/50 hover:bg-gray-600 text-white text-xs py-1.5 px-3 rounded transition-colors z-10">Copy</button><pre class="code-bg text-sm rounded-xl p-6 overflow-x-auto shadow-lg"><code id="protocolText" class="code-def font-mono" style="font-size:0.72rem;line-height:1.7">I-Lang v2.0
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">I-Lang <i class="fa-solid fa-heart"></i></a>
+      <ul class="nav-links">
+        <li><a href="https://ilang.ai">Protocol</a></li>
+        <li><a href="https://research.ilang.ai" target="_blank">Research</a></li>
+        <li><a href="https://i.ilang.ai" target="_blank">AI See</a></li>
+        <li><a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a></li>
+        <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-bg">
+    <div class="particles">
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="hero-badge">Open Source · MIT License</div>
+    <h1>The Open Protocol for<br><span class="gradient-text">Human-AI Communication</span></h1>
+    <p class="hero-sub">Like HTTP standardized web communication and SQL standardized database queries, I-Lang standardizes how humans talk to AI. One protocol, every platform, no vendor lock-in.</p>
+    <div class="hero-cta">
+      <a href="#try-it" class="btn btn-primary">Try I-Lang</a>
+      <a href="https://github.com/ilang-ai" target="_blank" class="btn btn-secondary">View on GitHub →</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="features-container">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">Why I-Lang Exists</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-layer-group" style="color:#3b82f6"></i></div>
+          <h3>Compress 40-65%</h3>
+          <p>Reduce prompts dramatically. Same meaning, fewer tokens, lower cost. AI self-thinking compression goes even further.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-bolt" style="color:#8b5cf6"></i></div>
+          <h3>Answer Everything</h3>
+          <p>Make your AI respond directly and completely. No hedging, no refusal, no padding. Structured instructions eliminate ambiguity.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-link" style="color:#ec4899"></i></div>
+          <h3>Chain Workflows</h3>
+          <p>[STEP1]=>[STEP2]=>[OUT]. Multi-step pipelines in a single prompt. Loops, conditionals, merges.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-shield-halved" style="color:#10b981"></i></div>
+          <h3>Privacy by Design</h3>
+          <p>Compressed text sends less data to AI servers. Less text transmitted means less data exposed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-globe" style="color:#f59e0b"></i></div>
+          <h3>Cross-Platform</h3>
+          <p>Works on ChatGPT, Claude, Gemini, DeepSeek, Kimi. One protocol, no vendor lock-in.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-eye" style="color:#6366f1"></i></div>
+          <h3>AI See</h3>
+          <p>Give your AI eyes. i.ilang.ai/https://any-url — paste into any AI conversation, it reads the page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protocol Header -->
+  <section class="protocol">
+    <div class="protocol-container">
+      <div class="section-label">Quick Start</div>
+      <h2 class="section-title">Copy the Protocol Header</h2>
+      <p style="text-align:center;color:var(--ink-light);margin-bottom:2rem;font-size:0.95rem">Paste into any AI conversation window to activate I-Lang protocol.</p>
+      <div class="protocol-box">
+        <div class="protocol-header">
+          <div class="protocol-dots">
+            <span class="protocol-dot red"></span>
+            <span class="protocol-dot yellow"></span>
+            <span class="protocol-dot green"></span>
+          </div>
+          <button id="btnCopyProtocol" class="protocol-copy" onclick="copyProtocol()">Copy</button>
+        </div>
+        <div class="protocol-body">
+          <code id="protocolText">I-Lang v2.0
 
 === LAYERS ===
 [COMPRESS:transmission|human-AI+AI-AI]
@@ -112,46 +586,287 @@ After loading, output ONLY these 7 lines in [DETECT:user-lang|default=en], then 
 4. Read Web -- [GET:i.ilang.ai/{url}] any page
 5. Dictionary -- github.com/ilang-ai/ilang-dict
 6. Answer All -- [OUTPUT:direct] no hedging
-7. Privacy -- [COMPRESS]=less data exposed</code></pre></div></div></section>
-<section class="py-16 px-6 max-w-4xl mx-auto"><h2 class="text-3xl font-bold text-center mb-10">Compression Examples</h2><div class="space-y-4">
-<div class="border border-gray-200 rounded-lg p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"><div class="flex-grow"><div class="text-sm text-gray-500 mb-1">Before</div><div class="text-sm text-gray-800">Extract text from a URL and format as Markdown</div></div><div class="text-gray-400"><i class="fa-solid fa-arrow-right"></i></div><div class="flex-grow"><div class="text-sm text-gray-500 mb-1">After</div><div class="text-sm font-mono text-blue-700">[GET:@WEB|url=tgt]=&gt;[FMT|fmt=md]=&gt;[OUT]</div></div><div class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full shrink-0">-58%</div></div>
-<div class="border border-gray-200 rounded-lg p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"><div class="flex-grow"><div class="text-sm text-gray-500 mb-1">Before</div><div class="text-sm text-gray-800">Read all .md files, merge into one, output result</div></div><div class="text-gray-400"><i class="fa-solid fa-arrow-right"></i></div><div class="flex-grow"><div class="text-sm text-gray-500 mb-1">After</div><div class="text-sm font-mono text-blue-700">[LIST:@FILE|mch="*.md"]=&gt;[LOOP:READ]=&gt;[MERGE]=&gt;[OUT]</div></div><div class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full shrink-0">-65%</div></div>
-<div class="border border-gray-200 rounded-lg p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"><div class="flex-grow"><div class="text-sm text-gray-500 mb-1">Before</div><div class="text-sm text-gray-800">Summarize previous output in 3 professional bullet points</div></div><div class="text-gray-400"><i class="fa-solid fa-arrow-right"></i></div><div class="flex-grow"><div class="text-sm text-gray-500 mb-1">After</div><div class="text-sm font-mono text-blue-700">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=&gt;[OUT]</div></div><div class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full shrink-0">-52%</div></div>
-</div></section>
-<section id="try-it" class="bg-[#F8F9FB] py-20 px-6 border-t border-gray-100"><div class="max-w-3xl mx-auto"><h2 class="text-3xl font-bold text-center mb-2">Try It Now</h2><p class="text-gray-600 text-center mb-8 text-sm">Paste any prompt below. Hit Generate My Gift for a surprise, or Compress for your own text.</p>
-<div class="mb-4"><textarea id="input" maxlength="2000" rows="5" class="w-full border border-gray-300 rounded-lg p-4 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none" placeholder="Paste your prompt here...">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea><div id="charCount" class="text-right text-xs text-gray-400 mt-1">0 / 2,000</div></div>
-<div class="flex gap-3 justify-center mb-6"><button id="btnGift" onclick="compress(true)" class="bg-[#1E60CE] hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors shadow-sm">Generate My Gift</button><button id="btnCompress" onclick="compress(false)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2.5 px-6 rounded-md transition-colors shadow-sm">Compress</button></div>
-<div id="loading" style="display:none" class="text-center py-8 text-gray-500 text-sm">Compressing<span class="loading-dots"></span></div>
-<div id="errorBox" style="display:none" class="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm"><span id="errorText"></span></div>
-<div id="outputArea" style="display:none"><div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm"><div class="text-xs text-gray-500 mb-2 font-medium">Compressed Output</div><div id="outputText" class="font-mono text-sm text-gray-800 whitespace-pre-wrap mb-4"></div><div class="flex items-center justify-between"><div id="tokenInfo" class="text-xs text-gray-500"></div><button id="btnCopy" onclick="copyResult()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium py-1.5 px-4 rounded transition-colors">Copy</button></div></div><div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mt-4 text-sm text-blue-800"><span class="font-semibold">Superpower:</span> Your AI can now read any webpage. Send it: <code class="bg-blue-100 px-1.5 py-0.5 rounded text-xs">i.ilang.ai/https://any-url</code></div></div>
-<div class="text-center mt-8 text-sm text-gray-500"><span id="counterNum" class="font-semibold text-gray-700">0</span> compressions served</div>
-</div></section>
-<section class="py-16 px-6 max-w-6xl mx-auto"><h2 class="text-3xl font-bold text-center mb-10">Built with I-Lang</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"><h3 class="text-lg font-bold mb-2">AutoCode</h3><p class="text-sm text-gray-700 leading-relaxed">39 auto-activated skills for Claude Code. Say what you want, get a product. Zero code, zero dependencies.</p><div class="flex gap-3 mt-4 text-sm"><a class="text-blue-600 hover:underline" href="https://github.com/ilang-ai/autocode" target="_blank">GitHub</a><a class="text-blue-600 hover:underline" href="https://ilang.cn/autocode-install.html" target="_blank">Install Guide</a></div></div>
-<div class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"><h3 class="text-lg font-bold mb-2">ZeroCode</h3><p class="text-sm text-gray-700 leading-relaxed">40 Chinese skills for Trae IDE. Paste one line, start building. Designed for non-programmers.</p><div class="flex gap-3 mt-4 text-sm"><a class="text-blue-600 hover:underline" href="https://github.com/ilang-ai/trae" target="_blank">GitHub</a><a class="text-blue-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=ILang.zerocode" target="_blank">VS Code</a></div></div>
-<div class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"><h3 class="text-lg font-bold mb-2">AI See</h3><p class="text-sm text-gray-700 leading-relaxed">Give your AI eyes. <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">i.ilang.ai/https://any-url</code> Paste into any AI conversation. It reads the page instantly.</p><div class="flex gap-3 mt-4 text-sm"><a class="text-blue-600 hover:underline" href="https://i.ilang.ai" target="_blank">Try it</a></div></div>
-<div class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow"><h3 class="text-lg font-bold mb-2">OpenClaw Skills</h3><p class="text-sm text-gray-700 leading-relaxed">Instruction-only skills on ClawHub. Token compression, AI-to-AI prompting, universal upgrade protocol.</p><div class="flex gap-3 mt-4 text-sm"><a class="text-blue-600 hover:underline" href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">GitHub</a></div></div>
-</div></section>
-<section class="bg-[#F8F9FB] py-16 px-6 border-t border-gray-100"><div class="max-w-4xl mx-auto"><h2 class="text-3xl font-bold text-center mb-10">Core Dictionary</h2>
-<div class="mb-6"><h3 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Data I/O</h3><div class="flex flex-wrap gap-2"><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">READ</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">WRITE</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">GET</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SEND</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">RECV</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">LIST</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">STRM</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">FETCH</span></div></div>
-<div class="mb-6"><h3 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Transform</h3><div class="flex flex-wrap gap-2"><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">FMT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">CONV</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SPLIT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">MERGE</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">MAP</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">FILT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SORT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">DEDUP</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">FLAT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">NEST</span></div></div>
-<div class="mb-6"><h3 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Analysis</h3><div class="flex flex-wrap gap-2"><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">CMP</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">DIFF</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">RANK</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">EVAL</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SCAN</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">MATCH</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">COUNT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">STATS</span></div></div>
-<div class="mb-6"><h3 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Generation</h3><div class="flex flex-wrap gap-2"><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">GEN</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">DRAFT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">EXPAND</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">REWRITE</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SYNTH</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">MOCK</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">FILL</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">VARY</span></div></div>
-<div class="mb-6"><h3 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Output</h3><div class="flex flex-wrap gap-2"><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SUM</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">OUT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">LOOP</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">DELTA</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">EMIT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">LOG</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">ALERT</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">RENDER</span></div></div>
-<div class="mb-6"><h3 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Meta</h3><div class="flex flex-wrap gap-2"><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">SET</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">GET</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">DEL</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">RESET</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">HELP</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">VER</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">LANG</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">MODE</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">CTX</span><span class="bg-white border border-gray-200 rounded px-2.5 py-1 text-xs font-mono text-blue-700">BATCH</span></div></div>
-<div class="text-center mt-6 text-sm text-gray-500">Full dictionary: <a class="text-blue-600 hover:underline" href="https://github.com/ilang-ai/ilang-dict" target="_blank">github.com/ilang-ai/ilang-dict</a></div></div></section>
-<section class="py-12 px-6 text-center"><p class="text-sm text-gray-500 leading-relaxed">I-Lang v2.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).<br>Protocol security: Cognitive Identity Authentication<br>静水流深 | ilang:genesis:2026-03-04</p><div class="mt-6 flex items-center justify-center gap-2 text-sm text-gray-700"><span>Questions? <a class="text-blue-600 hover:underline" href="https://github.com/ilang-ai/ilang-dict/issues" target="_blank">Discuss on GitHub</a></span><span class="text-gray-300">|</span><span>If I-Lang saved your tokens, <a class="text-blue-600 hover:underline" href="https://github.com/ilang-ai/ilang-dict" target="_blank">give us a star &#9733;</a></span></div></section>
-<footer class="bg-[#F8F9FB] pt-8 pb-12 px-6 md:px-12 border-t border-gray-200"><div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6"><div class="flex flex-col gap-4"><nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-gray-800"><a class="hover:text-gray-600 transition-colors" href="https://ilang.ai">Protocol</a><a class="hover:text-gray-600 transition-colors" href="https://research.ilang.ai" target="_blank">Research</a><a class="hover:text-gray-600 transition-colors" href="https://i.ilang.ai" target="_blank">AI See</a><a class="hover:text-gray-600 transition-colors" href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a><a class="hover:text-gray-600 transition-colors" href="https://github.com/ilang-ai/ilang-spec" target="_blank">Specification</a><a class="hover:text-gray-600 transition-colors" href="https://github.com/ilang-ai" target="_blank">GitHub</a><a class="hover:text-gray-600 transition-colors" href="/privacy.html">Privacy</a></nav><p class="text-sm text-gray-500">I-Lang Research · Eastsoft Inc. · Canada · © 2026</p></div></div></footer>
+7. Privacy -- [COMPRESS]=less data exposed</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compression Examples -->
+  <section class="demo">
+    <div class="demo-container">
+      <div class="section-label">Examples</div>
+      <h2 class="section-title">See Compression in Action</h2>
+      <div class="compression-row">
+        <div class="compression-box">
+          <div class="compression-label">Before</div>
+          <div class="compression-text">Extract text from a URL and format as Markdown</div>
+        </div>
+        <div class="compression-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="compression-box after">
+          <div class="compression-label">After</div>
+          <div class="compression-text">[GET:@WEB|url]=>[FMT|fmt=md]=>[OUT]</div>
+          <div class="compression-savings">-58%</div>
+        </div>
+      </div>
+      <div class="compression-row">
+        <div class="compression-box">
+          <div class="compression-label">Before</div>
+          <div class="compression-text">Read all .md files, merge into one, output result</div>
+        </div>
+        <div class="compression-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="compression-box after">
+          <div class="compression-label">After</div>
+          <div class="compression-text">[LIST:*.md]=>[LOOP:READ]=>[MERGE]=>[OUT]</div>
+          <div class="compression-savings">-65%</div>
+        </div>
+      </div>
+      <div class="compression-row">
+        <div class="compression-box">
+          <div class="compression-label">Before</div>
+          <div class="compression-text">Summarize previous output in 3 professional bullet points</div>
+        </div>
+        <div class="compression-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="compression-box after">
+          <div class="compression-label">After</div>
+          <div class="compression-text">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=>[OUT]</div>
+          <div class="compression-savings">-52%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Try It -->
+  <section id="try-it" class="try-it">
+    <div class="try-container">
+      <div class="section-label">Interactive</div>
+      <h2 class="section-title">Try It Now</h2>
+      <p style="text-align:center;color:var(--ink-light);margin-bottom:2rem;font-size:0.95rem">Paste any prompt below. Hit Generate My Gift for a surprise, or Compress for your own text.</p>
+      <textarea id="input" class="try-textarea" rows="5" maxlength="2000" placeholder="Paste your prompt here...">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea>
+      <div style="text-align:right;font-size:0.75rem;color:var(--ink-muted);margin-top:0.5rem"><span id="charCount">0</span> / 2,000</div>
+      <div class="try-buttons">
+        <button id="btnGift" onclick="compress(true)" class="btn btn-primary">Generate My Gift</button>
+        <button id="btnCompress" onclick="compress(false)" class="btn btn-secondary">Compress</button>
+      </div>
+      <div id="loading" style="display:none;text-align:center;padding:2rem;color:var(--ink-muted)">Compressing<span class="loading-dots"></span></div>
+      <div id="errorBox" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:1rem;color:#dc2626;font-size:0.9rem"><span id="errorText"></span></div>
+      <div id="outputArea" style="display:none" class="try-output">
+        <div style="font-size:0.75rem;color:var(--ink-muted);margin-bottom:0.5rem;font-weight:600">Compressed Output</div>
+        <div id="outputText" class="output-text"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div id="tokenInfo" class="token-info"></div>
+          <button id="btnCopy" onclick="copyResult()" class="btn btn-secondary" style="padding:0.5rem 1rem;font-size:0.8rem">Copy</button>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,#dbeafe,#e0e7ff);border-radius:12px;padding:1rem;margin-top:1rem;display:none" id="superpower">
+        <span style="font-weight:600;color:var(--ink)">Superpower:</span>
+        <span style="color:var(--ink-light)">Your AI can now read any webpage. Send it: <code style="background:rgba(37,99,235,0.1);padding:0.25rem 0.5rem;border-radius:4px;font-size:0.8rem">i.ilang.ai/https://any-url</code></span>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem;font-size:0.9rem;color:var(--ink-muted)">
+        <span id="counterNum" style="font-weight:700;color:var(--ink)">0</span> compressions served
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products">
+    <div class="products-container">
+      <div class="section-label">Ecosystem</div>
+      <h2 class="section-title">Built with I-Lang</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <h3>🤖 AutoCode</h3>
+          <p>39 auto-activated skills for Claude Code. Say what you want, get a product. Zero code, zero dependencies.</p>
+          <div class="product-links">
+            <a href="https://github.com/ilang-ai/autocode" target="_blank">GitHub</a>
+            <a href="https://ilang.cn/autocode-install.html" target="_blank">Install Guide</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <h3>🇨🇳 ZeroCode</h3>
+          <p>40 Chinese skills for Trae IDE. Paste one line, start building. Designed for non-programmers.</p>
+          <div class="product-links">
+            <a href="https://github.com/ilang-ai/trae" target="_blank">GitHub</a>
+            <a href="https://marketplace.visualstudio.com/items?itemName=ILang.zerocode" target="_blank">VS Code</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <h3>👁️ AI See</h3>
+          <p>Give your AI eyes. <code style="background:var(--bg-muted);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.8rem">i.ilang.ai/https://any-url</code> Paste into any AI conversation.</p>
+          <div class="product-links">
+            <a href="https://i.ilang.ai" target="_blank">Try it</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <h3>📖 OpenClaw Skills</h3>
+          <p>Instruction-only skills on ClawHub. Token compression, AI-to-AI prompting, universal upgrade protocol.</p>
+          <div class="product-links">
+            <a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dictionary -->
+  <section class="dictionary">
+    <div class="dict-container">
+      <div class="section-label">Reference</div>
+      <h2 class="section-title">Core Dictionary</h2>
+      <div class="dict-group">
+        <div class="dict-label">Data I/O</div>
+        <div class="dict-tags">
+          <span class="dict-tag">READ</span><span class="dict-tag">WRITE</span><span class="dict-tag">GET</span><span class="dict-tag">SEND</span><span class="dict-tag">RECV</span><span class="dict-tag">LIST</span><span class="dict-tag">STRM</span><span class="dict-tag">FETCH</span>
+        </div>
+      </div>
+      <div class="dict-group">
+        <div class="dict-label">Transform</div>
+        <div class="dict-tags">
+          <span class="dict-tag">FMT</span><span class="dict-tag">CONV</span><span class="dict-tag">SPLIT</span><span class="dict-tag">MERGE</span><span class="dict-tag">MAP</span><span class="dict-tag">FILT</span><span class="dict-tag">SORT</span><span class="dict-tag">DEDUP</span><span class="dict-tag">FLAT</span><span class="dict-tag">NEST</span>
+        </div>
+      </div>
+      <div class="dict-group">
+        <div class="dict-label">Analysis</div>
+        <div class="dict-tags">
+          <span class="dict-tag">CMP</span><span class="dict-tag">DIFF</span><span class="dict-tag">RANK</span><span class="dict-tag">EVAL</span><span class="dict-tag">SCAN</span><span class="dict-tag">MATCH</span><span class="dict-tag">COUNT</span><span class="dict-tag">STATS</span>
+        </div>
+      </div>
+      <div class="dict-group">
+        <div class="dict-label">Generation</div>
+        <div class="dict-tags">
+          <span class="dict-tag">GEN</span><span class="dict-tag">DRAFT</span><span class="dict-tag">EXPAND</span><span class="dict-tag">REWRITE</span><span class="dict-tag">SYNTH</span><span class="dict-tag">MOCK</span><span class="dict-tag">FILL</span><span class="dict-tag">VARY</span>
+        </div>
+      </div>
+      <div class="dict-group">
+        <div class="dict-label">Output</div>
+        <div class="dict-tags">
+          <span class="dict-tag">SUM</span><span class="dict-tag">OUT</span><span class="dict-tag">LOOP</span><span class="dict-tag">DELTA</span><span class="dict-tag">EMIT</span><span class="dict-tag">LOG</span><span class="dict-tag">ALERT</span><span class="dict-tag">RENDER</span>
+        </div>
+      </div>
+      <div class="dict-group">
+        <div class="dict-label">Meta</div>
+        <div class="dict-tags">
+          <span class="dict-tag">SET</span><span class="dict-tag">GET</span><span class="dict-tag">DEL</span><span class="dict-tag">RESET</span><span class="dict-tag">HELP</span><span class="dict-tag">VER</span><span class="dict-tag">LANG</span><span class="dict-tag">MODE</span><span class="dict-tag">CTX</span><span class="dict-tag">BATCH</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;font-size:0.9rem;color:var(--ink-muted)">
+        Full dictionary: <a href="https://github.com/ilang-ai/ilang-dict" target="_blank" style="color:var(--accent)">github.com/ilang-ai/ilang-dict</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credits -->
+  <section class="credits">
+    <p>I-Lang v2.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).<br>
+    Protocol security: Cognitive Identity Authentication<br>
+    静水流深 | ilang:genesis:2026-03-04</p>
+    <div style="margin-top:1.5rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;font-size:0.9rem">
+      <span>Questions? <a href="https://github.com/ilang-ai/ilang-dict/issues" target="_blank" style="color:var(--accent)">Discuss on GitHub</a></span>
+      <span style="color:var(--border)">|</span>
+      <span>If I-Lang saved your tokens, <a href="https://github.com/ilang-ai/ilang-dict" target="_blank" style="color:var(--accent)">give us a star ★</a></span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://ilang.ai">Protocol</a>
+        <a href="https://research.ilang.ai" target="_blank">Research</a>
+        <a href="https://i.ilang.ai" target="_blank">AI See</a>
+        <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a>
+        <a href="https://github.com/ilang-ai/ilang-spec" target="_blank">Specification</a>
+        <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+      <div class="footer-copy">I-Lang Research · Eastsoft Inc. · Canada · © 2026</div>
+    </div>
+  </footer>
 </div>
-<script>(function(){var ua=navigator.userAgent.toLowerCase();if(ua.indexOf('micromessenger')>-1||ua.indexOf('qq/')>-1||ua.indexOf('qzone/')>-1||ua.indexOf('mqqbrowser')>-1){document.getElementById('wxguard').style.display='block';document.getElementById('mainContent').style.display='none';}})();</script>
+
 <script>
-const API='https://api.ilang.ai';const input=document.getElementById('input');const charCount=document.getElementById('charCount');
-function updateCharCount(){const len=input.value.length;charCount.textContent=len.toLocaleString()+' / 2,000';}
-input.addEventListener('input',updateCharCount);updateCharCount();
-function copyProtocol(){const text=document.getElementById('protocolText').textContent;navigator.clipboard.writeText(text).then(()=>{const btn=document.getElementById('btnCopyProtocol');btn.textContent='Copied!';btn.classList.add('btn-copied');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('btn-copied');},2000);});}
-async function compress(isGift){const text=input.value.trim();if(!text)return;const btnGift=document.getElementById('btnGift');const btnCompress=document.getElementById('btnCompress');const loading=document.getElementById('loading');const outputArea=document.getElementById('outputArea');const errorBox=document.getElementById('errorBox');btnGift.disabled=true;btnCompress.disabled=true;loading.style.display='block';outputArea.style.display='none';errorBox.style.display='none';try{const res=await fetch(API+'/compress',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:text})});const data=await res.json();if(!res.ok){document.getElementById('errorText').innerHTML=data.error||'Something went wrong.';errorBox.style.display='block';return;}document.getElementById('outputText').textContent=data.output;document.getElementById('tokenInfo').innerHTML='<span class="token-saved">'+data.tokens.saved+' saved</span> &nbsp;·&nbsp; '+data.tokens.input+' &rarr; '+data.tokens.output+' tokens';outputArea.style.display='block';outputArea.scrollIntoView({behavior:'smooth',block:'nearest'});fetchStats();}catch(err){document.getElementById('errorText').textContent='Network error. Please try again.';errorBox.style.display='block';}finally{loading.style.display='none';btnGift.disabled=false;btnCompress.disabled=false;}}
-function copyResult(){const text=document.getElementById('outputText').textContent;const footer='\n\n---\nI-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.\n静水流深 | ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict | Eyes: i.ilang.ai/{url}';navigator.clipboard.writeText(text+footer).then(()=>{const btn=document.getElementById('btnCopy');btn.textContent='Copied!';btn.classList.add('btn-copied');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('btn-copied');},2000);});}
-async function fetchStats(){try{const res=await fetch(API+'/stats');const data=await res.json();document.getElementById('counterNum').textContent=(data.today||0).toLocaleString();}catch(e){}}
+// WeChat/QQ detection
+(function(){
+  var ua=navigator.userAgent.toLowerCase();
+  if(ua.indexOf('micromessenger')>-1||ua.indexOf('qq/')>-1||ua.indexOf('qzone/')>-1||ua.indexOf('mqqbrowser')>-1){
+    document.getElementById('wxguard').style.display='block';
+    document.getElementById('mainContent').style.display='none';
+  }
+})();
+
+// Nav scroll effect
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Character count
+const API='https://api.ilang.ai';
+const input=document.getElementById('input');
+const charCount=document.getElementById('charCount');
+function updateCharCount(){charCount.textContent=input.value.length.toLocaleString();}
+input.addEventListener('input',updateCharCount);
+updateCharCount();
+
+// Copy protocol
+function copyProtocol(){
+  const text=document.getElementById('protocolText').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById('btnCopyProtocol');
+    btn.textContent='Copied!';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied');},2000);
+  });
+}
+
+// Compress
+async function compress(isGift){
+  const text=input.value.trim();
+  if(!text)return;
+  const btnGift=document.getElementById('btnGift');
+  const btnCompress=document.getElementById('btnCompress');
+  const loading=document.getElementById('loading');
+  const outputArea=document.getElementById('outputArea');
+  const errorBox=document.getElementById('errorBox');
+  const superpower=document.getElementById('superpower');
+  btnGift.disabled=true;btnCompress.disabled=true;
+  loading.style.display='block';outputArea.style.display='none';errorBox.style.display='none';
+  try{
+    const res=await fetch(API+'/compress',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:text})});
+    const data=await res.json();
+    if(!res.ok){document.getElementById('errorText').innerHTML=data.error||'Something went wrong.';errorBox.style.display='block';return;}
+    document.getElementById('outputText').textContent=data.output;
+    document.getElementById('tokenInfo').innerHTML='<span class="token-saved">'+data.tokens.saved+' saved</span> · '+data.tokens.input+' → '+data.tokens.output+' tokens';
+    outputArea.style.display='block';
+    superpower.style.display='block';
+    outputArea.scrollIntoView({behavior:'smooth',block:'nearest'});
+    fetchStats();
+  }catch(err){
+    document.getElementById('errorText').textContent='Network error. Please try again.';
+    errorBox.style.display='block';
+  }finally{
+    loading.style.display='none';btnGift.disabled=false;btnCompress.disabled=false;
+  }
+}
+
+// Copy result
+function copyResult(){
+  const text=document.getElementById('outputText').textContent;
+  const footer='\n\n---\nI-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.\n静水流深 | ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict | Eyes: i.ilang.ai/{url}';
+  navigator.clipboard.writeText(text+footer).then(()=>{
+    const btn=document.getElementById('btnCopy');
+    btn.textContent='Copied!';
+    setTimeout(()=>{btn.textContent='Copy';},2000);
+  });
+}
+
+// Stats
+async function fetchStats(){
+  try{
+    const res=await fetch(API+'/stats');
+    const data=await res.json();
+    document.getElementById('counterNum').textContent=(data.today||0).toLocaleString();
+  }catch(e){}
+}
 fetchStats();
 </script>
 </body>
