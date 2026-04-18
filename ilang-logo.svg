@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256">
+  <defs>
+    
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5dea0"></stop>
+      <stop offset="45%" stop-color="#d4a858"></stop>
+      <stop offset="100%" stop-color="#8f6321"></stop>
+    </linearGradient>
+    
+    <linearGradient id="goldStem" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0d287"></stop>
+      <stop offset="100%" stop-color="#a6772e"></stop>
+    </linearGradient>
+    
+    <radialGradient id="sheen" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="rgba(255,255,255,.12)"></stop>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"></stop>
+    </radialGradient>
+  </defs>
+
+  
+  <rect width="64" height="64" rx="12" fill="#0b0f1a"></rect>
+  <rect width="64" height="64" rx="12" fill="url(#sheen)"></rect>
+
+  
+  <rect x="1.5" y="1.5" width="61" height="61" rx="10.5" fill="none" stroke="url(#gold)" stroke-width=".6" opacity=".55"></rect>
+
+  
+  <path d="M18 17 L13 17 L13 47 L18 47" fill="none" stroke="url(#gold)" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"></path>
+
+  
+  <path d="M46 17 L51 17 L51 47 L46 47" fill="none" stroke="url(#gold)" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"></path>
+
+  
+  
+  <rect x="29.6" y="19" width="4.8" height="4.6" rx=".6" fill="url(#goldStem)"></rect>
+  
+  <rect x="30" y="27.5" width="4" height="16" fill="url(#goldStem)"></rect>
+  
+  <rect x="28.4" y="27.5" width="7.2" height="1.4" fill="url(#gold)"></rect>
+  
+  <rect x="27.8" y="42.2" width="8.4" height="1.6" fill="url(#gold)"></rect>
+</svg>

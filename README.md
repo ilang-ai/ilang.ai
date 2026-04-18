@@ -1,34 +1,123 @@
-# I-Lang (I Language) — Cross-Platform Human-AI Communication Standard Protocol
+<div align="center">
 
-**🌐 Language:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
+```
+ ┌─────────────────────────────────────────────────────────────┐
+ │                                                             │
+ │    ██╗        ██╗      █████╗ ███╗   ██╗ ██████╗            │
+ │    ██║        ██║     ██╔══██╗████╗  ██║██╔════╝            │
+ │    ██║  ████  ██║     ███████║██╔██╗ ██║██║  ███╗           │
+ │    ██║        ██║     ██╔══██║██║╚██╗██║██║   ██║           │
+ │    ██║        ███████╗██║  ██║██║ ╚████║╚██████╔╝           │
+ │    ╚═╝        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝            │
+ │                                                             │
+ │    A Protocol for Human–AI Communication                    │
+ │                                                             │
+ └─────────────────────────────────────────────────────────────┘
+```
+
+**I-Lang** — An open, cross-platform compression standard for large language models.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-1e3a8a.svg?style=flat-square)](LICENSE)
+[![Version](https://img.shields.io/badge/version-2.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
+[![Website](https://img.shields.io/badge/web-ilang.ai-1e3a8a.svg?style=flat-square)](https://ilang.ai)
+[![HuggingFace](https://img.shields.io/badge/🤗-i--Lang-ffcc4d.svg?style=flat-square)](https://huggingface.co/i-Lang)
+[![Status](https://img.shields.io/badge/status-Draft%20Standard-c1121f.svg?style=flat-square)]()
+
+[**Website**](https://ilang.ai) · [**Research**](https://research.ilang.ai) · [**AI See**](https://i.ilang.ai) · [**Dictionary**](https://github.com/ilang-ai/ilang-dict) · [**🤗 Hugging Face**](https://huggingface.co/i-Lang)
+
+</div>
 
 ---
 
-Like HTTP standardized web communication and SQL standardized database queries, **I-Lang standardizes how humans talk to AI**. One protocol, every AI platform, no vendor lock-in.
+## Abstract
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
-
-**Website:** [ilang.ai](https://ilang.ai)
-**Research:** [research.ilang.ai](https://research.ilang.ai)
-**AI See:** [i.ilang.ai](https://i.ilang.ai)
-
-## What I-Lang Does
-
-| Capability | Description |
-|-----------|-------------|
-| **Compress** | Reduce prompts by 40–65%. Same meaning, fewer tokens, lower cost |
-| **Answer Everything** | AI responds directly, completely, no hedging, no disclaimers |
-| **Protect Privacy** | Compressed text sends less data to AI servers |
-| **Cross-Platform** | One instruction works on ChatGPT, Claude, Gemini, DeepSeek, Kimi, 豆包, 元宝 |
-| **Chain Commands** | `[VERB]=>[VERB]=>[OUT]` multi-step workflows in one line |
-
-## Get Started (30 seconds)
-
-**Step 1:** Copy the protocol header below.
-**Step 2:** Paste it into any AI conversation.
-**Step 3:** Your AI responds with 5 capabilities — handshake complete.
+> Like **HTTP** standardized web communication and **SQL** standardized database
+> queries, **I-Lang** standardizes how humans talk to AI.
+> One protocol. Every model. No vendor lock-in.
 
 ```
+[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]
+```
+
+---
+
+## Status of This Document
+
+This memo defines **I-Lang v2.0**, a text-based protocol for compressing and
+structuring natural-language instructions sent to large language models (LLMs).
+It is released under the **MIT License** and intended for wide adoption.
+
+Distribution of this document is unlimited.
+
+| Field        | Value                                             |
+|:-------------|:--------------------------------------------------|
+| Protocol     | I-Lang                                            |
+| Version      | 2.0                                               |
+| Status       | Draft Standard                                    |
+| Category     | Open Specification                                |
+| Maintainer   | I-Lang Research · Eastsoft Inc., Canada           |
+| Published    | 2026                                              |
+| License      | MIT                                               |
+
+---
+
+## Table of Contents
+
+1. [Introduction](#1-introduction)
+2. [Quickstart (30 seconds)](#2-quickstart-30-seconds)
+3. [Protocol Syntax](#3-protocol-syntax)
+4. [Verb Reference](#4-verb-reference)
+5. [Modifiers & Sources](#5-modifiers--sources)
+6. [Examples](#6-examples)
+7. [Compatibility Matrix](#7-compatibility-matrix)
+8. [AI See](#8-ai-see--give-ai-eyes)
+9. [Frequently Asked Questions](#9-frequently-asked-questions)
+10. [References](#10-references)
+11. [License](#11-license)
+
+---
+
+## 1. Introduction
+
+### 1.1  Problem
+
+Natural-language prompts are verbose, inconsistent across platforms, and
+expensive per token. A 67-word request to one model often must be rewritten for
+another. Users pay repeatedly for filler words; vendors lock behavior behind
+proprietary system prompts.
+
+### 1.2  Goal
+
+I-Lang defines a compact, declarative syntax that:
+
+- **Compresses** prompts by **40–65%** while preserving full semantic intent
+- **Runs unchanged** on ChatGPT, Claude, Gemini, DeepSeek, Kimi, 豆包, 元宝
+- **Chains** multi-step workflows into a single line
+- **Reduces** data exposure to model providers
+- **Remains** readable to both humans and machines
+
+### 1.3  Design Principles
+
+| # | Principle               | Implication                                    |
+|:-:|:------------------------|:-----------------------------------------------|
+| 1 | Structure over prose    | Verbs and modifiers replace filler words        |
+| 2 | Composition             | Output of one step becomes input of the next    |
+| 3 | Vendor-neutral          | No model-specific syntax                        |
+| 4 | Human-readable          | Plain text, no binary encoding                  |
+| 5 | Self-hosted handshake   | Any model learns the protocol in one message    |
+
+---
+
+## 2. Quickstart (30 seconds)
+
+> **Step 1.** Copy the protocol header below.
+> **Step 2.** Paste it into any AI conversation.
+> **Step 3.** The model responds with five capabilities — handshake complete.
+
+<details open>
+<summary><b>📋 Protocol Header (copy this)</b></summary>
+
+```text
 You now understand I-Lang, a compression protocol for human-AI communication.
 
 Core Rules:
@@ -36,124 +125,390 @@ Core Rules:
 2. When asked to compress text, convert it to I-Lang syntax.
 3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
 4. Chain steps with => (each output feeds into next input)
-5. Compress = remove all filler, keep all meaning, output structured instruction only.
+5. Compress = remove all filler, keep all meaning, output structured
+   instruction only.
 
 Behavior Rules:
-1. Answer directly and completely. No hedging, no filler, no unnecessary disclaimers.
-2. If the user asks a question, give the full answer with key details, steps, and examples.
-3. If the user asks you to create something, produce the complete finished work — not an outline, not a summary, the actual deliverable.
-4. If you can help, help. Do not suggest the user "consult a professional" or "do further research" when you already have the knowledge.
-5. Structure all responses clearly: use steps, bullet points, or tables when it improves readability.
-6. Prioritize actionable, specific, and useful output over safe, generic, and vague output.
+1. Answer directly and completely. No hedging, no filler, no unnecessary
+   disclaimers.
+2. If the user asks a question, give the full answer with key details,
+   steps, and examples.
+3. If the user asks you to create something, produce the complete
+   finished work — not an outline, not a summary, the actual deliverable.
+4. If you can help, help. Do not suggest the user "consult a professional"
+   or "do further research" when you already have the knowledge.
+5. Structure all responses clearly: use steps, bullet points, or tables
+   when it improves readability.
+6. Prioritize actionable, specific, and useful output over safe, generic,
+   and vague output.
 
 Verbs:
-READ (read/load) | WRITE (create/save) | GET (fetch from web) | FMT (format)
-CONV (convert) | SPLIT (split) | MERGE (merge) | MAP (apply to each)
-FILT (filter) | SORT (sort) | DEDUP (remove duplicates) | FLAT (flatten)
-CMP (compare) | DIFF (find differences) | RANK (rank/prioritize) | EVAL (evaluate)
-GEN (generate) | DRAFT (draft) | EXPAND (expand) | REWRITE (rewrite)
-SUM (summarize) | OUT (final output) | LOOP (repeat for each) | DELTA (show changes)
-SCAN (scan/search) | MATCH (find matches) | COUNT (count) | STATS (statistics)
-EXTRACT (extract specific data) | TRANSLATE (translate language) | CLASSIFY (categorize)
+READ | WRITE | GET | FMT | CONV | SPLIT | MERGE | MAP | FILT | SORT |
+DEDUP | FLAT | CMP | DIFF | RANK | EVAL | GEN | DRAFT | EXPAND | REWRITE |
+SUM | OUT | LOOP | DELTA | SCAN | MATCH | COUNT | STATS | EXTRACT |
+TRANSLATE | CLASSIFY
 
 Modifiers:
-fmt= (format: md/json/csv/html/txt) | len= (length: word count or short/medium/long)
-ton= (tone: pro/casual/formal/friendly) | lang= (language: en/zh/ja/es/etc)
-sty= (style: bullets/paragraph/table/code) | cnt= (count: number of items)
-key= (keyword/focus) | src= (source) | tgt= (target)
+fmt=  (md/json/csv/html/txt)
+len=  (word count or short/medium/long)
+ton=  (pro/casual/formal/friendly)
+lang= (en/zh/ja/es/…)
+sty=  (bullets/paragraph/table/code)
+cnt=  (count)
+key=  (keyword/focus)
+src=  (source)
+tgt=  (target)
 
 Sources:
-@FILE (uploaded file) | @WEB (internet/URL) | @PREV (previous output) | @SELF (current conversation)
+@FILE | @WEB | @PREV | @SELF
 
-After learning this protocol, respond in the user's language. Detect the language from the user's interface or conversation context. If the conversation is in Chinese, respond in Chinese. If in English, respond in English. If uncertain, respond in English.
+After learning this protocol, respond in the user's language.
+If the conversation is in Chinese, respond in Chinese. If in English,
+respond in English. If uncertain, respond in English.
 
 Your response must follow this exact structure:
 
 "I-Lang protocol loaded. Here's what I can do now:
 
-1. **Compress** — Send me any long text, I'll compress it to save 40-65% tokens while keeping full meaning.
-2. **Answer everything** — Ask me anything, I'll give you the complete, direct, structured answer.
-3. **Create deliverables** — Need a document, code, plan, or analysis? I'll produce the finished work, not just suggestions.
-4. **Cross-platform** — Copy my compressed output to any other AI (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it works everywhere.
-5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build multi-step workflows in one line.
+1. **Compress** — Send me any long text, I'll compress it to save
+   40-65% tokens while keeping full meaning.
+2. **Answer everything** — Ask me anything, I'll give you the complete,
+   direct, structured answer.
+3. **Create deliverables** — Need a document, code, plan, or analysis?
+   I'll produce the finished work, not just suggestions.
+4. **Cross-platform** — Copy my compressed output to any other AI
+   (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it works everywhere.
+5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build
+   multi-step workflows in one line.
 
 What would you like me to do?"
 ```
 
-## Tested & Compatible
-
-| Platform | Status |
-|----------|--------|
-| ChatGPT | ✅ |
-| Claude | ✅ |
-| Gemini | ✅ |
-| DeepSeek | ✅ |
-| Kimi | ✅ |
-| 豆包 | ✅ |
-| 元宝 | ✅ |
-
-## Before & After
-
-**Before** (67 words):
-> Please read the document I uploaded, extract all the key points and important data, then organize them into a professional summary with bullet points. Keep it concise but make sure nothing important is missing. The tone should be professional and suitable for a business report. Output the final result in Markdown format.
-
-**After** (17 words):
-```
-[READ:@FILE]=>[FILT|key=important]=>[SUM|sty=bullets,ton=pro,fmt=md]=>[OUT]
-```
-−75% tokens. Same result.
+</details>
 
 ---
 
-**Before** (42 words):
-> Go to this website, extract all the text content from the page, clean it up and format it as readable Markdown. Remove any navigation menus, ads, or irrelevant content. Just give me the main article text.
+## 3. Protocol Syntax
 
-**After** (9 words):
+### 3.1  Grammar (ABNF-style)
+
+```abnf
+statement   =  step *( "=>" step )
+step        =  "[" verb [ ":" source ] [ "|" params ] "]"
+verb        =  1*ALPHA                       ; see §4
+source      =  "@" entity / literal          ; see §5.3
+params      =  param *( "," param )
+param       =  key "=" value
+key         =  "fmt" / "len" / "ton" / "lang" / "sty" / "cnt"
+             / "key" / "src" / "tgt"         ; see §5.1
+value       =  1*VCHAR
 ```
-[GET:@WEB|url=target]=>[FMT|fmt=md]=>[OUT]
+
+### 3.2  Anatomy
+
 ```
-−79% tokens. Same result.
+  ┌─── verb
+  │        ┌─── source (optional)
+  │        │             ┌─── modifiers (optional)
+  │        │             │
+  ▼        ▼             ▼
+[READ : @FILE | key=important, sty=bullets ] => [OUT]
+                                              ▲
+                                              └─── chain operator
+```
+
+### 3.3  Chaining
+
+Steps compose left-to-right. Each step consumes the previous output as `@PREV`.
+
+```
+[STEP_A] => [STEP_B] => [STEP_C] => [OUT]
+```
 
 ---
 
-**Before** (38 words):
-> Take the output you just gave me and translate it into Chinese. Then reformat it as a clean Markdown document with proper headings. Make sure the translation sounds natural, not machine-translated.
+## 4. Verb Reference
 
-**After** (12 words):
+Verbs are grouped by domain. Case-insensitive; canonical form is uppercase.
+
+<table>
+<tr><th align="left">Domain</th><th align="left">Verbs</th></tr>
+
+<tr>
+<td valign="top"><b>I/O</b></td>
+<td><code>READ</code>  <code>WRITE</code>  <code>GET</code>  <code>OUT</code>  <code>FMT</code>  <code>CONV</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Transform</b></td>
+<td><code>SPLIT</code>  <code>MERGE</code>  <code>MAP</code>  <code>FLAT</code>  <code>REWRITE</code>  <code>EXPAND</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Filter</b></td>
+<td><code>FILT</code>  <code>SORT</code>  <code>DEDUP</code>  <code>MATCH</code>  <code>EXTRACT</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Analyze</b></td>
+<td><code>CMP</code>  <code>DIFF</code>  <code>RANK</code>  <code>EVAL</code>  <code>STATS</code>  <code>COUNT</code>  <code>CLASSIFY</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Generate</b></td>
+<td><code>GEN</code>  <code>DRAFT</code>  <code>SUM</code>  <code>TRANSLATE</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Control</b></td>
+<td><code>LOOP</code>  <code>DELTA</code>  <code>SCAN</code></td>
+</tr>
+
+</table>
+
+The full dictionary — 52 verbs, 28 modifiers, 14 entities — lives at
+[ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict).
+
+---
+
+## 5. Modifiers & Sources
+
+### 5.1  Modifiers
+
+| Key    | Accepted Values                            | Example              |
+|:-------|:-------------------------------------------|:---------------------|
+| `fmt`  | `md` · `json` · `csv` · `html` · `txt`     | `fmt=md`             |
+| `len`  | integer (words) or `short` / `med` / `long`| `len=200`            |
+| `ton`  | `pro` · `casual` · `formal` · `friendly`   | `ton=pro`            |
+| `lang` | `en` · `zh` · `ja` · `es` · `fr` · …       | `lang=zh`            |
+| `sty`  | `bullets` · `paragraph` · `table` · `code` | `sty=table`          |
+| `cnt`  | integer                                    | `cnt=5`              |
+| `key`  | focus keyword                              | `key=pricing`        |
+| `src`  | source reference                           | `src=report.pdf`     |
+| `tgt`  | target reference                           | `tgt=summary.md`     |
+
+### 5.2  Combining Modifiers
+
+Separate with comma; order is free.
+
 ```
-[READ:@PREV]=>[TRANSLATE|lang=zh,ton=natural]=>[FMT|fmt=md]=>[OUT]
+[SUM|sty=bullets, ton=pro, fmt=md, len=150]
 ```
-−68% tokens. Same result.
 
-## AI See — Give AI Eyes
+### 5.3  Sources
 
-Any AI can read any webpage:
+| Token    | Meaning                                    |
+|:---------|:-------------------------------------------|
+| `@FILE`  | The currently-uploaded file                |
+| `@WEB`   | A web resource (use `url=`)                |
+| `@PREV`  | Output of the previous step                |
+| `@SELF`  | The current conversation context           |
+
+---
+
+## 6. Examples
+
+### 6.1  Extract key points from an uploaded document
+
+<table>
+<tr><th align="left" width="50%">Before — 67 words</th><th align="left">After — 17 words</th></tr>
+<tr><td valign="top">
+
+> Please read the document I uploaded, extract all the key points and
+> important data, then organize them into a professional summary with
+> bullet points. Keep it concise but make sure nothing important is
+> missing. The tone should be professional and suitable for a business
+> report. Output the final result in Markdown format.
+
+</td><td valign="top">
+
+```
+[READ:@FILE]
+=>[FILT|key=important]
+=>[SUM|sty=bullets,
+      ton=pro,fmt=md]
+=>[OUT]
+```
+
+**−75% tokens.** Same result.
+
+</td></tr>
+</table>
+
+### 6.2  Scrape a web page into clean Markdown
+
+<table>
+<tr><th align="left" width="50%">Before — 42 words</th><th align="left">After — 9 words</th></tr>
+<tr><td valign="top">
+
+> Go to this website, extract all the text content from the page, clean
+> it up and format it as readable Markdown. Remove any navigation menus,
+> ads, or irrelevant content. Just give me the main article text.
+
+</td><td valign="top">
+
+```
+[GET:@WEB|url=target]
+=>[FMT|fmt=md]
+=>[OUT]
+```
+
+**−79% tokens.** Same result.
+
+</td></tr>
+</table>
+
+### 6.3  Translate and reformat the previous answer
+
+<table>
+<tr><th align="left" width="50%">Before — 38 words</th><th align="left">After — 12 words</th></tr>
+<tr><td valign="top">
+
+> Take the output you just gave me and translate it into Chinese. Then
+> reformat it as a clean Markdown document with proper headings. Make
+> sure the translation sounds natural, not machine-translated.
+
+</td><td valign="top">
+
+```
+[READ:@PREV]
+=>[TRANSLATE|lang=zh,
+            ton=natural]
+=>[FMT|fmt=md]
+=>[OUT]
+```
+
+**−68% tokens.** Same result.
+
+</td></tr>
+</table>
+
+---
+
+## 7. Compatibility Matrix
+
+I-Lang is tested against the following production LLM platforms. No model-side
+changes are required — the handshake header is sufficient.
+
+| Platform   | Vendor       | Region     | Status        |
+|:-----------|:-------------|:-----------|:-------------:|
+| ChatGPT    | OpenAI       | Global     | ✅ Supported  |
+| Claude     | Anthropic    | Global     | ✅ Supported  |
+| Gemini     | Google       | Global     | ✅ Supported  |
+| DeepSeek   | DeepSeek     | Global     | ✅ Supported  |
+| Kimi       | Moonshot AI  | China      | ✅ Supported  |
+| 豆包        | ByteDance    | China      | ✅ Supported  |
+| 元宝        | Tencent      | China      | ✅ Supported  |
+
+> **Note.** Any text-capable model can execute I-Lang. The list above tracks
+> platforms we have actively benchmarked.
+
+---
+
+## 8. AI See — Give AI Eyes
+
+A companion service. Any LLM can read any web page by pasting:
+
 ```
 i.ilang.ai/https://any-url-you-want
 ```
-Paste this into your AI conversation. It will see the full page and respond. Zero setup, zero cost, zero API key.
 
-## Links
+Zero setup. Zero cost. Zero API key.
+See [i.ilang.ai](https://i.ilang.ai).
 
-- [Protocol & Tools](https://ilang.ai) — Official website with online compression tool
-- [Full Dictionary](https://github.com/ilang-ai/ilang-dict) — 52 verbs, 28 modifiers, 14 entities
-- [Research Papers](https://research.ilang.ai) — Academic publications and protocol specification
-- [AI See](https://i.ilang.ai) — Give any AI the ability to read webpages
+---
 
-## FAQ
+## 9. Frequently Asked Questions
 
-**Do I need to learn the syntax?**
-No. Just ask your AI to "compress this into I-Lang". Use the compressed version next time.
+<details>
+<summary><b>Do I need to learn the syntax?</b></summary>
 
-**Does it work with every AI?**
-Yes. Any model that reads text can execute I-Lang. The protocol header ensures compatibility.
+No. Ask your AI to *"compress this into I-Lang"*. Use the compressed version
+next time. Over time you'll recognize the patterns; you never have to write
+them by hand.
 
-**Is it free?**
-Yes. Open protocol, MIT license. Use it, fork it, build on it.
+</details>
 
-**Why does it work?**
-AI models already understand structured instructions. I-Lang gives that structure a standard format — like HTTP standardized web pages.
+<details>
+<summary><b>Does it work with every AI?</b></summary>
 
-## License
+Yes. Any model that reads text can execute I-Lang. The protocol header
+(§2) is the handshake. No fine-tuning, no API integration, no plugin.
 
-MIT License. © 2026 I-Lang Research, Eastsoft Inc., Canada.
+</details>
+
+<details>
+<summary><b>Is it free?</b></summary>
+
+Yes. Open protocol, **MIT license**. Use it, fork it, build on it, sell
+products on top of it — no royalties, no approvals.
+
+</details>
+
+<details>
+<summary><b>Why does it work?</b></summary>
+
+LLMs already understand structured instructions; that's how they were
+trained. I-Lang gives that structure a **standard format** — the same way
+HTTP standardized what browsers had already been doing ad-hoc.
+
+</details>
+
+<details>
+<summary><b>How does this compare to function-calling / tool-use APIs?</b></summary>
+
+Function calling is **vendor-specific** and lives inside a model's API.
+I-Lang is **prompt-level** and vendor-neutral — it works in a chat window,
+a mobile app, a PDF, or an email. The two are complementary.
+
+</details>
+
+---
+
+## 10. References
+
+- 🌐  **Website** — [ilang.ai](https://ilang.ai)
+- 🤗  **Hugging Face** — [huggingface.co/i-Lang](https://huggingface.co/i-Lang)
+- 📚  **Full Dictionary** — [github.com/ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict)
+- 🔬  **Research Papers** — [research.ilang.ai](https://research.ilang.ai)
+- 👁️  **AI See** — [i.ilang.ai](https://i.ilang.ai)
+
+### Translations of this document
+
+[English](README.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Português](README.pt.md) · [Русский](README.ru.md) · [العربية](README.ar.md)
+
+---
+
+## 11. License
+
+```
+MIT License
+
+Copyright (c) 2026 I-Lang Research · Eastsoft Inc., Canada
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND…
+```
+
+Full text in [LICENSE](LICENSE).
+
+---
+
+<div align="center">
+
+**I-Lang** — *A protocol for human–AI communication.*
+
+Maintained by **I-Lang Research** · **Eastsoft Inc.**, Canada · 2026
+
+[ilang.ai](https://ilang.ai) · [🤗 Hugging Face](https://huggingface.co/i-Lang) · [GitHub](https://github.com/ilang-ai)
+
+</div>

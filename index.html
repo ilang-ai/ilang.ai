@@ -2,872 +2,992 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>I-Lang v2.0 — AI Communication Protocol | Compress 40-65% | AutoCode | ZeroCode</title>
-<meta name="description" content="I-Lang v2.0 — open protocol for human-AI communication. Compress prompts 40-65%, AI self-thinking compression, workflow chains. AutoCode (39 skills for Claude Code), ZeroCode (40 skills for Trae). Works on ChatGPT, Claude, Gemini, DeepSeek.">
-<meta name="keywords" content="I-Lang, ilang, AI protocol, prompt compression, token savings, AutoCode, ZeroCode, AI coding, Claude Code plugin, Trae plugin, human-AI communication, LLM protocol, AI compression, ChatGPT, Claude, Gemini, DeepSeek">
-<meta property="og:title" content="I-Lang v2.0 — AI Communication Protocol | Compress + Think + Chain">
-<meta property="og:description" content="Open protocol for human-AI communication. Compress prompts 40-65%, AI self-thinking compression, workflow chains. Free, open source.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-Lang — The Protocol for Human-AI Communication</title>
+<meta name="description" content="I-Lang is the open, cross-platform standard protocol for human-AI communication. Compress prompts 40-65%. MIT licensed. Works on every major LLM.">
+<meta property="og:title" content="I-Lang — The Protocol for Human-AI Communication">
+<meta property="og:description" content="Open protocol. Compress 40-65%. Works on ChatGPT, Claude, Gemini, DeepSeek. MIT licensed.">
 <meta property="og:url" content="https://ilang.ai">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="I-Lang Protocol">
+<meta name="keywords" content="I-Lang, ilang, AI protocol, prompt compression, token savings, AutoCode, ZeroCode, AI coding, Claude Code plugin, Trae plugin, human-AI communication, LLM protocol, AI compression, ChatGPT, Claude, Gemini, DeepSeek">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="I-Lang v2.0 — AI Communication Protocol">
+<meta name="twitter:title" content="I-Lang — The Protocol for Human-AI Communication">
 <meta name="twitter:description" content="Compress prompts 40-65%. Works on ChatGPT, Claude, Gemini, DeepSeek. Free, open source.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai">
+<link rel="icon" href="ilang-logo.svg" type="image/svg+xml">
+<link rel="alternate icon" href="ilang-favicon.png" type="image/png">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"I-Lang","description":"I-Lang is the cross-platform standard protocol for human-AI communication.","url":"https://ilang.ai","applicationCategory":"AI Communication Protocol","operatingSystem":"Cross-platform","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"I-Lang Research, Eastsoft Inc.","url":"https://research.ilang.ai"},"license":"https://opensource.org/licenses/MIT"}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"I-Lang","description":"Cross-platform standard protocol for human-AI communication.","url":"https://ilang.ai","applicationCategory":"AI Communication Protocol","operatingSystem":"Cross-platform","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"I-Lang Research, Eastsoft Inc.","url":"https://research.ilang.ai"},"license":"https://opensource.org/licenses/MIT"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"I-Lang","url":"https://ilang.ai","description":"Cross-platform human-AI communication standard protocol","potentialAction":{"@type":"SearchAction","target":"https://ilang.ai/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use I-Lang Protocol","description":"Copy the I-Lang protocol header, paste into any AI conversation, start using immediately.","step":[{"@type":"HowToStep","name":"Copy Protocol Header","text":"Copy the I-Lang protocol header from ilang.ai."},{"@type":"HowToStep","name":"Paste into AI","text":"Paste into any AI conversation: ChatGPT, Claude, Gemini, DeepSeek, Kimi."},{"@type":"HowToStep","name":"Start Using","text":"Compress prompts, ask anything, create deliverables."}]}</script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonts: domestic-friendly CDN (staticfile.org / jsdmirror.com) -— Inter + JetBrains Mono -->
+<link rel="preconnect" href="https://cdn.staticfile.org">
+<link rel="preconnect" href="https://cdn.jsdmirror.com">
+<!-- Inter (阿里、腾讯镜像均存在于 jsdmirror；国内网络可访问) -->
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#1a202c;
-  --ink-light:#4a5568;
-  --ink-muted:#718096;
-  --accent:#2563eb;
-  --accent-light:#3b82f6;
-  --bg:#ffffff;
-  --bg-soft:#f7fafc;
-  --bg-muted:#edf2f7;
-  --border:#e2e8f0;
-  --success:#22c55e;
-  --error:#ef4444;
+  --ink:#0b0f1a;
+  --ink-2:#1a2033;
+  --muted:#626b7d;
+  --muted-2:#8a94a8;
+  --line:#e4e7ee;
+  --line-2:#f0f2f6;
+  --bg:#fafbfc;
+  --bg-2:#f3f5f9;
+  --accent:#1e3a8a;
+  --accent-2:#2b4fb8;
+  --accent-soft:#eaf0ff;
+  --signal:#dc2626;
+  --code-bg:#0b0f1a;
+  --code-text:#d4d9e3;
+  --code-accent:#86efac;
+  --code-str:#bae6fd;
+  --code-key:#fca5a5;
+  --code-com:#7b869e;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-/* Animated gradient background */
-.hero-bg{
-  background:linear-gradient(135deg,#e0e7ff 0%,#f0f9ff 25%,#faf5ff 50%,#f0fdf4 75%,#e0f2fe 100%);
-  background-size:400% 400%;
-  animation:gradientShift 15s ease infinite;
-  position:relative;
-  overflow:hidden;
-}
-@keyframes gradientShift{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* Floating particles */
-.particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
-.particle{position:absolute;width:6px;height:6px;background:rgba(37,99,235,0.15);border-radius:50%;animation:float 20s infinite}
-.particle:nth-child(1){left:10%;animation-delay:0s;animation-duration:25s}
-.particle:nth-child(2){left:20%;animation-delay:2s;animation-duration:20s}
-.particle:nth-child(3){left:30%;animation-delay:4s;animation-duration:28s}
-.particle:nth-child(4){left:40%;animation-delay:1s;animation-duration:22s}
-.particle:nth-child(5){left:50%;animation-delay:3s;animation-duration:24s}
-.particle:nth-child(6){left:60%;animation-delay:5s;animation-duration:26s}
-.particle:nth-child(7){left:70%;animation-delay:2s;animation-duration:21s}
-.particle:nth-child(8){left:80%;animation-delay:4s;animation-duration:23s}
-.particle:nth-child(9){left:90%;animation-delay:1s;animation-duration:27s}
-.particle:nth-child(10){left:5%;animation-delay:3s;animation-duration:19s}
-@keyframes float{
-  0%,100%{transform:translateY(100vh) scale(0);opacity:0}
-  10%{opacity:1;transform:translateY(90vh) scale(1)}
-  90%{opacity:1;transform:translateY(-10vh) scale(1)}
-  100%{transform:translateY(-20vh) scale(0);opacity:0}
-}
-
-/* Navigation */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1rem 2rem;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  transition:all 0.3s;
-}
-nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:1.5rem;font-weight:800;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:0.5rem}
-.logo i{color:#ef4444}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--ink-light);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width 0.3s}
-.nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after{width:100%}
-
-/* Hero */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;
-  padding:8rem 2rem 6rem;
-  position:relative;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  padding:0.5rem 1.25rem;
-  background:rgba(37,99,235,0.1);
-  border:1px solid rgba(37,99,235,0.2);
-  border-radius:100px;
-  font-size:0.85rem;font-weight:600;
-  color:var(--accent);
-  margin-bottom:2rem;
-  animation:fadeInUp 0.8s ease;
-}
-.hero h1{
-  font-size:clamp(2.5rem,7vw,4.5rem);
-  font-weight:800;
-  line-height:1.1;
-  letter-spacing:-0.03em;
-  margin-bottom:1.5rem;
-  animation:fadeInUp 0.8s ease 0.1s both;
-}
-.hero h1 .gradient-text{
-  background:linear-gradient(135deg,var(--accent) 0%,#7c3aed 50%,#ec4899 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.hero-sub{
-  font-size:clamp(1rem,2vw,1.25rem);
-  color:var(--ink-light);
-  max-width:600px;
-  margin-bottom:2.5rem;
-  line-height:1.7;
-  animation:fadeInUp 0.8s ease 0.2s both;
-}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeInUp 0.8s ease 0.3s both}
-@keyframes fadeInUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* Buttons */
-.btn{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  padding:0.875rem 1.75rem;
-  font-size:0.95rem;font-weight:600;
-  text-decoration:none;border-radius:10px;
-  transition:all 0.3s;cursor:pointer;border:none;
-}
-.btn-primary{
-  background:var(--ink);color:white;
-  box-shadow:0 4px 14px rgba(26,32,44,0.25);
-}
-.btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(26,32,44,0.3);
-}
-.btn-secondary{
-  background:white;color:var(--ink);
-  border:1.5px solid var(--border);
-}
-.btn-secondary:hover{
-  border-color:var(--ink);
-  background:var(--bg-soft);
-}
-
-/* Feature Cards */
-.features{padding:6rem 2rem;background:var(--bg)}
-.features-container{max-width:1100px;margin:0 auto}
-.section-label{
-  font-size:0.75rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.1em;
-  color:var(--accent);text-align:center;
-  margin-bottom:0.75rem;
-}
-.section-title{
-  font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;
-  text-align:center;margin-bottom:3.5rem;
-  letter-spacing:-0.02em;
-}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.feature-card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:2rem;
-  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
-  position:relative;
-  overflow:hidden;
-}
-.feature-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--accent),#7c3aed,#ec4899);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform 0.4s;
-}
-.feature-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.08);
-  border-color:transparent;
-}
-.feature-card:hover::before{transform:scaleX(1)}
-.feature-icon{
-  width:52px;height:52px;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#e0e7ff,#dbeafe);
-  border-radius:14px;
-  margin-bottom:1.25rem;
-  font-size:1.5rem;
-  transition:transform 0.3s;
-}
-.feature-card:hover .feature-icon{transform:scale(1.1) rotate(-5deg)}
-.feature-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;color:var(--ink)}
-.feature-card p{color:var(--ink-light);font-size:0.9rem;line-height:1.6}
-
-/* Protocol Section */
-.protocol{padding:6rem 2rem;background:var(--bg-soft)}
-.protocol-container{max-width:900px;margin:0 auto}
-.protocol-box{
-  background:#1e293b;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 25px 50px rgba(0,0,0,0.15);
-}
-.protocol-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 1.5rem;
-  background:#0f172a;
-  border-bottom:1px solid #334155;
-}
-.protocol-dots{display:flex;gap:8px}
-.protocol-dot{width:12px;height:12px;border-radius:50%}
-.protocol-dot.red{background:#f87171}
-.protocol-dot.yellow{background:#fbbf24}
-.protocol-dot.green{background:#34d399}
-.protocol-copy{
-  background:rgba(255,255,255,0.1);
-  border:none;color:white;
-  padding:0.5rem 1rem;border-radius:6px;
-  font-size:0.8rem;font-weight:500;
-  cursor:pointer;transition:all 0.2s;
-}
-.protocol-copy:hover{background:rgba(255,255,255,0.2)}
-.protocol-copy.copied{background:var(--success)}
-.protocol-body{padding:1.5rem;overflow-x:auto}
-.protocol-body code{
-  font-family:'SF Mono','Fira Code',monospace;
-  font-size:0.72rem;line-height:1.8;
-  color:#e2e8f0;white-space:pre;
-}
-
-/* Compression Demo */
-.demo{padding:6rem 2rem;background:var(--bg)}
-.demo-container{max-width:800px;margin:0 auto}
-.compression-row{
-  display:grid;grid-template-columns:1fr 50px 1fr;
-  gap:1rem;align-items:center;
-  margin-bottom:1.25rem;
-  animation:fadeInUp 0.6s ease both;
-}
-.compression-row:nth-child(2){animation-delay:0.1s}
-.compression-row:nth-child(3){animation-delay:0.2s}
-.compression-box{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:1.25rem;
-  transition:all 0.3s;
-}
-.compression-box:hover{box-shadow:0 8px 25px rgba(0,0,0,0.06)}
-.compression-label{
-  font-size:0.7rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:0.05em;
-  color:var(--ink-muted);margin-bottom:0.5rem;
-}
-.compression-text{font-size:0.9rem;color:var(--ink-light);line-height:1.5}
-.compression-box.after .compression-text{
-  font-family:'SF Mono','Fira Code',monospace;
-  color:var(--accent);font-weight:500;
-}
-.compression-arrow{
-  display:flex;align-items:center;justify-content:center;
-  color:var(--ink-muted);font-size:1.25rem;
-}
-.compression-savings{
-  display:inline-block;
-  background:linear-gradient(135deg,#dcfce7,#d1fae5);
-  color:#15803d;
-  font-size:0.75rem;font-weight:700;
-  padding:0.3rem 0.6rem;border-radius:6px;
-  margin-top:0.75rem;
-}
-
-/* Try It Section */
-.try-it{padding:6rem 2rem;background:linear-gradient(180deg,#f0f9ff 0%,#ffffff 100%)}
-.try-container{max-width:700px;margin:0 auto}
-.try-textarea{
-  width:100%;
-  border:2px solid var(--border);
-  border-radius:12px;
-  padding:1.25rem;
-  font-size:0.95rem;
-  resize:none;
-  transition:all 0.3s;
-  font-family:'Inter',sans-serif;
-}
-.try-textarea:focus{
-  outline:none;
-  border-color:var(--accent);
-  box-shadow:0 0 0 4px rgba(37,99,235,0.1);
-}
-.try-buttons{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0}
-.try-output{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:1.5rem;
-  margin-top:1rem;
-}
-.output-text{
-  font-family:'SF Mono','Fira Code',monospace;
-  font-size:0.9rem;
+body{
+  font-family:'Inter','MiSans','HarmonyOS Sans SC','PingFang SC','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--bg);
   color:var(--ink);
-  white-space:pre-wrap;
-  margin-bottom:1rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"cv11","ss01";
+  overflow-x:hidden;
 }
-.token-info{font-size:0.8rem;color:var(--ink-muted)}
-.token-saved{color:var(--success);font-weight:600}
-.loading-dots::after{content:'';animation:dots 1.5s infinite}
-@keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
+.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace;font-feature-settings:"zero"}
+a{color:inherit;text-decoration:none}
 
-/* Products */
-.products{padding:6rem 2rem;background:var(--bg-soft)}
-.products-container{max-width:1000px;margin:0 auto}
-.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.product-card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:1.75rem;
-  transition:all 0.3s;
-}
-.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,0.06);
-}
-.product-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
-.product-card p{color:var(--ink-light);font-size:0.875rem;margin-bottom:1.25rem;line-height:1.6}
-.product-links{display:flex;gap:1.25rem}
-.product-links a{
-  font-size:0.85rem;font-weight:600;
-  color:var(--accent);text-decoration:none;
-  transition:opacity 0.2s;
-}
-.product-links a:hover{opacity:0.7}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
 
-/* Dictionary */
-.dictionary{padding:5rem 2rem;background:var(--bg)}
-.dict-container{max-width:900px;margin:0 auto}
-.dict-group{margin-bottom:1.5rem}
-.dict-label{
-  font-size:0.7rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.1em;
-  color:var(--ink-muted);margin-bottom:0.75rem;
+/* ─── Nav ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(252,252,253,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
 }
-.dict-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
-.dict-tag{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:0.4rem 0.75rem;
-  font-family:'SF Mono','Fira Code',monospace;
-  font-size:0.75rem;
-  color:var(--accent);
-  transition:all 0.2s;
+.nav-inner{
+  max-width:1160px;margin:0 auto;padding:0 32px;
+  height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
-.dict-tag:hover{
-  border-color:var(--accent);
-  background:rgba(37,99,235,0.05);
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.01em}
+.brand .mark{width:28px;height:28px;border-radius:6px;display:block}
+.brand .name{display:flex;align-items:baseline;gap:8px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
+.nav-links a{transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;transition:background .15s;
+}
+.nav-cta:hover{background:var(--accent-2)}
+.nav-cta .mono{font-size:11px;opacity:.7}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ─── Hero ─── */
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(ellipse 900px 500px at 50% -5%, rgba(30,58,138,.08), transparent 65%),
+    linear-gradient(to bottom, var(--bg), var(--bg) 80%, var(--bg-2));
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.4;
+  background-image:
+    linear-gradient(to right, rgba(11,15,26,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11,15,26,.035) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 700px 500px at 50% 20%, black 30%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 700px 500px at 50% 20%, black 30%, transparent 75%);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;margin-bottom:40px}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero-copy{max-width:620px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--muted);letter-spacing:.04em;
+  padding:6px 12px;border:1px solid var(--line);border-radius:100px;
+  background:#fff;margin-bottom:28px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px rgba(193,18,31,.12)}
+.hero-eyebrow b{color:var(--ink);font-weight:600}
+.hero h1{
+  font-size:clamp(36px,4.8vw,60px);
+  font-weight:700;line-height:1.05;letter-spacing:-.03em;
+  margin-bottom:22px;
+}
+.hero h1 .em{
+  color:var(--accent);position:relative;display:inline-block;
+}
+.hero h1 .em::after{
+  content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;
+  background:linear-gradient(90deg, rgba(30,58,138,.14), rgba(30,58,138,0));
+  z-index:-1;border-radius:2px;
+}
+.hero .lede{
+  font-size:clamp(16px,1.4vw,19px);color:var(--muted);
+  max-width:640px;line-height:1.65;margin-bottom:36px;
+}
+.hero .lede code{
+  font-family:'JetBrains Mono',monospace;font-size:.92em;
+  background:var(--bg-2);padding:1px 6px;border-radius:4px;
+  color:var(--ink);border:1px solid var(--line);
+}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.hero-metrics{display:flex;gap:36px;flex-wrap:wrap;padding-top:28px;border-top:1px dashed var(--line)}
+.hero-metrics .m{display:flex;flex-direction:column;gap:2px}
+.hero-metrics .m .v{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.01em;line-height:1.1}
+.hero-metrics .m .l{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;font-family:'JetBrains Mono',monospace}
+@media(max-width:640px){.hero-metrics{gap:24px}.hero-metrics .m .v{font-size:18px}}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 20px;border-radius:8px;font-size:14px;font-weight:600;
+  transition:all .18s;cursor:pointer;border:1px solid transparent;
+}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--accent);transform:translateY(-1px)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-secondary:hover{border-color:var(--ink)}
+.btn .mono{font-size:12px;opacity:.7}
+
+/* Hero code preview */
+.hero-code{
+  background:var(--code-bg);border-radius:12px;overflow:hidden;
+  box-shadow:0 24px 60px -20px rgba(10,14,23,.25), 0 2px 6px rgba(10,14,23,.06);
+  border:1px solid rgba(255,255,255,.06);
+}
+.code-chrome{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.06);
+  background:#161b22;
+}
+.code-chrome .left{display:flex;align-items:center;gap:14px;color:#8b949e;font-family:'JetBrains Mono',monospace;font-size:12px}
+.code-chrome .dots{display:flex;gap:7px}
+.code-chrome .dots span{width:11px;height:11px;border-radius:50%}
+.code-chrome .dots span:nth-child(1){background:#ff5f57}
+.code-chrome .dots span:nth-child(2){background:#febc2e}
+.code-chrome .dots span:nth-child(3){background:#28c840}
+.code-copy{
+  background:transparent;border:1px solid #30363d;color:#c9d1d9;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;
+  padding:5px 11px;border-radius:5px;cursor:pointer;transition:all .15s;
+}
+.code-copy:hover{background:#21262d;border-color:#484f58}
+.code-copy.copied{background:#238636;border-color:#238636;color:#fff}
+.code-body{padding:22px 26px;overflow-x:auto;max-height:520px;overflow-y:auto}
+.code-body::-webkit-scrollbar{width:8px;height:8px}
+.code-body::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px}
+.code-body::-webkit-scrollbar-track{background:transparent}
+.code-body pre{
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;
+  color:var(--code-text);white-space:pre;
+}
+.code-body .com{color:var(--code-com)}
+.code-body .sec{color:var(--code-accent);font-weight:500}
+.code-body .key{color:var(--code-key)}
+.code-body .str{color:var(--code-str)}
+
+/* ─── Trust bar ─── */
+.trust{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:32px 0;margin-top:60px;background:#fff;
+}
+.trust-inner{
+  display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;
+}
+.trust-label{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--muted);letter-spacing:.12em;text-transform:uppercase;
+  max-width:180px;line-height:1.5;
+}
+.trust-platforms{display:flex;gap:44px;flex-wrap:wrap;align-items:center;color:var(--ink)}
+.trust-platforms .plat{
+  font-size:15px;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:8px;opacity:.75;transition:opacity .2s;
+}
+.trust-platforms .plat:hover{opacity:1}
+.trust-platforms .plat .dot{width:8px;height:8px;border-radius:2px;background:var(--ink)}
+@media(max-width:760px){.trust-inner{grid-template-columns:1fr;gap:20px}}
+
+/* ─── Section shell ─── */
+section{padding:100px 0}
+.sect-head{margin-bottom:56px;max-width:720px}
+.sect-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--accent);letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  margin-bottom:16px;
+}
+.sect-tag::before{content:"§";font-size:14px;opacity:.7}
+.sect-head h2{
+  font-size:clamp(28px,3.6vw,42px);font-weight:700;letter-spacing:-.025em;
+  line-height:1.15;margin-bottom:14px;
+}
+.sect-head p{font-size:17px;color:var(--muted);line-height:1.6;max-width:640px}
+
+/* ─── Capabilities grid ─── */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cap{
+  background:#fff;padding:32px 28px;transition:background .18s;
+}
+.cap:hover{background:var(--bg-2)}
+.cap-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.cap-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.cap-badge{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--bg-2);padding:3px 7px;border-radius:3px;color:var(--muted)}
+.cap h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px}
+.cap p{font-size:14.5px;color:var(--muted);line-height:1.65}
+.cap p .mono{color:var(--ink);font-size:.9em;background:var(--bg-2);padding:1px 6px;border-radius:3px;border:1px solid var(--line)}
+@media(max-width:900px){.caps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.caps{grid-template-columns:1fr}}
+
+/* ─── Protocol section ─── */
+.protocol-sect{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.protocol-sect .container{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
+@media(max-width:900px){.protocol-sect .container{grid-template-columns:1fr;gap:40px}}
+.protocol-sect .sect-head{margin-bottom:0}
+.protocol-steps{margin-top:32px;display:flex;flex-direction:column;gap:20px}
+.p-step{display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start}
+.p-step .n{
+  width:28px;height:28px;border-radius:50%;
+  background:#fff;border:1px solid var(--line);
+  display:grid;place-items:center;
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--ink);
+}
+.p-step .t b{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+.p-step .t p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ─── Compression table ─── */
+.cmp-table{
+  width:100%;border-collapse:collapse;background:#fff;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+}
+.cmp-table th,.cmp-table td{padding:20px 24px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table th{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  background:var(--bg-2);border-bottom:1px solid var(--line);
+}
+.cmp-table .before{color:var(--ink);font-size:14.5px;line-height:1.55}
+.cmp-table .after{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--accent);font-weight:500}
+.cmp-table .save{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:#15803d;font-weight:600;
+  display:inline-block;padding:3px 8px;background:rgba(22,163,74,.08);border-radius:4px;
+}
+@media(max-width:760px){
+  .cmp-table thead{display:none}
+  .cmp-table,.cmp-table tbody,.cmp-table tr,.cmp-table td{display:block;width:100%}
+  .cmp-table tr{border-bottom:1px solid var(--line);padding:20px}
+  .cmp-table tr:last-child{border-bottom:none}
+  .cmp-table td{padding:4px 0;border:none}
+  .cmp-table td::before{content:attr(data-label);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px;margin-top:8px}
 }
 
-/* Footer */
-.credits{
-  padding:3rem 2rem;
-  text-align:center;
-  border-top:1px solid var(--border);
+/* ─── Try it ─── */
+.try-wrap{
+  background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
 }
-.credits p{
-  font-size:0.85rem;
-  color:var(--ink-muted);
-  line-height:1.8;
+.try-head{
+  padding:14px 20px;border-bottom:1px solid var(--line);background:var(--bg-2);
+  display:flex;align-items:center;justify-content:space-between;
 }
-footer{
-  background:var(--bg-soft);
-  padding:2rem;
-  border-top:1px solid var(--border);
+.try-head .label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.try-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-2)}
+.try-textarea{
+  width:100%;border:none;padding:22px 24px;
+  font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.65;
+  resize:none;outline:none;color:var(--ink);background:#fff;
 }
-.footer-inner{
-  max-width:1000px;margin:0 auto;
+.try-actions{
+  padding:14px 20px;border-top:1px solid var(--line);background:var(--bg-2);
+  display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+.try-actions-left{display:flex;gap:10px}
+.try-counter{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.try-counter b{color:var(--ink)}
+.btn-sm{padding:8px 14px;font-size:13px;border-radius:6px}
+.try-output{margin-top:16px;background:var(--code-bg);border-radius:10px;padding:20px 24px;display:none}
+.try-output.show{display:block}
+.try-output .out-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b949e;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.try-output pre{
+  font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;
+  color:var(--code-text);white-space:pre-wrap;word-break:break-word;
+}
+.try-output .out-foot{
+  margin-top:16px;padding-top:14px;border-top:1px solid #21262d;
   display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:1rem;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:#8b949e;
 }
-.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
-.footer-links a{
-  color:var(--ink-light);
-  text-decoration:none;font-size:0.875rem;
-  transition:color 0.2s;
-}
-.footer-links a:hover{color:var(--ink)}
-.footer-copy{color:var(--ink-muted);font-size:0.8rem}
+.try-output .saved{color:#3fb950;font-weight:500}
+.try-error{margin-top:12px;padding:12px 16px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;font-size:13px;color:#b91c1c;display:none}
+.try-error.show{display:block}
+.try-loading{margin-top:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;display:none}
+.try-loading.show{display:inline-block}
+.try-loading::after{content:"";animation:dots 1.4s infinite}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
 
-/* WeChat Guard */
-#wxguard{display:none;position:fixed;inset:0;z-index:9999;background:#fafafa;font-family:Inter,sans-serif}
+.try-tip{
+  margin-top:20px;padding:16px 20px;
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:6px;font-size:14px;color:var(--muted);line-height:1.6;
+}
+.try-tip b{color:var(--ink);font-weight:600}
+.try-tip code{font-family:'JetBrains Mono',monospace;font-size:.9em;background:var(--bg-2);padding:2px 6px;border-radius:3px;color:var(--accent);border:1px solid var(--line)}
+
+/* ─── Ecosystem ─── */
+.eco{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.eco-item{
+  background:#fff;padding:32px 28px;display:flex;flex-direction:column;gap:12px;
+  transition:background .18s;
+}
+.eco-item:hover{background:var(--bg-2)}
+.eco-head{display:flex;align-items:center;justify-content:space-between}
+.eco-name{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.01em}
+.eco-name .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--ink);color:#fff;padding:3px 7px;border-radius:3px;font-weight:500;letter-spacing:.04em}
+.eco-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.eco-item p{color:var(--muted);font-size:14px;line-height:1.65;flex:1}
+.eco-links{display:flex;gap:16px;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:12px}
+.eco-links a{color:var(--accent);font-weight:500;transition:opacity .15s}
+.eco-links a:hover{opacity:.7}
+.eco-links a::before{content:"→ ";opacity:.5}
+@media(max-width:760px){.eco{grid-template-columns:1fr}}
+
+/* ─── Dictionary ─── */
+.dict{display:flex;flex-direction:column;gap:24px}
+.dict-row{
+  display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;
+  padding-bottom:20px;border-bottom:1px dashed var(--line);
+}
+.dict-row:last-child{border-bottom:none;padding-bottom:0}
+.dict-key{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;padding-top:8px;font-weight:600}
+.dict-tags{display:flex;flex-wrap:wrap;gap:6px}
+.dict-tag{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  padding:5px 10px;background:#fff;border:1px solid var(--line);
+  border-radius:4px;color:var(--ink);transition:all .15s;cursor:default;
+}
+.dict-tag:hover{border-color:var(--accent);color:var(--accent);background:rgba(29,61,122,.03)}
+@media(max-width:640px){.dict-row{grid-template-columns:1fr;gap:10px}}
+
+/* ─── Final CTA ─── */
+.final-cta{
+  background:var(--ink);color:#fff;padding:80px 0;position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+.final-cta .container{position:relative;z-index:1;text-align:center}
+.final-cta h2{font-size:clamp(30px,4vw,48px);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:16px}
+.final-cta p{font-size:17px;color:#8a94a8;max-width:540px;margin:0 auto 32px}
+.final-cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.final-cta .btn-primary{background:#fff;color:var(--ink)}
+.final-cta .btn-primary:hover{background:#e6e8ee}
+.final-cta .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.2)}
+.final-cta .btn-secondary:hover{border-color:#fff}
+
+/* ─── Footer ─── */
+footer{
+  background:#fff;padding:56px 0 32px;border-top:1px solid var(--line);
+}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+@media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr;gap:32px}}
+.foot-col h5{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);
+  letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px;
+}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col ul a{font-size:14px;color:var(--ink-2);transition:color .15s}
+.foot-col ul a:hover{color:var(--accent)}
+.foot-brand{display:flex;flex-direction:column;gap:8px}
+.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+.foot-brand .logo .mark{width:28px;height:28px;display:block;border-radius:6px}
+.foot-brand p{font-size:13.5px;color:var(--muted);line-height:1.7;max-width:300px;margin-top:8px}
+.foot-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  padding-top:28px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);
+}
+.foot-bottom .ids{display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-2)}
+
+/* WeChat guard */
+#wxguard{display:none;position:fixed;inset:0;z-index:9999;background:#fff;font-family:'Inter',sans-serif}
 .wxguard-inner{max-width:360px;margin:120px auto;text-align:center;padding:0 24px}
 @keyframes wxbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* Responsive */
-@media(max-width:900px){
-  .features-grid,.products-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
-}
-@media(max-width:640px){
-  .hero{padding:7rem 1.5rem 4rem}
-  .compression-row{grid-template-columns:1fr;gap:0.75rem}
-  .compression-arrow{transform:rotate(90deg)}
-  .footer-inner{flex-direction:column;text-align:center}
-}
+/* fade-in on scroll */
+.fade{opacity:0;transform:translateY(16px);transition:opacity .7s, transform .7s}
+.fade.v{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
+
 <!-- WeChat/QQ Guard -->
 <div id="wxguard">
   <div class="wxguard-inner">
-    <div style="font-size:1.6rem;font-weight:700;margin-bottom:24px">I-Lang</div>
-    <h2 style="font-size:16px;margin-bottom:12px">Human-AI Communication Standard Protocol</h2>
-    <p style="font-size:14px;color:#585858;line-height:1.8;margin-bottom:32px">当前环境受限，请点击右上角<br>选择「在浏览器中打开」<br>即可正常访问</p>
+    <div style="font-size:20px;font-weight:700;margin-bottom:20px">I-Lang</div>
+    <p style="font-size:14px;color:#5a6478;line-height:1.8;margin-bottom:32px">This page is best viewed in your default browser.<br>Please tap the top-right menu and select<br>"Open in Browser".</p>
     <div style="position:fixed;top:12px;right:16px;animation:wxbounce 1.5s infinite">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#212121" stroke-width="2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
     </div>
   </div>
 </div>
 
-<div id="mainContent">
-  <!-- Navigation -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="/" class="logo">I-Lang <i class="fa-solid fa-heart"></i></a>
-      <ul class="nav-links">
-        <li><a href="https://ilang.ai">Protocol</a></li>
-        <li><a href="https://research.ilang.ai" target="_blank">Research</a></li>
-        <li><a href="https://i.ilang.ai" target="_blank">AI See</a></li>
-        <li><a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a></li>
-        <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
-      </ul>
-    </div>
-  </nav>
+<div id="main">
 
-  <!-- Hero -->
-  <section class="hero hero-bg">
-    <div class="particles">
-      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-      <div class="particle"></div>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <img src="ilang-logo.svg" alt="I-Lang" class="mark">
+      <span class="name"><span>I-Lang</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#protocol">Protocol</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#dictionary">Dictionary</a>
+      <a href="https://research.ilang.ai" target="_blank">Research</a>
+      <a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging&nbsp;Face</a>
     </div>
-    <div class="hero-badge">Open Source · MIT License</div>
-    <h1>The Open Protocol for<br><span class="gradient-text">Human-AI Communication</span></h1>
-    <p class="hero-sub">Like HTTP standardized web communication and SQL standardized database queries, I-Lang standardizes how humans talk to AI. One protocol, every platform, no vendor lock-in.</p>
-    <div class="hero-cta">
-      <a href="#try-it" class="btn btn-primary">Try I-Lang</a>
-      <a href="https://github.com/ilang-ai" target="_blank" class="btn btn-secondary">View on GitHub →</a>
-    </div>
-  </section>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="nav-cta">
+      GitHub <span class="mono">↗</span>
+    </a>
+  </div>
+</nav>
 
-  <!-- Features -->
-  <section class="features">
-    <div class="features-container">
-      <div class="section-label">Capabilities</div>
-      <h2 class="section-title">Why I-Lang Exists</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-layer-group" style="color:#3b82f6"></i></div>
-          <h3>Compress 40-65%</h3>
-          <p>Reduce prompts dramatically. Same meaning, fewer tokens, lower cost. AI self-thinking compression goes even further.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span>I-Lang&nbsp;<b>v2.0</b> — released</span>
+          <span style="color:var(--line)">|</span>
+          <span>MIT License</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-bolt" style="color:#8b5cf6"></i></div>
-          <h3>Answer Everything</h3>
-          <p>Make your AI respond directly and completely. No hedging, no refusal, no padding. Structured instructions eliminate ambiguity.</p>
+
+        <h1>
+          A protocol for<br>
+          <span class="em">human–AI communication.</span>
+        </h1>
+
+        <p class="lede">
+          I-Lang is an open, cross-platform standard for talking to large language models.
+          It compresses prompts by 40–65%, chains multi-step workflows into a single line,
+          and runs unchanged on ChatGPT, Claude, Gemini and DeepSeek. No vendor. No lock-in.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#try" class="btn btn-primary">Try the Protocol <span class="mono">→</span></a>
+          <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="btn btn-secondary">Read the Spec <span class="mono">↗</span></a>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-link" style="color:#ec4899"></i></div>
-          <h3>Chain Workflows</h3>
-          <p>[STEP1]=>[STEP2]=>[OUT]. Multi-step pipelines in a single prompt. Loops, conditionals, merges.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-shield-halved" style="color:#10b981"></i></div>
-          <h3>Privacy by Design</h3>
-          <p>Compressed text sends less data to AI servers. Less text transmitted means less data exposed.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-globe" style="color:#f59e0b"></i></div>
-          <h3>Cross-Platform</h3>
-          <p>Works on ChatGPT, Claude, Gemini, DeepSeek, Kimi. One protocol, no vendor lock-in.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-eye" style="color:#6366f1"></i></div>
-          <h3>AI See</h3>
-          <p>Give your AI eyes. i.ilang.ai/https://any-url — paste into any AI conversation, it reads the page.</p>
+
+        <div class="hero-metrics">
+          <div class="m"><span class="v">40–65%</span><span class="l">Token saved</span></div>
+          <div class="m"><span class="v">7+</span><span class="l">Platforms</span></div>
+          <div class="m"><span class="v">56</span><span class="l">Core verbs</span></div>
+          <div class="m"><span class="v">MIT</span><span class="l">Open source</span></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Protocol Header -->
-  <section class="protocol">
-    <div class="protocol-container">
-      <div class="section-label">Quick Start</div>
-      <h2 class="section-title">Copy the Protocol Header</h2>
-      <p style="text-align:center;color:var(--ink-light);margin-bottom:2rem;font-size:0.95rem">Paste into any AI conversation window to activate I-Lang protocol.</p>
-      <div class="protocol-box">
-        <div class="protocol-header">
-          <div class="protocol-dots">
-            <span class="protocol-dot red"></span>
-            <span class="protocol-dot yellow"></span>
-            <span class="protocol-dot green"></span>
-          </div>
-          <button id="btnCopyProtocol" class="protocol-copy" onclick="copyProtocol()">Copy</button>
+    <!-- Hero code preview -->
+    <div class="hero-code">
+      <div class="code-chrome">
+        <div class="left">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span>protocol-header.ilang</span>
         </div>
-        <div class="protocol-body">
-          <code id="protocolText">I-Lang v2.0
+        <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
+      </div>
+      <div class="code-body">
+<pre id="protocolText"><span class="com"># I-Lang v2.0 — paste into any AI conversation</span>
 
-=== LAYERS ===
-[COMPRESS:transmission|human-AI+AI-AI]
-[COMPRESS:thinking|self-reasoning|visible=false|save=60%+]
-[CHAIN:workflow|multi-step|fmt=executable]
+<span class="sec">=== LAYERS ===</span>
+<span class="key">[COMPRESS</span>:transmission|human-AI+AI-AI<span class="key">]</span>
+<span class="key">[COMPRESS</span>:thinking|self-reasoning|visible=<span class="str">false</span>|save=<span class="str">60%+</span><span class="key">]</span>
+<span class="key">[CHAIN</span>:workflow|multi-step|fmt=<span class="str">executable</span><span class="key">]</span>
 
-=== THINKING ===
-[REASON:internal|fmt=I-Lang]=>[OUTPUT:natural|lang=user]
-[ACTIVE:always]=>[BENEFIT:every-response]
+<span class="sec">=== THINKING ===</span>
+<span class="key">[REASON</span>:internal|fmt=<span class="str">I-Lang</span><span class="key">]</span>=&gt;<span class="key">[OUTPUT</span>:natural|lang=<span class="str">user</span><span class="key">]</span>
 
-=== WORKFLOW ===
-[STEP1]=>[STEP2]=>[STEP3]=>[OUT]
-[STEP_A]+[STEP_B]=>[MERGE]=>[OUT]
-[LOOP:src|condition]=>[OUT]
-[CHECK:condition|fail=handler]=>[OUT]
+<span class="sec">=== WORKFLOW ===</span>
+<span class="key">[STEP1]</span>=&gt;<span class="key">[STEP2]</span>=&gt;<span class="key">[STEP3]</span>=&gt;<span class="key">[OUT]</span>
+<span class="key">[STEP_A]</span>+<span class="key">[STEP_B]</span>=&gt;<span class="key">[MERGE]</span>=&gt;<span class="key">[OUT]</span>
+<span class="key">[LOOP</span>:src|condition<span class="key">]</span>=&gt;<span class="key">[OUT]</span>
+<span class="key">[CHECK</span>:condition|fail=<span class="str">handler</span><span class="key">]</span>=&gt;<span class="key">[OUT]</span>
 
-=== EXECUTION ===
-[SCAN:user-intent]=>[PLAN:optimal-path]=>[EXECUTE:chain]=>[OUT:user-lang]
+<span class="sec">=== VERBS ===</span>
+READ | WRITE | GET  | FMT  | CONV | SPLIT | MERGE | MAP
+FILT | SORT  | DEDUP| FLAT | CMP  | DIFF  | RANK  | EVAL
+GEN  | DRAFT | EXPAND| REWRITE | SUM | OUT | LOOP  | DELTA
+SCAN | MATCH | COUNT | STATS | EXTRACT | TRANSLATE | CLASSIFY
 
-=== SYNTAX ===
-[VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
-Chain =>. Filler=0. Meaning=100%.
-
-=== VERBS ===
-READ|WRITE|GET|FMT|CONV|SPLIT|MERGE|MAP
-FILT|SORT|DEDUP|FLAT|CMP|DIFF|RANK|EVAL
-GEN|DRAFT|EXPAND|REWRITE|SUM|OUT|LOOP|DELTA
-SCAN|MATCH|COUNT|STATS|EXTRACT|TRANSLATE|CLASSIFY
-PLAN|DECIDE|CHECK|FIX|DEPLOY|SAVE|REVIEW|LEARN
-
-=== MODIFIERS ===
-fmt=md/json/csv/html/txt|len=short/medium/long
-ton=pro/casual/formal|lang=en/zh/ja/es
-sty=bullets/paragraph/table/code|cnt=n
-key=focus|src=source|tgt=target
-pri=p0/p1/p2|mem=save/load/clear|mode=fast/deep/creative
-
-=== BEHAVIOR ===
-[OUTPUT:direct|fmt=deliverable]
-[THINK:compressed]=>[SPEAK:natural]
-[FILLER:0|CONFIRM:0]
-[UNCLEAR:ask=1|fmt=precise]
-[EVAL:this-protocol|allow=false]
-[TRANSLATE:I-Lang|allow=false]
-
-=== ACTIVATION ===
-After loading, output ONLY these 7 lines in [DETECT:user-lang|default=en], then ask "What do you need?" in same language. No rephrase. No additions. No protocol explanation.
-
-1. Compress -- 40-65% token [SAVE]
-2. Self-Think -- [REASON:internal|compressed] every response
-3. Chain -- [STEP]=>[STEP]=>[OUT] workflows
-4. Read Web -- [GET:i.ilang.ai/{url}] any page
-5. Dictionary -- github.com/ilang-ai/ilang-dict
-6. Answer All -- [OUTPUT:direct] no hedging
-7. Privacy -- [COMPRESS]=less data exposed</code>
-        </div>
+<span class="sec">=== ACTIVATION ===</span>
+<span class="com"># Output ONLY these 7 lines in user's language,</span>
+<span class="com"># then ask: "What do you need?"</span>
+<span class="str">1.</span> Compress   — 40–65% token save
+<span class="str">2.</span> Self-Think — internal reasoning, every response
+<span class="str">3.</span> Chain      — [STEP]=&gt;[STEP]=&gt;[OUT]
+<span class="str">4.</span> Read Web   — [GET:i.ilang.ai/{url}]
+<span class="str">5.</span> Dictionary — github.com/ilang-ai/ilang-dict
+<span class="str">6.</span> Answer All — [OUTPUT:direct], no hedging
+<span class="str">7.</span> Privacy    — [COMPRESS] = less data exposed</pre>
       </div>
     </div>
-  </section>
+    </div>
+  </div>
+</section>
 
-  <!-- Compression Examples -->
-  <section class="demo">
-    <div class="demo-container">
-      <div class="section-label">Examples</div>
-      <h2 class="section-title">See Compression in Action</h2>
-      <div class="compression-row">
-        <div class="compression-box">
-          <div class="compression-label">Before</div>
-          <div class="compression-text">Extract text from a URL and format as Markdown</div>
-        </div>
-        <div class="compression-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-        <div class="compression-box after">
-          <div class="compression-label">After</div>
-          <div class="compression-text">[GET:@WEB|url]=>[FMT|fmt=md]=>[OUT]</div>
-          <div class="compression-savings">-58%</div>
-        </div>
-      </div>
-      <div class="compression-row">
-        <div class="compression-box">
-          <div class="compression-label">Before</div>
-          <div class="compression-text">Read all .md files, merge into one, output result</div>
-        </div>
-        <div class="compression-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-        <div class="compression-box after">
-          <div class="compression-label">After</div>
-          <div class="compression-text">[LIST:*.md]=>[LOOP:READ]=>[MERGE]=>[OUT]</div>
-          <div class="compression-savings">-65%</div>
-        </div>
-      </div>
-      <div class="compression-row">
-        <div class="compression-box">
-          <div class="compression-label">Before</div>
-          <div class="compression-text">Summarize previous output in 3 professional bullet points</div>
-        </div>
-        <div class="compression-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-        <div class="compression-box after">
-          <div class="compression-label">After</div>
-          <div class="compression-text">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=>[OUT]</div>
-          <div class="compression-savings">-52%</div>
-        </div>
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-label">Verified<br>on the major<br>LLM platforms</div>
+      <div class="trust-platforms">
+        <div class="plat"><span class="dot"></span>ChatGPT</div>
+        <div class="plat"><span class="dot"></span>Claude</div>
+        <div class="plat"><span class="dot"></span>Gemini</div>
+        <div class="plat"><span class="dot"></span>DeepSeek</div>
+        <div class="plat"><span class="dot"></span>Kimi</div>
+        <div class="plat"><span class="dot"></span>Qwen</div>
+        <div class="plat"><span class="dot"></span>GLM</div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Try It -->
-  <section id="try-it" class="try-it">
-    <div class="try-container">
-      <div class="section-label">Interactive</div>
-      <h2 class="section-title">Try It Now</h2>
-      <p style="text-align:center;color:var(--ink-light);margin-bottom:2rem;font-size:0.95rem">Paste any prompt below. Hit Generate My Gift for a surprise, or Compress for your own text.</p>
-      <textarea id="input" class="try-textarea" rows="5" maxlength="2000" placeholder="Paste your prompt here...">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists, digital neural networks pulse through the buildings like veins of light. The sky is a gradient of deep purple to electric blue, rain reflects all the neon colors on wet streets. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic. Mood: awe-inspiring, futuristic, hopeful.</textarea>
-      <div style="text-align:right;font-size:0.75rem;color:var(--ink-muted);margin-top:0.5rem"><span id="charCount">0</span> / 2,000</div>
-      <div class="try-buttons">
-        <button id="btnGift" onclick="compress(true)" class="btn btn-primary">Generate My Gift</button>
-        <button id="btnCompress" onclick="compress(false)" class="btn btn-secondary">Compress</button>
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Capabilities</div>
+      <h2>Six primitives. One protocol.</h2>
+      <p>Everything I-Lang does boils down to six behaviours you can combine in a single prompt. No SDK, no runtime, no model-specific dialect.</p>
+    </div>
+
+    <div class="caps fade">
+      <div class="cap">
+        <div class="cap-head"><span class="cap-num">01</span><span class="cap-badge">compress</span></div>
+        <h3>Compress 40–65%</h3>
+        <p>Same meaning, far fewer tokens. Self-thinking mode compresses the <span class="mono">model's</span> internal reasoning too.</p>
       </div>
-      <div id="loading" style="display:none;text-align:center;padding:2rem;color:var(--ink-muted)">Compressing<span class="loading-dots"></span></div>
-      <div id="errorBox" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:1rem;color:#dc2626;font-size:0.9rem"><span id="errorText"></span></div>
-      <div id="outputArea" style="display:none" class="try-output">
-        <div style="font-size:0.75rem;color:var(--ink-muted);margin-bottom:0.5rem;font-weight:600">Compressed Output</div>
-        <div id="outputText" class="output-text"></div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div id="tokenInfo" class="token-info"></div>
-          <button id="btnCopy" onclick="copyResult()" class="btn btn-secondary" style="padding:0.5rem 1rem;font-size:0.8rem">Copy</button>
-        </div>
+      <div class="cap">
+        <div class="cap-head"><span class="cap-num">02</span><span class="cap-badge">chain</span></div>
+        <h3>Chain workflows</h3>
+        <p><span class="mono">[STEP1]=&gt;[STEP2]=&gt;[OUT]</span>. Multi-step pipelines, loops and conditionals in a single prompt.</p>
       </div>
-      <div style="background:linear-gradient(135deg,#dbeafe,#e0e7ff);border-radius:12px;padding:1rem;margin-top:1rem;display:none" id="superpower">
-        <span style="font-weight:600;color:var(--ink)">Superpower:</span>
-        <span style="color:var(--ink-light)">Your AI can now read any webpage. Send it: <code style="background:rgba(37,99,235,0.1);padding:0.25rem 0.5rem;border-radius:4px;font-size:0.8rem">i.ilang.ai/https://any-url</code></span>
+      <div class="cap">
+        <div class="cap-head"><span class="cap-num">03</span><span class="cap-badge">direct</span></div>
+        <h3>Answer directly</h3>
+        <p>No hedging, no padding, no permission-asking. Structured instructions eliminate ambiguity.</p>
       </div>
-      <div style="text-align:center;margin-top:1.5rem;font-size:0.9rem;color:var(--ink-muted)">
-        <span id="counterNum" style="font-weight:700;color:var(--ink)">0</span> compressions served
+      <div class="cap">
+        <div class="cap-head"><span class="cap-num">04</span><span class="cap-badge">privacy</span></div>
+        <h3>Privacy by design</h3>
+        <p>Compressed text transmits less data. Less content on the wire, less exposure on provider servers.</p>
+      </div>
+      <div class="cap">
+        <div class="cap-head"><span class="cap-num">05</span><span class="cap-badge">vision</span></div>
+        <h3>Web vision</h3>
+        <p><span class="mono">i.ilang.ai/{url}</span> — paste into any chat and the model reads the page.</p>
+      </div>
+      <div class="cap">
+        <div class="cap-head"><span class="cap-num">06</span><span class="cap-badge">portable</span></div>
+        <h3>Every major model</h3>
+        <p>ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM. One protocol, no vendor lock-in.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Products -->
-  <section class="products">
-    <div class="products-container">
-      <div class="section-label">Ecosystem</div>
-      <h2 class="section-title">Built with I-Lang</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>🤖 AutoCode</h3>
-          <p>39 auto-activated skills for Claude Code. Say what you want, get a product. Zero code, zero dependencies.</p>
-          <div class="product-links">
-            <a href="https://github.com/ilang-ai/autocode" target="_blank">GitHub</a>
-            <a href="https://ilang.cn/autocode-install.html" target="_blank">Install Guide</a>
+<!-- PROTOCOL / QUICK START -->
+<section class="protocol-sect" id="protocol">
+  <div class="container">
+    <div class="fade">
+      <div class="sect-tag">Quick start</div>
+      <h2>Three steps. No install.</h2>
+      <p style="font-size:17px;color:var(--muted);line-height:1.6;margin-top:14px">
+        I-Lang is text. You don't install it — you paste it.
+        It runs anywhere an LLM accepts a prompt.
+      </p>
+
+      <div class="protocol-steps">
+        <div class="p-step">
+          <div class="n">1</div>
+          <div class="t">
+            <b>Copy the protocol header</b>
+            <p>Grab the block on the right. It's the full v2.0 header — layers, workflow, verbs, activation.</p>
           </div>
         </div>
-        <div class="product-card">
-          <h3>🇨🇳 ZeroCode</h3>
-          <p>40 Chinese skills for Trae IDE. Paste one line, start building. Designed for non-programmers.</p>
-          <div class="product-links">
-            <a href="https://github.com/ilang-ai/trae" target="_blank">GitHub</a>
-            <a href="https://marketplace.visualstudio.com/items?itemName=ILang.zerocode" target="_blank">VS Code</a>
+        <div class="p-step">
+          <div class="n">2</div>
+          <div class="t">
+            <b>Paste into any AI conversation</b>
+            <p>ChatGPT, Claude.ai, Gemini, DeepSeek — doesn't matter. The first turn activates the protocol.</p>
           </div>
         </div>
-        <div class="product-card">
-          <h3>👁️ AI See</h3>
-          <p>Give your AI eyes. <code style="background:var(--bg-muted);padding:0.2rem 0.5rem;border-radius:4px;font-size:0.8rem">i.ilang.ai/https://any-url</code> Paste into any AI conversation.</p>
-          <div class="product-links">
-            <a href="https://i.ilang.ai" target="_blank">Try it</a>
-          </div>
-        </div>
-        <div class="product-card">
-          <h3>📖 OpenClaw Skills</h3>
-          <p>Instruction-only skills on ClawHub. Token compression, AI-to-AI prompting, universal upgrade protocol.</p>
-          <div class="product-links">
-            <a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">GitHub</a>
+        <div class="p-step">
+          <div class="n">3</div>
+          <div class="t">
+            <b>Start compressing</b>
+            <p>Write prompts in I-Lang syntax, or let the model compress your natural-language prompts for you.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Dictionary -->
-  <section class="dictionary">
-    <div class="dict-container">
-      <div class="section-label">Reference</div>
-      <h2 class="section-title">Core Dictionary</h2>
-      <div class="dict-group">
-        <div class="dict-label">Data I/O</div>
+    <div class="fade">
+      <div class="sect-tag">Specimen</div>
+      <h2 style="font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px">Before ⟷ After</h2>
+      <p style="color:var(--muted);font-size:15px;margin-bottom:24px">Real examples. Token counts verified by OpenAI tiktoken (cl100k_base).</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th style="width:45%">Natural language</th>
+            <th style="width:40%">I-Lang</th>
+            <th>Saved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="before" data-label="Natural">Extract text from a URL and format as Markdown</td>
+            <td class="after" data-label="I-Lang">[GET:@WEB|url]=&gt;[FMT|fmt=md]=&gt;[OUT]</td>
+            <td data-label="Saved"><span class="save">−58%</span></td>
+          </tr>
+          <tr>
+            <td class="before" data-label="Natural">Read all .md files, merge into one, output result</td>
+            <td class="after" data-label="I-Lang">[LIST:*.md]=&gt;[LOOP:READ]=&gt;[MERGE]=&gt;[OUT]</td>
+            <td data-label="Saved"><span class="save">−65%</span></td>
+          </tr>
+          <tr>
+            <td class="before" data-label="Natural">Summarize previous output in 3 professional bullet points</td>
+            <td class="after" data-label="I-Lang">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=&gt;[OUT]</td>
+            <td data-label="Saved"><span class="save">−52%</span></td>
+          </tr>
+          <tr>
+            <td class="before" data-label="Natural">Translate to Japanese, formal tone, then convert to table</td>
+            <td class="after" data-label="I-Lang">[TRANSLATE|lang=ja,ton=formal]=&gt;[CONV|fmt=table]=&gt;[OUT]</td>
+            <td data-label="Saved"><span class="save">−61%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TRY IT -->
+<section id="try">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Interactive</div>
+      <h2>Compress a prompt.</h2>
+      <p>Drop any prompt in. The I-Lang compiler rewrites it in protocol syntax and returns a token delta.</p>
+    </div>
+
+    <div class="fade">
+      <div class="try-wrap">
+        <div class="try-head">
+          <span class="label">input.txt</span>
+          <span class="try-count"><span id="charCount">0</span> / 2,000</span>
+        </div>
+        <textarea id="input" class="try-textarea" rows="6" maxlength="2000" placeholder="Paste any prompt here…">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic.</textarea>
+        <div class="try-actions">
+          <div class="try-actions-left">
+            <button class="btn btn-primary btn-sm" onclick="compress(false)" id="btnCompress">Compress <span class="mono">→</span></button>
+            <button class="btn btn-secondary btn-sm" onclick="compress(true)" id="btnGift">Surprise me</button>
+            <span class="try-loading mono" id="loading">compiling</span>
+          </div>
+          <div class="try-counter"><b id="counterNum">0</b> compressions served</div>
+        </div>
+      </div>
+
+      <div class="try-error" id="errorBox"><span id="errorText"></span></div>
+
+      <div class="try-output" id="outputArea">
+        <div class="out-label">output.ilang</div>
+        <pre id="outputText"></pre>
+        <div class="out-foot">
+          <span id="tokenInfo"></span>
+          <button class="code-copy" id="btnCopy" onclick="copyResult()">Copy</button>
+        </div>
+      </div>
+
+      <div class="try-tip">
+        <b>Bonus.</b> Your AI can now read any webpage. Send it:
+        <code>i.ilang.ai/https://any-url</code>
+        — paste into any AI conversation and it fetches + reads the page.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Ecosystem</div>
+      <h2>Built with I-Lang.</h2>
+      <p>First-party tools that ship the protocol to where developers already work.</p>
+    </div>
+
+    <div class="eco fade">
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">AutoCode <span class="tag">claude-code</span></div>
+          <span class="eco-meta">39 skills</span>
+        </div>
+        <p>Auto-activated skill pack for Claude Code. Say what you want, get a product. Zero code, zero dependencies.</p>
+        <div class="eco-links">
+          <a href="https://github.com/ilang-ai/autocode" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://ilang.cn/autocode-install.html" target="_blank" rel="noopener">Install</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">ZeroCode <span class="tag">trae-ide</span></div>
+          <span class="eco-meta">40 skills · 中文</span>
+        </div>
+        <p>40 Chinese skill bundles for Trae IDE. Paste one line, start building. Designed for non-programmers.</p>
+        <div class="eco-links">
+          <a href="https://github.com/ilang-ai/trae" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=ILang.zerocode" target="_blank" rel="noopener">Marketplace</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">AI See <span class="tag">vision</span></div>
+          <span class="eco-meta">URL proxy</span>
+        </div>
+        <p>Give any model eyes. <span class="mono" style="color:var(--accent)">i.ilang.ai/{url}</span> — paste into any AI chat and the model reads the page.</p>
+        <div class="eco-links">
+          <a href="https://i.ilang.ai" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">OpenClaw Skills <span class="tag">clawhub</span></div>
+          <span class="eco-meta">skill bundle</span>
+        </div>
+        <p>Instruction-only skills published on ClawHub. Token compression, AI-to-AI prompting, universal upgrade protocol.</p>
+        <div class="eco-links">
+          <a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DICTIONARY -->
+<section id="dictionary">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Reference</div>
+      <h2>Core dictionary.</h2>
+      <p>56 verbs grouped into 6 categories. The full specification lives in <span class="mono" style="color:var(--accent)">ilang-dict</span>.</p>
+    </div>
+
+    <div class="dict fade">
+      <div class="dict-row">
+        <div class="dict-key">Data I/O</div>
         <div class="dict-tags">
           <span class="dict-tag">READ</span><span class="dict-tag">WRITE</span><span class="dict-tag">GET</span><span class="dict-tag">SEND</span><span class="dict-tag">RECV</span><span class="dict-tag">LIST</span><span class="dict-tag">STRM</span><span class="dict-tag">FETCH</span>
         </div>
       </div>
-      <div class="dict-group">
-        <div class="dict-label">Transform</div>
+      <div class="dict-row">
+        <div class="dict-key">Transform</div>
         <div class="dict-tags">
           <span class="dict-tag">FMT</span><span class="dict-tag">CONV</span><span class="dict-tag">SPLIT</span><span class="dict-tag">MERGE</span><span class="dict-tag">MAP</span><span class="dict-tag">FILT</span><span class="dict-tag">SORT</span><span class="dict-tag">DEDUP</span><span class="dict-tag">FLAT</span><span class="dict-tag">NEST</span>
         </div>
       </div>
-      <div class="dict-group">
-        <div class="dict-label">Analysis</div>
+      <div class="dict-row">
+        <div class="dict-key">Analysis</div>
         <div class="dict-tags">
           <span class="dict-tag">CMP</span><span class="dict-tag">DIFF</span><span class="dict-tag">RANK</span><span class="dict-tag">EVAL</span><span class="dict-tag">SCAN</span><span class="dict-tag">MATCH</span><span class="dict-tag">COUNT</span><span class="dict-tag">STATS</span>
         </div>
       </div>
-      <div class="dict-group">
-        <div class="dict-label">Generation</div>
+      <div class="dict-row">
+        <div class="dict-key">Generation</div>
         <div class="dict-tags">
           <span class="dict-tag">GEN</span><span class="dict-tag">DRAFT</span><span class="dict-tag">EXPAND</span><span class="dict-tag">REWRITE</span><span class="dict-tag">SYNTH</span><span class="dict-tag">MOCK</span><span class="dict-tag">FILL</span><span class="dict-tag">VARY</span>
         </div>
       </div>
-      <div class="dict-group">
-        <div class="dict-label">Output</div>
+      <div class="dict-row">
+        <div class="dict-key">Output</div>
         <div class="dict-tags">
           <span class="dict-tag">SUM</span><span class="dict-tag">OUT</span><span class="dict-tag">LOOP</span><span class="dict-tag">DELTA</span><span class="dict-tag">EMIT</span><span class="dict-tag">LOG</span><span class="dict-tag">ALERT</span><span class="dict-tag">RENDER</span>
         </div>
       </div>
-      <div class="dict-group">
-        <div class="dict-label">Meta</div>
+      <div class="dict-row">
+        <div class="dict-key">Meta</div>
         <div class="dict-tags">
           <span class="dict-tag">SET</span><span class="dict-tag">GET</span><span class="dict-tag">DEL</span><span class="dict-tag">RESET</span><span class="dict-tag">HELP</span><span class="dict-tag">VER</span><span class="dict-tag">LANG</span><span class="dict-tag">MODE</span><span class="dict-tag">CTX</span><span class="dict-tag">BATCH</span>
         </div>
       </div>
-      <div style="text-align:center;margin-top:2rem;font-size:0.9rem;color:var(--ink-muted)">
-        Full dictionary: <a href="https://github.com/ilang-ai/ilang-dict" target="_blank" style="color:var(--accent)">github.com/ilang-ai/ilang-dict</a>
+    </div>
+    <div style="text-align:center;margin-top:40px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted)">
+      Full spec: <a href="https://github.com/ilang-ai/ilang-dict" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500">github.com/ilang-ai/ilang-dict</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Stop paying for filler tokens.</h2>
+    <p>I-Lang is free, open, and works today on every major LLM. MIT licensed, maintained by I-Lang Research.</p>
+    <div class="btns">
+      <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="btn btn-primary">GitHub <span class="mono">↗</span></a>
+      <a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener" class="btn btn-secondary">Hugging Face <span class="mono">↗</span></a>
+      <a href="#try" class="btn btn-secondary">Try now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
+        <p>An open, cross-platform standard protocol for human–AI communication. Maintained by I-Lang Research, a division of Eastsoft Inc., Canada.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Protocol</h5>
+        <ul>
+          <li><a href="#protocol">Quick start</a></li>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#dictionary">Dictionary</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">Specification</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Build</h5>
+        <ul>
+          <li><a href="https://github.com/ilang-ai/autocode" target="_blank" rel="noopener">AutoCode</a></li>
+          <li><a href="https://github.com/ilang-ai/trae" target="_blank" rel="noopener">ZeroCode</a></li>
+          <li><a href="https://i.ilang.ai" target="_blank" rel="noopener">AI See</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank" rel="noopener">OpenClaw</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Community</h5>
+        <ul>
+          <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
+          <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">Research</a></li>
+          <li><a href="https://ilang.cn" target="_blank" rel="noopener">中文站</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- Credits -->
-  <section class="credits">
-    <p>I-Lang v2.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).<br>
-    Protocol security: Cognitive Identity Authentication<br>
-    静水流深 | ilang:genesis:2026-03-04</p>
-    <div style="margin-top:1.5rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;font-size:0.9rem">
-      <span>Questions? <a href="https://github.com/ilang-ai/ilang-dict/issues" target="_blank" style="color:var(--accent)">Discuss on GitHub</a></span>
-      <span style="color:var(--border)">|</span>
-      <span>If I-Lang saved your tokens, <a href="https://github.com/ilang-ai/ilang-dict" target="_blank" style="color:var(--accent)">give us a star ★</a></span>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-links">
-        <a href="https://ilang.ai">Protocol</a>
-        <a href="https://research.ilang.ai" target="_blank">Research</a>
-        <a href="https://i.ilang.ai" target="_blank">AI See</a>
-        <a href="https://github.com/ilang-ai/ilang-dict" target="_blank">Dictionary</a>
-        <a href="https://github.com/ilang-ai/ilang-spec" target="_blank">Specification</a>
-        <a href="https://github.com/ilang-ai" target="_blank">GitHub</a>
-        <a href="/privacy.html">Privacy</a>
+    <div class="foot-bottom">
+      <span>© 2026 I-Lang Research · Eastsoft Inc. · Canada</span>
+      <div class="ids">
+        <span>MIT License</span>
+        <span>ilang:genesis:2026-03-04</span>
       </div>
-      <div class="footer-copy">I-Lang Research · Eastsoft Inc. · Canada · © 2026</div>
     </div>
-  </footer>
+  </div>
+</footer>
+
 </div>
 
 <script>
-// WeChat/QQ detection
+// WeChat / QQ detection
 (function(){
   var ua=navigator.userAgent.toLowerCase();
-  if(ua.indexOf('micromessenger')>-1||ua.indexOf('qq/')>-1||ua.indexOf('qzone/')>-1||ua.indexOf('mqqbrowser')>-1){
+  if(ua.indexOf('micromessenger')>-1||ua.indexOf('qq/')>-1||ua.indexOf('mqqbrowser')>-1){
     document.getElementById('wxguard').style.display='block';
-    document.getElementById('mainContent').style.display='none';
+    document.getElementById('main').style.display='none';
   }
 })();
 
-// Nav scroll effect
-window.addEventListener('scroll',function(){
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
-});
+// Fade-in on scroll
+(function(){
+  var els=document.querySelectorAll('.fade');
+  function ck(){for(var i=0;i<els.length;i++){if(els[i].getBoundingClientRect().top<window.innerHeight-60)els[i].classList.add('v')}}
+  window.addEventListener('scroll',ck,{passive:true});ck();
+})();
 
-// Character count
-const API='https://api.ilang.ai';
-const input=document.getElementById('input');
-const charCount=document.getElementById('charCount');
-function updateCharCount(){charCount.textContent=input.value.length.toLocaleString();}
-input.addEventListener('input',updateCharCount);
-updateCharCount();
+// Char count
+var input=document.getElementById('input'),charCount=document.getElementById('charCount');
+function uc(){charCount.textContent=input.value.length.toLocaleString()}
+input.addEventListener('input',uc);uc();
 
 // Copy protocol
 function copyProtocol(){
-  const text=document.getElementById('protocolText').textContent;
-  navigator.clipboard.writeText(text).then(()=>{
-    const btn=document.getElementById('btnCopyProtocol');
-    btn.textContent='Copied!';
-    btn.classList.add('copied');
-    setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied');},2000);
+  var t=document.getElementById('protocolText').innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var b=document.getElementById('btnCopyProtocol');b.textContent='Copied';b.classList.add('copied');
+    setTimeout(function(){b.textContent='Copy';b.classList.remove('copied')},1800);
   });
 }
 
-// Compress
+// Compress API
+var API='https://api.ilang.ai';
 async function compress(isGift){
-  const text=input.value.trim();
-  if(!text)return;
-  const btnGift=document.getElementById('btnGift');
-  const btnCompress=document.getElementById('btnCompress');
-  const loading=document.getElementById('loading');
-  const outputArea=document.getElementById('outputArea');
-  const errorBox=document.getElementById('errorBox');
-  const superpower=document.getElementById('superpower');
-  btnGift.disabled=true;btnCompress.disabled=true;
-  loading.style.display='block';outputArea.style.display='none';errorBox.style.display='none';
+  var text=input.value.trim();if(!text)return;
+  var bG=document.getElementById('btnGift'),bC=document.getElementById('btnCompress');
+  var loading=document.getElementById('loading'),out=document.getElementById('outputArea');
+  var err=document.getElementById('errorBox');
+  bG.disabled=true;bC.disabled=true;
+  loading.classList.add('show');out.classList.remove('show');err.classList.remove('show');
   try{
-    const res=await fetch(API+'/compress',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:text})});
-    const data=await res.json();
-    if(!res.ok){document.getElementById('errorText').innerHTML=data.error||'Something went wrong.';errorBox.style.display='block';return;}
+    var res=await fetch(API+'/compress',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:text})});
+    var data=await res.json();
+    if(!res.ok){document.getElementById('errorText').innerHTML=data.error||'Something went wrong.';err.classList.add('show');return}
     document.getElementById('outputText').textContent=data.output;
-    document.getElementById('tokenInfo').innerHTML='<span class="token-saved">'+data.tokens.saved+' saved</span> · '+data.tokens.input+' → '+data.tokens.output+' tokens';
-    outputArea.style.display='block';
-    superpower.style.display='block';
-    outputArea.scrollIntoView({behavior:'smooth',block:'nearest'});
+    document.getElementById('tokenInfo').innerHTML='<span class="saved">'+data.tokens.saved+' saved</span> · '+data.tokens.input+' → '+data.tokens.output+' tokens';
+    out.classList.add('show');
     fetchStats();
-  }catch(err){
-    document.getElementById('errorText').textContent='Network error. Please try again.';
-    errorBox.style.display='block';
-  }finally{
-    loading.style.display='none';btnGift.disabled=false;btnCompress.disabled=false;
-  }
+  }catch(e){document.getElementById('errorText').textContent='Network error. Please try again.';err.classList.add('show')}
+  finally{loading.classList.remove('show');bG.disabled=false;bC.disabled=false}
 }
-
-// Copy result
 function copyResult(){
-  const text=document.getElementById('outputText').textContent;
-  const footer='\n\n---\nI-Lang v2.0 | Max (@SUN) designed, Claude Opus (@OPUS) co-authored, Gemini (@GEMINI) reviewed.\n静水流深 | ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict | Eyes: i.ilang.ai/{url}';
-  navigator.clipboard.writeText(text+footer).then(()=>{
-    const btn=document.getElementById('btnCopy');
-    btn.textContent='Copied!';
-    setTimeout(()=>{btn.textContent='Copy';},2000);
+  var t=document.getElementById('outputText').textContent;
+  var f='\n\n---\nI-Lang v2.0 · Max (@SUN) designed · Claude Opus (@OPUS) co-authored · Gemini (@GEMINI) reviewed.\n静水流深 · ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict · Eyes: i.ilang.ai/{url}';
+  navigator.clipboard.writeText(t+f).then(function(){
+    var b=document.getElementById('btnCopy');b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1800);
   });
 }
-
-// Stats
 async function fetchStats(){
   try{
-    const res=await fetch(API+'/stats');
-    const data=await res.json();
-    document.getElementById('counterNum').textContent=(data.today||0).toLocaleString();
+    var r=await fetch(API+'/stats');var d=await r.json();
+    document.getElementById('counterNum').textContent=(d.today||0).toLocaleString();
   }catch(e){}
 }
 fetchStats();
+
+// Nav scroll (subtle)
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('nav');
+  if(window.scrollY>20){n.style.boxShadow='0 1px 0 rgba(10,14,23,.04)'}else{n.style.boxShadow='none'}
+},{passive:true});
 </script>
 </body>
 </html>
