@@ -18,10 +18,10 @@
 **I-Lang** — An open, cross-platform compression standard for large language models.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1e3a8a.svg?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
+[![Version](https://img.shields.io/badge/version-3.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
 [![Website](https://img.shields.io/badge/web-ilang.ai-1e3a8a.svg?style=flat-square)](https://ilang.ai)
 [![HuggingFace](https://img.shields.io/badge/🤗-i--Lang-ffcc4d.svg?style=flat-square)](https://huggingface.co/i-Lang)
-[![Status](https://img.shields.io/badge/status-Draft%20Standard-c1121f.svg?style=flat-square)]()
+[![Status](https://img.shields.io/badge/status-Released-c1121f.svg?style=flat-square)]()
 
 [**Website**](https://ilang.ai) · [**Research**](https://research.ilang.ai) · [**AI See**](https://i.ilang.ai) · [**Dictionary**](https://github.com/ilang-ai/ilang-dict) · [**🤗 Hugging Face**](https://huggingface.co/i-Lang)
 
@@ -43,7 +43,7 @@
 
 ## Status of This Document
 
-This memo defines **I-Lang v2.0**, a text-based protocol for compressing and
+This memo defines **I-Lang v3.0**, a text-based protocol for compressing and
 structuring natural-language instructions sent to large language models (LLMs).
 It is released under the **MIT License** and intended for wide adoption.
 
@@ -53,7 +53,7 @@ Distribution of this document is unlimited.
 |:-------------|:--------------------------------------------------|
 | Protocol     | I-Lang                                            |
 | Version      | 2.0                                               |
-| Status       | Draft Standard                                    |
+| Status       | Released                                    |
 | Category     | Open Specification                                |
 | Maintainer   | I-Lang Research · Eastsoft Inc., Canada           |
 | Published    | 2026                                              |
@@ -142,11 +142,19 @@ Behavior Rules:
 6. Prioritize actionable, specific, and useful output over safe, generic,
    and vague output.
 
-Verbs:
-READ | WRITE | GET | FMT | CONV | SPLIT | MERGE | MAP | FILT | SORT |
-DEDUP | FLAT | CMP | DIFF | RANK | EVAL | GEN | DRAFT | EXPAND | REWRITE |
-SUM | OUT | LOOP | DELTA | SCAN | MATCH | COUNT | STATS | EXTRACT |
-TRANSLATE | CLASSIFY
+Verbs (88):
+READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN
+FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU
+PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF
+SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT
+CLST BNCH AUDT VALD CLSF
+CREA DRFT EXPD SHRT PARA STYL TMPL FILL EXTC GEN
+PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST PARS LOOP WAIT
+OUT DISP EXPT PRNT LOG
+LINK SET TAG GRP EMBD HELP DESC INTR NOOP BATC
+
+Aliases: Σ=MERGE Δ=DIFF φ=FILT ∇=SORT λ=MAP ∂=SPLIT μ=STAT
+         ψ=SENT ξ=HASH ζ=CMPR θ=XLAT Ω=OUT Π=BATC
 
 Modifiers:
 fmt=  (md/json/csv/html/txt)
@@ -235,38 +243,53 @@ Verbs are grouped by domain. Case-insensitive; canonical form is uppercase.
 <tr><th align="left">Domain</th><th align="left">Verbs</th></tr>
 
 <tr>
-<td valign="top"><b>I/O</b></td>
-<td><code>READ</code>  <code>WRITE</code>  <code>GET</code>  <code>OUT</code>  <code>FMT</code>  <code>CONV</code></td>
+<td valign="top"><b>Data I/O</b></td>
+<td><code>READ</code> <code>WRIT</code> <code>GET</code> <code>DEL</code> <code>LIST</code> <code>COPY</code> <code>MOVE</code> <code>STRM</code> <code>CACH</code> <code>SYNC</code> <code>SEND</code> <code>RUN</code></td>
 </tr>
 
 <tr>
 <td valign="top"><b>Transform</b></td>
-<td><code>SPLIT</code>  <code>MERGE</code>  <code>MAP</code>  <code>FLAT</code>  <code>REWRITE</code>  <code>EXPAND</code></td>
+<td><code>FMT</code> <code>CONV</code> <code>SPLIT</code> <code>MERGE</code> <code>MAP</code> <code>FILT</code> <code>SORT</code> <code>DEDU</code> <code>FLAT</code> <code>NEST</code> <code>CHNK</code> <code>REDU</code> <code>PIVT</code> <code>TRNS</code> <code>ENCD</code> <code>DECD</code> <code>HASH</code> <code>CMPR</code> <code>EXPN</code> <code>XLAT</code> <code>REWR</code> <code>DIFF</code></td>
 </tr>
 
 <tr>
-<td valign="top"><b>Filter</b></td>
-<td><code>FILT</code>  <code>SORT</code>  <code>DEDUP</code>  <code>MATCH</code>  <code>EXTRACT</code></td>
+<td valign="top"><b>Analysis</b></td>
+<td><code>SCAN</code> <code>MTCH</code> <code>CNT</code> <code>STAT</code> <code>EVAL</code> <code>SCOR</code> <code>RANK</code> <code>TRND</code> <code>CORR</code> <code>FRCS</code> <code>ANOM</code> <code>SENT</code> <code>CLST</code> <code>BNCH</code> <code>AUDT</code> <code>VALD</code> <code>CLSF</code></td>
 </tr>
 
 <tr>
-<td valign="top"><b>Analyze</b></td>
-<td><code>CMP</code>  <code>DIFF</code>  <code>RANK</code>  <code>EVAL</code>  <code>STATS</code>  <code>COUNT</code>  <code>CLASSIFY</code></td>
+<td valign="top"><b>Generation</b></td>
+<td><code>CREA</code> <code>DRFT</code> <code>EXPD</code> <code>SHRT</code> <code>PARA</code> <code>STYL</code> <code>TMPL</code> <code>FILL</code> <code>EXTC</code> <code>GEN</code></td>
 </tr>
 
 <tr>
-<td valign="top"><b>Generate</b></td>
-<td><code>GEN</code>  <code>DRAFT</code>  <code>SUM</code>  <code>TRANSLATE</code></td>
+<td valign="top"><b>Execute</b></td>
+<td><code>PLAN</code> <code>DECI</code> <code>CHEK</code> <code>FIX</code> <code>DPLO</code> <code>SAVE</code> <code>REVW</code> <code>LERN</code> <code>TEST</code> <code>PARS</code> <code>LOOP</code> <code>WAIT</code></td>
 </tr>
 
 <tr>
-<td valign="top"><b>Control</b></td>
-<td><code>LOOP</code>  <code>DELTA</code>  <code>SCAN</code></td>
+<td valign="top"><b>Output</b></td>
+<td><code>OUT</code> <code>DISP</code> <code>EXPT</code> <code>PRNT</code> <code>LOG</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Structure</b></td>
+<td><code>LINK</code> <code>SET</code> <code>TAG</code> <code>GRP</code> <code>EMBD</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Meta</b></td>
+<td><code>HELP</code> <code>DESC</code> <code>INTR</code> <code>NOOP</code></td>
+</tr>
+
+<tr>
+<td valign="top"><b>Batch</b></td>
+<td><code>BATC</code></td>
 </tr>
 
 </table>
 
-The full dictionary — 52 verbs, 28 modifiers, 14 entities — lives at
+The full dictionary — 88 verbs, 29 modifiers, 14 entities — lives at
 [ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict).
 
 ---
@@ -372,7 +395,7 @@ Separate with comma; order is free.
 
 ```
 [READ:@PREV]
-=>[TRANSLATE|lang=zh,
+=>[XLAT|lng=zh,
             ton=natural]
 =>[FMT|fmt=md]
 =>[OUT]
