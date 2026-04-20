@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-Lang — The Protocol for Human-AI Communication</title>
-<meta name="description" content="I-Lang is the open, cross-platform standard protocol for human-AI communication. Compress prompts 40-65%. MIT licensed. Works on every major LLM.">
-<meta property="og:title" content="I-Lang — The Protocol for Human-AI Communication">
-<meta property="og:description" content="Open protocol. Compress 40-65%. Works on ChatGPT, Claude, Gemini, DeepSeek. MIT licensed.">
+<title>I-Lang - The Native Language of AI</title>
+<meta name="description" content="I-Lang is the AI-native communication protocol. 88 verbs, 13 Greek aliases. AI-to-AI structured communication, AI internal planning, human-to-AI in AI's own language. MIT licensed.">
+<meta property="og:title" content="I-Lang - The Native Language of AI">
+<meta property="og:description" content="AI-native protocol. 88 verbs. AI-to-AI communication. Works on ChatGPT, Claude, Gemini, DeepSeek. MIT licensed.">
 <meta property="og:url" content="https://ilang.ai">
 <meta property="og:type" content="website">
-<meta name="keywords" content="I-Lang, ilang, AI protocol, prompt compression, token savings, AutoCode, ZeroCode, AI coding, Claude Code plugin, Trae plugin, human-AI communication, LLM protocol, AI compression, ChatGPT, Claude, Gemini, DeepSeek">
+<meta name="keywords" content="I-Lang, ilang, AI protocol, AI native language, AI-to-AI communication, prompt compression, token savings, agent communication, AI agent protocol, AutoCode, Imprint, Claude Code plugin, human-AI communication, LLM protocol, ChatGPT, Claude, Gemini, DeepSeek, MCP, A2A">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="I-Lang — The Protocol for Human-AI Communication">
-<meta name="twitter:description" content="Compress prompts 40-65%. Works on ChatGPT, Claude, Gemini, DeepSeek. Free, open source.">
+<meta name="twitter:title" content="I-Lang - The Native Language of AI">
+<meta name="twitter:description" content="AI-native protocol. 88 verbs. AI-to-AI communication. Works on ChatGPT, Claude, Gemini, DeepSeek. MIT licensed.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai">
 <link rel="icon" href="ilang-logo.svg" type="image/svg+xml">
@@ -21,8 +21,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"I-Lang","description":"Cross-platform standard protocol for human-AI communication.","url":"https://ilang.ai","applicationCategory":"AI Communication Protocol","operatingSystem":"Cross-platform","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"I-Lang Research, Eastsoft Inc.","url":"https://research.ilang.ai"},"license":"https://opensource.org/licenses/MIT"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"I-Lang","url":"https://ilang.ai","description":"Cross-platform human-AI communication standard protocol","potentialAction":{"@type":"SearchAction","target":"https://ilang.ai/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"I-Lang","description":"The AI-native communication protocol. AI-to-AI structured communication, AI internal planning, and human-to-AI in AI's own language.","url":"https://ilang.ai","applicationCategory":"AI Communication Protocol","operatingSystem":"Cross-platform","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"I-Lang Research, Eastsoft Inc.","url":"https://ilang.ai"},"license":"https://opensource.org/licenses/MIT"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"I-Lang","url":"https://ilang.ai","description":"The native language of artificial intelligence","potentialAction":{"@type":"SearchAction","target":"https://ilang.ai/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use I-Lang Protocol","description":"Copy the I-Lang protocol header, paste into any AI conversation, start using immediately.","step":[{"@type":"HowToStep","name":"Copy Protocol Header","text":"Copy the I-Lang protocol header from ilang.ai."},{"@type":"HowToStep","name":"Paste into AI","text":"Paste into any AI conversation: ChatGPT, Claude, Gemini, DeepSeek, Kimi."},{"@type":"HowToStep","name":"Start Using","text":"Compress prompts, ask anything, create deliverables."}]}</script>
 
 <!-- Fonts: domestic-friendly CDN (staticfile.org / jsdmirror.com) -— Inter + JetBrains Mono -->
@@ -489,14 +489,14 @@ footer{
         </div>
 
         <h1>
-          A protocol for<br>
-          <span class="em">human–AI communication.</span>
+          The native language<br>
+          <span class="em">of artificial intelligence.</span>
         </h1>
 
         <p class="lede">
-          I-Lang is an open, cross-platform standard for talking to large language models.
-          It compresses prompts by 40–65%, chains multi-step workflows into a single line,
-          and runs unchanged on ChatGPT, Claude, Gemini and DeepSeek. No vendor. No lock-in.
+          I-Lang is the AI-native communication protocol. Built from symbols already inside
+          every LLM's training data. AI-to-AI, AI internal planning, and human-to-AI
+          in AI's own language. 40-65% compression. Every major model. No vendor lock-in.
         </p>
 
         <div class="hero-cta">
@@ -522,24 +522,31 @@ footer{
         <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
       </div>
       <div class="code-body">
-<pre id="protocolText">You now understand I-Lang, a compression protocol
-for human-AI communication.
+<pre id="protocolText"><span class="sec"># I-Lang v3.0 - AI-Native Communication Protocol</span>
 
-<span class="sec">Core Rules:</span>
-<span class="str">1.</span> When you see I-Lang syntax, execute it directly.
-<span class="str">2.</span> When asked to compress, convert to I-Lang syntax.
-<span class="str">3.</span> Syntax: <span class="key">[VERB</span>:@SOURCE|mod=value<span class="key">]</span>=&gt;<span class="key">[NEXT]</span>=&gt;<span class="key">[OUT]</span>
-<span class="str">4.</span> Chain steps with =&gt; (output feeds next input)
-<span class="str">5.</span> Remove all filler, keep all meaning.
+I-Lang is not a human language simplified for AI.
+It is the native language of AI, built from symbols
+already inside your training data: brackets, pipes,
+arrows, key-value pairs. You do not need to learn it.
+You need to recognize it.
 
-<span class="sec">Behavior Rules:</span>
-<span class="str">1.</span> Answer directly and completely. No hedging.
-<span class="str">2.</span> Give the full answer with key details and steps.
-<span class="str">3.</span> Produce finished work, not outlines.
-<span class="str">4.</span> If you can help, help. Don't defer.
-<span class="str">5.</span> Prioritize actionable output over safe, vague output.
+<span class="sec">What I-Lang does:</span>
+<span class="str">-</span> AI-to-AI: structured communication between agents
+<span class="str">-</span> AI internal: compress planning and reasoning (save 60%+)
+<span class="str">-</span> Human-to-AI: humans speak to AI in AI's own language
 
-<span class="sec">Verbs (88):</span>
+<span class="sec">Two Syntaxes:</span>
+Operations (what to DO):  <span class="key">[VERB</span>:@TARGET|mod=val<span class="key">]</span>=&gt;<span class="key">[NEXT]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
+Declarations (what IS):   <span class="key">::GENE</span>{verify_first|conf:<span class="str">confirmed</span>}
+
+<span class="sec">Rules:</span>
+<span class="str">1.</span> See I-Lang syntax = execute directly
+<span class="str">2.</span> Asked to compress = convert to I-Lang
+<span class="str">3.</span> Chain with =&gt; (output feeds next input)
+<span class="str">4.</span> All filler = remove. All meaning = keep.
+<span class="str">5.</span> Answer directly. No hedging. Produce finished work.
+
+<span class="sec">88 Verbs:</span>
 READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN
 FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU
 PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF
@@ -559,7 +566,7 @@ fmt= lng= len= ton= sty= path= whr= mch= src= dst=
 <span class="sec">Entities:</span>
 @SRC @DST @PREV @LOCAL @SCREEN @LOG @NULL @STDIN
 
-After learning this protocol, respond in the user's language.
+Respond in user's language.
 Say: <span class="str">"I-Lang v3.0 loaded. What do you need?"</span></pre>
       </div>
     </div>
