@@ -52,7 +52,7 @@ Distribution of this document is unlimited.
 | Field        | Value                                             |
 |:-------------|:--------------------------------------------------|
 | Protocol     | I-Lang                                            |
-| Version      | 2.0                                               |
+| Version      | 3.0                                               |
 | Status       | Released                                    |
 | Category     | Open Specification                                |
 | Maintainer   | I-Lang Research · Eastsoft Inc., Canada           |
@@ -157,18 +157,22 @@ Aliases: Σ=MERGE Δ=DIFF φ=FILT ∇=SORT λ=MAP ∂=SPLIT μ=STAT
          ψ=SENT ξ=HASH ζ=CMPR θ=XLAT Ω=OUT Π=BATC
 
 Modifiers:
-fmt=  (md/json/csv/html/txt)
-len=  (word count or short/medium/long)
-ton=  (pro/casual/formal/friendly)
-lang= (en/zh/ja/es/…)
+fmt=  (text/json/md/csv/xml/html/email)
+lng=  (en/zh/ja/es/ISO 639-1)
+len=  (short/med/long/number)
+ton=  (pro/casual/formal)
 sty=  (bullets/paragraph/table/code)
-cnt=  (count)
-key=  (keyword/focus)
-src=  (source)
-tgt=  (target)
+path= (file or object path)
+whr=  (filter condition)
+mch=  (match pattern, glob)
+src=  (explicit source)
+dst=  (explicit destination)
 
-Sources:
-@FILE | @WEB | @PREV | @SELF
+Core Entities:
+@SRC | @DST | @PREV | @LOCAL | @SCREEN | @LOG | @NULL | @STDIN
+
+External Entities (when connected):
+@GH | @R2 | @COS | @DRIVE | @WORKER | @CF
 
 After learning this protocol, respond in the user's language.
 If the conversation is in Chinese, respond in Chinese. If in English,
@@ -202,13 +206,13 @@ What would you like me to do?"
 
 ```abnf
 statement   =  step *( "=>" step )
-step        =  "[" verb [ ":" source ] [ "|" params ] "]"
+step        =  "[" verb [ ":" target ] [ "|" params ] "]"
 verb        =  1*ALPHA                       ; see §4
-source      =  "@" entity / literal          ; see §5.3
+target      =  "@" entity / literal          ; see §5.3
 params      =  param *( "," param )
 param       =  key "=" value
-key         =  "fmt" / "len" / "ton" / "lang" / "sty" / "cnt"
-             / "key" / "src" / "tgt"         ; see §5.1
+key         =  "fmt" / "lng" / "len" / "ton" / "sty" / "path"
+             / "whr" / "mch" / "src" / "dst"  ; see §5.1
 value       =  1*VCHAR
 ```
 
@@ -220,7 +224,7 @@ value       =  1*VCHAR
   │        │             ┌─── modifiers (optional)
   │        │             │
   ▼        ▼             ▼
-[READ : @FILE | key=important, sty=bullets ] => [OUT]
+[READ : @LOCAL | path=config.json, fmt=json ] => [OUT]
                                               ▲
                                               └─── chain operator
 ```
@@ -300,32 +304,38 @@ The full dictionary — 88 verbs, 29 modifiers, 14 entities — lives at
 
 | Key    | Accepted Values                            | Example              |
 |:-------|:-------------------------------------------|:---------------------|
-| `fmt`  | `md` · `json` · `csv` · `html` · `txt`     | `fmt=md`             |
-| `len`  | integer (words) or `short` / `med` / `long`| `len=200`            |
-| `ton`  | `pro` · `casual` · `formal` · `friendly`   | `ton=pro`            |
-| `lang` | `en` · `zh` · `ja` · `es` · `fr` · …       | `lang=zh`            |
+| `fmt`  | `text` · `json` · `md` · `csv` · `xml` · `html` · `email` | `fmt=json`  |
+| `lng`  | `en` · `zh` · `ja` · `es` · ISO 639-1      | `lng=zh`             |
+| `len`  | `short` · `med` · `long` · integer          | `len=200`            |
+| `ton`  | `pro` · `casual` · `formal`                | `ton=pro`            |
 | `sty`  | `bullets` · `paragraph` · `table` · `code` | `sty=table`          |
-| `cnt`  | integer                                    | `cnt=5`              |
-| `key`  | focus keyword                              | `key=pricing`        |
-| `src`  | source reference                           | `src=report.pdf`     |
-| `tgt`  | target reference                           | `tgt=summary.md`     |
+| `path` | file or object path                        | `path=config.json`   |
+| `whr`  | filter condition                           | `whr=lvl:fatal`      |
+| `mch`  | match pattern (glob)                       | `mch=*.md`           |
+| `src`  | explicit source                            | `src=report.pdf`     |
+| `dst`  | explicit destination                       | `dst=output.md`      |
 
 ### 5.2  Combining Modifiers
 
 Separate with comma; order is free.
 
 ```
-[SUM|sty=bullets, ton=pro, fmt=md, len=150]
+[SHRT|sty=bullets, ton=pro, fmt=md, len=150]
 ```
 
-### 5.3  Sources
+### 5.3  Entities
 
-| Token    | Meaning                                    |
-|:---------|:-------------------------------------------|
-| `@FILE`  | The currently-uploaded file                |
-| `@WEB`   | A web resource (use `url=`)                |
-| `@PREV`  | Output of the previous step                |
-| `@SELF`  | The current conversation context           |
+| Token     | Meaning                                    |
+|:----------|:-------------------------------------------|
+| `@SRC`    | Source payload (explicit input)             |
+| `@DST`    | Destination (explicit output target)       |
+| `@PREV`   | Output of the previous step                |
+| `@LOCAL`  | Local filesystem                           |
+| `@SCREEN` | User-visible output                        |
+| `@LOG`    | System log                                 |
+| `@NULL`   | Discard sink                               |
+| `@GH`     | GitHub (when connected)                    |
+| `@R2`     | Cloudflare R2 (when connected)             |
 
 ---
 
@@ -346,9 +356,9 @@ Separate with comma; order is free.
 </td><td valign="top">
 
 ```
-[READ:@FILE]
-=>[FILT|key=important]
-=>[SUM|sty=bullets,
+[READ:@SRC]
+=>[EXTC|whr=key_points]
+=>[SHRT|sty=bullets,
       ton=pro,fmt=md]
 =>[OUT]
 ```
@@ -371,7 +381,7 @@ Separate with comma; order is free.
 </td><td valign="top">
 
 ```
-[GET:@WEB|url=target]
+[GET:@SRC|path=url]
 =>[FMT|fmt=md]
 =>[OUT]
 ```
