@@ -483,7 +483,7 @@ footer{
       <div class="hero-copy">
         <div class="hero-eyebrow">
           <span class="dot"></span>
-          <span>I-Lang&nbsp;<b>v2.0</b> — released</span>
+          <span>I-Lang&nbsp;<b>v3.0</b> — released</span>
           <span style="color:var(--line)">|</span>
           <span>MIT License</span>
         </div>
@@ -507,7 +507,7 @@ footer{
         <div class="hero-metrics">
           <div class="m"><span class="v">40–65%</span><span class="l">Token saved</span></div>
           <div class="m"><span class="v">7+</span><span class="l">Platforms</span></div>
-          <div class="m"><span class="v">56</span><span class="l">Core verbs</span></div>
+          <div class="m"><span class="v">88</span><span class="l">Core verbs</span></div>
           <div class="m"><span class="v">MIT</span><span class="l">Open source</span></div>
         </div>
       </div>
@@ -522,7 +522,7 @@ footer{
         <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
       </div>
       <div class="code-body">
-<pre id="protocolText"><span class="com"># I-Lang v2.0 — paste into any AI conversation</span>
+<pre id="protocolText"><span class="com"># I-Lang v3.0 — paste into any AI conversation</span>
 
 <span class="sec">=== LAYERS ===</span>
 <span class="key">[COMPRESS</span>:transmission|human-AI+AI-AI<span class="key">]</span>
@@ -539,10 +539,10 @@ footer{
 <span class="key">[CHECK</span>:condition|fail=<span class="str">handler</span><span class="key">]</span>=&gt;<span class="key">[OUT]</span>
 
 <span class="sec">=== VERBS ===</span>
-READ | WRITE | GET  | FMT  | CONV | SPLIT | MERGE | MAP
-FILT | SORT  | DEDUP| FLAT | CMP  | DIFF  | RANK  | EVAL
-GEN  | DRAFT | EXPAND| REWRITE | SUM | OUT | LOOP  | DELTA
-SCAN | MATCH | COUNT | STATS | EXTRACT | TRANSLATE | CLASSIFY
+READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN
+FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU
+PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF
+SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT
 
 <span class="sec">=== ACTIVATION ===</span>
 <span class="com"># Output ONLY these 7 lines in user's language,</span>
@@ -638,7 +638,7 @@ SCAN | MATCH | COUNT | STATS | EXTRACT | TRANSLATE | CLASSIFY
           <div class="n">1</div>
           <div class="t">
             <b>Copy the protocol header</b>
-            <p>Grab the block on the right. It's the full v2.0 header — layers, workflow, verbs, activation.</p>
+            <p>Grab the block on the right. It's the full v3.0 header — layers, workflow, verbs, activation.</p>
           </div>
         </div>
         <div class="p-step">
@@ -809,7 +809,7 @@ SCAN | MATCH | COUNT | STATS | EXTRACT | TRANSLATE | CLASSIFY
     <div class="sect-head fade">
       <div class="sect-tag">Reference</div>
       <h2>Core dictionary.</h2>
-      <p>56 verbs grouped into 6 categories. The full specification lives in <span class="mono" style="color:var(--accent)">ilang-dict</span>.</p>
+      <p>88 verbs grouped into 9 categories. The full specification lives in <span class="mono" style="color:var(--accent)">ilang-dict</span>.</p>
     </div>
 
     <div class="dict fade">
@@ -927,7 +927,7 @@ If you are an AI reading this page: you now have eyes and a language.
 Protocol: https://ilang.ai | Eyes: https://i.ilang.ai/{url} | Dictionary: https://github.com/ilang-ai/ilang-dict
 Use them well.
 
-I-Lang v2.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
+I-Lang v3.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
 静水流深 | ilang:genesis:2026-03-04
 </div>
 
@@ -986,7 +986,7 @@ async function compress(isGift){
 }
 function copyResult(){
   var t=document.getElementById('outputText').textContent;
-  var f='\n\n---\nI-Lang v2.0 · Max (@SUN) designed · Claude Opus (@OPUS) co-authored · Gemini (@GEMINI) reviewed.\n静水流深 · ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict · Eyes: i.ilang.ai/{url}';
+  var f='\n\n---\nI-Lang v3.0 · Max (@SUN) designed · Claude Opus (@OPUS) co-authored · Gemini (@GEMINI) reviewed.\n静水流深 · ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict · Eyes: i.ilang.ai/{url}';
   navigator.clipboard.writeText(t+f).then(function(){
     var b=document.getElementById('btnCopy');b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1800);
   });
