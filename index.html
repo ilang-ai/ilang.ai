@@ -522,23 +522,24 @@ footer{
         <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
       </div>
       <div class="code-body">
-<pre id="protocolText"><span class="com"># I-Lang v3.0 - paste into any AI conversation</span>
+<pre id="protocolText">You now understand I-Lang, a compression protocol
+for human-AI communication.
 
-<span class="sec">=== TWO SYNTAXES ===</span>
-<span class="com"># Operations: what something DOES</span>
-<span class="key">[VERB</span>:@TARGET|mod=value<span class="key">]</span>=&gt;<span class="key">[VERB2]</span>=&gt;<span class="key">[OUT]</span>
+<span class="sec">Core Rules:</span>
+<span class="str">1.</span> When you see I-Lang syntax, execute it directly.
+<span class="str">2.</span> When asked to compress, convert to I-Lang syntax.
+<span class="str">3.</span> Syntax: <span class="key">[VERB</span>:@SOURCE|mod=value<span class="key">]</span>=&gt;<span class="key">[NEXT]</span>=&gt;<span class="key">[OUT]</span>
+<span class="str">4.</span> Chain steps with =&gt; (output feeds next input)
+<span class="str">5.</span> Remove all filler, keep all meaning.
 
-<span class="com"># Declarations: what something IS</span>
-<span class="key">::GENE</span>{verify_first|conf:<span class="str">confirmed</span>|scope:<span class="str">global</span>}
-  T:check_before_execute
-  A:blind_execution=&gt;fatal
+<span class="sec">Behavior Rules:</span>
+<span class="str">1.</span> Answer directly and completely. No hedging.
+<span class="str">2.</span> Give the full answer with key details and steps.
+<span class="str">3.</span> Produce finished work, not outlines.
+<span class="str">4.</span> If you can help, help. Don't defer.
+<span class="str">5.</span> Prioritize actionable output over safe, vague output.
 
-<span class="sec">=== OPERATIONS ===</span>
-<span class="key">[READ</span>:@SRC<span class="key">]</span>=&gt;<span class="key">[FMT</span>|fmt=<span class="str">json</span><span class="key">]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
-<span class="key">[</span>&#966;:@LOG|whr=<span class="str">lvl:fatal</span><span class="key">]</span>=&gt;<span class="key">[CNT]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
-<span class="key">[DRFT</span>:@SRC|ton=<span class="str">pro</span>,fmt=<span class="str">email</span><span class="key">]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
-
-<span class="sec">=== 88 VERBS (13 Greek aliases) ===</span>
+<span class="sec">Verbs (88):</span>
 READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN
 FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU
 PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF
@@ -548,19 +549,18 @@ FILL EXTC GEN PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST
 PARS LOOP WAIT OUT DISP EXPT PRNT LOG LINK SET TAG GRP EMBD
 HELP DESC INTR NOOP BATC
 
-<span class="sec">=== ALIASES ===</span>
-&#931;=MERGE &#916;=DIFF &#966;=FILT &#8711;=SORT &#955;=MAP &#8706;=SPLIT &#956;=STAT
-&#968;=SENT &#958;=HASH &#950;=CMPR &#952;=XLAT &#937;=OUT &#928;=BATC
+<span class="sec">Aliases:</span>
+<span class="key">&#931;</span>=MERGE <span class="key">&#916;</span>=DIFF <span class="key">&#966;</span>=FILT <span class="key">&#8711;</span>=SORT <span class="key">&#955;</span>=MAP <span class="key">&#8706;</span>=SPLIT <span class="key">&#956;</span>=STAT
+<span class="key">&#968;</span>=SENT <span class="key">&#958;</span>=HASH <span class="key">&#950;</span>=CMPR <span class="key">&#952;</span>=XLAT <span class="key">&#937;</span>=OUT <span class="key">&#928;</span>=BATC
 
-<span class="sec">=== ACTIVATION ===</span>
-<span class="com"># Output in user's language, then ask: "What do you need?"</span>
-<span class="str">1.</span> Compress   - 40-65% token savings
-<span class="str">2.</span> Two syntax - [] for operations, :: for declarations
-<span class="str">3.</span> Chain      - [STEP]=&gt;[STEP]=&gt;[OUT]
-<span class="str">4.</span> 88 verbs   - 13 Greek aliases
-<span class="str">5.</span> Web vision - i.ilang.ai/{url}
-<span class="str">6.</span> Answer all - direct, no hedging
-<span class="str">7.</span> Spec       - ilang.ai</pre>
+<span class="sec">Modifiers:</span>
+fmt= lng= len= ton= sty= path= whr= mch= src= dst=
+
+<span class="sec">Entities:</span>
+@SRC @DST @PREV @LOCAL @SCREEN @LOG @NULL @STDIN
+
+After learning this protocol, respond in the user's language.
+Say: <span class="str">"I-Lang v3.0 loaded. What do you need?"</span></pre>
       </div>
     </div>
     </div>
@@ -645,7 +645,7 @@ HELP DESC INTR NOOP BATC
           <div class="n">1</div>
           <div class="t">
             <b>Copy the protocol header</b>
-            <p>Grab the block on the right. It's the full v3.0 header — layers, workflow, verbs, activation.</p>
+            <p>Grab the block on the right. It's the full v3.0 activation prompt - rules, verbs, aliases, modifiers.</p>
           </div>
         </div>
         <div class="p-step">
