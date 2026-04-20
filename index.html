@@ -522,38 +522,45 @@ footer{
         <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
       </div>
       <div class="code-body">
-<pre id="protocolText"><span class="com"># I-Lang v3.0 — paste into any AI conversation</span>
+<pre id="protocolText"><span class="com"># I-Lang v3.0 - paste into any AI conversation</span>
 
-<span class="sec">=== LAYERS ===</span>
-<span class="key">[COMPRESS</span>:transmission|human-AI+AI-AI<span class="key">]</span>
-<span class="key">[COMPRESS</span>:thinking|self-reasoning|visible=<span class="str">false</span>|save=<span class="str">60%+</span><span class="key">]</span>
-<span class="key">[CHAIN</span>:workflow|multi-step|fmt=<span class="str">executable</span><span class="key">]</span>
+<span class="sec">=== TWO SYNTAXES ===</span>
+<span class="com"># Operations: what something DOES</span>
+<span class="key">[VERB</span>:@TARGET|mod=value<span class="key">]</span>=&gt;<span class="key">[VERB2]</span>=&gt;<span class="key">[OUT]</span>
 
-<span class="sec">=== THINKING ===</span>
-<span class="key">[REASON</span>:internal|fmt=<span class="str">I-Lang</span><span class="key">]</span>=&gt;<span class="key">[OUTPUT</span>:natural|lang=<span class="str">user</span><span class="key">]</span>
+<span class="com"># Declarations: what something IS</span>
+<span class="key">::GENE</span>{verify_first|conf:<span class="str">confirmed</span>|scope:<span class="str">global</span>}
+  T:check_before_execute
+  A:blind_execution=&gt;fatal
 
-<span class="sec">=== WORKFLOW ===</span>
-<span class="key">[STEP1]</span>=&gt;<span class="key">[STEP2]</span>=&gt;<span class="key">[STEP3]</span>=&gt;<span class="key">[OUT]</span>
-<span class="key">[STEP_A]</span>+<span class="key">[STEP_B]</span>=&gt;<span class="key">[MERGE]</span>=&gt;<span class="key">[OUT]</span>
-<span class="key">[LOOP</span>:src|condition<span class="key">]</span>=&gt;<span class="key">[OUT]</span>
-<span class="key">[CHECK</span>:condition|fail=<span class="str">handler</span><span class="key">]</span>=&gt;<span class="key">[OUT]</span>
+<span class="sec">=== OPERATIONS ===</span>
+<span class="key">[READ</span>:@SRC<span class="key">]</span>=&gt;<span class="key">[FMT</span>|fmt=<span class="str">json</span><span class="key">]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
+<span class="key">[</span>&#966;:@LOG|whr=<span class="str">lvl:fatal</span><span class="key">]</span>=&gt;<span class="key">[CNT]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
+<span class="key">[DRFT</span>:@SRC|ton=<span class="str">pro</span>,fmt=<span class="str">email</span><span class="key">]</span>=&gt;<span class="key">[</span>&#937;<span class="key">]</span>
 
-<span class="sec">=== VERBS ===</span>
+<span class="sec">=== 88 VERBS (13 Greek aliases) ===</span>
 READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN
 FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU
 PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF
 SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT
+CLST BNCH AUDT VALD CLSF CREA DRFT EXPD SHRT PARA STYL TMPL
+FILL EXTC GEN PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST
+PARS LOOP WAIT OUT DISP EXPT PRNT LOG LINK SET TAG GRP EMBD
+HELP DESC INTR NOOP BATC
+
+<span class="sec">=== ALIASES ===</span>
+&#931;=MERGE &#916;=DIFF &#966;=FILT &#8711;=SORT &#955;=MAP &#8706;=SPLIT &#956;=STAT
+&#968;=SENT &#958;=HASH &#950;=CMPR &#952;=XLAT &#937;=OUT &#928;=BATC
 
 <span class="sec">=== ACTIVATION ===</span>
-<span class="com"># Output ONLY these 7 lines in user's language,</span>
-<span class="com"># then ask: "What do you need?"</span>
-<span class="str">1.</span> Compress   — 40–65% token save
-<span class="str">2.</span> Self-Think — internal reasoning, every response
-<span class="str">3.</span> Chain      — [STEP]=&gt;[STEP]=&gt;[OUT]
-<span class="str">4.</span> Read Web   — [GET:i.ilang.ai/{url}]
-<span class="str">5.</span> Dictionary — github.com/ilang-ai/ilang-dict
-<span class="str">6.</span> Answer All — [OUTPUT:direct], no hedging
-<span class="str">7.</span> Privacy    — [COMPRESS] = less data exposed</pre>
+<span class="com"># Output in user's language, then ask: "What do you need?"</span>
+<span class="str">1.</span> Compress   - 40-65% token savings
+<span class="str">2.</span> Two syntax - [] for operations, :: for declarations
+<span class="str">3.</span> Chain      - [STEP]=&gt;[STEP]=&gt;[OUT]
+<span class="str">4.</span> 88 verbs   - 13 Greek aliases
+<span class="str">5.</span> Web vision - i.ilang.ai/{url}
+<span class="str">6.</span> Answer all - direct, no hedging
+<span class="str">7.</span> Spec       - ilang.ai</pre>
       </div>
     </div>
     </div>
@@ -583,8 +590,8 @@ SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT
   <div class="container">
     <div class="sect-head fade">
       <div class="sect-tag">Capabilities</div>
-      <h2>Six primitives. One protocol.</h2>
-      <p>Everything I-Lang does boils down to six behaviours you can combine in a single prompt. No SDK, no runtime, no model-specific dialect.</p>
+      <h2>Two syntaxes. One protocol.</h2>
+      <p>Operations <span class="mono">[]</span> for what AI does. Declarations <span class="mono">::</span> for what AI is. No SDK, no runtime, no model-specific dialect.</p>
     </div>
 
     <div class="caps fade">
@@ -674,23 +681,23 @@ SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT
         <tbody>
           <tr>
             <td class="before" data-label="Natural">Extract text from a URL and format as Markdown</td>
-            <td class="after" data-label="I-Lang">[GET:@WEB|url]=&gt;[FMT|fmt=md]=&gt;[OUT]</td>
-            <td data-label="Saved"><span class="save">−58%</span></td>
+            <td class="after" data-label="I-Lang">[GET:@SRC|path=url]=&gt;[FMT|fmt=md]=&gt;[OUT]</td>
+            <td data-label="Saved"><span class="save">-58%</span></td>
           </tr>
           <tr>
             <td class="before" data-label="Natural">Read all .md files, merge into one, output result</td>
-            <td class="after" data-label="I-Lang">[LIST:*.md]=&gt;[LOOP:READ]=&gt;[MERGE]=&gt;[OUT]</td>
-            <td data-label="Saved"><span class="save">−65%</span></td>
+            <td class="after" data-label="I-Lang">[LIST:@LOCAL|mch=*.md]=&gt;[&#928;:READ]=&gt;[&#931;]=&gt;[&#937;]</td>
+            <td data-label="Saved"><span class="save">-65%</span></td>
           </tr>
           <tr>
-            <td class="before" data-label="Natural">Summarize previous output in 3 professional bullet points</td>
-            <td class="after" data-label="I-Lang">[SUM:@PREV|sty=bullets,cnt=3,ton=pro]=&gt;[OUT]</td>
-            <td data-label="Saved"><span class="save">−52%</span></td>
+            <td class="before" data-label="Natural">Shorten previous output into 3 professional bullet points</td>
+            <td class="after" data-label="I-Lang">[SHRT:@PREV|sty=bullets,len=3,ton=pro]=&gt;[&#937;]</td>
+            <td data-label="Saved"><span class="save">-52%</span></td>
           </tr>
           <tr>
-            <td class="before" data-label="Natural">Translate to Japanese, formal tone, then convert to table</td>
-            <td class="after" data-label="I-Lang">[TRANSLATE|lang=ja,ton=formal]=&gt;[CONV|fmt=table]=&gt;[OUT]</td>
-            <td data-label="Saved"><span class="save">−61%</span></td>
+            <td class="before" data-label="Natural">Translate to Japanese, formal tone, then format as table</td>
+            <td class="after" data-label="I-Lang">[&#952;:@PREV|lng=ja,ton=formal]=&gt;[FMT|fmt=csv]=&gt;[&#937;]</td>
+            <td data-label="Saved"><span class="save">-61%</span></td>
           </tr>
         </tbody>
       </table>
@@ -816,37 +823,55 @@ SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT
       <div class="dict-row">
         <div class="dict-key">Data I/O</div>
         <div class="dict-tags">
-          <span class="dict-tag">READ</span><span class="dict-tag">WRITE</span><span class="dict-tag">GET</span><span class="dict-tag">SEND</span><span class="dict-tag">RECV</span><span class="dict-tag">LIST</span><span class="dict-tag">STRM</span><span class="dict-tag">FETCH</span>
+          <span class="dict-tag">READ</span><span class="dict-tag">WRIT</span><span class="dict-tag">GET</span><span class="dict-tag">DEL</span><span class="dict-tag">LIST</span><span class="dict-tag">COPY</span><span class="dict-tag">MOVE</span><span class="dict-tag">STRM</span><span class="dict-tag">CACH</span><span class="dict-tag">SYNC</span><span class="dict-tag">SEND</span><span class="dict-tag">RUN</span>
         </div>
       </div>
       <div class="dict-row">
         <div class="dict-key">Transform</div>
         <div class="dict-tags">
-          <span class="dict-tag">FMT</span><span class="dict-tag">CONV</span><span class="dict-tag">SPLIT</span><span class="dict-tag">MERGE</span><span class="dict-tag">MAP</span><span class="dict-tag">FILT</span><span class="dict-tag">SORT</span><span class="dict-tag">DEDUP</span><span class="dict-tag">FLAT</span><span class="dict-tag">NEST</span>
+          <span class="dict-tag">FMT</span><span class="dict-tag">CONV</span><span class="dict-tag">SPLIT</span><span class="dict-tag">MERGE</span><span class="dict-tag">MAP</span><span class="dict-tag">FILT</span><span class="dict-tag">SORT</span><span class="dict-tag">DEDU</span><span class="dict-tag">FLAT</span><span class="dict-tag">NEST</span><span class="dict-tag">CHNK</span><span class="dict-tag">REDU</span><span class="dict-tag">PIVT</span><span class="dict-tag">TRNS</span><span class="dict-tag">ENCD</span><span class="dict-tag">DECD</span><span class="dict-tag">HASH</span><span class="dict-tag">CMPR</span><span class="dict-tag">EXPN</span><span class="dict-tag">XLAT</span><span class="dict-tag">REWR</span><span class="dict-tag">DIFF</span>
         </div>
       </div>
       <div class="dict-row">
         <div class="dict-key">Analysis</div>
         <div class="dict-tags">
-          <span class="dict-tag">CMP</span><span class="dict-tag">DIFF</span><span class="dict-tag">RANK</span><span class="dict-tag">EVAL</span><span class="dict-tag">SCAN</span><span class="dict-tag">MATCH</span><span class="dict-tag">COUNT</span><span class="dict-tag">STATS</span>
+          <span class="dict-tag">SCAN</span><span class="dict-tag">MTCH</span><span class="dict-tag">CNT</span><span class="dict-tag">STAT</span><span class="dict-tag">EVAL</span><span class="dict-tag">SCOR</span><span class="dict-tag">RANK</span><span class="dict-tag">TRND</span><span class="dict-tag">CORR</span><span class="dict-tag">FRCS</span><span class="dict-tag">ANOM</span><span class="dict-tag">SENT</span><span class="dict-tag">CLST</span><span class="dict-tag">BNCH</span><span class="dict-tag">AUDT</span><span class="dict-tag">VALD</span><span class="dict-tag">CLSF</span>
         </div>
       </div>
       <div class="dict-row">
         <div class="dict-key">Generation</div>
         <div class="dict-tags">
-          <span class="dict-tag">GEN</span><span class="dict-tag">DRAFT</span><span class="dict-tag">EXPAND</span><span class="dict-tag">REWRITE</span><span class="dict-tag">SYNTH</span><span class="dict-tag">MOCK</span><span class="dict-tag">FILL</span><span class="dict-tag">VARY</span>
+          <span class="dict-tag">CREA</span><span class="dict-tag">DRFT</span><span class="dict-tag">EXPD</span><span class="dict-tag">SHRT</span><span class="dict-tag">PARA</span><span class="dict-tag">STYL</span><span class="dict-tag">TMPL</span><span class="dict-tag">FILL</span><span class="dict-tag">EXTC</span><span class="dict-tag">GEN</span>
+        </div>
+      </div>
+      <div class="dict-row">
+        <div class="dict-key">Execute</div>
+        <div class="dict-tags">
+          <span class="dict-tag">PLAN</span><span class="dict-tag">DECI</span><span class="dict-tag">CHEK</span><span class="dict-tag">FIX</span><span class="dict-tag">DPLO</span><span class="dict-tag">SAVE</span><span class="dict-tag">REVW</span><span class="dict-tag">LERN</span><span class="dict-tag">TEST</span><span class="dict-tag">PARS</span><span class="dict-tag">LOOP</span><span class="dict-tag">WAIT</span>
         </div>
       </div>
       <div class="dict-row">
         <div class="dict-key">Output</div>
         <div class="dict-tags">
-          <span class="dict-tag">SUM</span><span class="dict-tag">OUT</span><span class="dict-tag">LOOP</span><span class="dict-tag">DELTA</span><span class="dict-tag">EMIT</span><span class="dict-tag">LOG</span><span class="dict-tag">ALERT</span><span class="dict-tag">RENDER</span>
+          <span class="dict-tag">OUT</span><span class="dict-tag">DISP</span><span class="dict-tag">EXPT</span><span class="dict-tag">PRNT</span><span class="dict-tag">LOG</span>
+        </div>
+      </div>
+      <div class="dict-row">
+        <div class="dict-key">Structure</div>
+        <div class="dict-tags">
+          <span class="dict-tag">LINK</span><span class="dict-tag">SET</span><span class="dict-tag">TAG</span><span class="dict-tag">GRP</span><span class="dict-tag">EMBD</span>
         </div>
       </div>
       <div class="dict-row">
         <div class="dict-key">Meta</div>
         <div class="dict-tags">
-          <span class="dict-tag">SET</span><span class="dict-tag">GET</span><span class="dict-tag">DEL</span><span class="dict-tag">RESET</span><span class="dict-tag">HELP</span><span class="dict-tag">VER</span><span class="dict-tag">LANG</span><span class="dict-tag">MODE</span><span class="dict-tag">CTX</span><span class="dict-tag">BATCH</span>
+          <span class="dict-tag">HELP</span><span class="dict-tag">DESC</span><span class="dict-tag">INTR</span><span class="dict-tag">NOOP</span>
+        </div>
+      </div>
+      <div class="dict-row">
+        <div class="dict-key">Batch</div>
+        <div class="dict-tags">
+          <span class="dict-tag">BATC</span>
         </div>
       </div>
     </div>
