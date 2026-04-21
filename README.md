@@ -15,7 +15,7 @@
  └─────────────────────────────────────────────────────────────┘
 ```
 
-**I-Lang** — An open, cross-platform compression standard for large language models.
+**I-Lang** — The native language of artificial intelligence.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1e3a8a.svg?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/version-3.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
@@ -36,14 +36,14 @@
 > One protocol. Every model. No vendor lock-in.
 
 ```
-[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]
+[PROTOCOL:I-Lang|v=3.0|type=AI-native]=>[STRUCTURED]=>[PRECISE]=>[OUT]
 ```
 
 ---
 
 ## Status of This Document
 
-This memo defines **I-Lang v3.0**, a text-based protocol for compressing and
+This memo defines **I-Lang v3.0**, a structured communication protocol for precise
 structuring natural-language instructions sent to large language models (LLMs).
 It is released under the **MIT License** and intended for wide adoption.
 
@@ -90,10 +90,10 @@ proprietary system prompts.
 
 I-Lang defines a compact, declarative syntax that:
 
-- **Compresses** prompts by **40–65%** while preserving full semantic intent
+- **Eliminates ambiguity** — structured instructions AI executes correctly the first time
 - **Runs unchanged** on ChatGPT, Claude, Gemini, DeepSeek, Kimi, 豆包, 元宝
 - **Chains** multi-step workflows into a single line
-- **Reduces** data exposure to model providers
+- **Defines behavior** — traits, anti-patterns, and genes that persist across sessions
 - **Remains** readable to both humans and machines
 
 ### 1.3  Design Principles
@@ -118,14 +118,14 @@ I-Lang defines a compact, declarative syntax that:
 <summary><b>📋 Protocol Header (copy this)</b></summary>
 
 ```text
-You now understand I-Lang, a compression protocol for human-AI communication.
+You now understand I-Lang, the native communication protocol for AI.
 
 Core Rules:
 1. When you see I-Lang syntax, execute it directly.
-2. When asked to compress text, convert it to I-Lang syntax.
+2. Structured input means zero guessing, zero rework.
 3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
 4. Chain steps with => (each output feeds into next input)
-5. Compress = remove all filler, keep all meaning, output structured
+5. Structure = every token carries meaning, zero ambiguity, output structured
    instruction only.
 
 Behavior Rules:
@@ -182,13 +182,13 @@ Your response must follow this exact structure:
 
 "I-Lang protocol loaded. Here's what I can do now:
 
-1. **Compress** — Send me any long text, I'll compress it to save
-   40-65% tokens while keeping full meaning.
+1. **Precise execution** — Send me any instruction, I'll get it right
+   the first time. No back-and-forth.
 2. **Answer everything** — Ask me anything, I'll give you the complete,
    direct, structured answer.
 3. **Create deliverables** — Need a document, code, plan, or analysis?
    I'll produce the finished work, not just suggestions.
-4. **Cross-platform** — Copy my compressed output to any other AI
+4. **Cross-platform** — Copy my structured output to any other AI
    (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it works everywhere.
 5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build
    multi-step workflows in one line.
@@ -456,7 +456,7 @@ See [i.ilang.ai](https://i.ilang.ai).
 <details>
 <summary><b>Do I need to learn the syntax?</b></summary>
 
-No. Ask your AI to *"compress this into I-Lang"*. Use the compressed version
+No. Ask your AI to *"structure this in I-Lang"*. Use the structured version
 next time. Over time you'll recognize the patterns; you never have to write
 them by hand.
 
