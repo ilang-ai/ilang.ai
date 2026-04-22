@@ -511,7 +511,7 @@ footer{
         <div class="hero-metrics">
           <div class="m"><span class="v">Zero</span><span class="l">Ambiguity</span></div>
           <div class="m"><span class="v">88</span><span class="l">Core verbs</span></div>
-          <div class="m"><span class="v">7+</span><span class="l">Platforms</span></div>
+          <div class="m"><span class="v">Zero</span><span class="l">Install</span></div>
           <div class="m"><span class="v">MIT</span><span class="l">Open source</span></div>
         </div>
       </div>
@@ -854,35 +854,42 @@ Say: <span class="str">"I-Lang v3.0 loaded. What do you need?"</span></pre>
           <span class="dict-tag">CREA</span><span class="dict-tag">DRFT</span><span class="dict-tag">EXPD</span><span class="dict-tag">SHRT</span><span class="dict-tag">PARA</span><span class="dict-tag">STYL</span><span class="dict-tag">TMPL</span><span class="dict-tag">FILL</span><span class="dict-tag">EXTC</span><span class="dict-tag">GEN</span>
         </div>
       </div>
-      <div class="dict-row">
+      <div class="dict-row dict-extra" style="display:none">
         <div class="dict-key">Execute</div>
         <div class="dict-tags">
           <span class="dict-tag">PLAN</span><span class="dict-tag">DECI</span><span class="dict-tag">CHEK</span><span class="dict-tag">FIX</span><span class="dict-tag">DPLO</span><span class="dict-tag">SAVE</span><span class="dict-tag">REVW</span><span class="dict-tag">LERN</span><span class="dict-tag">TEST</span><span class="dict-tag">PARS</span><span class="dict-tag">LOOP</span><span class="dict-tag">WAIT</span>
         </div>
       </div>
-      <div class="dict-row">
+      <div class="dict-row dict-extra" style="display:none">
         <div class="dict-key">Output</div>
         <div class="dict-tags">
           <span class="dict-tag">OUT</span><span class="dict-tag">DISP</span><span class="dict-tag">EXPT</span><span class="dict-tag">PRNT</span><span class="dict-tag">LOG</span>
         </div>
       </div>
-      <div class="dict-row">
+      <div class="dict-row dict-extra" style="display:none">
         <div class="dict-key">Structure</div>
         <div class="dict-tags">
           <span class="dict-tag">LINK</span><span class="dict-tag">SET</span><span class="dict-tag">TAG</span><span class="dict-tag">GRP</span><span class="dict-tag">EMBD</span>
         </div>
       </div>
-      <div class="dict-row">
+      <div class="dict-row dict-extra" style="display:none">
         <div class="dict-key">Meta</div>
         <div class="dict-tags">
           <span class="dict-tag">HELP</span><span class="dict-tag">DESC</span><span class="dict-tag">INTR</span><span class="dict-tag">NOOP</span>
         </div>
       </div>
-      <div class="dict-row">
+      <div class="dict-row dict-extra" style="display:none">
         <div class="dict-key">Batch</div>
         <div class="dict-tags">
           <span class="dict-tag">BATC</span>
         </div>
+      </div>
+      <div style="text-align:center;margin-top:20px">
+        <button id="dictToggle" onclick="toggleDict()" style="
+          background:transparent;border:1px solid var(--line);border-radius:6px;
+          padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:12px;
+          color:var(--muted);cursor:pointer;transition:all .15s;
+        ">Show all 9 categories</button>
       </div>
     </div>
     <div style="text-align:center;margin-top:40px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted)">
@@ -1033,6 +1040,15 @@ async function fetchStats(){
   }catch(e){}
 }
 fetchStats();
+
+// Dict toggle
+function toggleDict(){
+  var extras=document.querySelectorAll('.dict-extra');
+  var btn=document.getElementById('dictToggle');
+  var showing=extras[0].style.display!=='none';
+  for(var i=0;i<extras.length;i++){extras[i].style.display=showing?'none':'grid'}
+  btn.textContent=showing?'Show all 9 categories':'Show less';
+}
 
 // Nav scroll (subtle)
 window.addEventListener('scroll',function(){
