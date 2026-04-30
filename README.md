@@ -106,6 +106,23 @@ I-Lang defines a compact, declarative syntax that:
 | 4 | Human-readable          | Plain text, no binary encoding                  |
 | 5 | Self-hosted handshake   | Any model learns the protocol in one message    |
 
+### 1.4  Non-goals
+
+- I-Lang **does not** replace natural language.
+- I-Lang **does not** claim to be model-internal reasoning.
+- I-Lang **does not** require model fine-tuning.
+- I-Lang is designed as an **external instruction and coordination layer**.
+
+### 1.5  Conformance Levels
+
+| Level | Name | Capability |
+|:-----:|:-----|:-----------|
+| L0 | Syntax-aware | Recognizes `[VERB:TARGET|param]` structure |
+| L1 | Instruction-compatible | Executes single-step verb/target/param tasks |
+| L2 | Workflow-compatible | Executes multi-step chained workflows |
+| L3 | Agent-compatible | AI-AI handoff, state inheritance, error recovery |
+| L4 | Runtime-compatible | Parser, validator, memory, toolchain integration |
+
 ---
 
 ## 2. Quickstart (30 seconds)
