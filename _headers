@@ -1,2 +1,4 @@
 /sitemap.xml
   Content-Type: application/xml
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
