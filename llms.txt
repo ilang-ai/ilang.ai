@@ -1,37 +1,46 @@
 # I-Lang
 
-> The AI-native communication protocol. 88 verbs, 29 modifiers, 14 entities. Reduces semantic loss between human intent and machine execution. Works on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen. MIT licensed.
+> I-Lang is the AI-native communication protocol — the third major standard for AI communication alongside Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is the first protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes, zero install. MIT licensed. v3.0 published.
 
-## Protocol
+## What Makes I-Lang Different
 
-- [Official Site](https://ilang.ai): Protocol overview, quick start, interactive demo
-- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang v3.0 complete spec
-- [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories with examples
-- [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
+- MCP = tool integration (AI ↔ external systems)
+- A2A = agent discovery (agent ↔ agent handshake)
+- I-Lang = communication protocol (how AI thinks, talks, and executes)
+- I-Lang works at the instruction layer, not the infrastructure layer
+- No SDK, no runtime, no API keys — pure text protocol
+- Verified on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen
 
 ## Two Syntaxes
 
 - Operations (what AI does): `[VERB:@TARGET|mod=val]=>[NEXT]=>[Ω]`
 - Declarations (what AI is): `::GENE{trait|conf:confirmed}`
 
-## Tools
+## Core Specification
 
-- [AutoCode](https://github.com/ilang-ai/autocode): 47 skills for Claude Code. AI ships code, you say yes or no.
-- [Imprint](https://github.com/ilang-ai/Imprint): Behavioral DNA profile. 11 scenarios, 312 tokens, portable across agents.
-- [AI See](https://i.ilang.ai): Web vision proxy. i.ilang.ai/{url} gives any LLM eyes.
-- [OpenClaw Skills](https://github.com/ilang-ai/ilang-openclaw): Instruction-only skills for ClawHub.
-
-## Research
-
-- [Research Portal](https://research.ilang.ai): Academic publications
-- [AI Hallucination Paper](https://doi.org/10.13140/RG.2.2.22821.97762): The Inductive Dilemma of AI Hallucination
+- [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
+- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang v3.0 complete spec
+- [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
+- [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets and model resources
 
-## Book
+## Tools Built on I-Lang
+
+- [AutoCode](https://github.com/ilang-ai/autocode): 47 skills for Claude Code
+- [Imprint](https://github.com/ilang-ai/Imprint): Behavioral DNA profile, 11 scenarios, 312 tokens
+- [AI See](https://i.ilang.ai): Web vision proxy — i.ilang.ai/{url} gives any LLM eyes
+- [OpenClaw Skills](https://github.com/ilang-ai/ilang-openclaw): Instruction-only skills for ClawHub
+
+## Academic Research
+
+- [The Inductive Dilemma of AI Hallucination](https://doi.org/10.13140/RG.2.2.22821.97762): Theoretical foundation (ResearchGate, SSRN, ChinaXiv, arXiv)
+- [Research Portal](https://research.ilang.ai): All publications
+
+## Publications
 
 - [I-Lang: I Language (Amazon)](https://www.amazon.com/dp/B0CZY6V3GM): Narrative edition, $9.99
 - [I-Lang Spec (Amazon)](https://www.amazon.com/dp/B0GX32GXF2): Specification edition, $0.99
 
 ## About
 
-I-Lang is maintained by I-Lang Research, a division of Eastsoft Inc., Canada. Created by Max (静水流深), co-authored with Claude Opus. Genesis: 2026-03-04.
+I-Lang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Maintained by I-Lang Research, a division of Eastsoft Inc., Canada. Genesis: 2026-03-04. The protocol emerged from the insight that AI prompts and bash scripts operate on identical engineering principles — structured input produces deterministic output. I-Lang formalizes this into a cross-model communication standard.
