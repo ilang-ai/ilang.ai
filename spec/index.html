@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-Lang v3.0 Specification — AI-Native Communication Protocol</title>
+<meta name="description" content="Complete specification of I-Lang v3.0. Two syntaxes: operations (what AI does) and declarations (what AI is). 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases. The third AI communication standard alongside MCP and A2A.">
+<meta property="og:title" content="I-Lang v3.0 Specification — AI-Native Communication Protocol">
+<meta property="og:description" content="Complete specification of I-Lang v3.0. Two syntaxes: operations (what AI does) and declarations (what AI is). 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases. The third AI communication standard alongside MCP and A2A.">
+<meta property="og:url" content="https://ilang.ai/spec/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ilang.ai/spec/">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdmirror.com">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang v3.0 Specification", "description": "Complete specification of the I-Lang AI-native communication protocol v3.0. 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes.", "url": "https://ilang.ai/spec/", "version": "3.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "license": "https://opensource.org/licenses/MIT"}</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace}
+a{color:inherit;text-decoration:none}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.brand .mark{width:28px;height:28px;border-radius:6px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.nav-cta:hover{background:var(--accent-2)}
+@media(max-width:760px){.nav-links{display:none}}
+.page-hero{padding:120px 0 60px}
+.page-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+.page-hero .sub{font-size:17px;color:var(--muted);max-width:700px;line-height:1.7}
+.content{padding:40px 0 80px}
+.content h2{font-size:24px;font-weight:700;margin:48px 0 16px;letter-spacing:-.01em}
+.content h3{font-size:18px;font-weight:600;margin:32px 0 12px}
+.content p{margin:0 0 16px;color:var(--ink-2)}
+.content table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+.content th{text-align:left;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.content td{padding:12px 16px;border:1px solid var(--line);vertical-align:top}
+.content code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--bg-2);padding:2px 6px;border-radius:4px}
+.content pre{background:var(--code-bg);color:var(--code-text);padding:20px 24px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;margin:16px 0 24px}
+.content pre code{background:none;padding:0}
+.tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:12px;font-weight:600;margin:2px}
+.tag-io{background:#dbeafe;color:#1e40af}
+.tag-transform{background:#fef3c7;color:#92400e}
+.tag-analysis{background:#d1fae5;color:#065f46}
+.tag-gen{background:#fce7f3;color:#9d174d}
+.tag-exec{background:#e0e7ff;color:#3730a3}
+.tag-output{background:#f3e8ff;color:#6b21a8}
+.tag-struct{background:#ccfbf1;color:#134e4a}
+.tag-meta{background:#f1f5f9;color:#475569}
+.tag-batch{background:#fee2e2;color:#991b1b}
+.verb-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 24px;margin:12px 0}
+.verb-card .verb-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:var(--accent)}
+.verb-card .verb-desc{color:var(--ink-2);margin:8px 0}
+.verb-card .verb-example{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--code-accent);background:var(--code-bg);padding:8px 12px;border-radius:4px;margin-top:8px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin:32px 0}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;position:relative}
+.compare-card.highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.compare-card h3{margin-top:0}
+.compare-card .badge{position:absolute;top:-10px;right:16px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
+.check{color:#16a34a}
+.cross{color:#dc2626}
+.partial{color:#d97706}
+footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
+.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:12px}
+.foot-brand .logo .mark{width:28px;height:28px;border-radius:6px}
+.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7}
+.foot-col h5{font-size:13px;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.foot-col ul{list-style:none}
+.foot-col li{margin:8px 0}
+.foot-col a{font-size:14px;color:var(--ink-2)}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.foot-bottom .ids{display:flex;gap:16px}</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/compare/">Compare</a>
+      <a href="/spec/">Spec</a>
+      <a href="/dictionary/">Dictionary</a>
+      <a href="https://research.ilang.ai" target="_blank">Research</a>
+    </div>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="nav-cta">GitHub <span class="mono">↗</span></a>
+  </div>
+</nav>
+
+<section class="page-hero"><div class="container">
+<h1>I-Lang v3.0 Specification</h1>
+<p class="sub">The complete protocol specification. Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases. MIT licensed.</p>
+</div></section>
+
+<section class="content"><div class="container">
+
+<h2>1. Overview</h2>
+<p>I-Lang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:</p>
+<table>
+<tr><th>Mode</th><th>Description</th><th>Example</th></tr>
+<tr><td>Human &rarr; AI</td><td>Precise instructions AI executes right the first time</td><td><code>[READ:@SRC|path=data.csv]=>[STAT]=>[Ω]</code></td></tr>
+<tr><td>AI &rarr; AI</td><td>Structured communication between agents</td><td><code>[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]</code></td></tr>
+<tr><td>AI internal</td><td>Behavioral identity and reasoning structure</td><td><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
+</table>
+
+<h2>2. Two Syntaxes</h2>
+
+<h3>2.1 Operation Syntax — What AI Does</h3>
+<pre><code>[VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω]</code></pre>
+<p>Operations are executable instructions. Each step in a chain receives the output of the previous step. The chain terminates with <code>[Ω]</code> or <code>[OUT]</code>.</p>
+<p>Components:</p>
+<table>
+<tr><th>Component</th><th>Syntax</th><th>Description</th></tr>
+<tr><td>Verb</td><td><code>VERB</code></td><td>One of 88 defined verbs (e.g., READ, WRIT, FILT, SORT)</td></tr>
+<tr><td>Target</td><td><code>@TARGET</code></td><td>Entity reference (e.g., @SRC, @DST, @PREV, @LOCAL)</td></tr>
+<tr><td>Modifiers</td><td><code>key=value</code></td><td>Parameters separated by pipes (e.g., fmt=md, lng=ja)</td></tr>
+<tr><td>Chain</td><td><code>=></code></td><td>Output of left feeds into right</td></tr>
+</table>
+
+<h3>2.2 Declaration Syntax — What AI Is</h3>
+<pre><code>::GENE{trait_name|conf:confirmed|scope:global}
+  T:positive_trait
+  A:anti_pattern⇒consequence
+::STATE{@SELF, attribute:value}</code></pre>
+<p>Declarations define behavioral identity — personality, rules, anti-patterns, and immune responses. They persist across sessions when stored in soul files.</p>
+
+<h2>3. Verb Categories</h2>
+<table>
+<tr><th>Category</th><th>Count</th><th>Verbs</th></tr>
+<tr><td>Data I/O</td><td>12</td><td>READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN</td></tr>
+<tr><td>Transform</td><td>22</td><td>FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF</td></tr>
+<tr><td>Analysis</td><td>14</td><td>SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT CLST BNCH AUDT VALD CLSF</td></tr>
+<tr><td>Generation</td><td>10</td><td>CREA DRFT EXPD SHRT PARA STYL TMPL FILL EXTC GEN</td></tr>
+<tr><td>Execute</td><td>10</td><td>PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST PARS</td></tr>
+<tr><td>Output</td><td>4</td><td>OUT DISP EXPT PRNT LOG</td></tr>
+<tr><td>Structure</td><td>5</td><td>LINK SET TAG GRP EMBD</td></tr>
+<tr><td>Meta</td><td>4</td><td>HELP DESC INTR NOOP</td></tr>
+<tr><td>Batch</td><td>1</td><td>BATC</td></tr>
+</table>
+<p style="margin-top:8px">Total: <strong>88 verbs</strong>. Full definitions with examples: <a href="/dictionary/" style="color:var(--accent);font-weight:600">Dictionary &rarr;</a></p>
+
+<h2>4. Greek Aliases</h2>
+<p>13 commonly-used verbs have single-character Greek aliases for maximum compression:</p>
+<table>
+<tr><th>Alias</th><th>Verb</th><th>Description</th></tr>
+<tr><td><code>&Sigma;</code></td><td>MERGE</td><td>Combine multiple inputs into one</td></tr>
+<tr><td><code>&Delta;</code></td><td>DIFF</td><td>Compare two inputs, show differences</td></tr>
+<tr><td><code>&phi;</code></td><td>FILT</td><td>Filter by condition</td></tr>
+<tr><td><code>&nabla;</code></td><td>SORT</td><td>Sort by criteria</td></tr>
+<tr><td><code>&lambda;</code></td><td>MAP</td><td>Apply function to each element</td></tr>
+<tr><td><code>&part;</code></td><td>SPLIT</td><td>Split input into parts</td></tr>
+<tr><td><code>&mu;</code></td><td>STAT</td><td>Statistical summary</td></tr>
+<tr><td><code>&psi;</code></td><td>SENT</td><td>Sentiment analysis</td></tr>
+<tr><td><code>&xi;</code></td><td>HASH</td><td>Generate hash/checksum</td></tr>
+<tr><td><code>&zeta;</code></td><td>CMPR</td><td>Compress content</td></tr>
+<tr><td><code>&theta;</code></td><td>XLAT</td><td>Translate between languages</td></tr>
+<tr><td><code>&Omega;</code></td><td>OUT</td><td>Final output</td></tr>
+<tr><td><code>&Pi;</code></td><td>BATC</td><td>Batch operation</td></tr>
+</table>
+
+<h2>5. Modifiers</h2>
+<table>
+<tr><th>Modifier</th><th>Purpose</th><th>Example values</th></tr>
+<tr><td><code>fmt=</code></td><td>Output format</td><td>md, json, csv, html, yaml, txt</td></tr>
+<tr><td><code>lng=</code></td><td>Language</td><td>en, zh, ja, ko, es, fr, de</td></tr>
+<tr><td><code>len=</code></td><td>Length constraint</td><td>3, 100w, 500char</td></tr>
+<tr><td><code>ton=</code></td><td>Tone</td><td>formal, casual, pro, academic</td></tr>
+<tr><td><code>sty=</code></td><td>Style</td><td>bullets, prose, table, numbered</td></tr>
+<tr><td><code>path=</code></td><td>File/URL path</td><td>./data.csv, https://example.com</td></tr>
+<tr><td><code>whr=</code></td><td>Filter condition</td><td>*.md, status=active</td></tr>
+<tr><td><code>mch=</code></td><td>Match pattern</td><td>regex, glob, exact</td></tr>
+<tr><td><code>src=</code></td><td>Source</td><td>file, url, clipboard, @PREV</td></tr>
+<tr><td><code>dst=</code></td><td>Destination</td><td>file, screen, @NULL</td></tr>
+</table>
+
+<h2>6. Entities</h2>
+<table>
+<tr><th>Entity</th><th>Description</th></tr>
+<tr><td><code>@SRC</code></td><td>Source input</td></tr>
+<tr><td><code>@DST</code></td><td>Destination output</td></tr>
+<tr><td><code>@PREV</code></td><td>Previous output in chain</td></tr>
+<tr><td><code>@LOCAL</code></td><td>Local file system</td></tr>
+<tr><td><code>@SCREEN</code></td><td>Screen/visible content</td></tr>
+<tr><td><code>@LOG</code></td><td>Log output</td></tr>
+<tr><td><code>@NULL</code></td><td>Discard output</td></tr>
+<tr><td><code>@STDIN</code></td><td>Standard input</td></tr>
+</table>
+
+<h2>7. Examples</h2>
+<pre><code># Read CSV, filter rows, sort, output as markdown table
+[READ:@SRC|path=sales.csv]=>[&phi;|whr=revenue>1000]=>[&nabla;|by=revenue,desc]=>[FMT|fmt=md]=>[&Omega;]
+
+# Translate previous output to Japanese, formal tone
+[&theta;:@PREV|lng=ja,ton=formal]=>[&Omega;]
+
+# Batch read all markdown files, merge, summarize
+[LIST:@LOCAL|mch=*.md]=>[&Pi;:READ]=>[&Sigma;]=>[SHRT|len=5,sty=bullets]=>[&Omega;]
+
+# Define behavioral DNA for an AI agent
+::GENE{analyst|conf:confirmed|scope:global}
+  T:data_driven|evidence_first
+  T:answer_format=table|when:comparison
+  A:speculation_without_data&rArr;forbidden
+  A:hedging&rArr;remove</code></pre>
+
+<h2>8. Full Specification</h2>
+<p>The complete, machine-readable specification is available at:</p>
+<p><a href="https://github.com/ilang-ai/ilang-spec" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-spec</a> &nbsp;&middot;&nbsp;
+<a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a> &nbsp;&middot;&nbsp;
+<a href="https://huggingface.co/datasets/i-Lang/iLang-Spec" style="color:var(--accent);font-weight:600" target="_blank">HuggingFace</a></p>
+
+<p style="margin-top:32px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to I-Lang</a> &nbsp;&middot;&nbsp; <a href="/compare/" style="color:var(--accent);font-weight:600">Compare with MCP &amp; A2A &rarr;</a> &nbsp;&middot;&nbsp; <a href="/dictionary/" style="color:var(--accent);font-weight:600">Browse the Dictionary &rarr;</a></p>
+
+</div></section>
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
+        <p>The native language of artificial intelligence. AI-to-AI structured communication, AI internal planning, and human-to-AI precision. Maintained by I-Lang Research, a division of Eastsoft Inc., Canada.</p>
+      </div>
+      <div class="foot-col"><h5>Protocol</h5><ul>
+        <li><a href="/">Overview</a></li>
+        <li><a href="/compare/">Compare</a></li>
+        <li><a href="/spec/">Specification</a></li>
+        <li><a href="/dictionary/">Dictionary</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Build</h5><ul>
+        <li><a href="https://github.com/ilang-ai/autocode" target="_blank">AutoCode</a></li>
+        <li><a href="https://github.com/ilang-ai/Imprint" target="_blank">Imprint</a></li>
+        <li><a href="https://i.ilang.ai" target="_blank">AI See</a></li>
+        <li><a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">OpenClaw</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Community</h5><ul>
+        <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
+        <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
+        <li><a href="https://research.ilang.ai" target="_blank">Research</a></li>
+        <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 I-Lang Research &middot; Eastsoft Inc. &middot; Canada</span>
+      <div class="ids"><span>MIT License</span><span>ilang:genesis:2026-03-04</span></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

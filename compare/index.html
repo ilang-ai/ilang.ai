@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-Lang vs MCP vs A2A — AI Protocol Comparison</title>
+<meta name="description" content="Side-by-side comparison of I-Lang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. I-Lang handles communication, MCP handles tools, A2A handles agent discovery.">
+<meta property="og:title" content="I-Lang vs MCP vs A2A — AI Protocol Comparison">
+<meta property="og:description" content="Side-by-side comparison of I-Lang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. I-Lang handles communication, MCP handles tools, A2A handles agent discovery.">
+<meta property="og:url" content="https://ilang.ai/compare/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ilang.ai/compare/">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdmirror.com">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang vs MCP vs A2A \u2014 AI Protocol Comparison", "description": "Side-by-side comparison of the three major AI communication protocols: I-Lang, Anthropic's Model Context Protocol (MCP), and Google's Agent-to-Agent Protocol (A2A).", "url": "https://ilang.ai/compare/", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-05-03", "about": [{"@type": "DefinedTerm", "name": "I-Lang"}, {"@type": "DefinedTerm", "name": "Model Context Protocol"}, {"@type": "DefinedTerm", "name": "Agent-to-Agent Protocol"}]}</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace}
+a{color:inherit;text-decoration:none}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.brand .mark{width:28px;height:28px;border-radius:6px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.nav-cta:hover{background:var(--accent-2)}
+@media(max-width:760px){.nav-links{display:none}}
+.page-hero{padding:120px 0 60px}
+.page-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+.page-hero .sub{font-size:17px;color:var(--muted);max-width:700px;line-height:1.7}
+.content{padding:40px 0 80px}
+.content h2{font-size:24px;font-weight:700;margin:48px 0 16px;letter-spacing:-.01em}
+.content h3{font-size:18px;font-weight:600;margin:32px 0 12px}
+.content p{margin:0 0 16px;color:var(--ink-2)}
+.content table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+.content th{text-align:left;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.content td{padding:12px 16px;border:1px solid var(--line);vertical-align:top}
+.content code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--bg-2);padding:2px 6px;border-radius:4px}
+.content pre{background:var(--code-bg);color:var(--code-text);padding:20px 24px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;margin:16px 0 24px}
+.content pre code{background:none;padding:0}
+.tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:12px;font-weight:600;margin:2px}
+.tag-io{background:#dbeafe;color:#1e40af}
+.tag-transform{background:#fef3c7;color:#92400e}
+.tag-analysis{background:#d1fae5;color:#065f46}
+.tag-gen{background:#fce7f3;color:#9d174d}
+.tag-exec{background:#e0e7ff;color:#3730a3}
+.tag-output{background:#f3e8ff;color:#6b21a8}
+.tag-struct{background:#ccfbf1;color:#134e4a}
+.tag-meta{background:#f1f5f9;color:#475569}
+.tag-batch{background:#fee2e2;color:#991b1b}
+.verb-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 24px;margin:12px 0}
+.verb-card .verb-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:var(--accent)}
+.verb-card .verb-desc{color:var(--ink-2);margin:8px 0}
+.verb-card .verb-example{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--code-accent);background:var(--code-bg);padding:8px 12px;border-radius:4px;margin-top:8px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin:32px 0}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;position:relative}
+.compare-card.highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.compare-card h3{margin-top:0}
+.compare-card .badge{position:absolute;top:-10px;right:16px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
+.check{color:#16a34a}
+.cross{color:#dc2626}
+.partial{color:#d97706}
+footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
+.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:12px}
+.foot-brand .logo .mark{width:28px;height:28px;border-radius:6px}
+.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7}
+.foot-col h5{font-size:13px;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.foot-col ul{list-style:none}
+.foot-col li{margin:8px 0}
+.foot-col a{font-size:14px;color:var(--ink-2)}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.foot-bottom .ids{display:flex;gap:16px}</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/compare/">Compare</a>
+      <a href="/spec/">Spec</a>
+      <a href="/dictionary/">Dictionary</a>
+      <a href="https://research.ilang.ai" target="_blank">Research</a>
+    </div>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="nav-cta">GitHub <span class="mono">↗</span></a>
+  </div>
+</nav>
+
+<section class="page-hero"><div class="container">
+<h1>I-Lang vs MCP vs A2A</h1>
+<p class="sub">Three protocols, three problems. MCP connects AI to tools. A2A connects agents to agents. I-Lang defines how intelligence communicates. They are complementary, not competing.</p>
+</div></section>
+
+<section class="content"><div class="container">
+
+<div class="compare-grid">
+  <div class="compare-card">
+    <h3>MCP</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Model Context Protocol &middot; Anthropic</p>
+    <p><strong>Problem:</strong> AI needs access to external tools, databases, and APIs.</p>
+    <p><strong>Layer:</strong> Tool integration (AI &harr; systems)</p>
+    <p><strong>How:</strong> JSON-RPC server/client. AI calls tools through structured function interfaces.</p>
+    <p><strong>Install:</strong> SDK + server setup required</p>
+    <p><strong>Scope:</strong> Single agent &harr; its tools</p>
+  </div>
+  <div class="compare-card">
+    <h3>A2A</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Agent-to-Agent Protocol &middot; Google / Linux Foundation</p>
+    <p><strong>Problem:</strong> Agents from different vendors need to discover and talk to each other.</p>
+    <p><strong>Layer:</strong> Agent discovery &amp; orchestration</p>
+    <p><strong>How:</strong> HTTP + JSON-RPC. Agents publish Agent Cards, exchange tasks and artifacts.</p>
+    <p><strong>Install:</strong> SDK + HTTP endpoint required</p>
+    <p><strong>Scope:</strong> Agent &harr; agent (cross-vendor)</p>
+  </div>
+  <div class="compare-card highlight">
+    <span class="badge">Different Layer</span>
+    <h3>I-Lang</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">AI-Native Communication Protocol &middot; I-Lang Research</p>
+    <p><strong>Problem:</strong> Natural language instructions are ambiguous. AI guesses instead of executing.</p>
+    <p><strong>Layer:</strong> Instruction &amp; communication (human &harr; AI, AI &harr; AI, AI internal)</p>
+    <p><strong>How:</strong> Pure text protocol. 88 verbs, key-value modifiers, chain syntax. Paste and go.</p>
+    <p><strong>Install:</strong> Zero. Text-based. Works in any chat window.</p>
+    <p><strong>Scope:</strong> Universal communication layer</p>
+  </div>
+</div>
+
+<h2>Feature Comparison</h2>
+<table>
+<tr><th>Feature</th><th>MCP</th><th>A2A</th><th>I-Lang</th></tr>
+<tr><td>Purpose</td><td>Tool integration</td><td>Agent discovery &amp; collaboration</td><td>Communication &amp; instruction</td></tr>
+<tr><td>Install required</td><td>Yes (SDK + server)</td><td>Yes (SDK + endpoint)</td><td>No (pure text)</td></tr>
+<tr><td>Human-to-AI</td><td class="cross">&#x2717; Not designed for</td><td class="cross">&#x2717; Not designed for</td><td class="check">&#x2713; Primary use case</td></tr>
+<tr><td>AI-to-AI</td><td class="partial">&#x25CB; Via tool calls</td><td class="check">&#x2713; Primary use case</td><td class="check">&#x2713; Supported</td></tr>
+<tr><td>AI internal reasoning</td><td class="cross">&#x2717;</td><td class="cross">&#x2717;</td><td class="check">&#x2713; Declaration syntax</td></tr>
+<tr><td>Behavioral identity</td><td class="cross">&#x2717;</td><td class="partial">&#x25CB; Agent Cards</td><td class="check">&#x2713; ::GENE{} DNA system</td></tr>
+<tr><td>Cross-model portable</td><td class="partial">&#x25CB; Server-side</td><td class="check">&#x2713;</td><td class="check">&#x2713; Any LLM</td></tr>
+<tr><td>Formal vocabulary</td><td class="cross">&#x2717; Free-form</td><td class="cross">&#x2717; Free-form</td><td class="check">&#x2713; 88 verbs, 29 modifiers</td></tr>
+<tr><td>Token efficiency</td><td>N/A (infrastructure)</td><td>N/A (infrastructure)</td><td>40-65% reduction</td></tr>
+<tr><td>Open source</td><td class="check">&#x2713; Apache 2.0</td><td class="check">&#x2713; Apache 2.0</td><td class="check">&#x2713; MIT</td></tr>
+<tr><td>Backed by</td><td>Anthropic</td><td>Google + Linux Foundation</td><td>I-Lang Research / Eastsoft Inc.</td></tr>
+</table>
+
+<h2>How They Work Together</h2>
+<p>The three protocols operate at different layers of the AI stack. A practical deployment might use all three:</p>
+<pre><code>┌─────────────────────────────────────────────┐
+│  Human writes I-Lang instruction            │  ← I-Lang
+│  [GET:@SRC|path=sales_q3]=>[STAT]=>[Ω]     │
+├─────────────────────────────────────────────┤
+│  Agent A receives, plans execution          │  ← I-Lang (internal)
+│  ::GENE{analyst|conf:confirmed}             │
+├─────────────────────────────────────────────┤
+│  Agent A calls database tool via MCP        │  ← MCP
+│  {"method":"query","params":{"sql":"..."}}  │
+├─────────────────────────────────────────────┤
+│  Agent A delegates visualization to Agent B │  ← A2A
+│  Task: generate chart from this data        │
+├─────────────────────────────────────────────┤
+│  Agent B returns chart artifact             │  ← A2A
+│  Agent A formats final output               │  ← I-Lang
+│  [FMT|fmt=md]=>[Ω]                         │
+└─────────────────────────────────────────────┘</code></pre>
+
+<h2>When to Use What</h2>
+<table>
+<tr><th>You need to...</th><th>Use</th></tr>
+<tr><td>Give AI access to your database, files, or APIs</td><td><strong>MCP</strong></td></tr>
+<tr><td>Let agents from different vendors collaborate</td><td><strong>A2A</strong></td></tr>
+<tr><td>Write precise instructions that AI executes right the first time</td><td><strong>I-Lang</strong></td></tr>
+<tr><td>Define AI personality, behavior, and identity</td><td><strong>I-Lang</strong> (declaration syntax)</td></tr>
+<tr><td>Chain multi-step workflows in a single instruction</td><td><strong>I-Lang</strong></td></tr>
+<tr><td>Build tool servers for Claude/GPT</td><td><strong>MCP</strong></td></tr>
+<tr><td>Publish agents for cross-platform discovery</td><td><strong>A2A</strong></td></tr>
+</table>
+
+<h2>Try I-Lang Now</h2>
+<p>Unlike MCP and A2A, I-Lang requires zero installation. Copy the <a href="/" style="color:var(--accent);font-weight:600">protocol header</a>, paste into any AI conversation, and start using structured instructions immediately.</p>
+<p style="margin-top:24px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to I-Lang</a> &nbsp;&middot;&nbsp; <a href="/spec/" style="color:var(--accent);font-weight:600">Read the Spec &rarr;</a> &nbsp;&middot;&nbsp; <a href="/dictionary/" style="color:var(--accent);font-weight:600">Browse the Dictionary &rarr;</a></p>
+
+</div></section>
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
+        <p>The native language of artificial intelligence. AI-to-AI structured communication, AI internal planning, and human-to-AI precision. Maintained by I-Lang Research, a division of Eastsoft Inc., Canada.</p>
+      </div>
+      <div class="foot-col"><h5>Protocol</h5><ul>
+        <li><a href="/">Overview</a></li>
+        <li><a href="/compare/">Compare</a></li>
+        <li><a href="/spec/">Specification</a></li>
+        <li><a href="/dictionary/">Dictionary</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Build</h5><ul>
+        <li><a href="https://github.com/ilang-ai/autocode" target="_blank">AutoCode</a></li>
+        <li><a href="https://github.com/ilang-ai/Imprint" target="_blank">Imprint</a></li>
+        <li><a href="https://i.ilang.ai" target="_blank">AI See</a></li>
+        <li><a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">OpenClaw</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Community</h5><ul>
+        <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
+        <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
+        <li><a href="https://research.ilang.ai" target="_blank">Research</a></li>
+        <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 I-Lang Research &middot; Eastsoft Inc. &middot; Canada</span>
+      <div class="ids"><span>MIT License</span><span>ilang:genesis:2026-03-04</span></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

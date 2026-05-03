@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-Lang Verb Dictionary — 88 Verbs for AI Communication</title>
+<meta name="description" content="Complete dictionary of 88 I-Lang verbs across 9 categories: Data I/O, Transform, Analysis, Generation, Execute, Output, Structure, Meta, Batch. Each verb with syntax and example. The formal vocabulary of the I-Lang AI-native communication protocol.">
+<meta property="og:title" content="I-Lang Verb Dictionary — 88 Verbs for AI Communication">
+<meta property="og:description" content="Complete dictionary of 88 I-Lang verbs across 9 categories: Data I/O, Transform, Analysis, Generation, Execute, Output, Structure, Meta, Batch. Each verb with syntax and example. The formal vocabulary of the I-Lang AI-native communication protocol.">
+<meta property="og:url" content="https://ilang.ai/dictionary/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ilang.ai/dictionary/">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdmirror.com">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang Verb Dictionary \u2014 88 Verbs for AI Communication", "description": "Complete dictionary of 88 I-Lang verbs across 9 categories. Each verb with definition, syntax, and usage examples.", "url": "https://ilang.ai/dictionary/", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26"}</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace}
+a{color:inherit;text-decoration:none}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.brand .mark{width:28px;height:28px;border-radius:6px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.nav-cta:hover{background:var(--accent-2)}
+@media(max-width:760px){.nav-links{display:none}}
+.page-hero{padding:120px 0 60px}
+.page-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+.page-hero .sub{font-size:17px;color:var(--muted);max-width:700px;line-height:1.7}
+.content{padding:40px 0 80px}
+.content h2{font-size:24px;font-weight:700;margin:48px 0 16px;letter-spacing:-.01em}
+.content h3{font-size:18px;font-weight:600;margin:32px 0 12px}
+.content p{margin:0 0 16px;color:var(--ink-2)}
+.content table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+.content th{text-align:left;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.content td{padding:12px 16px;border:1px solid var(--line);vertical-align:top}
+.content code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--bg-2);padding:2px 6px;border-radius:4px}
+.content pre{background:var(--code-bg);color:var(--code-text);padding:20px 24px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;margin:16px 0 24px}
+.content pre code{background:none;padding:0}
+.tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:12px;font-weight:600;margin:2px}
+.tag-io{background:#dbeafe;color:#1e40af}
+.tag-transform{background:#fef3c7;color:#92400e}
+.tag-analysis{background:#d1fae5;color:#065f46}
+.tag-gen{background:#fce7f3;color:#9d174d}
+.tag-exec{background:#e0e7ff;color:#3730a3}
+.tag-output{background:#f3e8ff;color:#6b21a8}
+.tag-struct{background:#ccfbf1;color:#134e4a}
+.tag-meta{background:#f1f5f9;color:#475569}
+.tag-batch{background:#fee2e2;color:#991b1b}
+.verb-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 24px;margin:12px 0}
+.verb-card .verb-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:var(--accent)}
+.verb-card .verb-desc{color:var(--ink-2);margin:8px 0}
+.verb-card .verb-example{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--code-accent);background:var(--code-bg);padding:8px 12px;border-radius:4px;margin-top:8px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin:32px 0}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;position:relative}
+.compare-card.highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.compare-card h3{margin-top:0}
+.compare-card .badge{position:absolute;top:-10px;right:16px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
+.check{color:#16a34a}
+.cross{color:#dc2626}
+.partial{color:#d97706}
+footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
+.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:12px}
+.foot-brand .logo .mark{width:28px;height:28px;border-radius:6px}
+.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7}
+.foot-col h5{font-size:13px;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.foot-col ul{list-style:none}
+.foot-col li{margin:8px 0}
+.foot-col a{font-size:14px;color:var(--ink-2)}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.foot-bottom .ids{display:flex;gap:16px}</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/compare/">Compare</a>
+      <a href="/spec/">Spec</a>
+      <a href="/dictionary/">Dictionary</a>
+      <a href="https://research.ilang.ai" target="_blank">Research</a>
+    </div>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="nav-cta">GitHub <span class="mono">↗</span></a>
+  </div>
+</nav>
+
+<section class="page-hero"><div class="container">
+<h1>I-Lang Verb Dictionary</h1>
+<p class="sub">88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the complete vocabulary of I-Lang v3.0.</p>
+</div></section>
+
+<section class="content"><div class="container">
+
+<p><strong>Quick navigation:</strong>
+<a href="#data-i-o" style="color:var(--accent)">Data I/O</a> &middot;
+<a href="#transform" style="color:var(--accent)">Transform</a> &middot;
+<a href="#analysis" style="color:var(--accent)">Analysis</a> &middot;
+<a href="#generation" style="color:var(--accent)">Generation</a> &middot;
+<a href="#execute" style="color:var(--accent)">Execute</a> &middot;
+<a href="#control" style="color:var(--accent)">Control</a> &middot;
+<a href="#output" style="color:var(--accent)">Output</a> &middot;
+<a href="#structure" style="color:var(--accent)">Structure</a> &middot;
+<a href="#meta" style="color:var(--accent)">Meta</a> &middot;
+<a href="#batch" style="color:var(--accent)">Batch</a>
+</p>
+
+<h2 id="data-i-o">Data I/O <span class="tag tag-io">12 verbs</span></h2>
+<div class="verb-card" id="READ">
+<div class="verb-name">READ</div>
+<div class="verb-desc">Read content from source</div>
+<div class="verb-example">[READ:@SRC|path=report.pdf]</div>
+</div>
+<div class="verb-card" id="WRIT">
+<div class="verb-name">WRIT</div>
+<div class="verb-desc">Write content to destination</div>
+<div class="verb-example">[WRIT:@DST|path=output.md]</div>
+</div>
+<div class="verb-card" id="GET">
+<div class="verb-name">GET</div>
+<div class="verb-desc">Fetch from URL or API</div>
+<div class="verb-example">[GET:@SRC|path=https://api.example.com/data]</div>
+</div>
+<div class="verb-card" id="DEL">
+<div class="verb-name">DEL</div>
+<div class="verb-desc">Delete content or file</div>
+<div class="verb-example">[DEL:@LOCAL|path=temp.txt]</div>
+</div>
+<div class="verb-card" id="LIST">
+<div class="verb-name">LIST</div>
+<div class="verb-desc">List files or items</div>
+<div class="verb-example">[LIST:@LOCAL|mch=*.md]</div>
+</div>
+<div class="verb-card" id="COPY">
+<div class="verb-name">COPY</div>
+<div class="verb-desc">Copy content</div>
+<div class="verb-example">[COPY:@SRC|dst=@DST]</div>
+</div>
+<div class="verb-card" id="MOVE">
+<div class="verb-name">MOVE</div>
+<div class="verb-desc">Move content</div>
+<div class="verb-example">[MOVE:@SRC|dst=archive/]</div>
+</div>
+<div class="verb-card" id="STRM">
+<div class="verb-name">STRM</div>
+<div class="verb-desc">Stream content progressively</div>
+<div class="verb-example">[STRM:@SRC|path=large.csv]</div>
+</div>
+<div class="verb-card" id="CACH">
+<div class="verb-name">CACH</div>
+<div class="verb-desc">Cache for reuse</div>
+<div class="verb-example">[CACH:@PREV|key=q3data]</div>
+</div>
+<div class="verb-card" id="SYNC">
+<div class="verb-name">SYNC</div>
+<div class="verb-desc">Synchronize between sources</div>
+<div class="verb-example">[SYNC:@SRC|dst=@DST]</div>
+</div>
+<div class="verb-card" id="SEND">
+<div class="verb-name">SEND</div>
+<div class="verb-desc">Send to external destination</div>
+<div class="verb-example">[SEND:@DST|fmt=json]</div>
+</div>
+<div class="verb-card" id="RUN">
+<div class="verb-name">RUN</div>
+<div class="verb-desc">Execute command or script</div>
+<div class="verb-example">[RUN|cmd=python script.py]</div>
+</div>
+<h2 id="transform">Transform <span class="tag tag-transform">22 verbs</span></h2>
+<div class="verb-card" id="FMT">
+<div class="verb-name">FMT</div>
+<div class="verb-desc">Format output</div>
+<div class="verb-example">[FMT:@PREV|fmt=md]</div>
+</div>
+<div class="verb-card" id="CONV">
+<div class="verb-name">CONV</div>
+<div class="verb-desc">Convert between formats</div>
+<div class="verb-example">[CONV:@SRC|src=csv,dst=json]</div>
+</div>
+<div class="verb-card" id="SPLIT">
+<div class="verb-name">SPLIT</div>
+<div class="verb-desc">Split into parts (alias: ∂)</div>
+<div class="verb-example">[∂:@PREV|by=paragraph]</div>
+</div>
+<div class="verb-card" id="MERGE">
+<div class="verb-name">MERGE</div>
+<div class="verb-desc">Merge multiple inputs (alias: Σ)</div>
+<div class="verb-example">[Σ:@PREV]</div>
+</div>
+<div class="verb-card" id="MAP">
+<div class="verb-name">MAP</div>
+<div class="verb-desc">Apply function to each item (alias: λ)</div>
+<div class="verb-example">[λ:@PREV|fn=summarize]</div>
+</div>
+<div class="verb-card" id="FILT">
+<div class="verb-name">FILT</div>
+<div class="verb-desc">Filter by condition (alias: φ)</div>
+<div class="verb-example">[φ:@PREV|whr=score>80]</div>
+</div>
+<div class="verb-card" id="SORT">
+<div class="verb-name">SORT</div>
+<div class="verb-desc">Sort by criteria (alias: ∇)</div>
+<div class="verb-example">[∇:@PREV|by=date,desc]</div>
+</div>
+<div class="verb-card" id="DEDU">
+<div class="verb-name">DEDU</div>
+<div class="verb-desc">Remove duplicates</div>
+<div class="verb-example">[DEDU:@PREV|by=email]</div>
+</div>
+<div class="verb-card" id="FLAT">
+<div class="verb-name">FLAT</div>
+<div class="verb-desc">Flatten nested structure</div>
+<div class="verb-example">[FLAT:@PREV|depth=2]</div>
+</div>
+<div class="verb-card" id="NEST">
+<div class="verb-name">NEST</div>
+<div class="verb-desc">Create nested structure</div>
+<div class="verb-example">[NEST:@PREV|by=category]</div>
+</div>
+<div class="verb-card" id="CHNK">
+<div class="verb-name">CHNK</div>
+<div class="verb-desc">Split into sized chunks</div>
+<div class="verb-example">[CHNK:@PREV|size=500w]</div>
+</div>
+<div class="verb-card" id="REDU">
+<div class="verb-name">REDU</div>
+<div class="verb-desc">Reduce to single value</div>
+<div class="verb-example">[REDU:@PREV|fn=sum]</div>
+</div>
+<div class="verb-card" id="PIVT">
+<div class="verb-name">PIVT</div>
+<div class="verb-desc">Pivot table transformation</div>
+<div class="verb-example">[PIVT:@PREV|rows=month,cols=product]</div>
+</div>
+<div class="verb-card" id="TRNS">
+<div class="verb-name">TRNS</div>
+<div class="verb-desc">Transpose rows and columns</div>
+<div class="verb-example">[TRNS:@PREV]</div>
+</div>
+<div class="verb-card" id="ENCD">
+<div class="verb-name">ENCD</div>
+<div class="verb-desc">Encode content</div>
+<div class="verb-example">[ENCD:@PREV|fmt=base64]</div>
+</div>
+<div class="verb-card" id="DECD">
+<div class="verb-name">DECD</div>
+<div class="verb-desc">Decode content</div>
+<div class="verb-example">[DECD:@PREV|fmt=base64]</div>
+</div>
+<div class="verb-card" id="HASH">
+<div class="verb-name">HASH</div>
+<div class="verb-desc">Generate hash (alias: ξ)</div>
+<div class="verb-example">[ξ:@PREV|algo=sha256]</div>
+</div>
+<div class="verb-card" id="CMPR">
+<div class="verb-name">CMPR</div>
+<div class="verb-desc">Compress content (alias: ζ)</div>
+<div class="verb-example">[ζ:@PREV|fmt=gzip]</div>
+</div>
+<div class="verb-card" id="EXPN">
+<div class="verb-name">EXPN</div>
+<div class="verb-desc">Expand/decompress</div>
+<div class="verb-example">[EXPN:@PREV]</div>
+</div>
+<div class="verb-card" id="XLAT">
+<div class="verb-name">XLAT</div>
+<div class="verb-desc">Translate language (alias: θ)</div>
+<div class="verb-example">[θ:@PREV|lng=ja,ton=formal]</div>
+</div>
+<div class="verb-card" id="REWR">
+<div class="verb-name">REWR</div>
+<div class="verb-desc">Rewrite content</div>
+<div class="verb-example">[REWR:@PREV|ton=casual]</div>
+</div>
+<div class="verb-card" id="DIFF">
+<div class="verb-name">DIFF</div>
+<div class="verb-desc">Compare differences (alias: Δ)</div>
+<div class="verb-example">[Δ:@SRC|dst=@DST]</div>
+</div>
+<h2 id="analysis">Analysis <span class="tag tag-analysis">17 verbs</span></h2>
+<div class="verb-card" id="SCAN">
+<div class="verb-name">SCAN</div>
+<div class="verb-desc">Scan for patterns</div>
+<div class="verb-example">[SCAN:@SRC|mch=email]</div>
+</div>
+<div class="verb-card" id="MTCH">
+<div class="verb-name">MTCH</div>
+<div class="verb-desc">Match against pattern</div>
+<div class="verb-example">[MTCH:@PREV|pat=\d{4}-\d{2}]</div>
+</div>
+<div class="verb-card" id="CNT">
+<div class="verb-name">CNT</div>
+<div class="verb-desc">Count items</div>
+<div class="verb-example">[CNT:@PREV]</div>
+</div>
+<div class="verb-card" id="STAT">
+<div class="verb-name">STAT</div>
+<div class="verb-desc">Statistical summary (alias: μ)</div>
+<div class="verb-example">[μ:@PREV]</div>
+</div>
+<div class="verb-card" id="EVAL">
+<div class="verb-name">EVAL</div>
+<div class="verb-desc">Evaluate quality or correctness</div>
+<div class="verb-example">[EVAL:@PREV|criteria=accuracy]</div>
+</div>
+<div class="verb-card" id="SCOR">
+<div class="verb-name">SCOR</div>
+<div class="verb-desc">Score or rate</div>
+<div class="verb-example">[SCOR:@PREV|scale=1-10]</div>
+</div>
+<div class="verb-card" id="RANK">
+<div class="verb-name">RANK</div>
+<div class="verb-desc">Rank by criteria</div>
+<div class="verb-example">[RANK:@PREV|by=relevance]</div>
+</div>
+<div class="verb-card" id="TRND">
+<div class="verb-name">TRND</div>
+<div class="verb-desc">Identify trends</div>
+<div class="verb-example">[TRND:@PREV|period=monthly]</div>
+</div>
+<div class="verb-card" id="CORR">
+<div class="verb-name">CORR</div>
+<div class="verb-desc">Find correlations</div>
+<div class="verb-example">[CORR:@PREV|vars=price,demand]</div>
+</div>
+<div class="verb-card" id="FRCS">
+<div class="verb-name">FRCS</div>
+<div class="verb-desc">Forecast future values</div>
+<div class="verb-example">[FRCS:@PREV|horizon=6m]</div>
+</div>
+<div class="verb-card" id="ANOM">
+<div class="verb-name">ANOM</div>
+<div class="verb-desc">Detect anomalies</div>
+<div class="verb-example">[ANOM:@PREV|threshold=2sigma]</div>
+</div>
+<div class="verb-card" id="SENT">
+<div class="verb-name">SENT</div>
+<div class="verb-desc">Sentiment analysis (alias: ψ)</div>
+<div class="verb-example">[ψ:@PREV]</div>
+</div>
+<div class="verb-card" id="CLST">
+<div class="verb-name">CLST</div>
+<div class="verb-desc">Cluster similar items</div>
+<div class="verb-example">[CLST:@PREV|k=5]</div>
+</div>
+<div class="verb-card" id="BNCH">
+<div class="verb-name">BNCH</div>
+<div class="verb-desc">Benchmark comparison</div>
+<div class="verb-example">[BNCH:@PREV|baseline=v2]</div>
+</div>
+<div class="verb-card" id="AUDT">
+<div class="verb-name">AUDT</div>
+<div class="verb-desc">Audit for compliance</div>
+<div class="verb-example">[AUDT:@PREV|standard=gdpr]</div>
+</div>
+<div class="verb-card" id="VALD">
+<div class="verb-name">VALD</div>
+<div class="verb-desc">Validate data</div>
+<div class="verb-example">[VALD:@PREV|schema=user]</div>
+</div>
+<div class="verb-card" id="CLSF">
+<div class="verb-name">CLSF</div>
+<div class="verb-desc">Classify into categories</div>
+<div class="verb-example">[CLSF:@PREV|categories=spam,ham]</div>
+</div>
+<h2 id="generation">Generation <span class="tag tag-gen">10 verbs</span></h2>
+<div class="verb-card" id="CREA">
+<div class="verb-name">CREA</div>
+<div class="verb-desc">Create new content</div>
+<div class="verb-example">[CREA|type=blog,topic=AI protocols]</div>
+</div>
+<div class="verb-card" id="DRFT">
+<div class="verb-name">DRFT</div>
+<div class="verb-desc">Draft initial version</div>
+<div class="verb-example">[DRFT|type=email,ton=formal]</div>
+</div>
+<div class="verb-card" id="EXPD">
+<div class="verb-name">EXPD</div>
+<div class="verb-desc">Expand with more detail</div>
+<div class="verb-example">[EXPD:@PREV|len=2x]</div>
+</div>
+<div class="verb-card" id="SHRT">
+<div class="verb-name">SHRT</div>
+<div class="verb-desc">Shorten content</div>
+<div class="verb-example">[SHRT:@PREV|len=3,sty=bullets]</div>
+</div>
+<div class="verb-card" id="PARA">
+<div class="verb-name">PARA</div>
+<div class="verb-desc">Paraphrase</div>
+<div class="verb-example">[PARA:@PREV|ton=simple]</div>
+</div>
+<div class="verb-card" id="STYL">
+<div class="verb-name">STYL</div>
+<div class="verb-desc">Apply style</div>
+<div class="verb-example">[STYL:@PREV|sty=academic]</div>
+</div>
+<div class="verb-card" id="TMPL">
+<div class="verb-name">TMPL</div>
+<div class="verb-desc">Apply template</div>
+<div class="verb-example">[TMPL|name=meeting_notes]</div>
+</div>
+<div class="verb-card" id="FILL">
+<div class="verb-name">FILL</div>
+<div class="verb-desc">Fill template with data</div>
+<div class="verb-example">[FILL:@PREV|data=@SRC]</div>
+</div>
+<div class="verb-card" id="EXTC">
+<div class="verb-name">EXTC</div>
+<div class="verb-desc">Extract specific content</div>
+<div class="verb-example">[EXTC:@SRC|type=emails]</div>
+</div>
+<div class="verb-card" id="GEN">
+<div class="verb-name">GEN</div>
+<div class="verb-desc">Generate from specification</div>
+<div class="verb-example">[GEN|spec=api_endpoint]</div>
+</div>
+<h2 id="execute">Execute <span class="tag tag-exec">10 verbs</span></h2>
+<div class="verb-card" id="PLAN">
+<div class="verb-name">PLAN</div>
+<div class="verb-desc">Create execution plan</div>
+<div class="verb-example">[PLAN|goal=migrate database]</div>
+</div>
+<div class="verb-card" id="DECI">
+<div class="verb-name">DECI</div>
+<div class="verb-desc">Make decision</div>
+<div class="verb-example">[DECI:@PREV|criteria=cost,speed]</div>
+</div>
+<div class="verb-card" id="CHEK">
+<div class="verb-name">CHEK</div>
+<div class="verb-desc">Check status or validity</div>
+<div class="verb-example">[CHEK:@SRC|type=syntax]</div>
+</div>
+<div class="verb-card" id="FIX">
+<div class="verb-name">FIX</div>
+<div class="verb-desc">Fix errors</div>
+<div class="verb-example">[FIX:@PREV|type=grammar]</div>
+</div>
+<div class="verb-card" id="DPLO">
+<div class="verb-name">DPLO</div>
+<div class="verb-desc">Deploy to target</div>
+<div class="verb-example">[DPLO:@PREV|dst=production]</div>
+</div>
+<div class="verb-card" id="SAVE">
+<div class="verb-name">SAVE</div>
+<div class="verb-desc">Save current state</div>
+<div class="verb-example">[SAVE:@PREV|path=checkpoint.json]</div>
+</div>
+<div class="verb-card" id="REVW">
+<div class="verb-name">REVW</div>
+<div class="verb-desc">Review and critique</div>
+<div class="verb-example">[REVW:@PREV|focus=security]</div>
+</div>
+<div class="verb-card" id="LERN">
+<div class="verb-name">LERN</div>
+<div class="verb-desc">Learn from input</div>
+<div class="verb-example">[LERN:@SRC|type=feedback]</div>
+</div>
+<div class="verb-card" id="TEST">
+<div class="verb-name">TEST</div>
+<div class="verb-desc">Test functionality</div>
+<div class="verb-example">[TEST:@PREV|type=unit]</div>
+</div>
+<div class="verb-card" id="PARS">
+<div class="verb-name">PARS</div>
+<div class="verb-desc">Parse structured content</div>
+<div class="verb-example">[PARS:@SRC|fmt=json]</div>
+</div>
+<h2 id="control">Control <span class="tag tag-exec">2 verbs</span></h2>
+<div class="verb-card" id="LOOP">
+<div class="verb-name">LOOP</div>
+<div class="verb-desc">Iterate over items</div>
+<div class="verb-example">[LOOP:@PREV|fn=process]</div>
+</div>
+<div class="verb-card" id="WAIT">
+<div class="verb-name">WAIT</div>
+<div class="verb-desc">Wait for condition</div>
+<div class="verb-example">[WAIT|until=ready]</div>
+</div>
+<h2 id="output">Output <span class="tag tag-output">5 verbs</span></h2>
+<div class="verb-card" id="OUT">
+<div class="verb-name">OUT</div>
+<div class="verb-desc">Final output (alias: Ω)</div>
+<div class="verb-example">[Ω]</div>
+</div>
+<div class="verb-card" id="DISP">
+<div class="verb-name">DISP</div>
+<div class="verb-desc">Display formatted</div>
+<div class="verb-example">[DISP:@PREV|fmt=chart]</div>
+</div>
+<div class="verb-card" id="EXPT">
+<div class="verb-name">EXPT</div>
+<div class="verb-desc">Export to file</div>
+<div class="verb-example">[EXPT:@PREV|path=report.pdf]</div>
+</div>
+<div class="verb-card" id="PRNT">
+<div class="verb-name">PRNT</div>
+<div class="verb-desc">Print to console</div>
+<div class="verb-example">[PRNT:@PREV]</div>
+</div>
+<div class="verb-card" id="LOG">
+<div class="verb-name">LOG</div>
+<div class="verb-desc">Log for debugging</div>
+<div class="verb-example">[LOG:@PREV|level=info]</div>
+</div>
+<h2 id="structure">Structure <span class="tag tag-struct">5 verbs</span></h2>
+<div class="verb-card" id="LINK">
+<div class="verb-name">LINK</div>
+<div class="verb-desc">Create association</div>
+<div class="verb-example">[LINK:@SRC|dst=@DST|rel=parent]</div>
+</div>
+<div class="verb-card" id="SET">
+<div class="verb-name">SET</div>
+<div class="verb-desc">Set variable or state</div>
+<div class="verb-example">[SET|key=mode,val=production]</div>
+</div>
+<div class="verb-card" id="TAG">
+<div class="verb-name">TAG</div>
+<div class="verb-desc">Add tags/labels</div>
+<div class="verb-example">[TAG:@PREV|tags=urgent,review]</div>
+</div>
+<div class="verb-card" id="GRP">
+<div class="verb-name">GRP</div>
+<div class="verb-desc">Group by criteria</div>
+<div class="verb-example">[GRP:@PREV|by=department]</div>
+</div>
+<div class="verb-card" id="EMBD">
+<div class="verb-name">EMBD</div>
+<div class="verb-desc">Embed content</div>
+<div class="verb-example">[EMBD:@SRC|into=@DST]</div>
+</div>
+<h2 id="meta">Meta <span class="tag tag-meta">4 verbs</span></h2>
+<div class="verb-card" id="HELP">
+<div class="verb-name">HELP</div>
+<div class="verb-desc">Show help</div>
+<div class="verb-example">[HELP|topic=FILT]</div>
+</div>
+<div class="verb-card" id="DESC">
+<div class="verb-name">DESC</div>
+<div class="verb-desc">Describe content</div>
+<div class="verb-example">[DESC:@PREV]</div>
+</div>
+<div class="verb-card" id="INTR">
+<div class="verb-name">INTR</div>
+<div class="verb-desc">Introspect state</div>
+<div class="verb-example">[INTR:@SELF]</div>
+</div>
+<div class="verb-card" id="NOOP">
+<div class="verb-name">NOOP</div>
+<div class="verb-desc">No operation</div>
+<div class="verb-example">[NOOP]</div>
+</div>
+<h2 id="batch">Batch <span class="tag tag-batch">1 verbs</span></h2>
+<div class="verb-card" id="BATC">
+<div class="verb-name">BATC</div>
+<div class="verb-desc">Batch operation (alias: Π)</div>
+<div class="verb-example">[Π:READ|src=file1,file2,file3]</div>
+</div>
+
+
+<p style="margin-top:40px">Full machine-readable spec: <a href="https://github.com/ilang-ai/ilang-dict" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-dict</a> &nbsp;&middot;&nbsp; <a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a></p>
+<p style="margin-top:16px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to I-Lang</a> &nbsp;&middot;&nbsp; <a href="/spec/" style="color:var(--accent);font-weight:600">Read the Full Spec &rarr;</a> &nbsp;&middot;&nbsp; <a href="/compare/" style="color:var(--accent);font-weight:600">Compare with MCP &amp; A2A &rarr;</a></p>
+
+</div></section>
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
+        <p>The native language of artificial intelligence. AI-to-AI structured communication, AI internal planning, and human-to-AI precision. Maintained by I-Lang Research, a division of Eastsoft Inc., Canada.</p>
+      </div>
+      <div class="foot-col"><h5>Protocol</h5><ul>
+        <li><a href="/">Overview</a></li>
+        <li><a href="/compare/">Compare</a></li>
+        <li><a href="/spec/">Specification</a></li>
+        <li><a href="/dictionary/">Dictionary</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Build</h5><ul>
+        <li><a href="https://github.com/ilang-ai/autocode" target="_blank">AutoCode</a></li>
+        <li><a href="https://github.com/ilang-ai/Imprint" target="_blank">Imprint</a></li>
+        <li><a href="https://i.ilang.ai" target="_blank">AI See</a></li>
+        <li><a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">OpenClaw</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Community</h5><ul>
+        <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
+        <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
+        <li><a href="https://research.ilang.ai" target="_blank">Research</a></li>
+        <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 I-Lang Research &middot; Eastsoft Inc. &middot; Canada</span>
+      <div class="ids"><span>MIT License</span><span>ilang:genesis:2026-03-04</span></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

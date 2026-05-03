@@ -16,6 +16,12 @@
 - Operations (what AI does): `[VERB:@TARGET|mod=val]=>[NEXT]=>[Ω]`
 - Declarations (what AI is): `::GENE{trait|conf:confirmed}`
 
+## Pages
+
+- [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
+- [Specification](https://ilang.ai/spec/): Full v3.0 spec with syntax, verbs, modifiers, entities
+- [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
+
 ## Core Specification
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
