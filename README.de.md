@@ -17,7 +17,7 @@ So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, *
 | **Komprimieren** | Prompts um 40-65% reduzieren. Gleiche Bedeutung, weniger Tokens |
 | **Alles beantworten** | KI antwortet direkt und vollständig, ohne Disclaimers |
 | **Privatsphäre schützen** | Komprimierter Text sendet weniger Daten |
-| **Plattformübergreifend** | Eine Anweisung funktioniert auf allen KI-Plattformen |
+| **Plattformübergreifend** | Eine Anweisung lässt sich auf vielen großen KI-Plattformen wiederverwenden |
 | **Kettenbefehle** | `[VERB]=>[VERB]=>[OUT]` Mehrstufige Workflows in einer Zeile |
 
 ## In 30 Sekunden starten
