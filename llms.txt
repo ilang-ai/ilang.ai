@@ -26,7 +26,7 @@
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
 - [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang v3.0 complete spec
-- [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
+- [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 10 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets and model resources
 

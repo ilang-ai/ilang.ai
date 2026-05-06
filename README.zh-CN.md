@@ -4,7 +4,7 @@
 
 ---
 
-正如HTTP标准化了网页通信，SQL标准化了数据库查询，**I-Lang标准化了人类与AI的对话方式**。一个协议，所有AI平台通用，不绑定任何厂商。
+正如HTTP标准化了网页通信，SQL标准化了数据库查询，**I-Lang标准化了人类与AI的对话方式**。一个开放协议，面向主流 AI 平台设计，尽量保持跨模型可移植性。
 
 `[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
@@ -80,7 +80,7 @@ Your response must follow this exact structure:
 What would you like me to do?"
 ```
 
-## 已验证兼容平台
+## 已测试平台
 
 ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | 元宝 ✅
 
@@ -107,7 +107,7 @@ i.ilang.ai/https://任意网址
 
 **需要学语法吗？** 不需要。跟AI说"帮我用I-Lang压缩这段话"即可。
 
-**所有AI都能用吗？** 是的。协议头确保兼容性。
+**主流大模型都能用吗？** 是的。协议头确保兼容性。
 
 **免费吗？** 是的。开放协议，MIT许可证。
 

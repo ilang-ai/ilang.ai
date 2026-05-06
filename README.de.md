@@ -4,7 +4,7 @@
 
 ---
 
-So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, **standardisiert I-Lang die Kommunikation zwischen Mensch und KI**. Ein Protokoll, jede KI-Plattform, keine Herstellerabhängigkeit.
+So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, **standardisiert I-Lang die Kommunikation zwischen Mensch und KI**. Ein offenes Protokoll, das für Portabilität über große KI-Modelle hinweg entwickelt wurde.
 
 `[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 

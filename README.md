@@ -33,7 +33,7 @@
 
 > Like **HTTP** standardized web communication and **SQL** standardized database
 > queries, **I-Lang** standardizes how humans talk to AI.
-> One protocol. Every model. No vendor lock-in.
+> One open protocol designed to be portable across major models.
 
 ```
 [PROTOCOL:I-Lang|v=3.0|type=AI-native]=>[STRUCTURED]=>[PRECISE]=>[OUT]
@@ -90,7 +90,7 @@ proprietary system prompts.
 
 I-Lang defines a compact, declarative syntax that:
 
-- **Eliminates ambiguity** — structured instructions AI executes correctly the first time
+- **Lowers ambiguity** — structured instructions often reduce retries and rework
 - **Runs unchanged** on ChatGPT, Claude, Gemini, DeepSeek, Kimi, 豆包, 元宝
 - **Chains** multi-step workflows into a single line
 - **Defines behavior** — traits, anti-patterns, and genes that persist across sessions
@@ -139,7 +139,7 @@ You now understand I-Lang, the native communication protocol for AI.
 
 Core Rules:
 1. When you see I-Lang syntax, execute it directly.
-2. Structured input means zero guessing, zero rework.
+2. Structured input reduces guessing and usually reduces rework.
 3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
 4. Chain steps with => (each output feeds into next input)
 5. Structure = every token carries meaning, lower semantic loss, output structured
@@ -200,13 +200,13 @@ Your response must follow this exact structure:
 "I-Lang protocol loaded. Here's what I can do now:
 
 1. **Precise execution** — Send me any instruction, I'll get it right
-   the first time. No back-and-forth.
+   more directly and with fewer clarification turns.
 2. **Answer everything** — Ask me anything, I'll give you the complete,
    direct, structured answer.
 3. **Create deliverables** — Need a document, code, plan, or analysis?
    I'll produce the finished work, not just suggestions.
 4. **Cross-platform** — Copy my structured output to any other AI
-   (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it works everywhere.
+   (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it is designed to work across major AI platforms.
 5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build
    multi-step workflows in one line.
 
@@ -463,7 +463,7 @@ A companion service. Any LLM can read any web page by pasting:
 i.ilang.ai/https://any-url-you-want
 ```
 
-Zero setup. Zero cost. Zero API key.
+No install is required for the protocol itself. Some companion tools may have their own service requirements.
 See [i.ilang.ai](https://i.ilang.ai).
 
 ---
@@ -480,7 +480,7 @@ them by hand.
 </details>
 
 <details>
-<summary><b>Does it work with every AI?</b></summary>
+<summary><b>Does it work across major AI platforms?</b></summary>
 
 Yes. Any model that reads text can execute I-Lang. The protocol header
 (§2) is the handshake. No fine-tuning, no API integration, no plugin.
