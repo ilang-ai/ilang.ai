@@ -21,6 +21,10 @@
 - [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
 - [Specification](https://ilang.ai/spec/): Full v3.0 spec with syntax, verbs, modifiers, entities
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
+- [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison of I-Lang and Anthropic MCP at different protocol layers
+- [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison of I-Lang and Google A2A for agent communication
+- [Prompt Compression](https://ilang.ai/prompt-compression/): How structured syntax reduces tokens by 35-80%
+- [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 
 ## Core Specification
 
