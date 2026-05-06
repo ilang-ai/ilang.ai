@@ -142,7 +142,7 @@ Core Rules:
 2. Structured input means zero guessing, zero rework.
 3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
 4. Chain steps with => (each output feeds into next input)
-5. Structure = every token carries meaning, zero ambiguity, output structured
+5. Structure = every token carries meaning, lower semantic loss, output structured
    instruction only.
 
 Behavior Rules:
