@@ -12,6 +12,9 @@
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/spec/">
+<link rel="alternate" hreflang="en" href="https://ilang.ai/spec/">
+<link rel="alternate" hreflang="zh" href="https://ilang.cn/">
+<link rel="alternate" hreflang="x-default" href="https://ilang.ai/spec/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://cdn.jsdmirror.com">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
@@ -175,6 +178,9 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 </table>
 
 <h2>5. Modifiers</h2>
+
+<h3>5.1 Core Modifiers</h3>
+<p>Core modifiers are defined in the protocol specification and recognized by all conformant implementations.</p>
 <table>
 <tr><th>Modifier</th><th>Purpose</th><th>Example values</th></tr>
 <tr><td><code>fmt=</code></td><td>Output format</td><td>md, json, csv, html, yaml, txt</td></tr>
@@ -189,7 +195,30 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td><code>dst=</code></td><td>Destination</td><td>file, screen, @NULL</td></tr>
 </table>
 
+<h3>5.2 Extended Modifiers</h3>
+<p>Extended modifiers are verb-specific parameters defined in the <a href="/dictionary/" style="color:var(--accent)">Dictionary</a>. They follow the same <code>key=value</code> syntax but are only meaningful for specific verbs.</p>
+<table>
+<tr><th>Modifier</th><th>Used by</th><th>Example</th></tr>
+<tr><td><code>cmd=</code></td><td>RUN</td><td><code>[RUN|cmd=python script.py]</code></td></tr>
+<tr><td><code>algo=</code></td><td>HASH, ENCD</td><td><code>[HASH|algo=sha256]</code></td></tr>
+<tr><td><code>key=</code></td><td>CACH</td><td><code>[CACH|key=q3data]</code></td></tr>
+<tr><td><code>by=</code></td><td>SORT, STAT, RANK</td><td><code>[SORT|by=revenue,desc]</code></td></tr>
+<tr><td><code>fn=</code></td><td>MAP, REDU, LOOP</td><td><code>[MAP|fn=extract_title]</code></td></tr>
+<tr><td><code>period=</code></td><td>TRND</td><td><code>[TRND|period=Q]</code></td></tr>
+<tr><td><code>threshold=</code></td><td>ANOM</td><td><code>[ANOM|threshold=2.5]</code></td></tr>
+<tr><td><code>scale=</code></td><td>SCOR</td><td><code>[SCOR|scale=1-10]</code></td></tr>
+<tr><td><code>type=</code></td><td>CREA, GEN</td><td><code>[CREA|type=blog,topic=AI]</code></td></tr>
+</table>
+
+<h3>5.3 Modifier Grammar</h3>
+<pre><code>modifier     = core-key "=" value / extension-key "=" value
+core-key     = "fmt" / "lng" / "len" / "ton" / "sty" / "path" / "whr" / "mch" / "src" / "dst"
+extension-key = 1*(ALPHA / DIGIT / "_")
+value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
+</code></pre>
+
 <h2>6. Entities</h2>
+<h3>6.1 Core Entities</h3>
 <table>
 <tr><th>Entity</th><th>Description</th></tr>
 <tr><td><code>@SRC</code></td><td>Source input</td></tr>
@@ -202,7 +231,131 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td><code>@STDIN</code></td><td>Standard input</td></tr>
 </table>
 
-<h2>7. Examples</h2>
+<h3>6.2 External Entities</h3>
+<table>
+<tr><th>Entity</th><th>Description</th></tr>
+<tr><td><code>@GH</code></td><td>GitHub</td></tr>
+<tr><td><code>@R2</code></td><td>Cloudflare R2 storage</td></tr>
+<tr><td><code>@COS</code></td><td>Tencent Cloud COS</td></tr>
+<tr><td><code>@DRIVE</code></td><td>Google Drive</td></tr>
+<tr><td><code>@WORKER</code></td><td>Cloudflare Worker</td></tr>
+<tr><td><code>@CF</code></td><td>Cloudflare Pages/CDN</td></tr>
+</table>
+
+<h2>7. Grammar (ABNF-style)</h2>
+<pre><code>; === Operation Syntax ===
+chain        = step *("=>" step)
+step         = "[" verb-call "]"
+verb-call    = VERB [":" target] ["|" modifiers]
+VERB         = 2*5(ALPHA)                    ; e.g., READ, FMT, OUT
+target       = "@" entity-name               ; e.g., @SRC, @PREV
+modifiers    = modifier *( "|" modifier )
+modifier     = key "=" value
+key          = 1*(ALPHA / DIGIT / "_")
+value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
+entity-name  = 1*(ALPHA / DIGIT / "_")
+
+; === Declaration Syntax ===
+declaration  = gene-block / state-block
+gene-block   = "::GENE{" gene-name "|" gene-params "}" LF 1*(trait / anti)
+gene-name    = 1*(ALPHA / DIGIT / "_")
+gene-params  = param *( "|" param )
+param        = key ":" value
+trait        = SP SP "T:" rule LF
+anti         = SP SP "A:" pattern "⇒" consequence LF
+rule         = 1*(VCHAR / "|" / "⇒")
+pattern      = 1*(VCHAR)
+consequence  = 1*(VCHAR / "|")
+
+state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
+</code></pre>
+
+<h2>8. JSON AST</h2>
+<p>I-Lang chains can be represented as JSON AST for machine processing, validation, and interoperability with MCP/A2A.</p>
+<pre><code>{
+  "type": "chain",
+  "version": "3.0",
+  "steps": [
+    {
+      "verb": "READ",
+      "target": "@SRC",
+      "modifiers": { "path": "sales.csv" }
+    },
+    {
+      "verb": "FILT",
+      "target": "@PREV",
+      "modifiers": { "whr": "revenue>1000" }
+    },
+    {
+      "verb": "STAT",
+      "target": "@PREV",
+      "modifiers": { "by": "region" }
+    },
+    {
+      "verb": "FMT",
+      "modifiers": { "fmt": "md" }
+    },
+    {
+      "verb": "OUT",
+      "alias": "Ω"
+    }
+  ]
+}
+</code></pre>
+<p>Declaration AST:</p>
+<pre><code>{
+  "type": "gene",
+  "name": "analyst",
+  "params": { "conf": "confirmed", "scope": "global" },
+  "traits": [
+    { "type": "T", "rule": "data_driven|evidence_first" },
+    { "type": "T", "rule": "answer_format=table|when:comparison" }
+  ],
+  "anti_patterns": [
+    { "type": "A", "pattern": "speculation_without_data", "consequence": "forbidden" },
+    { "type": "A", "pattern": "hedging", "consequence": "remove" }
+  ]
+}
+</code></pre>
+
+<h2>9. Error Model</h2>
+<table>
+<tr><th>Error code</th><th>Condition</th><th>Expected behavior</th></tr>
+<tr><td><code>E_UNKNOWN_VERB</code></td><td>Verb not in 88-verb dictionary</td><td>Report unknown verb, suggest closest match</td></tr>
+<tr><td><code>E_MISSING_TARGET</code></td><td>Verb requires target but none given</td><td>Report missing target, show expected syntax</td></tr>
+<tr><td><code>E_INVALID_MODIFIER</code></td><td>Modifier key not recognized for this verb</td><td>Report invalid modifier, list valid options</td></tr>
+<tr><td><code>E_CHAIN_BREAK</code></td><td>Step in chain produces no output for next step</td><td>Report which step failed, preserve partial results</td></tr>
+<tr><td><code>E_ENTITY_NOT_FOUND</code></td><td>Referenced entity does not exist or is inaccessible</td><td>Report entity resolution failure</td></tr>
+<tr><td><code>E_PERMISSION_DENIED</code></td><td>Guarded/dangerous verb blocked by host runtime</td><td>Report which verb was blocked and why</td></tr>
+<tr><td><code>E_DECLARATION_CONFLICT</code></td><td>Two GENE blocks define contradictory rules</td><td>Report conflict, apply higher-priority block</td></tr>
+<tr><td><code>E_SYNTAX_ERROR</code></td><td>Malformed chain or declaration</td><td>Report error location, show corrected syntax</td></tr>
+</table>
+
+<h2>10. Execution Semantics</h2>
+<h3>10.1 Chain execution</h3>
+<p>Steps in a chain execute left to right. The output of each step becomes the implicit <code>@PREV</code> input to the next step. If a step specifies an explicit target, it overrides <code>@PREV</code>.</p>
+
+<h3>10.2 Entity resolution</h3>
+<p>Entities resolve in this order: explicit target in the step > <code>@PREV</code> from previous step > session default. External entities (<code>@GH</code>, <code>@R2</code>, etc.) require runtime-level configuration.</p>
+
+<h3>10.3 Declaration persistence</h3>
+<p><code>::GENE{}</code> blocks persist for the duration of <code>scope</code>: <code>global</code> (entire session), <code>session</code> (current session), <code>project</code> (project directory), <code>task</code> (current task only).</p>
+
+<h3>10.4 Priority resolution</h3>
+<p>When multiple <code>::GENE{}</code> blocks apply, <code>priority</code> determines order: <code>P0</code> > <code>P1</code> > <code>P2</code>. Within the same priority, more specific scope wins (<code>task</code> > <code>project</code> > <code>session</code> > <code>global</code>).</p>
+
+<h2>11. Security Model</h2>
+<p>I-Lang classifies verbs into three risk levels: <strong>safe</strong> (read-only, no side effects), <strong>guarded</strong> (modifies state, requires confirmation), and <strong>dangerous</strong> (data loss or code execution risk, requires explicit authorization). See the <a href="/security/" style="color:var(--accent)">full security model</a> for verb classifications and runtime requirements.</p>
+
+<h2>12. Versioning</h2>
+<table>
+<tr><th>Version</th><th>Date</th><th>Changes</th></tr>
+<tr><td>v3.0</td><td>2026-04</td><td>Current. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system.</td></tr>
+<tr><td>v2.0</td><td>2026-03</td><td>Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases.</td></tr>
+<tr><td>v1.0</td><td>2026-02</td><td>Initial release. Operation syntax only. 64 verbs.</td></tr>
+</table>
+
+<h2>13. Examples</h2>
 <pre><code># Read CSV, filter rows, sort, output as markdown table
 [READ:@SRC|path=sales.csv]=>[&phi;|whr=revenue>1000]=>[&nabla;|by=revenue,desc]=>[FMT|fmt=md]=>[&Omega;]
 
@@ -219,11 +372,13 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
   A:speculation_without_data&rArr;forbidden
   A:hedging&rArr;remove</code></pre>
 
-<h2>8. Full Specification</h2>
+<h2>14. Full Specification</h2>
 <p>The complete, machine-readable specification is available at:</p>
 <p><a href="https://github.com/ilang-ai/ilang-spec" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-spec</a> &nbsp;&middot;&nbsp;
 <a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a> &nbsp;&middot;&nbsp;
 <a href="https://huggingface.co/datasets/i-Lang/iLang-Spec" style="color:var(--accent);font-weight:600" target="_blank">HuggingFace</a></p>
+
+<p>Related pages: <a href="/benchmark/" style="color:var(--accent)">Benchmark</a> &middot; <a href="/conformance/" style="color:var(--accent)">Conformance</a> &middot; <a href="/security/" style="color:var(--accent)">Security</a></p>
 
 <p style="margin-top:32px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to I-Lang</a> &nbsp;&middot;&nbsp; <a href="/compare/" style="color:var(--accent);font-weight:600">Compare with MCP &amp; A2A &rarr;</a> &nbsp;&middot;&nbsp; <a href="/dictionary/" style="color:var(--accent);font-weight:600">Browse the Dictionary &rarr;</a></p>
 
