@@ -25,6 +25,9 @@
 - [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison of I-Lang and Google A2A for agent communication
 - [Prompt Compression](https://ilang.ai/prompt-compression/): How structured syntax reduces tokens by 35-80%
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
+- [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
+- [Conformance](https://ilang.ai/conformance/): L0-L4 protocol compliance levels and test criteria
+- [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
 
 ## Core Specification
 
