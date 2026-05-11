@@ -1,6 +1,6 @@
 # I-Lang
 
-> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes, zero install. MIT licensed. v3.0 published.
+> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v3.0 defines communication format (88 verbs, two syntaxes). v4.0 defines execution semantics (input isolation, resource awareness, completion audit, three-tier authority). MIT licensed. v4.0 published.
 
 ## What Makes I-Lang Different
 
