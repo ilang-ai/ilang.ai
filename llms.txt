@@ -1,6 +1,6 @@
 # I-Lang
 
-> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v3.0 defines communication format (88 verbs, two syntaxes). v4.0 defines execution semantics (input isolation, resource awareness, completion audit, three-tier authority). MIT licensed. v4.0 published.
+> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v4.0 is the current version: 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). MIT licensed.
 
 ## What Makes I-Lang Different
 
@@ -19,7 +19,7 @@
 ## Pages
 
 - [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
-- [Specification](https://ilang.ai/spec/): Full v3.0 spec with syntax, verbs, modifiers, entities
+- [Specification](https://ilang.ai/spec/): Full spec with syntax, verbs, modifiers, entities, v4.0 execution declarations
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
 - [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison of I-Lang and Anthropic MCP at different protocol layers
 - [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison of I-Lang and Google A2A for agent communication
@@ -32,7 +32,7 @@
 ## Core Specification
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
-- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang v3.0 complete spec
+- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang v4.0 spec (v3.0 communication + v4.0 execution semantics)
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 10 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets and model resources
