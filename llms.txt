@@ -28,6 +28,9 @@
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
 - [Conformance](https://ilang.ai/conformance/): L0-L4 protocol compliance levels and test criteria
 - [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
+- [About](https://ilang.ai/about/): About iLang Inc. — company, products, contact
+- [Privacy](https://ilang.ai/privacy.html): Privacy policy
+- [Terms](https://ilang.ai/terms/): Terms of use
 
 ## Core Specification
 
@@ -47,7 +50,7 @@
 ## Academic Research
 
 - [The Inductive Dilemma of AI Hallucination](https://doi.org/10.13140/RG.2.2.22821.97762): Theoretical foundation (ResearchGate, SSRN, ChinaXiv, arXiv)
-- [Research Portal](https://research.ilang.ai): All publications
+- [About](https://ilang.ai/about/): Company and contact
 
 ## Publications
 
@@ -56,4 +59,8 @@
 
 ## About
 
-I-Lang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Maintained by I-Lang Research, a division of iLang Inc., Canada. Genesis: 2026-03-04. The protocol emerged from the insight that AI prompts and bash scripts operate on identical engineering principles — structured input produces deterministic output. I-Lang formalizes this into a cross-model communication standard.
+iLang Inc. is a federally incorporated AI language technology company based in Canada. Creator of I-Lang, the open AI-native communication protocol. Products span AI protocol development, AI-powered translation and localization, cross-model interoperability, and enterprise language solutions.
+
+I-Lang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Genesis: 2026-03-04.
+
+Contact: contact@ilang.ai | https://ilang.ai
