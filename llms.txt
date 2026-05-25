@@ -56,4 +56,4 @@
 
 ## About
 
-I-Lang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Maintained by I-Lang Research, a division of Eastsoft Inc., Canada. Genesis: 2026-03-04. The protocol emerged from the insight that AI prompts and bash scripts operate on identical engineering principles — structured input produces deterministic output. I-Lang formalizes this into a cross-model communication standard.
+I-Lang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Maintained by I-Lang Research, a division of iLang Inc., Canada. Genesis: 2026-03-04. The protocol emerged from the insight that AI prompts and bash scripts operate on identical engineering principles — structured input produces deterministic output. I-Lang formalizes this into a cross-model communication standard.

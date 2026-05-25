@@ -34,4 +34,4 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | �
 
 ## Licence
 
-MIT License. © 2026 I-Lang Research, Eastsoft Inc., Canada.
+MIT License. © 2026 I-Lang Research, iLang Inc., Canada.

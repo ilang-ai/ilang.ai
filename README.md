@@ -55,7 +55,7 @@ Distribution of this document is unlimited.
 | Version      | 3.0                                               |
 | Status       | Released                                    |
 | Category     | Open Specification                                |
-| Maintainer   | I-Lang Research · Eastsoft Inc., Canada           |
+| Maintainer   | I-Lang Research · iLang Inc., Canada           |
 | Published    | 2026                                              |
 | License      | MIT                                               |
 
@@ -534,7 +534,7 @@ a mobile app, a PDF, or an email. The two are complementary.
 ```
 MIT License
 
-Copyright (c) 2026 I-Lang Research · Eastsoft Inc., Canada
+Copyright (c) 2026 I-Lang Research · iLang Inc., Canada
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -557,7 +557,7 @@ Full text in [LICENSE](LICENSE).
 
 **I-Lang** — *A protocol for human–AI communication.*
 
-Maintained by **I-Lang Research** · **Eastsoft Inc.**, Canada · 2026
+Maintained by **I-Lang Research** · **iLang Inc.**, Canada · 2026
 
 [ilang.ai](https://ilang.ai) · [🤗 Hugging Face](https://huggingface.co/i-Lang) · [GitHub](https://github.com/ilang-ai)
 

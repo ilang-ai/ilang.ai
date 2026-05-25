@@ -120,4 +120,4 @@ i.ilang.ai/https://任意网址
 
 ## 许可证
 
-MIT License. © 2026 I-Lang Research, Eastsoft Inc., Canada.
+MIT License. © 2026 I-Lang Research, iLang Inc., Canada.
