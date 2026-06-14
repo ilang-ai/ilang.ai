@@ -423,7 +423,8 @@ section{padding:100px 0}
 footer{
   background:#fff;padding:56px 0 32px;border-top:1px solid var(--line);
 }
-.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+@media(max-width:960px){.foot-top{grid-template-columns:1.6fr 1fr 1fr;gap:32px}}
 @media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr;gap:32px}}
 .foot-col h5{
   font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);
@@ -1083,6 +1084,7 @@ Warn when safety-critical semantics cannot be enforced.</pre>
           <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
           <li><a href="https://ilang.cn" target="_blank" rel="noopener">中文站</a></li>
+          <li><a href="/blog/">Blog</a></li>
         </ul>
       </div>
       <div class="foot-col">
