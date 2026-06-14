@@ -1,15 +1,14 @@
 {{ define "main" }}
-<div class="posts-container">
-  <h1>All Posts</h1>
-  {{ range .Pages }}
-  <article class="post-card">
-    <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-    </div>
-    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
-    <a href="{{ .Permalink }}" class="read-more">Read →</a>
-  </article>
-  {{ end }}
+<div class="b-wrap">
+  <div class="posts-list" style="padding-top:48px;padding-bottom:80px">
+    <h1 style="font-family:var(--serif);font-size:2rem;color:var(--fg-strong);margin-bottom:24px">{{ .Title }}</h1>
+    {{ range .Pages }}
+    <article class="post-card">
+      <div class="post-meta">{{ .Date.Format "2006 · 01 · 02" }}</div>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
+    </article>
+    {{ end }}
+  </div>
 </div>
 {{ end }}

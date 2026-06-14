@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ if .IsHome }}I-Lang Blog — Building the Native Language of AI{{ else }}{{ .Title }} — I-Lang Blog{{ end }}</title>
+<title>{{ if .IsHome }}iLang Blog — The iLang Journal{{ else }}{{ .Title }} — iLang Blog{{ end }}</title>
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-<meta property="og:title" content="{{ if .IsHome }}I-Lang Blog{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:title" content="{{ if .IsHome }}iLang Blog{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -19,13 +19,13 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css">
 <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}">
 </head>
 <body>
 {{ partial "header.html" . }}
-<main>
 {{ block "main" . }}{{ end }}
-</main>
 {{ partial "footer.html" . }}
+{{ block "scripts" . }}{{ end }}
 </body>
 </html>

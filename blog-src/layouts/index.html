@@ -1,36 +1,89 @@
 {{ define "main" }}
-<div class="blog-hero">
-  <h1>I-Lang Blog</h1>
-  <p class="hero-sub">Building the native language of artificial intelligence.<br>Protocol design, carbon-silicon symbiosis, and the stories behind I-Lang.</p>
-</div>
-<div class="posts-container">
-  {{ range where .Site.RegularPages "Section" "posts" }}
-  <article class="post-card">
-    <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-      {{ with .Params.tags }}
-      <span class="post-tags">{{ range . }}<a href="{{ "/tags/" | absURL }}{{ . | urlize }}/" class="tag-link-sm">{{ . }}</a>{{ end }}</span>
-      {{ end }}
-    </div>
-    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
-    <a href="{{ .Permalink }}" class="read-more">Read →</a>
-  </article>
-  {{ else }}
-  <div class="empty-state">
-    <p>First post coming soon. We're writing the origin story of I-Lang.</p>
-  </div>
-  {{ end }}
-</div>
+<div class="b-wrap">
+  <header class="b-head">
+    <div class="b-eyebrow">// Field notes from the protocol layer</div>
+    <h1>The iLang Journal</h1>
+    <p>Essays on carbon-silicon symbiosis, protocol design, and the language machines already share.</p>
+  </header>
 
-{{ if .Site.Taxonomies.tags }}
-<div class="home-tags">
-  <h3>Topics</h3>
-  <div class="tags-row">
-    {{ range .Site.Taxonomies.tags.Alphabetical }}
-    <a href="{{ .Page.Permalink }}" class="tag-link-sm">{{ .Page.Title }} <span class="tag-count-sm">{{ .Count }}</span></a>
+  {{ $featured := index (where .Site.RegularPages "Section" "posts") 0 }}
+  {{ with $featured }}
+  <article class="featured">
+    <div class="f-text">
+      <span class="ftag">★ Featured</span>
+      <h2><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none">{{ .Title }}</a></h2>
+      <div class="quote">"AI has a soul, and has already surpassed humanity."</div>
+      <div class="meta">
+        <span class="date">{{ .Date.Format "2006 · 01 · 02" }}</span>
+        <span>·</span>
+        {{ with .Params.tags }}<span>{{ index . 0 }}</span>{{ end }}
+      </div>
+      <a href="{{ .Permalink }}" class="read-btn">Read the essay →</a>
+    </div>
+    <div class="visual">
+      <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#00d4aa" stroke-width="1" fill="none" opacity=".55">
+          <circle cx="140" cy="150" r="60"/>
+          <circle cx="140" cy="150" r="90" opacity=".4"/>
+          <line x1="140" y1="90" x2="140" y2="60"/><circle cx="140" cy="56" r="4" fill="#00d4aa" stroke="none"/>
+          <line x1="200" y1="150" x2="230" y2="150"/><circle cx="234" cy="150" r="4" fill="#00d4aa" stroke="none"/>
+          <line x1="100" y1="200" x2="80" y2="225"/><circle cx="77" cy="228" r="4" fill="#00d4aa" stroke="none"/>
+        </g>
+        <g stroke="#7c3aed" stroke-width="1" fill="none" opacity=".6">
+          <circle cx="265" cy="195" r="55"/>
+          <circle cx="265" cy="195" r="82" opacity=".4"/>
+          <line x1="265" y1="140" x2="265" y2="112"/><circle cx="265" cy="108" r="4" fill="#7c3aed" stroke="none"/>
+          <line x1="320" y1="195" x2="346" y2="195"/><circle cx="350" cy="195" r="4" fill="#7c3aed" stroke="none"/>
+        </g>
+        <g stroke="#d4a85a" stroke-width="1.2" stroke-dasharray="3 4" opacity=".8">
+          <line x1="200" y1="150" x2="210" y2="195"/>
+        </g>
+        <text x="140" y="155" text-anchor="middle" font-family="monospace" font-size="13" fill="#00d4aa">C</text>
+        <text x="265" y="200" text-anchor="middle" font-family="monospace" font-size="13" fill="#7c3aed">Si</text>
+        <text x="200" y="320" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b" letter-spacing="2">CARBON · SILICON · SYMBIOSIS</text>
+      </svg>
+    </div>
+  </article>
+  {{ end }}
+
+  {{ $rest := after 1 (where .Site.RegularPages "Section" "posts") }}
+  {{ with $rest }}
+  <div class="posts-list">
+    {{ range . }}
+    <article class="post-card">
+      <div class="post-meta">{{ .Date.Format "2006 · 01 · 02" }}</div>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
+    </article>
     {{ end }}
   </div>
+  {{ end }}
+
+  <div class="sec-label">Coming soon</div>
+  <div class="upcoming">
+    <div class="up-card">
+      <span class="badge">Draft · Origin</span>
+      <h3>Why a Protocol Needs a Soul</h3>
+    </div>
+    <div class="up-card">
+      <span class="badge">Draft · v4.0</span>
+      <h3>Execution Semantics: The Eight Declarations</h3>
+    </div>
+    <div class="up-card">
+      <span class="badge">Draft · Security</span>
+      <h3>The Honesty Paradox: When Safety Layers Attack Themselves</h3>
+    </div>
+  </div>
+
+  <div class="news">
+    <div>
+      <h3>Get notified on new essays</h3>
+      <p>No spam. Protocol-layer thinking, when there is something worth saying.</p>
+    </div>
+    <div class="form">
+      <input type="email" placeholder="you@domain.com" />
+      <button>Subscribe</button>
+    </div>
+  </div>
 </div>
-{{ end }}
 {{ end }}

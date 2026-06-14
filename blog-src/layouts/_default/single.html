@@ -1,43 +1,66 @@
 {{ define "main" }}
-<article class="post-single">
-  <header class="post-header">
-    <div class="post-meta">
-      <a href="{{ "/" | absURL }}" class="back-link">← Blog</a>
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-    </div>
+<div class="progress-bar" id="progress"></div>
+
+<div class="art-layout">
+  <main class="art-main">
+    <div class="art-eyebrow">// Essay · {{ with .Params.tags }}{{ index . 0 }}{{ end }}</div>
     <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
-    {{ with .Params.tags }}
-    <div class="post-tags-row">
-      {{ range . }}<a href="{{ "/tags/" | absURL }}{{ . | urlize }}/" class="tag-link">{{ . }}</a>{{ end }}
+    <div class="art-byline">
+      <span class="av"></span>
+      <span class="who">iLang Research</span>
+      <span class="dot">·</span>
+      <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+      {{ with .Params.tags }}
+      <span class="dot">·</span>
+      <span>{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ "/tags/" | absURL }}{{ $t | urlize }}/" class="tag-link-sm">{{ $t }}</a>{{ end }}</span>
+      {{ end }}
     </div>
-    {{ end }}
-  </header>
-  <div class="post-content">
-    {{ .Content }}
-  </div>
-  <footer class="post-footer">
-    <div class="post-author">
-      <span>By {{ .Params.author | default .Site.Params.author }}</span>
-    </div>
-  </footer>
 
-  {{ $related := .Site.RegularPages.Related . | first 3 }}
+    <div class="art-body">
+      {{ .Content }}
+    </div>
+  </main>
+
+  <aside class="toc" id="toc">
+    <h4>On this page</h4>
+    {{ .TableOfContents }}
+  </aside>
+</div>
+
+<div class="art-end">
+  <div class="art-author">
+    <span class="av"></span>
+    <div class="bio">
+      <b>iLang Research</b>
+      <p>Building the open communication layer for the AI era. A division of iLang Inc.</p>
+    </div>
+  </div>
+
+  {{ $related := .Site.RegularPages.Related . | first 2 }}
   {{ with $related }}
-  <section class="related-posts">
-    <h3>Related</h3>
-    {{ range . }}
-    <a href="{{ .Permalink }}" class="related-item">
-      <span class="related-title">{{ .Title }}</span>
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-    </a>
-    {{ end }}
-  </section>
-  {{ end }}
-
-  <div class="post-nav-bottom">
-    <a href="{{ "/" | absURL }}" class="back-link">← All posts</a>
-    <a href="{{ "/tags/" | absURL }}" class="back-link">All topics →</a>
+  <div class="related-posts">
+    <h4>Read next</h4>
+    <div class="related-grid">
+      {{ range . }}
+      <a href="{{ .Permalink }}" class="rel-card">
+        <div class="k">// {{ with .Params.tags }}{{ index . 0 }}{{ end }}</div>
+        <h5>{{ .Title }}</h5>
+      </a>
+      {{ end }}
+    </div>
   </div>
-</article>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement,b=document.body;
+  var st=h.scrollTop||b.scrollTop;
+  var sh=h.scrollHeight||b.scrollHeight;
+  var pct=(st/(sh-h.clientHeight))*100;
+  document.getElementById('progress').style.width=pct+'%';
+});
+</script>
 {{ end }}
