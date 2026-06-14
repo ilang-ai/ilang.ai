@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="tag-term-page">
+  <div class="tag-term-header">
+    <a href="{{ "/tags/" | absURL }}" class="back-link">← All topics</a>
+    <h1>{{ .Title }}</h1>
+    <p class="tag-term-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
+  </div>
+  <div class="posts-container">
+    {{ range .Pages }}
+    <article class="post-card">
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      </div>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
+      <a href="{{ .Permalink }}" class="read-more">Read →</a>
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

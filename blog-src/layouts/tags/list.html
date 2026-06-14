@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="tags-page">
+  <h1>Topics</h1>
+  <p class="tags-intro">All topics covered on the I-Lang Blog. Each tag is a rabbit hole.</p>
+  <div class="tags-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+    <a href="{{ .Page.Permalink }}" class="tag-pill">
+      <span class="tag-name">{{ .Page.Title }}</span>
+      <span class="tag-count">{{ .Count }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

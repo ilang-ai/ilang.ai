@@ -3,12 +3,25 @@ languageCode = "en"
 title = "I-Lang Blog"
 publishDir = "../blog"
 enableRobotsTXT = false
-disableKinds = ["taxonomy", "term"]
+
+[taxonomies]
+  tag = "tags"
 
 [params]
   description = "Building the native language of artificial intelligence. Stories from the I-Lang protocol team."
   author = "Long Quan Zhu"
   mainSite = "https://ilang.ai"
+
+[related]
+  includeNewer = true
+  threshold = 50
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
 
 [markup]
   [markup.goldmark]

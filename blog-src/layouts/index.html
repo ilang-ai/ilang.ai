@@ -9,7 +9,7 @@
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
       {{ with .Params.tags }}
-      <span class="post-tags">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</span>
+      <span class="post-tags">{{ range . }}<a href="{{ "/tags/" | absURL }}{{ . | urlize }}/" class="tag-link-sm">{{ . }}</a>{{ end }}</span>
       {{ end }}
     </div>
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
@@ -22,4 +22,15 @@
   </div>
   {{ end }}
 </div>
+
+{{ if .Site.Taxonomies.tags }}
+<div class="home-tags">
+  <h3>Topics</h3>
+  <div class="tags-row">
+    {{ range .Site.Taxonomies.tags.Alphabetical }}
+    <a href="{{ .Page.Permalink }}" class="tag-link-sm">{{ .Page.Title }} <span class="tag-count-sm">{{ .Count }}</span></a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
 {{ end }}

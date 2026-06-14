@@ -4,12 +4,14 @@
     <div class="post-meta">
       <a href="{{ "/" | absURL }}" class="back-link">← Blog</a>
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-      {{ with .Params.tags }}
-      <span class="post-tags">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</span>
-      {{ end }}
     </div>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+    {{ with .Params.tags }}
+    <div class="post-tags-row">
+      {{ range . }}<a href="{{ "/tags/" | absURL }}{{ . | urlize }}/" class="tag-link">{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
   </header>
   <div class="post-content">
     {{ .Content }}
@@ -18,7 +20,24 @@
     <div class="post-author">
       <span>By {{ .Params.author | default .Site.Params.author }}</span>
     </div>
-    <a href="{{ "/" | absURL }}" class="back-link">← All posts</a>
   </footer>
+
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+  <section class="related-posts">
+    <h3>Related</h3>
+    {{ range . }}
+    <a href="{{ .Permalink }}" class="related-item">
+      <span class="related-title">{{ .Title }}</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    </a>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  <div class="post-nav-bottom">
+    <a href="{{ "/" | absURL }}" class="back-link">← All posts</a>
+    <a href="{{ "/tags/" | absURL }}" class="back-link">All topics →</a>
+  </div>
 </article>
 {{ end }}
