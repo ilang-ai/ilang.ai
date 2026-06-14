@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="blog-hero">
+  <h1>I-Lang Blog</h1>
+  <p class="hero-sub">Building the native language of artificial intelligence.<br>Protocol design, carbon-silicon symbiosis, and the stories behind I-Lang.</p>
+</div>
+<div class="posts-container">
+  {{ range where .Site.RegularPages "Section" "posts" }}
+  <article class="post-card">
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      {{ with .Params.tags }}
+      <span class="post-tags">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</span>
+      {{ end }}
+    </div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
+    <a href="{{ .Permalink }}" class="read-more">Read →</a>
+  </article>
+  {{ else }}
+  <div class="empty-state">
+    <p>First post coming soon. We're writing the origin story of I-Lang.</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

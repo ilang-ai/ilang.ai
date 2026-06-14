@@ -1,0 +1,24 @@
+baseURL = "https://ilang.ai/blog/"
+languageCode = "en"
+title = "I-Lang Blog"
+publishDir = "../blog"
+enableRobotsTXT = false
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Building the native language of artificial intelligence. Stories from the I-Lang protocol team."
+  author = "Long Quan Zhu"
+  mainSite = "https://ilang.ai"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]

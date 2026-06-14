@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <div class="post-meta">
+      <a href="{{ "/" | absURL }}" class="back-link">← Blog</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ with .Params.tags }}
+      <span class="post-tags">{{ range . }}<span class="tag">{{ . }}</span>{{ end }}</span>
+      {{ end }}
+    </div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+  </header>
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  <footer class="post-footer">
+    <div class="post-author">
+      <span>By {{ .Params.author | default .Site.Params.author }}</span>
+    </div>
+    <a href="{{ "/" | absURL }}" class="back-link">← All posts</a>
+  </footer>
+</article>
+{{ end }}
