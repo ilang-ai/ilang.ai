@@ -54,6 +54,9 @@
 {{ end }}
 
 {{ define "scripts" }}
+<script defer src="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 <script>
 window.addEventListener('scroll',function(){
   var h=document.documentElement,b=document.body;
