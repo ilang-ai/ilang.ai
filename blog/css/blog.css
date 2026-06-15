@@ -202,6 +202,8 @@ a:hover{color:var(--fg-strong)}
 
 /* Related posts */
 .related-posts h4{font-family:var(--mono);font-size:.78rem;color:var(--muted-2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.comments{margin-top:48px;padding-top:32px;border-top:1px solid var(--hairline)}
+.comments h4{font-family:var(--mono);font-size:.78rem;color:var(--muted-2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .rel-card{border:1px solid var(--card-line);border-radius:11px;padding:20px;background:var(--card-bg);text-decoration:none;display:block;transition:border-color .15s}
 .rel-card:hover{border-color:var(--accent)}
