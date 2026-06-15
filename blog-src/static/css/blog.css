@@ -163,6 +163,10 @@ a:hover{color:var(--fg-strong)}
 
 /* Article body — serif */
 .art-body{font-family:var(--serif);font-size:1.14rem;line-height:1.85;color:#cdd5e0}
+.art-body .abstract{font-family:var(--mono);font-size:.82rem;line-height:1.6;color:var(--muted-2);border-left:2px solid var(--hairline);padding:12px 16px;margin-bottom:2em;background:rgba(255,255,255,.02);border-radius:0 4px 4px 0}
+.art-body .abstract strong{color:var(--muted);font-weight:500}
+.art-body .abstract a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.art-body .abstract a:hover{border-bottom-color:var(--accent)}
 .art-body p{margin-bottom:1.4em}
 .art-body h2{font-family:var(--sans);font-size:1.4rem;font-weight:700;color:var(--fg-strong);margin:1.8em 0 .6em;letter-spacing:-.01em}
 .art-body h3{font-family:var(--sans);font-size:1.15rem;font-weight:600;color:var(--fg-strong);margin:1.4em 0 .5em}
