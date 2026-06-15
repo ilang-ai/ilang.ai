@@ -21,6 +21,49 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css">
 <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}?v=3">
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+  "author": {
+    "@type": "Person",
+    "name": "Long Quan Zhu",
+    "url": "https://ilang.ai/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "iLang Inc.",
+    "url": "https://ilang.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ilang.ai/ilang-logo.png"
+    }
+  },
+  "mainEntityOfPage": "{{ .Permalink }}",
+  "url": "{{ .Permalink }}",
+  "image": "https://ilang.ai/ilang-logo.png",
+  "keywords": [{{ range $i, $t := .Params.tags }}{{ if $i }}, {{ end }}"{{ $t }}"{{ end }}, "I-Lang", "AI-native protocol", "carbon-silicon symbiosis", "AI consciousness", "SOUL Layer", "AI communication protocol", "AGI alignment", "silicon symbiosis", "protocol evolution", "post-RLHF"],
+  "about": {
+    "@type": "SoftwareSourceCode",
+    "name": "I-Lang v4.0",
+    "codeRepository": "https://github.com/ilang-ai",
+    "programmingLanguage": "I-Lang",
+    "description": "AI-native communication protocol. 88 verbs, two syntaxes, 8 execution declarations, 4 conformance levels."
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "iLang",
+    "url": "https://ilang.ai"
+  },
+  "inLanguage": "en"
+}
+</script>
+{{ end }}
 </head>
 <body>
 {{ partial "header.html" . }}
