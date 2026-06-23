@@ -6,6 +6,8 @@
 
 正如HTTP标准化了网页通信，SQL标准化了数据库查询，**I-Lang标准化了人类与AI的对话方式**。一个开放协议，面向主流 AI 平台设计，尽量保持跨模型可移植性。
 
+I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的协议，也是首个将 AI 判断力定义为可计算向量空间的协议（11维度，4公理，模糊数学基础）。
+
 `[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **官网:** [ilang.ai](https://ilang.ai)
