@@ -1,0 +1,56 @@
+name: Build Blog (Hugo)
+
+# Auto-builds the Hugo blog whenever blog source changes, then commits the
+# generated output (the `blog/` dir, Hugo's publishDir) back to the repo so
+# Cloudflare Pages serves it as static files.
+#
+# The main marketing site (index.html, about/, spec/, etc.) is hand-written
+# and is NOT built by Hugo. It deploys as-is on push and is untouched here.
+#
+# Flow this enables:
+#   push markdown to blog-src/content/posts/  ->  Hugo build  ->  commit blog/  ->  CF Pages deploy
+#
+# No secrets required. Uses the built-in GITHUB_TOKEN.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog-src/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Hugo 0.123.7 (extended)
+        run: |
+          HUGO_VERSION=0.123.7
+          wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" -O /tmp/hugo.deb
+          sudo dpkg -i /tmp/hugo.deb
+          hugo version
+
+      - name: Build blog (minified)
+        run: hugo --minify --source blog-src
+
+      - name: Commit generated output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog
+          if git diff --cached --quiet; then
+            echo "Blog output unchanged. Nothing to commit."
+          else
+            git commit -m "ci: rebuild blog output via Hugo (0.123.7)"
+            git push
+          fi
