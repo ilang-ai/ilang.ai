@@ -20,3 +20,4 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://ilang.ai/sitemap.xml
+Sitemap: https://ilang.ai/blog/sitemap.xml
