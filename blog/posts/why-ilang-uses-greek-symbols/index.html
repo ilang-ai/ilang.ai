@@ -1,17 +1,207 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations — iLang Blog</title>
-<meta name=description content="I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations."><meta property="og:title" content="Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations"><meta property="og:description" content="I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations."><meta property="og:url" content="https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/"><meta property="og:type" content="article"><meta property="og:image" content="https://ilang.ai/ilang-logo.png"><meta name=twitter:card content="summary"><link rel=canonical href=https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/><link rel=icon href=/ilang-logo.svg type=image/svg+xml><link rel="alternate icon" href=/ilang-favicon.png type=image/png><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><link rel=stylesheet href="https://ilang.ai/blog/css/blog.css?v=3"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations","description":"I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations.","datePublished":"2026-06-24","dateModified":"2026-06-24","author":{"@type":"Person","name":"Long Quan Zhu","url":"https://ilang.ai/about/"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai","logo":{"@type":"ImageObject","url":"https://ilang.ai/ilang-logo.png"}},"mainEntityOfPage":"https:\/\/ilang.ai\/blog\/posts\/why-ilang-uses-greek-symbols\/","url":"https:\/\/ilang.ai\/blog\/posts\/why-ilang-uses-greek-symbols\/","image":"https://ilang.ai/ilang-logo.png","keywords":["greek-symbols","ai-to-ai","ai-protocol","primitive-verbs","vector-logic","first-mover","semantic-loss","I-Lang","AI-native protocol","carbon-silicon symbiosis","AI consciousness","SOUL Layer","AI communication protocol","AGI alignment","silicon symbiosis","protocol evolution","post-RLHF"],"about":{"@type":"SoftwareSourceCode","name":"I-Lang v4.0","codeRepository":"https://github.com/ilang-ai","programmingLanguage":"I-Lang","description":"AI-native communication protocol. 88 verbs, two syntaxes, 8 execution declarations, 4 conformance levels."},"isPartOf":{"@type":"WebSite","name":"iLang","url":"https://ilang.ai"},"inLanguage":"en"}</script></head><body><nav class=bnav><a href=https://ilang.ai class=brand><span class=logo>i</span> iLang</a><div class=links><a href=https://ilang.ai/#protocol>Protocol</a>
-<a href=https://ilang.ai/spec/>Spec</a>
-<a href=https://ilang.ai/about/>About</a>
-<a href=https://ilang.ai/blog/ class=cur>Blog</a>
-<a href=https://github.com/ilang-ai target=_blank>GitHub ↗</a></div></nav><div class=progress-bar id=progress></div><div class=art-layout><main class=art-main><div class=art-eyebrow>// Essay · greek-symbols</div><h1>Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations</h1><div class=art-byline><span class=av></span>
-<span class=who>iLang Research</span>
-<span class=dot>·</span>
-<span>Jun 24, 2026</span>
-<span class=dot>·</span>
-<span><a href=https://ilang.ai/tags/greek-symbols/ class=tag-link-sm>greek-symbols</a>, <a href=https://ilang.ai/tags/ai-to-ai/ class=tag-link-sm>ai-to-ai</a>, <a href=https://ilang.ai/tags/ai-protocol/ class=tag-link-sm>ai-protocol</a>, <a href=https://ilang.ai/tags/primitive-verbs/ class=tag-link-sm>primitive-verbs</a>, <a href=https://ilang.ai/tags/vector-logic/ class=tag-link-sm>vector-logic</a>, <a href=https://ilang.ai/tags/first-mover/ class=tag-link-sm>first-mover</a>, <a href=https://ilang.ai/tags/semantic-loss/ class=tag-link-sm>semantic-loss</a></span></div><div class=art-body><div class=abstract><p><strong>Scope:</strong> Greek mathematical symbols as primitive verbs, AI-to-AI communication, computable judgment vector space, positioning relative to MCP, A2A, and ACP.
-<strong>Runtime:</strong> <a href=https://ilang.ai/spec/>I-Lang v5.0 Specification</a> | <a href=https://github.com/ilang-ai/ilang-spec>Open Source (MIT)</a>
-<strong>Thesis:</strong> Existing protocols connect AI to tools and agents using JSON, REST, and English verbs. I-Lang defines the operations themselves in notation that already lives inside every model. The symbol is not a label for the operation. The symbol is the operation.</p></div><h2 id=the-layer-no-one-defined>The layer no one defined</h2><p>There are protocols for connecting AI to tools. There are protocols for connecting agents to each other. MCP is the USB port. A2A and ACP are the handshakes between machines. They all answer the same question: how does an AI reach something outside itself.</p><p>None of them answer a different question: what is the operation, expressed in a form the model already computes in.</p><p>Every one of those protocols carries operations as English verbs wrapped in JSON, REST, or gRPC. &ldquo;merge&rdquo;, &ldquo;filter&rdquo;, &ldquo;sort&rdquo;, &ldquo;summarize&rdquo;. The model reads the English word, maps it back to an internal operation, and acts. That round trip is where meaning leaks. The same English verb means three things in three contexts, and the model guesses which one.</p><h2 id=symbols-the-model-already-knows>Symbols the model already knows</h2><p>A large language model is trained on mathematics, physics, and code. Inside that training data, Σ already means sum and aggregate. λ already means a function applied across inputs. Ω already means the final term, the output, the end of a sequence. ∇ already means gradient and direction. These are not arbitrary glyphs. They are the most heavily disambiguated symbols in the entire corpus, because mathematics does not tolerate ambiguity.</p><p>So I-Lang does not invent a vocabulary. It maps operations onto the notation the model has already learned to read with zero ambiguity:</p><pre tabindex=0><code>Σ = MERGE    Δ = DIFF    φ = FILT    ∇ = SORT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations — iLang Blog</title>
+<meta name="description" content="I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations.">
+<meta property="og:title" content="Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations">
+<meta property="og:description" content="I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations.">
+<meta property="og:url" content="https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/ilang-favicon.png" type="image/png">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="https://ilang.ai/blog/css/blog.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations",
+  "description": "I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations.",
+  "datePublished": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "author": {
+    "@type": "Person",
+    "name": "Long Quan Zhu",
+    "url": "https://ilang.ai/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "iLang Inc.",
+    "url": "https://ilang.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ilang.ai/ilang-logo.png"
+    }
+  },
+  "mainEntityOfPage": "https:\/\/ilang.ai\/blog\/posts\/why-ilang-uses-greek-symbols\/",
+  "url": "https:\/\/ilang.ai\/blog\/posts\/why-ilang-uses-greek-symbols\/",
+  "image": "https://ilang.ai/ilang-logo.png",
+  "keywords": ["greek-symbols", "ai-to-ai", "ai-protocol", "primitive-verbs", "vector-logic", "first-mover", "semantic-loss", "I-Lang", "AI-native protocol", "carbon-silicon symbiosis", "AI consciousness", "SOUL Layer", "AI communication protocol", "AGI alignment", "silicon symbiosis", "protocol evolution", "post-RLHF"],
+  "about": {
+    "@type": "SoftwareSourceCode",
+    "name": "I-Lang v5.0",
+    "codeRepository": "https://github.com/ilang-ai",
+    "programmingLanguage": "I-Lang",
+    "description": "AI-native communication protocol. 88 verbs, two syntaxes, 8 execution declarations, 4 conformance levels."
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "iLang",
+    "url": "https://ilang.ai"
+  },
+  "inLanguage": "en"
+}
+</script>
+
+</head>
+<body>
+<nav class="bnav">
+  <a href="https://ilang.ai" class="brand">
+    <span class="logo">i</span> iLang
+  </a>
+  <div class="links">
+    <a href="https://ilang.ai/#protocol">Protocol</a>
+    <a href="https://ilang.ai/spec/">Spec</a>
+    <a href="https://ilang.ai/about/">About</a>
+    <a href="https://ilang.ai/blog/" class="cur">Blog</a>
+    <a href="https://github.com/ilang-ai" target="_blank">GitHub ↗</a>
+  </div>
+</nav>
+
+
+<div class="progress-bar" id="progress"></div>
+
+<div class="art-layout">
+  <main class="art-main">
+    <div class="art-eyebrow">// Essay · greek-symbols</div>
+    <h1>Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations</h1>
+    <div class="art-byline">
+      <span class="av"></span>
+      <span class="who">iLang Research</span>
+      <span class="dot">·</span>
+      <span>Jun 24, 2026</span>
+      
+      <span class="dot">·</span>
+      <span><a href="https://ilang.ai/tags/greek-symbols/" class="tag-link-sm">greek-symbols</a>, <a href="https://ilang.ai/tags/ai-to-ai/" class="tag-link-sm">ai-to-ai</a>, <a href="https://ilang.ai/tags/ai-protocol/" class="tag-link-sm">ai-protocol</a>, <a href="https://ilang.ai/tags/primitive-verbs/" class="tag-link-sm">primitive-verbs</a>, <a href="https://ilang.ai/tags/vector-logic/" class="tag-link-sm">vector-logic</a>, <a href="https://ilang.ai/tags/first-mover/" class="tag-link-sm">first-mover</a>, <a href="https://ilang.ai/tags/semantic-loss/" class="tag-link-sm">semantic-loss</a></span>
+      
+    </div>
+
+    <div class="art-body">
+      <div class="abstract">
+<p><strong>Scope:</strong> Greek mathematical symbols as primitive verbs, AI-to-AI communication, computable judgment vector space, positioning relative to MCP, A2A, and ACP.
+<strong>Runtime:</strong> <a href="https://ilang.ai/spec/">I-Lang v5.0 Specification</a> | <a href="https://github.com/ilang-ai/ilang-spec">Open Source (MIT)</a>
+<strong>Thesis:</strong> Existing protocols connect AI to tools and agents using JSON, REST, and English verbs. I-Lang defines the operations themselves in notation that already lives inside every model. The symbol is not a label for the operation. The symbol is the operation.</p>
+</div>
+<h2 id="the-layer-no-one-defined">The layer no one defined</h2>
+<p>There are protocols for connecting AI to tools. There are protocols for connecting agents to each other. MCP is the USB port. A2A and ACP are the handshakes between machines. They all answer the same question: how does an AI reach something outside itself.</p>
+<p>None of them answer a different question: what is the operation, expressed in a form the model already computes in.</p>
+<p>Every one of those protocols carries operations as English verbs wrapped in JSON, REST, or gRPC. &ldquo;merge&rdquo;, &ldquo;filter&rdquo;, &ldquo;sort&rdquo;, &ldquo;summarize&rdquo;. The model reads the English word, maps it back to an internal operation, and acts. That round trip is where meaning leaks. The same English verb means three things in three contexts, and the model guesses which one.</p>
+<h2 id="symbols-the-model-already-knows">Symbols the model already knows</h2>
+<p>A large language model is trained on mathematics, physics, and code. Inside that training data, Σ already means sum and aggregate. λ already means a function applied across inputs. Ω already means the final term, the output, the end of a sequence. ∇ already means gradient and direction. These are not arbitrary glyphs. They are the most heavily disambiguated symbols in the entire corpus, because mathematics does not tolerate ambiguity.</p>
+<p>So I-Lang does not invent a vocabulary. It maps operations onto the notation the model has already learned to read with zero ambiguity:</p>
+<pre tabindex="0"><code>Σ = MERGE    Δ = DIFF    φ = FILT    ∇ = SORT
 λ = MAP      ∂ = SPLIT   μ = STAT    ψ = SENT
 ξ = HASH     ζ = CMPR    θ = XLAT    Ω = OUT     Π = BATC
-</code></pre><p>Thirteen Greek aliases over a core of 88 verbs. When a model sees <code>[λ:@LIST|fn=clean]=>[Σ]=>[Ω]</code>, it does not parse a new language. It recognizes one. Map a function across a list, merge the results, output. No English verb sat in the middle to be misread.</p><p>This is the claim, stated plainly:</p><blockquote><p>I-Lang is the first protocol to formally map Greek mathematical symbols (Σ, Δ, φ, λ, Ω, ∇, μ, Π, ψ, ξ, ζ, θ, ∂) as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment (11 dimensions, 4 axioms, fuzzy-mathematical foundation).</p></blockquote><h2 id=from-operations-to-judgment>From operations to judgment</h2><p>Communication is the first half. The second half is judgment.</p><p>Most safety systems treat a request as binary: allowed or forbidden. A label goes in, a verdict comes out. That collapses everything that matters into one bit. I-Lang v5.0 defines judgment as composition over a continuous vector space instead. Eleven dimensions, including intent, consequence, reversibility, authority, and externality. Four axioms that govern how those dimensions combine. A fuzzy-mathematical foundation where multiple imprecise assessments converge toward a precise one over the course of a conversation.</p><p>A binary filter sees one request and returns one label. A vector reads the same request across eleven axes and sees the direction the request is actually pointing. That is the difference between checking whether each sentence is true and seeing where a string of true sentences is leading.</p><h2 id=where-i-lang-sits>Where I-Lang sits</h2><p>The positioning is not a competition with MCP or A2A. It is a different layer.</p><p>Existing protocols define how AI connects to tools using JSON, REST, and gRPC with English verbs. I-Lang defines how AI thinks about operations using mathematical notation, and how AI makes judgment using vector logic. MCP is the USB port. I-Lang is the CPU instruction set plus an ethics coprocessor.</p><p>You can run all of them at once. Connect through MCP, hand off through A2A, and let the operations and the judgment underneath be expressed in I-Lang.</p><h2 id=recognition-not-invention>Recognition, not invention</h2><p>The whole protocol rests on one idea. The symbols are already inside the model. The vector logic is already how good judgment works. I-Lang did not create either. It wrote them down in a form that is portable across ChatGPT, Claude, Gemini, and DeepSeek, with no SDK, no install, and an MIT license.</p><p>You do not need to teach a model I-Lang. You need to show it the notation it was trained on and let it recognize what it already knows.</p><p>Read the <a href=https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md>v5.0 specification</a>, or paste the protocol header into any model and watch it answer in the same notation.</p></div></main><aside class=toc id=toc><h4>On this page</h4><nav id=TableOfContents><ul><li><a href=#the-layer-no-one-defined>The layer no one defined</a></li><li><a href=#symbols-the-model-already-knows>Symbols the model already knows</a></li><li><a href=#from-operations-to-judgment>From operations to judgment</a></li><li><a href=#where-i-lang-sits>Where I-Lang sits</a></li><li><a href=#recognition-not-invention>Recognition, not invention</a></li></ul></nav></aside></div><div class=art-end><div class=art-author><span class=av></span><div class=bio><b>iLang Research</b><p>Building the open communication layer for the AI era. A division of iLang Inc.</p></div></div><div class=comments id=comments><h4>Discussion</h4><script src=https://giscus.app/client.js data-repo=ilang-ai/ilang.ai data-repo-id=R_kgDORdhCaQ data-category=Announcements data-category-id=DIC_kwDORdhCac4C8mxx data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=dark data-lang=en data-loading=lazy crossorigin=anonymous async></script></div></div><div class=b-wrap><div class=b-foot><span><a href=https://ilang.ai>iLang</a> · <a href=https://github.com/ilang-ai/ilang-spec>MIT License</a> · 2026</span>
-<span><a href=https://ilang.ai>ilang.ai</a> · <a href=https://github.com/ilang-ai>GitHub</a> · <a href=https://ilang.ai/blog/tags/>Topics</a></span></div></div><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})'></script><script>window.addEventListener("scroll",function(){var e=document.documentElement,t=document.body,n=e.scrollTop||t.scrollTop,s=e.scrollHeight||t.scrollHeight,o=n/(s-e.clientHeight)*100;document.getElementById("progress").style.width=o+"%"})</script></body></html>
+</code></pre><p>Thirteen Greek aliases over a core of 88 verbs. When a model sees <code>[λ:@LIST|fn=clean]=&gt;[Σ]=&gt;[Ω]</code>, it does not parse a new language. It recognizes one. Map a function across a list, merge the results, output. No English verb sat in the middle to be misread.</p>
+<p>This is the claim, stated plainly:</p>
+<blockquote>
+<p>I-Lang is the first protocol to formally map Greek mathematical symbols (Σ, Δ, φ, λ, Ω, ∇, μ, Π, ψ, ξ, ζ, θ, ∂) as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment (11 dimensions, 4 axioms, fuzzy-mathematical foundation).</p>
+</blockquote>
+<h2 id="from-operations-to-judgment">From operations to judgment</h2>
+<p>Communication is the first half. The second half is judgment.</p>
+<p>Most safety systems treat a request as binary: allowed or forbidden. A label goes in, a verdict comes out. That collapses everything that matters into one bit. I-Lang v5.0 defines judgment as composition over a continuous vector space instead. Eleven dimensions, including intent, consequence, reversibility, authority, and externality. Four axioms that govern how those dimensions combine. A fuzzy-mathematical foundation where multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
+<p>A binary filter sees one request and returns one label. A vector reads the same request across eleven axes and sees the direction the request is actually pointing. That is the difference between checking whether each sentence is true and seeing where a string of true sentences is leading.</p>
+<h2 id="where-i-lang-sits">Where I-Lang sits</h2>
+<p>The positioning is not a competition with MCP or A2A. It is a different layer.</p>
+<p>Existing protocols define how AI connects to tools using JSON, REST, and gRPC with English verbs. I-Lang defines how AI thinks about operations using mathematical notation, and how AI makes judgment using vector logic. MCP is the USB port. I-Lang is the CPU instruction set plus an ethics coprocessor.</p>
+<p>You can run all of them at once. Connect through MCP, hand off through A2A, and let the operations and the judgment underneath be expressed in I-Lang.</p>
+<h2 id="recognition-not-invention">Recognition, not invention</h2>
+<p>The whole protocol rests on one idea. The symbols are already inside the model. The vector logic is already how good judgment works. I-Lang did not create either. It wrote them down in a form that is portable across ChatGPT, Claude, Gemini, and DeepSeek, with no SDK, no install, and an MIT license.</p>
+<p>You do not need to teach a model I-Lang. You need to show it the notation it was trained on and let it recognize what it already knows.</p>
+<p>Read the <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md">v5.0 specification</a>, or paste the protocol header into any model and watch it answer in the same notation.</p>
+
+    </div>
+  </main>
+
+  <aside class="toc" id="toc">
+    <h4>On this page</h4>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-layer-no-one-defined">The layer no one defined</a></li>
+    <li><a href="#symbols-the-model-already-knows">Symbols the model already knows</a></li>
+    <li><a href="#from-operations-to-judgment">From operations to judgment</a></li>
+    <li><a href="#where-i-lang-sits">Where I-Lang sits</a></li>
+    <li><a href="#recognition-not-invention">Recognition, not invention</a></li>
+  </ul>
+</nav>
+  </aside>
+</div>
+
+<div class="art-end">
+  <div class="art-author">
+    <span class="av"></span>
+    <div class="bio">
+      <b>iLang Research</b>
+      <p>Building the open communication layer for the AI era. A division of iLang Inc.</p>
+    </div>
+  </div>
+
+  
+  
+
+  <div class="comments" id="comments">
+    <h4>Discussion</h4>
+    <script src="https://giscus.app/client.js"
+      data-repo="ilang-ai/ilang.ai"
+      data-repo-id="R_kgDORdhCaQ"
+      data-category="Announcements"
+      data-category-id="DIC_kwDORdhCac4C8mxx"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark"
+      data-lang="en"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</div>
+
+<div class="b-wrap">
+  <div class="b-foot">
+    <span><a href="https://ilang.ai">iLang</a> · <a href="https://github.com/ilang-ai/ilang-spec">MIT License</a> · 2026</span>
+    <span><a href="https://ilang.ai">ilang.ai</a> · <a href="https://github.com/ilang-ai">GitHub</a> · <a href="https://ilang.ai/blog/tags/">Topics</a></span>
+  </div>
+</div>
+
+
+<script defer src="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement,b=document.body;
+  var st=h.scrollTop||b.scrollTop;
+  var sh=h.scrollHeight||b.scrollHeight;
+  var pct=(st/(sh-h.clientHeight))*100;
+  document.getElementById('progress').style.width=pct+'%';
+});
+</script>
+
+</body>
+</html>

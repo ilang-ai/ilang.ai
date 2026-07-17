@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Semantic-Loss on I-Lang Blog</title><link>https://ilang.ai/blog/tags/semantic-loss/</link><description>Recent content in Semantic-Loss on I-Lang Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ilang.ai/blog/tags/semantic-loss/index.xml" rel="self" type="application/rss+xml"/><item><title>Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations</title><link>https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/</link><pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate><guid>https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/</guid><description>Scope: Greek mathematical symbols as primitive verbs, AI-to-AI communication, computable judgment vector space, positioning relative to MCP, A2A, and ACP. Runtime: I-Lang v5.0 Specification | Open Source (MIT) Thesis: Existing protocols connect AI to tools and agents using JSON, REST, and English verbs. I-Lang defines the operations themselves in notation that already lives inside every model. The symbol is not a label for the operation. The symbol is the operation.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Semantic-Loss on I-Lang Blog</title>
+    <link>https://ilang.ai/blog/tags/semantic-loss/</link>
+    <description>Recent content in Semantic-Loss on I-Lang Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ilang.ai/blog/tags/semantic-loss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations</title>
+      <link>https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/</guid>
+      <description>Scope: Greek mathematical symbols as primitive verbs, AI-to-AI communication, computable judgment vector space, positioning relative to MCP, A2A, and ACP. Runtime: I-Lang v5.0 Specification | Open Source (MIT) Thesis: Existing protocols connect AI to tools and agents using JSON, REST, and English verbs. I-Lang defines the operations themselves in notation that already lives inside every model. The symbol is not a label for the operation. The symbol is the operation.</description>
+    </item>
+  </channel>
+</rss>

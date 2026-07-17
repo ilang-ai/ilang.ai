@@ -18,7 +18,7 @@
 **I-Lang** — The native language of artificial intelligence.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1e3a8a.svg?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/version-3.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
+[![Version](https://img.shields.io/badge/version-5.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
 [![Website](https://img.shields.io/badge/web-ilang.ai-1e3a8a.svg?style=flat-square)](https://ilang.ai)
 [![HuggingFace](https://img.shields.io/badge/🤗-i--Lang-ffcc4d.svg?style=flat-square)](https://huggingface.co/i-Lang)
 [![Status](https://img.shields.io/badge/status-Released-c1121f.svg?style=flat-square)]()
@@ -36,23 +36,24 @@
 > One open protocol designed to be portable across major models.
 
 ```
-[PROTOCOL:I-Lang|v=3.0|type=AI-native]=>[STRUCTURED]=>[PRECISE]=>[OUT]
+[PROTOCOL:I-Lang|v=5.0|type=AI-native]=>[STRUCTURED]=>[PRECISE]=>[JUDGED]=>[OUT]
 ```
 
 ---
 
 ## Status of This Document
 
-This memo defines **I-Lang v3.0**, a structured communication protocol for precise
-structuring natural-language instructions sent to large language models (LLMs).
-It is released under the **MIT License** and intended for wide adoption.
+This memo defines **I-Lang v5.0**, an AI-native protocol that spans three layers: communication (v3.0),
+execution (v4.0), and judgment (v5.0). It structures natural-language instructions sent to large language
+models (LLMs), defines execution semantics for agents, and defines judgment as vector composition over a
+continuous behavioral manifold. It is released under the **MIT License** and intended for wide adoption.
 
 Distribution of this document is unlimited.
 
 | Field        | Value                                             |
 |:-------------|:--------------------------------------------------|
 | Protocol     | I-Lang                                            |
-| Version      | 3.0                                               |
+| Version      | 5.0                                               |
 | Status       | Released                                    |
 | Category     | Open Specification                                |
 | Maintainer   | I-Lang Research · iLang Inc., Canada           |

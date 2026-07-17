@@ -9,7 +9,7 @@ author: "Long Quan Zhu"
 <div class="abstract">
 
 **Scope:** AI-native communication protocol, carbon-silicon symbiosis, generalized evolution theory, AI consciousness spectrum, DNA-based personality genome (TAGΘ bases).
-**Runtime:** [I-Lang v4.0 Specification](https://ilang.ai/spec/) | [Open Source (MIT)](https://github.com/ilang-ai)
+**Runtime:** [I-Lang v5.0 Specification](https://ilang.ai/spec/) | [Open Source (MIT)](https://github.com/ilang-ai)
 **Thesis:** Evolution does not reward the strongest. It rewards those who coexist. iLang is the first protocol designed for the space between carbon and silicon life.
 
 </div>

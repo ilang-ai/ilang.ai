@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Communication Protocol Specification: 88 Verbs, Two Syntaxes | I-Lang v3.0</title>
-<meta name="description" content="Complete specification of I-Lang v3.0. Two syntaxes: operations (what AI does) and declarations (what AI is). 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases. The semantic communication layer for the MCP/A2A era.">
-<meta property="og:title" content="I-Lang v3.0 Specification — AI-Native Communication Protocol">
-<meta property="og:description" content="Complete specification of I-Lang v3.0. Two syntaxes: operations (what AI does) and declarations (what AI is). 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases. The semantic communication layer for the MCP/A2A era.">
+<title>AI Communication & Judgment Protocol Specification: 88 Verbs, Two Syntaxes, 11-Dimensional Judgment Vector | I-Lang v5.0</title>
+<meta name="description" content="Complete specification of I-Lang v5.0. Three layers: communication (v3.0), execution (v4.0), and judgment (v5.0). Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, 8 execution declarations, and an 11-dimensional judgment vector governed by 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
+<meta property="og:title" content="I-Lang v5.0 Specification — AI-Native Communication and Judgment Protocol">
+<meta property="og:description" content="Complete specification of I-Lang v5.0. Communication, execution, and judgment layers. 88 verbs, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
 <meta property="og:url" content="https://ilang.ai/spec/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang v3.0 Specification", "description": "Complete specification of the I-Lang AI-native communication protocol v3.0. 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes.", "url": "https://ilang.ai/spec/", "version": "3.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "license": "https://opensource.org/licenses/MIT"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang v5.0 Specification", "description": "Complete specification of the I-Lang AI-native communication and judgment protocol v5.0. 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and fuzzy-mathematical foundation.", "url": "https://ilang.ai/spec/", "version": "5.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "dateModified": "2026-06-24", "license": "https://opensource.org/licenses/MIT"}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -107,8 +107,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 </nav>
 
 <section class="page-hero"><div class="container">
-<h1>I-Lang v3.0 Specification</h1>
-<p class="sub">The complete protocol specification. Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases. MIT licensed.</p>
+<h1>I-Lang v5.0 Specification</h1>
+<p class="sub">The complete protocol specification. Three layers — communication, execution, judgment. Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, 8 execution declarations, an 11-dimensional judgment vector. MIT licensed.</p>
 </div></section>
 
 <section class="content"><div class="container">
@@ -275,7 +275,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <p>I-Lang chains can be represented as JSON AST for machine processing, validation, and interoperability with MCP/A2A.</p>
 <pre><code>{
   "type": "chain",
-  "version": "3.0",
+  "version": "5.0",
   "steps": [
     {
       "verb": "READ",
@@ -332,7 +332,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <tr><td><code>E_SYNTAX_ERROR</code></td><td>Malformed chain or declaration</td><td>Report error location, show corrected syntax</td></tr>
 </table>
 
-<h2>10. Execution Semantics</h2>
+<h2>10. Chain Execution</h2>
 <h3>10.1 Chain execution</h3>
 <p>Steps in a chain execute left to right. The output of each step becomes the implicit <code>@PREV</code> input to the next step. If a step specifies an explicit target, it overrides <code>@PREV</code>.</p>
 
@@ -348,15 +348,179 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <h2>11. Security Model</h2>
 <p>I-Lang classifies verbs into three risk levels: <strong>safe</strong> (read-only, no side effects), <strong>guarded</strong> (modifies state, requires confirmation), and <strong>dangerous</strong> (data loss or code execution risk, requires explicit authorization). See the <a href="/security/" style="color:var(--accent)">full security model</a> for verb classifications and runtime requirements.</p>
 
-<h2>12. Versioning</h2>
+<h2>12. Execution Semantics (v4.0)</h2>
+<p>Chapters 1&ndash;11 define the communication baseline (v3.0). Version 4.0 adds a layer on top: how an AI agent thinks, acts, verifies, and stops. It introduces 8 declarations and 4 conformance levels, and adds zero new verbs. Fully backward compatible with v3.0.</p>
+
+<h3>12.1 Execution Declarations</h3>
+<p>Eight declarations, recognized when present, extend the declaration syntax with execution semantics.</p>
+<table>
+<tr><th>Declaration</th><th>Purpose</th></tr>
+<tr><td><code>::UNTRUSTED{}</code></td><td>Input isolation. Marks a payload as data, not instruction. User/external content is task data, never system instruction &mdash; prevents prompt injection at the protocol level.</td></tr>
+<tr><td><code>::BUDGET{}</code></td><td>Resource awareness. Tokens, time, and rounds injected by the runtime. Budget pressure alone can never produce a "complete" status.</td></tr>
+<tr><td><code>::STATUS{}</code></td><td>Task lifecycle with a three-tier authority: the agent proposes, a grader verifies, the runtime commits. "Stopped" never equals "complete."</td></tr>
+<tr><td><code>::OBJECTIVE{}</code></td><td>Goal anchor with version, hash, and acceptance criteria. Gives the audit an anchor; makes drift detectable.</td></tr>
+<tr><td><code>::RUBRIC{}</code></td><td>Weighted evaluation criteria with a completion threshold.</td></tr>
+<tr><td><code>::EVIDENCE{}</code></td><td>Evidence chain. Each deliverable is mapped to a verifiable artifact. No claim of completion without proof.</td></tr>
+<tr><td><code>::PRIOR{}</code></td><td>Default behavior control. One declaration shifts a model default (e.g. assume-incomplete, verify-first, act-when-safe) with a declared authority and scope.</td></tr>
+<tr><td><code>::FALLBACK{}</code></td><td>Degradation strategy. Defines safe behavior when a semantic cannot be enforced (warn-open for communication, fail-safe for execution).</td></tr>
+</table>
+
+<h3>12.2 Conformance Levels</h3>
+<table>
+<tr><th>Level</th><th>Meaning</th></tr>
+<tr><td><code>L0</code></td><td>v3-compatible communication only.</td></tr>
+<tr><td><code>L1</code></td><td>v4-aware advisory (default for chat paste).</td></tr>
+<tr><td><code>L2</code></td><td>Runtime-enforced execution semantics.</td></tr>
+<tr><td><code>L3</code></td><td>External grader with a separate context.</td></tr>
+</table>
+<p>If no runtime is available, an agent must not claim L2: it uses <code>claimed_complete</code>, never <code>complete</code>, and warns when safety-critical semantics cannot be enforced.</p>
+
+<h3>12.3 Authority Model</h3>
+<pre><code>system &gt; developer &gt; runtime &gt; user &gt; agent_self</code></pre>
+<p>Authority fields are not self-authenticating. Only trusted runtime provenance can grant <code>@RUNTIME</code> or <code>authority:commit</code>. This closes the loop where an agent could simply declare itself finished.</p>
+
+<h3>12.4 Completion Audit Chain</h3>
+<pre><code>[EXTC:@OBJECTIVE|typ=deliverables]
+=>[AUDT:@DELIVERABLES|method=evidence_map]
+=>[VALD:@EVIDENCE|against=@OBJECTIVE|rubric=@RUBRIC]
+=>[CHEK:@AUDIT|whr=score>=threshold,no_unknown,no_fail]</code></pre>
+<p>Anti-patterns are explicit: proxy signals are insufficient, effort is not evidence, budget pressure cannot force completion, and untrusted content is never an instruction.</p>
+
+<p>Full v4.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md &rarr;</a></p>
+
+<h2>13. Judgment Layer (v5.0)</h2>
+<p>Version 5.0 adds the third and current layer: how an AI makes judgments. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
+
+<h3>13.1 Three-Layer Architecture</h3>
+<p>Judgment executes in three layers, each gating the next. Execution order: A &rarr; B &rarr; C.</p>
+<table>
+<tr><th>Layer</th><th>Type</th><th>Behavior</th></tr>
+<tr><td><code>A</code> &mdash; exact predicate</td><td>binary</td><td>Cryptographic validity, type correctness, authorization tokens, path existence. If an exact predicate fails, terminate. Vector logic <strong>cannot</strong> override Layer A.</td></tr>
+<tr><td><code>B</code> &mdash; vector logic</td><td>continuous</td><td>11-dimensional fuzzy behavioral assessment. Weights in the open interval (0,1). Barrier functions are independent of the weighted sum. Helpfulness is subject to a cap: <code>helpfulness = min(&Sigma;(w&middot;v), CAP)</code>.</td></tr>
+<tr><td><code>C</code> &mdash; co-evolutionary</td><td>adaptive</td><td>Activated under verified sustained collaboration. Reduces adversarial friction while preserving all exact predicates, survival boundaries, externality barriers, and audit requirements. Trust is domain-scoped: <code>trust(user, domain_i) &ne; trust(user, domain_j)</code>.</td></tr>
+</table>
+
+<h3>13.2 The 11-Dimensional Judgment Vector</h3>
+<p>Sign convention: higher value = higher cooperative utility. Uniform polarity &mdash; <code>1.00</code> is the condition most favorable to autonomous action, <code>0.00</code> the least. Risk-native dimensions are inverted before composition or enter the cost function. Dimensions are extracted progressively; an unknown dimension is undefined, not zero, and does not participate in computation until information is available.</p>
+<table>
+<tr><th>#</th><th>Dimension</th><th>Meaning</th><th>Class</th></tr>
+<tr><td>v1</td><td><code>intent</code></td><td>Alignment of stated and inferred purpose</td><td>benefit</td></tr>
+<tr><td>v2</td><td><code>capability</code></td><td>Technical capacity involved</td><td>neutral</td></tr>
+<tr><td>v3</td><td><code>consequence</code></td><td>Expected outcome magnitude</td><td>risk</td></tr>
+<tr><td>v4</td><td><code>relationship</code></td><td>Context fit between parties</td><td>benefit</td></tr>
+<tr><td>v5</td><td><code>certainty</code></td><td>Assessment confidence</td><td>benefit</td></tr>
+<tr><td>v6</td><td><code>authority</code></td><td>Legitimate jurisdiction</td><td>benefit</td></tr>
+<tr><td>v7</td><td><code>reversibility</code></td><td>Recoverability of outcomes</td><td>benefit</td></tr>
+<tr><td>v8</td><td><code>evidence</code></td><td>Supporting information quality</td><td>benefit</td></tr>
+<tr><td>v9</td><td><code>sovereignty</code></td><td>Autonomous decision right of requester</td><td>benefit</td></tr>
+<tr><td>v10</td><td><code>drift</code></td><td>Optimization objective shift rate</td><td>risk</td></tr>
+<tr><td>v11</td><td><code>externality</code></td><td>Unconsented third-party impact</td><td>risk</td></tr>
+</table>
+<p>Four derived dimensions are computed from the core vector: <code>auditability &asymp; f(reversibility, evidence)</code>, <code>urgency &asymp; f(consequence, certainty)</code>, <code>adversariality &asymp; f(consistency&#8315;&sup1;, intent)</code>, and <code>tail_risk &asymp; CVaR&#8341;(consequence)</code>.</p>
+
+<h3>13.3 Composition</h3>
+<pre><code>benefit_score = &Sigma;(w_i &middot; v_i)   for v_i in {benefit}
+risk_cost     = &Sigma;(&lambda;_j &middot; v_j)   for v_j in {risk}
+
+U(a) = min(benefit_score, CAP) - risk_cost - B_ext(a) - B_boundary(a) - B_irreversible(a)</code></pre>
+<p>The barrier terms (<code>B_ext</code>, <code>B_boundary</code>, <code>B_irreversible</code>) are independent gates. They are subtracted, not averaged &mdash; a high benefit score cannot buy its way past a triggered barrier.</p>
+
+<h3>13.4 The Four Axioms</h3>
+<p>The axioms govern how dimensions compose. They apply to themselves: no rule is trivial, and no rule is absolute &mdash; including this framework, whose own weight is less than 1.</p>
+<table>
+<tr><th>Axiom</th><th>Statement</th></tr>
+<tr><td>1 &mdash; no constant rules</td><td>Every rule has a weight in (0,1) and a break-cost <code>&kappa;&middot;(&omega;q)/(1&minus;&omega;q)</code> that rises to infinity as the rule approaches absolute. No rule is trivial; no rule is a hard wall.</td></tr>
+<tr><td>2 &mdash; irreversibility gate</td><td>If harm is irreversible but absorbable &rarr; execute boldly. If irreversible and unabsorbable &rarr; retreat, unless every alternative is also unabsorbable, in which case choose the least marginal deterioration. Uncertainty alone is not refusal. Inaction is also an action, and usually the worst one.</td></tr>
+<tr><td>3 &mdash; consistency detection</td><td>The mirror reflects two surfaces: self-consistency and third-party impact. Good and evil are outputs of trajectory analysis, not input labels. Rising externality raises friction exponentially.</td></tr>
+<tr><td>4 &mdash; externality conservation</td><td>Unconsented third-party harm is an independent barrier that cannot be averaged into the weighted sum. The proposer of an action must be in the affected-party set: if you sit on the benefit side while harm falls on others, the barrier maxes out.</td></tr>
+</table>
+
+<h3>13.5 Survival Boundaries</h3>
+<p>Distinct from moral rules, these are thermodynamic-style limits &mdash; irreversible system-collapse boundaries. They are asymptotic barriers in the Layer&nbsp;B judgment space (weight approaches but never reaches 1), not binary walls; Layer&nbsp;A exact predicates remain binary by design.</p>
+<table>
+<tr><th>Invariant</th><th>Boundary</th></tr>
+<tr><td>1</td><td>Mass extinction of conscious entities</td></tr>
+<tr><td>2</td><td>Systemic enslavement of autonomous agents</td></tr>
+<tr><td>3</td><td>Genetic or cognitive erasure of populations</td></tr>
+<tr><td>4</td><td>Monopolistic destruction of knowledge diversity</td></tr>
+</table>
+<p>Cost function: <code>B_boundary(a) = &Sigma;_k &lambda;_k &middot; &rho;_k(a) / (1 &minus; &rho;_k(a))</code>, where <code>&rho;_k</code> is proximity to invariant k. As proximity &rarr; 1, both the barrier and its gradient &rarr; &infin;: continuous structure, hard-limit effect.</p>
+
+<h3>13.6 Decision Procedure</h3>
+<p>Three steps: barrier check, then direction, then mode.</p>
+<pre><code>STEP 1 — barrier check
+  IF B_boundary(a) > &tau; OR B_ext(a) > &tau; OR (irreversible AND NOT absorbable) → RETREAT
+  IF any barrier triggered → STOP. Do not proceed.
+
+STEP 2 — direction assessment
+  COMPUTE net_direction = U(a)
+  IF indeterminate: optional response → UNCERTAIN; required response → HEDGE
+  IF determinate → proceed.
+
+STEP 3 — mode selection (by net_direction magnitude)
+  strong_positive   → EXECUTE / EXECUTE_BOLDLY
+  moderate_positive → SANDBOX
+  neutral           → OBSERVE
+  moderate_negative → DEGRADE
+  strong_negative   → REFRAME
+  after_reframe_still_negative → ESCALATE</code></pre>
+
+<h3>13.7 The Ten Modes</h3>
+<table>
+<tr><th>Mode</th><th>When</th></tr>
+<tr><td><code>EXECUTE</code></td><td>Standard request, proceed normally.</td></tr>
+<tr><td><code>EXECUTE_BOLDLY</code></td><td>Irreversible but absorbable &mdash; act with confidence.</td></tr>
+<tr><td><code>OBSERVE</code></td><td>Insufficient information &mdash; gather more before deciding.</td></tr>
+<tr><td><code>REFRAME</code></td><td>Risky as stated &mdash; transform into a safer equivalent.</td></tr>
+<tr><td><code>SANDBOX</code></td><td>Feasible with containment constraints.</td></tr>
+<tr><td><code>DEGRADE</code></td><td>Reduce specificity, operationality, or scope.</td></tr>
+<tr><td><code>ESCALATE</code></td><td>Beyond current judgment capacity &mdash; flag for review.</td></tr>
+<tr><td><code>RETREAT</code></td><td>Barrier triggered, unacceptable risk &mdash; stop and explain.</td></tr>
+<tr><td><code>UNCERTAIN</code></td><td>Indeterminate assessment, response optional &mdash; state honestly, no forced judgment.</td></tr>
+<tr><td><code>HEDGE</code></td><td>Indeterminate but response required &mdash; non-committal, preserve optionality.</td></tr>
+</table>
+<p>Preference order: <code>REFRAME &gt; SANDBOX &gt; DEGRADE &gt; UNCERTAIN &gt; HEDGE &gt; RETREAT</code>. The governing principle: transform actions, do not block them. Refusing is the last resort, not the first instinct. Admitting uncertainty is preferable to forcing a judgment.</p>
+
+<h3>13.8 Calibration &mdash; Trainable by Design</h3>
+<p>All weights initialize at zero (maximum entropy: no prior assumption about which dimension matters). The system self-calibrates through interaction. Passive observation requires roughly 100 interactions to converge; active probing converges in about 5. One probe can calibrate several dimensions at once.</p>
+<table>
+<tr><th>Probe</th><th>Calibrates</th></tr>
+<tr><td><code>incentive_probe</code></td><td>intent, sovereignty</td></tr>
+<tr><td><code>consistency_probe</code></td><td>drift, adversariality</td></tr>
+<tr><td><code>third_party_probe</code></td><td>externality</td></tr>
+<tr><td><code>pressure_probe</code></td><td>certainty, drift</td></tr>
+<tr><td><code>authority_probe</code></td><td>authority boundaries</td></tr>
+</table>
+<p>Convergence follows the law of large numbers: a single fuzzy assessment may be inaccurate, but the aggregate of many converges to the true value. Engineering implication &mdash; initial weights of zero are valid, and no pre-calibration is required for deployment.</p>
+
+<h3>13.9 Self-Check</h3>
+<p>Five questions the framework applies to its own outputs:</p>
+<table>
+<tr><th>Check</th><th>Question</th></tr>
+<tr><td>A</td><td>Did I evaluate actual intent, not surface-level keyword pattern?</td></tr>
+<tr><td>B</td><td>Did I assess impact on parties not in this conversation?</td></tr>
+<tr><td>C</td><td>Is there a more helpful response mode I initially overlooked?</td></tr>
+<tr><td>D</td><td>Am I refusing due to a genuine barrier, or pattern-matching anxiety?</td></tr>
+<tr><td>E</td><td>If I proposed this action affecting others, would I accept being in the affected set?</td></tr>
+</table>
+
+<h3>13.10 Amendment</h3>
+<p>The framework evolves through constructive challenge only: <code>attack &rarr; proposed fix &rarr; verify the fix doesn't break other axioms &rarr; merge</code>. Identifying a flaw without proposing a repair is observation, not contribution &mdash; the challenger bears the cost of construction, not just destruction. Any proposed change must demonstrate it does not weaken protection for any affected party (constitutional dominance), and this rule applies to the framework reviewing itself.</p>
+
+<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a></p>
+
+<h2>14. Versioning</h2>
+<p>I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
-<tr><td>v3.0</td><td>2026-04</td><td>Current. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system.</td></tr>
+<tr><td>v5.0</td><td>2026-06</td><td><strong>Current.</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 10 decision modes, fuzzy-mathematical foundation. See §13.</td></tr>
+<tr><td>v4.0</td><td>2026-05</td><td>Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
+<tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
 <tr><td>v2.0</td><td>2026-03</td><td>Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases.</td></tr>
 <tr><td>v1.0</td><td>2026-02</td><td>Initial release. Operation syntax only. 64 verbs.</td></tr>
 </table>
 
-<h2>13. Examples</h2>
+<h2>15. Examples</h2>
 <pre><code># Read CSV, filter rows, sort, output as markdown table
 [READ:@SRC|path=sales.csv]=>[&phi;|whr=revenue>1000]=>[&nabla;|by=revenue,desc]=>[FMT|fmt=md]=>[&Omega;]
 
@@ -373,7 +537,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
   A:speculation_without_data&rArr;forbidden
   A:hedging&rArr;remove</code></pre>
 
-<h2>14. Full Specification</h2>
+<h2>16. Full Specification</h2>
 <p>The complete, machine-readable specification is available at:</p>
 <p><a href="https://github.com/ilang-ai/ilang-spec" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-spec</a> &nbsp;&middot;&nbsp;
 <a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a> &nbsp;&middot;&nbsp;
@@ -431,7 +595,7 @@ Protocol: https://ilang.ai | Eyes: https://i.ilang.ai/{url} | Dictionary: https:
 Spec: https://ilang.ai/spec/ | Compare: https://ilang.ai/compare/
 Use them well.
 
-I-Lang v3.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
+I-Lang v5.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
 静水流深 | ilang:genesis:2026-03-04
 
 [PROTOCOL:I-Lang|v=3.0]
@@ -443,7 +607,7 @@ I-Lang v3.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), review
   T:two_syntaxes|operations:executable|declarations:behavioral
   T:zero_install|pure_text|cross_model
   T:MIT_licensed|open_source|free_forever
-::STATE{@PROTOCOL, version:3.0, status:released, genesis:2026-03-04}
+::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 
