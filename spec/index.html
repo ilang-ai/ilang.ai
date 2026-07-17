@@ -389,7 +389,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <p>Full v4.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md &rarr;</a></p>
 
 <h2>13. Judgment Layer (v5.0)</h2>
-<p>Version 5.0 adds the third and current layer: how an AI makes judgments. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
+<p>Version 5.0 adds the third layer: how an AI makes judgments. It is a public preview &mdash; v4.0 remains the current stable version, and v5.0 is frozen for review while it is validated. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
 
 <h3>13.1 Three-Layer Architecture</h3>
 <p>Judgment executes in three layers, each gating the next. Execution order: A &rarr; B &rarr; C.</p>
@@ -513,8 +513,8 @@ STEP 3 — mode selection (by net_direction magnitude)
 <p>I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
-<tr><td>v5.0</td><td>2026-06</td><td><strong>Current.</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 10 decision modes, fuzzy-mathematical foundation. See §13.</td></tr>
-<tr><td>v4.0</td><td>2026-05</td><td>Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
+<tr><td>v5.0</td><td>2026-06</td><td><strong>Public preview</strong> (frozen for review). Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 10 decision modes, fuzzy-mathematical foundation. See §13.</td></tr>
+<tr><td>v4.0</td><td>2026-05</td><td><strong>Current stable.</strong> Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
 <tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
 <tr><td>v2.0</td><td>2026-03</td><td>Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases.</td></tr>
 <tr><td>v1.0</td><td>2026-02</td><td>Initial release. Operation syntax only. 64 verbs.</td></tr>
