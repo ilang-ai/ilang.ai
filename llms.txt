@@ -36,6 +36,7 @@
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
 - [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang spec (v3.0 communication + v4.0 execution semantics, current stable; v5.0 judgment layer, public preview)
+- [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452 — concept DOI, always resolves to the latest version. Cite as: Zhu, Longquan. (2026). I-Lang Protocol Specification. Zenodo.
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 10 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets and model resources
