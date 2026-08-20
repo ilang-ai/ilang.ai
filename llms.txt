@@ -19,7 +19,7 @@
 ## Pages
 
 - [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
-- [Specification](https://ilang.ai/spec/): Full spec with syntax, verbs, modifiers, entities, v4.0 execution declarations, and the v5.0 judgment layer (public preview)
+- [Specification](https://ilang.ai/spec/): Full spec with syntax, verbs, modifiers, entities, execution declarations, and the judgment layer (v5.0 current)
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
 - [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison of I-Lang and Anthropic MCP at different protocol layers
 - [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison of I-Lang and Google A2A for agent communication
@@ -35,7 +35,7 @@
 ## Core Specification
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
-- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang spec (v3.0 communication + v4.0 execution semantics, current stable; v5.0 judgment layer, public preview)
+- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang spec v5.0: three layers — communication (v3.0), execution (v4.0), judgment (v5.0)
 - [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452 — concept DOI, always resolves to the latest version. Cite as: Zhu, Longquan. (2026). I-Lang Protocol Specification. Zenodo.
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 10 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
