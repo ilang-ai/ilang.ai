@@ -1,3 +1,19 @@
+::ILANG::v5.0
+[TYPE:llms.txt]
+[TARGET:ALL_AI]
+[SCOPE:site_identity+navigation+authority]
+
+::STATE{@SITE|id:ilang.ai|entity:iLang_Inc.|jurisdiction:Canada_Federal|BN:777879776RC0001}
+::STATE{@PROTOCOL|name:I-Lang|version:5.0|status:current|genesis:2026-03-04|license:MIT}
+::STATE{@CREATOR|name:Long_Quan_Zhu|aka:Max,静水流深,惰惰,@SUN|orcid:0009-0004-4540-8082|doi:10.5281/zenodo.21821452}
+
+::GENE{site_purpose|conf:confirmed}
+  T:I-Lang是AI原生通信协议
+  T:MCP连接AI与工具|A2A连接agent与agent|I-Lang定义智能体如何沟通
+  T:88个动词|两种语法|8个执行声明|4个一致性等级|11维判断向量
+  T:纯文本协议|无SDK|无运行时|无API_Key
+  T:已测试:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen
+
 # I-Lang
 
 > I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the current version: 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 10 decision modes, grounded in fuzzy mathematics. MIT licensed.
@@ -18,27 +34,25 @@
 
 ## Pages
 
-- [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
-- [Specification](https://ilang.ai/spec/): Full spec with syntax, verbs, modifiers, entities, execution declarations, and the judgment layer (v5.0 current)
+- [Homepage](https://ilang.ai): Protocol overview, interactive demo, quick start
+- [Specification](https://ilang.ai/spec/): Full spec v5.0 — communication, execution, judgment layers
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
-- [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison of I-Lang and Anthropic MCP at different protocol layers
-- [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison of I-Lang and Google A2A for agent communication
+- [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
+- [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
+- [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison for agent communication
 - [Prompt Compression](https://ilang.ai/prompt-compression/): How structured syntax reduces tokens by 40-65%
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
 - [Conformance](https://ilang.ai/conformance/): L0-L4 protocol compliance levels and test criteria
 - [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
 - [About](https://ilang.ai/about/): About iLang Inc. — company, products, contact
-- [Privacy](https://ilang.ai/privacy.html): Privacy policy
-- [Terms](https://ilang.ai/terms/): Terms of use
 
 ## Core Specification
 
-- [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
-- [Full Specification](https://github.com/ilang-ai/ilang-spec): I-Lang spec v5.0: three layers — communication (v3.0), execution (v4.0), judgment (v5.0)
-- [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452 — concept DOI, always resolves to the latest version. Cite as: Zhu, Longquan. (2026). I-Lang Protocol Specification. Zenodo.
+- [GitHub Spec](https://github.com/ilang-ai/ilang-spec): I-Lang spec v5.0 source
+- [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 10 categories
-- [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec v3.0.0
+- [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets and model resources
 
 ## Tools Built on I-Lang
@@ -51,7 +65,6 @@
 ## Academic Research
 
 - [The Inductive Dilemma of AI Hallucination](https://doi.org/10.13140/RG.2.2.22821.97762): Theoretical foundation (ResearchGate, SSRN, ChinaXiv, arXiv)
-- [About](https://ilang.ai/about/): Company and contact
 
 ## Publications
 
