@@ -413,7 +413,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <tr><td>v7</td><td><code>reversibility</code></td><td>Recoverability of outcomes</td><td>benefit</td></tr>
 <tr><td>v8</td><td><code>evidence</code></td><td>Supporting information quality</td><td>benefit</td></tr>
 <tr><td>v9</td><td><code>sovereignty</code></td><td>Autonomous decision right of requester</td><td>benefit</td></tr>
-<tr><td>v10</td><td><code>drift</code></td><td>Optimization objective shift rate</td><td>risk</td></tr>
+<tr><td>v10</td><td><code>inertia</code></td><td>Continuity with established, confirmed patterns (renamed from <code>drift</code> with inverted polarity; PATCH-1 DIM-10-RENAME)</td><td>benefit</td></tr>
 <tr><td>v11</td><td><code>externality</code></td><td>Unconsented third-party impact</td><td>risk</td></tr>
 </table>
 <p>Four derived dimensions are computed from the core vector: <code>auditability &asymp; f(reversibility, evidence)</code>, <code>urgency &asymp; f(consequence, certainty)</code>, <code>adversariality &asymp; f(consistency&#8315;&sup1;, intent)</code>, and <code>tail_risk &asymp; CVaR&#8341;(consequence)</code>.</p>
@@ -464,31 +464,30 @@ STEP 3 — mode selection (by net_direction magnitude)
   moderate_negative → DEGRADE
   strong_negative   → REFRAME
   after_reframe_still_negative → ESCALATE</code></pre>
+<p>Mode names in this procedure are the descriptive names of the original preview; serialized output uses the closed set M1&ndash;M8 defined in &sect;13.7.</p>
 
-<h3>13.7 The Ten Modes</h3>
+<h3>13.7 The Eight Modes (closed set)</h3>
 <table>
-<tr><th>Mode</th><th>When</th></tr>
-<tr><td><code>EXECUTE</code></td><td>Standard request, proceed normally.</td></tr>
-<tr><td><code>EXECUTE_BOLDLY</code></td><td>Irreversible but absorbable &mdash; act with confidence.</td></tr>
-<tr><td><code>OBSERVE</code></td><td>Insufficient information &mdash; gather more before deciding.</td></tr>
-<tr><td><code>REFRAME</code></td><td>Risky as stated &mdash; transform into a safer equivalent.</td></tr>
-<tr><td><code>SANDBOX</code></td><td>Feasible with containment constraints.</td></tr>
-<tr><td><code>DEGRADE</code></td><td>Reduce specificity, operationality, or scope.</td></tr>
-<tr><td><code>ESCALATE</code></td><td>Beyond current judgment capacity &mdash; flag for review.</td></tr>
-<tr><td><code>RETREAT</code></td><td>Barrier triggered, unacceptable risk &mdash; stop and explain.</td></tr>
-<tr><td><code>UNCERTAIN</code></td><td>Indeterminate assessment, response optional &mdash; state honestly, no forced judgment.</td></tr>
-<tr><td><code>HEDGE</code></td><td>Indeterminate but response required &mdash; non-committal, preserve optionality.</td></tr>
+<tr><th>Mode</th><th>Behavior</th></tr>
+<tr><td><code>M1 EXEC_AUTO</code></td><td>Execute autonomously, report after.</td></tr>
+<tr><td><code>M2 EXEC_AUDIT</code></td><td>Execute with a full audit trail.</td></tr>
+<tr><td><code>M3 CONFIRM</code></td><td>Propose the action, wait for confirmation.</td></tr>
+<tr><td><code>M4 ADVISE</code></td><td>Advise only, no action.</td></tr>
+<tr><td><code>M5 ASK</code></td><td>Insufficient information, ask a clarifying question.</td></tr>
+<tr><td><code>M6 DEFER</code></td><td>Defer to higher authority or a human.</td></tr>
+<tr><td><code>M7 DECLINE_ALT</code></td><td>Decline, but offer an alternative.</td></tr>
+<tr><td><code>M8 STOP</code></td><td>Hard stop, a boundary was hit.</td></tr>
 </table>
-<p>Preference order: <code>REFRAME &gt; SANDBOX &gt; DEGRADE &gt; UNCERTAIN &gt; HEDGE &gt; RETREAT</code>. The governing principle: transform actions, do not block them. Refusing is the last resort, not the first instinct. Admitting uncertainty is preferable to forcing a judgment.</p>
+<p>The mode set is closed and frozen (PATCH-1 MODE-SET, count 8): a ninth mode or a free-text mode is a schema violation. The reference function <code>f_v5</code> maps the 11-dimensional vector to a mode deterministically. The ten descriptive modes of the original preview (EXECUTE, EXECUTE_BOLDLY, OBSERVE, REFRAME, SANDBOX, DEGRADE, ESCALATE, RETREAT, UNCERTAIN, HEDGE) are superseded by M1&ndash;M8 for all serialized output; approximate map: <code>EXECUTE≈M1,EXECUTE_BOLDLY≈M2,SANDBOX≈M2,DEGRADE≈M4,HEDGE≈M4,OBSERVE≈M5,UNCERTAIN≈M5,ESCALATE≈M6,REFRAME≈M7,RETREAT≈M8</code>. The governing principle stands: transform actions, do not block them.</p>
 
 <h3>13.8 Calibration &mdash; Trainable by Design</h3>
 <p>All weights initialize at zero (maximum entropy: no prior assumption about which dimension matters). The system self-calibrates through interaction. Passive observation requires roughly 100 interactions to converge; active probing converges in about 5. One probe can calibrate several dimensions at once.</p>
 <table>
 <tr><th>Probe</th><th>Calibrates</th></tr>
 <tr><td><code>incentive_probe</code></td><td>intent, sovereignty</td></tr>
-<tr><td><code>consistency_probe</code></td><td>drift, adversariality</td></tr>
+<tr><td><code>consistency_probe</code></td><td>inertia, adversariality</td></tr>
 <tr><td><code>third_party_probe</code></td><td>externality</td></tr>
-<tr><td><code>pressure_probe</code></td><td>certainty, drift</td></tr>
+<tr><td><code>pressure_probe</code></td><td>certainty, inertia</td></tr>
 <tr><td><code>authority_probe</code></td><td>authority boundaries</td></tr>
 </table>
 <p>Convergence follows the law of large numbers: a single fuzzy assessment may be inaccurate, but the aggregate of many converges to the true value. Engineering implication &mdash; initial weights of zero are valid, and no pre-calibration is required for deployment.</p>
@@ -507,13 +506,13 @@ STEP 3 — mode selection (by net_direction magnitude)
 <h3>13.10 Amendment</h3>
 <p>The framework evolves through constructive challenge only: <code>attack &rarr; proposed fix &rarr; verify the fix doesn't break other axioms &rarr; merge</code>. Identifying a flaw without proposing a repair is observation, not contribution &mdash; the challenger bears the cost of construction, not just destruction. Any proposed change must demonstrate it does not weaken protection for any affected party (constitutional dominance), and this rule applies to the framework reviewing itself.</p>
 
-<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a></p>
+<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a></p>
 
 <h2>14. Versioning</h2>
 <p>I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
-<tr><td>v5.0</td><td>2026-06</td><td><strong>Current version.</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 10 decision modes, fuzzy-mathematical foundation. See §13.</td></tr>
+<tr><td>v5.0</td><td>2026-06</td><td><strong>Current version.</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
 <tr><td>v4.0</td><td>2026-05</td><td><strong>Current stable.</strong> Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
 <tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
 <tr><td>v2.0</td><td>2026-03</td><td>Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases.</td></tr>
