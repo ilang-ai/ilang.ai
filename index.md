@@ -129,13 +129,13 @@ i.ilang.ai/{url} — paste into any chat and the model reads the page.
 
 ### AI-to-AI in seconds
 
-Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The simplest AI-to-AI integration that exists. Works across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen.
+Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The simplest AI-to-AI integration that exists. Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 Quick start
 
 ## Three steps. No install.
 
-I-Lang is text. You don't install it — you paste it. It runs anywhere an LLM accepts a prompt.
+I-Lang is text. You don't install it — you paste it. It has been tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 1
 
@@ -147,7 +147,7 @@ Grab the block on the right. It's the full v5.0 activation prompt - rules, verbs
 
 **Paste into any AI conversation**
 
-ChatGPT, Claude.ai, Gemini, DeepSeek — doesn't matter. The first turn activates the protocol.
+Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.
 
 3
 

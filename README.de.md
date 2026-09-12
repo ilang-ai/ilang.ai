@@ -26,7 +26,7 @@ Kopieren Sie den Protokoll-Header von [ilang.ai](https://ilang.ai) und fügen Si
 
 ## Kompatible Plattformen
 
-ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | 元宝 ✅
+ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## Links
 

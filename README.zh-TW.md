@@ -26,7 +26,7 @@
 
 ## 已測試平台
 
-ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | 元寶 ✅
+ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## 連結
 

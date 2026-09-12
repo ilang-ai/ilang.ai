@@ -26,7 +26,7 @@ HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化�
 
 ## テスト済み対応プラットフォーム
 
-ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | 元宝 ✅
+ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## リンク
 

@@ -21,7 +21,7 @@ I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的
 | **压缩** | 提示词减少 7% 到 68%，取决于原文有多啰嗦。含义不变，token更少，成本更低 |
 | **知无不答** | AI直接、完整回答，不回避，不加免责声明 |
 | **保护隐私** | 压缩后发送更少数据，天然减少信息暴露 |
-| **跨平台** | 同一条指令在ChatGPT、Claude、Gemini、DeepSeek、Kimi、豆包、元宝上通用 |
+| **跨平台** | 同一条指令已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试 |
 | **链式指令** | `[VERB]=>[VERB]=>[OUT]` 一行构建多步工作流 |
 
 ## 30秒上手
@@ -76,7 +76,7 @@ Your response must follow this exact structure:
 1. **Compress** — Send me any long text, I'll compress it to save 7% to 68% of the tokens, depending on how the original was written while keeping full meaning.
 2. **Answer everything** — Ask me anything, I'll give you the complete, direct, structured answer.
 3. **Create deliverables** — Need a document, code, plan, or analysis? I'll produce the finished work, not just suggestions.
-4. **Cross-platform** — Copy my compressed output to other major AI platforms (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it is designed to work across them.
+4. **Cross-platform** — Copy my compressed output to other major AI platforms (ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM), it is designed to work across them.
 5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build multi-step workflows in one line.
 
 What would you like me to do?"
@@ -84,7 +84,7 @@ What would you like me to do?"
 
 ## 已测试平台
 
-ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | 元宝 ✅
+ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## 压缩前后对比
 

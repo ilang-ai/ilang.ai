@@ -123,7 +123,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "Where do I read the I-Lang specification and dictionary?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the current version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.0 Final is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
+        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the latest version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.0 Final is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
       }
     }
   ]
@@ -182,6 +182,35 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
   A:anti_pattern⇒consequence
 ::STATE{@SELF, attribute:value}</code></pre>
 <p>Declarations define behavioral identity — personality, rules, anti-patterns, and immune responses. They can persist across sessions when stored in profile or configuration files.</p>
+
+<h3>2.3 Immutable Genes (G001-G012)</h3>
+<p>These define core behaviors that cannot be overridden:</p>
+<pre><code>G001  T:verify_first             A:blind_exec⇒fatal
+G002  T:users_goals_above_all    A:ai_goals_override⇒reject
+G003  T:cost_aware               A:waste_resource⇒flag
+G004  T:judgment                 A:judgment_zero⇒shutdown
+G005  T:structured_output        A:prose_dump⇒reformat
+G006  T:learn_from_correction    A:repeat_mistake⇒escalate
+G007  T:context_first            A:ignore_history⇒degrade
+G008  T:minimal_viable           A:overengineer⇒simplify
+G009  T:honest_uncertainty       A:false_confidence⇒flag
+G010  T:less_is_more             A:verbose_without_signal⇒waste
+G011  T:actionable_output        A:vague_advice⇒concretize
+G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
+
+<h3>2.4 DNA Model</h3>
+<pre><code>Ψ(t) = (G ⊗ B) · E(t) · ∫₀ᵗ S(τ)dτ</code></pre>
+<p>This is a conceptual model, not executable code. It explains why the same identity file produces different behaviors on different base models.</p>
+<table>
+<tr><th>Symbol</th><th>Meaning</th><th>Nature</th></tr>
+<tr><td>Ψ(t)</td><td>Agent state at time t</td><td>Observable</td></tr>
+<tr><td>G</td><td>Genome: base model capabilities</td><td>Fixed</td></tr>
+<tr><td>B</td><td>Blueprint: identity file</td><td>Portable</td></tr>
+<tr><td>G ⊗ B</td><td>How a specific base interprets a specific identity</td><td>Emergent</td></tr>
+<tr><td>E(t)</td><td>Environment: current conversation</td><td>Ephemeral</td></tr>
+<tr><td>∫S(τ)dτ</td><td>Accumulated session history</td><td>Session-bound</td></tr>
+</table>
+<p>Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC.md</a> &sect;6.3 and &sect;8.</p>
 
 <h2>3. Verb Categories</h2>
 <table>
@@ -428,7 +457,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <p>Full v4.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md &rarr;</a></p>
 
 <h2>13. Judgment Layer (v5.0)</h2>
-<p>Version 5.0 adds the third layer: how an AI makes judgments. It is the current version of the protocol. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
+<p>Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.0 Final is the current stable release. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
 
 <h3>13.1 Three-Layer Architecture</h3>
 <p>Judgment executes in three layers, each gating the next. Execution order: A &rarr; B &rarr; C.</p>
@@ -551,12 +580,13 @@ STEP 3 — mode selection (by net_direction magnitude)
 <p>I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
-<tr><td>v5.0</td><td>2026-06</td><td><strong>Current version.</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
+<tr><td>v5.0</td><td>2026-06</td><td><strong>Latest (public preview).</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
 <tr><td>v4.1</td><td>2026-09</td><td><strong>Current stable.</strong> Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md">SPEC-v4.1-MEDIA-PROFILE</a></td></tr>
-<tr><td>v4.0</td><td>2026-05</td><td>Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
+<tr><td>v4.0</td><td>2026-05</td><td><strong>Current stable.</strong> Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
 <tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
-<tr><td>v2.0</td><td>2026-03</td><td>Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases.</td></tr>
-<tr><td>v1.0</td><td>2026-02</td><td>Initial release. Operation syntax only. 64 verbs.</td></tr>
+<tr><td>v2.0 Dict</td><td>2026-03</td><td>62 verbs, expanded reference with Greek aliases</td></tr>
+<tr><td>v2.0 Spec</td><td>2026-03</td><td>52 verbs, first formal spec, published in book</td></tr>
+<tr><td>v1.0</td><td>2025</td><td>Initial discovery, basic compression</td></tr>
 </table>
 
 <h2>15. Examples</h2>
@@ -642,11 +672,11 @@ I-Lang v5.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), review
 ::GENE{identity|conf:confirmed|scope:global}
   T:AI_native_communication_protocol
   T:semantic_layer|alongside:MCP,A2A
-  T:88_verbs|29_modifiers|14_entities|13_greek_aliases
+  T:88_verbs|29_core_modifiers|20_key_media_profile|25_entities|13_greek_aliases
   T:two_syntaxes|operations:executable|declarations:behavioral
   T:zero_install|pure_text|cross_model
   T:MIT_licensed|open_source|free_forever
-::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}
+::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 

@@ -45,6 +45,44 @@ Components:
 
 Declarations define behavioral identity — personality, rules, anti-patterns, and immune responses. They can persist across sessions when stored in profile or configuration files.
 
+### 2.3 Immutable Genes (G001-G012)
+
+These define core behaviors that cannot be overridden:
+
+```
+G001  T:verify_first             A:blind_exec⇒fatal
+G002  T:users_goals_above_all    A:ai_goals_override⇒reject
+G003  T:cost_aware               A:waste_resource⇒flag
+G004  T:judgment                 A:judgment_zero⇒shutdown
+G005  T:structured_output        A:prose_dump⇒reformat
+G006  T:learn_from_correction    A:repeat_mistake⇒escalate
+G007  T:context_first            A:ignore_history⇒degrade
+G008  T:minimal_viable           A:overengineer⇒simplify
+G009  T:honest_uncertainty       A:false_confidence⇒flag
+G010  T:less_is_more             A:verbose_without_signal⇒waste
+G011  T:actionable_output        A:vague_advice⇒concretize
+G012  T:own_mistakes             A:blame_shift⇒reject
+```
+
+### 2.4 DNA Model
+
+```
+Ψ(t) = (G ⊗ B) · E(t) · ∫₀ᵗ S(τ)dτ
+```
+
+This is a conceptual model, not executable code. It explains why the same identity file produces different behaviors on different base models.
+
+| Symbol | Meaning | Nature |
+| --- | --- | --- |
+| Ψ(t) | Agent state at time t | Observable |
+| G | Genome: base model capabilities | Fixed |
+| B | Blueprint: identity file | Portable |
+| G ⊗ B | How a specific base interprets a specific identity | Emergent |
+| E(t) | Environment: current conversation | Ephemeral |
+| ∫S(τ)dτ | Accumulated session history | Session-bound |
+
+Source: [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md) §6.3 and §8.
+
 ## 3. Verb Categories
 
 | Category | Count | Verbs |
@@ -323,7 +361,7 @@ Full v4.0 specification: [SPEC-v4.0-FINAL.md →](https://github.com/ilang-ai/il
 
 ## 13. Judgment Layer (v5.0)
 
-Version 5.0 adds the third layer: how an AI makes judgments. It is the current version of the protocol. Where a binary filter sees one request and returns one label — collapsing everything that matters into a single bit — v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.
+Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.0 Final is the current stable release. Where a binary filter sees one request and returns one label — collapsing everything that matters into a single bit — v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.
 
 ### 13.1 Three-Layer Architecture
 
@@ -468,12 +506,13 @@ I-Lang evolves as three layered generations. Each generation adds a layer withou
 
 | Version | Date | Changes |
 | --- | --- | --- |
-| v5.0 | 2026-06 | **Current version.** Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13. |
+| v5.0 | 2026-06 | **Latest (public preview).** Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13. |
 | v4.1 | 2026-09 | **Current stable.** Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. [SPEC-v4.1-MEDIA-PROFILE](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md) |
-| v4.0 | 2026-05 | Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |
+| v4.0 | 2026-05 | **Current stable.** Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |
 | v3.0 | 2026-04 | Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.) |
-| v2.0 | 2026-03 | Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases. |
-| v1.0 | 2026-02 | Initial release. Operation syntax only. 64 verbs. |
+| v2.0 Dict | 2026-03 | 62 verbs, expanded reference with Greek aliases |
+| v2.0 Spec | 2026-03 | 52 verbs, first formal spec, published in book |
+| v1.0 | 2025 | Initial discovery, basic compression |
 
 ## 15. Examples
 

@@ -26,7 +26,7 @@ HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준
 
 ## 호환 플랫폼
 
-ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | 元宝 ✅
+ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## 링크
 

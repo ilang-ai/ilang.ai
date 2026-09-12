@@ -92,7 +92,7 @@ proprietary system prompts.
 I-Lang defines a compact, declarative syntax that:
 
 - **Lowers ambiguity** — structured instructions often reduce retries and rework
-- **Runs unchanged** on ChatGPT, Claude, Gemini, DeepSeek, Kimi, 豆包, 元宝
+- **Tested** on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM (results by model on [ilang.ai/benchmark](https://ilang.ai/benchmark/), May 2026)
 - **Chains** multi-step workflows into a single line
 - **Defines behavior** — traits, anti-patterns, and genes that persist across sessions
 - **Remains** readable to both humans and machines
@@ -116,13 +116,14 @@ I-Lang defines a compact, declarative syntax that:
 
 ### 1.5  Conformance Levels
 
-| Level | Name | Capability |
-|:-----:|:-----|:-----------|
-| L0 | Syntax-aware | Recognizes `[VERB:TARGET|param]` structure |
-| L1 | Instruction-compatible | Executes single-step verb/target/param tasks |
-| L2 | Workflow-compatible | Executes multi-step chained workflows |
-| L3 | Agent-compatible | AI-AI handoff, state inheritance, error recovery |
-| L4 | Runtime-compatible | Parser, validator, memory, toolchain integration |
+Four levels, defined in [SPEC-v4.0-FINAL.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md) §0. Each level includes all requirements of previous levels.
+
+| Level | Name | Parser |
+|:-----:|:-----|:-------|
+| L0 | v3-compatible communication only | LLM. No runtime. No enforcement. |
+| L1 | v4-aware advisory model | LLM that understands v4 syntax. |
+| L2 | v4 runtime-enforced | LLM + harness/orchestrator. |
+| L3 | v4 externally graded | LLM + harness + independent grader. |
 
 ---
 
@@ -207,7 +208,7 @@ Your response must follow this exact structure:
 3. **Create deliverables** — Need a document, code, plan, or analysis?
    I'll produce the finished work, not just suggestions.
 4. **Cross-platform** — Copy my structured output to any other AI
-   (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it is designed to work across major AI platforms.
+   (ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM), it is designed to work across major AI platforms.
 5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build
    multi-step workflows in one line.
 
@@ -439,7 +440,7 @@ Separate with comma; order is free.
 ## 7. Compatibility Matrix
 
 I-Lang is tested against the following production LLM platforms. No model-side
-changes are required — the handshake header is sufficient.
+changes are required, the handshake header is sufficient.
 
 | Platform   | Vendor       | Region     | Status        |
 |:-----------|:-------------|:-----------|:-------------:|
@@ -448,11 +449,11 @@ changes are required — the handshake header is sufficient.
 | Gemini     | Google       | Global     | ✅ Supported  |
 | DeepSeek   | DeepSeek     | Global     | ✅ Supported  |
 | Kimi       | Moonshot AI  | China      | ✅ Supported  |
-| 豆包        | ByteDance    | China      | ✅ Supported  |
-| 元宝        | Tencent      | China      | ✅ Supported  |
+| Qwen       | Alibaba      | China      | ✅ Supported  |
+| GLM        | Zhipu AI     | China      | ✅ Supported  |
 
-> **Note.** Any text-capable model can execute I-Lang. The list above tracks
-> platforms we have actively benchmarked.
+> **Note.** The list above tracks platforms we have actively benchmarked.
+> Results by model: [ilang.ai/benchmark](https://ilang.ai/benchmark/), May 2026.
 
 ---
 

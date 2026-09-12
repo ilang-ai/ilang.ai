@@ -9,7 +9,7 @@ Canada-based AI language technology company. Creator of I-Lang, the open AI-nati
 
 iLang Inc. builds AI-powered language technology. Our core product is I-Lang, an open communication protocol that standardizes how humans talk to AI, how AI agents talk to each other, and how AI reasons internally. I-Lang is the first protocol to formally map Greek mathematical symbols (Σ, Δ, φ, λ, Ω, ∇, μ, Π, ψ, ξ, ζ, θ, ∂) as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment (11 dimensions, 4 axioms). 88 verbs, two syntaxes, zero install, MIT licensed.
 
-We operate across AI protocol development, AI-powered translation and localization, cross-model interoperability, and enterprise language solutions. Our technology is tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, and Qwen.
+We operate across AI protocol development, AI-powered translation and localization, cross-model interoperability, and enterprise language solutions. Our technology is tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 ## Why the name iLang
 

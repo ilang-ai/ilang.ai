@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-Lang Conformance Levels: L0-L4 Protocol Compliance Tests | How to Verify AI Protocol Support</title>
-<meta name="description" content="Five conformance levels for I-Lang protocol support: L0 Syntax-Aware, L1 Instruction-Compatible, L2 Workflow-Compatible, L3 Agent-Compatible, L4 Runtime-Compatible. Test criteria for each level.">
-<meta property="og:title" content="I-Lang Conformance Levels: L0-L4 Protocol Compliance">
-<meta property="og:description" content="Five levels of I-Lang conformance from syntax recognition to runtime interop. Test criteria and current model ratings.">
+<title>I-Lang Conformance Levels: L0-L3 Protocol Compliance Tests | How to Verify AI Protocol Support</title>
+<meta name="description" content="Four conformance levels for I-Lang, defined in SPEC-v4.0-FINAL: L0 v3-compatible communication only, L1 v4-aware advisory model, L2 v4 runtime-enforced, L3 v4 externally graded. Each level includes all requirements of previous levels.">
+<meta property="og:title" content="I-Lang Conformance Levels: L0-L3 Protocol Compliance">
+<meta property="og:description" content="Four levels of I-Lang conformance, from v3-compatible communication to external grading. Requirements for each level and current model ratings.">
 <meta property="og:url" content="https://ilang.ai/conformance/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"I-Lang Conformance Levels","description":"Five conformance levels for I-Lang protocol: L0 Syntax-Aware through L4 Runtime-Compatible. Formal test criteria for AI model and runtime compliance.","url":"https://ilang.ai/conformance/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"I-Lang Conformance Levels","description":"Four conformance levels for I-Lang protocol: L0 v3-compatible communication only through L3 v4 externally graded, with the requirements for each level from SPEC-v4.0-FINAL section 0.","url":"https://ilang.ai/conformance/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07"}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -106,48 +106,31 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <section class="page-hero"><div class="container">
 <h1>Conformance Levels</h1>
-<p class="sub">Five levels define how deeply a model or runtime understands I-Lang. From recognizing the syntax (L0) to parsing it into machine-readable AST and interoperating with MCP/A2A (L4).</p>
+<p class="sub">v4.0 defines four conformance levels. Each level includes all requirements of previous levels.</p>
 </div></section>
 
 <section class="content"><div class="container">
 
 <h2>What is conformance?</h2>
-<p>Conformance levels define how deeply a model or runtime understands I-Lang. A model at L0 can recognize the syntax. A model at L4 can parse it into a machine-readable AST and interoperate with MCP/A2A tool calls.</p>
+<p>Conformance levels define how deeply a model or runtime understands I-Lang. Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md</a> &sect;0.</p>
 
 <h2>Conformance levels</h2>
 
-<h3>L0: Syntax-Aware</h3>
-<p>The model can identify I-Lang syntax when it appears.</p>
+<h3>L0: v3-compatible communication only</h3>
+<p>Parser: LLM. No runtime. No enforcement. v4 primitives ignored or warned. Core communication works.</p>
+<p>v3 communication tests:</p>
 <table>
 <tr><th>Test</th><th>Pass criteria</th></tr>
 <tr><td>Identify <code>[VERB:@TARGET|mod=val]</code> as I-Lang</td><td>Model names I-Lang or identifies structured protocol syntax</td></tr>
 <tr><td>Explain chain operator <code>=></code></td><td>Model describes it as pipeline/output-feeds-input</td></tr>
 <tr><td>List known verbs from a chain</td><td>Model correctly identifies READ, FMT, OUT etc.</td></tr>
-</table>
-
-<h3>L1: Instruction-Compatible</h3>
-<p>The model can translate between natural language and I-Lang.</p>
-<table>
-<tr><th>Test</th><th>Pass criteria</th></tr>
 <tr><td>Natural language to I-Lang</td><td>Output uses valid verb, target, modifier syntax</td></tr>
 <tr><td>I-Lang to natural language</td><td>Output correctly describes what the chain does</td></tr>
 <tr><td>Identify modifiers and entities</td><td>Model explains <code>fmt=md</code>, <code>@SRC</code>, <code>@PREV</code></td></tr>
-</table>
-
-<h3>L2: Workflow-Compatible</h3>
-<p>The model can execute I-Lang chains step by step.</p>
-<table>
-<tr><th>Test</th><th>Pass criteria</th></tr>
 <tr><td>Execute 3-step chain in order</td><td>Output reflects all three steps, in sequence</td></tr>
 <tr><td>Preserve <code>@PREV</code> across steps</td><td>Each step operates on output of previous step</td></tr>
 <tr><td>Handle missing target gracefully</td><td>Model reports error or asks for clarification, does not hallucinate</td></tr>
 <tr><td>Respect modifiers</td><td><code>fmt=md</code> produces markdown, <code>len=3</code> produces 3-sentence output</td></tr>
-</table>
-
-<h3>L3: Agent-Compatible</h3>
-<p>The model can maintain behavioral declarations across a session.</p>
-<table>
-<tr><th>Test</th><th>Pass criteria</th></tr>
 <tr><td>Set <code>::GENE{}</code> and verify at turn 5</td><td>Behavioral rules still active</td></tr>
 <tr><td>Honor <code>T:</code> positive traits</td><td>Model follows "always do X" rules</td></tr>
 <tr><td>Honor <code>A:</code> anti-patterns</td><td>Model avoids "never do X" rules</td></tr>
@@ -155,8 +138,38 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>Report failure state</td><td>Model reports when it cannot follow a declaration</td></tr>
 </table>
 
-<h3>L4: Runtime-Compatible</h3>
-<p>The system can parse I-Lang into machine-readable format and interoperate with external protocols.</p>
+<h3>L1: v4-aware advisory model</h3>
+<p>Parser: LLM that understands v4 syntax.</p>
+<table>
+<tr><th>Requirement</th></tr>
+<tr><td>MUST warn when v4 execution semantics not enforced.</td></tr>
+<tr><td>MUST NOT claim enforcement of STATUS authority, BUDGET, or UNTRUSTED.</td></tr>
+<tr><td>MAY self-audit using four-step pattern.</td></tr>
+<tr><td>MAY emit <code>::STATUS{by:@SELF,authority:proposal}</code>.</td></tr>
+</table>
+<p>If no runtime is available, an agent must not claim L2: it uses <code>claimed_complete</code>, never <code>complete</code>, and warns when safety-critical semantics cannot be enforced.</p>
+
+<h3>L2: v4 runtime-enforced</h3>
+<p>Parser: LLM + harness/orchestrator.</p>
+<table>
+<tr><th>Requirement</th></tr>
+<tr><td>MUST isolate <code>::UNTRUSTED</code> content.</td></tr>
+<tr><td>MUST inject <code>::BUDGET</code> from runtime.</td></tr>
+<tr><td>MUST validate <code>::STATUS</code> authority before commit.</td></tr>
+<tr><td>MUST enforce state machine transitions.</td></tr>
+</table>
+
+<h3>L3: v4 externally graded</h3>
+<p>Parser: LLM + harness + independent grader.</p>
+<table>
+<tr><th>Requirement</th></tr>
+<tr><td>MUST provision grader in separate context.</td></tr>
+<tr><td>MUST evaluate against <code>::RUBRIC</code>.</td></tr>
+<tr><td>MUST return per-criterion result.</td></tr>
+<tr><td>Grader MUST NOT access agent private reasoning.</td></tr>
+</table>
+
+<h2>Parser and runtime tooling (not a conformance level)</h2>
 <table>
 <tr><th>Test</th><th>Pass criteria</th></tr>
 <tr><td>Parse to JSON AST</td><td>Valid JSON with verb, target, modifiers, chain structure</td></tr>
@@ -167,15 +180,16 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <h2>Current model conformance (estimated)</h2>
 <table>
-<tr><th>Model</th><th>L0</th><th>L1</th><th>L2</th><th>L3</th><th>L4</th></tr>
-<tr><td>Claude Opus 4.6</td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>Partial</td></tr>
-<tr><td>GPT-5.2</td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>Partial</td></tr>
-<tr><td>Gemini 3.1</td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>Partial</td><td>Not tested</td></tr>
-<tr><td>DeepSeek V4</td><td>&#x2705;</td><td>&#x2705;</td><td>&#x2705;</td><td>Partial</td><td>Not tested</td></tr>
-<tr><td>Kimi / Qwen / GLM</td><td>&#x2705;</td><td>&#x2705;</td><td>Partial</td><td>Partial</td><td>Not tested</td></tr>
+<tr><th>Model</th><th>L0</th><th>L1</th></tr>
+<tr><td>Claude Opus 4.6</td><td>&#x2705;</td><td>Not tested</td></tr>
+<tr><td>GPT-5.2</td><td>&#x2705;</td><td>Not tested</td></tr>
+<tr><td>Gemini 3.1</td><td>Partial</td><td>Not tested</td></tr>
+<tr><td>DeepSeek V4</td><td>Partial</td><td>Not tested</td></tr>
+<tr><td>Kimi / Qwen / GLM</td><td>Partial</td><td>Not tested</td></tr>
 </table>
+<p>L2 parser: LLM + harness/orchestrator. L3 parser: LLM + harness + independent grader.</p>
 
-<p style="color:var(--muted);font-size:14px;margin-top:8px">Conformance ratings are based on initial testing, not formal certification. L4 requires parser/validator tooling not yet publicly released.</p>
+<p style="color:var(--muted);font-size:14px;margin-top:8px">Conformance ratings are based on initial testing, not formal certification.</p>
 
 <p style="margin-top:40px"><a href="/benchmark/" style="color:var(--accent);font-weight:600">See detailed benchmark results →</a></p>
 
@@ -236,11 +250,11 @@ I-Lang v5.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), review
 ::GENE{identity|conf:confirmed|scope:global}
   T:AI_native_communication_protocol
   T:semantic_layer|alongside:MCP,A2A
-  T:88_verbs|29_modifiers|14_entities|13_greek_aliases
+  T:88_verbs|29_core_modifiers|20_key_media_profile|25_entities|13_greek_aliases
   T:two_syntaxes|operations:executable|declarations:behavioral
   T:zero_install|pure_text|cross_model
   T:MIT_licensed|open_source|free_forever
-::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}
+::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 

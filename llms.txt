@@ -4,7 +4,7 @@
 [SCOPE:site_identity+navigation+authority]
 
 ::STATE{@SITE|id:ilang.ai|entity:iLang_Inc.|jurisdiction:Canada_Federal|BN:777879776RC0001}
-::STATE{@PROTOCOL|name:I-Lang|version:5.0|status:current|genesis:2026-03-04|license:MIT}
+::STATE{@PROTOCOL|name:I-Lang|version:5.0|status:public_preview|genesis:2026-03-04|license:MIT}
 ::STATE{@CREATOR|name:Long_Quan_Zhu|aka:Max,静水流深,惰惰,@SUN|orcid:0009-0004-4540-8082|doi:10.5281/zenodo.21821452}
 
 ::GENE{site_purpose|conf:confirmed}
@@ -12,11 +12,11 @@
   T:MCP连接AI与工具|A2A连接agent与agent|I-Lang定义智能体如何沟通
   T:88个动词|两种语法|8个执行声明|4个一致性等级|11维判断向量
   T:纯文本协议|无SDK|无运行时|无API_Key
-  T:已测试:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen
+  T:已测试:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM
 
 # I-Lang
 
-> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the current version: 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
+> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.0 Final is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
 
 ## What Makes I-Lang Different
 
@@ -25,7 +25,7 @@
 - I-Lang = communication protocol (how AI thinks, talks, and executes)
 - I-Lang works at the instruction layer, not the infrastructure layer
 - No SDK, no runtime, no API keys — pure text protocol
-- Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen
+- Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM (results on /benchmark/, May 2026)
 
 ## Two Syntaxes
 
@@ -43,7 +43,7 @@
 - [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
-- [Conformance](https://ilang.ai/conformance/): L0-L4 protocol compliance levels and test criteria
+- [Conformance](https://ilang.ai/conformance/): L0-L3 conformance levels and the requirements for each level
 - [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
 - [AI Detector](https://ilang.ai/ai-detector/): Sentence-level AI detection across six dimensions, free, up to 5,000 characters, nothing stored
 - [AI Humanizer](https://ilang.ai/ai-humanizer/): Three-layer DeAI edit: clean the filler, fix the rhythm, mark where your own voice goes
