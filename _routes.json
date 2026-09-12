@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/blog/*", "/blog-src/*", "/.well-known/*", "/*.md", "/*.txt", "/*.xml", "/*.json", "/*.png", "/*.svg", "/*.ico", "/*.jpg", "/*.jpeg", "/*.webp", "/*.css", "/*.js", "/*.woff", "/*.woff2", "/*.pdf", "/*.ilang", "/ai/skills/*", "/ai/data.json"]
+}

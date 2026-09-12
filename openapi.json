@@ -1,0 +1,170 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "I-Lang public lookup API",
+    "version": "1.0.0",
+    "description": "Read-only lookup over the published I-Lang dictionary and FAQ. No authentication. Source data: ilang-ai/ilang-dict train.csv and the FAQ on ilang.ai."
+  },
+  "servers": [
+    {
+      "url": "https://ilang.ai"
+    }
+  ],
+  "paths": {
+    "/api/agent/lookup": {
+      "get": {
+        "operationId": "lookup",
+        "summary": "Look up an I-Lang verb, modifier, entity or declaration",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Term, alias or keyword, for example XLAT, lng, @PREV, BUDGET, translate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matches (possibly empty; not_found=true when empty)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LookupResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing q"
+          }
+        }
+      }
+    },
+    "/api/agent/faq": {
+      "get": {
+        "operationId": "faq",
+        "summary": "Find the published FAQ entry closest to a question",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Best matching FAQ entries with source_url; not_found=true when nothing matches",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing q"
+          }
+        }
+      }
+    },
+    "/api/agent/health": {
+      "get": {
+        "operationId": "health",
+        "summary": "Health",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Entry": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "meaning": {
+            "type": "string"
+          },
+          "values": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          }
+        }
+      },
+      "LookupResult": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "not_found": {
+            "type": "boolean"
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Entry"
+            }
+          },
+          "dictionary_version": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "FaqResult": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "not_found": {
+            "type": "boolean"
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string"
+                },
+                "answer": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

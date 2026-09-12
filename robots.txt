@@ -42,3 +42,6 @@ Allow: /
 
 Sitemap: https://ilang.ai/sitemap.xml
 Sitemap: https://ilang.ai/blog/sitemap.xml
+
+# Agentic Resource Discovery manifest
+Agentmap: https://ilang.ai/.well-known/ai-catalog.json

@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://ilang.ai/api/agent",
+      "service-desc": [
+        {
+          "href": "https://ilang.ai/openapi.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ilang.ai/ai/",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://ilang.ai/api/agent/health",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

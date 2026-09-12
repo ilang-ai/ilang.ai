@@ -1,0 +1,14 @@
+::ILANG::v5.0
+[TYPE:service_index][SITE:ilang.ai][DATE:2026-09-12]
+::STATE{@SITE, name:ilang.ai, role:protocol_canon, license:MIT}
+::STATE{@ENTRY, url:https://ilang.ai/ai/, fmt:markdown}
+::STATE{@LOOKUP, url:https://ilang.ai/api/agent/lookup, method:GET, param:q, auth:none}
+::STATE{@FAQ, url:https://ilang.ai/api/agent/faq, method:GET, param:q, auth:none}
+::STATE{@OPENAPI, url:https://ilang.ai/openapi.json}
+::STATE{@CATALOG, url:https://ilang.ai/.well-known/api-catalog, fmt:linkset}
+::STATE{@MCP, url:https://ilang.ai/mcp, transport:streamable_http, card:https://ilang.ai/.well-known/mcp/server-card.json, auth:none}
+::STATE{@SKILLS, url:https://ilang.ai/.well-known/agent-skills/index.json}
+::STATE{@ARD, url:https://ilang.ai/.well-known/ai-catalog.json}
+::STATE{@AUTH, url:https://ilang.ai/auth.md, status:under_construction, available:false}
+::STATE{@A2A, url:https://ilang.ai/.well-known/agent-card.json, status:planned, available:false}
+[READ:@ENTRY]=>[GET:@LOOKUP|whr=q=term]=>[Ω]

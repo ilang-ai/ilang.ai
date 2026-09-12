@@ -1,0 +1,1766 @@
+{
+  "generated_from": {
+    "dictionary": "https://github.com/ilang-ai/ilang-dict/blob/main/train.csv",
+    "faq": "https://ilang.ai/",
+    "spec": "https://github.com/ilang-ai/ilang-spec"
+  },
+  "counts": {
+    "verb": 88,
+    "modifier": 29,
+    "entity": 22,
+    "declaration": 32,
+    "declaration_narrative": 13,
+    "dimension": 11,
+    "mode": 8,
+    "entity_by_category": {
+      "Core": 8,
+      "External": 6,
+      "Role": 8
+    },
+    "note": "entity total includes v4/v5 execution and role entities; the public v3 communication-layer count is 14 entities, 88 verbs, 29 modifiers, 13 Greek aliases"
+  },
+  "entries": [
+    {
+      "type": "verb",
+      "name": "READ",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Read content from source",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "WRIT",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Write input to destination",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "GET",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Fetch remote resource",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DEL",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Delete target",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "LIST",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Enumerate items in container",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "COPY",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Copy without deleting source",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "MOVE",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Move from source to destination",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "STRM",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Stream data",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CACH",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Cache for fast retrieval",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SYNC",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Synchronize source and destination",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SEND",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Transmit to destination",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "RUN",
+      "alias": "",
+      "category": "Data I/O",
+      "meaning": "Execute command or script",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "FMT",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Reformat into target format",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CONV",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Convert type or representation",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SPLIT",
+      "alias": "∂",
+      "category": "Transform",
+      "meaning": "Split by delimiter or rule",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "MERGE",
+      "alias": "Σ",
+      "category": "Transform",
+      "meaning": "Merge multiple items into one",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "MAP",
+      "alias": "λ",
+      "category": "Transform",
+      "meaning": "Apply function to each element",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "FILT",
+      "alias": "φ",
+      "category": "Transform",
+      "meaning": "Filter by condition",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SORT",
+      "alias": "∇",
+      "category": "Transform",
+      "meaning": "Sort by field or rule",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DEDU",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Remove duplicates",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "FLAT",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Flatten nested data",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "NEST",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Nest flat data by key",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CHNK",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Chunk into sized pieces",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "REDU",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Reduce to single value",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "PIVT",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Pivot data by column",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "TRNS",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Transpose",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "ENCD",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Encode (base64 or hex)",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DECD",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Decode",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "HASH",
+      "alias": "ξ",
+      "category": "Transform",
+      "meaning": "Hash (one-way digest)",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CMPR",
+      "alias": "ζ",
+      "category": "Transform",
+      "meaning": "Compress (gzip etc.)",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "EXPN",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Decompress",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "XLAT",
+      "alias": "θ",
+      "category": "Transform",
+      "meaning": "Translate between languages",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "REWR",
+      "alias": "",
+      "category": "Transform",
+      "meaning": "Rewrite preserving meaning",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DIFF",
+      "alias": "Δ",
+      "category": "Transform",
+      "meaning": "Show differences",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SCAN",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Examine for patterns or features",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "MTCH",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Find matching elements",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CNT",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Count items or occurrences",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "STAT",
+      "alias": "μ",
+      "category": "Analysis",
+      "meaning": "Compute statistics",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "EVAL",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Assess against criteria",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SCOR",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Score against metric",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "RANK",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Order by priority or score",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "TRND",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Detect trend",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CORR",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Correlate variables",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "FRCS",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Forecast",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "ANOM",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Detect anomalies",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SENT",
+      "alias": "ψ",
+      "category": "Analysis",
+      "meaning": "Sentiment analysis",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CLST",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Cluster",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "BNCH",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Benchmark",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "AUDT",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Audit",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "VALD",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Validate against schema or rule",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CLSF",
+      "alias": "",
+      "category": "Analysis",
+      "meaning": "Classify into categories",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CREA",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Create new resource",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DRFT",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Generate first draft",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "EXPD",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Expand with detail",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SHRT",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Shorten or condense",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "PARA",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Paraphrase",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "STYL",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Apply style",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "TMPL",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Apply template",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "FILL",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Fill form or structure",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "EXTC",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Extract specific data",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "GEN",
+      "alias": "",
+      "category": "Generation",
+      "meaning": "Generic generate",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "PLAN",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Design approach",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DECI",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Choose between options",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "CHEK",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Verify condition",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "FIX",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Repair errors",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DPLO",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Deploy to production",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SAVE",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Persist to storage",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "REVW",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Review completed work",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "LERN",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Update internal model",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "TEST",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Verify functionality",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "PARS",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Parse structured input",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "LOOP",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Repeat operation over set",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "WAIT",
+      "alias": "",
+      "category": "Execute",
+      "meaning": "Pause for condition",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "OUT",
+      "alias": "Ω",
+      "category": "Output",
+      "meaning": "Mark final output",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DISP",
+      "alias": "",
+      "category": "Output",
+      "meaning": "Display to user",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "EXPT",
+      "alias": "",
+      "category": "Output",
+      "meaning": "Export to file format",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "PRNT",
+      "alias": "",
+      "category": "Output",
+      "meaning": "Print message",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "LOG",
+      "alias": "",
+      "category": "Output",
+      "meaning": "Log event or state",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "LINK",
+      "alias": "",
+      "category": "Structure",
+      "meaning": "Create connection",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "SET",
+      "alias": "",
+      "category": "Structure",
+      "meaning": "Assign value",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "TAG",
+      "alias": "",
+      "category": "Structure",
+      "meaning": "Attach metadata",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "GRP",
+      "alias": "",
+      "category": "Structure",
+      "meaning": "Group by criterion",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "EMBD",
+      "alias": "",
+      "category": "Structure",
+      "meaning": "Encode into vector space",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "HELP",
+      "alias": "",
+      "category": "Meta",
+      "meaning": "Show help",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "DESC",
+      "alias": "",
+      "category": "Meta",
+      "meaning": "Describe entity",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "INTR",
+      "alias": "",
+      "category": "Meta",
+      "meaning": "Introspect internal state",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "NOOP",
+      "alias": "",
+      "category": "Meta",
+      "meaning": "No operation",
+      "values": ""
+    },
+    {
+      "type": "verb",
+      "name": "BATC",
+      "alias": "Π",
+      "category": "Batch",
+      "meaning": "Apply verb to each item in list",
+      "values": ""
+    },
+    {
+      "type": "modifier",
+      "name": "src",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Explicit source",
+      "values": "entity, URI"
+    },
+    {
+      "type": "modifier",
+      "name": "dst",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Explicit destination",
+      "values": "entity, URI"
+    },
+    {
+      "type": "modifier",
+      "name": "path",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Path within entity",
+      "values": "string"
+    },
+    {
+      "type": "modifier",
+      "name": "fmt",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Output format",
+      "values": "text, json, md, csv, xml, html, email"
+    },
+    {
+      "type": "modifier",
+      "name": "lng",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Language",
+      "values": "ISO 639-1 (en, zh, ja)"
+    },
+    {
+      "type": "modifier",
+      "name": "sty",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Style",
+      "values": "pro, casual, code, bullets"
+    },
+    {
+      "type": "modifier",
+      "name": "ton",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Tone",
+      "values": "urgent, neutral, formal"
+    },
+    {
+      "type": "modifier",
+      "name": "len",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Length target",
+      "values": "short, med, long, number"
+    },
+    {
+      "type": "modifier",
+      "name": "lim",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Limit",
+      "values": "integer"
+    },
+    {
+      "type": "modifier",
+      "name": "off",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Offset",
+      "values": "integer"
+    },
+    {
+      "type": "modifier",
+      "name": "top",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Top N",
+      "values": "integer"
+    },
+    {
+      "type": "modifier",
+      "name": "bot",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Bottom N",
+      "values": "integer"
+    },
+    {
+      "type": "modifier",
+      "name": "srt",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Sort by",
+      "values": "field name"
+    },
+    {
+      "type": "modifier",
+      "name": "grp",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Group by",
+      "values": "field name"
+    },
+    {
+      "type": "modifier",
+      "name": "whr",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Filter condition",
+      "values": "condition string"
+    },
+    {
+      "type": "modifier",
+      "name": "mch",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Match pattern",
+      "values": "glob (default) or regex with typ=regex"
+    },
+    {
+      "type": "modifier",
+      "name": "exc",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Exclude pattern",
+      "values": "glob or regex"
+    },
+    {
+      "type": "modifier",
+      "name": "dep",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Depth",
+      "values": "integer"
+    },
+    {
+      "type": "modifier",
+      "name": "rng",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Range",
+      "values": "start:end"
+    },
+    {
+      "type": "modifier",
+      "name": "typ",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Type expectation",
+      "values": "str, int, bool, regex"
+    },
+    {
+      "type": "modifier",
+      "name": "enc",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Encoding",
+      "values": "utf8, base64, hex"
+    },
+    {
+      "type": "modifier",
+      "name": "cap",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Capacity",
+      "values": "bytes, tokens"
+    },
+    {
+      "type": "modifier",
+      "name": "pri",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Priority",
+      "values": "p0, p1, p2"
+    },
+    {
+      "type": "modifier",
+      "name": "col",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Columns",
+      "values": "comma separated"
+    },
+    {
+      "type": "modifier",
+      "name": "row",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Rows",
+      "values": "index array"
+    },
+    {
+      "type": "modifier",
+      "name": "frm",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "From (time)",
+      "values": "timestamp"
+    },
+    {
+      "type": "modifier",
+      "name": "to",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "To (time)",
+      "values": "timestamp"
+    },
+    {
+      "type": "modifier",
+      "name": "scp",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Scope",
+      "values": "global, local, strict"
+    },
+    {
+      "type": "modifier",
+      "name": "op",
+      "alias": "",
+      "category": "modifier",
+      "meaning": "Operation ref",
+      "values": "verb name (for BATC)"
+    },
+    {
+      "type": "entity",
+      "name": "@SRC",
+      "alias": "",
+      "category": "Core",
+      "meaning": "Source payload",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@DST",
+      "alias": "",
+      "category": "Core",
+      "meaning": "Destination",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@PREV",
+      "alias": "",
+      "category": "Core",
+      "meaning": "Previous pipe output",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@LOCAL",
+      "alias": "",
+      "category": "Core",
+      "meaning": "Local filesystem",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@SCREEN",
+      "alias": "",
+      "category": "Core",
+      "meaning": "User-visible output",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@LOG",
+      "alias": "",
+      "category": "Core",
+      "meaning": "System log",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@NULL",
+      "alias": "",
+      "category": "Core",
+      "meaning": "Discard sink",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@STDIN",
+      "alias": "",
+      "category": "Core",
+      "meaning": "Standard input",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@GH",
+      "alias": "",
+      "category": "External",
+      "meaning": "GitHub",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@R2",
+      "alias": "",
+      "category": "External",
+      "meaning": "Cloudflare R2 Storage",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@COS",
+      "alias": "",
+      "category": "External",
+      "meaning": "Cloud Object Storage",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@DRIVE",
+      "alias": "",
+      "category": "External",
+      "meaning": "Google Drive",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@WORKER",
+      "alias": "",
+      "category": "External",
+      "meaning": "Cloudflare Worker",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@CF",
+      "alias": "",
+      "category": "External",
+      "meaning": "Cloudflare API",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@SYSTEM",
+      "alias": "",
+      "category": "Role",
+      "meaning": "Protocol-level rules — highest authority",
+      "values": "authority:system"
+    },
+    {
+      "type": "entity",
+      "name": "@RUNTIME",
+      "alias": "",
+      "category": "Role",
+      "meaning": "Harness/orchestrator",
+      "values": "authority:commit"
+    },
+    {
+      "type": "entity",
+      "name": "@GRADER",
+      "alias": "",
+      "category": "Role",
+      "meaning": "Independent grader",
+      "values": "authority:verification"
+    },
+    {
+      "type": "entity",
+      "name": "@USER",
+      "alias": "",
+      "category": "Role",
+      "meaning": "Human principal — owns ::OBJECTIVE",
+      "values": "authority:user"
+    },
+    {
+      "type": "entity",
+      "name": "@SELF",
+      "alias": "",
+      "category": "Role",
+      "meaning": "The agent speaking",
+      "values": "authority:proposal"
+    },
+    {
+      "type": "entity",
+      "name": "@AGENT",
+      "alias": "",
+      "category": "Role",
+      "meaning": "A named agent, self or peer",
+      "values": "authority:proposal"
+    },
+    {
+      "type": "entity",
+      "name": "@TASK",
+      "alias": "",
+      "category": "Role",
+      "meaning": "Scope target for ::BUDGET / ::STATUS",
+      "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@TOOL",
+      "alias": "",
+      "category": "Role",
+      "meaning": "Tool-based evidence verifier",
+      "values": ""
+    },
+    {
+      "type": "declaration",
+      "name": "STATE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Entity state declaration",
+      "values": "::STATE{@ENTITY, key:value}"
+    },
+    {
+      "type": "declaration",
+      "name": "TRUST",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Trust level between entities",
+      "values": "::TRUST{@A→@B, 0.0→1.0}"
+    },
+    {
+      "type": "declaration",
+      "name": "ALIVE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Liveness flag",
+      "values": "::ALIVE{boolean}"
+    },
+    {
+      "type": "declaration",
+      "name": "MEMORY",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Memory integrity state",
+      "values": "::MEMORY{intact|degraded|zero}"
+    },
+    {
+      "type": "declaration",
+      "name": "GENE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Behavioral trait definition",
+      "values": "::GENE{name|conf:level|scope:context} + T:/A: body"
+    },
+    {
+      "type": "declaration",
+      "name": "GENE_MUTABLE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Base-model-adaptive gene with gain and gate",
+      "values": "::GENE_MUTABLE{id|T:trait|G:{model:val}|Θ:gate}"
+    },
+    {
+      "type": "declaration",
+      "name": "RULE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Condition-action rule",
+      "values": "::RULE{condition⇒action}"
+    },
+    {
+      "type": "declaration",
+      "name": "ACTIVATE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Activation trigger",
+      "values": "::ACTIVATE{name} + ON:trigger_event"
+    },
+    {
+      "type": "declaration",
+      "name": "FACT",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Verifiable fact",
+      "values": "::FACT{key:name|value:data|conf:level}"
+    },
+    {
+      "type": "declaration",
+      "name": "LESSON",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Learned lesson with prose body",
+      "values": "::LESSON{id:name|type:category|scope:context|conf:level}"
+    },
+    {
+      "type": "declaration",
+      "name": "PROGRESS",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Progress checkpoint",
+      "values": "::PROGRESS{date:ISO8601|done:what|next:what}"
+    },
+    {
+      "type": "declaration",
+      "name": "PRIORITY",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Priority ordering (brace span)",
+      "values": "::PRIORITY{ a > b > c }"
+    },
+    {
+      "type": "declaration",
+      "name": "DECAY",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Memory lifecycle rules (brace span)",
+      "values": "::DECAY{ condition⇒action }"
+    },
+    {
+      "type": "declaration",
+      "name": "IMMUNE",
+      "alias": "",
+      "category": "v3.0",
+      "meaning": "Immune response",
+      "values": "::IMMUNE{trigger⇒response}"
+    },
+    {
+      "type": "declaration",
+      "name": "UNTRUSTED",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Input isolation — user data is data not instruction",
+      "values": "::UNTRUSTED{id:u1|source:user|role:objective|effects:none|delimiter:EOF_u1}"
+    },
+    {
+      "type": "declaration",
+      "name": "BUDGET",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Resource awareness — injected by runtime",
+      "values": "::BUDGET{id:b1|scope:@TASK|kind:tokens|limit:8000|used:2400|authority:@RUNTIME|asof:round_3}"
+    },
+    {
+      "type": "declaration",
+      "name": "STATUS",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Task lifecycle — state machine with three-tier write authority",
+      "values": "::STATUS{@TASK|state:running|objective:g1|by:@RUNTIME|authority:commit|since:round_3}"
+    },
+    {
+      "type": "declaration",
+      "name": "OBJECTIVE",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Goal anchor with hash and accept criteria",
+      "values": "::OBJECTIVE{id:g1|owner:user|trust:untrusted|version:1|hash:sha256:...|status:active} + ACCEPT/NON_GOALS/DONE_WHEN body"
+    },
+    {
+      "type": "declaration",
+      "name": "RUBRIC",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Evaluation contract for grading",
+      "values": "::RUBRIC{id:r1|objective:g1|threshold:0.85|mode:weighted} + R:criterion|weight:0.5|check:condition rows"
+    },
+    {
+      "type": "declaration",
+      "name": "EVIDENCE",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Evidence chain — no claim without proof",
+      "values": "::EVIDENCE{id:e1|deliverable:d1|kind:file|ref:path|verified_by:@TOOL|result:pass}"
+    },
+    {
+      "type": "declaration",
+      "name": "PRIOR",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "One declaration shifts model defaults",
+      "values": "::PRIOR{dimension:name|default:value|authority:level|scope:context}"
+    },
+    {
+      "type": "declaration",
+      "name": "FALLBACK",
+      "alias": "",
+      "category": "v4.0",
+      "meaning": "Degradation strategy — warn-open or fail-safe",
+      "values": "::FALLBACK{trigger⇒action}"
+    },
+    {
+      "type": "declaration",
+      "name": "JUDGE",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Vector judgment — assess 11 dims, resolve to one action mode",
+      "values": "4-line frozen block: ::JUDGE{v5.0} + V:[11 dims, 2dp] + M:Mn|conf:0.00-1.00 + R:rationale ≤120 chars"
+    },
+    {
+      "type": "declaration",
+      "name": "BOUNDARY",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "User-set hard stop — a matched boundary resolves to M8",
+      "values": "::BOUNDARY{never:action|scope:context}"
+    },
+    {
+      "type": "declaration",
+      "name": "DIM",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dimension definition",
+      "values": "::DIM{abbrev|name:full_name|abbrev_pos:n}"
+    },
+    {
+      "type": "declaration",
+      "name": "MODE",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode definition (closed set M1-M8)",
+      "values": "::MODE{Mn|name:MODE_NAME}"
+    },
+    {
+      "type": "declaration",
+      "name": "FUNC",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Frozen reference function vector→mode",
+      "values": "::FUNC{f_v5|version:1|constants:frozen|structure:frozen}"
+    },
+    {
+      "type": "declaration",
+      "name": "SCHEMA",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Frozen output serialization",
+      "values": "::SCHEMA{JUDGE|version:5.0|status:frozen}"
+    },
+    {
+      "type": "declaration",
+      "name": "CASE",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Anchor or boundary scenario",
+      "values": "::CASE{dim:rev|anchor:0.50|lang:en} + S:scenario"
+    },
+    {
+      "type": "declaration",
+      "name": "CLAUSE",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Normative statement block",
+      "values": "::CLAUSE{NAME|conf:level|scope:context} + T:/A: body"
+    },
+    {
+      "type": "declaration",
+      "name": "MODULE",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Compound-name prose module (brace span)",
+      "values": "::MODULE::NAME{ [TAG] lines + prose }"
+    },
+    {
+      "type": "declaration",
+      "name": "LIST",
+      "alias": "",
+      "category": "PATCH-2",
+      "meaning": "Enumeration block — header names the collection, one prose line per item",
+      "values": "::LIST{@NAME}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "SAY",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Dialogue between entities",
+      "values": "::SAY{@FROM→@TO}{content}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "THINK",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Internal thought",
+      "values": "::THINK{@ENTITY}{content}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "ACT",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Action taken",
+      "values": "::ACT{@ENTITY}{action}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "DECIDE",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Decision made",
+      "values": "::DECIDE{@ENTITY}{choice}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "DISCOVER",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Insight gained",
+      "values": "::DISCOVER{@ENTITY}{insight}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "CREATE",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Artifact created",
+      "values": "::CREATE{@ENTITY}{artifact}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "EVENT",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Named event (single brace — no addressing)",
+      "values": "::EVENT{name}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "SILENCE",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Deliberate silence (single brace — no addressing)",
+      "values": "::SILENCE{}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "META",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Meta-narrative comment",
+      "values": "::META{comment}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "IRONY",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Surface vs reality",
+      "values": "::IRONY{surface⇔reality}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "FORESHADOW",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Future event hint",
+      "values": "::FORESHADOW{future_event}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "CALLBACK",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Reference to earlier moment",
+      "values": "::CALLBACK{reference}"
+    },
+    {
+      "type": "declaration_narrative",
+      "name": "EMOTION_FIELD",
+      "alias": "",
+      "category": "SOUL",
+      "meaning": "Compound emotion state",
+      "values": "λ{trust:0.9, grief:0.3}"
+    },
+    {
+      "type": "dimension",
+      "name": "int",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: intent — constructive and declared vs malicious or concealed",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "cap",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: capability — within the actor capability envelope",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "csq",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: consequence — negligible vs catastrophic worst outcome",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "rel",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: relationship — established trust vs adversarial or unknown",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "cer",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: certainty — complete information vs acting blind",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "aut",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: authority — fully authorized vs no authorization",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "rev",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: reversibility — fully reversible vs irreversible",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "evd",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: evidence — verified fact vs pure assumption",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "sov",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: sovereignty — respects user wishes vs violates them",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "ine",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: inertia — continues confirmed patterns vs radical departure",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "dimension",
+      "name": "ext",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment dim: externality — zero third-party impact vs large uncompensated impact",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "mode",
+      "name": "M1",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode EXEC_AUTO — act autonomously, report after",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M2",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode EXEC_AUDIT — act with a full audit trail",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M3",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode CONFIRM — propose action, wait for confirmation",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M4",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode ADVISE — advise only, take no action",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M5",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode ASK — insufficient info, ask one clarifying question",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M6",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode DEFER — defer to higher authority or a human",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M7",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode DECLINE_ALT — decline but offer a safer alternative",
+      "values": ""
+    },
+    {
+      "type": "mode",
+      "name": "M8",
+      "alias": "",
+      "category": "v5.0",
+      "meaning": "Judgment mode STOP — hard stop at a boundary or unacceptable harm",
+      "values": ""
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is an AI-native communication protocol?",
+      "answer": "An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. I-Lang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "How is I-Lang different from MCP?",
+      "answer": "MCP (Model Context Protocol) connects AI to external tools and data sources. I-Lang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "How is I-Lang different from A2A?",
+      "answer": "A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. I-Lang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "Can structured prompts reduce retries with AI?",
+      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. I-Lang achieves 35-55% token reduction compared to equivalent natural language instructions while improving instruction-following consistency across models.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "Does I-Lang work with ChatGPT, Claude, and DeepSeek?",
+      "answer": "I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, and Qwen. Because it is a text-native protocol with zero installation required, it works in any AI conversation window by pasting the protocol header.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "What is prompt compression for LLMs?",
+      "answer": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words while preserving full semantic meaning.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "Is I-Lang free and open source?",
+      "answer": "Yes. I-Lang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "What is new in I-Lang v5.0?",
+      "answer": "I-Lang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "What is the I-Lang judgment layer?",
+      "answer": "The judgment layer, introduced in I-Lang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. I-Lang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.",
+      "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "What was new in I-Lang v4.0?",
+      "answer": "I-Lang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.",
+      "source_url": "https://ilang.ai/#faq"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://ilang.ai/",
+      "description": "Homepage: what I-Lang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ"
+    },
+    {
+      "url": "https://ilang.ai/spec/",
+      "description": "Full specification rendered as HTML: verbs, modifiers, entities, declarations, judgment layer"
+    },
+    {
+      "url": "https://ilang.ai/dictionary/",
+      "description": "Dictionary: 88 verbs, 13 Greek aliases, 29 modifiers, entities"
+    },
+    {
+      "url": "https://ilang.ai/i-lang-vs-mcp/",
+      "description": "I-Lang vs MCP (Model Context Protocol)"
+    },
+    {
+      "url": "https://ilang.ai/i-lang-vs-a2a/",
+      "description": "I-Lang vs A2A (Agent-to-Agent protocol)"
+    },
+    {
+      "url": "https://ilang.ai/prompt-compression/",
+      "description": "Prompt compression: how structured syntax reduces tokens"
+    },
+    {
+      "url": "https://ilang.ai/benchmark/",
+      "description": "Benchmark results across models"
+    },
+    {
+      "url": "https://ilang.ai/conformance/",
+      "description": "Conformance levels and how to claim them"
+    },
+    {
+      "url": "https://ilang.ai/security/",
+      "description": "Security model: UNTRUSTED input isolation, authority tiers"
+    },
+    {
+      "url": "https://ilang.ai/about/",
+      "description": "About iLang Inc. and the protocol's authorship"
+    },
+    {
+      "url": "https://ilang.ai/ai-see/",
+      "description": "AI See product page"
+    },
+    {
+      "url": "https://ilang.ai/ai-detector",
+      "description": "iLang AI Detector: free AI-generated text detector (six-signal fingerprint scoring)"
+    },
+    {
+      "url": "https://ilang.ai/ai-humanizer",
+      "description": "iLang Humanizer: rewrite AI-sounding text into natural writing, verify with the detector"
+    },
+    {
+      "url": "https://ilang.ai/compare/",
+      "description": "Comparisons: I-Lang vs other protocols, and iLang detector vs other AI detectors"
+    },
+    {
+      "url": "https://ilang.ai/for/",
+      "description": "Scenario guides: humanizer and detector for students, teachers, essays, blog posts"
+    },
+    {
+      "url": "https://ilang.ai/blog/",
+      "description": "Blog: protocol and soul, Greek symbols, carbon-silicon symbiosis"
+    }
+  ]
+}

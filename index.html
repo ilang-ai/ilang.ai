@@ -513,6 +513,11 @@ footer{
 .evidence-callout h4{margin:0 0 6px;font-size:13px;color:var(--fg);font-weight:700}
 .evidence-callout p{margin:0;line-height:1.6}
 </style>
+<link rel="ai-catalog" href="/.well-known/ai-catalog.json">
+<link rel="api-catalog" href="/.well-known/api-catalog">
+<link rel="service-desc" href="/openapi.json" type="application/json">
+<link rel="service-doc" href="/ai/" type="text/markdown">
+<link rel="alternate" type="text/markdown" href="/index.md">
 </head>
 <body>
 
@@ -1425,6 +1430,25 @@ window.addEventListener('scroll',function(){
   var n=document.getElementById('nav');
   if(window.scrollY>20){n.style.boxShadow='0 1px 0 rgba(10,14,23,.04)'}else{n.style.boxShadow='none'}
 },{passive:true});
+</script>
+<script>
+(function(){
+  var mc = navigator.modelContext; if (!mc) return;
+  var ac = new AbortController();
+  var tools = [
+    { name: "ilang_lookup", description: "[GET:@DICT|whr=q=term]=>[Ω] Look up an I-Lang verb, modifier, entity or declaration by name, alias or meaning. Returns dictionary entries with category, meaning and source_url; not_found=true when nothing matches.",
+      inputSchema: { type: "object", properties: { q: { type: "string", description: "Term, alias or keyword, e.g. XLAT, lng, @PREV" } }, required: ["q"] },
+      execute: async function(a){ var r = await fetch("/api/agent/lookup?q=" + encodeURIComponent((a && a.q) || "")); return await r.json(); } },
+    { name: "ilang_faq", description: "[GET:@FAQ|whr=q=question]=>[Ω] Return the published FAQ entries closest to a question about the I-Lang protocol, with source_url.",
+      inputSchema: { type: "object", properties: { q: { type: "string" } }, required: ["q"] },
+      execute: async function(a){ var r = await fetch("/api/agent/faq?q=" + encodeURIComponent((a && a.q) || "")); return await r.json(); } }
+  ];
+  try {
+    if (typeof mc.registerTool === "function") tools.forEach(function(t){ mc.registerTool(Object.assign({}, t, { signal: ac.signal })); });
+    else if (typeof mc.provideContext === "function") mc.provideContext({ tools: tools });
+  } catch (e) {}
+  window.addEventListener("pagehide", function(){ try { ac.abort(); } catch (e) {} });
+})();
 </script>
 </body>
 </html>

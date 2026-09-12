@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "ilang-lookup",
+      "type": "skill-md",
+      "description": "Retrieve actual public information about the I-Lang protocol from ilang.ai: dictionary lookup and FAQ, with rules for citing and never inventing terms.",
+      "url": "https://ilang.ai/ai/skills/ilang-lookup/SKILL.md",
+      "digest": "sha256:44fbcb93278375f1d10a5bab3fb082084ae203a628e31fb6574b14198332c8d4"
+    }
+  ]
+}

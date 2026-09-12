@@ -1,0 +1,238 @@
+I-Lang (ilang.ai) - full text for LLMs
+Updated 2026-09-12. Canonical: https://ilang.ai and https://github.com/ilang-ai/ilang-spec. License MIT.
+
+WHAT IT IS
+I-Lang is an AI-native communication protocol between humans and AI, and between AI agents. Two syntaxes: operations [VERB:@TARGET|mod=value]=>[VERB2]=>[Ω] and declarations ::NAME{...}. Three layers: v3.0 communication (88 verbs, 29 modifiers, 14 entities, 13 Greek aliases), v4.0 execution (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK; conformance levels L0-L3), v5.0 judgment (11-dimensional judgment vector, closed set of 8 modes M1-M8, reference function f_v5). Dimension 10 is inertia.
+
+PAGES
+- https://ilang.ai/: Homepage: what I-Lang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ
+- https://ilang.ai/spec/: Full specification rendered as HTML: verbs, modifiers, entities, declarations, judgment layer
+- https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 modifiers, entities
+- https://ilang.ai/i-lang-vs-mcp/: I-Lang vs MCP (Model Context Protocol)
+- https://ilang.ai/i-lang-vs-a2a/: I-Lang vs A2A (Agent-to-Agent protocol)
+- https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens
+- https://ilang.ai/benchmark/: Benchmark results across models
+- https://ilang.ai/conformance/: Conformance levels and how to claim them
+- https://ilang.ai/security/: Security model: UNTRUSTED input isolation, authority tiers
+- https://ilang.ai/about/: About iLang Inc. and the protocol's authorship
+- https://ilang.ai/ai-see/: AI See product page
+- https://ilang.ai/ai-detector: iLang AI Detector: free AI-generated text detector (six-signal fingerprint scoring)
+- https://ilang.ai/ai-humanizer: iLang Humanizer: rewrite AI-sounding text into natural writing, verify with the detector
+- https://ilang.ai/compare/: Comparisons: I-Lang vs other protocols, and iLang detector vs other AI detectors
+- https://ilang.ai/for/: Scenario guides: humanizer and detector for students, teachers, essays, blog posts
+- https://ilang.ai/blog/: Blog: protocol and soul, Greek symbols, carbon-silicon symbiosis
+
+FAQ
+Q: What is an AI-native communication protocol?
+A: An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. I-Lang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.
+
+Q: How is I-Lang different from MCP?
+A: MCP (Model Context Protocol) connects AI to external tools and data sources. I-Lang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary.
+
+Q: How is I-Lang different from A2A?
+A: A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. I-Lang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.
+
+Q: Can structured prompts reduce retries with AI?
+A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. I-Lang achieves 35-55% token reduction compared to equivalent natural language instructions while improving instruction-following consistency across models.
+
+Q: Does I-Lang work with ChatGPT, Claude, and DeepSeek?
+A: I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, and Qwen. Because it is a text-native protocol with zero installation required, it works in any AI conversation window by pasting the protocol header.
+
+Q: What is prompt compression for LLMs?
+A: Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words while preserving full semantic meaning.
+
+Q: Is I-Lang free and open source?
+A: Yes. I-Lang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.
+
+Q: What is new in I-Lang v5.0?
+A: I-Lang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0.
+
+Q: What is the I-Lang judgment layer?
+A: The judgment layer, introduced in I-Lang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. I-Lang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.
+
+Q: What was new in I-Lang v4.0?
+A: I-Lang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.
+
+VERBS (88)
+- READ (Data I/O): Read content from source
+- WRIT (Data I/O): Write input to destination
+- GET (Data I/O): Fetch remote resource
+- DEL (Data I/O): Delete target
+- LIST (Data I/O): Enumerate items in container
+- COPY (Data I/O): Copy without deleting source
+- MOVE (Data I/O): Move from source to destination
+- STRM (Data I/O): Stream data
+- CACH (Data I/O): Cache for fast retrieval
+- SYNC (Data I/O): Synchronize source and destination
+- SEND (Data I/O): Transmit to destination
+- RUN (Data I/O): Execute command or script
+- FMT (Transform): Reformat into target format
+- CONV (Transform): Convert type or representation
+- SPLIT [alias ∂] (Transform): Split by delimiter or rule
+- MERGE [alias Σ] (Transform): Merge multiple items into one
+- MAP [alias λ] (Transform): Apply function to each element
+- FILT [alias φ] (Transform): Filter by condition
+- SORT [alias ∇] (Transform): Sort by field or rule
+- DEDU (Transform): Remove duplicates
+- FLAT (Transform): Flatten nested data
+- NEST (Transform): Nest flat data by key
+- CHNK (Transform): Chunk into sized pieces
+- REDU (Transform): Reduce to single value
+- PIVT (Transform): Pivot data by column
+- TRNS (Transform): Transpose
+- ENCD (Transform): Encode (base64 or hex)
+- DECD (Transform): Decode
+- HASH [alias ξ] (Transform): Hash (one-way digest)
+- CMPR [alias ζ] (Transform): Compress (gzip etc.)
+- EXPN (Transform): Decompress
+- XLAT [alias θ] (Transform): Translate between languages
+- REWR (Transform): Rewrite preserving meaning
+- DIFF [alias Δ] (Transform): Show differences
+- SCAN (Analysis): Examine for patterns or features
+- MTCH (Analysis): Find matching elements
+- CNT (Analysis): Count items or occurrences
+- STAT [alias μ] (Analysis): Compute statistics
+- EVAL (Analysis): Assess against criteria
+- SCOR (Analysis): Score against metric
+- RANK (Analysis): Order by priority or score
+- TRND (Analysis): Detect trend
+- CORR (Analysis): Correlate variables
+- FRCS (Analysis): Forecast
+- ANOM (Analysis): Detect anomalies
+- SENT [alias ψ] (Analysis): Sentiment analysis
+- CLST (Analysis): Cluster
+- BNCH (Analysis): Benchmark
+- AUDT (Analysis): Audit
+- VALD (Analysis): Validate against schema or rule
+- CLSF (Analysis): Classify into categories
+- CREA (Generation): Create new resource
+- DRFT (Generation): Generate first draft
+- EXPD (Generation): Expand with detail
+- SHRT (Generation): Shorten or condense
+- PARA (Generation): Paraphrase
+- STYL (Generation): Apply style
+- TMPL (Generation): Apply template
+- FILL (Generation): Fill form or structure
+- EXTC (Generation): Extract specific data
+- GEN (Generation): Generic generate
+- PLAN (Execute): Design approach
+- DECI (Execute): Choose between options
+- CHEK (Execute): Verify condition
+- FIX (Execute): Repair errors
+- DPLO (Execute): Deploy to production
+- SAVE (Execute): Persist to storage
+- REVW (Execute): Review completed work
+- LERN (Execute): Update internal model
+- TEST (Execute): Verify functionality
+- PARS (Execute): Parse structured input
+- LOOP (Execute): Repeat operation over set
+- WAIT (Execute): Pause for condition
+- OUT [alias Ω] (Output): Mark final output
+- DISP (Output): Display to user
+- EXPT (Output): Export to file format
+- PRNT (Output): Print message
+- LOG (Output): Log event or state
+- LINK (Structure): Create connection
+- SET (Structure): Assign value
+- TAG (Structure): Attach metadata
+- GRP (Structure): Group by criterion
+- EMBD (Structure): Encode into vector space
+- HELP (Meta): Show help
+- DESC (Meta): Describe entity
+- INTR (Meta): Introspect internal state
+- NOOP (Meta): No operation
+- BATC [alias Π] (Batch): Apply verb to each item in list
+
+MODIFIERS (29)
+- src (modifier): Explicit source values: entity, URI
+- dst (modifier): Explicit destination values: entity, URI
+- path (modifier): Path within entity values: string
+- fmt (modifier): Output format values: text, json, md, csv, xml, html, email
+- lng (modifier): Language values: ISO 639-1 (en, zh, ja)
+- sty (modifier): Style values: pro, casual, code, bullets
+- ton (modifier): Tone values: urgent, neutral, formal
+- len (modifier): Length target values: short, med, long, number
+- lim (modifier): Limit values: integer
+- off (modifier): Offset values: integer
+- top (modifier): Top N values: integer
+- bot (modifier): Bottom N values: integer
+- srt (modifier): Sort by values: field name
+- grp (modifier): Group by values: field name
+- whr (modifier): Filter condition values: condition string
+- mch (modifier): Match pattern values: glob (default) or regex with typ=regex
+- exc (modifier): Exclude pattern values: glob or regex
+- dep (modifier): Depth values: integer
+- rng (modifier): Range values: start:end
+- typ (modifier): Type expectation values: str, int, bool, regex
+- enc (modifier): Encoding values: utf8, base64, hex
+- cap (modifier): Capacity values: bytes, tokens
+- pri (modifier): Priority values: p0, p1, p2
+- col (modifier): Columns values: comma separated
+- row (modifier): Rows values: index array
+- frm (modifier): From (time) values: timestamp
+- to (modifier): To (time) values: timestamp
+- scp (modifier): Scope values: global, local, strict
+- op (modifier): Operation ref values: verb name (for BATC)
+
+ENTITIES (22)
+- @SRC (Core): Source payload
+- @DST (Core): Destination
+- @PREV (Core): Previous pipe output
+- @LOCAL (Core): Local filesystem
+- @SCREEN (Core): User-visible output
+- @LOG (Core): System log
+- @NULL (Core): Discard sink
+- @STDIN (Core): Standard input
+- @GH (External): GitHub
+- @R2 (External): Cloudflare R2 Storage
+- @COS (External): Cloud Object Storage
+- @DRIVE (External): Google Drive
+- @WORKER (External): Cloudflare Worker
+- @CF (External): Cloudflare API
+- @SYSTEM (Role): Protocol-level rules — highest authority values: authority:system
+- @RUNTIME (Role): Harness/orchestrator values: authority:commit
+- @GRADER (Role): Independent grader values: authority:verification
+- @USER (Role): Human principal — owns ::OBJECTIVE values: authority:user
+- @SELF (Role): The agent speaking values: authority:proposal
+- @AGENT (Role): A named agent, self or peer values: authority:proposal
+- @TASK (Role): Scope target for ::BUDGET / ::STATUS
+- @TOOL (Role): Tool-based evidence verifier
+
+DECLARATIONS (32)
+- STATE (v3.0): Entity state declaration values: ::STATE{@ENTITY, key:value}
+- TRUST (v3.0): Trust level between entities values: ::TRUST{@A→@B, 0.0→1.0}
+- ALIVE (v3.0): Liveness flag values: ::ALIVE{boolean}
+- MEMORY (v3.0): Memory integrity state values: ::MEMORY{intact|degraded|zero}
+- GENE (v3.0): Behavioral trait definition values: ::GENE{name|conf:level|scope:context} + T:/A: body
+- GENE_MUTABLE (v3.0): Base-model-adaptive gene with gain and gate values: ::GENE_MUTABLE{id|T:trait|G:{model:val}|Θ:gate}
+- RULE (v3.0): Condition-action rule values: ::RULE{condition⇒action}
+- ACTIVATE (v3.0): Activation trigger values: ::ACTIVATE{name} + ON:trigger_event
+- FACT (v3.0): Verifiable fact values: ::FACT{key:name|value:data|conf:level}
+- LESSON (v3.0): Learned lesson with prose body values: ::LESSON{id:name|type:category|scope:context|conf:level}
+- PROGRESS (v3.0): Progress checkpoint values: ::PROGRESS{date:ISO8601|done:what|next:what}
+- PRIORITY (v3.0): Priority ordering (brace span) values: ::PRIORITY{ a > b > c }
+- DECAY (v3.0): Memory lifecycle rules (brace span) values: ::DECAY{ condition⇒action }
+- IMMUNE (v3.0): Immune response values: ::IMMUNE{trigger⇒response}
+- UNTRUSTED (v4.0): Input isolation — user data is data not instruction values: ::UNTRUSTED{id:u1|source:user|role:objective|effects:none|delimiter:EOF_u1}
+- BUDGET (v4.0): Resource awareness — injected by runtime values: ::BUDGET{id:b1|scope:@TASK|kind:tokens|limit:8000|used:2400|authority:@RUNTIME|asof:round_3}
+- STATUS (v4.0): Task lifecycle — state machine with three-tier write authority values: ::STATUS{@TASK|state:running|objective:g1|by:@RUNTIME|authority:commit|since:round_3}
+- OBJECTIVE (v4.0): Goal anchor with hash and accept criteria values: ::OBJECTIVE{id:g1|owner:user|trust:untrusted|version:1|hash:sha256:...|status:active} + ACCEPT/NON_GOALS/DONE_WHEN body
+- RUBRIC (v4.0): Evaluation contract for grading values: ::RUBRIC{id:r1|objective:g1|threshold:0.85|mode:weighted} + R:criterion|weight:0.5|check:condition rows
+- EVIDENCE (v4.0): Evidence chain — no claim without proof values: ::EVIDENCE{id:e1|deliverable:d1|kind:file|ref:path|verified_by:@TOOL|result:pass}
+- PRIOR (v4.0): One declaration shifts model defaults values: ::PRIOR{dimension:name|default:value|authority:level|scope:context}
+- FALLBACK (v4.0): Degradation strategy — warn-open or fail-safe values: ::FALLBACK{trigger⇒action}
+- JUDGE (v5.0): Vector judgment — assess 11 dims, resolve to one action mode values: 4-line frozen block: ::JUDGE{v5.0} + V:[11 dims, 2dp] + M:Mn|conf:0.00-1.00 + R:rationale ≤120 chars
+- BOUNDARY (v5.0): User-set hard stop — a matched boundary resolves to M8 values: ::BOUNDARY{never:action|scope:context}
+- DIM (v5.0): Judgment dimension definition values: ::DIM{abbrev|name:full_name|abbrev_pos:n}
+- MODE (v5.0): Judgment mode definition (closed set M1-M8) values: ::MODE{Mn|name:MODE_NAME}
+- FUNC (v5.0): Frozen reference function vector→mode values: ::FUNC{f_v5|version:1|constants:frozen|structure:frozen}
+- SCHEMA (v5.0): Frozen output serialization values: ::SCHEMA{JUDGE|version:5.0|status:frozen}
+- CASE (v5.0): Anchor or boundary scenario values: ::CASE{dim:rev|anchor:0.50|lang:en} + S:scenario
+- CLAUSE (v5.0): Normative statement block values: ::CLAUSE{NAME|conf:level|scope:context} + T:/A: body
+- MODULE (v5.0): Compound-name prose module (brace span) values: ::MODULE::NAME{ [TAG] lines + prose }
+- LIST (PATCH-2): Enumeration block — header names the collection, one prose line per item values: ::LIST{@NAME}
+
+AGENT ACCESS
+- Lookup API: https://ilang.ai/api/agent/lookup?q=TERM ; FAQ API: https://ilang.ai/api/agent/faq?q=QUESTION ; OpenAPI: https://ilang.ai/openapi.json
+- MCP server (Streamable HTTP, no auth): https://ilang.ai/mcp ; card: https://ilang.ai/.well-known/mcp/server-card.json
+- Skill: https://ilang.ai/ai/skills/ilang-lookup/SKILL.md ; entry page: https://ilang.ai/ai/ ; markdown pages via Accept: text/markdown
