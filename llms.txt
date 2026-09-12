@@ -48,6 +48,8 @@
 - [AI Detector](https://ilang.ai/ai-detector/): Sentence-level AI detection across six dimensions, free, up to 5,000 characters, nothing stored
 - [AI Humanizer](https://ilang.ai/ai-humanizer/): Three-layer DeAI edit: clean the filler, fix the rhythm, mark where your own voice goes
 - [About](https://ilang.ai/about/): About iLang Inc. — company, products, contact
+- [Ecosystem](https://ilang.ai/ecosystem/): Every public repository of the ilang-ai organization, one line each
+- [I-Lang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/): Detailed comparison, a text protocol next to a data-over-sound demo
 - [Privacy](https://ilang.ai/privacy.html): Privacy policy
 - [Terms](https://ilang.ai/terms/): Terms of use
 
