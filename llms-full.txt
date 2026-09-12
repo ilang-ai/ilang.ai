@@ -6,6 +6,7 @@ I-Lang is an AI-native communication protocol between humans and AI, and between
 
 PAGES
 - https://ilang.ai/: Homepage: what I-Lang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ
+- https://ilang.ai/ai/: Agent entry: Markdown index of the protocol, the dictionary and every agent interface (MCP at https://ilang.ai/mcp, OpenAPI at https://ilang.ai/openapi.json)
 - https://ilang.ai/spec/: Full specification rendered as HTML: verbs, modifiers, entities, declarations, judgment layer
 - https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities
 - https://ilang.ai/i-lang-vs-mcp/: I-Lang vs MCP (Model Context Protocol)

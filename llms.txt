@@ -32,6 +32,14 @@
 - Operations (what AI does): `[VERB:@TARGET|mod=val]=>[NEXT]=>[Ω]`
 - Declarations (what AI is): `::GENE{trait|conf:confirmed}`
 
+## For Agents
+
+- [Agent entry](https://ilang.ai/ai/): Start here. Markdown index of the protocol, the dictionary and every agent interface on this site
+- [MCP server](https://ilang.ai/mcp): Streamable HTTP, no authentication, tools ilang_lookup and ilang_faq; server card at https://ilang.ai/.well-known/mcp/server-card.json
+- [OpenAPI](https://ilang.ai/openapi.json): read-only JSON API, GET /api/agent/lookup?q= and GET /api/agent/faq?q=
+- [API catalog](https://ilang.ai/.well-known/api-catalog): linkset listing the public API
+- Markdown for agents: request any page with Accept: text/markdown, or append index.md to its path
+
 ## Pages
 
 - [Homepage](https://ilang.ai): Protocol overview, interactive demo, quick start
