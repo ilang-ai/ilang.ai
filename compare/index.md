@@ -60,7 +60,7 @@ AI-Native Communication Protocol · I-Lang Research
 | AI internal reasoning | ✗ | ✗ | ✓ Declaration syntax |
 | Behavioral identity | ✗ | ○ Agent Cards | ✓ ::GENE{} DNA system |
 | Cross-model portable | ○ Server-side | ✓ | ✓ Any LLM |
-| Formal vocabulary | ✗ Free-form | ✗ Free-form | ✓ 88 verbs, 29 modifiers |
+| Formal vocabulary | ✗ Free-form | ✗ Free-form | ✓ 88 verbs, 29 core modifiers plus a 20-key media profile |
 | Token efficiency | N/A (infrastructure) | N/A (infrastructure) | 68% on a request as people write it, 7% on a terse rewrite |
 | Open source | ✓ Apache 2.0 | ✓ Apache 2.0 | ✓ MIT |
 | Backed by | Anthropic | Google + Linux Foundation | I-Lang Research / iLang Inc. |

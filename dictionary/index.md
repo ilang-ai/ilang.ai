@@ -1,11 +1,11 @@
-# Structured AI Communication Dictionary: 88 Verbs in 10 Categories | I-Lang Protocol
+# Structured AI Communication Dictionary: 88 Verbs in 9 Categories | I-Lang Protocol
 Source: https://ilang.ai/dictionary/
 
 # I-Lang Verb Dictionary
 
-88 verbs across 10 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of I-Lang — the communication layer, unchanged since v3.0 and carried through v5.0.
+88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of I-Lang — the communication layer, unchanged since v3.0 and carried through v5.0.
 
-**Quick navigation:** [Data I/O](https://ilang.ai/dictionary/#data-i-o) · [Transform](https://ilang.ai/dictionary/#transform) · [Analysis](https://ilang.ai/dictionary/#analysis) · [Generation](https://ilang.ai/dictionary/#generation) · [Execute](https://ilang.ai/dictionary/#execute) · [Control](https://ilang.ai/dictionary/#control) · [Output](https://ilang.ai/dictionary/#output) · [Structure](https://ilang.ai/dictionary/#structure) · [Meta](https://ilang.ai/dictionary/#meta) · [Batch](https://ilang.ai/dictionary/#batch)
+**Quick navigation:** [Data I/O](https://ilang.ai/dictionary/#data-i-o) · [Transform](https://ilang.ai/dictionary/#transform) · [Analysis](https://ilang.ai/dictionary/#analysis) · [Generation](https://ilang.ai/dictionary/#generation) · [Execute](https://ilang.ai/dictionary/#execute) · [Output](https://ilang.ai/dictionary/#output) · [Structure](https://ilang.ai/dictionary/#structure) · [Meta](https://ilang.ai/dictionary/#meta) · [Batch](https://ilang.ai/dictionary/#batch)
 
 ## Data I/O 12 verbs
 
@@ -381,7 +381,7 @@ Generate from specification
 
 [GEN|spec=api_endpoint]
 
-## Execute 10 verbs
+## Execute 12 verbs
 
 PLAN
 
@@ -442,8 +442,6 @@ PARS
 Parse structured content
 
 [PARS:@SRC|fmt=json]
-
-## Control 2 verbs
 
 LOOP
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Communication & Judgment Protocol Specification: 88 Verbs, Two Syntaxes, 11-Dimensional Judgment Vector | I-Lang v5.0</title>
-<meta name="description" content="Complete specification of I-Lang v5.0. Three layers: communication (v3.0), execution (v4.0), and judgment (v5.0). Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, 8 execution declarations, and an 11-dimensional judgment vector governed by 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
+<meta name="description" content="Complete specification of I-Lang v5.0. Three layers: communication (v3.0), execution (v4.0), and judgment (v5.0). Two syntaxes, 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, 8 execution declarations, and an 11-dimensional judgment vector governed by 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
 <meta property="og:title" content="I-Lang v5.0 Specification — AI-Native Communication and Judgment Protocol">
 <meta property="og:description" content="Complete specification of I-Lang v5.0. Communication, execution, and judgment layers. 88 verbs, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
 <meta property="og:url" content="https://ilang.ai/spec/">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang v5.0 Specification", "description": "Complete specification of the I-Lang AI-native communication and judgment protocol v5.0. 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and fuzzy-mathematical foundation.", "url": "https://ilang.ai/spec/", "version": "5.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "dateModified": "2026-06-24", "license": "https://opensource.org/licenses/MIT"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang v5.0 Specification", "description": "Complete specification of the I-Lang AI-native communication and judgment protocol v5.0. 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and fuzzy-mathematical foundation.", "url": "https://ilang.ai/spec/", "version": "5.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "dateModified": "2026-06-24", "license": "https://opensource.org/licenses/MIT"}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -99,7 +99,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "Is there a structured syntax for writing prompts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I-Lang defines two syntaxes. Operation syntax says what AI does: [VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω], where each step receives the previous step's output and the chain ends with [Ω] or [OUT]. Declaration syntax says what AI is: ::GENE{trait|conf:confirmed|scope:global} with T: lines for traits and A: lines for anti-patterns. The vocabulary is 88 verbs, 29 modifiers, 14 entities and 13 Greek aliases."
+        "text": "I-Lang defines two syntaxes. Operation syntax says what AI does: [VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω], where each step receives the previous step's output and the chain ends with [Ω] or [OUT]. Declaration syntax says what AI is: ::GENE{trait|conf:confirmed|scope:global} with T: lines for traits and A: lines for anti-patterns. The vocabulary is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role) and 13 Greek aliases."
       }
     },
     {
@@ -123,7 +123,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "Where do I read the I-Lang specification and dictionary?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 modifiers, 14 entities and two syntaxes for structured AI communication. v5.0 is the current version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.0 Final is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 10 categories. Both are MIT licensed."
+        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the current version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.0 Final is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
       }
     }
   ]
@@ -148,7 +148,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <section class="page-hero"><div class="container">
 <h1>I-Lang v5.0 Specification</h1>
-<p class="sub">The complete protocol specification. Three layers — communication, execution, judgment. Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, 8 execution declarations, an 11-dimensional judgment vector. MIT licensed.</p>
+<p class="sub">The complete protocol specification. Three layers — communication, execution, judgment. Two syntaxes, 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, 8 execution declarations, an 11-dimensional judgment vector. MIT licensed.</p>
 </div></section>
 
 <section class="content"><div class="container">
@@ -190,8 +190,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>Transform</td><td>22</td><td>FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF</td></tr>
 <tr><td>Analysis</td><td>17</td><td>SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT CLST BNCH AUDT VALD CLSF</td></tr>
 <tr><td>Generation</td><td>10</td><td>CREA DRFT EXPD SHRT PARA STYL TMPL FILL EXTC GEN</td></tr>
-<tr><td>Execute</td><td>10</td><td>PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST PARS</td></tr>
-<tr><td>Control</td><td>2</td><td>LOOP WAIT</td></tr>
+<tr><td>Execute</td><td>12</td><td>PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST PARS LOOP WAIT</td></tr>
 <tr><td>Output</td><td>5</td><td>OUT DISP EXPT PRNT LOG</td></tr>
 <tr><td>Structure</td><td>5</td><td>LINK SET TAG GRP EMBD</td></tr>
 <tr><td>Meta</td><td>4</td><td>HELP DESC INTR NOOP</td></tr>
@@ -553,7 +552,8 @@ STEP 3 — mode selection (by net_direction magnitude)
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
 <tr><td>v5.0</td><td>2026-06</td><td><strong>Current version.</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
-<tr><td>v4.0</td><td>2026-05</td><td><strong>Current stable.</strong> Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
+<tr><td>v4.1</td><td>2026-09</td><td><strong>Current stable.</strong> Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md">SPEC-v4.1-MEDIA-PROFILE</a></td></tr>
+<tr><td>v4.0</td><td>2026-05</td><td>Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
 <tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
 <tr><td>v2.0</td><td>2026-03</td><td>Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases.</td></tr>
 <tr><td>v1.0</td><td>2026-02</td><td>Initial release. Operation syntax only. 64 verbs.</td></tr>

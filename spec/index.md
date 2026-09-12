@@ -3,7 +3,7 @@ Source: https://ilang.ai/spec/
 
 # I-Lang v5.0 Specification
 
-The complete protocol specification. Three layers — communication, execution, judgment. Two syntaxes, 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, 8 execution declarations, an 11-dimensional judgment vector. MIT licensed.
+The complete protocol specification. Three layers — communication, execution, judgment. Two syntaxes, 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, 8 execution declarations, an 11-dimensional judgment vector. MIT licensed.
 
 ## 1. Overview
 
@@ -53,8 +53,7 @@ Declarations define behavioral identity — personality, rules, anti-patterns, a
 | Transform | 22 | FMT CONV SPLIT MERGE MAP FILT SORT DEDU FLAT NEST CHNK REDU PIVT TRNS ENCD DECD HASH CMPR EXPN XLAT REWR DIFF |
 | Analysis | 17 | SCAN MTCH CNT STAT EVAL SCOR RANK TRND CORR FRCS ANOM SENT CLST BNCH AUDT VALD CLSF |
 | Generation | 10 | CREA DRFT EXPD SHRT PARA STYL TMPL FILL EXTC GEN |
-| Execute | 10 | PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST PARS |
-| Control | 2 | LOOP WAIT |
+| Execute | 12 | PLAN DECI CHEK FIX DPLO SAVE REVW LERN TEST PARS LOOP WAIT |
 | Output | 5 | OUT DISP EXPT PRNT LOG |
 | Structure | 5 | LINK SET TAG GRP EMBD |
 | Meta | 4 | HELP DESC INTR NOOP |
@@ -470,7 +469,8 @@ I-Lang evolves as three layered generations. Each generation adds a layer withou
 | Version | Date | Changes |
 | --- | --- | --- |
 | v5.0 | 2026-06 | **Current version.** Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13. |
-| v4.0 | 2026-05 | **Current stable.** Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |
+| v4.1 | 2026-09 | **Current stable.** Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. [SPEC-v4.1-MEDIA-PROFILE](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md) |
+| v4.0 | 2026-05 | Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |
 | v3.0 | 2026-04 | Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.) |
 | v2.0 | 2026-03 | Added declaration syntax (::GENE, ::STATE). Behavioral DNA. Greek aliases. |
 | v1.0 | 2026-02 | Initial release. Operation syntax only. 64 verbs. |

@@ -6,8 +6,8 @@
   },
   "counts": {
     "verb": 88,
-    "modifier": 29,
-    "entity": 22,
+    "modifier": 49,
+    "entity": 25,
     "declaration": 32,
     "declaration_narrative": 13,
     "dimension": 11,
@@ -15,9 +15,14 @@
     "entity_by_category": {
       "Core": 8,
       "External": 6,
-      "Role": 8
+      "Role": 8,
+      "Media": 3
     },
-    "note": "entity total includes v4/v5 execution and role entities; the public v3 communication-layer count is 14 entities, 88 verbs, 29 modifiers, 13 Greek aliases"
+    "note": "modifier total is 29 core modifiers plus the 20-key media profile (category media); entity total is Core 8, External 6, Role 8 and Media 3; the public count is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases",
+    "modifier_by_category": {
+      "modifier": 29,
+      "media": 20
+    }
   },
   "entries": [
     {
@@ -754,7 +759,7 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Output format",
-      "values": "text, json, md, csv, xml, html, email"
+      "values": "text, json, md, csv, xml, html, email, png, jpg, webp, svg, gif, mp4, webm, wav, mp3"
     },
     {
       "type": "modifier",
@@ -929,16 +934,16 @@
       "name": "frm",
       "alias": "",
       "category": "modifier",
-      "meaning": "From (time)",
-      "values": "timestamp"
+      "meaning": "From (time, or interval start)",
+      "values": "timestamp, URI, @ENTITY"
     },
     {
       "type": "modifier",
       "name": "to",
       "alias": "",
       "category": "modifier",
-      "meaning": "To (time)",
-      "values": "timestamp"
+      "meaning": "To (time, or interval end)",
+      "values": "timestamp, URI, @ENTITY"
     },
     {
       "type": "modifier",
@@ -955,6 +960,166 @@
       "category": "modifier",
       "meaning": "Operation ref",
       "values": "verb name (for BATC)"
+    },
+    {
+      "type": "modifier",
+      "name": "sbj",
+      "alias": "",
+      "category": "media",
+      "meaning": "Subject identity anchor",
+      "values": "label, @ENTITY, or URI"
+    },
+    {
+      "type": "modifier",
+      "name": "act",
+      "alias": "",
+      "category": "media",
+      "meaning": "Subject action or pose",
+      "values": "free text; static"
+    },
+    {
+      "type": "modifier",
+      "name": "plc",
+      "alias": "",
+      "category": "media",
+      "meaning": "Setting and surroundings",
+      "values": "free text; none, transparent"
+    },
+    {
+      "type": "modifier",
+      "name": "txt",
+      "alias": "",
+      "category": "media",
+      "meaning": "Verbatim on-artifact text",
+      "values": "quoted string"
+    },
+    {
+      "type": "modifier",
+      "name": "pov",
+      "alias": "",
+      "category": "media",
+      "meaning": "Camera viewpoint (shot size/angle/placement)",
+      "values": "wide, close_up, eye_level, low_angle, over_shoulder"
+    },
+    {
+      "type": "modifier",
+      "name": "fcl",
+      "alias": "",
+      "category": "media",
+      "meaning": "Optics (focal length/aperture/depth of field)",
+      "values": "35mm, f1.8, macro, fisheye, shallow_dof"
+    },
+    {
+      "type": "modifier",
+      "name": "mvt",
+      "alias": "",
+      "category": "media",
+      "meaning": "Camera movement",
+      "values": "static, pan_left, tilt_up, dolly_in, orbit, handheld"
+    },
+    {
+      "type": "modifier",
+      "name": "lgt",
+      "alias": "",
+      "category": "media",
+      "meaning": "Lighting",
+      "values": "golden_hour, backlit, softbox, low_key, neon"
+    },
+    {
+      "type": "modifier",
+      "name": "pal",
+      "alias": "",
+      "category": "media",
+      "meaning": "Colour and grade",
+      "values": "monochrome, warm_tones, teal_orange, #0B3D2E"
+    },
+    {
+      "type": "modifier",
+      "name": "mdm",
+      "alias": "",
+      "category": "media",
+      "meaning": "Medium or rendering school",
+      "values": "photo, oil_paint, vector, 3d_render, film_noir, ambient"
+    },
+    {
+      "type": "modifier",
+      "name": "asp",
+      "alias": "",
+      "category": "media",
+      "meaning": "Aspect ratio",
+      "values": "W:H (1:1, 16:9, 9:16), auto"
+    },
+    {
+      "type": "modifier",
+      "name": "rsl",
+      "alias": "",
+      "category": "media",
+      "meaning": "Output geometry",
+      "values": "WxH pixels or tier (720p, 1080p, 2k, 4k), auto"
+    },
+    {
+      "type": "modifier",
+      "name": "qly",
+      "alias": "",
+      "category": "media",
+      "meaning": "Quality tier",
+      "values": "draft, low, std, high, max"
+    },
+    {
+      "type": "modifier",
+      "name": "dur",
+      "alias": "",
+      "category": "media",
+      "meaning": "Timeline length in seconds",
+      "values": "positive number"
+    },
+    {
+      "type": "modifier",
+      "name": "fps",
+      "alias": "",
+      "category": "media",
+      "meaning": "Frame rate",
+      "values": "positive integer"
+    },
+    {
+      "type": "modifier",
+      "name": "sed",
+      "alias": "",
+      "category": "media",
+      "meaning": "Reproducibility seed",
+      "values": "non-negative integer, auto"
+    },
+    {
+      "type": "modifier",
+      "name": "adh",
+      "alias": "",
+      "category": "media",
+      "meaning": "Adherence to the stated instruction",
+      "values": "0.00-1.00"
+    },
+    {
+      "type": "modifier",
+      "name": "ref",
+      "alias": "",
+      "category": "media",
+      "meaning": "Reference asset or declared preset",
+      "values": "@ENTITY, URI"
+    },
+    {
+      "type": "modifier",
+      "name": "dlg",
+      "alias": "",
+      "category": "media",
+      "meaning": "Verbatim spoken lines",
+      "values": "quoted string"
+    },
+    {
+      "type": "modifier",
+      "name": "sfx",
+      "alias": "",
+      "category": "media",
+      "meaning": "Non-speech sound",
+      "values": "free text; none"
     },
     {
       "type": "entity",
@@ -1131,6 +1296,30 @@
       "category": "Role",
       "meaning": "Tool-based evidence verifier",
       "values": ""
+    },
+    {
+      "type": "entity",
+      "name": "@IMG",
+      "alias": "",
+      "category": "Media",
+      "meaning": "Image artifact target",
+      "values": "profile:media"
+    },
+    {
+      "type": "entity",
+      "name": "@VID",
+      "alias": "",
+      "category": "Media",
+      "meaning": "Video artifact target",
+      "values": "profile:media"
+    },
+    {
+      "type": "entity",
+      "name": "@AUD",
+      "alias": "",
+      "category": "Media",
+      "meaning": "Audio artifact target",
+      "values": "profile:media"
     },
     {
       "type": "declaration",
@@ -1708,7 +1897,7 @@
     },
     {
       "url": "https://ilang.ai/dictionary/",
-      "description": "Dictionary: 88 verbs, 13 Greek aliases, 29 modifiers, entities"
+      "description": "Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities"
     },
     {
       "url": "https://ilang.ai/i-lang-vs-mcp/",

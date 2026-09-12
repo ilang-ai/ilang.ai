@@ -4,7 +4,7 @@ Source: https://ilang.ai/ai/ (this page). Updated 2026-09-12 from ilang-ai/ilang
 
 ## Purpose
 
-I-Lang is an AI-native communication protocol: 88 verbs, 29 modifiers, 14 entities, 13 Greek aliases, two syntaxes (operations and declarations), three layers (v3.0 communication, v4.0 execution, v5.0 judgment). MIT licensed. Specification: https://github.com/ilang-ai/ilang-spec.
+I-Lang is an AI-native communication protocol: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, two syntaxes (operations and declarations), three layers (v3.0 communication, v4.0 execution, v5.0 judgment). MIT licensed. Specification: https://github.com/ilang-ai/ilang-spec.
 
 ## What you can retrieve here
 

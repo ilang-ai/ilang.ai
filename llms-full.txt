@@ -2,12 +2,12 @@ I-Lang (ilang.ai) - full text for LLMs
 Updated 2026-09-12. Canonical: https://ilang.ai and https://github.com/ilang-ai/ilang-spec. License MIT.
 
 WHAT IT IS
-I-Lang is an AI-native communication protocol between humans and AI, and between AI agents. Two syntaxes: operations [VERB:@TARGET|mod=value]=>[VERB2]=>[Ω] and declarations ::NAME{...}. Three layers: v3.0 communication (88 verbs, 29 modifiers, 14 entities, 13 Greek aliases), v4.0 execution (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK; conformance levels L0-L3), v5.0 judgment (11-dimensional judgment vector, closed set of 8 modes M1-M8, reference function f_v5). Dimension 10 is inertia.
+I-Lang is an AI-native communication protocol between humans and AI, and between AI agents. Two syntaxes: operations [VERB:@TARGET|mod=value]=>[VERB2]=>[Ω] and declarations ::NAME{...}. Three layers: v3.0 communication (88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases; v4.1 adds a 20-key media profile and 3 media entities), v4.0 execution (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK; conformance levels L0-L3), v5.0 judgment (11-dimensional judgment vector, closed set of 8 modes M1-M8, reference function f_v5). Dimension 10 is inertia.
 
 PAGES
 - https://ilang.ai/: Homepage: what I-Lang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ
 - https://ilang.ai/spec/: Full specification rendered as HTML: verbs, modifiers, entities, declarations, judgment layer
-- https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 modifiers, entities
+- https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities
 - https://ilang.ai/i-lang-vs-mcp/: I-Lang vs MCP (Model Context Protocol)
 - https://ilang.ai/i-lang-vs-a2a/: I-Lang vs A2A (Agent-to-Agent protocol)
 - https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens

@@ -311,7 +311,7 @@ Verbs are grouped by domain. Case-insensitive; canonical form is uppercase.
 
 </table>
 
-The full dictionary — 88 verbs, 29 modifiers, 14 entities — lives at
+The full dictionary — 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities — lives at
 [ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict).
 
 ---

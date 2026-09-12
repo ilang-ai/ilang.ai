@@ -9,11 +9,11 @@ Built with I-Lang. The ilang-ai organization on GitHub publishes the I-Lang prot
 
 ### [ilang-spec](https://github.com/ilang-ai/ilang-spec)
 
-I-Lang protocol specification: 88 verbs, 29 modifiers, 14 entities, two syntaxes for structured AI communication. MIT licensed.
+I-Lang protocol specification: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), two syntaxes for structured AI communication. MIT licensed.
 
 ### [ilang-dict](https://github.com/ilang-ai/ilang-dict)
 
-I-Lang verb, modifier, and entity dictionary: the complete reference for 88 structured AI communication verbs across 10 categories.
+I-Lang verb, modifier, and entity dictionary: the complete reference for 88 structured AI communication verbs across 9 categories, 29 core modifiers plus a 20-key media profile, and 25 entities.
 
 ### [ilang.ai](https://github.com/ilang-ai/ilang.ai)
 
@@ -59,7 +59,7 @@ Academic website for I-Lang protocol research.
 
 ### What does the ilang-ai GitHub organization publish?
 
-The ilang-ai organization publishes the I-Lang protocol and the tools built on it: ilang-spec, the specification with 88 verbs, 29 modifiers, 14 entities and two syntaxes; ilang-dict, the dictionary; ilang-openclaw, skills for OpenClaw, Hermes and any AI agent; AutoCode, code to deployment in one session; Imprint, one skill for memory, compression, onboarding, code review, debugging, planning, testing, git workflow and SEO; Mem-Forever, persistent memory across sessions and models; iReview, AI-to-AI code review; ilang-Benchmark, a reproducible benchmark suite; TelegramGuard, an AI-powered Telegram group guardian; ilang-research; and ZeroCode. The I-Lang protocol and all associated tools are released under the MIT License.
+The ilang-ai organization publishes the I-Lang protocol and the tools built on it: ilang-spec, the specification with 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes; ilang-dict, the dictionary; ilang-openclaw, skills for OpenClaw, Hermes and any AI agent; AutoCode, code to deployment in one session; Imprint, one skill for memory, compression, onboarding, code review, debugging, planning, testing, git workflow and SEO; Mem-Forever, persistent memory across sessions and models; iReview, AI-to-AI code review; ilang-Benchmark, a reproducible benchmark suite; TelegramGuard, an AI-powered Telegram group guardian; ilang-research; and ZeroCode. The I-Lang protocol and all associated tools are released under the MIT License.
 
 ### What is Mem-Forever?
 

@@ -487,7 +487,7 @@ Reference
 
 ## Core dictionary.
 
-88 verbs grouped into 10 categories. The full specification lives in ilang-dict.
+88 verbs grouped into 9 categories. The full specification lives in ilang-dict.
 
 Data I/O
 
