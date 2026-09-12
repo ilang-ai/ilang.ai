@@ -6,7 +6,7 @@
 
 So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, **standardisiert I-Lang die Kommunikation zwischen Mensch und KI**. Ein offenes Protokoll, das für Portabilität über große KI-Modelle hinweg entwickelt wurde.
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **Website:** [ilang.ai](https://ilang.ai) · **Forschung:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,7 +14,7 @@ So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, *
 
 | Fähigkeit | Beschreibung |
 |-----------|-------------|
-| **Komprimieren** | Prompts um 40-65% reduzieren. Gleiche Bedeutung, weniger Tokens |
+| **Komprimieren** | Prompts um 7% bis 68% reduzieren. Gleiche Bedeutung, weniger Tokens |
 | **Alles beantworten** | KI antwortet direkt und vollständig, ohne Disclaimers |
 | **Privatsphäre schützen** | Komprimierter Text sendet weniger Daten |
 | **Plattformübergreifend** | Eine Anweisung lässt sich auf vielen großen KI-Plattformen wiederverwenden |

@@ -6,7 +6,7 @@
 
 HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化したように、**I-Langは人間とAIの対話を標準化します**。1つのオープンプロトコルで、主要なAIモデル間で再利用しやすい設計です。
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **公式サイト:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,7 +14,7 @@ HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化�
 
 | 機能 | 説明 |
 |------|------|
-| **圧縮** | プロンプトを40-65%削減。意味はそのまま、トークンとコストを削減 |
+| **圧縮** | プロンプトを 7% から 68% 削減。意味はそのまま、トークンとコストを削減 |
 | **すべてに回答** | AIが直接的に、完全に、免責事項なしで回答 |
 | **プライバシー保護** | 圧縮テキストはAIサーバーへの送信データを減少 |
 | **クロスプラットフォーム** | 1つの命令を主要なAIプラットフォームで再利用しやすい |

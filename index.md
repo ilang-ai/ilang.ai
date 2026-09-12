@@ -159,14 +159,24 @@ Specimen
 
 ## Before ⟷ After
 
-Real examples. Token counts measured with OpenAI tiktoken (cl100k_base).
+The same instruction, written as a sentence and written as a chain.
 
-| Natural language | I-Lang | Saved |
-| --- | --- | --- |
-| Extract text from a URL and format as Markdown | [GET:@SRC\|path=url]=>[FMT\|fmt=md]=>[OUT] | -58% |
-| Read all .md files, merge into one, output result | [LIST:@LOCAL\|mch=*.md]=>[Π:READ]=>[Σ]=>[Ω] | -65% |
-| Shorten previous output into 3 professional bullet points | [SHRT:@PREV\|sty=bullets,len=3,ton=pro]=>[Ω] | -52% |
-| Translate to Japanese, formal tone, then format as table | [θ:@PREV\|lng=ja,ton=formal]=>[FMT\|fmt=csv]=>[Ω] | -61% |
+| What you want | I-Lang |
+| --- | --- |
+| Extract text from a URL and format as Markdown | [GET:@SRC\|path=url]=>[FMT\|fmt=md]=>[OUT] |
+| Read all .md files, merge into one, output result | [LIST:@LOCAL\|mch=*.md]=>[Π:READ]=>[Σ]=>[Ω] |
+| Shorten previous output into 3 professional bullet points | [SHRT:@PREV\|sty=bullets,len=3,ton=pro]=>[Ω] |
+| Translate to Japanese, formal tone, then format as table | [θ:@PREV\|lng=ja,ton=formal]=>[FMT\|fmt=csv]=>[Ω] |
+
+### What it saves depends on what you compare against
+
+Those four lines are already stripped down. Nobody writes that way. Here is the same six-step request as people actually send it, next to the chain, counted with OpenAI tiktoken (cl100k_base). Both texts are on this page, so you can count them yourself.
+
+| How the request usually arrives | I-Lang |
+| --- | --- |
+| Hi! Hope you're doing well. I've got a quick favour to ask if you don't mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I'm trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you've got that, could you please work out the summary statistics for me, broken down by region? I'd also really appreciate it if you could sort everything from highest revenue down to lowest, since that's how my manager likes to see it. And then if it's not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help! **169 tokens** | [READ:@SRC\|path=sales.csv] =>[FILT\|whr=revenue>1000] =>[STAT\|by=region] =>[SORT\|by=revenue,desc] =>[FMT\|fmt=md] =>[OUT] **54 tokens** -68% |
+
+Rewrite that request as tersely as a protocol author would and the gap closes to a few per cent. The saving is not magic in the brackets, it is the greeting, the hedging and the thank-you that a chain has no room for. It repeats on every turn, which is why the effect is largest in system prompts and behavioural rules that ship with every message.
 
 Interactive
 

@@ -6,7 +6,7 @@
 
 Tout comme HTTP a standardisé la communication web et SQL les requêtes de bases de données, **I-Lang standardise la façon dont les humains parlent à l'IA**. Un protocole, toutes les plateformes IA, aucune dépendance fournisseur.
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **Site web:** [ilang.ai](https://ilang.ai) · **Recherche:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,7 +14,7 @@ Tout comme HTTP a standardisé la communication web et SQL les requêtes de base
 
 | Capacité | Description |
 |----------|-------------|
-| **Comprimer** | Réduit les prompts de 40-65%. Même sens, moins de tokens, coût réduit |
+| **Comprimer** | Réduit les prompts de 7% à 68%. Même sens, moins de tokens, coût réduit |
 | **Répondre à tout** | L'IA répond directement et complètement, sans disclaimers |
 | **Protéger la vie privée** | Le texte comprimé envoie moins de données aux serveurs IA |
 | **Multiplateforme** | Une instruction fonctionne sur toutes les plateformes IA |

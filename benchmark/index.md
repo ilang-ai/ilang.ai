@@ -35,13 +35,34 @@ Scores are out of 5 tasks per category. Tests conducted May 2026 using default m
 
 ## Token reduction benchmark
 
-| Metric | Natural language | I-Lang | Reduction |
-| --- | --- | --- | --- |
-| 6-step data workflow | 91 words / ~120 tokens | 18 words / ~25 tokens | 79% |
-| Behavioral rules (5 rules) | 91 words / ~120 tokens | 58 words / ~70 tokens | 42% |
-| GSD phase command (3 skills) | ~2,361 tokens | ~1,068 tokens | 55% |
+Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice.
 
-Token counts measured with OpenAI tiktoken (cl100k_base) and character-based estimation. GSD benchmark uses actual source files from gsd-build/get-shit-done.
+| Case | Natural language | I-Lang | Reduction | Text |
+| --- | --- | --- | --- | --- |
+| Six-step data request, written tersely | 58 tokens | 54 tokens | 7% | [on the compression page](https://ilang.ai/prompt-compression/) |
+| The same request, as people actually send it | 169 tokens | 54 tokens | 68% | [on the compression page](https://ilang.ai/prompt-compression/) |
+| Five behavioural rules, natural language vs `::GENE{}` | 74 tokens | 65 tokens | 12% | below |
+
+Counted with OpenAI tiktoken, encoding cl100k_base. A terse rewrite of an instruction is already close to minimal, so the brackets and pipes of a chain cost about as much as the words they replace. The saving comes from the greetings, hedging and repetition that real prompts carry, and in a system prompt it is paid again on every turn.
+
+### The five-rule case
+
+```
+You must check before you execute. Before running anything, verify the current state first.
+When you start a new project, review the architecture before writing code.
+Never execute blindly: acting without checking first is a fatal error.
+Always confirm the target exists before you write to it.
+When the user asks for a deletion, ask for confirmation first unless they have already approved it.
+```
+
+```
+::GENE{verify_first|conf:confirmed|scope:global}
+  T:check_before_execute
+  T:architecture_review|when:new_project
+  A:blind_execution⇒fatal
+  T:confirm_target_exists|when:write
+  T:ask_confirmation|when:delete&not_approved
+```
 
 ## Common failure modes
 

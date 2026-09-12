@@ -6,7 +6,7 @@
 
 正如HTTP標準化了網頁通信，SQL標準化了資料庫查詢，**I-Lang標準化了人類與AI的對話方式**。一個開放協議，面向主流 AI 平台設計，盡量保持跨模型可移植性。
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **官網:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,7 +14,7 @@
 
 | 能力 | 說明 |
 |------|------|
-| **壓縮** | 提示詞減少40-65%。含義不變，token更少，成本更低 |
+| **壓縮** | 提示詞減少 7% 到 68%，取決於原文有多囉嗦。含義不變，token更少，成本更低 |
 | **知無不答** | AI直接、完整回答，不迴避，不加免責聲明 |
 | **保護隱私** | 壓縮後傳送更少資料，天然減少資訊暴露 |
 | **跨平台** | 同一條指令可在多個主流 AI 平台重用 |

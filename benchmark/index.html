@@ -140,14 +140,28 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p style="color:var(--muted);font-size:14px;margin-top:8px">Scores are out of 5 tasks per category. Tests conducted May 2026 using default model settings. Results may vary with model updates.</p>
 
 <h2>Token reduction benchmark</h2>
+<p>Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice.</p>
 <table>
-<tr><th>Metric</th><th>Natural language</th><th>I-Lang</th><th>Reduction</th></tr>
-<tr><td>6-step data workflow</td><td>91 words / ~120 tokens</td><td>18 words / ~25 tokens</td><td>79%</td></tr>
-<tr><td>Behavioral rules (5 rules)</td><td>91 words / ~120 tokens</td><td>58 words / ~70 tokens</td><td>42%</td></tr>
-<tr><td>GSD phase command (3 skills)</td><td>~2,361 tokens</td><td>~1,068 tokens</td><td>55%</td></tr>
+<tr><th>Case</th><th>Natural language</th><th>I-Lang</th><th>Reduction</th><th>Text</th></tr>
+<tr><td>Six-step data request, written tersely</td><td>58 tokens</td><td>54 tokens</td><td>7%</td><td><a href="/prompt-compression/">on the compression page</a></td></tr>
+<tr><td>The same request, as people actually send it</td><td>169 tokens</td><td>54 tokens</td><td>68%</td><td><a href="/prompt-compression/">on the compression page</a></td></tr>
+<tr><td>Five behavioural rules, natural language vs <code>::GENE{}</code></td><td>74 tokens</td><td>65 tokens</td><td>12%</td><td>below</td></tr>
 </table>
 
-<p style="color:var(--muted);font-size:14px;margin-top:8px">Token counts measured with OpenAI tiktoken (cl100k_base) and character-based estimation. GSD benchmark uses actual source files from gsd-build/get-shit-done.</p>
+<p style="color:var(--muted);font-size:14px;margin-top:8px">Counted with OpenAI tiktoken, encoding cl100k_base. A terse rewrite of an instruction is already close to minimal, so the brackets and pipes of a chain cost about as much as the words they replace. The saving comes from the greetings, hedging and repetition that real prompts carry, and in a system prompt it is paid again on every turn.</p>
+
+<h3>The five-rule case</h3>
+<pre style="background:#f3f5f9;padding:20px;border-radius:8px;white-space:pre-wrap;font-size:14px;line-height:1.6"><code>You must check before you execute. Before running anything, verify the current state first.
+When you start a new project, review the architecture before writing code.
+Never execute blindly: acting without checking first is a fatal error.
+Always confirm the target exists before you write to it.
+When the user asks for a deletion, ask for confirmation first unless they have already approved it.</code></pre>
+<pre style="background:#0b0f1a;color:#d4d9e3;padding:20px;border-radius:8px;white-space:pre-wrap;font-size:14px;line-height:1.6"><code>::GENE{verify_first|conf:confirmed|scope:global}
+  T:check_before_execute
+  T:architecture_review|when:new_project
+  A:blind_execution&#8658;fatal
+  T:confirm_target_exists|when:write
+  T:ask_confirmation|when:delete&amp;not_approved</code></pre>
 
 <h2>Common failure modes</h2>
 <table>

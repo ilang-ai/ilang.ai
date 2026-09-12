@@ -33,7 +33,7 @@ Q: How is I-Lang different from A2A?
 A: A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. I-Lang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.
 
 Q: Can structured prompts reduce retries with AI?
-A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. I-Lang achieves 35-55% token reduction compared to equivalent natural language instructions while improving instruction-following consistency across models.
+A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the I-Lang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/.
 
 Q: Does I-Lang work with ChatGPT, Claude, and DeepSeek?
 A: I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, and Qwen. Because it is a text-native protocol with zero installation required, it works in any AI conversation window by pasting the protocol header.

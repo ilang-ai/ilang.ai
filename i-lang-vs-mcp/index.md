@@ -47,7 +47,7 @@ MCP handles the database connection. I-Lang handles the instruction chain. Neith
 | --- | --- | --- |
 | Can I use it without writing code? | No, requires server setup | Yes, paste text into any AI chat |
 | Does it work across models? | Depends on model support for MCP | Works with any model that reads text |
-| Does it reduce token usage? | Not its purpose | 35-55% on equivalent instructions |
+| Does it reduce token usage? | Not its purpose | 68% on a request as people write it, 7% on a terse rewrite |
 | Does it define AI behavior? | No | Yes, via `::GENE{}` declarations |
 | Is it open source? | Yes (Anthropic) | Yes (MIT license) |
 

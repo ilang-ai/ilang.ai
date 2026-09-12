@@ -362,7 +362,7 @@ Separate with comma; order is free.
 ### 6.1  Extract key points from an uploaded document
 
 <table>
-<tr><th align="left" width="50%">Before — 67 words</th><th align="left">After — 17 words</th></tr>
+<tr><th align="left" width="50%">Before — 52 words, 58 tokens</th><th align="left">After — 5 words, 38 tokens</th></tr>
 <tr><td valign="top">
 
 > Please read the document I uploaded, extract all the key points and
@@ -381,7 +381,7 @@ Separate with comma; order is free.
 =>[OUT]
 ```
 
-**−75% tokens.** Same result.
+**−34% tokens** (counted with tiktoken cl100k_base). Same result.
 
 </td></tr>
 </table>
@@ -389,7 +389,7 @@ Separate with comma; order is free.
 ### 6.2  Scrape a web page into clean Markdown
 
 <table>
-<tr><th align="left" width="50%">Before — 42 words</th><th align="left">After — 9 words</th></tr>
+<tr><th align="left" width="50%">Before — 36 words, 43 tokens</th><th align="left">After — 3 words, 21 tokens</th></tr>
 <tr><td valign="top">
 
 > Go to this website, extract all the text content from the page, clean
@@ -404,7 +404,7 @@ Separate with comma; order is free.
 =>[OUT]
 ```
 
-**−79% tokens.** Same result.
+**−51% tokens** (counted with tiktoken cl100k_base). Same result.
 
 </td></tr>
 </table>
@@ -412,7 +412,7 @@ Separate with comma; order is free.
 ### 6.3  Translate and reformat the previous answer
 
 <table>
-<tr><th align="left" width="50%">Before — 38 words</th><th align="left">After — 12 words</th></tr>
+<tr><th align="left" width="50%">Before — 31 words, 38 tokens</th><th align="left">After — 5 words, 33 tokens</th></tr>
 <tr><td valign="top">
 
 > Take the output you just gave me and translate it into Chinese. Then
@@ -429,7 +429,7 @@ Separate with comma; order is free.
 =>[OUT]
 ```
 
-**−68% tokens.** Same result.
+**−13% tokens** (counted with tiktoken cl100k_base). Same result. Short, already-terse instructions are where a chain saves least; the saving grows with the filler a real prompt carries and with every turn a system prompt is resent.
 
 </td></tr>
 </table>

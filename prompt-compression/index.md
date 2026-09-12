@@ -13,16 +13,13 @@ Prompt compression reduces the number of tokens needed to convey the same instru
 
 I-Lang achieves compression through structured syntax that eliminates the overhead of natural language: articles, filler words, hedging, and ambiguous phrasing.
 
-### Before: natural language (91 words, ~120 tokens)
+### Before: natural language, written tersely (49 words, 58 tokens)
 
 ```
-Please read the sales data from the CSV file. Then filter it to only include
-records where the revenue is greater than 1000. After that, calculate
-statistics grouped by region. Sort the results by revenue in descending
-order. Finally, format the output as a markdown table and display it.
+Please read the sales data from the CSV file. Then filter it to only include records where the revenue is greater than 1000. After that, calculate statistics grouped by region. Sort the results by revenue in descending order. Finally, format the output as a markdown table and display it.
 ```
 
-### After: I-Lang (18 tokens)
+### After: I-Lang (54 tokens)
 
 ```
 [READ:@SRC|path=sales.csv]
@@ -37,15 +34,27 @@ order. Finally, format the output as a markdown table and display it.
 
 | Metric | Natural language | I-Lang | Change |
 | --- | --- | --- | --- |
-| Words | 91 | 18 | -80% |
-| Estimated tokens | ~120 | ~25 | -79% |
+| Words | 49 | 6 | -88% |
+| Tokens (cl100k_base) | 58 | 54 | -7% |
 | Ambiguity | Multiple interpretations possible | One interpretation | Lower |
+
+Seven per cent is the honest number for that comparison, and it is worth understanding why it is so small. The sentence above was written tersely, by someone who already knows what the chain has to say. Brackets, pipes and colons are not free: the tokenizer charges for them. On a short instruction that nobody pads, structure buys precision, not tokens.
 
 ## Where compression matters most
 
+### Requests as people actually write them
+
+Real requests are not terse. They open with a greeting, hedge every instruction, explain why, and close with thanks. Here is the same six-step request as it usually arrives:
+
+```
+Hi! Hope you're doing well. I've got a quick favour to ask if you don't mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I'm trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you've got that, could you please work out the summary statistics for me, broken down by region? I'd also really appreciate it if you could sort everything from highest revenue down to lowest, since that's how my manager likes to see it. And then if it's not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help!
+```
+
+That is 169 tokens against the same 54-token chain, a reduction of 68 per cent. Nothing about the chain changed. The greeting, the hedging and the thank-you are what disappeared, and they are what real prompts are made of.
+
 ### System prompts and behavioral rules
 
-System prompts run on every turn. A 500-token system prompt costs 500 tokens per message. Compressing behavioral rules from natural language to structured `::GENE{}` definitions typically saves 35-55% on the behavioral layer.
+System prompts run on every turn. A 500-token system prompt costs 500 tokens per message, so the saving is paid out again with every message rather than once. Rewriting a set of behavioral rules as structured `::GENE{}` definitions is a smaller cut than the conversational case, because rules are already written densely: on a five-rule set the measured reduction is 12 per cent, and it recurs on every turn of the session.
 
 ### Long context sessions
 

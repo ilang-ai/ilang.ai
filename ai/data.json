@@ -1663,7 +1663,7 @@
     },
     {
       "question": "Can structured prompts reduce retries with AI?",
-      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. I-Lang achieves 35-55% token reduction compared to equivalent natural language instructions while improving instruction-following consistency across models.",
+      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the I-Lang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/.",
       "source_url": "https://ilang.ai/#faq"
     },
     {

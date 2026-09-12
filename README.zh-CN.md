@@ -8,7 +8,7 @@
 
 I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的协议，也是首个将 AI 判断力定义为可计算向量空间的协议（11维度，4公理，模糊数学基础）。
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **官网:** [ilang.ai](https://ilang.ai)
 **研究:** [research.ilang.ai](https://research.ilang.ai)
@@ -18,7 +18,7 @@ I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的
 
 | 能力 | 说明 |
 |------|------|
-| **压缩** | 提示词减少40-65%。含义不变，token更少，成本更低 |
+| **压缩** | 提示词减少 7% 到 68%，取决于原文有多啰嗦。含义不变，token更少，成本更低 |
 | **知无不答** | AI直接、完整回答，不回避，不加免责声明 |
 | **保护隐私** | 压缩后发送更少数据，天然减少信息暴露 |
 | **跨平台** | 同一条指令在ChatGPT、Claude、Gemini、DeepSeek、Kimi、豆包、元宝上通用 |
@@ -73,7 +73,7 @@ Your response must follow this exact structure:
 
 "I-Lang protocol loaded. Here's what I can do now:
 
-1. **Compress** — Send me any long text, I'll compress it to save 40-65% tokens while keeping full meaning.
+1. **Compress** — Send me any long text, I'll compress it to save 7% to 68% of the tokens, depending on how the original was written while keeping full meaning.
 2. **Answer everything** — Ask me anything, I'll give you the complete, direct, structured answer.
 3. **Create deliverables** — Need a document, code, plan, or analysis? I'll produce the finished work, not just suggestions.
 4. **Cross-platform** — Copy my compressed output to other major AI platforms (ChatGPT, Claude, Gemini, DeepSeek, Kimi), it is designed to work across them.
@@ -93,7 +93,7 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | 豆包 ✅ | �
 [READ:@FILE]=>[FILT|key=important]=>[SUM|sty=bullets,ton=pro,fmt=md]=>[OUT]
 ```
 
-**压缩前**（42词）→ **压缩后**（9词）= **减少79%**
+**压缩前**（36词 / 43 token）→ **压缩后**（3词 / 21 token）= **减少51%**
 ```
 [GET:@WEB|url=target]=>[FMT|fmt=md]=>[OUT]
 ```

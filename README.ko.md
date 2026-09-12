@@ -6,7 +6,7 @@
 
 HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준화한 것처럼, **I-Lang은 인간과 AI의 대화를 표준화합니다**. 하나의 프로토콜, 모든 AI 플랫폼, 벤더 종속 없음.
 
-`[PROTOCOL:human-AI|compress=40-65%,compat=all-LLM]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
 
 **웹사이트:** [ilang.ai](https://ilang.ai) · **연구:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,7 +14,7 @@ HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준
 
 | 기능 | 설명 |
 |------|------|
-| **압축** | 프롬프트 40-65% 감소. 의미 그대로, 토큰과 비용 절감 |
+| **압축** | 프롬프트 7~68% 감소. 의미 그대로, 토큰과 비용 절감 |
 | **모든 것에 답변** | AI가 직접적이고 완전하게, 면책 조항 없이 답변 |
 | **프라이버시 보호** | 압축 텍스트는 AI 서버로 보내는 데이터 감소 |
 | **크로스 플랫폼** | 하나의 명령이 모든 AI에서 작동 |
