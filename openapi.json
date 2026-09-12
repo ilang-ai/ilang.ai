@@ -38,7 +38,14 @@
             }
           },
           "400": {
-            "description": "Missing q"
+            "description": "Missing or empty q",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -69,7 +76,14 @@
             }
           },
           "400": {
-            "description": "Missing q"
+            "description": "Missing or empty q",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -80,7 +94,14 @@
         "summary": "Health",
         "responses": {
           "200": {
-            "description": "ok"
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
           }
         }
       }
@@ -112,7 +133,11 @@
           "source_url": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "type",
+          "name"
+        ]
       },
       "LookupResult": {
         "type": "object",
@@ -135,7 +160,12 @@
           "source": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "query",
+          "not_found",
+          "matches"
+        ]
       },
       "FaqResult": {
         "type": "object",
@@ -162,6 +192,48 @@
                 }
               }
             }
+          }
+        },
+        "required": [
+          "query",
+          "not_found",
+          "matches"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Machine-readable reason, currently always \"missing q\""
+          },
+          "example": {
+            "type": "string",
+            "description": "A request path that succeeds"
+          }
+        }
+      },
+      "Health": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ]
+          },
+          "service": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       }

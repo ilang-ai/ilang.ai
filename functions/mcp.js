@@ -23,6 +23,7 @@ async function handle(msg, env, origin) {
   if (method === 'prompts/list') return rpc(id, { prompts: [] });
   if (method === 'tools/call') {
     const name = params && params.name; const args = (params && params.arguments) || {};
+    if ((name === 'ilang_lookup' || name === 'ilang_faq') && (typeof args.q !== 'string' || !args.q.trim())) return rpcErr(id, -32602, 'Invalid params: ' + name + ' requires q, a non-empty string');
     const data = await loadData(env, origin);
     if (name === 'ilang_lookup') { const m = lookup(data, args.q); return rpc(id, { content: [{ type: 'text', text: JSON.stringify({ query: args.q, not_found: m.length === 0, matches: m }) }], isError: false }); }
     if (name === 'ilang_faq') { const m = faq(data, args.q); return rpc(id, { content: [{ type: 'text', text: JSON.stringify({ query: args.q, not_found: m.length === 0, matches: m }) }], isError: false }); }
