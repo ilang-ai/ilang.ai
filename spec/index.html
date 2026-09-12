@@ -89,6 +89,46 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a structured syntax for writing prompts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I-Lang defines two syntaxes. Operation syntax says what AI does: [VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω], where each step receives the previous step's output and the chain ends with [Ω] or [OUT]. Declaration syntax says what AI is: ::GENE{trait|conf:confirmed|scope:global} with T: lines for traits and A: lines for anti-patterns. The vocabulary is 88 verbs, 29 modifiers, 14 entities and 13 Greek aliases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I give an AI a persistent personality or behavior across sessions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use declaration syntax. ::GENE{name|conf:confirmed|scope:global} followed by T: lines for traits and A: lines for anti-patterns defines behavioral identity, and the spec says declarations can persist across sessions when stored in profile or configuration files. Scopes are global, session, project or task. The homepage calls this behavioral DNA: traits, anti-patterns and genes that persist across sessions and models. Imprint packages one such profile in 312 tokens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the 11 dimensions and the 8 decision modes in I-Lang v5.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dimensions: intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality, with uniform polarity where 1.00 is the condition most favorable to autonomous action; the tenth is inertia, renamed from drift. Modes are a closed, frozen set of eight: M1 EXEC_AUTO, M2 EXEC_AUDIT, M3 CONFIRM, M4 ADVISE, M5 ASK, M6 DEFER, M7 DECLINE_ALT, M8 STOP. A reference function maps the vector to a mode deterministically, so the decision is auditable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I read the I-Lang specification and dictionary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 modifiers, 14 entities and two syntaxes for structured AI communication. v5.0 is the current version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.0 Final is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 10 categories. Both are MIT licensed."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav>

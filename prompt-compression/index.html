@@ -86,6 +86,38 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is prompt compression for LLMs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. Fewer tokens means faster processing, lower cost, more room in the context window for actual work, and often clearer instructions that lead to fewer retries. I-Lang compresses through structured verb-target-modifier syntax that eliminates articles, filler words and ambiguous phrasing while preserving meaning. The page shows a six-step data request written as natural language and as an I-Lang chain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I reduce prompt tokens without losing meaning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Replace natural-language overhead with structure. On ilang.ai/prompt-compression/ the savings come from three places. Verb phrases such as \"Please read the data from\" become [READ:@SRC|path=...]. Connectors such as \"Then\", \"After that\" and \"Finally\" become the chain operator =>. Behavioral rules such as \"Always give conclusions first and do not hedge\" become T:conclusions_first and A:hedging⇒remove. Each I-Lang verb is a 3-5 character code and steps chain left to right, so nothing is spent on articles or prepositions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I write system prompts for AI agents with less token overhead?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "System prompts run on every turn, so a 500-token system prompt costs 500 tokens per message. ilang.ai/prompt-compression/ recommends writing behavioral rules as structured ::GENE{} definitions instead of natural-language prose. The homepage publishes a v4.0 header with conformance levels, ::PRIOR defaults, ::OBJECTIVE, ::RUBRIC and ::EVIDENCE blocks for agent runtimes. The benchmark page lists declaration decay, where ::GENE{} rules are followed in turns 1 to 3 and ignored by turn 8 and later, as a common failure mode in long sessions."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

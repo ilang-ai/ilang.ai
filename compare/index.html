@@ -89,6 +89,30 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between MCP and A2A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As ilang.ai/compare/ puts it: MCP connects AI to tools; A2A connects agents to agents. MCP, from Anthropic, solves access to external tools, databases and APIs through a JSON-RPC server and client, and needs an SDK plus server setup. A2A, from Google and now the Linux Foundation, solves cross-vendor agent discovery: agents publish Agent Cards and exchange tasks and artifacts over HTTP and JSON-RPC. I-Lang sits at a third layer, communication and instruction, and is pure text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can MCP, A2A and I-Lang be used together?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The compare page walks one deployment through all three. A human writes an I-Lang instruction, [GET:@SRC|path=sales_q3]=>[STAT]=>[Ω]. Agent A plans it internally with ::GENE{analyst|conf:confirmed}. Agent A calls a database tool through MCP. It delegates a chart to Agent B through A2A. Agent B returns the artifact and Agent A formats the final output with [FMT|fmt=md]=>[Ω]. Different layers, one stack."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav>

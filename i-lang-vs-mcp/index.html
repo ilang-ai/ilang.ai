@@ -86,6 +86,22 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is I-Lang different from MCP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary. MCP requires an SDK, a server implementation and API endpoints, and speaks JSON-RPC over stdio or SSE. I-Lang requires nothing: structured text such as [READ:@SRC|path=data.csv]=>[FILT|whr=revenue>1000]=>[OUT] pasted into any conversation. The site's combined example has MCP hold the database connection while I-Lang defines the analysis chain."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

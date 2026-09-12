@@ -86,6 +86,22 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is I-Lang different from A2A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A2A handles how agents find and talk to each other: discovery, capability negotiation and task delegation through Agent Cards and Task objects. I-Lang handles how an agent understands what to do after the handshake: verb chains for the task and ::GENE{} declarations for behavior. The site's example has Agent A discover Agent B over A2A, then send it an I-Lang chain. A2A handled the routing; I-Lang handled the content."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

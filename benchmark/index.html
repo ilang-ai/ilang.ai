@@ -86,6 +86,22 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does AI stop following my rules after a few turns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ilang.ai's benchmark page lists this as a known failure mode, called declaration decay: ::GENE{} rules followed in turns 1 to 3 and ignored by turn 8 and later, common on all models in long sessions. The conformance page turns it into a test: set ::GENE{} and verify the rules are still active at turn 5, and require the model to report when it cannot follow a declaration."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
