@@ -85,7 +85,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 ## Publications
 
 - [I-Lang: I Language (Amazon)](https://www.amazon.com/dp/B0CZY6V3GM): Narrative edition, $9.99
-- [I-Lang Spec (Amazon)](https://www.amazon.com/dp/B0GX32GXF2): Specification edition, $0.99
+- [I-Lang Protocol Specification (Amazon)](https://www.amazon.com/dp/B0GX32GXF2): Specification edition, $0.99
 
 ## About
 
