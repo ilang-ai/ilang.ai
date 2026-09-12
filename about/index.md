@@ -11,6 +11,12 @@ iLang Inc. builds AI-powered language technology. Our core product is I-Lang, an
 
 We operate across AI protocol development, AI-powered translation and localization, cross-model interoperability, and enterprise language solutions. Our technology is tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, and Qwen.
 
+## Why the name iLang
+
+iLang shares its name with *ilang-ilang*, the Tagalog name of the ylang-ylang tree. Ylang-ylang is one of the most extensively used natural fragrances in the perfume industry, with a scent described as sweet, floral and balsamic. In the Philippines its flowers are strung into necklaces; in Indonesia they are spread on the beds of newlywed couples. The essential oil is separated into grades, extra, 1, 2 and 3, according to when the distillate is obtained.
+
+I-Lang is built to the same standard. It is the ingredient inside the AI products people value rather than the product they see, it is chosen for the exchanges that matter, and its implementations are separated by conformance level in the same way the oil is separated by grade. If you searched for ilang and meant the flower, that is ilang-ilang. If you meant the AI-native communication protocol, this is it.
+
 ## Products and research
 
 ### I-Lang Protocol

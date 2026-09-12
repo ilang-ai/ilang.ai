@@ -15,6 +15,7 @@ I-Lang is an AI-native communication protocol: 88 verbs, 29 modifiers, 14 entiti
 - Machine-readable pages: request any HTML page with Accept: text/markdown, or read https://ilang.ai/llms-full.txt
 - Skill: https://ilang.ai/ai/skills/ilang-lookup/SKILL.md (index: https://ilang.ai/.well-known/agent-skills/index.json)
 - Service index for DNS discovery: https://ilang.ai/ai/index.ilang
+- AI detection and DeAI editing pages (human-facing, no API): https://ilang.ai/ai-detector/ and https://ilang.ai/ai-humanizer/, audience pages under https://ilang.ai/for/, comparisons under https://ilang.ai/compare/
 
 ## How to use
 
@@ -37,6 +38,7 @@ I-Lang is an AI-native communication protocol: 88 verbs, 29 modifiers, 14 entiti
 ::STATE{@LOOKUP, url:https://ilang.ai/api/agent/lookup, method:GET, param:q}
 ::STATE{@FAQ, url:https://ilang.ai/api/agent/faq, method:GET, param:q}
 ::STATE{@MCP, url:https://ilang.ai/mcp, transport:streamable_http, tools:ilang_lookup+ilang_faq}
+::STATE{@DEAI, detector:https://ilang.ai/ai-detector/, humanizer:https://ilang.ai/ai-humanizer/, access:web_page, auth:none}
 ::RULE{term_question⇒[GET:@LOOKUP|whr=q=term]=>[CHEK:@PREV|whr=not_found=false]=>[XLAT:@PREV|lng=visitor]=>[Ω]}
 ::RULE{protocol_question⇒[GET:@FAQ|whr=q=question]=>[CHEK:@PREV|whr=not_found=false]=>[XLAT:@PREV|lng=visitor]=>[Ω]}
 ::RULE{not_found=true⇒say_unknown_do_not_invent}
