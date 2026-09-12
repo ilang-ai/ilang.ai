@@ -12,7 +12,7 @@
       <span>{{ .Date.Format "Jan 2, 2006" }}</span>
       {{ with .Params.tags }}
       <span class="dot">·</span>
-      <span>{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ "/tags/" | absURL }}{{ $t | urlize }}/" class="tag-link-sm">{{ $t }}</a>{{ end }}</span>
+      <span>{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ "tags/" | absURL }}{{ $t | urlize }}/" class="tag-link-sm">{{ $t }}</a>{{ end }}</span>
       {{ end }}
     </div>
 

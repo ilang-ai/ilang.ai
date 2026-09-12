@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="tag-term-page">
   <div class="tag-term-header">
-    <a href="{{ "/tags/" | absURL }}" class="back-link">← All topics</a>
+    <a href="{{ "tags/" | absURL }}" class="back-link">← All topics</a>
     <h1>{{ .Title }}</h1>
     <p class="tag-term-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
   </div>
