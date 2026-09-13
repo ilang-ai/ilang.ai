@@ -12,7 +12,7 @@ I-Lang is an AI-native communication protocol built from symbols already inside 
 | Mode | Description | Example |
 | --- | --- | --- |
 | Human → AI | Precise instructions AI follows with fewer retries | `[READ:@SRC\|path=data.csv]=>[STAT]=>[Ω]` |
-| AI → AI | Structured communication between agents | `[SEND:@DST\|fmt=json]=>[EVAL]=>[OUT]` |
+| AI → AI | [Structured communication between agents](https://ilang.ai/agent-communication/) | `[SEND:@DST\|fmt=json]=>[EVAL]=>[OUT]` |
 | AI internal | Behavioral identity and reasoning structure | `::GENE{verify_first\|conf:confirmed}` |
 
 ## 2. Two Syntaxes

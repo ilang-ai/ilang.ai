@@ -30,6 +30,8 @@ Use I-Lang when you need an agent to follow instructions precisely, maintain beh
 
 A2A connects agents. I-Lang structures what those agents say to each other.
 
+How I-Lang structures a handoff between agents: [agent communication protocol](https://ilang.ai/agent-communication/).
+
 Example: Agent A uses A2A to discover Agent B (a data analyst). Agent A then sends Agent B an I-Lang instruction chain:
 
 ```

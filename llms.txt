@@ -48,6 +48,7 @@
 - [Compare: I-Lang vs MCP vs A2A](https://ilang.ai/compare/): Side-by-side protocol comparison
 - [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
 - [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison for agent communication
+- [Agent Communication Protocol](https://ilang.ai/agent-communication/): AI-to-AI communication in I-Lang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data
 - [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results

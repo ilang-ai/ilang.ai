@@ -11,6 +11,7 @@ PAGES
 - https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities
 - https://ilang.ai/i-lang-vs-mcp/: I-Lang vs MCP (Model Context Protocol)
 - https://ilang.ai/i-lang-vs-a2a/: I-Lang vs A2A (Agent-to-Agent protocol)
+- https://ilang.ai/agent-communication/: Agent communication protocol: AI-to-AI communication in I-Lang, v4.0 handoff rules, seven-vendor handoff test
 - https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens
 - https://ilang.ai/benchmark/: Benchmark results across models
 - https://ilang.ai/conformance/: Conformance levels and how to claim them

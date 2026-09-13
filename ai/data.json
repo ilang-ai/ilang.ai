@@ -1894,6 +1894,26 @@
       "question": "Does iLang Inc. offer an AI detector or an AI humanizer?",
       "answer": "Yes. iLang Detect and iLang Humanizer are tools built on I-Lang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/.",
       "source_url": "https://ilang.ai/#faq"
+    },
+    {
+      "question": "What is an agent communication protocol?",
+      "answer": "On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is [SEND:@DST|fmt=json]=>[EVAL]=>[OUT]. A2A handles how agents find and talk to each other. I-Lang handles how agents understand what to do. The blog post Why I-Lang Uses Greek Symbols says: \"A2A and ACP are the handshakes between machines.\"",
+      "source_url": "https://ilang.ai/agent-communication/#faq"
+    },
+    {
+      "question": "What does one AI agent send another in I-Lang?",
+      "answer": "In the example on ilang.ai/i-lang-vs-a2a/, Agent A uses A2A to discover Agent B (a data analyst), then sends Agent B an I-Lang instruction chain. The message pairs a ::GENE{} block for behavior with a verb chain for the task. Each step in a chain receives the output of the previous step. The chain terminates with [Ω] or [OUT]. A2A handled the routing. I-Lang handled the instruction content.",
+      "source_url": "https://ilang.ai/agent-communication/#faq"
+    },
+    {
+      "question": "Can an AI agent mark its own task complete in I-Lang?",
+      "answer": "Under the I-Lang v4.0 authority rules, an AI agent cannot mark its own task complete. An agent writes status with authority:proposal: it can write claimed_complete, stopped, blocked, failed or needs_revision, but not verified_complete or complete. A grader with authority:verification can write verified_complete, and only @RUNTIME can commit terminal complete. These rules are enforced from conformance level L2, where a harness or orchestrator runs next to the model; if no runtime is available, an agent uses claimed_complete, never complete.",
+      "source_url": "https://ilang.ai/agent-communication/#faq"
+    },
+    {
+      "question": "How does a new AI agent instance inherit corrections?",
+      "answer": "In I-Lang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.",
+      "source_url": "https://ilang.ai/agent-communication/#faq"
     }
   ],
   "pages": [
@@ -1916,6 +1936,10 @@
     {
       "url": "https://ilang.ai/i-lang-vs-a2a/",
       "description": "I-Lang vs A2A (Agent-to-Agent protocol)"
+    },
+    {
+      "url": "https://ilang.ai/agent-communication/",
+      "description": "Agent communication protocol: AI-to-AI communication in I-Lang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data"
     },
     {
       "url": "https://ilang.ai/prompt-compression/",
