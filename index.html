@@ -126,6 +126,9 @@
   --code-str:#bae6fd;
   --code-key:#fca5a5;
   --code-com:#7b869e;
+  --card:#fff;
+  --border:var(--line);
+  --fg:var(--ink);
 }
 html{scroll-behavior:smooth}
 body{
@@ -513,8 +516,9 @@ footer{
 @keyframes wxbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 /* fade-in on scroll */
-.fade{opacity:0;transform:translateY(16px);transition:opacity .7s, transform .7s}
-.fade.v{opacity:1;transform:translateY(0)}
+.js .fade{opacity:0;transform:translateY(16px);transition:opacity .7s, transform .7s}
+.js .fade.v{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.js .fade{opacity:1;transform:none;transition:none}}
 
 .evidence-callout{border-left:3px solid var(--accent);background:var(--bg-2);padding:14px 18px;border-radius:8px;margin:0 0 20px;font-size:13px;color:var(--muted)}
 .evidence-callout h4{margin:0 0 6px;font-size:13px;color:var(--fg);font-weight:700}
@@ -525,6 +529,7 @@ footer{
 <link rel="service-desc" href="/openapi.json" type="application/json">
 <link rel="service-doc" href="/ai/" type="text/markdown">
 <link rel="alternate" type="text/markdown" href="/index.md">
+<script>document.documentElement.className+=' js'</script>
 </head>
 <body>
 
@@ -579,7 +584,7 @@ footer{
 
         <div class="hero-cta">
           <a href="#try" class="btn btn-primary">Try the Protocol <span class="mono">→</span></a>
-          <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="btn btn-secondary">Read the Spec <span class="mono">↗</span></a>
+          <a href="/spec/" class="btn btn-secondary">Read the Spec <span class="mono">→</span></a>
         </div>
 
         <div class="hero-metrics">
@@ -597,7 +602,7 @@ footer{
           <div class="dots"><span></span><span></span><span></span></div>
           <span>protocol-header.ilang</span>
         </div>
-        <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()">Copy</button>
+        <button class="code-copy" id="btnCopyProtocol" onclick="copyProtocol()" aria-label="Copy protocol header">Copy</button>
       </div>
       <div class="code-body">
 <pre id="protocolText"><span class="sec"># I-Lang v5.0 - AI-Native Communication Protocol</span>
@@ -824,7 +829,7 @@ Say: <span class="str">"I-Lang v5.0 loaded. What do you need?"</span></pre>
           <span class="label">input.txt</span>
           <span class="try-count"><span id="charCount">0</span> / 2,000</span>
         </div>
-        <textarea id="input" class="try-textarea" rows="6" maxlength="2000" placeholder="Paste any prompt here…">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic.</textarea>
+        <textarea id="input" class="try-textarea" aria-label="Prompt to structure" rows="6" maxlength="2000" placeholder="Paste any prompt here…">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic.</textarea>
         <div class="try-actions">
           <div class="try-actions-left">
             <button class="btn btn-primary btn-sm" onclick="compress(false)" id="btnCompress">Structure <span class="mono">→</span></button>
@@ -843,7 +848,7 @@ Say: <span class="str">"I-Lang v5.0 loaded. What do you need?"</span></pre>
         <pre id="outputText"></pre>
         <div class="out-foot">
           <span id="tokenInfo"></span>
-          <button class="code-copy" id="btnCopy" onclick="copyResult()">Copy</button>
+          <button class="code-copy" id="btnCopy" onclick="copyResult()" aria-label="Copy structured output">Copy</button>
         </div>
       </div>
 
@@ -975,7 +980,7 @@ Say: <span class="str">"I-Lang v5.0 loaded. What do you need?"</span></pre>
         <span style="margin-left:auto;font-size:12px;color:var(--muted);font-weight:400">For Trae, Claude Code, multi-agent, system prompts</span>
       </summary>
       <div style="position:relative;border-top:1px solid var(--border)">
-        <button onclick="copyAdvanced()" style="position:absolute;top:12px;right:12px;padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--muted);font-size:12px;cursor:pointer;z-index:1" id="btnCopyAdvanced">Copy</button>
+        <button onclick="copyAdvanced()" aria-label="Copy advanced runtime header" style="position:absolute;top:12px;right:12px;padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--muted);font-size:12px;cursor:pointer;z-index:1" id="btnCopyAdvanced">Copy</button>
         <pre id="advancedText" style="padding:20px;margin:0;font-size:12px;line-height:1.6;overflow-x:auto;color:var(--fg);background:transparent"><span class="sec"># I-Lang v4.0 Advanced Execution Semantics</span>
 
 <span class="sec">Conformance Levels:</span>
@@ -1351,7 +1356,7 @@ Warn when safety-critical semantics cannot be enforced.</pre>
     <div class="foot-top">
       <div class="foot-brand">
         <div class="logo"><img src="ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
-        <p>iLang Inc. is a Canada-based AI language technology company. Creator of I-Lang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a></p>
+        <p>iLang Inc. is a Canada-based AI language technology company. Creator of I-Lang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
       </div>
       <div class="foot-col">
         <h5>Protocol</h5>
@@ -1386,7 +1391,7 @@ Warn when safety-critical semantics cannot be enforced.</pre>
           <li><a href="/about/">About iLang</a></li>
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
-          <li><a href="mailto:contact@ilang.ai">Contact</a></li>
+          <li><!--email_off--><a href="mailto:contact@ilang.ai">Contact</a><!--/email_off--></li>
         </ul>
       </div>
     </div>
@@ -1446,7 +1451,7 @@ I-Lang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabind
 (function(){
   var els=document.querySelectorAll('.fade');
   function ck(){for(var i=0;i<els.length;i++){if(els[i].getBoundingClientRect().top<window.innerHeight-60)els[i].classList.add('v')}}
-  window.addEventListener('scroll',ck,{passive:true});ck();
+  window.addEventListener('scroll',ck,{passive:true});window.addEventListener('resize',ck);ck();setTimeout(function(){for(var i=0;i<els.length;i++)els[i].classList.add('v')},2500);
 })();
 
 // Char count
@@ -1522,20 +1527,27 @@ window.addEventListener('scroll',function(){
 </script>
 <script>
 (function(){
-  var mc = navigator.modelContext; if (!mc) return;
+  var hosts = [];
+  try { if (document.modelContext) hosts.push(document.modelContext); } catch (e) {}
+  try { if (navigator.modelContext && hosts.indexOf(navigator.modelContext) < 0) hosts.push(navigator.modelContext); } catch (e) {}
+  if (!hosts.length) return;
   var ac = new AbortController();
+  var RO = { readOnlyHint: true };
+  function arg(a){ if (typeof a === "string") { try { return JSON.parse(a); } catch (e) { return {}; } } return a || {}; }
   var tools = [
     { name: "ilang_lookup", description: "[GET:@DICT|whr=q=term]=>[Ω] Look up an I-Lang verb, modifier, entity or declaration by name, alias or meaning. Returns dictionary entries with category, meaning and source_url; not_found=true when nothing matches.",
+      annotations: RO,
       inputSchema: { type: "object", properties: { q: { type: "string", description: "Term, alias or keyword, e.g. XLAT, lng, @PREV" } }, required: ["q"] },
-      execute: async function(a){ var r = await fetch("/api/agent/lookup?q=" + encodeURIComponent((a && a.q) || "")); return await r.json(); } },
+      execute: async function(a){ a = arg(a); var r = await fetch("/api/agent/lookup?q=" + encodeURIComponent((a && a.q) || "")); return await r.json(); } },
     { name: "ilang_faq", description: "[GET:@FAQ|whr=q=question]=>[Ω] Return the published FAQ entries closest to a question about the I-Lang protocol, with source_url.",
+      annotations: RO,
       inputSchema: { type: "object", properties: { q: { type: "string" } }, required: ["q"] },
-      execute: async function(a){ var r = await fetch("/api/agent/faq?q=" + encodeURIComponent((a && a.q) || "")); return await r.json(); } }
+      execute: async function(a){ a = arg(a); var r = await fetch("/api/agent/faq?q=" + encodeURIComponent((a && a.q) || "")); return await r.json(); } }
   ];
-  try {
-    if (typeof mc.registerTool === "function") tools.forEach(function(t){ mc.registerTool(Object.assign({}, t, { signal: ac.signal })); });
-    else if (typeof mc.provideContext === "function") mc.provideContext({ tools: tools });
-  } catch (e) {}
+  hosts.forEach(function(mc){
+    if (typeof mc.registerTool === "function") tools.forEach(function(t){ try { mc.registerTool(Object.assign({}, t, { signal: ac.signal }), { signal: ac.signal }); } catch (e) {} });
+    else if (typeof mc.provideContext === "function") { try { mc.provideContext({ tools: tools }); } catch (e) {} }
+  });
   window.addEventListener("pagehide", function(){ try { ac.abort(); } catch (e) {} });
 })();
 </script>
