@@ -515,6 +515,58 @@ CREA DRFT EXPD SHRT PARA STYL TMPL FILL EXTC GEN
 
 Full spec: [github.com/ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict)
 
+FAQ
+
+## Frequently asked questions.
+
+### What is an AI-native communication protocol?
+
+An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. I-Lang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.
+
+### How is I-Lang different from MCP?
+
+MCP (Model Context Protocol) connects AI to external tools and data sources. I-Lang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary.
+
+### How is I-Lang different from A2A?
+
+A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. I-Lang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.
+
+### Can structured prompts reduce retries with AI?
+
+Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the I-Lang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/).
+
+### Does I-Lang work with ChatGPT, Claude, and DeepSeek?
+
+I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on [ilang.ai/benchmark/](https://ilang.ai/benchmark/), tests conducted May 2026.
+
+### What is prompt compression for LLMs?
+
+Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words while preserving full semantic meaning.
+
+### Is I-Lang free and open source?
+
+Yes. I-Lang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.
+
+### What is new in I-Lang v5.0?
+
+I-Lang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.0 Final (May 2026) is the current stable release.
+
+### What is the I-Lang judgment layer?
+
+The judgment layer, introduced in I-Lang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. I-Lang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.
+
+### What was new in I-Lang v4.0?
+
+I-Lang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.
+
+### Is I-Lang a prompt engineering framework?
+
+No. I-Lang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.
+
+### Does iLang Inc. offer an AI detector or an AI humanizer?
+
+Yes. iLang Detect and iLang Humanizer are tools built on I-Lang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at [ilang.ai/ai-detector/](https://ilang.ai/ai-detector/) and [ilang.ai/ai-humanizer/](https://ilang.ai/ai-humanizer/).
+
 ## Tell AI what to do. It follows structure before inference.
 
 I-Lang is free, open, and tested across major LLM platforms. An AI-native protocol for structured communication. MIT licensed.

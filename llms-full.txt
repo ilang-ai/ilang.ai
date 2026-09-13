@@ -54,6 +54,12 @@ A: The judgment layer, introduced in I-Lang v5.0, is a computable vector space f
 Q: What was new in I-Lang v4.0?
 A: I-Lang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.
 
+Q: Is I-Lang a prompt engineering framework?
+A: No. I-Lang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.
+
+Q: Does iLang Inc. offer an AI detector or an AI humanizer?
+A: Yes. iLang Detect and iLang Humanizer are tools built on I-Lang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/.
+
 VERBS (88)
 - READ (Data I/O): Read content from source
 - WRIT (Data I/O): Write input to destination
