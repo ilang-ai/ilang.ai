@@ -423,6 +423,7 @@ section{padding:100px 0}
 
 /* ─── Ecosystem ─── */
 .eco{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.eco-item:last-child:nth-child(odd){grid-column:1/-1}
 .eco-item{
   background:#fff;padding:32px 28px;display:flex;flex-direction:column;gap:12px;
   transition:background .18s;
