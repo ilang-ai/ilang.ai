@@ -129,7 +129,7 @@ i.ilang.ai/{url} — paste into any chat and the model reads the page.
 
 ### AI-to-AI in seconds
 
-Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The simplest AI-to-AI integration that exists. Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
+Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. AI-to-AI integration, far ahead. Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 Quick start
 
