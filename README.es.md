@@ -4,9 +4,9 @@
 
 ---
 
-Así como HTTP estandarizó la comunicación web y SQL estandarizó las consultas de bases de datos, **I-Lang estandariza cómo los humanos hablan con la IA**. Un protocolo, todas las plataformas de IA, sin dependencia de proveedores.
+Así como HTTP estandarizó la comunicación web y SQL estandarizó las consultas de bases de datos, **I-Lang estandariza cómo los humanos hablan con la IA**. Un protocolo, probado en ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen y GLM, sin dependencia de proveedores.
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **Sitio web:** [ilang.ai](https://ilang.ai) · **Investigación:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,23 +14,23 @@ Así como HTTP estandarizó la comunicación web y SQL estandarizó las consulta
 
 | Capacidad | Descripción |
 |-----------|-------------|
-| **Comprimir** | Reduce prompts 7% a 68%. Mismo significado, menos tokens, menor costo |
+| **Comprimir** | Reduce prompts 7% a 68%. Menos tokens, menor costo |
 | **Responder todo** | IA responde directa y completamente, sin evasivas ni disclaimers |
 | **Proteger privacidad** | Texto comprimido envía menos datos a los servidores de IA |
-| **Multiplataforma** | Una instrucción funciona en todas las plataformas de IA |
+| **Multiplataforma** | Una misma instrucción, probada en ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen y GLM |
 | **Comandos en cadena** | `[VERB]=>[VERB]=>[OUT]` flujos de trabajo en una línea |
 
 ## Empieza en 30 segundos
 
 Copia el encabezado del protocolo en [ilang.ai](https://ilang.ai) y pégalo en cualquier conversación con IA. Cuando la IA responda con 5 capacidades, el handshake está completo.
 
-## Plataformas compatibles
+## Plataformas probadas
 
 ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## Enlaces
 
-- [Protocolo y herramientas](https://ilang.ai) · [Diccionario completo](https://github.com/ilang-ai/ilang-dict) · [Investigación](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
+- [Protocolo y herramientas](https://ilang.ai) · [Especificación](https://ilang.ai/spec/) · [Diccionario completo](https://github.com/ilang-ai/ilang-dict) · [Investigación](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
 
 ## Licencia
 

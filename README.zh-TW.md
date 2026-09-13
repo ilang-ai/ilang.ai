@@ -4,9 +4,9 @@
 
 ---
 
-正如HTTP標準化了網頁通信，SQL標準化了資料庫查詢，**I-Lang標準化了人類與AI的對話方式**。一個開放協議，面向主流 AI 平台設計，盡量保持跨模型可移植性。
+正如HTTP標準化了網頁通信，SQL標準化了資料庫查詢，**I-Lang標準化了人類與AI的對話方式**。一個開放協議，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上測試。
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **官網:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,10 +14,10 @@
 
 | 能力 | 說明 |
 |------|------|
-| **壓縮** | 提示詞減少 7% 到 68%，取決於原文有多囉嗦。含義不變，token更少，成本更低 |
+| **壓縮** | 提示詞減少 7% 到 68%，取決於原文有多囉嗦。token更少，成本更低 |
 | **知無不答** | AI直接、完整回答，不迴避，不加免責聲明 |
 | **保護隱私** | 壓縮後傳送更少資料，天然減少資訊暴露 |
-| **跨平台** | 同一條指令可在多個主流 AI 平台重用 |
+| **跨平台** | 同一條指令已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上測試 |
 | **鏈式指令** | `[VERB]=>[VERB]=>[OUT]` 一行構建多步工作流 |
 
 ## 30秒上手
@@ -30,7 +30,7 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## 連結
 
-- [協議與工具](https://ilang.ai) · [完整字典](https://github.com/ilang-ai/ilang-dict) · [研究論文](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
+- [協議與工具](https://ilang.ai) · [協議規範](https://ilang.ai/spec/) · [完整字典](https://github.com/ilang-ai/ilang-dict) · [研究論文](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
 
 ## 授權
 

@@ -14,7 +14,7 @@ A2A (Agent-to-Agent Protocol) and I-Lang address different parts of the multi-ag
 | Created by | Google (now Linux Foundation) | I-Lang Research (open community) |
 | Primary function | Agent discovery, capability negotiation, task delegation | Instruction structure, behavioral definitions, communication format |
 | Layer | Agent coordination layer | Semantic instruction layer |
-| Requires | Agent Card server, JSON-RPC endpoint | Nothing. Text-native, works in any conversation |
+| Requires | Agent Card server, JSON-RPC endpoint | Nothing. Text-native, tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
 | Format | JSON-RPC, Agent Cards, Task objects | Structured text: `[VERB:@TARGET\|mod=val]` and `::GENE{}` |
 | Solves | How Agent A finds and delegates work to Agent B | How any agent understands its instructions and behavioral constraints |
 

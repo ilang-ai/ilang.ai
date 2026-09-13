@@ -37,7 +37,7 @@ AI personality persistence. One portable file across every agent. 312 tokens. Yo
 
 ### AI Text Intelligence
 
-AI-generated text detection and rewriting. Powered by I-Lang protocol. Available at detect.ilang.cn for the Chinese market.
+AI-generated text detection and editing. Powered by I-Lang protocol. Available at detect.ilang.cn for the Chinese market.
 
 ### Academic Research
 

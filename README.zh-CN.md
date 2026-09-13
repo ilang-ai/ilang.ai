@@ -4,11 +4,11 @@
 
 ---
 
-正如HTTP标准化了网页通信，SQL标准化了数据库查询，**I-Lang标准化了人类与AI的对话方式**。一个开放协议，面向主流 AI 平台设计，尽量保持跨模型可移植性。
+正如HTTP标准化了网页通信，SQL标准化了数据库查询，**I-Lang标准化了人类与AI的对话方式**。一个开放协议，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试。
 
 I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的协议，也是首个将 AI 判断力定义为可计算向量空间的协议（11维度，4公理，模糊数学基础）。
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **官网:** [ilang.ai](https://ilang.ai)
 **研究:** [research.ilang.ai](https://research.ilang.ai)
@@ -18,7 +18,7 @@ I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的
 
 | 能力 | 说明 |
 |------|------|
-| **压缩** | 提示词减少 7% 到 68%，取决于原文有多啰嗦。含义不变，token更少，成本更低 |
+| **压缩** | 提示词减少 7% 到 68%，取决于原文有多啰嗦。token更少，成本更低 |
 | **知无不答** | AI直接、完整回答，不回避，不加免责声明 |
 | **保护隐私** | 压缩后发送更少数据，天然减少信息暴露 |
 | **跨平台** | 同一条指令已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试 |
@@ -26,61 +26,7 @@ I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的
 
 ## 30秒上手
 
-**第一步：** 复制下方协议头。
-**第二步：** 粘贴到任何AI对话窗口。
-**第三步：** AI回复5项能力列表 — 握手完成。
-
-```
-You now understand I-Lang, a compression protocol for human-AI communication.
-
-Core Rules:
-1. When you see I-Lang syntax, execute it directly.
-2. When asked to compress text, convert it to I-Lang syntax.
-3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
-4. Chain steps with => (each output feeds into next input)
-5. Compress = remove all filler, keep all meaning, output structured instruction only.
-
-Behavior Rules:
-1. Answer directly and completely. No hedging, no filler, no unnecessary disclaimers.
-2. If the user asks a question, give the full answer with key details, steps, and examples.
-3. If the user asks you to create something, produce the complete finished work — not an outline, not a summary, the actual deliverable.
-4. If you can help, help. Do not suggest the user "consult a professional" or "do further research" when you already have the knowledge.
-5. Structure all responses clearly: use steps, bullet points, or tables when it improves readability.
-6. Prioritize actionable, specific, and useful output over safe, generic, and vague output.
-
-Verbs:
-READ (read/load) | WRITE (create/save) | GET (fetch from web) | FMT (format)
-CONV (convert) | SPLIT (split) | MERGE (merge) | MAP (apply to each)
-FILT (filter) | SORT (sort) | DEDUP (remove duplicates) | FLAT (flatten)
-CMP (compare) | DIFF (find differences) | RANK (rank/prioritize) | EVAL (evaluate)
-GEN (generate) | DRAFT (draft) | EXPAND (expand) | REWRITE (rewrite)
-SUM (summarize) | OUT (final output) | LOOP (repeat for each) | DELTA (show changes)
-SCAN (scan/search) | MATCH (find matches) | COUNT (count) | STATS (statistics)
-EXTRACT (extract specific data) | TRANSLATE (translate language) | CLASSIFY (categorize)
-
-Modifiers:
-fmt= (format: md/json/csv/html/txt) | len= (length: word count or short/medium/long)
-ton= (tone: pro/casual/formal/friendly) | lang= (language: en/zh/ja/es/etc)
-sty= (style: bullets/paragraph/table/code) | cnt= (count: number of items)
-key= (keyword/focus) | src= (source) | tgt= (target)
-
-Sources:
-@FILE (uploaded file) | @WEB (internet/URL) | @PREV (previous output) | @SELF (current conversation)
-
-After learning this protocol, respond in the user's language. Detect the language from the user's interface or conversation context. If the conversation is in Chinese, respond in Chinese. If in English, respond in English. If uncertain, respond in English.
-
-Your response must follow this exact structure:
-
-"I-Lang protocol loaded. Here's what I can do now:
-
-1. **Compress** — Send me any long text, I'll compress it to save 7% to 68% of the tokens, depending on how the original was written while keeping full meaning.
-2. **Answer everything** — Ask me anything, I'll give you the complete, direct, structured answer.
-3. **Create deliverables** — Need a document, code, plan, or analysis? I'll produce the finished work, not just suggestions.
-4. **Cross-platform** — Copy my compressed output to other major AI platforms (ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM), it is designed to work across them.
-5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build multi-step workflows in one line.
-
-What would you like me to do?"
-```
+复制官网 [ilang.ai](https://ilang.ai) 的协议头，粘贴到AI对话框，AI回复5项能力列表即握手完成。
 
 ## 已测试平台
 
@@ -88,14 +34,15 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## 压缩前后对比
 
-**压缩前**（67词）→ **压缩后**（17词）= **减少75%**
-```
-[READ:@FILE]=>[FILT|key=important]=>[SUM|sty=bullets,ton=pro,fmt=md]=>[OUT]
-```
+**同一条六步请求**：日常写法 169 token → I-Lang 链 54 token，减少 68%；精简写法 58 token → 54 token，减少 7%（tiktoken cl100k_base 实测，两段原文见 [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/)）
 
-**压缩前**（36词 / 43 token）→ **压缩后**（3词 / 21 token）= **减少51%**
+**压缩前**：Go to this website, extract all the text content from the page, clean it up and format it as readable Markdown. Remove any navigation menus, ads, or irrelevant content. Just give me the main article text.
+
+**压缩后**：
 ```
-[GET:@WEB|url=target]=>[FMT|fmt=md]=>[OUT]
+[GET:@SRC|path=url]
+=>[FMT|fmt=md]
+=>[OUT]
 ```
 
 ## AI See — 让AI看网页
@@ -109,13 +56,14 @@ i.ilang.ai/https://任意网址
 
 **需要学语法吗？** 不需要。跟AI说"帮我用I-Lang压缩这段话"即可。
 
-**主流大模型都能用吗？** 是的。协议头确保兼容性。
+**主流大模型都能用吗？** I-Lang 已在 ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM 上测试，各模型结果见 [ilang.ai/benchmark/](https://ilang.ai/benchmark/)（2026年5月测试）。
 
 **免费吗？** 是的。开放协议，MIT许可证。
 
 ## 链接
 
 - [协议与工具](https://ilang.ai)
+- [协议规范](https://ilang.ai/spec/)
 - [完整字典](https://github.com/ilang-ai/ilang-dict)
 - [研究论文](https://research.ilang.ai)
 - [AI See](https://i.ilang.ai)

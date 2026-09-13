@@ -75,7 +75,7 @@ When the user asks for a deletion, ask for confirmation first unless they have a
 
 ## Reproduce these tests
 
-Test prompts and expected outputs are available in the [ilang-spec repository](https://github.com/ilang-ai/ilang-spec). We welcome community-submitted benchmark results for additional models.
+We welcome community-submitted benchmark results for additional models.
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

@@ -18,8 +18,8 @@ PAGES
 - https://ilang.ai/security/: Security model: UNTRUSTED input isolation, authority tiers
 - https://ilang.ai/about/: About iLang Inc. and the protocol's authorship
 - https://ilang.ai/ai-see/: AI See product page
-- https://ilang.ai/ai-detector: iLang AI Detector: free AI-generated text detector (six-signal fingerprint scoring)
-- https://ilang.ai/ai-humanizer: iLang Humanizer: rewrite AI-sounding text into natural writing, verify with the detector
+- https://ilang.ai/ai-detector/: iLang Detect, sentence-level AI analysis with rewriting suggestions across 6 dimensions
+- https://ilang.ai/ai-humanizer/: iLang Humanizer: an editor, not a generator. Deletes AI filler, varies rhythm, and marks the [VOICE], [NUMBER] and [STORY] positions you fill yourself.
 - https://ilang.ai/compare/: Comparisons: I-Lang vs other protocols, and iLang detector vs other AI detectors
 - https://ilang.ai/for/: Scenario guides: humanizer and detector for students, teachers, essays, blog posts
 - https://ilang.ai/blog/: Blog: protocol and soul, Greek symbols, carbon-silicon symbiosis
@@ -41,7 +41,7 @@ Q: Does I-Lang work with ChatGPT, Claude, and DeepSeek?
 A: I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026.
 
 Q: What is prompt compression for LLMs?
-A: Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words while preserving full semantic meaning.
+A: Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.
 
 Q: Is I-Lang free and open source?
 A: Yes. I-Lang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.
@@ -151,7 +151,7 @@ VERBS (88)
 - NOOP (Meta): No operation
 - BATC [alias Π] (Batch): Apply verb to each item in list
 
-MODIFIERS (29)
+MODIFIERS (29 core plus a 20-key media profile)
 - src (modifier): Explicit source values: entity, URI
 - dst (modifier): Explicit destination values: entity, URI
 - path (modifier): Path within entity values: string
@@ -181,8 +181,28 @@ MODIFIERS (29)
 - to (modifier): To (time) values: timestamp
 - scp (modifier): Scope values: global, local, strict
 - op (modifier): Operation ref values: verb name (for BATC)
+- sbj (media): Subject identity anchor values: label, @ENTITY, or URI
+- act (media): Subject action or pose values: free text; static
+- plc (media): Setting and surroundings values: free text; none, transparent
+- txt (media): Verbatim on-artifact text values: quoted string
+- pov (media): Camera viewpoint (shot size/angle/placement) values: wide, close_up, eye_level, low_angle, over_shoulder
+- fcl (media): Optics (focal length/aperture/depth of field) values: 35mm, f1.8, macro, fisheye, shallow_dof
+- mvt (media): Camera movement values: static, pan_left, tilt_up, dolly_in, orbit, handheld
+- lgt (media): Lighting values: golden_hour, backlit, softbox, low_key, neon
+- pal (media): Colour and grade values: monochrome, warm_tones, teal_orange, #0B3D2E
+- mdm (media): Medium or rendering school values: photo, oil_paint, vector, 3d_render, film_noir, ambient
+- asp (media): Aspect ratio values: W:H (1:1, 16:9, 9:16), auto
+- rsl (media): Output geometry values: WxH pixels or tier (720p, 1080p, 2k, 4k), auto
+- qly (media): Quality tier values: draft, low, std, high, max
+- dur (media): Timeline length in seconds values: positive number
+- fps (media): Frame rate values: positive integer
+- sed (media): Reproducibility seed values: non-negative integer, auto
+- adh (media): Adherence to the stated instruction values: 0.00-1.00
+- ref (media): Reference asset or declared preset values: @ENTITY, URI
+- dlg (media): Verbatim spoken lines values: quoted string
+- sfx (media): Non-speech sound values: free text; none
 
-ENTITIES (22)
+ENTITIES (25: 17 addressable, 8 role)
 - @SRC (Core): Source payload
 - @DST (Core): Destination
 - @PREV (Core): Previous pipe output
@@ -205,6 +225,9 @@ ENTITIES (22)
 - @AGENT (Role): A named agent, self or peer values: authority:proposal
 - @TASK (Role): Scope target for ::BUDGET / ::STATUS
 - @TOOL (Role): Tool-based evidence verifier
+- @IMG (Media): Image artifact target values: profile:media
+- @VID (Media): Video artifact target values: profile:media
+- @AUD (Media): Audio artifact target values: profile:media
 
 DECLARATIONS (32)
 - STATE (v3.0): Entity state declaration values: ::STATE{@ENTITY, key:value}

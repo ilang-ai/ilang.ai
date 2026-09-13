@@ -4,9 +4,9 @@
 
 ---
 
-HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준화한 것처럼, **I-Lang은 인간과 AI의 대화를 표준화합니다**. 하나의 프로토콜, 모든 AI 플랫폼, 벤더 종속 없음.
+HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준화한 것처럼, **I-Lang은 인간과 AI의 대화를 표준화합니다**. 하나의 프로토콜, ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM에서 테스트됨, 벤더 종속 없음.
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **웹사이트:** [ilang.ai](https://ilang.ai) · **연구:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,23 +14,23 @@ HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준
 
 | 기능 | 설명 |
 |------|------|
-| **압축** | 프롬프트 7~68% 감소. 의미 그대로, 토큰과 비용 절감 |
+| **압축** | 프롬프트 7~68% 감소. 토큰과 비용 절감 |
 | **모든 것에 답변** | AI가 직접적이고 완전하게, 면책 조항 없이 답변 |
 | **프라이버시 보호** | 압축 텍스트는 AI 서버로 보내는 데이터 감소 |
-| **크로스 플랫폼** | 하나의 명령이 모든 AI에서 작동 |
+| **크로스 플랫폼** | 하나의 명령을 ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM에서 테스트 |
 | **체인 명령** | `[VERB]=>[VERB]=>[OUT]` 한 줄로 다단계 워크플로우 |
 
 ## 30초 만에 시작
 
 [ilang.ai](https://ilang.ai)에서 프로토콜 헤더를 복사하여 아무 AI 대화에 붙여넣으세요. AI가 5가지 기능 목록으로 응답하면 핸드셰이크 완료입니다.
 
-## 호환 플랫폼
+## 테스트된 플랫폼
 
 ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## 링크
 
-- [프로토콜 & 도구](https://ilang.ai) · [전체 사전](https://github.com/ilang-ai/ilang-dict) · [연구 논문](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
+- [프로토콜 & 도구](https://ilang.ai) · [명세서](https://ilang.ai/spec/) · [전체 사전](https://github.com/ilang-ai/ilang-dict) · [연구 논문](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
 
 ## 라이선스
 

@@ -1862,7 +1862,7 @@
     },
     {
       "question": "What is prompt compression for LLMs?",
-      "answer": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words while preserving full semantic meaning.",
+      "answer": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
@@ -1966,12 +1966,12 @@
       "description": "AI See product page"
     },
     {
-      "url": "https://ilang.ai/ai-detector",
-      "description": "iLang AI Detector: free AI-generated text detector (six-signal fingerprint scoring)"
+      "url": "https://ilang.ai/ai-detector/",
+      "description": "iLang Detect, sentence-level AI analysis with rewriting suggestions across 6 dimensions"
     },
     {
-      "url": "https://ilang.ai/ai-humanizer",
-      "description": "iLang Humanizer: rewrite AI-sounding text into natural writing, verify with the detector"
+      "url": "https://ilang.ai/ai-humanizer/",
+      "description": "iLang Humanizer: an editor, not a generator. Deletes AI filler, varies rhythm, and marks the [VOICE], [NUMBER] and [STORY] positions you fill yourself."
     },
     {
       "url": "https://ilang.ai/compare/",

@@ -45,7 +45,7 @@ AI-Native Communication Protocol · I-Lang Research
 
 **How:** Pure text protocol. 88 verbs, key-value modifiers, chain syntax. Paste and go.
 
-**Install:** Zero. Text-based. Works in any chat window.
+**Install:** Zero. Text-based. Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 **Scope:** Universal communication layer
 
@@ -59,9 +59,9 @@ AI-Native Communication Protocol · I-Lang Research
 | AI-to-AI | ○ Via tool calls | ✓ Primary use case | ✓ Supported |
 | AI internal reasoning | ✗ | ✗ | ✓ Declaration syntax |
 | Behavioral identity | ✗ | ○ Agent Cards | ✓ ::GENE{} DNA system |
-| Cross-model portable | ○ Server-side | ✓ | ✓ Any LLM |
+| Cross-model portable | ○ Server-side | ✓ | ✓ Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
 | Formal vocabulary | ✗ Free-form | ✗ Free-form | ✓ 88 verbs, 29 core modifiers plus a 20-key media profile |
-| Token efficiency | N/A (infrastructure) | N/A (infrastructure) | 68% on a request as people write it, 7% on a terse rewrite |
+| Token efficiency | N/A (infrastructure) | N/A (infrastructure) | 68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
 | Open source | ✓ Apache 2.0 | ✓ Apache 2.0 | ✓ MIT |
 | Backed by | Anthropic | Google + Linux Foundation | I-Lang Research / iLang Inc. |
 

@@ -145,7 +145,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>Use MCP when your AI needs to interact with external systems: databases, APIs, file systems, third-party services. MCP provides the plumbing that connects AI to the outside world. Without MCP (or equivalent tool-calling), AI can only work with what is in its context window.</p>
 
 <h2>When to use I-Lang</h2>
-<p>Use I-Lang when you need AI to follow instructions more precisely, with less ambiguity, across longer workflows. I-Lang works at the instruction layer: it structures what you tell AI to do, how it should behave, and what constraints to follow. It works in any conversation window, with any model, without installation.</p>
+<p>Use I-Lang when you need AI to follow instructions more precisely, with less ambiguity, across longer workflows. I-Lang works at the instruction layer: it structures what you tell AI to do, how it should behave, and what constraints to follow. It needs no installation and has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.</p>
 
 <h2>Using them together</h2>
 <p>The most powerful setup combines both. MCP gives AI access to tools and data. I-Lang gives AI structured instructions for how to use those tools. Example: MCP connects to a database; I-Lang defines the analysis workflow:</p>
@@ -162,8 +162,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <table>
 <tr><th>Question</th><th>MCP</th><th>I-Lang</th></tr>
 <tr><td>Can I use it without writing code?</td><td>No, requires server setup</td><td>Yes, paste text into any AI chat</td></tr>
-<tr><td>Does it work across models?</td><td>Depends on model support for MCP</td><td>Works with any model that reads text</td></tr>
-<tr><td>Does it reduce token usage?</td><td>Not its purpose</td><td>68% on a request as people write it, 7% on a terse rewrite</td></tr>
+<tr><td>Does it work across models?</td><td>Depends on model support for MCP</td><td>Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
+<tr><td>Does it reduce token usage?</td><td>Not its purpose</td><td>68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
 <tr><td>Does it define AI behavior?</td><td>No</td><td>Yes, via <code>::GENE{}</code> declarations</td></tr>
 <tr><td>Is it open source?</td><td>Yes (Anthropic)</td><td>Yes (MIT license)</td></tr>
 </table>

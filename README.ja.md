@@ -4,9 +4,9 @@
 
 ---
 
-HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化したように、**I-Langは人間とAIの対話を標準化します**。1つのオープンプロトコルで、主要なAIモデル間で再利用しやすい設計です。
+HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化したように、**I-Langは人間とAIの対話を標準化します**。1つのオープンプロトコルで、ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLMでテスト済みです。
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **公式サイト:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,10 +14,10 @@ HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化�
 
 | 機能 | 説明 |
 |------|------|
-| **圧縮** | プロンプトを 7% から 68% 削減。意味はそのまま、トークンとコストを削減 |
+| **圧縮** | プロンプトを 7% から 68% 削減。トークンとコストを削減 |
 | **すべてに回答** | AIが直接的に、完全に、免責事項なしで回答 |
 | **プライバシー保護** | 圧縮テキストはAIサーバーへの送信データを減少 |
-| **クロスプラットフォーム** | 1つの命令を主要なAIプラットフォームで再利用しやすい |
+| **クロスプラットフォーム** | 1つの命令をChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLMでテスト済み |
 | **チェーンコマンド** | `[VERB]=>[VERB]=>[OUT]` 1行でマルチステップワークフロー |
 
 ## 30秒で開始
@@ -30,7 +30,7 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## リンク
 
-- [プロトコル＆ツール](https://ilang.ai) · [完全辞書](https://github.com/ilang-ai/ilang-dict) · [研究論文](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
+- [プロトコル＆ツール](https://ilang.ai) · [仕様書](https://ilang.ai/spec/) · [完全辞書](https://github.com/ilang-ai/ilang-dict) · [研究論文](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
 
 ## ライセンス
 

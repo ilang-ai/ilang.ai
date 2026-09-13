@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Retrieve actual public information about the I-Lang protocol from ilang.ai: dictionary lookup and FAQ, with rules for citing and never inventing terms.",
       "url": "https://ilang.ai/ai/skills/ilang-lookup/SKILL.md",
-      "digest": "sha256:44fbcb93278375f1d10a5bab3fb082084ae203a628e31fb6574b14198332c8d4"
+      "digest": "sha256:d90ae07013df99f2f571be5e4aefdc8ef22d3d39d8448a62fd944ccca0f409df"
     }
   ]
 }

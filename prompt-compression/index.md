@@ -34,7 +34,6 @@ Please read the sales data from the CSV file. Then filter it to only include rec
 
 | Metric | Natural language | I-Lang | Change |
 | --- | --- | --- | --- |
-| Words | 49 | 6 | -88% |
 | Tokens (cl100k_base) | 58 | 54 | -7% |
 | Ambiguity | Multiple interpretations possible | One interpretation | Lower |
 
@@ -54,11 +53,11 @@ That is 169 tokens against the same 54-token chain, a reduction of 68 per cent. 
 
 ### System prompts and behavioral rules
 
-System prompts run on every turn. A 500-token system prompt costs 500 tokens per message, so the saving is paid out again with every message rather than once. Rewriting a set of behavioral rules as structured `::GENE{}` definitions is a smaller cut than the conversational case, because rules are already written densely: on a five-rule set the measured reduction is 12 per cent, and it recurs on every turn of the session.
+System prompts run on every turn. A 500-token system prompt costs 500 tokens per message, so the saving is paid out again with every message rather than once. Rewriting a set of behavioral rules as structured `::GENE{}` definitions is a smaller cut than the conversational case, because rules are already written densely, but the cut recurs on every turn of the session.
 
 ### Long context sessions
 
-As context fills up, AI quality degrades. Compressed instructions leave more room for actual task content. This is why projects like GSD (Get Shit Done) are actively optimizing their skill token overhead.
+As context fills up, AI quality degrades. Compressed instructions leave more room for actual task content.
 
 ### Per-token billing
 

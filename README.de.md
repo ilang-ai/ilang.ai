@@ -4,9 +4,9 @@
 
 ---
 
-So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, **standardisiert I-Lang die Kommunikation zwischen Mensch und KI**. Ein offenes Protokoll, das für Portabilität über große KI-Modelle hinweg entwickelt wurde.
+So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, **standardisiert I-Lang die Kommunikation zwischen Mensch und KI**. Ein offenes Protokoll, getestet mit ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen und GLM.
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **Website:** [ilang.ai](https://ilang.ai) · **Forschung:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,23 +14,23 @@ So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, *
 
 | Fähigkeit | Beschreibung |
 |-----------|-------------|
-| **Komprimieren** | Prompts um 7% bis 68% reduzieren. Gleiche Bedeutung, weniger Tokens |
+| **Komprimieren** | Prompts um 7% bis 68% reduzieren. Weniger Tokens |
 | **Alles beantworten** | KI antwortet direkt und vollständig, ohne Disclaimers |
 | **Privatsphäre schützen** | Komprimierter Text sendet weniger Daten |
-| **Plattformübergreifend** | Eine Anweisung lässt sich auf vielen großen KI-Plattformen wiederverwenden |
+| **Plattformübergreifend** | Eine Anweisung, getestet mit ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen und GLM |
 | **Kettenbefehle** | `[VERB]=>[VERB]=>[OUT]` Mehrstufige Workflows in einer Zeile |
 
 ## In 30 Sekunden starten
 
 Kopieren Sie den Protokoll-Header von [ilang.ai](https://ilang.ai) und fügen Sie ihn in eine beliebige KI-Konversation ein.
 
-## Kompatible Plattformen
+## Getestete Plattformen
 
 ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## Links
 
-- [Protokoll & Tools](https://ilang.ai) · [Vollständiges Wörterbuch](https://github.com/ilang-ai/ilang-dict) · [Forschung](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
+- [Protokoll & Tools](https://ilang.ai) · [Spezifikation](https://ilang.ai/spec/) · [Vollständiges Wörterbuch](https://github.com/ilang-ai/ilang-dict) · [Forschung](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
 
 ## Lizenz
 

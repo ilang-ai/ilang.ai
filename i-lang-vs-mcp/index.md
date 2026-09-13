@@ -25,7 +25,7 @@ Use MCP when your AI needs to interact with external systems: databases, APIs, f
 
 ## When to use I-Lang
 
-Use I-Lang when you need AI to follow instructions more precisely, with less ambiguity, across longer workflows. I-Lang works at the instruction layer: it structures what you tell AI to do, how it should behave, and what constraints to follow. It works in any conversation window, with any model, without installation.
+Use I-Lang when you need AI to follow instructions more precisely, with less ambiguity, across longer workflows. I-Lang works at the instruction layer: it structures what you tell AI to do, how it should behave, and what constraints to follow. It needs no installation and has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 ## Using them together
 
@@ -46,8 +46,8 @@ MCP handles the database connection. I-Lang handles the instruction chain. Neith
 | Question | MCP | I-Lang |
 | --- | --- | --- |
 | Can I use it without writing code? | No, requires server setup | Yes, paste text into any AI chat |
-| Does it work across models? | Depends on model support for MCP | Works with any model that reads text |
-| Does it reduce token usage? | Not its purpose | 68% on a request as people write it, 7% on a terse rewrite |
+| Does it work across models? | Depends on model support for MCP | Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
+| Does it reduce token usage? | Not its purpose | 68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
 | Does it define AI behavior? | No | Yes, via `::GENE{}` declarations |
 | Is it open source? | Yes (Anthropic) | Yes (MIT license) |
 

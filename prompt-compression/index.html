@@ -163,7 +163,6 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <h3>Reduction</h3>
 <table>
 <tr><th>Metric</th><th>Natural language</th><th>I-Lang</th><th>Change</th></tr>
-<tr><td>Words</td><td>49</td><td>6</td><td>-88%</td></tr>
 <tr><td>Tokens (cl100k_base)</td><td>58</td><td>54</td><td>-7%</td></tr>
 <tr><td>Ambiguity</td><td>Multiple interpretations possible</td><td>One interpretation</td><td>Lower</td></tr>
 </table>
@@ -178,10 +177,10 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>That is 169 tokens against the same 54-token chain, a reduction of 68 per cent. Nothing about the chain changed. The greeting, the hedging and the thank-you are what disappeared, and they are what real prompts are made of.</p>
 
 <h3>System prompts and behavioral rules</h3>
-<p>System prompts run on every turn. A 500-token system prompt costs 500 tokens per message, so the saving is paid out again with every message rather than once. Rewriting a set of behavioral rules as structured <code>::GENE{}</code> definitions is a smaller cut than the conversational case, because rules are already written densely: on a five-rule set the measured reduction is 12 per cent, and it recurs on every turn of the session.</p>
+<p>System prompts run on every turn. A 500-token system prompt costs 500 tokens per message, so the saving is paid out again with every message rather than once. Rewriting a set of behavioral rules as structured <code>::GENE{}</code> definitions is a smaller cut than the conversational case, because rules are already written densely, but the cut recurs on every turn of the session.</p>
 
 <h3>Long context sessions</h3>
-<p>As context fills up, AI quality degrades. Compressed instructions leave more room for actual task content. This is why projects like GSD (Get Shit Done) are actively optimizing their skill token overhead.</p>
+<p>As context fills up, AI quality degrades. Compressed instructions leave more room for actual task content.</p>
 
 <h3>Per-token billing</h3>
 <p>If you pay per token (API usage, cloud inference), every token in your system prompt is money spent on every single request. Compression directly reduces cost.</p>

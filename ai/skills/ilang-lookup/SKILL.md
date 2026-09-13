@@ -30,14 +30,14 @@ Use this skill when a question involves the I-Lang protocol: a verb, modifier, e
 ::RULE{not_found=true⇒state_unknown|never_invent_verbs_modifiers_or_counts}
 ::RULE{answer⇒preserve_identifiers_exactly|keep_dates_and_qualifiers|answer_in_visitor_language|cite_source_url|end_with_next_step}
 ::FACT{key:verbs|value:88|conf:confirmed}
-::FACT{key:modifiers|value:29|conf:confirmed}
+::FACT{key:modifiers|value:29_core_plus_20_key_media_profile|conf:confirmed}
 ::FACT{key:judgment_modes|value:M1-M8_closed|conf:confirmed}
 ::FACT{key:dimension_10|value:inertia|conf:confirmed}
 ```
 
 ## Interpreting results
 
-- `type` is one of verb, modifier, entity, declaration, declaration_narrative, dimension, mode; `alias` holds the Greek alias when one exists (for example XLAT has alias θ). The entity list holds the 14 core v3 entities plus the v4/v5 execution and role entities; the public count for the communication layer is 14.
+- `type` is one of verb, modifier, entity, declaration, declaration_narrative, dimension, mode; `alias` holds the Greek alias when one exists (for example XLAT has alias θ). The entity list holds 25 entities: 8 core and 6 external (v3.0), 8 role (v4.0) and 3 media (@IMG, @VID, @AUD, v4.1); the public count is 25 entities (17 addressable, 8 role).
 - `values` lists closed value sets for modifiers (for example fmt accepts text, json, md, csv, xml, html, email).
 - Cite `source_url`. If the user needs normative wording, point to https://github.com/ilang-ai/ilang-spec.
 

@@ -75,7 +75,7 @@ TelegramGuard is an AI-powered Telegram group guardian: anti-spam, vision and ch
 
 ## Elsewhere
 
-The organization page is at [github.com/ilang-ai](https://github.com/ilang-ai). Datasets and model resources are on [Hugging Face](https://huggingface.co/i-Lang). The specification is citable under DOI 10.5281/zenodo.21821452.
+The organization page is at [github.com/ilang-ai](https://github.com/ilang-ai). Datasets are on [Hugging Face](https://huggingface.co/i-Lang). The specification is citable under DOI 10.5281/zenodo.21821452.
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

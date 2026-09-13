@@ -59,8 +59,8 @@ You can run all of them at once. Connect through MCP, hand off through A2A, and 
 
 ## Recognition, not invention
 
-The whole protocol rests on one idea. The symbols are already inside the model. The vector logic is already how good judgment works. I-Lang did not create either. It wrote them down in a form that is portable across ChatGPT, Claude, Gemini, and DeepSeek, with no SDK, no install, and an MIT license.
+The whole protocol rests on one idea. The symbols are already inside the model. The vector logic is already how good judgment works. I-Lang did not create either. It wrote them down in a form that has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, with no SDK, no install, and an MIT license.
 
 You do not need to teach a model I-Lang. You need to show it the notation it was trained on and let it recognize what it already knows.
 
-Read the [v5.0 specification](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md), or paste the protocol header into any model and watch it answer in the same notation.
+Read the [v5.0 specification](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md), or paste the protocol header into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM and watch it answer in the same notation.

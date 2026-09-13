@@ -4,9 +4,9 @@
 
 ---
 
-كما وحّد HTTP التواصل عبر الويب ووحّد SQL استعلامات قواعد البيانات، **يوحّد I-Lang طريقة تحدث البشر مع الذكاء الاصطناعي**. بروتوكول واحد، جميع منصات الذكاء الاصطناعي، بدون تبعية لمورّد.
+كما وحّد HTTP التواصل عبر الويب ووحّد SQL استعلامات قواعد البيانات، **يوحّد I-Lang طريقة تحدث البشر مع الذكاء الاصطناعي**. بروتوكول واحد، تم اختباره على ChatGPT وClaude وGemini وDeepSeek وKimi وQwen وGLM، بدون تبعية لمورّد.
 
-`[PROTOCOL:human-AI|compress=7-68%,compat=tested-7]=>[ANSWER_ALL]=>[PRIVACY]=>[OUT]`
+`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **الموقع:** [ilang.ai](https://ilang.ai) · **الأبحاث:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
@@ -14,23 +14,23 @@
 
 | القدرة | الوصف |
 |--------|-------|
-| **الضغط** | تقليل المطالبات بنسبة 7% إلى 68%. نفس المعنى، رموز أقل |
+| **الضغط** | تقليل المطالبات بنسبة 7% إلى 68%. رموز أقل |
 | **الإجابة على كل شيء** | الذكاء الاصطناعي يجيب مباشرة وبشكل كامل |
 | **حماية الخصوصية** | النص المضغوط يرسل بيانات أقل |
-| **عبر المنصات** | أمر واحد يعمل على جميع المنصات |
+| **عبر المنصات** | أمر واحد تم اختباره على ChatGPT وClaude وGemini وDeepSeek وKimi وQwen وGLM |
 | **أوامر متسلسلة** | `[VERB]=>[VERB]=>[OUT]` سير عمل متعدد الخطوات في سطر واحد |
 
 ## ابدأ في 30 ثانية
 
 انسخ رأس البروتوكول من [ilang.ai](https://ilang.ai) والصقه في أي محادثة مع الذكاء الاصطناعي.
 
-## المنصات المتوافقة
+## المنصات المختبرة
 
 ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM ✅
 
 ## الروابط
 
-- [البروتوكول والأدوات](https://ilang.ai) · [القاموس الكامل](https://github.com/ilang-ai/ilang-dict) · [الأبحاث](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
+- [البروتوكول والأدوات](https://ilang.ai) · [المواصفات](https://ilang.ai/spec/) · [القاموس الكامل](https://github.com/ilang-ai/ilang-dict) · [الأبحاث](https://research.ilang.ai) · [AI See](https://i.ilang.ai)
 
 ## الترخيص
 

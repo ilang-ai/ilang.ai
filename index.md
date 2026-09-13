@@ -7,7 +7,7 @@ I-Lang **v5.0** | MIT License
 
 I-Lang is the AI-native communication protocol. It reduces semantic loss between human intent and machine execution. It is the first protocol to formally map Greek mathematical symbols (Σ, Δ, φ, λ, Ω) as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment (11 dimensions, 4 axioms). Built from symbols already inside every LLM's training data. AI-to-AI, AI internal, and human-to-AI communication with portable syntax across major models.
 
-[Try the Protocol →](https://ilang.ai/#try) [Read the Spec ↗](https://github.com/ilang-ai)
+[Try the Protocol →](https://ilang.ai/#try) [Read the Spec →](https://ilang.ai/spec/)
 
 Lower Semantic Loss
 
@@ -73,7 +73,7 @@ Respond in user's language.
 Say: "I-Lang v5.0 loaded. What do you need?"
 ```
 
-Tested across major LLM platforms
+Tested across 7 models
 
 ChatGPT
 
@@ -491,7 +491,7 @@ Built on Zadeh's fuzzy set theory (1965): membership μ(x) ∈ [0,1] replaces bi
 
 Prior, independent work by Lu, Song & Wang (Oct 2025, [arXiv:2510.27328](https://arxiv.org/abs/2510.27328)) finds a dominant **Valence-Assent Axis** in the activations of eight dense, instruction-tuned LLMs (Qwen2.5 3B to 72B, Llama-3.1-8B, Mistral-7B, Gemma-2-9B). It is a single internal direction that jointly encodes what the model finds good and what it assents to as true. Steering along it shifts judgments in unrelated tasks, and it subordinates reasoning to that evaluative state: the model constructs a rationale consistent with its stance, even at the cost of factual accuracy. I-Lang v5.0 addresses the same failure mode from the protocol side. Judgment is externalized as an 11-dimensional vector and the decision is a fixed, auditable function of that vector (perception learned, decision specified), so the evaluative state is inspectable rather than latent and a rationale cannot silently move the verdict. Their finding is mechanistic and internal to the model; I-Lang is a behavioral constraint imposed from outside it.
 
-Model-assisted adversarial review (Gemini, GPT, Claude 4.8). Three-model attack survived. Architecture complete, mathematically grounded, open for adversarial review with constructive proposals. Any challenge must include a proposed fix — identifying a flaw without repairing it is observation, not contribution.
+Model-assisted adversarial review (Gemini, GPT, Claude 4.8). Architecture complete, mathematically grounded, open for adversarial review with constructive proposals. Any challenge must include a proposed fix — identifying a flaw without repairing it is observation, not contribution.
 
 Reference
 
@@ -543,7 +543,7 @@ I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and 
 
 ### What is prompt compression for LLMs?
 
-Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words while preserving full semantic meaning.
+Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.
 
 ### Is I-Lang free and open source?
 
@@ -571,7 +571,7 @@ Yes. iLang Detect and iLang Humanizer are tools built on I-Lang, the protocol, b
 
 ## Tell AI what to do. It follows structure before inference.
 
-I-Lang is free, open, and tested across major LLM platforms. An AI-native protocol for structured communication. MIT licensed.
+I-Lang is free, open, and tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. An AI-native protocol for structured communication. MIT licensed.
 
 [GitHub ↗](https://github.com/ilang-ai) [Hugging Face ↗](https://huggingface.co/i-Lang) [Try now](https://ilang.ai/#try)
 

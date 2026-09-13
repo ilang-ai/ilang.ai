@@ -21,9 +21,9 @@
 [![Version](https://img.shields.io/badge/version-5.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
 [![Website](https://img.shields.io/badge/web-ilang.ai-1e3a8a.svg?style=flat-square)](https://ilang.ai)
 [![HuggingFace](https://img.shields.io/badge/🤗-i--Lang-ffcc4d.svg?style=flat-square)](https://huggingface.co/i-Lang)
-[![Status](https://img.shields.io/badge/status-Released-c1121f.svg?style=flat-square)]()
+[![Status](https://img.shields.io/badge/status-public%20preview-c1121f.svg?style=flat-square)]()
 
-[**Website**](https://ilang.ai) · [**Research**](https://research.ilang.ai) · [**AI See**](https://i.ilang.ai) · [**Dictionary**](https://github.com/ilang-ai/ilang-dict) · [**🤗 Hugging Face**](https://huggingface.co/i-Lang)
+[**Website**](https://ilang.ai) · [**Specification**](https://ilang.ai/spec/) · [**Research**](https://research.ilang.ai) · [**AI See**](https://i.ilang.ai) · [**Dictionary**](https://github.com/ilang-ai/ilang-dict) · [**🤗 Hugging Face**](https://huggingface.co/i-Lang)
 
 </div>
 
@@ -33,10 +33,10 @@
 
 > Like **HTTP** standardized web communication and **SQL** standardized database
 > queries, **I-Lang** standardizes how humans talk to AI.
-> One open protocol designed to be portable across major models.
+> One open protocol, tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 ```
-[PROTOCOL:I-Lang|v=5.0|type=AI-native]=>[STRUCTURED]=>[PRECISE]=>[JUDGED]=>[OUT]
+::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}
 ```
 
 ---
@@ -54,7 +54,7 @@ Distribution of this document is unlimited.
 |:-------------|:--------------------------------------------------|
 | Protocol     | I-Lang                                            |
 | Version      | 5.0                                               |
-| Status       | Released                                    |
+| Status       | Public preview (v4.0 Final is the current stable release) |
 | Category     | Open Specification                                |
 | Maintainer   | I-Lang Research · iLang Inc., Canada           |
 | Published    | 2026                                              |
@@ -105,7 +105,7 @@ I-Lang defines a compact, declarative syntax that:
 | 2 | Composition             | Output of one step becomes input of the next    |
 | 3 | Vendor-neutral          | No model-specific syntax                        |
 | 4 | Human-readable          | Plain text, no binary encoding                  |
-| 5 | Self-hosted handshake   | Any model learns the protocol in one message    |
+| 5 | Self-hosted handshake   | A model learns the protocol in one message      |
 
 ### 1.4  Non-goals
 
@@ -207,8 +207,8 @@ Your response must follow this exact structure:
    direct, structured answer.
 3. **Create deliverables** — Need a document, code, plan, or analysis?
    I'll produce the finished work, not just suggestions.
-4. **Cross-platform** — Copy my structured output to any other AI
-   (ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM), it is designed to work across major AI platforms.
+4. **Cross-platform** — Copy my structured output to another AI;
+   I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build
    multi-step workflows in one line.
 
@@ -363,7 +363,7 @@ Separate with comma; order is free.
 ### 6.1  Extract key points from an uploaded document
 
 <table>
-<tr><th align="left" width="50%">Before — 52 words, 58 tokens</th><th align="left">After — 5 words, 38 tokens</th></tr>
+<tr><th align="left" width="50%">Before</th><th align="left">After</th></tr>
 <tr><td valign="top">
 
 > Please read the document I uploaded, extract all the key points and
@@ -377,12 +377,11 @@ Separate with comma; order is free.
 ```
 [READ:@SRC]
 =>[EXTC|whr=key_points]
-=>[SHRT|sty=bullets,
-      ton=pro,fmt=md]
+=>[SHRT|sty=bullets,ton=pro,fmt=md]
 =>[OUT]
 ```
 
-**−34% tokens** (counted with tiktoken cl100k_base). Same result.
+Same result.
 
 </td></tr>
 </table>
@@ -413,7 +412,7 @@ Separate with comma; order is free.
 ### 6.3  Translate and reformat the previous answer
 
 <table>
-<tr><th align="left" width="50%">Before — 31 words, 38 tokens</th><th align="left">After — 5 words, 33 tokens</th></tr>
+<tr><th align="left" width="50%">Before</th><th align="left">After</th></tr>
 <tr><td valign="top">
 
 > Take the output you just gave me and translate it into Chinese. Then
@@ -424,13 +423,12 @@ Separate with comma; order is free.
 
 ```
 [READ:@PREV]
-=>[XLAT|lng=zh,
-            ton=natural]
+=>[XLAT|lng=zh,ton=natural]
 =>[FMT|fmt=md]
 =>[OUT]
 ```
 
-**−13% tokens** (counted with tiktoken cl100k_base). Same result. Short, already-terse instructions are where a chain saves least; the saving grows with the filler a real prompt carries and with every turn a system prompt is resent.
+Same result. Short, already-terse instructions are where a chain saves least; the saving grows with the filler a real prompt carries and with every turn a system prompt is resent.
 
 </td></tr>
 </table>
@@ -484,7 +482,7 @@ them by hand.
 <details>
 <summary><b>Does it work across major AI platforms?</b></summary>
 
-Yes. Any model that reads text can execute I-Lang. The protocol header
+I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on [ilang.ai/benchmark/](https://ilang.ai/benchmark/), tests conducted May 2026. The protocol header
 (§2) is the handshake. No fine-tuning, no API integration, no plugin.
 
 </details>

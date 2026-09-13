@@ -78,7 +78,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 - [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec
-- [HuggingFace](https://huggingface.co/i-Lang): Datasets and model resources
+- [HuggingFace](https://huggingface.co/i-Lang): Datasets
 
 ## Tools Built on I-Lang
 
