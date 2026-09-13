@@ -63,7 +63,7 @@ GitHub: [github.com/ilang-ai](https://github.com/ilang-ai)
 
 ## Legal
 
-[Privacy Policy](https://ilang.ai/privacy.html) · [Terms of Use](https://ilang.ai/terms/)
+[Privacy Policy](https://ilang.ai/privacy) · [Terms of Use](https://ilang.ai/terms/)
 
 The I-Lang protocol and all associated tools are released under the MIT License.
 

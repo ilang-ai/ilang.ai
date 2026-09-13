@@ -199,7 +199,7 @@ structuring
 
 **0** prompts structured
 
-Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See [Privacy Policy](https://ilang.ai/privacy.html).
+Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See [Privacy Policy](https://ilang.ai/privacy).
 
 output.ilang
 

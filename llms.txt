@@ -59,7 +59,7 @@
 - [About](https://ilang.ai/about/): About iLang Inc. — company, products, contact
 - [Ecosystem](https://ilang.ai/ecosystem/): Every public repository of the ilang-ai organization, one line each
 - [I-Lang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/): Detailed comparison, a text protocol next to a data-over-sound demo
-- [Privacy](https://ilang.ai/privacy.html): Privacy policy
+- [Privacy](https://ilang.ai/privacy): Privacy policy
 - [Terms](https://ilang.ai/terms/): Terms of use
 
 ## AI Text Tools (DeAI)

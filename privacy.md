@@ -1,5 +1,5 @@
 # Privacy Policy — iLang Inc.
-Source: https://ilang.ai/privacy.html
+Source: https://ilang.ai/privacy
 
 # Privacy Policy
 
