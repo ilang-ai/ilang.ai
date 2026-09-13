@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"I-Lang vs A2A: AI Protocol Comparison","description":"Detailed comparison of I-Lang and Google A2A. A2A coordinates agents. I-Lang structures agent instructions and behavior.","url":"https://ilang.ai/i-lang-vs-a2a/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"I-Lang vs A2A: AI Protocol Comparison","description":"Detailed comparison of I-Lang and Google A2A. A2A coordinates agents. I-Lang structures agent instructions and behavior.","url":"https://ilang.ai/i-lang-vs-a2a/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07","dateModified":"2026-09-14"}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -123,6 +123,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <section class="page-hero"><div class="container">
 <h1>I-Lang vs A2A</h1>
 <p class="sub">A2A handles agent discovery and delegation. I-Lang handles how agents understand their instructions. Different layers, complementary roles.</p>
+<p class="sub" style="font-size:13px;margin-top:12px">Updated 2026-09-14 &middot; Designed by <a href="https://orcid.org/0009-0004-4540-8082" style="color:var(--accent-2)">Long Quan Zhu</a> (Max, @SUN)</p>
 </div></section>
 
 <section class="content"><div class="container">
@@ -173,6 +174,10 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>Does it work without infrastructure?</td><td>No, requires server endpoints</td><td>Yes, text-native</td></tr>
 <tr><td>Is it open source?</td><td>Yes (Linux Foundation)</td><td>Yes (MIT license)</td></tr>
 </table>
+
+<h2>Frequently asked questions</h2>
+<h3>How is I-Lang different from A2A?</h3>
+<p>A2A handles how agents find and talk to each other: discovery, capability negotiation and task delegation through Agent Cards and Task objects. I-Lang handles how an agent understands what to do after the handshake: verb chains for the task and ::GENE{} declarations for behavior. The site's example has Agent A discover Agent B over A2A, then send it an I-Lang chain. A2A handled the routing; I-Lang handled the content.</p>
 
 <p style="margin-top:40px"><a href="/mcp-vs-a2a/" style="color:var(--accent);font-weight:600">See the full three-way comparison: I-Lang vs MCP vs A2A →</a></p>
 

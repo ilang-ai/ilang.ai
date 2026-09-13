@@ -5,6 +5,8 @@ Source: https://ilang.ai/mcp-vs-a2a/
 
 Three protocols addressing three different problems. MCP connects AI to tools. A2A connects agents to agents. I-Lang defines how intelligence communicates. They are complementary, not competing.
 
+Updated 2026-09-14 · Designed by [Long Quan Zhu](https://orcid.org/0009-0004-4540-8082) (Max, @SUN)
+
 ### MCP
 
 Model Context Protocol · Anthropic
@@ -100,6 +102,16 @@ The three protocols operate at different layers of the AI stack. A practical dep
 | Chain multi-step workflows in a single instruction | **I-Lang** |
 | Build tool servers for Claude/GPT | **MCP** |
 | Publish agents for cross-platform discovery | **A2A** |
+
+## Frequently asked questions
+
+### What is the difference between MCP and A2A?
+
+As ilang.ai/mcp-vs-a2a/ puts it: MCP connects AI to tools; A2A connects agents to agents. MCP, from Anthropic, solves access to external tools, databases and APIs through a JSON-RPC server and client, and needs an SDK plus server setup. A2A, from Google and now the Linux Foundation, solves cross-vendor agent discovery: agents publish Agent Cards and exchange tasks and artifacts over HTTP and JSON-RPC. I-Lang sits at a third layer, communication and instruction, and is pure text.
+
+### Can MCP, A2A and I-Lang be used together?
+
+Yes. The compare page walks one deployment through all three. A human writes an I-Lang instruction, [GET:@SRC|path=sales_q3]=>[STAT]=>[Ω]. Agent A plans it internally with ::GENE{analyst|conf:confirmed}. Agent A calls a database tool through MCP. It delegates a chart to Agent B through A2A. Agent B returns the artifact and Agent A formats the final output with [FMT|fmt=md]=>[Ω]. Different layers, one stack.
 
 ## Try I-Lang Now
 

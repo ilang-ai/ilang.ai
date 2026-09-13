@@ -5,6 +5,8 @@ Source: https://ilang.ai/i-lang-vs-a2a/
 
 A2A handles agent discovery and delegation. I-Lang handles how agents understand their instructions. Different layers, complementary roles.
 
+Updated 2026-09-14 · Designed by [Long Quan Zhu](https://orcid.org/0009-0004-4540-8082) (Max, @SUN)
+
 ## Two protocols, two layers
 
 A2A (Agent-to-Agent Protocol) and I-Lang address different parts of the multi-agent stack. A2A handles how agents find and talk to each other. I-Lang handles how agents understand what to do.
@@ -58,6 +60,12 @@ A2A handled the routing. I-Lang handled the instruction content. Each protocol d
 | Does it structure task instructions? | Task objects (high-level) | Verb chains (precise, step-by-step) |
 | Does it work without infrastructure? | No, requires server endpoints | Yes, text-native |
 | Is it open source? | Yes (Linux Foundation) | Yes (MIT license) |
+
+## Frequently asked questions
+
+### How is I-Lang different from A2A?
+
+A2A handles how agents find and talk to each other: discovery, capability negotiation and task delegation through Agent Cards and Task objects. I-Lang handles how an agent understands what to do after the handshake: verb chains for the task and ::GENE{} declarations for behavior. The site's example has Agent A discover Agent B over A2A, then send it an I-Lang chain. A2A handled the routing; I-Lang handled the content.
 
 [See the full three-way comparison: I-Lang vs MCP vs A2A →](https://ilang.ai/mcp-vs-a2a/)
 
