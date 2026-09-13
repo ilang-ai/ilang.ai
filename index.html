@@ -522,16 +522,6 @@ footer{
 </head>
 <body>
 
-<!-- WeChat/QQ Guard -->
-<div id="wxguard">
-  <div class="wxguard-inner">
-    <div style="font-size:20px;font-weight:700;margin-bottom:20px">I-Lang</div>
-    <p style="font-size:14px;color:#5a6478;line-height:1.8;margin-bottom:32px">This page is best viewed in your default browser.<br>Please tap the top-right menu and select<br>"Open in Browser".</p>
-    <div style="position:fixed;top:12px;right:16px;animation:wxbounce 1.5s infinite">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
-    </div>
-  </div>
-</div>
 
 <div id="main">
 
@@ -873,7 +863,7 @@ Say: <span class="str">"I-Lang v5.0 loaded. What do you need?"</span></pre>
       <div class="eco-item">
         <div class="eco-head">
           <div class="eco-name">AutoCode <span class="tag">plugin</span></div>
-          <span class="eco-meta">47 skills</span>
+          <span class="eco-meta">48 skills</span>
         </div>
         <p>You say it, AutoCode ships it. From idea to live website with AI-assisted generation, iteration, and publishing.</p>
         <div class="eco-links">
@@ -912,6 +902,18 @@ Say: <span class="str">"I-Lang v5.0 loaded. What do you need?"</span></pre>
         <p>Instruction-only skills published on ClawHub. Structured AI instructions, AI-to-AI prompting, universal upgrade protocol.</p>
         <div class="eco-links">
           <a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">iLang Detect &amp; Humanizer <span class="tag">text-intelligence</span></div>
+          <span class="eco-meta">detector + editor</span>
+        </div>
+        <p>AI-generated text detection and editing. Powered by I-Lang protocol. An editor, not a generator.</p>
+        <div class="eco-links">
+          <a href="https://ilang.ai/ai-detector/">Detector</a>
+          <a href="https://ilang.ai/ai-humanizer/">Humanizer</a>
         </div>
       </div>
     </div>
@@ -1363,8 +1365,13 @@ I-Lang v5.0 | Designed by Max (@SUN), co-authored by Claude Opus (@OPUS), review
 (function(){
   var ua=navigator.userAgent.toLowerCase();
   if(ua.indexOf('micromessenger')>-1||ua.indexOf('qq/')>-1||ua.indexOf('mqqbrowser')>-1){
-    document.getElementById('wxguard').style.display='block';
-    document.getElementById('main').style.display='none';
+    // Built only inside WeChat/QQ in-app browsers, so crawlers and agents never read this notice as page text.
+    var g=document.createElement('div');
+    g.id='wxguard';
+    g.innerHTML='<div class="wxguard-inner"><div style="font-size:20px;font-weight:700;margin-bottom:20px">I-Lang</div><p style="font-size:14px;color:#5a6478;line-height:1.8;margin-bottom:32px">This page is best viewed in your default browser.<br>Please tap the top-right menu and select<br>&quot;Open in Browser&quot;.</p><div style="position:fixed;top:12px;right:16px;animation:wxbounce 1.5s infinite"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2"><path d="M12 5v14M5 12l7-7 7 7"/></svg></div></div>';
+    document.body.appendChild(g);
+    g.style.display='block';
+    var m=document.getElementById('main'); if(m) m.style.display='none';
   }
 })();
 

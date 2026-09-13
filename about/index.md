@@ -29,7 +29,7 @@ Give any AI model vision. Paste i.ilang.ai/{url} into any AI conversation and th
 
 ### AutoCode
 
-47 skills for Claude Code and Cursor. From idea to live website with AI-assisted generation, iteration, and publishing.
+48 skills for Claude Code and Cursor. From idea to live website with AI-assisted generation, iteration, and publishing.
 
 ### Imprint
 

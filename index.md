@@ -204,7 +204,7 @@ First-party tools that ship the protocol to where developers already work.
 
 AutoCode plugin
 
-47 skills
+48 skills
 
 You say it, AutoCode ships it. From idea to live website with AI-assisted generation, iteration, and publishing.
 
@@ -233,6 +233,14 @@ skill bundle
 Instruction-only skills published on ClawHub. Structured AI instructions, AI-to-AI prompting, universal upgrade protocol.
 
 [GitHub](https://github.com/ilang-ai/ilang-openclaw)
+
+iLang Detect & Humanizer text-intelligence
+
+detector + editor
+
+AI-generated text detection and editing. Powered by I-Lang protocol. An editor, not a generator.
+
+[Detector](https://ilang.ai/ai-detector/) [Humanizer](https://ilang.ai/ai-humanizer/)
 
 v4.0
 

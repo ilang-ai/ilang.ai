@@ -81,7 +81,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 
 ## Tools Built on I-Lang
 
-- [AutoCode](https://github.com/ilang-ai/autocode): 47 skills for Claude Code
+- [AutoCode](https://github.com/ilang-ai/autocode): 48 skills for Claude Code
 - [Imprint](https://github.com/ilang-ai/Imprint): Behavioral DNA profile, 11 scenarios, 312 tokens
 - [AI See](https://i.ilang.ai): Web vision proxy — i.ilang.ai/{url} gives any LLM eyes
 - [OpenClaw Skills](https://github.com/ilang-ai/ilang-openclaw): Instruction-only skills for ClawHub
