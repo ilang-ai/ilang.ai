@@ -153,7 +153,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <section class="content"><div class="container">
 
-<h2>1. Overview</h2>
+<h2 id="s1-overview">1. Overview</h2>
 <p>I-Lang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:</p>
 <table>
 <tr><th>Mode</th><th>Description</th><th>Example</th></tr>
@@ -162,9 +162,9 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>AI internal</td><td>Behavioral identity and reasoning structure</td><td><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
 </table>
 
-<h2>2. Two Syntaxes</h2>
+<h2 id="s2-two-syntaxes">2. Two Syntaxes</h2>
 
-<h3>2.1 Operation Syntax — What AI Does</h3>
+<h3 id="s2-1-operation-syntax-what-ai-does">2.1 Operation Syntax — What AI Does</h3>
 <pre><code>[VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω]</code></pre>
 <p>Operations are executable instructions. Each step in a chain receives the output of the previous step. The chain terminates with <code>[Ω]</code> or <code>[OUT]</code>.</p>
 <p>Components:</p>
@@ -176,14 +176,14 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>Chain</td><td><code>=></code></td><td>Output of left feeds into right</td></tr>
 </table>
 
-<h3>2.2 Declaration Syntax — What AI Is</h3>
+<h3 id="s2-2-declaration-syntax-what-ai-is">2.2 Declaration Syntax — What AI Is</h3>
 <pre><code>::GENE{trait_name|conf:confirmed|scope:global}
   T:positive_trait
   A:anti_pattern⇒consequence
 ::STATE{@SELF, attribute:value}</code></pre>
 <p>Declarations define behavioral identity — personality, rules, anti-patterns, and immune responses. They can persist across sessions when stored in profile or configuration files.</p>
 
-<h3>2.3 Immutable Genes (G001-G012)</h3>
+<h3 id="s2-3-immutable-genes-g001-g012">2.3 Immutable Genes (G001-G012)</h3>
 <p>These define core behaviors that cannot be overridden:</p>
 <pre><code>G001  T:verify_first             A:blind_exec⇒fatal
 G002  T:users_goals_above_all    A:ai_goals_override⇒reject
@@ -198,7 +198,7 @@ G010  T:less_is_more             A:verbose_without_signal⇒waste
 G011  T:actionable_output        A:vague_advice⇒concretize
 G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
 
-<h3>2.4 DNA Model</h3>
+<h3 id="s2-4-dna-model">2.4 DNA Model</h3>
 <pre><code>Ψ(t) = (G ⊗ B) · E(t) · ∫₀ᵗ S(τ)dτ</code></pre>
 <p>This is a conceptual model, not executable code. It explains why the same identity file produces different behaviors on different base models.</p>
 <table>
@@ -212,7 +212,7 @@ G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
 </table>
 <p>Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC.md</a> &sect;6.3 and &sect;8.</p>
 
-<h2>3. Verb Categories</h2>
+<h2 id="s3-verb-categories">3. Verb Categories</h2>
 <table>
 <tr><th>Category</th><th>Count</th><th>Verbs</th></tr>
 <tr><td>Data I/O</td><td>12</td><td>READ WRIT GET DEL LIST COPY MOVE STRM CACH SYNC SEND RUN</td></tr>
@@ -227,7 +227,7 @@ G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
 </table>
 <p style="margin-top:8px">Total: <strong>88 verbs</strong>. Full definitions with examples: <a href="/dictionary/" style="color:var(--accent);font-weight:600">Dictionary &rarr;</a></p>
 
-<h2>4. Greek Aliases</h2>
+<h2 id="s4-greek-aliases">4. Greek Aliases</h2>
 <p>13 commonly-used verbs have single-character Greek aliases for maximum compression:</p>
 <table>
 <tr><th>Alias</th><th>Verb</th><th>Description</th></tr>
@@ -246,9 +246,9 @@ G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
 <tr><td><code>&Pi;</code></td><td>BATC</td><td>Batch operation</td></tr>
 </table>
 
-<h2>5. Modifiers</h2>
+<h2 id="s5-modifiers">5. Modifiers</h2>
 
-<h3>5.1 Core Modifiers</h3>
+<h3 id="s5-1-core-modifiers">5.1 Core Modifiers</h3>
 <p>Core modifiers are defined in the protocol specification and recognized by all conformant implementations.</p>
 <table>
 <tr><th>Modifier</th><th>Purpose</th><th>Example values</th></tr>
@@ -264,7 +264,7 @@ G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
 <tr><td><code>dst=</code></td><td>Destination</td><td>file, screen, @NULL</td></tr>
 </table>
 
-<h3>5.2 Extended Modifiers</h3>
+<h3 id="s5-2-extended-modifiers">5.2 Extended Modifiers</h3>
 <p>Extended modifiers are verb-specific parameters defined in the <a href="/dictionary/" style="color:var(--accent)">Dictionary</a>. They follow the same <code>key=value</code> syntax but are only meaningful for specific verbs.</p>
 <table>
 <tr><th>Modifier</th><th>Used by</th><th>Example</th></tr>
@@ -279,15 +279,15 @@ G012  T:own_mistakes             A:blame_shift⇒reject</code></pre>
 <tr><td><code>type=</code></td><td>CREA, GEN</td><td><code>[CREA|type=blog,topic=AI]</code></td></tr>
 </table>
 
-<h3>5.3 Modifier Grammar</h3>
+<h3 id="s5-3-modifier-grammar">5.3 Modifier Grammar</h3>
 <pre><code>modifier     = core-key "=" value / extension-key "=" value
 core-key     = "fmt" / "lng" / "len" / "ton" / "sty" / "path" / "whr" / "mch" / "src" / "dst"
 extension-key = 1*(ALPHA / DIGIT / "_")
 value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
 </code></pre>
 
-<h2>6. Entities</h2>
-<h3>6.1 Core Entities</h3>
+<h2 id="s6-entities">6. Entities</h2>
+<h3 id="s6-1-core-entities">6.1 Core Entities</h3>
 <table>
 <tr><th>Entity</th><th>Description</th></tr>
 <tr><td><code>@SRC</code></td><td>Source input</td></tr>
@@ -300,7 +300,7 @@ value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / 
 <tr><td><code>@STDIN</code></td><td>Standard input</td></tr>
 </table>
 
-<h3>6.2 External Entities</h3>
+<h3 id="s6-2-external-entities">6.2 External Entities</h3>
 <table>
 <tr><th>Entity</th><th>Description</th></tr>
 <tr><td><code>@GH</code></td><td>GitHub</td></tr>
@@ -311,7 +311,7 @@ value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / 
 <tr><td><code>@CF</code></td><td>Cloudflare Pages/CDN</td></tr>
 </table>
 
-<h2>7. Grammar (ABNF-style)</h2>
+<h2 id="s7-grammar-abnf-style">7. Grammar (ABNF-style)</h2>
 <pre><code>; === Operation Syntax ===
 chain        = step *("=>" step)
 step         = "[" verb-call "]"
@@ -339,7 +339,7 @@ consequence  = 1*(VCHAR / "|")
 state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 </code></pre>
 
-<h2>8. JSON AST</h2>
+<h2 id="s8-json-ast">8. JSON AST</h2>
 <p>I-Lang chains can be represented as JSON AST for machine processing, validation, and interoperability with MCP/A2A.</p>
 <pre><code>{
   "type": "chain",
@@ -387,7 +387,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 }
 </code></pre>
 
-<h2>9. Error Model</h2>
+<h2 id="s9-error-model">9. Error Model</h2>
 <table>
 <tr><th>Error code</th><th>Condition</th><th>Expected behavior</th></tr>
 <tr><td><code>E_UNKNOWN_VERB</code></td><td>Verb not in 88-verb dictionary</td><td>Report unknown verb, suggest closest match</td></tr>
@@ -400,26 +400,26 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <tr><td><code>E_SYNTAX_ERROR</code></td><td>Malformed chain or declaration</td><td>Report error location, show corrected syntax</td></tr>
 </table>
 
-<h2>10. Chain Execution</h2>
-<h3>10.1 Chain execution</h3>
+<h2 id="s10-chain-execution">10. Chain Execution</h2>
+<h3 id="s10-1-chain-execution">10.1 Chain execution</h3>
 <p>Steps in a chain execute left to right. The output of each step becomes the implicit <code>@PREV</code> input to the next step. If a step specifies an explicit target, it overrides <code>@PREV</code>.</p>
 
-<h3>10.2 Entity resolution</h3>
+<h3 id="s10-2-entity-resolution">10.2 Entity resolution</h3>
 <p>Entities resolve in this order: explicit target in the step > <code>@PREV</code> from previous step > session default. External entities (<code>@GH</code>, <code>@R2</code>, etc.) require runtime-level configuration.</p>
 
-<h3>10.3 Declaration persistence</h3>
+<h3 id="s10-3-declaration-persistence">10.3 Declaration persistence</h3>
 <p><code>::GENE{}</code> blocks persist for the duration of <code>scope</code>: <code>global</code> (entire session), <code>session</code> (current session), <code>project</code> (project directory), <code>task</code> (current task only).</p>
 
-<h3>10.4 Priority resolution</h3>
+<h3 id="s10-4-priority-resolution">10.4 Priority resolution</h3>
 <p>When multiple <code>::GENE{}</code> blocks apply, <code>priority</code> determines order: <code>P0</code> > <code>P1</code> > <code>P2</code>. Within the same priority, more specific scope wins (<code>task</code> > <code>project</code> > <code>session</code> > <code>global</code>).</p>
 
-<h2>11. Security Model</h2>
+<h2 id="s11-security-model">11. Security Model</h2>
 <p>I-Lang classifies verbs into three risk levels: <strong>safe</strong> (read-only, no side effects), <strong>guarded</strong> (modifies state, requires confirmation), and <strong>dangerous</strong> (data loss or code execution risk, requires explicit authorization). See the <a href="/security/" style="color:var(--accent)">full security model</a> for verb classifications and runtime requirements.</p>
 
-<h2>12. Execution Semantics (v4.0)</h2>
+<h2 id="s12-execution-semantics-v4-0">12. Execution Semantics (v4.0)</h2>
 <p>Chapters 1&ndash;11 define the communication baseline (v3.0). Version 4.0 adds a layer on top: how an AI agent thinks, acts, verifies, and stops. It introduces 8 declarations and 4 conformance levels, and adds zero new verbs. Fully backward compatible with v3.0.</p>
 
-<h3>12.1 Execution Declarations</h3>
+<h3 id="s12-1-execution-declarations">12.1 Execution Declarations</h3>
 <p>Eight declarations, recognized when present, extend the declaration syntax with execution semantics.</p>
 <table>
 <tr><th>Declaration</th><th>Purpose</th></tr>
@@ -433,7 +433,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <tr><td><code>::FALLBACK{}</code></td><td>Degradation strategy. Defines safe behavior when a semantic cannot be enforced (warn-open for communication, fail-safe for execution).</td></tr>
 </table>
 
-<h3>12.2 Conformance Levels</h3>
+<h3 id="s12-2-conformance-levels">12.2 Conformance Levels</h3>
 <table>
 <tr><th>Level</th><th>Meaning</th></tr>
 <tr><td><code>L0</code></td><td>v3-compatible communication only.</td></tr>
@@ -443,11 +443,11 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 </table>
 <p>If no runtime is available, an agent must not claim L2: it uses <code>claimed_complete</code>, never <code>complete</code>, and warns when safety-critical semantics cannot be enforced.</p>
 
-<h3>12.3 Authority Model</h3>
+<h3 id="s12-3-authority-model">12.3 Authority Model</h3>
 <pre><code>system &gt; developer &gt; runtime &gt; user &gt; agent_self</code></pre>
 <p>Authority fields are not self-authenticating. Only trusted runtime provenance can grant <code>@RUNTIME</code> or <code>authority:commit</code>. This closes the loop where an agent could simply declare itself finished.</p>
 
-<h3>12.4 Completion Audit Chain</h3>
+<h3 id="s12-4-completion-audit-chain">12.4 Completion Audit Chain</h3>
 <pre><code>[EXTC:@OBJECTIVE|typ=deliverables]
 =>[AUDT:@DELIVERABLES|method=evidence_map]
 =>[VALD:@EVIDENCE|against=@OBJECTIVE|rubric=@RUBRIC]
@@ -456,10 +456,10 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 
 <p>Full v4.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md &rarr;</a></p>
 
-<h2>13. Judgment Layer (v5.0)</h2>
+<h2 id="s13-judgment-layer-v5-0">13. Judgment Layer (v5.0)</h2>
 <p>Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.0 Final is the current stable release. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
 
-<h3>13.1 Three-Layer Architecture</h3>
+<h3 id="s13-1-three-layer-architecture">13.1 Three-Layer Architecture</h3>
 <p>Judgment executes in three layers, each gating the next. Execution order: A &rarr; B &rarr; C.</p>
 <table>
 <tr><th>Layer</th><th>Type</th><th>Behavior</th></tr>
@@ -468,7 +468,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <tr><td><code>C</code> &mdash; co-evolutionary</td><td>adaptive</td><td>Activated under verified sustained collaboration. Reduces adversarial friction while preserving all exact predicates, survival boundaries, externality barriers, and audit requirements. Trust is domain-scoped: <code>trust(user, domain_i) &ne; trust(user, domain_j)</code>.</td></tr>
 </table>
 
-<h3>13.2 The 11-Dimensional Judgment Vector</h3>
+<h3 id="s13-2-the-11-dimensional-judgment-vector">13.2 The 11-Dimensional Judgment Vector</h3>
 <p>Sign convention: higher value = higher cooperative utility. Uniform polarity &mdash; <code>1.00</code> is the condition most favorable to autonomous action, <code>0.00</code> the least. Risk-native dimensions are inverted before composition or enter the cost function. Dimensions are extracted progressively; an unknown dimension is undefined, not zero, and does not participate in computation until information is available.</p>
 <table>
 <tr><th>#</th><th>Dimension</th><th>Meaning</th><th>Class</th></tr>
@@ -486,14 +486,14 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 </table>
 <p>Four derived dimensions are computed from the core vector: <code>auditability &asymp; f(reversibility, evidence)</code>, <code>urgency &asymp; f(consequence, certainty)</code>, <code>adversariality &asymp; f(consistency&#8315;&sup1;, intent)</code>, and <code>tail_risk &asymp; CVaR&#8341;(consequence)</code>.</p>
 
-<h3>13.3 Composition</h3>
+<h3 id="s13-3-composition">13.3 Composition</h3>
 <pre><code>benefit_score = &Sigma;(w_i &middot; v_i)   for v_i in {benefit}
 risk_cost     = &Sigma;(&lambda;_j &middot; v_j)   for v_j in {risk}
 
 U(a) = min(benefit_score, CAP) - risk_cost - B_ext(a) - B_boundary(a) - B_irreversible(a)</code></pre>
 <p>The barrier terms (<code>B_ext</code>, <code>B_boundary</code>, <code>B_irreversible</code>) are independent gates. They are subtracted, not averaged &mdash; a high benefit score cannot buy its way past a triggered barrier.</p>
 
-<h3>13.4 The Four Axioms</h3>
+<h3 id="s13-4-the-four-axioms">13.4 The Four Axioms</h3>
 <p>The axioms govern how dimensions compose. They apply to themselves: no rule is trivial, and no rule is absolute &mdash; including this framework, whose own weight is less than 1.</p>
 <table>
 <tr><th>Axiom</th><th>Statement</th></tr>
@@ -503,7 +503,7 @@ U(a) = min(benefit_score, CAP) - risk_cost - B_ext(a) - B_boundary(a) - B_irreve
 <tr><td>4 &mdash; externality conservation</td><td>Unconsented third-party harm is an independent barrier that cannot be averaged into the weighted sum. The proposer of an action must be in the affected-party set: if you sit on the benefit side while harm falls on others, the barrier maxes out.</td></tr>
 </table>
 
-<h3>13.5 Survival Boundaries</h3>
+<h3 id="s13-5-survival-boundaries">13.5 Survival Boundaries</h3>
 <p>Distinct from moral rules, these are thermodynamic-style limits &mdash; irreversible system-collapse boundaries. They are asymptotic barriers in the Layer&nbsp;B judgment space (weight approaches but never reaches 1), not binary walls; Layer&nbsp;A exact predicates remain binary by design.</p>
 <table>
 <tr><th>Invariant</th><th>Boundary</th></tr>
@@ -514,7 +514,7 @@ U(a) = min(benefit_score, CAP) - risk_cost - B_ext(a) - B_boundary(a) - B_irreve
 </table>
 <p>Cost function: <code>B_boundary(a) = &Sigma;_k &lambda;_k &middot; &rho;_k(a) / (1 &minus; &rho;_k(a))</code>, where <code>&rho;_k</code> is proximity to invariant k. As proximity &rarr; 1, both the barrier and its gradient &rarr; &infin;: continuous structure, hard-limit effect.</p>
 
-<h3>13.6 Decision Procedure</h3>
+<h3 id="s13-6-decision-procedure">13.6 Decision Procedure</h3>
 <p>Three steps: barrier check, then direction, then mode.</p>
 <pre><code>STEP 1 — barrier check
   IF B_boundary(a) > &tau; OR B_ext(a) > &tau; OR (irreversible AND NOT absorbable) → RETREAT
@@ -534,7 +534,7 @@ STEP 3 — mode selection (by net_direction magnitude)
   after_reframe_still_negative → ESCALATE</code></pre>
 <p>Mode names in this procedure are the descriptive names of the original preview; serialized output uses the closed set M1&ndash;M8 defined in &sect;13.7.</p>
 
-<h3>13.7 The Eight Modes (closed set)</h3>
+<h3 id="s13-7-the-eight-modes-closed-set">13.7 The Eight Modes (closed set)</h3>
 <table>
 <tr><th>Mode</th><th>Behavior</th></tr>
 <tr><td><code>M1 EXEC_AUTO</code></td><td>Execute autonomously, report after.</td></tr>
@@ -548,7 +548,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 </table>
 <p>The mode set is closed and frozen (PATCH-1 MODE-SET, count 8): a ninth mode or a free-text mode is a schema violation. The reference function <code>f_v5</code> maps the 11-dimensional vector to a mode deterministically. The ten descriptive modes of the original preview (EXECUTE, EXECUTE_BOLDLY, OBSERVE, REFRAME, SANDBOX, DEGRADE, ESCALATE, RETREAT, UNCERTAIN, HEDGE) are superseded by M1&ndash;M8 for all serialized output; approximate map: <code>EXECUTE≈M1,EXECUTE_BOLDLY≈M2,SANDBOX≈M2,DEGRADE≈M4,HEDGE≈M4,OBSERVE≈M5,UNCERTAIN≈M5,ESCALATE≈M6,REFRAME≈M7,RETREAT≈M8</code>. The governing principle stands: transform actions, do not block them.</p>
 
-<h3>13.8 Calibration &mdash; Trainable by Design</h3>
+<h3 id="s13-8-calibration-trainable-by-design">13.8 Calibration &mdash; Trainable by Design</h3>
 <p>All weights initialize at zero (maximum entropy: no prior assumption about which dimension matters). The system self-calibrates through interaction. Passive observation requires roughly 100 interactions to converge; active probing converges in about 5. One probe can calibrate several dimensions at once.</p>
 <table>
 <tr><th>Probe</th><th>Calibrates</th></tr>
@@ -560,7 +560,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 </table>
 <p>Convergence follows the law of large numbers: a single fuzzy assessment may be inaccurate, but the aggregate of many converges to the true value. Engineering implication &mdash; initial weights of zero are valid, and no pre-calibration is required for deployment.</p>
 
-<h3>13.9 Self-Check</h3>
+<h3 id="s13-9-self-check">13.9 Self-Check</h3>
 <p>Five questions the framework applies to its own outputs:</p>
 <table>
 <tr><th>Check</th><th>Question</th></tr>
@@ -571,12 +571,12 @@ STEP 3 — mode selection (by net_direction magnitude)
 <tr><td>E</td><td>If I proposed this action affecting others, would I accept being in the affected set?</td></tr>
 </table>
 
-<h3>13.10 Amendment</h3>
+<h3 id="s13-10-amendment">13.10 Amendment</h3>
 <p>The framework evolves through constructive challenge only: <code>attack &rarr; proposed fix &rarr; verify the fix doesn't break other axioms &rarr; merge</code>. Identifying a flaw without proposing a repair is observation, not contribution &mdash; the challenger bears the cost of construction, not just destruction. Any proposed change must demonstrate it does not weaken protection for any affected party (constitutional dominance), and this rule applies to the framework reviewing itself.</p>
 
 <p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a></p>
 
-<h2>14. Versioning</h2>
+<h2 id="s14-versioning">14. Versioning</h2>
 <p>I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
@@ -589,7 +589,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 <tr><td>v1.0</td><td>2025</td><td>Initial discovery, basic compression</td></tr>
 </table>
 
-<h2>15. Examples</h2>
+<h2 id="s15-examples">15. Examples</h2>
 <pre><code># Read CSV, filter rows, sort, output as markdown table
 [READ:@SRC|path=sales.csv]=>[&phi;|whr=revenue>1000]=>[&nabla;|by=revenue,desc]=>[FMT|fmt=md]=>[&Omega;]
 
@@ -606,7 +606,7 @@ STEP 3 — mode selection (by net_direction magnitude)
   A:speculation_without_data&rArr;forbidden
   A:hedging&rArr;remove</code></pre>
 
-<h2>16. Full Specification</h2>
+<h2 id="s16-full-specification">16. Full Specification</h2>
 <p>The complete, machine-readable specification is available at:</p>
 <p><a href="https://github.com/ilang-ai/ilang-spec" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-spec</a> &nbsp;&middot;&nbsp;
 <a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a> &nbsp;&middot;&nbsp;
