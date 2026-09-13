@@ -154,7 +154,7 @@ Grab the block on the right. It's the full v5.0 activation prompt - rules, verbs
 
 2
 
-**Paste into any AI conversation**
+**Paste into a tested AI model**
 
 Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.
 

@@ -115,7 +115,7 @@ Yes. The compare page walks one deployment through all three. A human writes an 
 
 ## Try I-Lang Now
 
-Unlike MCP and A2A, the I-Lang protocol itself requires no installation. Copy the [protocol header](https://ilang.ai/), paste into any AI conversation, and start using structured instructions immediately.
+Unlike MCP and A2A, the I-Lang protocol itself requires no installation. Copy the [protocol header](https://ilang.ai/), paste it into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM, and start using structured instructions immediately.
 
 [← Back to I-Lang](https://ilang.ai/)  ·  [Read the Spec →](https://ilang.ai/spec/)  ·  [Browse the Dictionary →](https://ilang.ai/dictionary/)
 

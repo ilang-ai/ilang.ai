@@ -136,7 +136,7 @@ Four levels, defined in [SPEC-v4.0-FINAL.md](https://github.com/ilang-ai/ilang-s
 ## 2. Quickstart (30 seconds)
 
 > **Step 1.** Copy the protocol header below.
-> **Step 2.** Paste it into any AI conversation.
+> **Step 2.** Paste it into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM.
 > **Step 3.** The model responds with five capabilities — handshake complete.
 
 <details open>

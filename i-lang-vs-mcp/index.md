@@ -16,7 +16,7 @@ MCP (Model Context Protocol) and I-Lang solve different problems at different la
 | Created by | Anthropic | I-Lang Research (open community) |
 | Primary function | Connect AI to external tools and data sources | Structure communication between humans, AI, and agents |
 | Layer | Tool integration layer | Semantic instruction layer |
-| Requires | SDK, server implementation, API endpoints | Nothing. Text-native, paste into any conversation |
+| Requires | SDK, server implementation, API endpoints | Nothing. Text-native, paste into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM |
 | Format | JSON-RPC over stdio/SSE | Structured text: `[VERB:@TARGET\|mod=val]` |
 | Solves | How AI accesses databases, APIs, file systems | How AI understands instructions with lower ambiguity |
 | Example | AI calls a SQL database through MCP server | `[READ:@SRC\|path=data.csv]=>[FILT\|whr=revenue>1000]=>[OUT]` |
@@ -47,7 +47,7 @@ MCP handles the database connection. I-Lang handles the instruction chain. Neith
 
 | Question | MCP | I-Lang |
 | --- | --- | --- |
-| Can I use it without writing code? | No, requires server setup | Yes, paste text into any AI chat |
+| Can I use it without writing code? | No, requires server setup | Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM |
 | Does it work across models? | Depends on model support for MCP | Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
 | Does it reduce token usage? | Not its purpose | 68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
 | Does it define AI behavior? | No | Yes, via `::GENE{}` declarations |
@@ -57,7 +57,7 @@ MCP handles the database connection. I-Lang handles the instruction chain. Neith
 
 ### How is I-Lang different from MCP?
 
-MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary. MCP requires an SDK, a server implementation and API endpoints, and speaks JSON-RPC over stdio or SSE. I-Lang requires nothing: structured text such as [READ:@SRC|path=data.csv]=>[FILT|whr=revenue>1000]=>[OUT] pasted into any conversation. The site's combined example has MCP hold the database connection while I-Lang defines the analysis chain.
+MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary. MCP requires an SDK, a server implementation and API endpoints, and speaks JSON-RPC over stdio or SSE. I-Lang requires nothing: structured text such as [READ:@SRC|path=data.csv]=>[FILT|whr=revenue>1000]=>[OUT] pasted into a conversation with ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM. The site's combined example has MCP hold the database connection while I-Lang defines the analysis chain.
 
 [See the full three-way comparison: I-Lang vs MCP vs A2A →](https://ilang.ai/mcp-vs-a2a/)
 
