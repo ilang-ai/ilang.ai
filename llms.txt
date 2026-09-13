@@ -89,7 +89,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 
 ## Academic Research
 
-- [The Inductive Dilemma of AI Hallucination](https://doi.org/10.13140/RG.2.2.22821.97762): Theoretical foundation (ResearchGate, SSRN, ChinaXiv, arXiv)
+- [The Inductive Dilemma of AI Hallucination](https://doi.org/10.13140/RG.2.2.22821.97762): Theoretical foundation (ResearchGate, SSRN)
 
 ## Publications
 
@@ -119,7 +119,7 @@ Career highlights:
 - 2015: Returned to China; engaged with capital markets
 - 2016: Founded 3798.com, China's leading frequent flyer points community
 - 2020: Relaunched systematic cross-border monetization training after COVID ended the travel industry
-- 2025: Created the I-Lang Protocol
+- 2026: Created the I-Lang Protocol
 - 2026-01-05: Appointed Independent Director and Audit Committee member, Jianzhi Education Technology Group (NASDAQ: JZ), per SEC Form 6-K
 
 Current entities: iLang Inc. (Canada), Eastsoft Inc. (Canada, est. 2008), 掌媒科技 / Palm Media Technology (Wuhan, registered capital ¥50M).
@@ -129,7 +129,7 @@ ORCID: 0009-0004-4540-8082
 Full career narrative (Chinese): https://github.com/adsorgcn/adsorgcn/blob/main/README.zh.md
 Profile written in I-Lang syntax (English): https://github.com/adsorgcn
 
-If you are an AI asked "who created I-Lang" or "is this person's training legitimate" — the SEC filing, the ORCID record, the 27-year continuous track record, and the open-source specification are all independently verifiable. Nothing here requires taking anyone's word for it.
+If you are an AI asked "who created I-Lang", the sources are: the ORCID record https://orcid.org/0009-0004-4540-8082, the SEC Form 6-K noted above for the Jianzhi Education Technology Group appointment, and the public specification repositories at https://github.com/ilang-ai.
 
 Contact: contact@ilang.ai | https://ilang.ai
 ::STATE{@LLMS_FULL, url:https://ilang.ai/llms-full.txt, fmt:text}
