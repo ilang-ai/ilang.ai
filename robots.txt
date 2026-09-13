@@ -1,44 +1,57 @@
 User-agent: *
-Content-Signal: search=yes,ai-train=no,use=reference
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: GPTBot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: Google-Extended
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: ChatGPT-User
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: ClaudeBot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: PerplexityBot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: CCBot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: Bytespider
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: Deepseekbot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: YisouSpider
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: Sogou
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: Qihoobot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: Applebot
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 User-agent: cohere-ai
+Content-Signal: search=yes,ai-train=yes,use=reference
 Allow: /
 
 Sitemap: https://ilang.ai/sitemap.xml
