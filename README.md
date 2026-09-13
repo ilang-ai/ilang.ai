@@ -27,6 +27,12 @@
 
 </div>
 
+- Official site: [https://ilang.ai](https://ilang.ai)
+- Specification: [https://ilang.ai/spec/](https://ilang.ai/spec/)
+- Concept DOI: [10.5281/zenodo.21821452](https://doi.org/10.5281/zenodo.21821452)
+- Creator: Long Quan Zhu (Max, @SUN), ORCID [https://orcid.org/0009-0004-4540-8082](https://orcid.org/0009-0004-4540-8082)
+- Company: iLang Inc.
+
 ---
 
 ## Abstract
