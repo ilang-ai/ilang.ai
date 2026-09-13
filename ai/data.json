@@ -1974,8 +1974,12 @@
       "description": "iLang Humanizer: an editor, not a generator. Deletes AI filler, varies rhythm, and marks the [VOICE], [NUMBER] and [STORY] positions you fill yourself."
     },
     {
+      "url": "https://ilang.ai/mcp-vs-a2a/",
+      "description": "MCP vs A2A vs I-Lang: protocol comparison at three layers"
+    },
+    {
       "url": "https://ilang.ai/compare/",
-      "description": "Comparisons: I-Lang vs other protocols, and iLang detector vs other AI detectors"
+      "description": "Comparisons: iLang Detect vs other AI detectors"
     },
     {
       "url": "https://ilang.ai/for/",

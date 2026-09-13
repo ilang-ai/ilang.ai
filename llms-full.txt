@@ -20,7 +20,8 @@ PAGES
 - https://ilang.ai/ai-see/: AI See product page
 - https://ilang.ai/ai-detector/: iLang Detect, sentence-level AI analysis with rewriting suggestions across 6 dimensions
 - https://ilang.ai/ai-humanizer/: iLang Humanizer: an editor, not a generator. Deletes AI filler, varies rhythm, and marks the [VOICE], [NUMBER] and [STORY] positions you fill yourself.
-- https://ilang.ai/compare/: Comparisons: I-Lang vs other protocols, and iLang detector vs other AI detectors
+- https://ilang.ai/mcp-vs-a2a/: MCP vs A2A vs I-Lang, protocol comparison at three layers
+- https://ilang.ai/compare/: Comparisons: iLang Detect vs other AI detectors
 - https://ilang.ai/for/: Scenario guides: humanizer and detector for students, teachers, essays, blog posts
 - https://ilang.ai/blog/: Blog: protocol and soul, Greek symbols, carbon-silicon symbiosis
 

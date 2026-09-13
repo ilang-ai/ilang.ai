@@ -542,7 +542,7 @@ The complete, machine-readable specification is available at:
 
 Related pages: [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
 
-[← Back to I-Lang](https://ilang.ai/)  ·  [Compare with MCP & A2A →](https://ilang.ai/compare/)  ·  [Browse the Dictionary →](https://ilang.ai/dictionary/)
+[← Back to I-Lang](https://ilang.ai/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)  ·  [Browse the Dictionary →](https://ilang.ai/dictionary/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

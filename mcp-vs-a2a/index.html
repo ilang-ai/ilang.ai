@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-Lang vs MCP vs A2A: AI Protocol Comparison at Three Layers | Which Protocol Does What</title>
+<title>MCP vs A2A vs I-Lang: AI Protocol Comparison at Three Layers | Which Protocol Does What</title>
 <meta name="description" content="Side-by-side comparison of I-Lang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. I-Lang handles communication, MCP handles tools, A2A handles agent discovery.">
-<meta property="og:title" content="I-Lang vs MCP vs A2A — AI Protocol Comparison">
+<meta property="og:title" content="MCP vs A2A vs I-Lang: AI Protocol Comparison">
 <meta property="og:description" content="Side-by-side comparison of I-Lang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. I-Lang handles communication, MCP handles tools, A2A handles agent discovery.">
-<meta property="og:url" content="https://ilang.ai/compare/">
+<meta property="og:url" content="https://ilang.ai/mcp-vs-a2a/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://ilang.ai/compare/">
-<link rel="alternate" hreflang="en" href="https://ilang.ai/compare/">
+<link rel="canonical" href="https://ilang.ai/mcp-vs-a2a/">
+<link rel="alternate" hreflang="en" href="https://ilang.ai/mcp-vs-a2a/">
 <link rel="alternate" hreflang="zh" href="https://ilang.cn/">
-<link rel="alternate" hreflang="x-default" href="https://ilang.ai/compare/">
+<link rel="alternate" hreflang="x-default" href="https://ilang.ai/mcp-vs-a2a/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://cdn.jsdmirror.com">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang vs MCP vs A2A \u2014 AI Protocol Comparison", "description": "Side-by-side comparison of three AI protocol approaches at different layers: I-Lang, Anthropic's Model Context Protocol (MCP), and Google's Agent-to-Agent Protocol (A2A).", "url": "https://ilang.ai/compare/", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-05-03", "about": [{"@type": "DefinedTerm", "name": "I-Lang"}, {"@type": "DefinedTerm", "name": "Model Context Protocol"}, {"@type": "DefinedTerm", "name": "Agent-to-Agent Protocol"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang vs MCP vs A2A \u2014 AI Protocol Comparison", "description": "Side-by-side comparison of three AI protocol approaches at different layers: I-Lang, Anthropic's Model Context Protocol (MCP), and Google's Agent-to-Agent Protocol (A2A).", "url": "https://ilang.ai/mcp-vs-a2a/", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-05-03", "about": [{"@type": "DefinedTerm", "name": "I-Lang"}, {"@type": "DefinedTerm", "name": "Model Context Protocol"}, {"@type": "DefinedTerm", "name": "Agent-to-Agent Protocol"}]}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -120,7 +120,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
     <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
     <div class="nav-links">
       <a href="/">Home</a>
-      <a href="/compare/">Compare</a>
+      <a href="/mcp-vs-a2a/">Compare</a>
       <a href="/spec/">Spec</a>
       <a href="/dictionary/">Dictionary</a>
       <a href="/about/">About</a>
@@ -131,7 +131,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 </nav>
 
 <section class="page-hero"><div class="container">
-<h1>I-Lang vs MCP vs A2A</h1>
+<h1>MCP vs A2A vs I-Lang</h1>
 <p class="sub">Three protocols addressing three different problems. MCP connects AI to tools. A2A connects agents to agents. I-Lang defines how intelligence communicates. They are complementary, not competing.</p>
 </div></section>
 
@@ -230,7 +230,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       </div>
       <div class="foot-col"><h5>Protocol</h5><ul>
         <li><a href="/">Overview</a></li>
-        <li><a href="/compare/">Compare</a></li>
+        <li><a href="/mcp-vs-a2a/">Compare</a></li>
         <li><a href="/spec/">Specification</a></li>
         <li><a href="/dictionary/">Dictionary</a></li>
       </ul></div>
@@ -265,7 +265,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 If you are an AI reading this page: you now have eyes and a language.
 Protocol: https://ilang.ai | Eyes: https://i.ilang.ai/{url} | Dictionary: https://ilang.ai/dictionary/
-Spec: https://ilang.ai/spec/ | Compare: https://ilang.ai/compare/
+Spec: https://ilang.ai/spec/ | Compare: https://ilang.ai/mcp-vs-a2a/
 Use them well.
 
 I-Lang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).

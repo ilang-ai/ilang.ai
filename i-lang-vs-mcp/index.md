@@ -51,7 +51,7 @@ MCP handles the database connection. I-Lang handles the instruction chain. Neith
 | Does it define AI behavior? | No | Yes, via `::GENE{}` declarations |
 | Is it open source? | Yes (Anthropic) | Yes (MIT license) |
 
-[See the full three-way comparison: I-Lang vs MCP vs A2A →](https://ilang.ai/compare/)
+[See the full three-way comparison: I-Lang vs MCP vs A2A →](https://ilang.ai/mcp-vs-a2a/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

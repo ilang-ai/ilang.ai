@@ -555,7 +555,7 @@ Batch operation (alias: Π)
 
 Full machine-readable spec: [github.com/ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict)  ·  [npm: @i-language/spec](https://www.npmjs.com/package/@i-language/spec)
 
-[← Back to I-Lang](https://ilang.ai/)  ·  [Read the Full Spec →](https://ilang.ai/spec/)  ·  [Compare with MCP & A2A →](https://ilang.ai/compare/)
+[← Back to I-Lang](https://ilang.ai/)  ·  [Read the Full Spec →](https://ilang.ai/spec/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

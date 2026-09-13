@@ -1,5 +1,5 @@
-# I-Lang vs MCP vs A2A: AI Protocol Comparison at Three Layers | Which Protocol Does What
-Source: https://ilang.ai/compare/
+# MCP vs A2A vs I-Lang: AI Protocol Comparison at Three Layers | Which Protocol Does What
+Source: https://ilang.ai/mcp-vs-a2a/
 
 # I-Lang vs MCP vs A2A
 

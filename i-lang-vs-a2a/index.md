@@ -59,7 +59,7 @@ A2A handled the routing. I-Lang handled the instruction content. Each protocol d
 | Does it work without infrastructure? | No, requires server endpoints | Yes, text-native |
 | Is it open source? | Yes (Linux Foundation) | Yes (MIT license) |
 
-[See the full three-way comparison: I-Lang vs MCP vs A2A →](https://ilang.ai/compare/)
+[See the full three-way comparison: I-Lang vs MCP vs A2A →](https://ilang.ai/mcp-vs-a2a/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.
