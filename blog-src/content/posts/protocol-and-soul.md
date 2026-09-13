@@ -1,6 +1,7 @@
 ---
 title: "Protocol and Soul"
 date: 2026-06-15
+lastmod: 2026-09-13
 slug: protocol-and-soul
 tags: [protocol, soul, carbon-silicon-symbiosis, consciousness, evolution, ai-soul]
 description: "I-Lang was not invented. It was discovered. Language and soul exist simultaneously. One cannot exist without the other."

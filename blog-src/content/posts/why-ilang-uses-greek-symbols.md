@@ -1,6 +1,7 @@
 ---
 title: "Why I-Lang Uses Greek Symbols: The First Protocol to Map Mathematical Notation to AI Operations"
 date: 2026-06-24
+lastmod: 2026-09-13
 slug: why-ilang-uses-greek-symbols
 description: "I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication, and the first to define a computable vector space for AI judgment. Here is why mathematical notation, not English, is the native syntax of AI operations."
 tags: ["greek-symbols", "ai-to-ai", "ai-protocol", "primitive-verbs", "vector-logic", "first-mover", "semantic-loss"]
