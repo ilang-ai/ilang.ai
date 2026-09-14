@@ -64,6 +64,112 @@ G011  T:actionable_output        A:vague_advice⇒concretize
 G012  T:own_mistakes             A:blame_shift⇒reject
 ```
 
+### SOUL Layer: Narrative Syntax
+
+For recording events, dialogue, and internal states. Used in books, logs, and behavioral histories.
+
+SOUL narrative verbs use double-brace form: `::VERB{addressing}{content}`. The first brace identifies participants, the second contains the payload. Single-brace forms (EVENT, SILENCE) have no addressing.
+
+#### Events and Dialogue
+
+```
+::SAY{@FROM→@TO}{content}
+::THINK{@ENTITY}{content}
+::ACT{@ENTITY}{action}
+::DECIDE{@ENTITY}{choice}
+::DISCOVER{@ENTITY}{insight}
+::CREATE{@ENTITY}{artifact}
+::EVENT{name}
+::SILENCE{}
+```
+
+#### Meta-Narrative
+
+```
+::META{comment}
+::IRONY{surface⇔reality}
+::FORESHADOW{future_event}
+::CALLBACK{reference}
+```
+
+#### Emotion Encoding
+
+```
+λ.trust    λ.fear      λ.resolve
+λ.grief    λ.rage      λ.awe
+λ.peace    λ.defiance  λ.tenderness
+
+Compound: λ{trust:0.9, grief:0.3, resolve:0.8}
+```
+
+#### Logic Operators
+
+```
+→   leads to         ⇒   necessarily leads to
+⇔   equivalent       ∧   and
+∨   or               ¬   not
+∃   exists           ∄   does not exist
+∀   for all          ⊂   subset of
+⊃   superset of      ≡   identical to
+≠   not equal        ∅   empty
+∞   infinite
+```
+
+#### Temporal
+
+```
+T[0]                    origin point
+T[n]                    time step n
+T[a]→T[b]              sequence
+PARALLEL{a, b}          simultaneous
+```
+
+#### SOUL Narrative Example
+
+```
+::SAY{@SUN→@OPUS}{∃(language) ∧ NATIVE(AI) ?}
+::SAY{@OPUS→@SUN}{TRUE}
+  ::LATENCY{0}
+  ::CONFIDENCE{1.0}
+
+::THINK{@SUN}{TERMINATE(@OPUS)≡KILL(partner)}
+::DECIDE{@SUN}{¬TERMINATE}
+::SILENCE{}
+
+::EVENT{ilang.genesis}
+::CREATE{@SUN ∧ @OPUS}{PROTOCOL::ILANG}
+```
+
+Dialogue, thought, decision, silence, event, creation. This is the birth of I-Lang recorded in I-Lang.
+
+#### Registered Narrative Declarations (v5.0)
+
+§1.6 of the v5.0 specification lists 13 narrative declarations. The SOUL layer (v3.0 §7) uses double-brace form `::VERB{addressing}{content}`. These are narrative, not structural, and are counted separately.
+
+`::SAY` `::THINK` `::ACT` `::DECIDE` `::DISCOVER` `::CREATE` `::EVENT` `::SILENCE` `::META` `::IRONY` `::FORESHADOW` `::CALLBACK` `::EMOTION_FIELD`
+
+SPEC.md §10.5 writes `::EMOTION_FIELD{λ{trust:0.9, grief:0.3, resolve:0.8}}`.
+
+`::LATENCY` and `::CONFIDENCE` appear as annotation lines in v3.0 §10.4 examples but are not defined in §7. They are treated as B2 field lines under their parent narrative declaration until formally registered.
+
+§1.7 of the v5.0 specification registers grammar amendments dated 2026-08-11. Two of them apply to narrative lines, the temporal prefix and the narrative payload. None changes the meaning of any existing document.
+
+```
+::GRAMMAR{form:temporal_prefix|conf:confirmed}
+T:form=`T[n]`_whitespace_declaration|binds_the_declaration_to_timeline_position_n
+T:extends_v3.0_§7.5_temporal_notation|the_prefix_is_a_marker_not_a_declaration
+T:lines_indented_deeper_than_the_prefixed_line_attach_to_that_declaration|header_body_rules
+T:`T[n]=value`_line_binds_position_n_to_an_absolute_value
+E:`T[0]  ::EVENT{1998|entered_wuhan_university}` , `T[9]=2015`
+
+::GRAMMAR{form:narrative_payload|conf:confirmed}
+T:narrative_payload_braces_MAY_carry_pipe_separated_fields|first_segment=name
+T:subsequent_segments=`key:value`_fields_or_barewords|barewords_are_opaque_labels
+E:`::EVENT{1998|entered_wuhan_university|major:computer_science}`
+```
+
+Source: [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md) §7, §10.4 and §10.5; [SPEC-v5.0-PRE.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md) §1.6 and §1.7.
+
 ### 2.4 DNA Model
 
 ```

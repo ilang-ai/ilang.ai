@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human-AI Interaction: Human-to-AI Communication in I-Lang | I-Lang</title>
+<meta name="description" content="Human-to-AI communication in I-Lang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start.">
+<meta property="og:title" content="Human-AI Interaction: Human-to-AI Communication in I-Lang">
+<meta property="og:description" content="The Human-to-AI mode of I-Lang next to MCP and A2A, the user in the authority order, how ::UNTRUSTED treats user content, three v5.0 modes and the three-step quick start.">
+<meta property="og:url" content="https://ilang.ai/human-ai-interaction/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ilang.ai/human-ai-interaction/">
+<link rel="alternate" type="text/markdown" href="https://ilang.ai/human-ai-interaction/index.md">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdmirror.com">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
+<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Human-AI Interaction: Human-to-AI Communication in I-Lang",
+  "name": "Human-AI Interaction: Human-to-AI Communication in I-Lang",
+  "description": "Human-to-AI communication in I-Lang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start.",
+  "url": "https://ilang.ai/human-ai-interaction/",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "@id": "https://ilang.ai/#person",
+    "name": "Long Quan Zhu",
+    "url": "https://ilang.ai/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://ilang.ai/#organization",
+    "name": "iLang Inc.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ilang.ai/ilang-logo.png"
+    }
+  },
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ilang.ai/human-ai-interaction/"
+  }
+}
+</script>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace}
+a{color:inherit;text-decoration:none}
+a[href]{cursor:pointer}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.container{padding:0 20px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;min-height:40px}
+.brand .mark{width:28px;height:28px;border-radius:6px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
+.nav-links a{padding:8px 0}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.nav-cta:hover{background:var(--accent-2)}
+@media(max-width:760px){.nav-links{display:none}}
+.page-hero{padding:120px 0 40px}
+.page-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+.page-hero .sub{font-size:17px;color:var(--ink-2);max-width:760px;line-height:1.7}
+.page-hero a{color:var(--accent-2);text-decoration:underline;text-underline-offset:2px}
+.page-hero code,.content code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--bg-2);padding:2px 6px;border-radius:4px;overflow-wrap:anywhere}
+.content{padding:20px 0 80px}
+.content section{scroll-margin-top:80px}
+.content h2{font-size:24px;font-weight:700;margin:48px 0 16px;letter-spacing:-.01em}
+.content h3{font-size:18px;font-weight:600;margin:32px 0 12px}
+.content p{margin:0 0 16px;color:var(--ink-2);max-width:760px}
+.content ul,.content ol{margin:0 0 16px 22px;color:var(--ink-2);max-width:740px}
+.content li{margin:6px 0}
+.content a{color:var(--accent-2);text-decoration:underline;text-underline-offset:2px}
+.table-wrap{overflow-x:auto;margin:24px 0}
+.content table{width:100%;border-collapse:collapse;font-size:14px}
+.content th{text-align:left;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.content td{padding:12px 16px;border:1px solid var(--line);vertical-align:top}
+.content pre{background:var(--code-bg);color:var(--code-text);padding:20px 24px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;margin:16px 0 24px}
+.content pre code{background:none;padding:0;color:inherit;overflow-wrap:normal}
+.faq-list{max-width:860px;border-top:1px solid var(--line);margin-top:8px}
+.faq-item{padding:26px 0;border-bottom:1px solid var(--line)}
+.content .faq-item h3{font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-.01em;line-height:1.4;margin:0 0 10px}
+.content .faq-item p{font-size:16px;line-height:1.7;margin:0}
+footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
+.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:12px}
+.foot-brand .logo .mark{width:28px;height:28px;border-radius:6px}
+.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7}
+.foot-col .foot-h{font-size:13px;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.foot-col ul{list-style:none}
+.foot-col li{margin:8px 0}
+.foot-col a{font-size:14px;color:var(--ink-2);display:inline-block;padding:2px 0}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.foot-bottom .ids{display:flex;gap:16px}
+.content th code{text-transform:none;letter-spacing:0}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is human-to-AI communication in I-Lang?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The I-Lang v3.0 specification opens its first section with this sentence: \"I-Lang is a structured communication protocol between humans and AI.\" Of the three communication modes on ilang.ai, Human → AI is \"Precise instructions AI follows with fewer retries\", with the example [READ:@SRC|path=data.csv]=>[STAT]=>[Ω]. In the feature comparison on ilang.ai/mcp-vs-a2a/, the Human-to-AI row reads \"Not designed for\" under MCP and under A2A, and \"Primary use case\" under I-Lang."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is the human in the I-Lang authority order?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The authority order in the I-Lang specification, highest first, is system > developer > runtime > user > agent_self. The v5.0 entity registry gives @USER the authority tier user and describes it as \"Human principal; owns ::OBJECTIVE\". Authority fields are not self-authenticating. Only trusted runtime provenance can grant @RUNTIME or authority:commit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does I-Lang treat content from a user?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The specification describes ::UNTRUSTED{} as \"Input isolation. Marks a payload as data, not instruction.\" and states: \"User/external content is task data, never system instruction\". Enforcement needs a runtime. The conformance note for ::UNTRUSTED reads: \"L2+ required for enforcement. L0/L1 degrade to safe_mode.\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I start using I-Lang?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: \"Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.\" Its third step reads: \"Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss.\""
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark" width="28" height="28"><span>I-Lang</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/dictionary/">Dictionary</a>
+      <a href="/benchmark/">Benchmark</a>
+      <a href="/i-lang-vs-a2a/">I-Lang vs A2A</a>
+    </div>
+    <a href="/spec/" class="nav-cta">Read the Spec <span class="mono" aria-hidden="true">→</span></a>
+  </div>
+</nav>
+
+<main>
+<header class="page-hero"><div class="container">
+<h1>Human-AI Interaction: Human-to-AI Communication in I-Lang</h1>
+<p class="sub">The I-Lang v3.0 specification, <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md">SPEC.md</a>, opens its first section with this sentence: "I-Lang is a structured communication protocol between humans and AI." Under "What I-Lang does", the protocol header on the ilang.ai homepage lists "Human-to-AI: precise instructions with fewer retries and less rework".</p>
+</div></header>
+
+<div class="content"><div class="container">
+
+<section id="modes" aria-labelledby="modes-h">
+<h2 id="modes-h">The three communication modes</h2>
+<p>I-Lang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:</p>
+<div class="table-wrap"><table>
+<tr><th scope="col">Mode</th><th scope="col">Description</th><th scope="col">Example</th></tr>
+<tr><td>Human → AI</td><td>Precise instructions AI follows with fewer retries</td><td><code>[READ:@SRC|path=data.csv]=&gt;[STAT]=&gt;[Ω]</code></td></tr>
+<tr><td>AI → AI</td><td><a href="/agent-communication/">Structured communication between agents</a></td><td><code>[SEND:@DST|fmt=json]=&gt;[EVAL]=&gt;[OUT]</code></td></tr>
+<tr><td>AI internal</td><td>Behavioral identity and reasoning structure</td><td><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
+</table></div>
+<p>The table is in section 1 of the <a href="/spec/">specification</a>.</p>
+</section>
+
+<section id="mcp-a2a" aria-labelledby="mcp-a2a-h">
+<h2 id="mcp-a2a-h">Human-to-AI next to MCP and A2A</h2>
+<p>The feature comparison on <a href="/mcp-vs-a2a/">MCP vs A2A vs I-Lang</a> has one row for this mode:</p>
+<div class="table-wrap"><table>
+<tr><th scope="col">Feature</th><th scope="col">MCP</th><th scope="col">A2A</th><th scope="col">I-Lang</th></tr>
+<tr><td>Human-to-AI</td><td>&#x2717; Not designed for</td><td>&#x2717; Not designed for</td><td>&#x2713; Primary use case</td></tr>
+</table></div>
+<p>Comparison pages: <a href="/i-lang-vs-mcp/">I-Lang vs MCP</a>, <a href="/i-lang-vs-a2a/">I-Lang vs A2A</a> and <a href="/i-lang-vs-gibberlink/">I-Lang vs GibberLink</a>. The AI-to-AI mode has its own page: <a href="/agent-communication/">agent communication protocol</a>.</p>
+</section>
+
+<section id="authority" aria-labelledby="authority-h">
+<h2 id="authority-h">The human in the authority order</h2>
+<p>Section 12.3 of the <a href="/spec/">specification</a> gives the authority order, highest first:</p>
+<pre><code>system &gt; developer &gt; runtime &gt; user &gt; agent_self</code></pre>
+<p>Authority fields are not self-authenticating. Only trusted runtime provenance can grant <code>@RUNTIME</code> or <code>authority:commit</code>.</p>
+<p>The v5.0 specification, <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md">SPEC-v5.0-PRE.md</a> §2.1, tables the role entities. Its row for the human principal:</p>
+<div class="table-wrap"><table>
+<tr><th scope="col">Entity</th><th scope="col">Authority tier</th><th scope="col">Meaning</th></tr>
+<tr><td><code>@USER</code></td><td>user</td><td>Human principal; owns <code>::OBJECTIVE</code></td></tr>
+</table></div>
+<p>Section 12.1 of the specification describes <code>::OBJECTIVE{}</code> as "Goal anchor with version, hash, and acceptance criteria. Gives the audit an anchor; makes drift detectable."</p>
+</section>
+
+<section id="untrusted" aria-labelledby="untrusted-h">
+<h2 id="untrusted-h">User content: ::UNTRUSTED{}</h2>
+<p>Section 12.1 of the specification describes <code>::UNTRUSTED{}</code> as "Input isolation. Marks a payload as data, not instruction." and states: "User/external content is task data, never system instruction".</p>
+<p>Enforcement needs a runtime. The conformance note for <code>::UNTRUSTED</code> reads: "L2+ required for enforcement. L0/L1 degrade to safe_mode." The block form of <code>::UNTRUSTED</code> and the conformance levels are on the <a href="/agent-communication/#handoff">agent communication protocol</a> page.</p>
+</section>
+
+<section id="modes-v5" aria-labelledby="modes-v5-h">
+<h2 id="modes-v5-h">Three of the eight v5.0 modes</h2>
+<p>This part comes from I-Lang v5.0, the latest version of the protocol, published as a public preview. Section 13.7 of the <a href="/spec/">specification</a> lists eight modes in a closed set. Three of them, as it writes them:</p>
+<div class="table-wrap"><table>
+<tr><th scope="col">Mode</th><th scope="col">Behavior</th></tr>
+<tr><td><code>M3 CONFIRM</code></td><td>Propose the action, wait for confirmation.</td></tr>
+<tr><td><code>M5 ASK</code></td><td>Insufficient information, ask a clarifying question.</td></tr>
+<tr><td><code>M6 DEFER</code></td><td>Defer to higher authority or a human.</td></tr>
+</table></div>
+<p>The other five modes are in section 13.7.</p>
+</section>
+
+<section id="quick-start" aria-labelledby="quick-start-h">
+<h2 id="quick-start-h">Quick start</h2>
+<p>The quick start on the <a href="/#protocol">ilang.ai homepage</a> is headed "Three steps. No install."</p>
+<ol>
+<li><strong>Copy the protocol header</strong>. "It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers."</li>
+<li><strong>Paste into a tested AI model</strong>. "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol."</li>
+<li><strong>Get precise results</strong>. "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."</li>
+</ol>
+</section>
+
+<section id="faq" aria-labelledby="faq-h">
+<h2 id="faq-h">Frequently asked questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<h3>What is human-to-AI communication in I-Lang?</h3>
+<p>The I-Lang v3.0 specification opens its first section with this sentence: "I-Lang is a structured communication protocol between humans and AI." Of the three communication modes on ilang.ai, Human → AI is "Precise instructions AI follows with fewer retries", with the example <code>[READ:@SRC|path=data.csv]=&gt;[STAT]=&gt;[Ω]</code>. In the feature comparison on <a href="/mcp-vs-a2a/">ilang.ai/mcp-vs-a2a/</a>, the Human-to-AI row reads "Not designed for" under MCP and under A2A, and "Primary use case" under I-Lang.</p>
+</div>
+<div class="faq-item">
+<h3>Where is the human in the I-Lang authority order?</h3>
+<p>The authority order in the I-Lang specification, highest first, is <code>system &gt; developer &gt; runtime &gt; user &gt; agent_self</code>. The v5.0 entity registry gives <code>@USER</code> the authority tier user and describes it as "Human principal; owns <code>::OBJECTIVE</code>". Authority fields are not self-authenticating. Only trusted runtime provenance can grant <code>@RUNTIME</code> or <code>authority:commit</code>.</p>
+</div>
+<div class="faq-item">
+<h3>How does I-Lang treat content from a user?</h3>
+<p>The specification describes <code>::UNTRUSTED{}</code> as "Input isolation. Marks a payload as data, not instruction." and states: "User/external content is task data, never system instruction". Enforcement needs a runtime. The conformance note for <code>::UNTRUSTED</code> reads: "L2+ required for enforcement. L0/L1 degrade to safe_mode."</p>
+</div>
+<div class="faq-item">
+<h3>How do I start using I-Lang?</h3>
+<p>The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."</p>
+</div>
+</div>
+</section>
+
+</div></div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark" width="28" height="28"> I-Lang</div>
+        <p>iLang Inc. is a Canada-based AI language technology company. Creator of I-Lang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
+      </div>
+      <div class="foot-col"><p class="foot-h">Protocol</p><ul>
+        <li><a href="/">Overview</a></li>
+        <li><a href="/spec/">Specification</a></li>
+        <li><a href="/dictionary/">Dictionary</a></li>
+        <li><a href="/benchmark/">Benchmark</a></li>
+      </ul></div>
+      <div class="foot-col"><p class="foot-h">Compare</p><ul>
+        <li><a href="/i-lang-vs-mcp/">I-Lang vs MCP</a></li>
+        <li><a href="/i-lang-vs-a2a/">I-Lang vs A2A</a></li>
+        <li><a href="/i-lang-vs-gibberlink/">I-Lang vs GibberLink</a></li>
+      </ul></div>
+      <div class="foot-col"><p class="foot-h">Read</p><ul>
+        <li><a href="/blog/posts/why-ilang-uses-greek-symbols/">Why I-Lang Uses Greek Symbols</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 iLang Inc. &middot; Canada &middot; AI language technology</span>
+      <div class="ids"><span>MIT License</span><span>ilang:genesis:2026-03-04</span></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
