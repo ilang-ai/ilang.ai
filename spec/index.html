@@ -501,6 +501,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <tr><td><code>::PRIOR{}</code></td><td>Default behavior control. One declaration shifts a model default (e.g. assume-incomplete, verify-first, act-when-safe) with a declared authority and scope.</td></tr>
 <tr><td><code>::FALLBACK{}</code></td><td>Degradation strategy. Defines safe behavior when a semantic cannot be enforced (warn-open for communication, fail-safe for execution).</td></tr>
 </table>
+<p>JSON Schema for the JSON form of a <code>::STATUS{}</code> declaration: <a href="/schema/status-v4.0.json" style="color:var(--accent);font-weight:600">status-v4.0.json &rarr;</a> (non-normative implementation aid; the text declaration stays canonical).</p>
 
 <h3 id="s12-2-conformance-levels">12.2 Conformance Levels</h3>
 <table>
@@ -643,7 +644,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 <h3 id="s13-10-amendment">13.10 Amendment</h3>
 <p>The framework evolves through constructive challenge only: <code>attack &rarr; proposed fix &rarr; verify the fix doesn't break other axioms &rarr; merge</code>. Identifying a flaw without proposing a repair is observation, not contribution &mdash; the challenger bears the cost of construction, not just destruction. Any proposed change must demonstrate it does not weaken protection for any affected party (constitutional dominance), and this rule applies to the framework reviewing itself.</p>
 
-<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a></p>
+<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a> &nbsp;&middot;&nbsp; JSON Schema: <a href="/schema/judge-v5.0.json" style="color:var(--accent);font-weight:600">judge-v5.0.json &rarr;</a></p>
 
 <h2 id="s14-versioning">14. Versioning</h2>
 <p>I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
@@ -680,6 +681,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 <p><a href="https://github.com/ilang-ai/ilang-spec" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-spec</a> &nbsp;&middot;&nbsp;
 <a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a> &nbsp;&middot;&nbsp;
 <a href="https://huggingface.co/datasets/i-Lang/iLang-Spec" style="color:var(--accent);font-weight:600" target="_blank">HuggingFace</a></p>
+<p>JSON Schemas (non-normative implementation aids): <a href="/schema/judge-v5.0.json" style="color:var(--accent);font-weight:600">judge-v5.0.json</a> &nbsp;&middot;&nbsp; <a href="/schema/status-v4.0.json" style="color:var(--accent);font-weight:600">status-v4.0.json</a></p>
 
 <p>Related pages: <a href="/benchmark/" style="color:var(--accent)">Benchmark</a> &middot; <a href="/conformance/" style="color:var(--accent)">Conformance</a> &middot; <a href="/security/" style="color:var(--accent)">Security</a></p>
 

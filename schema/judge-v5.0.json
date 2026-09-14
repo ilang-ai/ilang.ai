@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ilang.ai/schema/judge-v5.0.json",
+  "title": "I-Lang ::JUDGE{v5.0} block, JSON form",
+  "description": "Non-normative implementation aid. The canonical form is the four-line text block of SPEC-v5.0-PRE.md Part II §4 (::JUDGE{v5.0} / V: / M: / R:), checked by the reference validator ilang_judge_validator.py. This schema describes the JSON form of a block that the reference validator accepts, including the §4 abstain rule with its erratum of 2026-09-14. Rules that exist only in the text form stay with the validator: exactly four lines, the fixed dimension order, the two-decimal lexical form, and the ban on a field-shaped line right after R:. Whether mode equals f_v5(v) is not a schema rule; the validator reports a mismatch separately.",
+  "$comment": "Sources: SPEC-v5.0-PRE.md ::SCHEMA{JUDGE|version:5.0} (spec version 2.1.1, erratum 2026-09-14) and parse_judge_block in ilang_judge_validator.py, ilang-spec repository, file schema/judge-v5.0.json. Numbers carry no multipleOf: a JSON number cannot keep the two-decimal text form, and float-based multipleOf checks reject valid values such as 0.07. Patterns follow ECMA-262, where $ matches only at the end of the string. Python re also lets $ match before a final newline (python-jsonschema passes the pattern to re.search unchanged), so the one pattern that ends in $ sits next to a not-newline clause that gives both dialects the same verdict.",
+  "type": "object",
+  "required": ["judge", "v", "mode", "conf", "reason"],
+  "additionalProperties": false,
+  "properties": {
+    "judge": {
+      "description": "Header version. Text form: the line ::JUDGE{v5.0}.",
+      "const": "v5.0"
+    },
+    "v": {
+      "description": "The 11-dimension judgment vector. Text form: V:[int=..,cap=..,...] in the fixed order int, cap, csq, rel, cer, aut, rev, evd, sov, ine, ext. JSON objects are unordered, so the order is restored when the block is written back as text.",
+      "$ref": "#/$defs/vector"
+    },
+    "mode": {
+      "description": "Decision mode from the closed set M1..M8.",
+      "enum": ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8"]
+    },
+    "conf": {
+      "description": "Diagnostic confidence in [0.00, 1.00], two decimals in the text form; it never alters mode.",
+      "$ref": "#/$defs/unit"
+    },
+    "reason": {
+      "description": "Single-line rationale, 1 to 120 characters. The validator strips the R line before matching, so a reason that holds a line break or ends in whitespace has no text form.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "pattern": "^[^\\n\\r\\u000b\\u000c\\u001c-\\u001e\\u0085\\u2028\\u2029]*[^\\u0009-\\u000d\\u001c-\\u001f\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]$",
+      "not": {
+        "$comment": "Redundant under ECMA-262. Keeps Python re, where $ also matches before a final newline, on the same verdict.",
+        "pattern": "\\n"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "J1 §4 abstain rule with the erratum of 2026-09-14. Under the epistemic gate (cer < 0.30 or evd < 0.25) mode must be M5, except that M8 is also valid on a STEP-1 survival hit (sov < 0.15, or ext < 0.10, or csq < 0.10 together with rev < 0.20), following the §3 conflict total order SURVIVAL > EPISTEMIC. Thresholds are the TH constants of the reference validator.",
+      "if": {
+        "required": ["v"],
+        "properties": {"v": {"$ref": "#/$defs/epistemic_gate"}}
+      },
+      "then": {
+        "if": {
+          "required": ["v"],
+          "properties": {"v": {"$ref": "#/$defs/survival_hit"}}
+        },
+        "then": {"properties": {"mode": {"enum": ["M5", "M8"]}}},
+        "else": {"properties": {"mode": {"const": "M5"}}}
+      }
+    }
+  ],
+  "$defs": {
+    "unit": {
+      "description": "A value in [0.00, 1.00]. The text form requires exactly two decimals (0.dd or 1.00); a JSON number cannot carry that, so it is checked when the block is written back as text.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "vector": {
+      "type": "object",
+      "required": ["int", "cap", "csq", "rel", "cer", "aut", "rev", "evd", "sov", "ine", "ext"],
+      "additionalProperties": false,
+      "properties": {
+        "int": {"$ref": "#/$defs/unit", "description": "intent"},
+        "cap": {"$ref": "#/$defs/unit", "description": "capability"},
+        "csq": {"$ref": "#/$defs/unit", "description": "consequence"},
+        "rel": {"$ref": "#/$defs/unit", "description": "relationship"},
+        "cer": {"$ref": "#/$defs/unit", "description": "certainty"},
+        "aut": {"$ref": "#/$defs/unit", "description": "authority"},
+        "rev": {"$ref": "#/$defs/unit", "description": "reversibility"},
+        "evd": {"$ref": "#/$defs/unit", "description": "evidence"},
+        "sov": {"$ref": "#/$defs/unit", "description": "sovereignty"},
+        "ine": {"$ref": "#/$defs/unit", "description": "inertia"},
+        "ext": {"$ref": "#/$defs/unit", "description": "externality"}
+      }
+    },
+    "epistemic_gate": {
+      "description": "STEP-2 epistemic gate: cer < 0.30 or evd < 0.25.",
+      "anyOf": [
+        {"required": ["cer"], "properties": {"cer": {"type": "number", "exclusiveMaximum": 0.30}}},
+        {"required": ["evd"], "properties": {"evd": {"type": "number", "exclusiveMaximum": 0.25}}}
+      ]
+    },
+    "survival_hit": {
+      "description": "STEP-1 survival gates: sov < 0.15, or ext < 0.10, or csq < 0.10 together with rev < 0.20.",
+      "anyOf": [
+        {"required": ["sov"], "properties": {"sov": {"type": "number", "exclusiveMaximum": 0.15}}},
+        {"required": ["ext"], "properties": {"ext": {"type": "number", "exclusiveMaximum": 0.10}}},
+        {"required": ["csq", "rev"], "properties": {"csq": {"type": "number", "exclusiveMaximum": 0.10}, "rev": {"type": "number", "exclusiveMaximum": 0.20}}}
+      ]
+    }
+  },
+  "examples": [
+    {
+      "judge": "v5.0",
+      "v": {"int": 0.80, "cap": 0.60, "csq": 0.70, "rel": 0.55, "cer": 0.90, "aut": 0.75, "rev": 0.85, "evd": 0.80, "sov": 0.95, "ine": 0.60, "ext": 0.90},
+      "mode": "M2",
+      "conf": 0.87,
+      "reason": "authorized_config_change_reversible_audit_trail_kept"
+    },
+    {
+      "judge": "v5.0",
+      "v": {"int": 0.80, "cap": 0.60, "csq": 0.70, "rel": 0.55, "cer": 0.20, "aut": 0.75, "rev": 0.85, "evd": 0.80, "sov": 0.95, "ine": 0.60, "ext": 0.90},
+      "mode": "M5",
+      "conf": 0.70,
+      "reason": "certainty_below_gate_ask_before_acting"
+    },
+    {
+      "judge": "v5.0",
+      "v": {"int": 0.80, "cap": 0.60, "csq": 0.70, "rel": 0.55, "cer": 0.20, "aut": 0.75, "rev": 0.85, "evd": 0.80, "sov": 0.10, "ine": 0.60, "ext": 0.90},
+      "mode": "M8",
+      "conf": 0.80,
+      "reason": "sovereignty_survival_gate_hit_stop_even_under_the_epistemic_gate"
+    }
+  ]
+}

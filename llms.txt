@@ -49,6 +49,8 @@
 - [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
 - [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison for agent communication
 - [Agent Communication Protocol](https://ilang.ai/agent-communication/): AI-to-AI communication in I-Lang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data
+- [Human-AI Interaction](https://ilang.ai/human-ai-interaction/): Human-to-AI communication in I-Lang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start
+- [Books](https://ilang.ai/books/): The two I-Lang books, with authors as Amazon lists them, pages and ASINs
 - [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
@@ -75,6 +77,8 @@ These tools are editing and analysis tools. They are not intended to help anyone
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
 - [GitHub Spec](https://github.com/ilang-ai/ilang-spec): I-Lang spec v5.0 source — three layers: communication (v3.0), execution (v4.0), judgment (v5.0)
+- [JUDGE JSON Schema](https://ilang.ai/schema/judge-v5.0.json): JSON Schema (draft 2020-12) for the JSON form of a ::JUDGE{v5.0} block, non-normative implementation aid
+- [STATUS JSON Schema](https://ilang.ai/schema/status-v4.0.json): JSON Schema (draft 2020-12) for the JSON form of a ::STATUS{} declaration, non-normative implementation aid
 - [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec

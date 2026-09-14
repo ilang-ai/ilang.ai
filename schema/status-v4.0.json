@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ilang.ai/schema/status-v4.0.json",
+  "title": "I-Lang ::STATUS{} declaration (v4.0), JSON form",
+  "description": "Non-normative implementation aid. SPEC-v4.0-FINAL.md (Non-Normative Release Artifacts) allows JSON Schemas for the v4.0 declarations as implementation aids that do not change the normative protocol semantics. The canonical form is the inline text declaration, for example ::STATUS{@TASK|state:running|objective:g1|by:@RUNTIME|authority:commit|since:round_3}. In the JSON form every key:value field becomes a property and the positional first segment (@TASK) becomes target. The schema checks one declaration on its own against the §4 three-tier authority table, read strictly. It cannot check transitions across declarations, budget exhaustion against a ::BUDGET, or whether by and authority come from a trusted runtime: authority fields are not self-authenticating (SPEC-v4.0-FINAL.md, Authority Model).",
+  "$comment": "Sources: SPEC-v4.0-FINAL.md §4 (examples, state machine, three-tier authority, transition rules), §7 and the Authority Model section; SPEC.md §2.4 (value forms) and §2.5 (declaration field keys are lowercase); SPEC-v5.0-PRE.md ::CLAUSE{KEY-SCOPING} (an unknown key in a known declaration is a field, not rejected) and ::REGISTRY{custom} (entity names @[A-Z][A-Z0-9_]*); ilang-spec repository, file schema/status-v4.0.json. The spec text names no field as always required, so none is required outright; the states that one writer alone may set require that writer. No range or type beyond the SPEC.md §2.4 value forms is placed on score or any other field the spec only shows by example. Patterns follow ECMA-262, where $ matches only at the end of the string; each pattern that ends in $ sits next to a not-newline clause so that Python re, where $ also matches before a final newline, reaches the same verdict.",
+  "type": "object",
+  "propertyNames": {
+    "description": "Declaration field keys are lowercase ASCII (SPEC.md §2.5; SPEC-v5.0-PRE.md ::CLAUSE{ENCODING} structural tokens are ASCII).",
+    "pattern": "^[a-z_][a-z0-9_]*$",
+    "not": {"pattern": "\\n"}
+  },
+  "properties": {
+    "target": {
+      "description": "Positional first segment without a key, for example @TASK, the scope target for BUDGET and STATUS.",
+      "$ref": "#/$defs/entity"
+    },
+    "state": {
+      "description": "Lifecycle state from the §4 state machine.",
+      "enum": ["created", "running", "claimed_complete", "verified_complete", "complete", "stopped", "blocked", "needs_revision", "failed"]
+    },
+    "by": {
+      "description": "Writer entity. §4 maps @AGENT and @SELF to authority:proposal, @GRADER to authority:verification and @RUNTIME to authority:commit. A custom entity carries no tier of its own.",
+      "$ref": "#/$defs/entity"
+    },
+    "authority": {
+      "description": "Write authority tier (§4 three-tier authority).",
+      "enum": ["proposal", "verification", "commit"]
+    },
+    "objective": {"$ref": "#/$defs/value", "description": "Id of the anchoring ::OBJECTIVE, for example g1."},
+    "since": {"$ref": "#/$defs/value", "description": "Measurement point, for example round_3."},
+    "evidence": {"$ref": "#/$defs/value", "description": "Evidence reference, for example @AUDIT_REPORT."},
+    "verified_by": {"$ref": "#/$defs/value", "description": "Verifier, for example @GRADER."},
+    "reason": {"$ref": "#/$defs/value", "description": "Why the task stopped or failed, for example budget, user_pause or unrecoverable."},
+    "progress": {"$ref": "#/$defs/value", "description": "For example 60%."},
+    "next": {"$ref": "#/$defs/value", "description": "For example resume_step_4."},
+    "need": {"$ref": "#/$defs/value", "description": "What unblocks the task, for example api_key."},
+    "detail": {"$ref": "#/$defs/value", "description": "Free detail."},
+    "missing": {
+      "description": "Gaps found. The text form is missing:d3,d4; the JSON form may keep that text or list the items.",
+      "anyOf": [
+        {"$ref": "#/$defs/value"},
+        {"type": "array", "items": {"$ref": "#/$defs/value"}}
+      ]
+    },
+    "score": {"$ref": "#/$defs/value", "description": "Grader score, for example 0.78. The spec gives no range."}
+  },
+  "additionalProperties": {
+    "description": "Unknown keys are kept as fields, not rejected (SPEC-v5.0-PRE.md ::CLAUSE{KEY-SCOPING}).",
+    "$ref": "#/$defs/value"
+  },
+  "allOf": [
+    {
+      "$comment": "S1 §4: @AGENT / @SELF -> authority:proposal",
+      "if": {"required": ["by"], "properties": {"by": {"enum": ["@AGENT", "@SELF"]}}},
+      "then": {"properties": {"authority": {"const": "proposal"}}}
+    },
+    {
+      "$comment": "S2 §4: @GRADER -> authority:verification",
+      "if": {"required": ["by"], "properties": {"by": {"const": "@GRADER"}}},
+      "then": {"properties": {"authority": {"const": "verification"}}}
+    },
+    {
+      "$comment": "S3 §4: @RUNTIME -> authority:commit",
+      "if": {"required": ["by"], "properties": {"by": {"const": "@RUNTIME"}}},
+      "then": {"properties": {"authority": {"const": "commit"}}}
+    },
+    {
+      "$comment": "S4 §4: authority:proposal can write claimed_complete, stopped, blocked, failed, needs_revision",
+      "if": {"required": ["authority"], "properties": {"authority": {"const": "proposal"}}},
+      "then": {"properties": {"state": {"enum": ["claimed_complete", "stopped", "blocked", "failed", "needs_revision"]}}}
+    },
+    {
+      "$comment": "S5 §4: authority:verification can write verified_complete, needs_revision",
+      "if": {"required": ["authority"], "properties": {"authority": {"const": "verification"}}},
+      "then": {"properties": {"state": {"enum": ["verified_complete", "needs_revision"]}}}
+    },
+    {
+      "$comment": "S6 §4: authority:commit can write complete, running, stopped",
+      "if": {"required": ["authority"], "properties": {"authority": {"const": "commit"}}},
+      "then": {"properties": {"state": {"enum": ["complete", "running", "stopped"]}}}
+    },
+    {
+      "$comment": "S7 §4: created is the first state of the state machine and no tier lists it under Can write, so no declaration writes it",
+      "if": {"required": ["state"], "properties": {"state": {"const": "created"}}},
+      "then": false
+    },
+    {
+      "$comment": "S8 §4: Only @RUNTIME can commit terminal complete",
+      "if": {"required": ["state"], "properties": {"state": {"const": "complete"}}},
+      "then": {"required": ["by", "authority"], "properties": {"by": {"const": "@RUNTIME"}, "authority": {"const": "commit"}}}
+    },
+    {
+      "$comment": "S9 §4: running is listed only under @RUNTIME -> authority:commit",
+      "if": {"required": ["state"], "properties": {"state": {"const": "running"}}},
+      "then": {"required": ["by", "authority"], "properties": {"by": {"const": "@RUNTIME"}, "authority": {"const": "commit"}}}
+    },
+    {
+      "$comment": "S10 §4: reason:budget can only produce stopped, never any form of complete",
+      "if": {"required": ["reason"], "properties": {"reason": {"const": "budget"}}},
+      "then": {"properties": {"state": {"const": "stopped"}}}
+    }
+  ],
+  "$defs": {
+    "entity": {
+      "description": "Entity name @[A-Z][A-Z0-9_]* (SPEC-v5.0-PRE.md ::REGISTRY{custom}).",
+      "type": "string",
+      "pattern": "^@[A-Z][A-Z0-9_]*$",
+      "not": {"pattern": "\\n"}
+    },
+    "value": {
+      "description": "A field value: bareword or quoted string, number, or boolean (SPEC.md §2.4).",
+      "type": ["string", "number", "boolean"]
+    }
+  },
+  "examples": [
+    {"target": "@TASK", "state": "running", "objective": "g1", "by": "@RUNTIME", "authority": "commit", "since": "round_3"},
+    {"target": "@TASK", "state": "complete", "verified_by": "@GRADER", "by": "@RUNTIME", "authority": "commit"},
+    {"target": "@TASK", "state": "needs_revision", "missing": "d3,d4", "score": 0.78, "by": "@GRADER", "authority": "verification"}
+  ]
+}

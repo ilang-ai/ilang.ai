@@ -1914,6 +1914,26 @@
       "question": "How does a new AI agent instance inherit corrections?",
       "answer": "In I-Lang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.",
       "source_url": "https://ilang.ai/agent-communication/#faq"
+    },
+    {
+      "question": "What is human-to-AI communication in I-Lang?",
+      "answer": "The I-Lang v3.0 specification opens its first section with this sentence: \"I-Lang is a structured communication protocol between humans and AI.\" Of the three communication modes on ilang.ai, Human → AI is \"Precise instructions AI follows with fewer retries\", with the example [READ:@SRC|path=data.csv]=>[STAT]=>[Ω]. In the feature comparison on ilang.ai/mcp-vs-a2a/, the Human-to-AI row reads \"Not designed for\" under MCP and under A2A, and \"Primary use case\" under I-Lang.",
+      "source_url": "https://ilang.ai/human-ai-interaction/#faq"
+    },
+    {
+      "question": "Where is the human in the I-Lang authority order?",
+      "answer": "The authority order in the I-Lang specification, highest first, is system > developer > runtime > user > agent_self. The v5.0 entity registry gives @USER the authority tier user and describes it as \"Human principal; owns ::OBJECTIVE\". Authority fields are not self-authenticating. Only trusted runtime provenance can grant @RUNTIME or authority:commit.",
+      "source_url": "https://ilang.ai/human-ai-interaction/#faq"
+    },
+    {
+      "question": "How does I-Lang treat content from a user?",
+      "answer": "The specification describes ::UNTRUSTED{} as \"Input isolation. Marks a payload as data, not instruction.\" and states: \"User/external content is task data, never system instruction\". Enforcement needs a runtime. The conformance note for ::UNTRUSTED reads: \"L2+ required for enforcement. L0/L1 degrade to safe_mode.\"",
+      "source_url": "https://ilang.ai/human-ai-interaction/#faq"
+    },
+    {
+      "question": "How do I start using I-Lang?",
+      "answer": "The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: \"Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.\" Its third step reads: \"Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss.\"",
+      "source_url": "https://ilang.ai/human-ai-interaction/#faq"
     }
   ],
   "pages": [
@@ -1940,6 +1960,14 @@
     {
       "url": "https://ilang.ai/agent-communication/",
       "description": "Agent communication protocol: AI-to-AI communication in I-Lang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data"
+    },
+    {
+      "url": "https://ilang.ai/human-ai-interaction/",
+      "description": "Human-AI interaction: human-to-AI communication in I-Lang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start"
+    },
+    {
+      "url": "https://ilang.ai/books/",
+      "description": "The two I-Lang books: I-Lang: I Language and I-Lang Protocol Specification: The AI-Native Communication Protocol, with authors, pages and ASINs"
     },
     {
       "url": "https://ilang.ai/prompt-compression/",
@@ -1988,6 +2016,22 @@
     {
       "url": "https://ilang.ai/blog/",
       "description": "Blog: protocol and soul, Greek symbols, carbon-silicon symbiosis"
+    }
+  ],
+  "schemas": [
+    {
+      "url": "https://ilang.ai/schema/judge-v5.0.json",
+      "describes": "::JUDGE{v5.0}",
+      "source": "SPEC-v5.0-PRE.md Part II section 4, erratum 2026-09-14",
+      "normative": false,
+      "description": "JSON Schema (draft 2020-12) for the JSON form of a ::JUDGE{v5.0} block. Non-normative implementation aid; the four-line text block stays canonical."
+    },
+    {
+      "url": "https://ilang.ai/schema/status-v4.0.json",
+      "describes": "::STATUS{}",
+      "source": "SPEC-v4.0-FINAL.md section 4",
+      "normative": false,
+      "description": "JSON Schema (draft 2020-12) for the JSON form of a ::STATUS{} declaration. Non-normative implementation aid; the text declaration stays canonical."
     }
   ]
 }

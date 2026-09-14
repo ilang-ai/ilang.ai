@@ -433,6 +433,8 @@ Eight declarations, recognized when present, extend the declaration syntax with 
 | `::PRIOR{}` | Default behavior control. One declaration shifts a model default (e.g. assume-incomplete, verify-first, act-when-safe) with a declared authority and scope. |
 | `::FALLBACK{}` | Degradation strategy. Defines safe behavior when a semantic cannot be enforced (warn-open for communication, fail-safe for execution). |
 
+JSON Schema for the JSON form of a `::STATUS{}` declaration: [status-v4.0.json →](https://ilang.ai/schema/status-v4.0.json) (non-normative implementation aid; the text declaration stays canonical).
+
 ### 12.2 Conformance Levels
 
 | Level | Meaning |
@@ -604,7 +606,7 @@ Five questions the framework applies to its own outputs:
 
 The framework evolves through constructive challenge only: `attack → proposed fix → verify the fix doesn't break other axioms → merge`. Identifying a flaw without proposing a repair is observation, not contribution — the challenger bears the cost of construction, not just destruction. Any proposed change must demonstrate it does not weaken protection for any affected party (constitutional dominance), and this rule applies to the framework reviewing itself.
 
-Full v5.0 specification: [SPEC-v5.0-PRE.md →](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md)  ·  Trainable judgment patch: [PATCH-1 →](https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md)  ·  Reference validator: [ilang_judge_validator.py →](https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py)
+Full v5.0 specification: [SPEC-v5.0-PRE.md →](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md)  ·  Trainable judgment patch: [PATCH-1 →](https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md)  ·  Reference validator: [ilang_judge_validator.py →](https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py)  ·  JSON Schema: [judge-v5.0.json →](https://ilang.ai/schema/judge-v5.0.json)
 
 ## 14. Versioning
 
@@ -645,6 +647,8 @@ I-Lang evolves as three layered generations. Each generation adds a layer withou
 The complete, machine-readable specification is available at:
 
 [github.com/ilang-ai/ilang-spec](https://github.com/ilang-ai/ilang-spec)  ·  [npm: @i-language/spec](https://www.npmjs.com/package/@i-language/spec)  ·  [HuggingFace](https://huggingface.co/datasets/i-Lang/iLang-Spec)
+
+JSON Schemas (non-normative implementation aids): [judge-v5.0.json](https://ilang.ai/schema/judge-v5.0.json)  ·  [status-v4.0.json](https://ilang.ai/schema/status-v4.0.json)
 
 Related pages: [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
 

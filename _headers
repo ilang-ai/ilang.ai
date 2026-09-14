@@ -32,3 +32,7 @@
   Content-Type: text/plain; charset=utf-8
 /*.md
   Content-Type: text/markdown; charset=utf-8
+
+/schema/*
+  Content-Type: application/schema+json; charset=utf-8
+  Access-Control-Allow-Origin: *

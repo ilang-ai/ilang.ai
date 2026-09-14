@@ -12,6 +12,8 @@ PAGES
 - https://ilang.ai/i-lang-vs-mcp/: I-Lang vs MCP (Model Context Protocol)
 - https://ilang.ai/i-lang-vs-a2a/: I-Lang vs A2A (Agent-to-Agent protocol)
 - https://ilang.ai/agent-communication/: Agent communication protocol: AI-to-AI communication in I-Lang, v4.0 handoff rules, seven-vendor handoff test
+- https://ilang.ai/human-ai-interaction/: Human-AI interaction: human-to-AI communication in I-Lang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes, quick start
+- https://ilang.ai/books/: The two I-Lang books: authors, publisher, publication date, pages, ASINs
 - https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens
 - https://ilang.ai/benchmark/: Benchmark results across models
 - https://ilang.ai/conformance/: Conformance levels and how to claim them
