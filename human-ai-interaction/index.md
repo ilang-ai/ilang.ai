@@ -68,7 +68,7 @@ The other five modes are in section 13.7.
 The quick start on the [ilang.ai homepage](https://ilang.ai/#protocol) is headed "Three steps. No install."
 
 1. **Copy the protocol header**. "It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers."
-2. **Paste into any AI conversation**. "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol."
+2. **Paste into a tested AI model**. "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol."
 3. **Get precise results**. "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."
 
 ## Frequently asked questions
@@ -87,7 +87,7 @@ The specification describes `::UNTRUSTED{}` as "Input isolation. Marks a payload
 
 ### How do I start using I-Lang?
 
-The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into any AI conversation, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."
+The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

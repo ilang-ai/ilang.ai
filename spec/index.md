@@ -148,7 +148,7 @@ Dialogue, thought, decision, silence, event, creation. This is the birth of I-La
 
 `::SAY` `::THINK` `::ACT` `::DECIDE` `::DISCOVER` `::CREATE` `::EVENT` `::SILENCE` `::META` `::IRONY` `::FORESHADOW` `::CALLBACK` `::EMOTION_FIELD`
 
-The λ emotion encoding of SPEC.md §7.3 has the registered name `::EMOTION_FIELD`. SPEC.md §10.5 writes it as `::EMOTION_FIELD{λ{trust:0.9, grief:0.3, resolve:0.8}}`.
+SPEC.md §10.5 writes `::EMOTION_FIELD{λ{trust:0.9, grief:0.3, resolve:0.8}}`.
 
 `::LATENCY` and `::CONFIDENCE` appear as annotation lines in v3.0 §10.4 examples but are not defined in §7. They are treated as B2 field lines under their parent narrative declaration until formally registered.
 

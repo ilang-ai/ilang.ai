@@ -251,7 +251,7 @@ PARALLEL{a, b}          simultaneous</code></pre>
 <h4 style="font-size:15px;font-weight:600;margin:24px 0 8px">Registered Narrative Declarations (v5.0)</h4>
 <p>&sect;1.6 of the v5.0 specification lists 13 narrative declarations. The SOUL layer (v3.0 &sect;7) uses double-brace form <code>::VERB{addressing}{content}</code>. These are narrative, not structural, and are counted separately.</p>
 <p><code>::SAY</code> <code>::THINK</code> <code>::ACT</code> <code>::DECIDE</code> <code>::DISCOVER</code> <code>::CREATE</code> <code>::EVENT</code> <code>::SILENCE</code> <code>::META</code> <code>::IRONY</code> <code>::FORESHADOW</code> <code>::CALLBACK</code> <code>::EMOTION_FIELD</code></p>
-<p>The λ emotion encoding of SPEC.md &sect;7.3 has the registered name <code>::EMOTION_FIELD</code>. SPEC.md &sect;10.5 writes it as <code>::EMOTION_FIELD{λ{trust:0.9, grief:0.3, resolve:0.8}}</code>.</p>
+<p>SPEC.md &sect;10.5 writes <code>::EMOTION_FIELD{λ{trust:0.9, grief:0.3, resolve:0.8}}</code>.</p>
 <p><code>::LATENCY</code> and <code>::CONFIDENCE</code> appear as annotation lines in v3.0 &sect;10.4 examples but are not defined in &sect;7. They are treated as B2 field lines under their parent narrative declaration until formally registered.</p>
 <p>&sect;1.7 of the v5.0 specification registers grammar amendments dated 2026-08-11. Two of them apply to narrative lines, the temporal prefix and the narrative payload. None changes the meaning of any existing document.</p>
 <pre><code>::GRAMMAR{form:temporal_prefix|conf:confirmed}
