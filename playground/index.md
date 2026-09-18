@@ -27,7 +27,7 @@ Put any two texts side by side, for example an instruction in prose and the same
 
 ## Privacy
 
-Your input never leaves your browser. The converter, the validator and the tokenizer run in the page, and the only files it loads come from ilang.ai.
+Your input never leaves your browser. The converter, the validator and the tokenizer run in the page, and nothing typed is sent anywhere or stored. The tools and the tokenizer's vocabulary are loaded from ilang.ai; the site's Cloudflare Web Analytics counts page views, not what is typed.
 
 ## Sources
 
