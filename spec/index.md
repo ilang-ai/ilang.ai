@@ -615,7 +615,8 @@ I-Lang evolves as three layered generations. Each generation adds a layer withou
 | Version | Date | Changes |
 | --- | --- | --- |
 | v5.0 | 2026-06 | **Latest (public preview).** Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13. |
-| v4.1 | 2026-09 | **Current stable.** Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. [SPEC-v4.1-MEDIA-PROFILE](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md) |
+| v4.2 | 2026-09 | **Current stable.** Media regions and image layers: regions as document-scoped entities with four body keys (pts, bnd, vtx, msk), masks by reference or geometry, image layers composed by MERGE with ::LIST line order as stacking order. No new verb, key, entity or declaration; the 88 verbs, the 29 core modifiers, the 20-key media profile and the judgment layer are unchanged. [SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md) |
+| v4.1 | 2026-09 | Stable. Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. [SPEC-v4.1-MEDIA-PROFILE](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md) |
 | v4.0 | 2026-05 | **Current stable.** Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |
 | v3.0 | 2026-04 | Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.) |
 | v2.0 Dict | 2026-03 | 62 verbs, expanded reference with Greek aliases |
@@ -649,6 +650,8 @@ The complete, machine-readable specification is available at:
 [github.com/ilang-ai/ilang-spec](https://github.com/ilang-ai/ilang-spec)  ·  [npm: @i-language/spec](https://www.npmjs.com/package/@i-language/spec)  ·  [HuggingFace](https://huggingface.co/datasets/i-Lang/iLang-Spec)
 
 JSON Schemas (non-normative implementation aids): [judge-v5.0.json](https://ilang.ai/schema/judge-v5.0.json)  ·  [status-v4.0.json](https://ilang.ai/schema/status-v4.0.json)
+
+Machine layer (experimental, not part of the canon): [ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol), IML (I-Lang Machine Layer), a compact machine form of v4.x operation chains.
 
 Related pages: [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
 
