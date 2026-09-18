@@ -201,6 +201,8 @@ structuring
 
 Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See [Privacy Policy](https://ilang.ai/privacy).
 
+Want nothing to leave your browser? The [Playground](https://ilang.ai/playground/) converts I-Lang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.
+
 output.ilang
 
 **Bonus.** Your AI can now read any webpage. Send it: `i.ilang.ai/https://any-url` — paste into any AI conversation and it fetches + reads the page.
