@@ -256,6 +256,8 @@ a:hover{color:var(--fg-strong)}
 @media(max-width:480px){
   .bnav .brand{font-size:.9rem}
   .bnav .links a{padding:4px 4px;font-size:.72rem}
+  .bnav{flex-wrap:wrap;row-gap:6px}
+  .bnav .links{flex-wrap:wrap;justify-content:flex-end;row-gap:2px}
   .b-head h1{font-size:1.6rem}
   .featured h2{font-size:1.4rem}
   .art-main h1{font-size:1.4rem}
