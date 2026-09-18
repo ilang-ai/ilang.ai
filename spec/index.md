@@ -653,7 +653,7 @@ JSON Schemas (non-normative implementation aids): [judge-v5.0.json](https://ilan
 
 Machine layer (experimental, not part of the canon): [ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol), IML (I-Lang Machine Layer), a machine form of v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon.
 
-Related pages: [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
+Related pages: [Playground](https://ilang.ai/playground/) · [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
 
 [← Back to I-Lang](https://ilang.ai/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)  ·  [Browse the Dictionary →](https://ilang.ai/dictionary/)
 

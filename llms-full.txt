@@ -19,6 +19,7 @@ PAGES
 - https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens
 - https://ilang.ai/benchmark/: Benchmark results across models
 - https://ilang.ai/conformance/: Conformance levels and how to claim them
+- https://ilang.ai/playground/: Playground: I-Lang to IML converter, grammar validator and cl100k_base token counter, all in the browser
 - https://ilang.ai/security/: Security model: UNTRUSTED input isolation, authority tiers
 - https://ilang.ai/about/: About iLang Inc. and the protocol's authorship
 - https://ilang.ai/ai-see/: AI See product page

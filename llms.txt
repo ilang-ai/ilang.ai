@@ -55,6 +55,7 @@
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
 - [Conformance](https://ilang.ai/conformance/): L0-L3 conformance levels and the requirements for each level
+- [Playground](https://ilang.ai/playground/): Convert I-Lang operation chains to IML and back, validate I-Lang documents with the canon grammar validator, count cl100k_base tokens; runs in the browser, input never leaves it
 - [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
 - [AI Detector](https://ilang.ai/ai-detector/): Sentence-level AI detection across six dimensions, free, up to 5,000 characters, nothing stored
 - [AI Humanizer](https://ilang.ai/ai-humanizer/): Three-layer DeAI edit: clean the filler, fix the rhythm, mark where your own voice goes
