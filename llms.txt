@@ -78,7 +78,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
 - [GitHub Spec](https://github.com/ilang-ai/ilang-spec): I-Lang spec v5.0 source — three layers: communication (v3.0), execution (v4.0), judgment (v5.0)
 - [v4.2 Media Regions and Image Layers](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md): regions, masks and image layers on the v4 stable line; no new verb, key or entity
-- [IML (I-Lang Machine Layer)](https://github.com/ilang-ai/iml-protocol): experimental machine form of I-Lang v4.x operation chains with fixed-width codes derived from the canon; 0.2 released, not part of the canon
+- [IML (I-Lang Machine Layer)](https://github.com/ilang-ai/iml-protocol): experimental machine form of I-Lang v4.x operation chains with fixed-width codes derived from the canon; 0.3 released, not part of the canon
 - [JUDGE JSON Schema](https://ilang.ai/schema/judge-v5.0.json): JSON Schema (draft 2020-12) for the JSON form of a ::JUDGE{v5.0} block, non-normative implementation aid
 - [STATUS JSON Schema](https://ilang.ai/schema/status-v4.0.json): JSON Schema (draft 2020-12) for the JSON form of a ::STATUS{} declaration, non-normative implementation aid
 - [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452
