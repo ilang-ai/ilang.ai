@@ -651,7 +651,7 @@ The complete, machine-readable specification is available at:
 
 JSON Schemas (non-normative implementation aids): [judge-v5.0.json](https://ilang.ai/schema/judge-v5.0.json)  ·  [status-v4.0.json](https://ilang.ai/schema/status-v4.0.json)
 
-Machine layer (experimental, not part of the canon): [ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol), IML (I-Lang Machine Layer), a compact machine form of v4.x operation chains.
+Machine layer (experimental, not part of the canon): [ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol), IML (I-Lang Machine Layer), a machine form of v4.x operation chains with fixed-width codes derived from the canon.
 
 Related pages: [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
 
