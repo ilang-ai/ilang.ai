@@ -124,7 +124,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "Where do I read the I-Lang specification and dictionary?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the latest version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.0 Final is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
+        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the latest version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.2 is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
       }
     }
   ]
@@ -529,7 +529,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 <p>Full v4.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md &rarr;</a></p>
 
 <h2 id="s13-judgment-layer-v5-0">13. Judgment Layer (v5.0)</h2>
-<p>Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.0 Final is the current stable release. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
+<p>Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.2 is the current stable release. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing. It is grounded in fuzzy mathematics (Zadeh, 1965): multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
 
 <h3 id="s13-1-three-layer-architecture">13.1 Three-Layer Architecture</h3>
 <p>Judgment executes in three layers, each gating the next. Execution order: A &rarr; B &rarr; C.</p>
@@ -655,7 +655,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 <tr><td>v5.0</td><td>2026-06</td><td><strong>Latest (public preview).</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
 <tr><td>v4.2</td><td>2026-09</td><td><strong>Current stable.</strong> Media regions and image layers: regions as document-scoped entities with four body keys (pts, bnd, vtx, msk), masks by reference or geometry, image layers composed by MERGE with ::LIST line order as stacking order. No new verb, key, entity or declaration; the 88 verbs, the 29 core modifiers, the 20-key media profile and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md">SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS</a></td></tr>
 <tr><td>v4.1</td><td>2026-09</td><td>Stable. Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md">SPEC-v4.1-MEDIA-PROFILE</a></td></tr>
-<tr><td>v4.0</td><td>2026-05</td><td><strong>Current stable.</strong> Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
+<tr><td>v4.0</td><td>2026-05</td><td>Stable. Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
 <tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
 <tr><td>v2.0 Dict</td><td>2026-03</td><td>62 verbs, expanded reference with Greek aliases</td></tr>
 <tr><td>v2.0 Spec</td><td>2026-03</td><td>52 verbs, first formal spec, published in book</td></tr>

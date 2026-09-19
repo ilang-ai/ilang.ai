@@ -50,7 +50,7 @@ The verbs in the chain come from the 88 listed in the protocol header on the ila
 
 ## Handing off work safely
 
-v3.0 is the communication format and v4.0 is the execution semantics. The rules below are from v4.0 Final, the current stable release. Section 12 of the [specification](https://ilang.ai/spec/) summarizes these rules.
+v3.0 is the communication format and v4.0 is the execution semantics. The rules below are from v4.0 Final; v4.2 is the current stable release. Section 12 of the [specification](https://ilang.ai/spec/) summarizes these rules.
 
 ### Untrusted input: ::UNTRUSTED{}
 

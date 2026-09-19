@@ -60,7 +60,7 @@ Distribution of this document is unlimited.
 |:-------------|:--------------------------------------------------|
 | Protocol     | I-Lang                                            |
 | Version      | 5.0                                               |
-| Status       | Public preview (v4.0 Final is the current stable release) |
+| Status       | Public preview (v4.2 is the current stable release) |
 | Category     | Open Specification                                |
 | Maintainer   | I-Lang Research · iLang Inc., Canada           |
 | Published    | 2026                                              |
