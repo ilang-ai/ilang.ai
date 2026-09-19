@@ -1,9 +1,26 @@
 // Markdown for agents: Accept: text/markdown returns the page's Markdown twin (path/index.md or page.md).
+
+// True when the Accept header explicitly asks for text/markdown with q > 0 and ranks it at least as high as text/html
+// (ties go to whichever the client listed first). text/markdown;q=0 is a refusal, and wildcards alone keep HTML.
+function prefersMarkdown(accept) {
+  let md = null, html = 0, htmlPos = Infinity;
+  accept.split(',').forEach((part, pos) => {
+    const [range, ...params] = part.trim().toLowerCase().split(';').map(s => s.trim());
+    let q = 1;
+    for (const p of params) if (p.startsWith('q=')) { const v = parseFloat(p.slice(2)); q = Number.isFinite(v) ? Math.min(Math.max(v, 0), 1) : 0; }
+    if (range === 'text/markdown') { if (md === null || q > md.q) md = { q, pos }; }
+    else if (range === 'text/html') { html = q; htmlPos = pos; }
+    else if ((range === 'text/*' || range === '*/*') && htmlPos === Infinity) html = Math.max(html, q);
+  });
+  if (md === null || md.q <= 0) return false;
+  return md.q > html || (md.q === html && md.pos < htmlPos);
+}
+
 export async function onRequest(context) {
   const { request, next, env } = context;
   const url = new URL(request.url);
   const accept = request.headers.get('accept') || '';
-  if (request.method === 'GET' && /text\/markdown/i.test(accept)) {
+  if (request.method === 'GET' && prefersMarkdown(accept)) {
     const p = url.pathname;
     const cands = p.endsWith('/') ? [p + 'index.md'] : p.endsWith('.html') ? [p.replace(/\.html$/, '.md')] : (/\.[a-z0-9]+$/i.test(p) ? [] : [p + '/index.md', p + '.md']);
     for (const md of cands) {
