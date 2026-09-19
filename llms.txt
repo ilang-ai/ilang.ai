@@ -1,3 +1,7 @@
+# I-Lang
+
+> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.0 Final is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
+
 ::ILANG::v5.0
 [TYPE:llms.txt]
 [TARGET:ALL_AI]
@@ -13,10 +17,6 @@
   T:88个动词|两种语法|8个执行声明|4个一致性等级|11维判断向量
   T:纯文本协议|无SDK|无运行时|无API_Key
   T:已测试:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM
-
-# I-Lang
-
-> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.0 Final is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
 
 ## What Makes I-Lang Different
 
