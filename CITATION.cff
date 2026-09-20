@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use ilang.ai, please cite it as below."
+title: "ilang.ai: the I-Lang protocol website and its agent-readable layer"
+abstract: >-
+  Source of the official I-Lang website at ilang.ai, published on Cloudflare
+  Pages. It carries the protocol pages (specification, dictionary, playground,
+  benchmark, conformance, ecosystem and the comparisons with MCP, A2A and
+  GibberLink), the blog, and the machine-readable layer the site serves to AI
+  agents: llms.txt and llms-full.txt, Markdown negotiation on every page, an
+  OpenAPI document, a JSON schema directory, an API catalog, robots and
+  sitemap files, and the /.well-known discovery records. Readme in eleven
+  languages. MIT licensed.
+type: software
+authors:
+  - given-names: "Long Quan"
+    family-names: "Zhu"
+    orcid: "https://orcid.org/0009-0004-4540-8082"
+    affiliation: "iLang Inc."
+repository-code: "https://github.com/ilang-ai/ilang.ai"
+url: "https://github.com/ilang-ai/ilang.ai"
+license: MIT
+version: "2.0.2"
+date-released: "2026-09-21"
+keywords:
+  - I-Lang
+  - protocol website
+  - llms.txt
+  - agent-readable
+  - AI agents
+  - Cloudflare Pages
+  - documentation

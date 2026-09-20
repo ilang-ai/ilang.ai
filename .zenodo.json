@@ -1,0 +1,38 @@
+{
+  "title": "ilang.ai: the I-Lang protocol website and its agent-readable layer",
+  "description": "<p>Source of the official I-Lang website at ilang.ai, published on Cloudflare Pages. It carries the protocol pages (specification, dictionary, playground, benchmark, conformance, ecosystem and the comparisons with MCP, A2A and GibberLink), the blog, and the machine-readable layer the site serves to AI agents: llms.txt and llms-full.txt, Markdown negotiation on every page, an OpenAPI document, a JSON schema directory, an API catalog, robots and sitemap files, and the /.well-known discovery records. Readme in eleven languages. MIT licensed.</p>",
+  "version": "2.0.2",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Zhu, Long Quan",
+      "orcid": "0009-0004-4540-8082",
+      "affiliation": "iLang Inc."
+    }
+  ],
+  "keywords": [
+    "I-Lang",
+    "protocol website",
+    "llms.txt",
+    "agent-readable",
+    "AI agents",
+    "Cloudflare Pages",
+    "documentation"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ilang-ai/ilang.ai",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://ilang.ai/spec/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication-technicalnote",
+      "scheme": "url"
+    }
+  ]
+}
