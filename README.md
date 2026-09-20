@@ -22,6 +22,7 @@
 [![Website](https://img.shields.io/badge/web-ilang.ai-1e3a8a.svg?style=flat-square)](https://ilang.ai)
 [![HuggingFace](https://img.shields.io/badge/🤗-i--Lang-ffcc4d.svg?style=flat-square)](https://huggingface.co/i-Lang)
 [![Status](https://img.shields.io/badge/status-public%20preview-c1121f.svg?style=flat-square)]()
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22865167.svg)](https://doi.org/10.5281/zenodo.22865167)
 
 [**Website**](https://ilang.ai) · [**Specification**](https://ilang.ai/spec/) · [**Research**](https://research.ilang.ai) · [**AI See**](https://i.ilang.ai) · [**Dictionary**](https://github.com/ilang-ai/ilang-dict) · [**🤗 Hugging Face**](https://huggingface.co/i-Lang)
 
@@ -568,3 +569,9 @@ Maintained by **I-Lang Research** · **iLang Inc.**, Canada · 2026
 [ilang.ai](https://ilang.ai) · [🤗 Hugging Face](https://huggingface.co/i-Lang) · [GitHub](https://github.com/ilang-ai)
 
 </div>
+
+---
+
+## Citation
+
+[CITATION.cff](CITATION.cff); Zenodo archives each release. Concept DOI [10.5281/zenodo.22865167](https://doi.org/10.5281/zenodo.22865167) (all versions).
