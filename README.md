@@ -566,7 +566,7 @@ Full text in [LICENSE](LICENSE).
 
 Maintained by **I-Lang Research** · **iLang Inc.**, Canada · 2026
 
-[ilang.ai](https://ilang.ai) · [🤗 Hugging Face](https://huggingface.co/i-Lang) · [GitHub](https://github.com/ilang-ai)
+[ilang.ai](https://ilang.ai) · [🤗 Hugging Face](https://huggingface.co/i-Lang) · [GitHub](https://github.com/ilang-ai) · [Reddit r/iLang](https://www.reddit.com/r/iLang/)
 
 </div>
 

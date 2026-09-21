@@ -86,6 +86,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets
+- [Reddit r/iLang](https://www.reddit.com/r/iLang/): community discussion and questions
 
 ## Tools Built on I-Lang
 
