@@ -86,7 +86,7 @@ These tools are editing and analysis tools. They are not intended to help anyone
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets
-- [iLang runtime](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/manifest.json): the official bundle a loader puts in a model's context, generated from the canon, sha256-verified, with pinned versions
+- [iLang runtime](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/manifest.json): the official bundle a loader puts in a model's context, generated from the canon, sha256-verified, with pinned versions; the core is the working text, the full text is at https://ilang.ai/runtime/full
 - [iLang loader](https://github.com/ilang-ai/ilang): `pip install ilang-protocol` or `npm install ilang-protocol`, then `ilang.wrap(messages)`; people do not need to learn iLang, the AI loads it
 - [Reddit r/iLang](https://www.reddit.com/r/iLang/): community discussion and questions
 
