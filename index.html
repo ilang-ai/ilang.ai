@@ -306,7 +306,7 @@ nav{
 .research-list span{color:var(--muted);font-size:14px}
 .research-foot{margin-top:18px;color:var(--muted);font-size:14px}
 .use-mcp{margin-top:18px}
-.use-mcp code{font-size:13px}
+.use-mcp code{font-size:13px;overflow-wrap:anywhere}
 .use-mcp-links{margin-top:8px;font-size:14px;color:var(--muted)}
 
 /* ─── Section shell ─── */
@@ -477,11 +477,11 @@ section{padding:100px 0}
 .faq-item a{color:var(--accent);font-weight:500}
 #use .sect-head p{color:var(--muted);font-size:17px;line-height:1.7;max-width:720px;margin-top:10px}
 .use-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
-@media(max-width:900px){.use-grid{grid-template-columns:1fr}}
-.use-card{border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px}
+@media(max-width:900px){.use-grid{grid-template-columns:minmax(0,1fr)}}
+.use-card{border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .use-card h3{font-size:18px;font-weight:600;color:var(--ink);line-height:1.4}
 .use-card p{color:var(--muted);font-size:15px;line-height:1.65}
-.use-card pre{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:13px;overflow-x:auto;white-space:pre}
+.use-card pre{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:13px;overflow-x:auto;white-space:pre;max-width:100%}
 .use-card a{color:var(--accent);font-weight:500}
 .use-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
 .copy-status{min-height:1.4em;margin-top:10px;font-size:14px;color:var(--muted)}
