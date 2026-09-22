@@ -87,6 +87,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -134,14 +135,14 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <h2>Two protocols, two layers</h2>
 <p>A2A (Agent-to-Agent Protocol) and iLang address different parts of the multi-agent stack. A2A handles how agents find and talk to each other. iLang handles how agents understand what to do.</p>
 
-<table>
-<tr><th>Dimension</th><th>A2A</th><th>iLang</th></tr>
-<tr><td>Created by</td><td>Google (now Linux Foundation)</td><td>iLang Research (open community)</td></tr>
-<tr><td>Primary function</td><td>Agent discovery, capability negotiation, task delegation</td><td>Instruction structure, behavioral definitions, communication format</td></tr>
-<tr><td>Layer</td><td>Agent coordination layer</td><td>Semantic instruction layer</td></tr>
-<tr><td>Requires</td><td>Agent Card server, JSON-RPC endpoint</td><td>Nothing. Text-native, tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
-<tr><td>Format</td><td>JSON-RPC, Agent Cards, Task objects</td><td>Structured text: <code>[VERB:@TARGET|mod=val]</code> and <code>::GENE{}</code></td></tr>
-<tr><td>Solves</td><td>How Agent A finds and delegates work to Agent B</td><td>How any agent understands its instructions and behavioral constraints</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Dimension</th><th>A2A</th><th>iLang</th></tr>
+<tr><td data-label="Dimension">Created by</td><td data-label="A2A">Google (now Linux Foundation)</td><td data-label="iLang">iLang Research (open community)</td></tr>
+<tr><td data-label="Dimension">Primary function</td><td data-label="A2A">Agent discovery, capability negotiation, task delegation</td><td data-label="iLang">Instruction structure, behavioral definitions, communication format</td></tr>
+<tr><td data-label="Dimension">Layer</td><td data-label="A2A">Agent coordination layer</td><td data-label="iLang">Semantic instruction layer</td></tr>
+<tr><td data-label="Dimension">Requires</td><td data-label="A2A">Agent Card server, JSON-RPC endpoint</td><td data-label="iLang">Nothing. Text-native, tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
+<tr><td data-label="Dimension">Format</td><td data-label="A2A">JSON-RPC, Agent Cards, Task objects</td><td data-label="iLang">Structured text: <code>[VERB:@TARGET|mod=val]</code> and <code>::GENE{}</code></td></tr>
+<tr><td data-label="Dimension">Solves</td><td data-label="A2A">How Agent A finds and delegates work to Agent B</td><td data-label="iLang">How any agent understands its instructions and behavioral constraints</td></tr>
 </table>
 
 <h2>When to use A2A</h2>
@@ -169,13 +170,13 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>A2A handled the routing. iLang handled the instruction content. Each protocol does its own job.</p>
 
 <h2>Key differences at a glance</h2>
-<table>
-<tr><th>Question</th><th>A2A</th><th>iLang</th></tr>
-<tr><td>Does it help agents find each other?</td><td>Yes, via Agent Cards</td><td>No, not its scope</td></tr>
-<tr><td>Does it define how agents behave?</td><td>No</td><td>Yes, via <code>::GENE{}</code> declarations</td></tr>
-<tr><td>Does it structure task instructions?</td><td>Task objects (high-level)</td><td>Verb chains (precise, step-by-step)</td></tr>
-<tr><td>Does it work without infrastructure?</td><td>No, requires server endpoints</td><td>Yes, text-native</td></tr>
-<tr><td>Is it open source?</td><td>Yes (Linux Foundation)</td><td>Yes (MIT license)</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Question</th><th>A2A</th><th>iLang</th></tr>
+<tr><td data-label="Question">Does it help agents find each other?</td><td data-label="A2A">Yes, via Agent Cards</td><td data-label="iLang">No, not its scope</td></tr>
+<tr><td data-label="Question">Does it define how agents behave?</td><td data-label="A2A">No</td><td data-label="iLang">Yes, via <code>::GENE{}</code> declarations</td></tr>
+<tr><td data-label="Question">Does it structure task instructions?</td><td data-label="A2A">Task objects (high-level)</td><td data-label="iLang">Verb chains (precise, step-by-step)</td></tr>
+<tr><td data-label="Question">Does it work without infrastructure?</td><td data-label="A2A">No, requires server endpoints</td><td data-label="iLang">Yes, text-native</td></tr>
+<tr><td data-label="Question">Is it open source?</td><td data-label="A2A">Yes (Linux Foundation)</td><td data-label="iLang">Yes (MIT license)</td></tr>
 </table>
 
 <h2>Frequently asked questions</h2>
@@ -219,8 +220,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a>
-      <a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
         <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
       </ul></div>
     </div>

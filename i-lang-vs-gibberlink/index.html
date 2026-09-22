@@ -50,6 +50,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.
 .contact-box a{color:var(--accent-2)}
 footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size:13px;color:var(--muted)}
 .content table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}.content th{text-align:left;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line);font-weight:600;font-size:13px;color:var(--muted)}.content td{padding:12px 16px;border:1px solid var(--line);vertical-align:top}.content h3{font-size:17px;font-weight:600;margin:28px 0 8px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -94,11 +95,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
 
   <div class="content">
     <h2>Side by side</h2>
-    <table>
-<tr><th></th><th>GibberLink</th><th>iLang</th></tr>
-<tr><td>What it does</td><td>Two AI agents switch from English to a data-over-sound protocol after confirming they are both AI</td><td>A formal vocabulary of 88 verbs for human-to-AI, AI-to-AI and AI internal communication</td></tr>
-<tr><td>Channel</td><td>Data over sound</td><td>Structured text: [VERB:@TARGET|mod=val] and ::GENE{}</td></tr>
-<tr><td>Modes</td><td>AI to AI</td><td>Human to AI, AI to AI, AI internal</td></tr>
+    <table class="stack">
+<tr class="stack-head"><th></th><th>GibberLink</th><th>iLang</th></tr>
+<tr><td data-label="">What it does</td><td data-label="GibberLink">Two AI agents switch from English to a data-over-sound protocol after confirming they are both AI</td><td data-label="iLang">A formal vocabulary of 88 verbs for human-to-AI, AI-to-AI and AI internal communication</td></tr>
+<tr><td data-label="">Channel</td><td data-label="GibberLink">Data over sound</td><td data-label="iLang">Structured text: [VERB:@TARGET|mod=val] and ::GENE{}</td></tr>
+<tr><td data-label="">Modes</td><td data-label="GibberLink">AI to AI</td><td data-label="iLang">Human to AI, AI to AI, AI internal</td></tr>
     </table>
 
     <h2>Questions</h2>

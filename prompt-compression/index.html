@@ -87,6 +87,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -164,10 +165,10 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 =>[OUT]</code></pre>
 
 <h3>Reduction</h3>
-<table>
-<tr><th>Metric</th><th>Natural language</th><th>iLang</th><th>Change</th></tr>
-<tr><td>Tokens (cl100k_base)</td><td>58</td><td>54</td><td>-7%</td></tr>
-<tr><td>Ambiguity</td><td>Multiple interpretations possible</td><td>One interpretation</td><td>Lower</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Metric</th><th>Natural language</th><th>iLang</th><th>Change</th></tr>
+<tr><td data-label="Metric">Tokens (cl100k_base)</td><td data-label="Natural language">58</td><td data-label="iLang">54</td><td data-label="Change">-7%</td></tr>
+<tr><td data-label="Metric">Ambiguity</td><td data-label="Natural language">Multiple interpretations possible</td><td data-label="iLang">One interpretation</td><td data-label="Change">Lower</td></tr>
 </table>
 
 <p>Seven per cent is the honest number for that comparison, and it is worth understanding why it is so small. The sentence above was written tersely, by someone who already knows what the chain has to say. Brackets, pipes and colons are not free: the tokenizer charges for them. On a short instruction that nobody pads, structure buys precision, not tokens.</p>
@@ -192,11 +193,11 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>iLang uses an 88-verb dictionary where each verb is a 3-5 character code (READ, FILT, STAT, FMT, OUT). Verbs chain with <code>=></code>. Modifiers use <code>key=value</code> pairs. Targets use <code>@ENTITY</code> references. No articles, no prepositions, no filler.</p>
 
 <p>The compression comes from three sources:</p>
-<table>
-<tr><th>Source</th><th>Natural language overhead</th><th>iLang equivalent</th></tr>
-<tr><td>Verb phrases</td><td>"Please read the data from"</td><td><code>[READ:@SRC|path=...]</code></td></tr>
-<tr><td>Connectors</td><td>"Then", "After that", "Finally"</td><td><code>=></code></td></tr>
-<tr><td>Behavioral rules</td><td>"Always give conclusions first and do not hedge"</td><td><code>T:conclusions_first A:hedging⇒remove</code></td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Source</th><th>Natural language overhead</th><th>iLang equivalent</th></tr>
+<tr><td data-label="Source">Verb phrases</td><td data-label="Natural language overhead">"Please read the data from"</td><td data-label="iLang equivalent"><code>[READ:@SRC|path=...]</code></td></tr>
+<tr><td data-label="Source">Connectors</td><td data-label="Natural language overhead">"Then", "After that", "Finally"</td><td data-label="iLang equivalent"><code>=></code></td></tr>
+<tr><td data-label="Source">Behavioral rules</td><td data-label="Natural language overhead">"Always give conclusions first and do not hedge"</td><td data-label="iLang equivalent"><code>T:conclusions_first A:hedging⇒remove</code></td></tr>
 </table>
 
 <h2>Try it</h2>
@@ -239,8 +240,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a>
-      <a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
         <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
       </ul></div>
     </div>

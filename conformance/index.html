@@ -87,6 +87,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 </head>
 <body>
@@ -231,8 +232,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a>
-      <a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
         <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
       </ul></div>
     </div>

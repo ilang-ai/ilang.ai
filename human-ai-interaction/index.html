@@ -110,6 +110,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-bottom .ids{display:flex;gap:16px}
 .content th code{text-transform:none;letter-spacing:0}
 @media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -179,11 +180,11 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <section id="modes" aria-labelledby="modes-h">
 <h2 id="modes-h">The three communication modes</h2>
 <p>iLang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:</p>
-<div class="table-wrap"><table>
-<tr><th scope="col">Mode</th><th scope="col">Description</th><th scope="col">Example</th></tr>
-<tr><td>Human → AI</td><td>Precise instructions AI follows with fewer retries</td><td><code>[READ:@SRC|path=data.csv]=&gt;[STAT]=&gt;[Ω]</code></td></tr>
-<tr><td>AI → AI</td><td><a href="/agent-communication/">Structured communication between agents</a></td><td><code>[SEND:@DST|fmt=json]=&gt;[EVAL]=&gt;[OUT]</code></td></tr>
-<tr><td>AI internal</td><td>Behavioral identity and reasoning structure</td><td><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
+<div class="table-wrap"><table class="stack">
+<tr class="stack-head"><th scope="col">Mode</th><th scope="col">Description</th><th scope="col">Example</th></tr>
+<tr><td data-label="Mode">Human → AI</td><td data-label="Description">Precise instructions AI follows with fewer retries</td><td data-label="Example"><code>[READ:@SRC|path=data.csv]=&gt;[STAT]=&gt;[Ω]</code></td></tr>
+<tr><td data-label="Mode">AI → AI</td><td data-label="Description"><a href="/agent-communication/">Structured communication between agents</a></td><td data-label="Example"><code>[SEND:@DST|fmt=json]=&gt;[EVAL]=&gt;[OUT]</code></td></tr>
+<tr><td data-label="Mode">AI internal</td><td data-label="Description">Behavioral identity and reasoning structure</td><td data-label="Example"><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
 </table></div>
 <p>The table is in section 1 of the <a href="/spec/">specification</a>.</p>
 </section>
@@ -191,9 +192,9 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <section id="mcp-a2a" aria-labelledby="mcp-a2a-h">
 <h2 id="mcp-a2a-h">Human-to-AI next to MCP and A2A</h2>
 <p>The feature comparison on <a href="/mcp-vs-a2a/">MCP vs A2A vs iLang</a> has one row for this mode:</p>
-<div class="table-wrap"><table>
-<tr><th scope="col">Feature</th><th scope="col">MCP</th><th scope="col">A2A</th><th scope="col">iLang</th></tr>
-<tr><td>Human-to-AI</td><td>&#x2717; Not designed for</td><td>&#x2717; Not designed for</td><td>&#x2713; Primary use case</td></tr>
+<div class="table-wrap"><table class="stack">
+<tr class="stack-head"><th scope="col">Feature</th><th scope="col">MCP</th><th scope="col">A2A</th><th scope="col">iLang</th></tr>
+<tr><td data-label="Feature">Human-to-AI</td><td data-label="MCP">&#x2717; Not designed for</td><td data-label="A2A">&#x2717; Not designed for</td><td data-label="iLang">&#x2713; Primary use case</td></tr>
 </table></div>
 <p>Comparison pages: <a href="/i-lang-vs-mcp/">iLang vs MCP</a>, <a href="/i-lang-vs-a2a/">iLang vs A2A</a> and <a href="/i-lang-vs-gibberlink/">iLang vs GibberLink</a>. The AI-to-AI mode has its own page: <a href="/agent-communication/">agent communication protocol</a>.</p>
 </section>

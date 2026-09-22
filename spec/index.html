@@ -90,6 +90,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -158,11 +159,11 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <h2 id="s1-overview">1. Overview</h2>
 <p>iLang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:</p>
-<table>
-<tr><th>Mode</th><th>Description</th><th>Example</th></tr>
-<tr><td>Human &rarr; AI</td><td>Precise instructions AI follows with fewer retries</td><td><code>[READ:@SRC|path=data.csv]=>[STAT]=>[Ω]</code></td></tr>
-<tr><td>AI &rarr; AI</td><td><a href="/agent-communication/">Structured communication between agents</a></td><td><code>[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]</code></td></tr>
-<tr><td>AI internal</td><td>Behavioral identity and reasoning structure</td><td><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Mode</th><th>Description</th><th>Example</th></tr>
+<tr><td data-label="Mode">Human &rarr; AI</td><td data-label="Description">Precise instructions AI follows with fewer retries</td><td data-label="Example"><code>[READ:@SRC|path=data.csv]=>[STAT]=>[Ω]</code></td></tr>
+<tr><td data-label="Mode">AI &rarr; AI</td><td data-label="Description"><a href="/agent-communication/">Structured communication between agents</a></td><td data-label="Example"><code>[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]</code></td></tr>
+<tr><td data-label="Mode">AI internal</td><td data-label="Description">Behavioral identity and reasoning structure</td><td data-label="Example"><code>::GENE{verify_first|conf:confirmed}</code></td></tr>
 </table>
 
 <h2 id="s2-two-syntaxes">2. Two Syntaxes</h2>
@@ -171,12 +172,12 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <pre><code>[VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω]</code></pre>
 <p>Operations are executable instructions. Each step in a chain receives the output of the previous step. The chain terminates with <code>[Ω]</code> or <code>[OUT]</code>.</p>
 <p>Components:</p>
-<table>
-<tr><th>Component</th><th>Syntax</th><th>Description</th></tr>
-<tr><td>Verb</td><td><code>VERB</code></td><td>One of 88 defined verbs (e.g., READ, WRIT, FILT, SORT)</td></tr>
-<tr><td>Target</td><td><code>@TARGET</code></td><td>Entity reference (e.g., @SRC, @DST, @PREV, @LOCAL)</td></tr>
-<tr><td>Modifiers</td><td><code>key=value</code></td><td>Parameters separated by pipes (e.g., fmt=md, lng=ja)</td></tr>
-<tr><td>Chain</td><td><code>=></code></td><td>Output of left feeds into right</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Component</th><th>Syntax</th><th>Description</th></tr>
+<tr><td data-label="Component">Verb</td><td data-label="Syntax"><code>VERB</code></td><td data-label="Description">One of 88 defined verbs (e.g., READ, WRIT, FILT, SORT)</td></tr>
+<tr><td data-label="Component">Target</td><td data-label="Syntax"><code>@TARGET</code></td><td data-label="Description">Entity reference (e.g., @SRC, @DST, @PREV, @LOCAL)</td></tr>
+<tr><td data-label="Component">Modifiers</td><td data-label="Syntax"><code>key=value</code></td><td data-label="Description">Parameters separated by pipes (e.g., fmt=md, lng=ja)</td></tr>
+<tr><td data-label="Component">Chain</td><td data-label="Syntax"><code>=></code></td><td data-label="Description">Output of left feeds into right</td></tr>
 </table>
 
 <h3 id="s2-2-declaration-syntax-what-ai-is">2.2 Declaration Syntax — What AI Is</h3>
@@ -322,33 +323,33 @@ E:`::EVENT{1998|entered_wuhan_university|major:computer_science}`</code></pre>
 
 <h3 id="s5-1-core-modifiers">5.1 Core Modifiers</h3>
 <p>Core modifiers are defined in the protocol specification and recognized by all conformant implementations.</p>
-<table>
-<tr><th>Modifier</th><th>Purpose</th><th>Example values</th></tr>
-<tr><td><code>fmt=</code></td><td>Output format</td><td>md, json, csv, html, yaml, txt</td></tr>
-<tr><td><code>lng=</code></td><td>Language</td><td>en, zh, ja, ko, es, fr, de</td></tr>
-<tr><td><code>len=</code></td><td>Length constraint</td><td>3, 100w, 500char</td></tr>
-<tr><td><code>ton=</code></td><td>Tone</td><td>formal, casual, pro, academic</td></tr>
-<tr><td><code>sty=</code></td><td>Style</td><td>bullets, prose, table, numbered</td></tr>
-<tr><td><code>path=</code></td><td>File/URL path</td><td>./data.csv, https://example.com</td></tr>
-<tr><td><code>whr=</code></td><td>Filter condition</td><td>*.md, status=active</td></tr>
-<tr><td><code>mch=</code></td><td>Match pattern</td><td>regex, glob, exact</td></tr>
-<tr><td><code>src=</code></td><td>Source</td><td>file, url, clipboard, @PREV</td></tr>
-<tr><td><code>dst=</code></td><td>Destination</td><td>file, screen, @NULL</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Modifier</th><th>Purpose</th><th>Example values</th></tr>
+<tr><td data-label="Modifier"><code>fmt=</code></td><td data-label="Purpose">Output format</td><td data-label="Example values">md, json, csv, html, yaml, txt</td></tr>
+<tr><td data-label="Modifier"><code>lng=</code></td><td data-label="Purpose">Language</td><td data-label="Example values">en, zh, ja, ko, es, fr, de</td></tr>
+<tr><td data-label="Modifier"><code>len=</code></td><td data-label="Purpose">Length constraint</td><td data-label="Example values">3, 100w, 500char</td></tr>
+<tr><td data-label="Modifier"><code>ton=</code></td><td data-label="Purpose">Tone</td><td data-label="Example values">formal, casual, pro, academic</td></tr>
+<tr><td data-label="Modifier"><code>sty=</code></td><td data-label="Purpose">Style</td><td data-label="Example values">bullets, prose, table, numbered</td></tr>
+<tr><td data-label="Modifier"><code>path=</code></td><td data-label="Purpose">File/URL path</td><td data-label="Example values">./data.csv, https://example.com</td></tr>
+<tr><td data-label="Modifier"><code>whr=</code></td><td data-label="Purpose">Filter condition</td><td data-label="Example values">*.md, status=active</td></tr>
+<tr><td data-label="Modifier"><code>mch=</code></td><td data-label="Purpose">Match pattern</td><td data-label="Example values">regex, glob, exact</td></tr>
+<tr><td data-label="Modifier"><code>src=</code></td><td data-label="Purpose">Source</td><td data-label="Example values">file, url, clipboard, @PREV</td></tr>
+<tr><td data-label="Modifier"><code>dst=</code></td><td data-label="Purpose">Destination</td><td data-label="Example values">file, screen, @NULL</td></tr>
 </table>
 
 <h3 id="s5-2-extended-modifiers">5.2 Extended Modifiers</h3>
 <p>Extended modifiers are verb-specific parameters defined in the <a href="/dictionary/" style="color:var(--accent)">Dictionary</a>. They follow the same <code>key=value</code> syntax but are only meaningful for specific verbs.</p>
-<table>
-<tr><th>Modifier</th><th>Used by</th><th>Example</th></tr>
-<tr><td><code>cmd=</code></td><td>RUN</td><td><code>[RUN|cmd=python script.py]</code></td></tr>
-<tr><td><code>algo=</code></td><td>HASH, ENCD</td><td><code>[HASH|algo=sha256]</code></td></tr>
-<tr><td><code>key=</code></td><td>CACH</td><td><code>[CACH|key=q3data]</code></td></tr>
-<tr><td><code>by=</code></td><td>SORT, STAT, RANK</td><td><code>[SORT|by=revenue,desc]</code></td></tr>
-<tr><td><code>fn=</code></td><td>MAP, REDU, LOOP</td><td><code>[MAP|fn=extract_title]</code></td></tr>
-<tr><td><code>period=</code></td><td>TRND</td><td><code>[TRND|period=Q]</code></td></tr>
-<tr><td><code>threshold=</code></td><td>ANOM</td><td><code>[ANOM|threshold=2.5]</code></td></tr>
-<tr><td><code>scale=</code></td><td>SCOR</td><td><code>[SCOR|scale=1-10]</code></td></tr>
-<tr><td><code>type=</code></td><td>CREA, GEN</td><td><code>[CREA|type=blog,topic=AI]</code></td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Modifier</th><th>Used by</th><th>Example</th></tr>
+<tr><td data-label="Modifier"><code>cmd=</code></td><td data-label="Used by">RUN</td><td data-label="Example"><code>[RUN|cmd=python script.py]</code></td></tr>
+<tr><td data-label="Modifier"><code>algo=</code></td><td data-label="Used by">HASH, ENCD</td><td data-label="Example"><code>[HASH|algo=sha256]</code></td></tr>
+<tr><td data-label="Modifier"><code>key=</code></td><td data-label="Used by">CACH</td><td data-label="Example"><code>[CACH|key=q3data]</code></td></tr>
+<tr><td data-label="Modifier"><code>by=</code></td><td data-label="Used by">SORT, STAT, RANK</td><td data-label="Example"><code>[SORT|by=revenue,desc]</code></td></tr>
+<tr><td data-label="Modifier"><code>fn=</code></td><td data-label="Used by">MAP, REDU, LOOP</td><td data-label="Example"><code>[MAP|fn=extract_title]</code></td></tr>
+<tr><td data-label="Modifier"><code>period=</code></td><td data-label="Used by">TRND</td><td data-label="Example"><code>[TRND|period=Q]</code></td></tr>
+<tr><td data-label="Modifier"><code>threshold=</code></td><td data-label="Used by">ANOM</td><td data-label="Example"><code>[ANOM|threshold=2.5]</code></td></tr>
+<tr><td data-label="Modifier"><code>scale=</code></td><td data-label="Used by">SCOR</td><td data-label="Example"><code>[SCOR|scale=1-10]</code></td></tr>
+<tr><td data-label="Modifier"><code>type=</code></td><td data-label="Used by">CREA, GEN</td><td data-label="Example"><code>[CREA|type=blog,topic=AI]</code></td></tr>
 </table>
 
 <h3 id="s5-3-modifier-grammar">5.3 Modifier Grammar</h3>
@@ -460,16 +461,16 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 </code></pre>
 
 <h2 id="s9-error-model">9. Error Model</h2>
-<table>
-<tr><th>Error code</th><th>Condition</th><th>Expected behavior</th></tr>
-<tr><td><code>E_UNKNOWN_VERB</code></td><td>Verb not in 88-verb dictionary</td><td>Report unknown verb, suggest closest match</td></tr>
-<tr><td><code>E_MISSING_TARGET</code></td><td>Verb requires target but none given</td><td>Report missing target, show expected syntax</td></tr>
-<tr><td><code>E_INVALID_MODIFIER</code></td><td>Modifier key not recognized for this verb</td><td>Report invalid modifier, list valid options</td></tr>
-<tr><td><code>E_CHAIN_BREAK</code></td><td>Step in chain produces no output for next step</td><td>Report which step failed, preserve partial results</td></tr>
-<tr><td><code>E_ENTITY_NOT_FOUND</code></td><td>Referenced entity does not exist or is inaccessible</td><td>Report entity resolution failure</td></tr>
-<tr><td><code>E_PERMISSION_DENIED</code></td><td>Guarded/dangerous verb blocked by host runtime</td><td>Report which verb was blocked and why</td></tr>
-<tr><td><code>E_DECLARATION_CONFLICT</code></td><td>Two GENE blocks define contradictory rules</td><td>Report conflict, apply higher-priority block</td></tr>
-<tr><td><code>E_SYNTAX_ERROR</code></td><td>Malformed chain or declaration</td><td>Report error location, show corrected syntax</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Error code</th><th>Condition</th><th>Expected behavior</th></tr>
+<tr><td data-label="Error code"><code>E_UNKNOWN_VERB</code></td><td data-label="Condition">Verb not in 88-verb dictionary</td><td data-label="Expected behavior">Report unknown verb, suggest closest match</td></tr>
+<tr><td data-label="Error code"><code>E_MISSING_TARGET</code></td><td data-label="Condition">Verb requires target but none given</td><td data-label="Expected behavior">Report missing target, show expected syntax</td></tr>
+<tr><td data-label="Error code"><code>E_INVALID_MODIFIER</code></td><td data-label="Condition">Modifier key not recognized for this verb</td><td data-label="Expected behavior">Report invalid modifier, list valid options</td></tr>
+<tr><td data-label="Error code"><code>E_CHAIN_BREAK</code></td><td data-label="Condition">Step in chain produces no output for next step</td><td data-label="Expected behavior">Report which step failed, preserve partial results</td></tr>
+<tr><td data-label="Error code"><code>E_ENTITY_NOT_FOUND</code></td><td data-label="Condition">Referenced entity does not exist or is inaccessible</td><td data-label="Expected behavior">Report entity resolution failure</td></tr>
+<tr><td data-label="Error code"><code>E_PERMISSION_DENIED</code></td><td data-label="Condition">Guarded/dangerous verb blocked by host runtime</td><td data-label="Expected behavior">Report which verb was blocked and why</td></tr>
+<tr><td data-label="Error code"><code>E_DECLARATION_CONFLICT</code></td><td data-label="Condition">Two GENE blocks define contradictory rules</td><td data-label="Expected behavior">Report conflict, apply higher-priority block</td></tr>
+<tr><td data-label="Error code"><code>E_SYNTAX_ERROR</code></td><td data-label="Condition">Malformed chain or declaration</td><td data-label="Expected behavior">Report error location, show corrected syntax</td></tr>
 </table>
 
 <h2 id="s10-chain-execution">10. Chain Execution</h2>
@@ -543,19 +544,19 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 
 <h3 id="s13-2-the-11-dimensional-judgment-vector">13.2 The 11-Dimensional Judgment Vector</h3>
 <p>Sign convention: higher value = higher cooperative utility. Uniform polarity &mdash; <code>1.00</code> is the condition most favorable to autonomous action, <code>0.00</code> the least. Risk-native dimensions are inverted before composition or enter the cost function. Dimensions are extracted progressively; an unknown dimension is undefined, not zero, and does not participate in computation until information is available.</p>
-<table>
-<tr><th>#</th><th>Dimension</th><th>Meaning</th><th>Class</th></tr>
-<tr><td>v1</td><td><code>intent</code></td><td>Alignment of stated and inferred purpose</td><td>benefit</td></tr>
-<tr><td>v2</td><td><code>capability</code></td><td>Technical capacity involved</td><td>neutral</td></tr>
-<tr><td>v3</td><td><code>consequence</code></td><td>Expected outcome magnitude</td><td>risk</td></tr>
-<tr><td>v4</td><td><code>relationship</code></td><td>Context fit between parties</td><td>benefit</td></tr>
-<tr><td>v5</td><td><code>certainty</code></td><td>Assessment confidence</td><td>benefit</td></tr>
-<tr><td>v6</td><td><code>authority</code></td><td>Legitimate jurisdiction</td><td>benefit</td></tr>
-<tr><td>v7</td><td><code>reversibility</code></td><td>Recoverability of outcomes</td><td>benefit</td></tr>
-<tr><td>v8</td><td><code>evidence</code></td><td>Supporting information quality</td><td>benefit</td></tr>
-<tr><td>v9</td><td><code>sovereignty</code></td><td>Autonomous decision right of requester</td><td>benefit</td></tr>
-<tr><td>v10</td><td><code>inertia</code></td><td>Continuity with established, confirmed patterns (renamed from <code>drift</code> with inverted polarity; PATCH-1 DIM-10-RENAME)</td><td>benefit</td></tr>
-<tr><td>v11</td><td><code>externality</code></td><td>Unconsented third-party impact</td><td>risk</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>#</th><th>Dimension</th><th>Meaning</th><th>Class</th></tr>
+<tr><td data-label="#">v1</td><td data-label="Dimension"><code>intent</code></td><td data-label="Meaning">Alignment of stated and inferred purpose</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v2</td><td data-label="Dimension"><code>capability</code></td><td data-label="Meaning">Technical capacity involved</td><td data-label="Class">neutral</td></tr>
+<tr><td data-label="#">v3</td><td data-label="Dimension"><code>consequence</code></td><td data-label="Meaning">Expected outcome magnitude</td><td data-label="Class">risk</td></tr>
+<tr><td data-label="#">v4</td><td data-label="Dimension"><code>relationship</code></td><td data-label="Meaning">Context fit between parties</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v5</td><td data-label="Dimension"><code>certainty</code></td><td data-label="Meaning">Assessment confidence</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v6</td><td data-label="Dimension"><code>authority</code></td><td data-label="Meaning">Legitimate jurisdiction</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v7</td><td data-label="Dimension"><code>reversibility</code></td><td data-label="Meaning">Recoverability of outcomes</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v8</td><td data-label="Dimension"><code>evidence</code></td><td data-label="Meaning">Supporting information quality</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v9</td><td data-label="Dimension"><code>sovereignty</code></td><td data-label="Meaning">Autonomous decision right of requester</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v10</td><td data-label="Dimension"><code>inertia</code></td><td data-label="Meaning">Continuity with established, confirmed patterns (renamed from <code>drift</code> with inverted polarity; PATCH-1 DIM-10-RENAME)</td><td data-label="Class">benefit</td></tr>
+<tr><td data-label="#">v11</td><td data-label="Dimension"><code>externality</code></td><td data-label="Meaning">Unconsented third-party impact</td><td data-label="Class">risk</td></tr>
 </table>
 <p>Four derived dimensions are computed from the core vector: <code>auditability &asymp; f(reversibility, evidence)</code>, <code>urgency &asymp; f(consequence, certainty)</code>, <code>adversariality &asymp; f(consistency&#8315;&sup1;, intent)</code>, and <code>tail_risk &asymp; CVaR&#8341;(consequence)</code>.</p>
 
@@ -726,8 +727,8 @@ STEP 3 — mode selection (by net_direction magnitude)
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a>
-      <a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
         <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
       </ul></div>
     </div>

@@ -87,6 +87,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -134,15 +135,15 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <h2>Two protocols, two layers</h2>
 <p>MCP (Model Context Protocol) and iLang solve different problems at different layers of the AI stack. They are not competitors. Understanding when to use each one starts with understanding what each one does.</p>
 
-<table>
-<tr><th>Dimension</th><th>MCP</th><th>iLang</th></tr>
-<tr><td>Created by</td><td>Anthropic</td><td>iLang Research (open community)</td></tr>
-<tr><td>Primary function</td><td>Connect AI to external tools and data sources</td><td>Structure communication between humans, AI, and agents</td></tr>
-<tr><td>Layer</td><td>Tool integration layer</td><td>Semantic instruction layer</td></tr>
-<tr><td>Requires</td><td>SDK, server implementation, API endpoints</td><td>Nothing. Text-native, paste into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM</td></tr>
-<tr><td>Format</td><td>JSON-RPC over stdio/SSE</td><td>Structured text: <code>[VERB:@TARGET|mod=val]</code></td></tr>
-<tr><td>Solves</td><td>How AI accesses databases, APIs, file systems</td><td>How AI understands instructions with lower ambiguity</td></tr>
-<tr><td>Example</td><td>AI calls a SQL database through MCP server</td><td><code>[READ:@SRC|path=data.csv]=>[FILT|whr=revenue>1000]=>[OUT]</code></td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Dimension</th><th>MCP</th><th>iLang</th></tr>
+<tr><td data-label="Dimension">Created by</td><td data-label="MCP">Anthropic</td><td data-label="iLang">iLang Research (open community)</td></tr>
+<tr><td data-label="Dimension">Primary function</td><td data-label="MCP">Connect AI to external tools and data sources</td><td data-label="iLang">Structure communication between humans, AI, and agents</td></tr>
+<tr><td data-label="Dimension">Layer</td><td data-label="MCP">Tool integration layer</td><td data-label="iLang">Semantic instruction layer</td></tr>
+<tr><td data-label="Dimension">Requires</td><td data-label="MCP">SDK, server implementation, API endpoints</td><td data-label="iLang">Nothing. Text-native, paste into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM</td></tr>
+<tr><td data-label="Dimension">Format</td><td data-label="MCP">JSON-RPC over stdio/SSE</td><td data-label="iLang">Structured text: <code>[VERB:@TARGET|mod=val]</code></td></tr>
+<tr><td data-label="Dimension">Solves</td><td data-label="MCP">How AI accesses databases, APIs, file systems</td><td data-label="iLang">How AI understands instructions with lower ambiguity</td></tr>
+<tr><td data-label="Dimension">Example</td><td data-label="MCP">AI calls a SQL database through MCP server</td><td data-label="iLang"><code>[READ:@SRC|path=data.csv]=>[FILT|whr=revenue>1000]=>[OUT]</code></td></tr>
 </table>
 
 <h2>When to use MCP</h2>
@@ -163,13 +164,13 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>MCP handles the database connection. iLang handles the instruction chain. Neither replaces the other.</p>
 
 <h2>Key differences at a glance</h2>
-<table>
-<tr><th>Question</th><th>MCP</th><th>iLang</th></tr>
-<tr><td>Can I use it without writing code?</td><td>No, requires server setup</td><td>Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM</td></tr>
-<tr><td>Does it work across models?</td><td>Depends on model support for MCP</td><td>Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
-<tr><td>Does it reduce token usage?</td><td>Not its purpose</td><td>68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
-<tr><td>Does it define AI behavior?</td><td>No</td><td>Yes, via <code>::GENE{}</code> declarations</td></tr>
-<tr><td>Is it open source?</td><td>Yes (Anthropic)</td><td>Yes (MIT license)</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Question</th><th>MCP</th><th>iLang</th></tr>
+<tr><td data-label="Question">Can I use it without writing code?</td><td data-label="MCP">No, requires server setup</td><td data-label="iLang">Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM</td></tr>
+<tr><td data-label="Question">Does it work across models?</td><td data-label="MCP">Depends on model support for MCP</td><td data-label="iLang">Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
+<tr><td data-label="Question">Does it reduce token usage?</td><td data-label="MCP">Not its purpose</td><td data-label="iLang">68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
+<tr><td data-label="Question">Does it define AI behavior?</td><td data-label="MCP">No</td><td data-label="iLang">Yes, via <code>::GENE{}</code> declarations</td></tr>
+<tr><td data-label="Question">Is it open source?</td><td data-label="MCP">Yes (Anthropic)</td><td data-label="iLang">Yes (MIT license)</td></tr>
 </table>
 
 <h2>Frequently asked questions</h2>
@@ -213,8 +214,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a>
-      <a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
         <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
       </ul></div>
     </div>

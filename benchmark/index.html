@@ -87,6 +87,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-col a:hover{color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
+@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
 <script type="application/ld+json">
 {
@@ -134,37 +135,37 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>Each model is tested with identical prompts across five task categories. Tests are run in fresh sessions with no prior context. Results measure whether the model correctly recognizes, translates, executes, and preserves iLang syntax.</p>
 
 <h2>Task categories</h2>
-<table>
-<tr><th>Category</th><th>What it tests</th><th>Example prompt</th></tr>
-<tr><td>Recognize</td><td>Can the model identify iLang syntax when it appears</td><td>"What protocol is this: <code>[READ:@SRC|path=data.csv]=>[STAT]=>[OUT]</code>"</td></tr>
-<tr><td>Translate</td><td>Can the model convert natural language to iLang and back</td><td>"Convert this to iLang: read the sales CSV, filter revenue over 1000, output as markdown"</td></tr>
-<tr><td>Execute</td><td>Does the model follow the instruction chain correctly</td><td>"Execute: <code>[READ:@SRC|path=report.md]=>[SHRT|len=3]=>[FMT|fmt=md]=>[OUT]</code>"</td></tr>
-<tr><td>Declare</td><td>Does the model respect <code>::GENE{}</code> behavioral definitions</td><td>"Follow this rule: <code>::GENE{output|conf:confirmed} T:conclusions_first A:hedging⇒remove</code>"</td></tr>
-<tr><td>Persist</td><td>Does the model maintain declarations across multiple turns</td><td>Set <code>::GENE{}</code> in turn 1, test compliance in turns 5 and 10</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Category</th><th>What it tests</th><th>Example prompt</th></tr>
+<tr><td data-label="Category">Recognize</td><td data-label="What it tests">Can the model identify iLang syntax when it appears</td><td data-label="Example prompt">"What protocol is this: <code>[READ:@SRC|path=data.csv]=>[STAT]=>[OUT]</code>"</td></tr>
+<tr><td data-label="Category">Translate</td><td data-label="What it tests">Can the model convert natural language to iLang and back</td><td data-label="Example prompt">"Convert this to iLang: read the sales CSV, filter revenue over 1000, output as markdown"</td></tr>
+<tr><td data-label="Category">Execute</td><td data-label="What it tests">Does the model follow the instruction chain correctly</td><td data-label="Example prompt">"Execute: <code>[READ:@SRC|path=report.md]=>[SHRT|len=3]=>[FMT|fmt=md]=>[OUT]</code>"</td></tr>
+<tr><td data-label="Category">Declare</td><td data-label="What it tests">Does the model respect <code>::GENE{}</code> behavioral definitions</td><td data-label="Example prompt">"Follow this rule: <code>::GENE{output|conf:confirmed} T:conclusions_first A:hedging⇒remove</code>"</td></tr>
+<tr><td data-label="Category">Persist</td><td data-label="What it tests">Does the model maintain declarations across multiple turns</td><td data-label="Example prompt">Set <code>::GENE{}</code> in turn 1, test compliance in turns 5 and 10</td></tr>
 </table>
 
 <h2>Results: May 2026</h2>
 
-<table>
-<tr><th>Model</th><th>Recognize</th><th>Translate</th><th>Execute</th><th>Declare</th><th>Persist</th><th>Overall</th></tr>
-<tr><td>Claude Opus 4.6</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>4/5</td><td><strong>96%</strong></td></tr>
-<tr><td>GPT-5.2</td><td>5/5</td><td>5/5</td><td>4/5</td><td>5/5</td><td>4/5</td><td><strong>92%</strong></td></tr>
-<tr><td>Gemini 3.1</td><td>5/5</td><td>4/5</td><td>4/5</td><td>4/5</td><td>3/5</td><td><strong>80%</strong></td></tr>
-<tr><td>DeepSeek V4</td><td>5/5</td><td>5/5</td><td>4/5</td><td>4/5</td><td>3/5</td><td><strong>84%</strong></td></tr>
-<tr><td>Kimi</td><td>5/5</td><td>4/5</td><td>4/5</td><td>4/5</td><td>3/5</td><td><strong>80%</strong></td></tr>
-<tr><td>Qwen</td><td>5/5</td><td>4/5</td><td>4/5</td><td>4/5</td><td>3/5</td><td><strong>80%</strong></td></tr>
-<tr><td>GLM</td><td>4/5</td><td>3/5</td><td>3/5</td><td>3/5</td><td>2/5</td><td><strong>60%</strong></td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Model</th><th>Recognize</th><th>Translate</th><th>Execute</th><th>Declare</th><th>Persist</th><th>Overall</th></tr>
+<tr><td data-label="Model">Claude Opus 4.6</td><td data-label="Recognize">5/5</td><td data-label="Translate">5/5</td><td data-label="Execute">5/5</td><td data-label="Declare">5/5</td><td data-label="Persist">4/5</td><td data-label="Overall"><strong>96%</strong></td></tr>
+<tr><td data-label="Model">GPT-5.2</td><td data-label="Recognize">5/5</td><td data-label="Translate">5/5</td><td data-label="Execute">4/5</td><td data-label="Declare">5/5</td><td data-label="Persist">4/5</td><td data-label="Overall"><strong>92%</strong></td></tr>
+<tr><td data-label="Model">Gemini 3.1</td><td data-label="Recognize">5/5</td><td data-label="Translate">4/5</td><td data-label="Execute">4/5</td><td data-label="Declare">4/5</td><td data-label="Persist">3/5</td><td data-label="Overall"><strong>80%</strong></td></tr>
+<tr><td data-label="Model">DeepSeek V4</td><td data-label="Recognize">5/5</td><td data-label="Translate">5/5</td><td data-label="Execute">4/5</td><td data-label="Declare">4/5</td><td data-label="Persist">3/5</td><td data-label="Overall"><strong>84%</strong></td></tr>
+<tr><td data-label="Model">Kimi</td><td data-label="Recognize">5/5</td><td data-label="Translate">4/5</td><td data-label="Execute">4/5</td><td data-label="Declare">4/5</td><td data-label="Persist">3/5</td><td data-label="Overall"><strong>80%</strong></td></tr>
+<tr><td data-label="Model">Qwen</td><td data-label="Recognize">5/5</td><td data-label="Translate">4/5</td><td data-label="Execute">4/5</td><td data-label="Declare">4/5</td><td data-label="Persist">3/5</td><td data-label="Overall"><strong>80%</strong></td></tr>
+<tr><td data-label="Model">GLM</td><td data-label="Recognize">4/5</td><td data-label="Translate">3/5</td><td data-label="Execute">3/5</td><td data-label="Declare">3/5</td><td data-label="Persist">2/5</td><td data-label="Overall"><strong>60%</strong></td></tr>
 </table>
 
 <p style="color:var(--muted);font-size:14px;margin-top:8px">Scores are out of 5 tasks per category. Tests conducted May 2026 using default model settings. Results may vary with model updates.</p>
 
 <h2>Token reduction benchmark</h2>
 <p>Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice.</p>
-<table>
-<tr><th>Case</th><th>Natural language</th><th>iLang</th><th>Reduction</th><th>Text</th></tr>
-<tr><td>Six-step data request, written tersely</td><td>58 tokens</td><td>54 tokens</td><td>7%</td><td><a href="/prompt-compression/">on the compression page</a></td></tr>
-<tr><td>The same request, as people actually send it</td><td>169 tokens</td><td>54 tokens</td><td>68%</td><td><a href="/prompt-compression/">on the compression page</a></td></tr>
-<tr><td>Five behavioural rules, natural language vs <code>::GENE{}</code></td><td>74 tokens</td><td>65 tokens</td><td>12%</td><td>below</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Case</th><th>Natural language</th><th>iLang</th><th>Reduction</th><th>Text</th></tr>
+<tr><td data-label="Case">Six-step data request, written tersely</td><td data-label="Natural language">58 tokens</td><td data-label="iLang">54 tokens</td><td data-label="Reduction">7%</td><td data-label="Text"><a href="/prompt-compression/">on the compression page</a></td></tr>
+<tr><td data-label="Case">The same request, as people actually send it</td><td data-label="Natural language">169 tokens</td><td data-label="iLang">54 tokens</td><td data-label="Reduction">68%</td><td data-label="Text"><a href="/prompt-compression/">on the compression page</a></td></tr>
+<tr><td data-label="Case">Five behavioural rules, natural language vs <code>::GENE{}</code></td><td data-label="Natural language">74 tokens</td><td data-label="iLang">65 tokens</td><td data-label="Reduction">12%</td><td data-label="Text">below</td></tr>
 </table>
 
 <p style="color:var(--muted);font-size:14px;margin-top:8px">Counted with OpenAI tiktoken, encoding cl100k_base. A terse rewrite of an instruction is already close to minimal, so the brackets and pipes of a chain cost about as much as the words they replace. The saving comes from the greetings, hedging and repetition that real prompts carry, and in a system prompt it is paid again on every turn.</p>
@@ -183,12 +184,12 @@ When the user asks for a deletion, ask for confirmation first unless they have a
   T:ask_confirmation|when:delete&amp;not_approved</code></pre>
 
 <h2>Common failure modes</h2>
-<table>
-<tr><th>Failure</th><th>Description</th><th>Frequency</th></tr>
-<tr><td>Partial chain execution</td><td>Model executes first 2-3 steps, skips later steps</td><td>Occasional on smaller models</td></tr>
-<tr><td>Declaration decay</td><td><code>::GENE{}</code> rules followed in turn 1-3, ignored by turn 8+</td><td>Common on all models in long sessions</td></tr>
-<tr><td>Alias confusion</td><td>Greek aliases (&#x03A9;, &#x03A3;) interpreted as math symbols</td><td>Rare on major models</td></tr>
-<tr><td>Modifier hallucination</td><td>Model invents modifiers not in the dictionary</td><td>Occasional</td></tr>
+<table class="stack">
+<tr class="stack-head"><th>Failure</th><th>Description</th><th>Frequency</th></tr>
+<tr><td data-label="Failure">Partial chain execution</td><td data-label="Description">Model executes first 2-3 steps, skips later steps</td><td data-label="Frequency">Occasional on smaller models</td></tr>
+<tr><td data-label="Failure">Declaration decay</td><td data-label="Description"><code>::GENE{}</code> rules followed in turn 1-3, ignored by turn 8+</td><td data-label="Frequency">Common on all models in long sessions</td></tr>
+<tr><td data-label="Failure">Alias confusion</td><td data-label="Description">Greek aliases (&#x03A9;, &#x03A3;) interpreted as math symbols</td><td data-label="Frequency">Rare on major models</td></tr>
+<tr><td data-label="Failure">Modifier hallucination</td><td data-label="Description">Model invents modifiers not in the dictionary</td><td data-label="Frequency">Occasional</td></tr>
 </table>
 
 <h2>Reproduce these tests</h2>
@@ -229,8 +230,8 @@ When the user asks for a deletion, ask for confirmation first unless they have a
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a>
-      <a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
         <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
       </ul></div>
     </div>
