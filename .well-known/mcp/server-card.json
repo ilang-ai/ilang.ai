@@ -1,11 +1,11 @@
 {
   "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
   "serverInfo": {
-    "name": "ilang-lookup",
-    "version": "1.0.0",
-    "title": "iLang Lookup"
+    "name": "ilang",
+    "version": "2.0.0",
+    "title": "iLang"
   },
-  "description": "Read-only MCP server over the published iLang dictionary (verbs, aliases, modifiers, entities, declarations) and the ilang.ai FAQ. No authentication.",
+  "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), the full text for any section it leaves out, the canon grammar validator, and lookup over the dictionary and the ilang.ai FAQ. Read-only, no authentication.",
   "protocolVersion": "2025-06-18",
   "endpoint": "https://ilang.ai/mcp",
   "transport": {
@@ -25,6 +25,18 @@
   },
   "tools": [
     {
+      "name": "ilang_runtime",
+      "description": "Load the official iLang runtime, once per conversation; media=true adds the media extension."
+    },
+    {
+      "name": "ilang_full",
+      "description": "Read a section of the full specification that the core runtime leaves out, by heading."
+    },
+    {
+      "name": "ilang_validate",
+      "description": "Check iLang text with the canon grammar and registry validator."
+    },
+    {
       "name": "ilang_lookup",
       "description": "Look up an iLang verb, modifier, entity or declaration by name, alias or meaning."
     },
@@ -36,5 +48,25 @@
   "documentation": "https://ilang.ai/ai/",
   "authentication": {
     "required": false
-  }
+  },
+  "prompts": [
+    {
+      "name": "ilang",
+      "description": "Put the official iLang runtime in the conversation."
+    }
+  ],
+  "resources": [
+    {
+      "uri": "ilang://runtime/core"
+    },
+    {
+      "uri": "ilang://runtime/full"
+    },
+    {
+      "uri": "ilang://runtime/media"
+    },
+    {
+      "uri": "https://ilang.ai/ai/data.json"
+    }
+  ]
 }

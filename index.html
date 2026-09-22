@@ -305,6 +305,9 @@ nav{
 .research-list a{font-weight:600}
 .research-list span{color:var(--muted);font-size:14px}
 .research-foot{margin-top:18px;color:var(--muted);font-size:14px}
+.use-mcp{margin-top:18px}
+.use-mcp code{font-size:13px}
+.use-mcp-links{margin-top:8px;font-size:14px;color:var(--muted)}
 
 /* ─── Section shell ─── */
 section{padding:100px 0}
@@ -708,6 +711,9 @@ npm install ilang-protocol
 
 messages = ilang.wrap(messages)</code></pre>
         <a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">Loader on GitHub &rarr;</a>
+        <p class="use-mcp">Or connect the MCP server once, and your AI loads iLang itself: <code>https://ilang.ai/mcp</code></p>
+        <pre><code>claude mcp add --transport http ilang https://ilang.ai/mcp</code></pre>
+        <p class="use-mcp-links"><a href="cursor://anysphere.cursor-deeplink/mcp/install?name=ilang&amp;config=eyJ1cmwiOiJodHRwczovL2lsYW5nLmFpL21jcCJ9">Add to Cursor</a> &middot; Claude and ChatGPT: add the URL as a connector</p>
       </div>
       <div class="use-card">
         <h3>I want to know what iLang is</h3>

@@ -105,6 +105,14 @@ messages = ilang.wrap(messages)
 
 The loader fetches the official runtime, checks its sha256 and adds it to every request: [github.com/ilang-ai/ilang](https://github.com/ilang-ai/ilang).
 
+Or connect the MCP server once, and your AI loads iLang itself: `https://ilang.ai/mcp`
+
+```bash
+claude mcp add --transport http ilang https://ilang.ai/mcp
+```
+
+In Cursor, add it from the deeplink `cursor://anysphere.cursor-deeplink/mcp/install?name=ilang&config=eyJ1cmwiOiJodHRwczovL2lsYW5nLmFpL21jcCJ9`; in Claude and ChatGPT, add the URL as a connector.
+
 ### I want to know what iLang is
 
 - [Full specification](https://ilang.ai/spec/)

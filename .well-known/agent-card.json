@@ -2,7 +2,7 @@
   "name": "iLang Reference Agent",
   "version": "0.1.0-planned",
   "protocolVersion": "0.3.0",
-  "description": "Planned. The A2A JSON-RPC endpoint is not live yet and returns HTTP 503; use the MCP server at https://ilang.ai/mcp or the public lookup API for read-only access to the iLang dictionary and FAQ.",
+  "description": "Planned. The A2A JSON-RPC endpoint is not live yet and returns HTTP 503; use the MCP server at https://ilang.ai/mcp or the public lookup API for the iLang runtime, the full text, the grammar validator and read-only lookup over the dictionary and FAQ.",
   "url": "https://ilang.ai/a2a",
   "preferredTransport": "JSONRPC",
   "supportedInterfaces": [

@@ -8,15 +8,15 @@
   "entries": [
     {
       "identifier": "urn:air:ilang.ai:server:ilang-lookup",
-      "displayName": "iLang lookup MCP server",
+      "displayName": "iLang MCP server",
       "type": "application/mcp-server-card+json",
       "url": "https://ilang.ai/.well-known/mcp/server-card.json",
       "representativeQueries": [
+        "load iLang into this conversation",
+        "read the iLang declaration grammar",
+        "check whether this iLang chain is valid",
         "what does the iLang verb XLAT mean",
-        "which modifier sets the output format in iLang",
-        "how is iLang different from MCP",
-        "what is the iLang judgment layer",
-        "how many verbs does iLang have"
+        "how is iLang different from MCP"
       ]
     },
     {
