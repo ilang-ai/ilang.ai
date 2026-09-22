@@ -8,6 +8,7 @@ iLang 是给 AI 用的协议，不是让人背的语言。你照常用自己的�
 
 - **在聊天里用：** 复制[最新版 iLang 运行时](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md)，或在 [ilang.ai](https://ilang.ai) 点「Copy latest iLang」，粘贴给 ChatGPT、Claude、Gemini、DeepSeek、通义千问或任何 AI 助手。
 - **在代码里用：** `pip install ilang-protocol` 或 `npm install ilang-protocol`，然后 `messages = ilang.wrap(messages)`。[加载器](https://github.com/ilang-ai/ilang)会取官方最新版、校验后加进每一次请求。
+- **用 MCP 客户端：** 接入一次 `https://ilang.ai/mcp`（Claude Code：`claude mcp add --transport http ilang https://ilang.ai/mcp`），AI 会自己加载 iLang。
 
 下面的内容写给 AI、开发者、研究者和审计协议的人。
 
