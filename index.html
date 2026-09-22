@@ -443,10 +443,10 @@ section{padding:100px 0}
   transition:background .18s;
 }
 .eco-item:hover{background:var(--bg-2)}
-.eco-head{display:flex;align-items:center;justify-content:space-between}
-.eco-name{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.01em}
-.eco-name .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--ink);color:#fff;padding:3px 7px;border-radius:3px;font-weight:500;letter-spacing:.04em}
-.eco-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.eco-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+.eco-name{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.01em}
+.eco-name .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--ink);color:#fff;padding:3px 7px;border-radius:3px;font-weight:500;letter-spacing:.04em;white-space:nowrap}
+.eco-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap}
 .eco-item p{color:var(--muted);font-size:14px;line-height:1.65;flex:1}
 .eco-links{display:flex;gap:16px;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:12px}
 .eco-links a{color:var(--accent);font-weight:500;transition:opacity .15s}
@@ -544,7 +544,22 @@ footer{
 .evidence-callout{border-left:3px solid var(--accent);background:var(--bg-2);padding:14px 18px;border-radius:8px;margin:0 0 20px;font-size:13px;color:var(--muted)}
 .evidence-callout h4{margin:0 0 6px;font-size:13px;color:var(--fg);font-weight:700}
 .evidence-callout p{margin:0;line-height:1.6}
-@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:anywhere}}
+.adv-meta{margin-left:auto}
+/* ─── Phone ─── */
+@media(max-width:760px){
+  .trust-label{max-width:none}
+  .trust-label br{display:none}
+  .trust-platforms{gap:12px 28px}
+  .foot-brand{grid-column:1/-1}
+}
+@media(max-width:640px){
+  section{padding:64px 0}
+  .sect-head{margin-bottom:36px}
+  .hero-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px}
+  .code-body pre,.use-card pre{white-space:pre-wrap;overflow-wrap:anywhere}
+  .adv-meta{margin-left:0}
+}
+@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
 </style>
 <link rel="ai-catalog" href="/.well-known/ai-catalog.json">
 <link rel="api-catalog" href="/.well-known/api-catalog">
@@ -734,7 +749,7 @@ messages = ilang.wrap(messages)</code></pre>
 <div class="trust">
   <div class="container">
     <div class="trust-inner">
-      <div class="trust-label">Tested<br>across<br>7 models</div>
+      <div class="trust-label">Tested <br>across <br>7 models</div>
       <div class="trust-platforms">
         <div class="plat"><span class="dot"></span>ChatGPT</div>
         <div class="plat"><span class="dot"></span>Claude</div>
@@ -866,9 +881,9 @@ messages = ilang.wrap(messages)</code></pre>
     <p style="color:var(--muted);font-size:13px">Red-team reviewed (GPT-5.5 Pro, 3 rounds). Conformance levels: L0 communication, L1 advisory, L2 runtime-enforced, L3 externally-graded. Execution semantics are the second of three layers; the judgment layer below is the third.</p>
 
     <details style="margin-top:24px;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden" class="fade">
-      <summary style="padding:16px 20px;cursor:pointer;font-size:14px;font-weight:600;color:var(--fg);display:flex;align-items:center;gap:8px;user-select:none">
-        <span style="color:var(--accent)">Advanced</span> — v4.0 System Prompt / Agent Runtime Header
-        <span style="margin-left:auto;font-size:12px;color:var(--muted);font-weight:400">For Trae, Claude Code, multi-agent, system prompts</span>
+      <summary style="padding:16px 20px;cursor:pointer;font-size:14px;font-weight:600;color:var(--fg);display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;user-select:none">
+        <span><span style="color:var(--accent)">Advanced</span> — v4.0 System Prompt / Agent Runtime Header</span>
+        <span class="adv-meta" style="font-size:12px;color:var(--muted);font-weight:400">For Trae, Claude Code, multi-agent, system prompts</span>
       </summary>
       <div style="position:relative;border-top:1px solid var(--border)">
         <button onclick="copyAdvanced()" aria-label="Copy advanced runtime header" style="position:absolute;top:12px;right:12px;padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--muted);font-size:12px;cursor:pointer;z-index:1" id="btnCopyAdvanced">Copy</button>
