@@ -1,4 +1,4 @@
-# AI-Native Communication Protocol for Humans and Agents | iLang — The Semantic Layer Missing from MCP and A2A
+# iLang: AI-Native Communication Protocol for Humans and Agents
 Source: https://ilang.ai
 
 iLang **v5.0** | MIT License

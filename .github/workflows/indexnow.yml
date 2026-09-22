@@ -1,0 +1,51 @@
+name: IndexNow
+
+# After a push to main, tells IndexNow which pages changed (the files in the push and every sitemap
+# entry whose lastmod changed), so Bing and the other IndexNow engines recrawl them instead of
+# showing old titles and snippets. Google is not part of IndexNow; it reads sitemap.xml.
+# The key file is at the site root; an IndexNow key is public by design, so no secrets are needed.
+
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Build Blog (Hugo)"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Submit every URL the sitemaps list"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Submit changed pages
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}
+        run: |
+          if [ "$EVENT" = "push" ]; then
+            python3 .github/indexnow.py "$BEFORE" "$GITHUB_SHA"
+          elif [ "$EVENT" = "workflow_dispatch" ] && [ "$ALL" = "true" ]; then
+            python3 .github/indexnow.py --all
+          else
+            python3 .github/indexnow.py HEAD~1 HEAD
+          fi
