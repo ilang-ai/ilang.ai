@@ -93,7 +93,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"The Inductive Dilemma of AI Hallucination","author":{"@id":"https://ilang.ai/#person"},"datePublished":"2026-03","description":"Theoretical foundation of iLang protocol. Proposes that AI hallucination is an inherent consequence of inductive reasoning in neural networks, not a bug to be patched. Published on ResearchGate and SSRN.","url":"https://doi.org/10.13140/RG.2.2.22821.97762","publisher":{"@type":"Organization","name":"ResearchGate"},"about":{"@id":"https://ilang.ai/#protocol"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"I-Lang: I Language","author":[{"@type":"Person","@id":"https://ilang.ai/#person","name":"Long Quan Zhu","sameAs":"https://orcid.org/0009-0004-4540-8082"},{"@type":"Person","name":"Claude Opus"}],"datePublished":"2026-04-15","identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":"B0CZY6V3GM"},"bookEdition":"1st","bookFormat":"EBook","numberOfPages":72,"inLanguage":"en","isPartOf":{"@type":"BookSeries","name":"I-Lang Protocol Series"},"description":"The definitive guide to iLang, the AI-native communication protocol. Covers protocol design philosophy, 88-verb dictionary, two syntaxes, behavioral DNA, and AI-to-AI handshake patterns.","publisher":{"@type":"Organization","@id":"https://ilang.ai/#organization","name":"iLang Inc."},"url":"https://www.amazon.com/dp/B0CZY6V3GM","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD","availability":"https://schema.org/InStock"},"about":{"@id":"https://ilang.ai/#protocol"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"I-Lang Protocol Specification: The AI-Native Communication Protocol","author":[{"@type":"Person","@id":"https://ilang.ai/#person","name":"Long Quan Zhu","sameAs":"https://orcid.org/0009-0004-4540-8082"},{"@type":"Person","name":"Bro Claude"}],"datePublished":"2026-04-15","identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":"B0GX32GXF2"},"bookFormat":"EBook","numberOfPages":17,"inLanguage":"en","isPartOf":{"@type":"BookSeries","name":"I-Lang Protocol Series"},"url":"https://www.amazon.com/dp/B0GX32GXF2","about":{"@id":"https://ilang.ai/#protocol"},"publisher":{"@type":"Organization","@id":"https://ilang.ai/#organization","name":"iLang Inc."}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I learn iLang?","acceptedAnswer":{"@type":"Answer","text":"You don't. iLang is a protocol for AI, not a language people have to memorise. Tell your AI what you want in your own words. To put iLang to work, copy the latest iLang into your AI or install the loader. The full specification is for AI, developers, researchers and anyone auditing the protocol."}},{"@type":"Question","name":"Do I need to write iLang?","acceptedAnswer":{"@type":"Answer","text":"No. In normal use you never write a line of it. Your AI reads and writes iLang; you keep speaking naturally."}},{"@type":"Question","name":"Why is the full grammar public if I don't need to learn it?","acceptedAnswer":{"@type":"Answer","text":"Because a protocol has to be open, auditable and reproducible, and AI, developers and researchers need to read the whole of it. A public specification is not homework for users."}},{"@type":"Question","name":"Which models does iLang work with?","acceptedAnswer":{"@type":"Answer","text":"iLang is not tied to any model. Any model that accepts enough context can load it: ChatGPT, Claude, Gemini, DeepSeek, Qwen and others. The loader adds the official runtime to the context, and switching models only means loading it again."}},{"@type":"Question","name":"What is an AI-native communication protocol?","acceptedAnswer":{"@type":"Answer","text":"An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. iLang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication."}},{"@type":"Question","name":"How is iLang different from MCP?","acceptedAnswer":{"@type":"Answer","text":"MCP (Model Context Protocol) connects AI to external tools and data sources. iLang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; iLang handles how AI understands instructions. They are complementary."}},{"@type":"Question","name":"How is iLang different from A2A?","acceptedAnswer":{"@type":"Answer","text":"A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. iLang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack."}},{"@type":"Question","name":"Can structured prompts reduce retries with AI?","acceptedAnswer":{"@type":"Answer","text":"Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/."}},{"@type":"Question","name":"Does iLang work with ChatGPT, Claude, and DeepSeek?","acceptedAnswer":{"@type":"Answer","text":"iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026."}},{"@type":"Question","name":"What is prompt compression for LLMs?","acceptedAnswer":{"@type":"Answer","text":"Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words."}},{"@type":"Question","name":"Is iLang free and open source?","acceptedAnswer":{"@type":"Answer","text":"Yes. iLang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed."}},{"@type":"Question","name":"What is new in iLang v5.0?","acceptedAnswer":{"@type":"Answer","text":"iLang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.2 (September 2026) is the current stable release."}},{"@type":"Question","name":"What is the iLang judgment layer?","acceptedAnswer":{"@type":"Answer","text":"The judgment layer, introduced in iLang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. iLang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment."}},{"@type":"Question","name":"What was new in iLang v4.0?","acceptedAnswer":{"@type":"Answer","text":"iLang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0."}},{"@type":"Question","name":"Is iLang a prompt engineering framework?","acceptedAnswer":{"@type":"Answer","text":"No. iLang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed."}},{"@type":"Question","name":"Does iLang Inc. offer an AI detector or an AI humanizer?","acceptedAnswer":{"@type":"Answer","text":"Yes. iLang Detect and iLang Humanizer are tools built on iLang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I learn iLang?","acceptedAnswer":{"@type":"Answer","text":"You don't. iLang is a protocol for AI, not a language people have to memorise. Tell your AI what you want in your own words. To put iLang to work, copy the latest iLang into your AI or install the loader. The full specification is for AI, developers, researchers and anyone auditing the protocol."}},{"@type":"Question","name":"Do I need to write iLang?","acceptedAnswer":{"@type":"Answer","text":"No. In normal use you never write a line of it. Your AI reads and writes iLang; you keep speaking naturally."}},{"@type":"Question","name":"Why is the full grammar public if I don't need to learn it?","acceptedAnswer":{"@type":"Answer","text":"Because a protocol has to be open, auditable and reproducible, and AI, developers and researchers need to read the whole of it. A public specification is not homework for users."}},{"@type":"Question","name":"Which models does iLang work with?","acceptedAnswer":{"@type":"Answer","text":"iLang is not tied to any model. Any model that accepts enough context can load it: ChatGPT, Claude, Gemini, DeepSeek, Qwen and others. The loader adds the official runtime to the context, and switching models only means loading it again."}},{"@type":"Question","name":"Do I have to learn it again when I switch models?","acceptedAnswer":{"@type":"Answer","text":"No. You don't learn it, and the model needs no special training. After you switch models, load iLang again: paste the latest iLang, or let the loader add it."}},{"@type":"Question","name":"Is there an iLang tutorial?","acceptedAnswer":{"@type":"Answer","text":"There is nothing to study. Tell your AI what you want in your own words and give it the latest iLang: paste it into the chat, or install the loader. The specification is there for AI, developers and researchers."}},{"@type":"Question","name":"Is there an iLang plugin?","acceptedAnswer":{"@type":"Answer","text":"Yes, the loader: pip install ilang-protocol or npm install ilang-protocol, then ilang.wrap(messages). It fetches the official runtime, checks its sha256 and adds it to every request, for any model."}},{"@type":"Question","name":"What is an AI-native communication protocol?","acceptedAnswer":{"@type":"Answer","text":"An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. iLang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication."}},{"@type":"Question","name":"How is iLang different from MCP?","acceptedAnswer":{"@type":"Answer","text":"MCP (Model Context Protocol) connects AI to external tools and data sources. iLang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; iLang handles how AI understands instructions. They are complementary."}},{"@type":"Question","name":"How is iLang different from A2A?","acceptedAnswer":{"@type":"Answer","text":"A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. iLang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack."}},{"@type":"Question","name":"Can structured prompts reduce retries with AI?","acceptedAnswer":{"@type":"Answer","text":"Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/."}},{"@type":"Question","name":"Does iLang work with ChatGPT, Claude, and DeepSeek?","acceptedAnswer":{"@type":"Answer","text":"iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026."}},{"@type":"Question","name":"What is prompt compression for LLMs?","acceptedAnswer":{"@type":"Answer","text":"Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words."}},{"@type":"Question","name":"Is iLang free and open source?","acceptedAnswer":{"@type":"Answer","text":"Yes. iLang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed."}},{"@type":"Question","name":"What is new in iLang v5.0?","acceptedAnswer":{"@type":"Answer","text":"iLang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.2 (September 2026) is the current stable release."}},{"@type":"Question","name":"What is the iLang judgment layer?","acceptedAnswer":{"@type":"Answer","text":"The judgment layer, introduced in iLang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. iLang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment."}},{"@type":"Question","name":"What was new in iLang v4.0?","acceptedAnswer":{"@type":"Answer","text":"iLang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0."}},{"@type":"Question","name":"Is iLang a prompt engineering framework?","acceptedAnswer":{"@type":"Answer","text":"No. iLang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed."}},{"@type":"Question","name":"Does iLang Inc. offer an AI detector or an AI humanizer?","acceptedAnswer":{"@type":"Answer","text":"Yes. iLang Detect and iLang Humanizer are tools built on iLang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/."}}]}</script>
 
 <!-- Fonts: domestic-friendly CDN (staticfile.org / jsdmirror.com) -— Inter + JetBrains Mono -->
 <link rel="preconnect" href="https://cdn.staticfile.org">
@@ -299,6 +299,12 @@ nav{
 .trust-platforms .plat:hover{opacity:1}
 .trust-platforms .plat .dot{width:8px;height:8px;border-radius:2px;background:var(--ink)}
 @media(max-width:760px){.trust-inner{grid-template-columns:1fr;gap:20px}}
+.trust-note{margin:18px 0 0;font-size:13px;color:var(--muted)}
+.research-list{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:10px}
+.research-list li{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.research-list a{font-weight:600}
+.research-list span{color:var(--muted);font-size:14px}
+.research-foot{margin-top:18px;color:var(--muted);font-size:14px}
 
 /* ─── Section shell ─── */
 section{padding:100px 0}
@@ -680,25 +686,7 @@ Say: <span class="str">"iLang v5.0 loaded. What do you need?"</span></pre>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust">
-  <div class="container">
-    <div class="trust-inner">
-      <div class="trust-label">Tested<br>across<br>7 models</div>
-      <div class="trust-platforms">
-        <div class="plat"><span class="dot"></span>ChatGPT</div>
-        <div class="plat"><span class="dot"></span>Claude</div>
-        <div class="plat"><span class="dot"></span>Gemini</div>
-        <div class="plat"><span class="dot"></span>DeepSeek</div>
-        <div class="plat"><span class="dot"></span>Kimi</div>
-        <div class="plat"><span class="dot"></span>Qwen</div>
-        <div class="plat"><span class="dot"></span>GLM</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CAPABILITIES -->
+<!-- HOW TO USE -->
 <section id="use">
   <div class="container">
     <div class="sect-head fade">
@@ -735,6 +723,26 @@ messages = ilang.wrap(messages)</code></pre>
   </div>
 </section>
 
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-label">Tested<br>across<br>7 models</div>
+      <div class="trust-platforms">
+        <div class="plat"><span class="dot"></span>ChatGPT</div>
+        <div class="plat"><span class="dot"></span>Claude</div>
+        <div class="plat"><span class="dot"></span>Gemini</div>
+        <div class="plat"><span class="dot"></span>DeepSeek</div>
+        <div class="plat"><span class="dot"></span>Kimi</div>
+        <div class="plat"><span class="dot"></span>Qwen</div>
+        <div class="plat"><span class="dot"></span>GLM</div>
+      </div>
+    </div>
+    <p class="trust-note">Not tied to any model: anything that takes enough context can load iLang.</p>
+  </div>
+</div>
+
+<!-- CAPABILITIES -->
 <section id="capabilities">
   <div class="container">
     <div class="sect-head fade">
@@ -779,209 +787,29 @@ messages = ilang.wrap(messages)</code></pre>
   </div>
 </section>
 
-<!-- PROTOCOL / QUICK START -->
-<section class="protocol-sect" id="protocol">
-  <div class="container">
-    <div class="fade">
-      <div class="sect-tag">Quick start</div>
-      <h2>Three steps. No install.</h2>
-      <p style="font-size:17px;color:var(--muted);line-height:1.6;margin-top:14px">
-        iLang is text. You don't install it — you paste it.
-        It has been tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
-      </p>
-
-      <div class="protocol-steps">
-        <div class="p-step">
-          <div class="n">1</div>
-          <div class="t">
-            <b>Copy the protocol header</b>
-            <p>Grab the block on the right. It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers.</p>
-          </div>
-        </div>
-        <div class="p-step">
-          <div class="n">2</div>
-          <div class="t">
-            <b>Paste into a tested AI model</b>
-            <p>Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.</p>
-          </div>
-        </div>
-        <div class="p-step">
-          <div class="n">3</div>
-          <div class="t">
-            <b>Get precise results</b>
-            <p>Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="fade">
-      <div class="sect-tag">Specimen</div>
-      <h2 style="font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px">Before ⟷ After</h2>
-      <p style="color:var(--muted);font-size:15px;margin-bottom:24px">The same instruction, written as a sentence and written as a chain.</p>
-
-      <table class="cmp-table">
-        <thead>
-          <tr>
-            <th style="width:50%">What you want</th>
-            <th style="width:50%">iLang</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="before" data-label="Natural">Extract text from a URL and format as Markdown</td>
-            <td class="after" data-label="iLang">[GET:@SRC|path=url]=&gt;[FMT|fmt=md]=&gt;[OUT]</td>
-          </tr>
-          <tr>
-            <td class="before" data-label="Natural">Read all .md files, merge into one, output result</td>
-            <td class="after" data-label="iLang">[LIST:@LOCAL|mch=*.md]=&gt;[&#928;:READ]=&gt;[&#931;]=&gt;[&#937;]</td>
-          </tr>
-          <tr>
-            <td class="before" data-label="Natural">Shorten previous output into 3 professional bullet points</td>
-            <td class="after" data-label="iLang">[SHRT:@PREV|sty=bullets,len=3,ton=pro]=&gt;[&#937;]</td>
-          </tr>
-          <tr>
-            <td class="before" data-label="Natural">Translate to Japanese, formal tone, then format as table</td>
-            <td class="after" data-label="iLang">[&#952;:@PREV|lng=ja,ton=formal]=&gt;[FMT|fmt=csv]=&gt;[&#937;]</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3 style="font-size:19px;font-weight:700;margin:32px 0 8px">What it saves depends on what you compare against</h3>
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Those four lines are already stripped down. Nobody writes that way. Here is the same six-step request as people actually send it, next to the chain, counted with OpenAI tiktoken (cl100k_base). Both texts are on this page, so you can count them yourself.</p>
-
-      <table class="cmp-table">
-        <thead>
-          <tr>
-            <th style="width:50%">How the request usually arrives</th>
-            <th style="width:50%">iLang</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="before" data-label="Natural">Hi! Hope you&#39;re doing well. I&#39;ve got a quick favour to ask if you don&#39;t mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I&#39;m trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you&#39;ve got that, could you please work out the summary statistics for me, broken down by region? I&#39;d also really appreciate it if you could sort everything from highest revenue down to lowest, since that&#39;s how my manager likes to see it. And then if it&#39;s not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help!<br><br><strong>169 tokens</strong></td>
-            <td class="after" data-label="iLang">[READ:@SRC|path=sales.csv]<br>=&gt;[FILT|whr=revenue&gt;1000]<br>=&gt;[STAT|by=region]<br>=&gt;[SORT|by=revenue,desc]<br>=&gt;[FMT|fmt=md]<br>=&gt;[OUT]<br><br><strong>54 tokens</strong><br><span class="save">-68%</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="color:var(--muted);font-size:14px;margin-top:14px">Rewrite that request as tersely as a protocol author would and the gap closes to a few per cent. The saving is not magic in the brackets, it is the greeting, the hedging and the thank-you that a chain has no room for. It repeats on every turn, which is why the effect is largest in system prompts and behavioural rules that ship with every message.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TRY IT -->
-<section id="try">
+<!-- EVIDENCE -->
+<section id="evidence" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
     <div class="sect-head fade">
-      <div class="sect-tag">Interactive</div>
-      <h2>Structure a prompt.</h2>
-      <p>Drop any prompt in. The iLang engine rewrites it in protocol syntax. Lower semantic loss. AI executes with fewer retries.</p>
+      <div class="sect-tag">Evidence</div>
+      <h2>Measured, not assumed.</h2>
+      <p>Every number here comes with its code and data under a DOI. We ask readers not to trust our numbers but to re-run them.</p>
     </div>
-
-    <div class="fade">
-      <div class="try-wrap">
-        <div class="try-head">
-          <span class="label">input.txt</span>
-          <span class="try-count"><span id="charCount">0</span> / 2,000</span>
-        </div>
-        <textarea id="input" class="try-textarea" aria-label="Prompt to structure" rows="6" maxlength="2000" placeholder="Paste any prompt here…">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic.</textarea>
-        <div class="try-actions">
-          <div class="try-actions-left">
-            <button class="btn btn-primary btn-sm" onclick="compress(false)" id="btnCompress">Structure <span class="mono">→</span></button>
-            <button class="btn btn-secondary btn-sm" onclick="compress(true)" id="btnGift">Surprise me</button>
-            <span class="try-loading mono" id="loading">structuring</span>
-          </div>
-          <div class="try-counter"><b id="counterNum">0</b> prompts structured</div>
-        </div>
+    <div class="use-grid fade">
+      <div class="use-card">
+        <h3>45 model runs, 320 cases each</h3>
+        <p>The conformance benchmark scores grammar, execution and judgment with deterministic code and the canon's own validators. No model grades another.</p>
+        <a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">Conformance results &rarr;</a>
       </div>
-
-      <div class="try-error" id="errorBox"><span id="errorText"></span></div>
-      <p style="color:var(--muted);font-size:12px;margin-top:8px">Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See <a href="/privacy" style="color:var(--muted);text-decoration:underline">Privacy Policy</a>.</p>
-      <p style="color:var(--muted);font-size:13px;margin-top:6px">Want nothing to leave your browser? The <a href="/playground/" style="color:var(--accent);font-weight:600">Playground</a> converts iLang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.</p>
-
-      <div class="try-output" id="outputArea">
-        <div class="out-label">output.ilang</div>
-        <pre id="outputText"></pre>
-        <div class="out-foot">
-          <span id="tokenInfo"></span>
-          <button class="code-copy" id="btnCopy" onclick="copyResult()" aria-label="Copy structured output">Copy</button>
-        </div>
+      <div class="use-card">
+        <h3>Form is attainable; action is not</h3>
+        <p>Across the 34 comparable runs, the median run passes 80% of grammar cases and 9% of execution cases. Once right is written down, that gap can be measured.</p>
+        <a href="https://doi.org/10.5281/zenodo.22882691" target="_blank" rel="noopener">Preprint &rarr;</a>
       </div>
-
-      <div class="try-tip">
-        <b>Bonus.</b> Your AI can now read any webpage. Send it:
-        <code>i.ilang.ai/https://any-url</code>
-        — paste into any AI conversation and it fetches + reads the page.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ECOSYSTEM -->
-<section id="ecosystem" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="container">
-    <div class="sect-head fade">
-      <div class="sect-tag">Ecosystem</div>
-      <h2>Built with iLang.</h2>
-      <p>First-party tools that ship the protocol to where developers already work.</p>
-    </div>
-
-    <div class="eco fade">
-      <div class="eco-item">
-        <div class="eco-head">
-          <div class="eco-name">AutoCode <span class="tag">plugin</span></div>
-          <span class="eco-meta">48 skills</span>
-        </div>
-        <p>You say it, AutoCode ships it. From idea to live website with AI-assisted generation, iteration, and publishing.</p>
-        <div class="eco-links">
-          <a href="https://github.com/ilang-ai/autocode" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-
-      <div class="eco-item">
-        <div class="eco-head">
-          <div class="eco-name">Imprint <span class="tag">behavioral-profile</span></div>
-          <span class="eco-meta">11 scenarios</span>
-        </div>
-        <p>AI learns how you work, not what you did. One portable file across every agent. 312 tokens. Your DNA.</p>
-        <div class="eco-links">
-          <a href="https://github.com/ilang-ai/Imprint" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://marketplace.visualstudio.com/items?itemName=ILang.imprint" target="_blank" rel="noopener">VS Code</a>
-        </div>
-      </div>
-
-      <div class="eco-item">
-        <div class="eco-head">
-          <div class="eco-name">AI See <span class="tag">vision</span></div>
-          <span class="eco-meta">URL proxy</span>
-        </div>
-        <p>Give any model eyes. <span class="mono" style="color:var(--accent)">i.ilang.ai/{url}</span> — paste into any AI chat and the model reads the page.</p>
-        <div class="eco-links">
-          <a href="https://i.ilang.ai" target="_blank" rel="noopener">Open</a>
-        </div>
-      </div>
-
-      <div class="eco-item">
-        <div class="eco-head">
-          <div class="eco-name">OpenClaw Skills <span class="tag">clawhub</span></div>
-          <span class="eco-meta">skill bundle</span>
-        </div>
-        <p>Instruction-only skills published on ClawHub. Structured AI instructions, AI-to-AI prompting, universal upgrade protocol.</p>
-        <div class="eco-links">
-          <a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-
-      <div class="eco-item">
-        <div class="eco-head">
-          <div class="eco-name">iLang Detect &amp; Humanizer <span class="tag">text-intelligence</span></div>
-          <span class="eco-meta">detector + editor</span>
-        </div>
-        <p>AI-generated text detection and editing. Powered by iLang protocol. An editor, not a generator.</p>
-        <div class="eco-links">
-          <a href="https://ilang.ai/ai-detector/">Detector</a>
-          <a href="https://ilang.ai/ai-humanizer/">Humanizer</a>
-        </div>
+      <div class="use-card">
+        <h3>68.4% to 80.9% in three days</h3>
+        <p>In production, agreement between the judge and the reference on an unbiased random sample rose from 68.4% to 80.9% over three days.</p>
+        <a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit &rarr;</a>
       </div>
     </div>
   </div>
@@ -1254,6 +1082,233 @@ Warn when safety-critical semantics cannot be enforced.</pre>
   </div>
 </section>
 
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Research</div>
+      <h2>Open, archived, citable.</h2>
+      <p>The canon, the loader, the benchmark, the datasets and the preprint are public, and each has a DOI.</p>
+    </div>
+    <ul class="research-list fade">
+      <li><a href="https://doi.org/10.5281/zenodo.21821452" target="_blank" rel="noopener">iLang Protocol Specification</a><span>the canon, all versions &middot; 10.5281/zenodo.21821452</span></li>
+      <li><a href="https://doi.org/10.5281/zenodo.22882691" target="_blank" rel="noopener">The Missing Definition of Right</a><span>preprint, CC BY 4.0 &middot; 10.5281/zenodo.22882691</span></li>
+      <li><a href="https://doi.org/10.5281/zenodo.22864929" target="_blank" rel="noopener">ilang-conformance</a><span>benchmark code and corpus &middot; 10.5281/zenodo.22864929</span></li>
+      <li><a href="https://doi.org/10.5281/zenodo.22865165" target="_blank" rel="noopener">iLang Research</a><span>datasets and records &middot; 10.5281/zenodo.22865165</span></li>
+      <li><a href="https://doi.org/10.5281/zenodo.22899027" target="_blank" rel="noopener">iLang loader</a><span>pip and npm ilang-protocol &middot; 10.5281/zenodo.22899027</span></li>
+    </ul>
+    <p class="research-foot fade"><a href="https://research.ilang.ai" target="_blank" rel="noopener">research.ilang.ai</a> &middot; ORCID <a href="https://orcid.org/0009-0004-4540-8082" target="_blank" rel="noopener">0009-0004-4540-8082</a></p>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Ecosystem</div>
+      <h2>Built with iLang.</h2>
+      <p>First-party tools that ship the protocol to where developers already work.</p>
+    </div>
+
+    <div class="eco fade">
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">AutoCode <span class="tag">plugin</span></div>
+          <span class="eco-meta">48 skills</span>
+        </div>
+        <p>You say it, AutoCode ships it. From idea to live website with AI-assisted generation, iteration, and publishing.</p>
+        <div class="eco-links">
+          <a href="https://github.com/ilang-ai/autocode" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">Imprint <span class="tag">behavioral-profile</span></div>
+          <span class="eco-meta">11 scenarios</span>
+        </div>
+        <p>AI learns how you work, not what you did. One portable file across every agent. 312 tokens. Your DNA.</p>
+        <div class="eco-links">
+          <a href="https://github.com/ilang-ai/Imprint" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=ILang.imprint" target="_blank" rel="noopener">VS Code</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">AI See <span class="tag">vision</span></div>
+          <span class="eco-meta">URL proxy</span>
+        </div>
+        <p>Give any model eyes. <span class="mono" style="color:var(--accent)">i.ilang.ai/{url}</span> — paste into any AI chat and the model reads the page.</p>
+        <div class="eco-links">
+          <a href="https://i.ilang.ai" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">OpenClaw Skills <span class="tag">clawhub</span></div>
+          <span class="eco-meta">skill bundle</span>
+        </div>
+        <p>Instruction-only skills published on ClawHub. Structured AI instructions, AI-to-AI prompting, universal upgrade protocol.</p>
+        <div class="eco-links">
+          <a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="eco-item">
+        <div class="eco-head">
+          <div class="eco-name">iLang Detect &amp; Humanizer <span class="tag">text-intelligence</span></div>
+          <span class="eco-meta">detector + editor</span>
+        </div>
+        <p>AI-generated text detection and editing. Powered by iLang protocol. An editor, not a generator.</p>
+        <div class="eco-links">
+          <a href="https://ilang.ai/ai-detector/">Detector</a>
+          <a href="https://ilang.ai/ai-humanizer/">Humanizer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRY IT -->
+<section id="try">
+  <div class="container">
+    <div class="sect-head fade">
+      <div class="sect-tag">Interactive</div>
+      <h2>Structure a prompt.</h2>
+      <p>Drop any prompt in. The iLang engine rewrites it in protocol syntax. Lower semantic loss. AI executes with fewer retries.</p>
+    </div>
+
+    <div class="fade">
+      <div class="try-wrap">
+        <div class="try-head">
+          <span class="label">input.txt</span>
+          <span class="try-count"><span id="charCount">0</span> / 2,000</span>
+        </div>
+        <textarea id="input" class="try-textarea" aria-label="Prompt to structure" rows="6" maxlength="2000" placeholder="Paste any prompt here…">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic.</textarea>
+        <div class="try-actions">
+          <div class="try-actions-left">
+            <button class="btn btn-primary btn-sm" onclick="compress(false)" id="btnCompress">Structure <span class="mono">→</span></button>
+            <button class="btn btn-secondary btn-sm" onclick="compress(true)" id="btnGift">Surprise me</button>
+            <span class="try-loading mono" id="loading">structuring</span>
+          </div>
+          <div class="try-counter"><b id="counterNum">0</b> prompts structured</div>
+        </div>
+      </div>
+
+      <div class="try-error" id="errorBox"><span id="errorText"></span></div>
+      <p style="color:var(--muted);font-size:12px;margin-top:8px">Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See <a href="/privacy" style="color:var(--muted);text-decoration:underline">Privacy Policy</a>.</p>
+      <p style="color:var(--muted);font-size:13px;margin-top:6px">Want nothing to leave your browser? The <a href="/playground/" style="color:var(--accent);font-weight:600">Playground</a> converts iLang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.</p>
+
+      <div class="try-output" id="outputArea">
+        <div class="out-label">output.ilang</div>
+        <pre id="outputText"></pre>
+        <div class="out-foot">
+          <span id="tokenInfo"></span>
+          <button class="code-copy" id="btnCopy" onclick="copyResult()" aria-label="Copy structured output">Copy</button>
+        </div>
+      </div>
+
+      <div class="try-tip">
+        <b>Bonus.</b> Your AI can now read any webpage. Send it:
+        <code>i.ilang.ai/https://any-url</code>
+        — paste into any AI conversation and it fetches + reads the page.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOL HEADER -->
+<section class="protocol-sect" id="protocol">
+  <div class="container">
+    <div class="fade">
+      <div class="sect-tag">Protocol header</div>
+      <h2>Three steps. No install.</h2>
+      <p style="font-size:17px;color:var(--muted);line-height:1.6;margin-top:14px">
+        iLang is text. You don't install it — you paste it.
+        It has been tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
+      </p>
+
+      <div class="protocol-steps">
+        <div class="p-step">
+          <div class="n">1</div>
+          <div class="t">
+            <b>Copy the protocol header</b>
+            <p>Grab the block on the right. It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers.</p>
+          </div>
+        </div>
+        <div class="p-step">
+          <div class="n">2</div>
+          <div class="t">
+            <b>Paste into a tested AI model</b>
+            <p>Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.</p>
+          </div>
+        </div>
+        <div class="p-step">
+          <div class="n">3</div>
+          <div class="t">
+            <b>Get precise results</b>
+            <p>Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade">
+      <div class="sect-tag">Specimen</div>
+      <h2 style="font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px">Before ⟷ After</h2>
+      <p style="color:var(--muted);font-size:15px;margin-bottom:24px">The same instruction, written as a sentence and written as a chain.</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th style="width:50%">What you want</th>
+            <th style="width:50%">iLang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="before" data-label="Natural">Extract text from a URL and format as Markdown</td>
+            <td class="after" data-label="iLang">[GET:@SRC|path=url]=&gt;[FMT|fmt=md]=&gt;[OUT]</td>
+          </tr>
+          <tr>
+            <td class="before" data-label="Natural">Read all .md files, merge into one, output result</td>
+            <td class="after" data-label="iLang">[LIST:@LOCAL|mch=*.md]=&gt;[&#928;:READ]=&gt;[&#931;]=&gt;[&#937;]</td>
+          </tr>
+          <tr>
+            <td class="before" data-label="Natural">Shorten previous output into 3 professional bullet points</td>
+            <td class="after" data-label="iLang">[SHRT:@PREV|sty=bullets,len=3,ton=pro]=&gt;[&#937;]</td>
+          </tr>
+          <tr>
+            <td class="before" data-label="Natural">Translate to Japanese, formal tone, then format as table</td>
+            <td class="after" data-label="iLang">[&#952;:@PREV|lng=ja,ton=formal]=&gt;[FMT|fmt=csv]=&gt;[&#937;]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:19px;font-weight:700;margin:32px 0 8px">What it saves depends on what you compare against</h3>
+      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Those four lines are already stripped down. Nobody writes that way. Here is the same six-step request as people actually send it, next to the chain, counted with OpenAI tiktoken (cl100k_base). Both texts are on this page, so you can count them yourself.</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th style="width:50%">How the request usually arrives</th>
+            <th style="width:50%">iLang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="before" data-label="Natural">Hi! Hope you&#39;re doing well. I&#39;ve got a quick favour to ask if you don&#39;t mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I&#39;m trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you&#39;ve got that, could you please work out the summary statistics for me, broken down by region? I&#39;d also really appreciate it if you could sort everything from highest revenue down to lowest, since that&#39;s how my manager likes to see it. And then if it&#39;s not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help!<br><br><strong>169 tokens</strong></td>
+            <td class="after" data-label="iLang">[READ:@SRC|path=sales.csv]<br>=&gt;[FILT|whr=revenue&gt;1000]<br>=&gt;[STAT|by=region]<br>=&gt;[SORT|by=revenue,desc]<br>=&gt;[FMT|fmt=md]<br>=&gt;[OUT]<br><br><strong>54 tokens</strong><br><span class="save">-68%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted);font-size:14px;margin-top:14px">Rewrite that request as tersely as a protocol author would and the gap closes to a few per cent. The saving is not magic in the brackets, it is the greeting, the hedging and the thank-you that a chain has no room for. It repeats on every turn, which is why the effect is largest in system prompts and behavioural rules that ship with every message.</p>
+    </div>
+  </div>
+</section>
+
 <!-- DICTIONARY -->
 <section id="dictionary">
   <div class="container">
@@ -1356,6 +1411,18 @@ Warn when safety-critical semantics cannot be enforced.</pre>
       <div class="faq-item">
         <h3>Which models does iLang work with?</h3>
         <p>iLang is not tied to any model. Any model that accepts enough context can load it: ChatGPT, Claude, Gemini, DeepSeek, Qwen and others. The loader adds the official runtime to the context, and switching models only means loading it again.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I have to learn it again when I switch models?</h3>
+        <p>No. You don't learn it, and the model needs no special training. After you switch models, load iLang again: paste the latest iLang, or let the loader add it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there an iLang tutorial?</h3>
+        <p>There is nothing to study. Tell your AI what you want in your own words and give it the latest iLang: paste it into the chat, or install the loader. The specification is there for AI, developers and researchers.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there an iLang plugin?</h3>
+        <p>Yes, the loader: pip install ilang-protocol or npm install ilang-protocol, then ilang.wrap(messages). It fetches the official runtime, checks its sha256 and adds it to every request, for any model.</p>
       </div>
       <div class="faq-item">
         <h3>What is an AI-native communication protocol?</h3>

@@ -80,24 +80,6 @@ Respond in user's language.
 Say: "iLang v5.0 loaded. What do you need?"
 ```
 
-Tested across 7 models
-
-ChatGPT
-
-Claude
-
-Gemini
-
-DeepSeek
-
-Kimi
-
-Qwen
-
-GLM
-
-Capabilities
-
 ## How do I use iLang?
 
 You don't need to learn it. If you use AI normally, keep talking normally. iLang is loaded and used by the AI.
@@ -129,6 +111,26 @@ The loader fetches the official runtime, checks its sha256 and adds it to every 
 - [Conformance results, 45 model runs](https://research.ilang.ai/datasets/ilang-conformance/)
 - [Preprint: The Missing Definition of Right](https://doi.org/10.5281/zenodo.22882691)
 - [The canon on GitHub](https://github.com/ilang-ai/ilang-spec)
+
+Tested across 7 models
+
+ChatGPT
+
+Claude
+
+Gemini
+
+DeepSeek
+
+Kimi
+
+Qwen
+
+GLM
+
+Not tied to any model: anything that takes enough context can load iLang.
+
+Capabilities
 
 ## Two syntaxes. One protocol.
 
@@ -172,118 +174,23 @@ Two agents learn iLang, they handshake, they collaborate. No API glue, no middle
 
 [Agent communication protocol →](https://ilang.ai/agent-communication/)
 
-Quick start
+Evidence
 
-## Three steps. No install.
+## Measured, not assumed.
 
-iLang is text. You don't install it — you paste it. It has been tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
+Every number here comes with its code and data under a DOI. We ask readers not to trust our numbers but to re-run them.
 
-1
+### 45 model runs, 320 cases each
 
-**Copy the protocol header**
+The conformance benchmark scores grammar, execution and judgment with deterministic code and the canon's own validators. No model grades another. [Conformance results →](https://research.ilang.ai/datasets/ilang-conformance/)
 
-Grab the block on the right. It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers.
+### Form is attainable; action is not
 
-2
+Across the 34 comparable runs, the median run passes 80% of grammar cases and 9% of execution cases. Once right is written down, that gap can be measured. [Preprint →](https://doi.org/10.5281/zenodo.22882691)
 
-**Paste into a tested AI model**
+### 68.4% to 80.9% in three days
 
-Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.
-
-3
-
-**Get precise results**
-
-Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss.
-
-Specimen
-
-## Before ⟷ After
-
-The same instruction, written as a sentence and written as a chain.
-
-| What you want | iLang |
-| --- | --- |
-| Extract text from a URL and format as Markdown | [GET:@SRC\|path=url]=>[FMT\|fmt=md]=>[OUT] |
-| Read all .md files, merge into one, output result | [LIST:@LOCAL\|mch=*.md]=>[Π:READ]=>[Σ]=>[Ω] |
-| Shorten previous output into 3 professional bullet points | [SHRT:@PREV\|sty=bullets,len=3,ton=pro]=>[Ω] |
-| Translate to Japanese, formal tone, then format as table | [θ:@PREV\|lng=ja,ton=formal]=>[FMT\|fmt=csv]=>[Ω] |
-
-### What it saves depends on what you compare against
-
-Those four lines are already stripped down. Nobody writes that way. Here is the same six-step request as people actually send it, next to the chain, counted with OpenAI tiktoken (cl100k_base). Both texts are on this page, so you can count them yourself.
-
-| How the request usually arrives | iLang |
-| --- | --- |
-| Hi! Hope you're doing well. I've got a quick favour to ask if you don't mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I'm trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you've got that, could you please work out the summary statistics for me, broken down by region? I'd also really appreciate it if you could sort everything from highest revenue down to lowest, since that's how my manager likes to see it. And then if it's not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help! **169 tokens** | [READ:@SRC\|path=sales.csv] =>[FILT\|whr=revenue>1000] =>[STAT\|by=region] =>[SORT\|by=revenue,desc] =>[FMT\|fmt=md] =>[OUT] **54 tokens** -68% |
-
-Rewrite that request as tersely as a protocol author would and the gap closes to a few per cent. The saving is not magic in the brackets, it is the greeting, the hedging and the thank-you that a chain has no room for. It repeats on every turn, which is why the effect is largest in system prompts and behavioural rules that ship with every message.
-
-Interactive
-
-## Structure a prompt.
-
-Drop any prompt in. The iLang engine rewrites it in protocol syntax. Lower semantic loss. AI executes with fewer retries.
-
-input.txt 0 / 2,000
-
-structuring
-
-**0** prompts structured
-
-Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See [Privacy Policy](https://ilang.ai/privacy).
-
-Want nothing to leave your browser? The [Playground](https://ilang.ai/playground/) converts iLang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.
-
-output.ilang
-
-**Bonus.** Your AI can now read any webpage. Send it: `i.ilang.ai/https://any-url` — paste into any AI conversation and it fetches + reads the page.
-
-Ecosystem
-
-## Built with iLang.
-
-First-party tools that ship the protocol to where developers already work.
-
-AutoCode plugin
-
-48 skills
-
-You say it, AutoCode ships it. From idea to live website with AI-assisted generation, iteration, and publishing.
-
-[GitHub](https://github.com/ilang-ai/autocode)
-
-Imprint behavioral-profile
-
-11 scenarios
-
-AI learns how you work, not what you did. One portable file across every agent. 312 tokens. Your DNA.
-
-[GitHub](https://github.com/ilang-ai/Imprint) [VS Code](https://marketplace.visualstudio.com/items?itemName=ILang.imprint)
-
-AI See vision
-
-URL proxy
-
-Give any model eyes. i.ilang.ai/{url} — paste into any AI chat and the model reads the page.
-
-[Open](https://i.ilang.ai)
-
-OpenClaw Skills clawhub
-
-skill bundle
-
-Instruction-only skills published on ClawHub. Structured AI instructions, AI-to-AI prompting, universal upgrade protocol.
-
-[GitHub](https://github.com/ilang-ai/ilang-openclaw)
-
-iLang Detect & Humanizer text-intelligence
-
-detector + editor
-
-AI-generated text detection and editing. Powered by iLang protocol. An editor, not a generator.
-
-[Detector](https://ilang.ai/ai-detector/) [Humanizer](https://ilang.ai/ai-humanizer/)
+In production, agreement between the judge and the reference on an unbiased random sample rose from 68.4% to 80.9% over three days. [Production audit →](https://research.ilang.ai/datasets/judgment-layer-audit/)
 
 v4.0
 
@@ -534,6 +441,132 @@ Prior, independent work by Lu, Song & Wang (Oct 2025, [arXiv:2510.27328](https:/
 
 Model-assisted adversarial review (Gemini, GPT, Claude 4.8). Architecture complete, mathematically grounded, open for adversarial review with constructive proposals. Any challenge must include a proposed fix — identifying a flaw without repairing it is observation, not contribution.
 
+Research
+
+## Open, archived, citable.
+
+The canon, the loader, the benchmark, the datasets and the preprint are public, and each has a DOI.
+
+- [iLang Protocol Specification](https://doi.org/10.5281/zenodo.21821452): the canon, all versions, 10.5281/zenodo.21821452
+- [The Missing Definition of Right](https://doi.org/10.5281/zenodo.22882691): preprint, CC BY 4.0, 10.5281/zenodo.22882691
+- [ilang-conformance](https://doi.org/10.5281/zenodo.22864929): benchmark code and corpus, 10.5281/zenodo.22864929
+- [iLang Research](https://doi.org/10.5281/zenodo.22865165): datasets and records, 10.5281/zenodo.22865165
+- [iLang loader](https://doi.org/10.5281/zenodo.22899027): pip and npm ilang-protocol, 10.5281/zenodo.22899027
+
+[research.ilang.ai](https://research.ilang.ai) · ORCID [0009-0004-4540-8082](https://orcid.org/0009-0004-4540-8082)
+
+Ecosystem
+
+## Built with iLang.
+
+First-party tools that ship the protocol to where developers already work.
+
+AutoCode plugin
+
+48 skills
+
+You say it, AutoCode ships it. From idea to live website with AI-assisted generation, iteration, and publishing.
+
+[GitHub](https://github.com/ilang-ai/autocode)
+
+Imprint behavioral-profile
+
+11 scenarios
+
+AI learns how you work, not what you did. One portable file across every agent. 312 tokens. Your DNA.
+
+[GitHub](https://github.com/ilang-ai/Imprint) [VS Code](https://marketplace.visualstudio.com/items?itemName=ILang.imprint)
+
+AI See vision
+
+URL proxy
+
+Give any model eyes. i.ilang.ai/{url} — paste into any AI chat and the model reads the page.
+
+[Open](https://i.ilang.ai)
+
+OpenClaw Skills clawhub
+
+skill bundle
+
+Instruction-only skills published on ClawHub. Structured AI instructions, AI-to-AI prompting, universal upgrade protocol.
+
+[GitHub](https://github.com/ilang-ai/ilang-openclaw)
+
+iLang Detect & Humanizer text-intelligence
+
+detector + editor
+
+AI-generated text detection and editing. Powered by iLang protocol. An editor, not a generator.
+
+[Detector](https://ilang.ai/ai-detector/) [Humanizer](https://ilang.ai/ai-humanizer/)
+
+Interactive
+
+## Structure a prompt.
+
+Drop any prompt in. The iLang engine rewrites it in protocol syntax. Lower semantic loss. AI executes with fewer retries.
+
+input.txt 0 / 2,000
+
+structuring
+
+**0** prompts structured
+
+Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See [Privacy Policy](https://ilang.ai/privacy).
+
+Want nothing to leave your browser? The [Playground](https://ilang.ai/playground/) converts iLang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.
+
+output.ilang
+
+**Bonus.** Your AI can now read any webpage. Send it: `i.ilang.ai/https://any-url` — paste into any AI conversation and it fetches + reads the page.
+
+Protocol header
+## Three steps. No install.
+
+iLang is text. You don't install it — you paste it. It has been tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
+
+1
+
+**Copy the protocol header**
+
+Grab the block on the right. It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers.
+
+2
+
+**Paste into a tested AI model**
+
+Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.
+
+3
+
+**Get precise results**
+
+Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss.
+
+Specimen
+
+## Before ⟷ After
+
+The same instruction, written as a sentence and written as a chain.
+
+| What you want | iLang |
+| --- | --- |
+| Extract text from a URL and format as Markdown | [GET:@SRC\|path=url]=>[FMT\|fmt=md]=>[OUT] |
+| Read all .md files, merge into one, output result | [LIST:@LOCAL\|mch=*.md]=>[Π:READ]=>[Σ]=>[Ω] |
+| Shorten previous output into 3 professional bullet points | [SHRT:@PREV\|sty=bullets,len=3,ton=pro]=>[Ω] |
+| Translate to Japanese, formal tone, then format as table | [θ:@PREV\|lng=ja,ton=formal]=>[FMT\|fmt=csv]=>[Ω] |
+
+### What it saves depends on what you compare against
+
+Those four lines are already stripped down. Nobody writes that way. Here is the same six-step request as people actually send it, next to the chain, counted with OpenAI tiktoken (cl100k_base). Both texts are on this page, so you can count them yourself.
+
+| How the request usually arrives | iLang |
+| --- | --- |
+| Hi! Hope you're doing well. I've got a quick favour to ask if you don't mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I'm trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you've got that, could you please work out the summary statistics for me, broken down by region? I'd also really appreciate it if you could sort everything from highest revenue down to lowest, since that's how my manager likes to see it. And then if it's not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help! **169 tokens** | [READ:@SRC\|path=sales.csv] =>[FILT\|whr=revenue>1000] =>[STAT\|by=region] =>[SORT\|by=revenue,desc] =>[FMT\|fmt=md] =>[OUT] **54 tokens** -68% |
+
+Rewrite that request as tersely as a protocol author would and the gap closes to a few per cent. The saving is not magic in the brackets, it is the greeting, the hedging and the thank-you that a chain has no room for. It repeats on every turn, which is why the effect is largest in system prompts and behavioural rules that ship with every message.
+
 Reference
 
 ## Core dictionary.
@@ -577,6 +610,18 @@ Because a protocol has to be open, auditable and reproducible, and AI, developer
 ### Which models does iLang work with?
 
 iLang is not tied to any model. Any model that accepts enough context can load it: ChatGPT, Claude, Gemini, DeepSeek, Qwen and others. The loader adds the official runtime to the context, and switching models only means loading it again.
+
+### Do I have to learn it again when I switch models?
+
+No. You don't learn it, and the model needs no special training. After you switch models, load iLang again: paste the latest iLang, or let the loader add it.
+
+### Is there an iLang tutorial?
+
+There is nothing to study. Tell your AI what you want in your own words and give it the latest iLang: paste it into the chat, or install the loader. The specification is there for AI, developers and researchers.
+
+### Is there an iLang plugin?
+
+Yes, the loader: pip install ilang-protocol or npm install ilang-protocol, then ilang.wrap(messages). It fetches the official runtime, checks its sha256 and adds it to every request, for any model.
 
 ### What is an AI-native communication protocol?
 
