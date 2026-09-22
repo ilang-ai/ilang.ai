@@ -78,7 +78,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.
 .cross{color:#dc2626}
 .partial{color:#d97706}
 footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
 @media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
 .foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:12px}
 .foot-brand .logo .mark{width:28px;height:28px;border-radius:6px}
@@ -611,12 +611,23 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
         <li><a href="/spec/">Specification</a></li>
         <li><a href="/dictionary/">Dictionary</a></li>
       </ul></div>
-      <div class="foot-col"><h5>Build</h5><ul>
-        <li><a href="https://github.com/ilang-ai/autocode" target="_blank">AutoCode</a></li>
-        <li><a href="https://github.com/ilang-ai/Imprint" target="_blank">Imprint</a></li>
-        <li><a href="https://i.ilang.ai" target="_blank">AI See</a></li>
-        <li><a href="https://github.com/ilang-ai/ilang-openclaw" target="_blank">OpenClaw</a></li>
-      </ul></div>
+      <div class="foot-col">
+        <h5>Build</h5>
+        <ul>
+          <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
+          <li><a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">Agent Ready GEO</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Research</h5>
+        <ul>
+          <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">45-model conformance</a></li>
+          <li><a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit</a></li>
+          <li><a href="https://research.ilang.ai/papers/missing-definition-of-right/" target="_blank" rel="noopener">Preprint</a></li>
+          <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">All research</a></li>
+        </ul>
+      </div>
       <div class="foot-col"><h5>Community</h5><ul>
         <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
         <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
