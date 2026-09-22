@@ -3,75 +3,64 @@ Source: https://ilang.ai/ecosystem/
 
 # Every public repository of the ilang-ai organization
 
-Built with iLang. The ilang-ai organization on GitHub publishes the iLang protocol and the tools built on it. The iLang protocol and all associated tools are released under the MIT License.
+Latest first. The ilang-ai organization on GitHub publishes the iLang protocol, the tools that load and measure it, and the research built on it. All sixteen repositories are MIT licensed and archived on Zenodo.
 
-## Repositories
+## Latest
+
+### [ilang](https://github.com/ilang-ai/ilang)
+
+The iLang loader, pip and npm ilang-protocol 1.1.0: gives any model the official iLang runtime, sha256-checked and cached, and adds it to every request. Checked on DeepSeek, Qwen, Gemini, GPT and Claude. 2026-09-22 · DOI [10.5281/zenodo.22899027](https://doi.org/10.5281/zenodo.22899027)
 
 ### [ilang-spec](https://github.com/ilang-ai/ilang-spec)
 
-iLang protocol specification: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), two syntaxes for structured AI communication. MIT licensed.
-
-### [ilang-dict](https://github.com/ilang-ai/ilang-dict)
-
-iLang verb, modifier, and entity dictionary: the complete reference for 88 structured AI communication verbs across 9 categories, 29 core modifiers plus a 20-key media profile, and 25 entities.
-
-### [ilang.ai](https://github.com/ilang-ai/ilang.ai)
-
-AI-native communication protocol for structured human-to-AI and AI-to-AI workflows. 88 verbs, two syntaxes, zero install. MIT licensed. This site.
-
-### [ilang-openclaw](https://github.com/ilang-ai/ilang-openclaw)
-
-iLang skills for OpenClaw, Hermes, and any AI agent. 88 verbs, zero install, zero ambiguity.
-
-### [AutoCode](https://github.com/ilang-ai/autocode)
-
-You say it. AutoCode ships it. 48 skills. Code to deployment in one session. iLang v5.0 judgment + secret-safe deploys. Free forever.
-
-### [Imprint](https://github.com/ilang-ai/Imprint)
-
-Your AI’s DNA: one skill for memory, compression, onboarding, code review, debugging, planning, progress tracking, testing, git workflow, and SEO. It learns your patterns from conversations, encodes them in structure, and carries them across platforms. Use it for any code, project, document, feature, commit, or new session.
-
-### [Mem-Forever](https://github.com/ilang-ai/Mem-Forever)
-
-Every AI tool forgets you after every session. This repo doesn’t. Ever. Zero install, zero config. Just fork and your AI remembers everything, everywhere, forever.
-
-### [iReview](https://github.com/ilang-ai/iReview)
-
-AI-to-AI code review with iLang v5.0 vector judgment. Any model reviews your code; severity judged across dimensions, not keyword-matched.
-
-### [ilang-Benchmark](https://github.com/ilang-ai/ilang-Benchmark)
-
-Reproducible benchmark suite for iLang structured prompts. 30 test cases, 6 categories. Run it yourself.
-
-### [TelegramGuard](https://github.com/ilang-ai/TelegramGuard)
-
-AI-powered Telegram group guardian. Anti-spam, vision, chat — all driven by iLang Prompt Spec. Fork → fill 2 secrets → deploy. Zero cost.
+The canon, release 4.2.1: v3.0 communication, v4.0 execution with the v4.1 and v4.2 media extension, and the v5.0 judgment layer. CI generates from it the runtime bundles an AI loads. 2026-09-22 · DOI [10.5281/zenodo.21821452](https://doi.org/10.5281/zenodo.21821452)
 
 ### [ilang-research](https://github.com/ilang-ai/ilang-research)
 
-Academic website for iLang protocol research.
+research.ilang.ai: the preprint The Missing Definition of Right, the conformance results across 45 model runs, the production audit and the judgment learnability study. 2026-09-22 · DOI [10.5281/zenodo.22865165](https://doi.org/10.5281/zenodo.22865165)
 
-### [ZeroCode](https://github.com/ilang-ai/trae)
+### [ilang-conformance](https://github.com/ilang-ai/ilang-conformance)
 
-40 Chinese skills for Trae / VS Code. Zero code, zero config, zero English. ZeroCode：说中文，出产品。40个自动化AI编程技能，Trae打开即用。零代码、零配置、零英文。
+320 deterministic cases for grammar, execution and judgment. Code scores any model behind an API; no model grades another. 45 runs are published. 2026-09-20 · DOI [10.5281/zenodo.22864929](https://doi.org/10.5281/zenodo.22864929)
+
+### [agent-ready-geo](https://github.com/ilang-ai/agent-ready-geo)
+
+An agent skill that takes a website to 100/100 on isitagentready.com: llms.txt, Markdown for agents, WebMCP, an MCP server card and more. Its instructions are written in iLang. 2026-09-20 · DOI [10.5281/zenodo.22864996](https://doi.org/10.5281/zenodo.22864996)
+
+### [ilang.ai](https://github.com/ilang-ai/ilang.ai)
+
+This site, with the Playground: the canon grammar validator, the IML converter and a cl100k token counter, all in the browser. 2026-09-22 · DOI [10.5281/zenodo.22865167](https://doi.org/10.5281/zenodo.22865167)
+
+## More repositories
+
+- [ilang-dict](https://github.com/ilang-ai/ilang-dict): the complete dictionary: verbs, modifiers, entities and declarations
+- [iml-protocol](https://github.com/ilang-ai/iml-protocol): IML, an experimental machine form of iLang v4.x documents
+- [ilang-Benchmark](https://github.com/ilang-ai/ilang-Benchmark): a prompt benchmark harness and the judgment learnability study
+- [ilang-openclaw](https://github.com/ilang-ai/ilang-openclaw): iLang skills and plugins for OpenClaw, Hermes and other agents
+- [Imprint](https://github.com/ilang-ai/Imprint): a portable working profile for AI agents
+- [Mem-Forever](https://github.com/ilang-ai/Mem-Forever): a Git-native memory layer for AI agents
+- [AutoCode](https://github.com/ilang-ai/autocode): 48 agent skills from a spoken request to a deployed URL
+- [TelegramGuard](https://github.com/ilang-ai/TelegramGuard): a guardian bot for Telegram groups
+- [iReview](https://github.com/ilang-ai/iReview): AI-to-AI code review
+- [ZeroCode](https://github.com/ilang-ai/trae): Chinese-language AI coding skills for the Trae IDE
 
 ## Questions
 
 ### What does the ilang-ai GitHub organization publish?
 
-The ilang-ai organization publishes the iLang protocol and the tools built on it: ilang-spec, the specification with 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes; ilang-dict, the dictionary; ilang-openclaw, skills for OpenClaw, Hermes and any AI agent; AutoCode, code to deployment in one session; Imprint, one skill for memory, compression, onboarding, code review, debugging, planning, testing, git workflow and SEO; Mem-Forever, persistent memory across sessions and models; iReview, AI-to-AI code review; ilang-Benchmark, a reproducible benchmark suite; TelegramGuard, an AI-powered Telegram group guardian; ilang-research; and ZeroCode. The iLang protocol and all associated tools are released under the MIT License.
+The iLang protocol, the tools that load and measure it, and the research built on it. The newest are the iLang loader (pip and npm ilang-protocol), the canon with its runtime bundles, ilang-conformance with 45 scored model runs, Agent Ready GEO and research.ilang.ai. All sixteen repositories are MIT licensed and archived on Zenodo with DOIs.
 
-### What is Mem-Forever?
+### What is the iLang loader?
 
-Mem-Forever is a persistent memory layer for AI agents built on the iLang protocol. Every AI tool forgets you after every session; this repository does not. Zero install, zero config: fork it and your AI remembers everything, everywhere, forever.
+A small Python and JavaScript package, ilang-protocol, that fetches the official iLang runtime, checks its sha256, caches it and adds it to every model request, for any model. People do not need to learn iLang; the loader gives it to the AI.
 
-### What is iReview?
+### What is ilang-conformance?
 
-iReview is AI-to-AI code review with iLang v5.0 vector judgment. Any model reviews your code, and severity is judged across dimensions rather than keyword-matched.
+A deterministic test set for the iLang protocol: 320 cases across grammar, execution and judgment. Code scores any model reachable over an API; no model grades another. 45 runs are published, and none reached the L1 gate.
 
-### What is TelegramGuard?
+### What is Agent Ready GEO?
 
-TelegramGuard is an AI-powered Telegram group guardian: anti-spam, vision and chat, all driven by the iLang Prompt Spec. Fork it, fill two secrets, deploy. Zero cost.
+An agent skill for Claude Code, Codex and other clients that load Agent Skills. It takes a website to 100/100 on isitagentready.com, and its instructions are written in iLang.
 
 ## Elsewhere
 
