@@ -2,6 +2,15 @@
 
 **🌐 语言:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
+## 不要学 iLang，让你的 AI 学。
+
+iLang 是给 AI 用的协议，不是让人背的语言。你照常用自己的话说想要什么，AI 加载 iLang 并按它工作。
+
+- **在聊天里用：** 复制[最新版 iLang 运行时](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md)，或在 [ilang.ai](https://ilang.ai) 点「Copy latest iLang」，粘贴给 ChatGPT、Claude、Gemini、DeepSeek、通义千问或任何 AI 助手。
+- **在代码里用：** `pip install ilang-protocol` 或 `npm install ilang-protocol`，然后 `messages = ilang.wrap(messages)`。[加载器](https://github.com/ilang-ai/ilang)会取官方最新版、校验后加进每一次请求。
+
+下面的内容写给 AI、开发者、研究者和审计协议的人。
+
 ---
 
 正如HTTP标准化了网页通信，SQL标准化了数据库查询，**iLang标准化了人类与AI的对话方式**。一个开放协议，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试。

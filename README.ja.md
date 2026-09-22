@@ -2,6 +2,15 @@
 
 **🌐 言語:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
+## iLang を学ぶ必要はありません。学ぶのはあなたの AI です。
+
+iLang は AI のためのプロトコルで、人が覚える言語ではありません。あなたはいつもどおり自分の言葉で望みを伝え、AI が iLang を読み込んで、それに従って動きます。
+
+- **チャットで使う：** [最新の iLang ランタイム](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md)をコピーするか、[ilang.ai](https://ilang.ai) の「Copy latest iLang」を押して、ChatGPT、Claude、Gemini、DeepSeek、Qwen などに貼り付けます。
+- **コードで使う：** `pip install ilang-protocol` または `npm install ilang-protocol` のあと、 `messages = ilang.wrap(messages)`。[ローダー](https://github.com/ilang-ai/ilang)が公式の最新版を取得・検証し、毎回のリクエストに加えます。
+
+以下は、AI、開発者、研究者、そしてプロトコルを監査する人のための内容です。
+
 ---
 
 HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化したように、**iLangは人間とAIの対話を標準化します**。1つのオープンプロトコルで、ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLMでテスト済みです。

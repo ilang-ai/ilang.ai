@@ -28,6 +28,15 @@
 
 </div>
 
+## Don't learn iLang. Your AI should.
+
+iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words; your AI loads iLang and works by it.
+
+- **You chat with an AI:** copy the [latest iLang runtime](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md), or press **Copy latest iLang** on [ilang.ai](https://ilang.ai), and paste it into ChatGPT, Claude, Gemini, DeepSeek, Qwen or any other assistant.
+- **You build with an API:** `pip install ilang-protocol` or `npm install ilang-protocol`, then `messages = ilang.wrap(messages)`. The [loader](https://github.com/ilang-ai/ilang) fetches the official runtime, checks it and adds it to every request.
+
+Everything below is for AI, developers, researchers and anyone auditing the protocol.
+
 - Official site: [https://ilang.ai](https://ilang.ai)
 - Specification: [https://ilang.ai/spec/](https://ilang.ai/spec/)
 - Concept DOI: [10.5281/zenodo.21821452](https://doi.org/10.5281/zenodo.21821452)

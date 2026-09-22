@@ -2,6 +2,15 @@
 
 **🌐 Langue:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
+## N'apprenez pas iLang. C'est à votre IA de le faire.
+
+iLang est un protocole pour l'IA, pas une langue que les humains doivent mémoriser. Vous continuez à dire ce que vous voulez avec vos propres mots ; votre IA charge iLang et travaille selon lui.
+
+- **Dans une conversation :** copiez le [runtime iLang le plus récent](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md), ou cliquez sur « Copy latest iLang » sur [ilang.ai](https://ilang.ai), et collez-le dans ChatGPT, Claude, Gemini, DeepSeek, Qwen ou tout autre assistant.
+- **Dans le code :** `pip install ilang-protocol` ou `npm install ilang-protocol`, puis `messages = ilang.wrap(messages)`. Le [chargeur](https://github.com/ilang-ai/ilang) récupère le runtime officiel, le vérifie et l'ajoute à chaque requête.
+
+La suite s'adresse à l'IA, aux développeurs, aux chercheurs et à toute personne qui audite le protocole.
+
 ---
 
 Tout comme HTTP a standardisé la communication web et SQL les requêtes de bases de données, **iLang standardise la façon dont les humains parlent à l'IA**. Un protocole, testé sur ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen et GLM, aucune dépendance fournisseur.

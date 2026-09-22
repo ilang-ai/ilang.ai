@@ -2,6 +2,15 @@
 
 **🌐 Язык:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
+## Не учите iLang. Пусть его выучит ваш ИИ.
+
+iLang — это протокол для ИИ, а не язык, который людям нужно заучивать. Вы по-прежнему своими словами говорите, чего хотите; ваш ИИ загружает iLang и работает по нему.
+
+- **В чате:** скопируйте [последнюю версию среды iLang](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md) или нажмите «Copy latest iLang» на [ilang.ai](https://ilang.ai) и вставьте её в ChatGPT, Claude, Gemini, DeepSeek, Qwen или любой другой ассистент.
+- **В коде:** `pip install ilang-protocol` или `npm install ilang-protocol`, затем `messages = ilang.wrap(messages)`. [Загрузчик](https://github.com/ilang-ai/ilang) получает официальную среду, проверяет её и добавляет к каждому запросу.
+
+Всё, что ниже, написано для ИИ, разработчиков, исследователей и тех, кто проверяет протокол.
+
 ---
 
 Как HTTP стандартизировал веб-коммуникацию, а SQL — запросы к базам данных, **iLang стандартизирует общение человека с ИИ**. Один протокол, протестированный на ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen и GLM, без привязки к вендору.
