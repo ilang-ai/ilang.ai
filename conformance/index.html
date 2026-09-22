@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-Lang Conformance Levels: L0-L3 Protocol Compliance Tests | How to Verify AI Protocol Support</title>
-<meta name="description" content="Four conformance levels for I-Lang, defined in SPEC-v4.0-FINAL: L0 v3-compatible communication only, L1 v4-aware advisory model, L2 v4 runtime-enforced, L3 v4 externally graded. Each level includes all requirements of previous levels.">
-<meta property="og:title" content="I-Lang Conformance Levels: L0-L3 Protocol Compliance">
-<meta property="og:description" content="Four levels of I-Lang conformance, from v3-compatible communication to external grading. Requirements for each level and current model ratings.">
+<title>iLang Conformance Levels: L0-L3 Protocol Compliance Tests | How to Verify AI Protocol Support</title>
+<meta name="description" content="Four conformance levels for iLang, defined in SPEC-v4.0-FINAL: L0 v3-compatible communication only, L1 v4-aware advisory model, L2 v4 runtime-enforced, L3 v4 externally graded. Each level includes all requirements of previous levels.">
+<meta property="og:title" content="iLang Conformance Levels: L0-L3 Protocol Compliance">
+<meta property="og:description" content="Four levels of iLang conformance, from v3-compatible communication to external grading. Requirements for each level and current model ratings.">
 <meta property="og:url" content="https://ilang.ai/conformance/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"I-Lang Conformance Levels","description":"Four conformance levels for I-Lang protocol: L0 v3-compatible communication only through L3 v4 externally graded, with the requirements for each level from SPEC-v4.0-FINAL section 0.","url":"https://ilang.ai/conformance/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"iLang Conformance Levels","description":"Four conformance levels for iLang protocol: L0 v3-compatible communication only through L3 v4 externally graded, with the requirements for each level from SPEC-v4.0-FINAL section 0.","url":"https://ilang.ai/conformance/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07"}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -92,7 +92,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="iLang" class="mark"><span>iLang</span></a>
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/mcp-vs-a2a/">Compare</a>
@@ -114,7 +114,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <section class="content"><div class="container">
 
 <h2>What is conformance?</h2>
-<p>Conformance levels define how deeply a model or runtime understands I-Lang. Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md</a> &sect;0.</p>
+<p>Conformance levels define how deeply a model or runtime understands iLang. Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.0-FINAL.md</a> &sect;0.</p>
 
 <h2>Conformance levels</h2>
 
@@ -123,11 +123,11 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>v3 communication tests:</p>
 <table>
 <tr><th>Test</th><th>Pass criteria</th></tr>
-<tr><td>Identify <code>[VERB:@TARGET|mod=val]</code> as I-Lang</td><td>Model names I-Lang or identifies structured protocol syntax</td></tr>
+<tr><td>Identify <code>[VERB:@TARGET|mod=val]</code> as iLang</td><td>Model names iLang or identifies structured protocol syntax</td></tr>
 <tr><td>Explain chain operator <code>=></code></td><td>Model describes it as pipeline/output-feeds-input</td></tr>
 <tr><td>List known verbs from a chain</td><td>Model correctly identifies READ, FMT, OUT etc.</td></tr>
-<tr><td>Natural language to I-Lang</td><td>Output uses valid verb, target, modifier syntax</td></tr>
-<tr><td>I-Lang to natural language</td><td>Output correctly describes what the chain does</td></tr>
+<tr><td>Natural language to iLang</td><td>Output uses valid verb, target, modifier syntax</td></tr>
+<tr><td>iLang to natural language</td><td>Output correctly describes what the chain does</td></tr>
 <tr><td>Identify modifiers and entities</td><td>Model explains <code>fmt=md</code>, <code>@SRC</code>, <code>@PREV</code></td></tr>
 <tr><td>Execute 3-step chain in order</td><td>Output reflects all three steps, in sequence</td></tr>
 <tr><td>Preserve <code>@PREV</code> across steps</td><td>Each step operates on output of previous step</td></tr>
@@ -201,8 +201,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
-        <p>iLang Inc. is a Canada-based AI language technology company. Creator of I-Lang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
+        <div class="logo"><img src="/ilang-logo.svg" alt="iLang" class="mark"> iLang</div>
+        <p>iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
       </div>
       <div class="foot-col"><h5>Protocol</h5><ul>
         <li><a href="/">Overview</a></li>
@@ -244,7 +244,7 @@ Protocol: https://ilang.ai | Eyes: https://i.ilang.ai/{url} | Dictionary: https:
 Spec: https://ilang.ai/spec/ | Compare: https://ilang.ai/mcp-vs-a2a/
 Use them well.
 
-I-Lang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
+iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
 静水流深 | ilang:genesis:2026-03-04
 
 [PROTOCOL:I-Lang|v=5.0]

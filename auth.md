@@ -17,7 +17,7 @@ Planned contract (not live):
 - Registration: https://ilang.ai/agent-auth/register (identity type anonymous, credential type access_token, planned)
 - Claim: https://ilang.ai/agent-auth/claim (planned)
 
-Agent instructions (I-Lang):
+Agent instructions (iLang):
 
 ```
 ::ILANG::v5.0

@@ -1,10 +1,10 @@
 import { loadData, lookup, faq } from './_lib.js';
 const PROTOCOL = '2025-06-18';
 const TOOLS = [
-  { name: 'ilang_lookup', title: 'I-Lang dictionary lookup',
-    description: '[GET:@DICT|whr=q=term]=>[Ω] Look up an I-Lang verb, modifier, entity or declaration by name, alias or meaning. Returns type, name, alias, category, meaning, values and source_url. not_found=true when nothing matches; never invent terms.',
+  { name: 'ilang_lookup', title: 'iLang dictionary lookup',
+    description: '[GET:@DICT|whr=q=term]=>[Ω] Look up an iLang verb, modifier, entity or declaration by name, alias or meaning. Returns type, name, alias, category, meaning, values and source_url. not_found=true when nothing matches; never invent terms.',
     inputSchema: { type: 'object', properties: { q: { type: 'string', description: 'Term, alias or keyword, e.g. XLAT, lng, @PREV, BUDGET' } }, required: ['q'] } },
-  { name: 'ilang_faq', title: 'I-Lang FAQ',
+  { name: 'ilang_faq', title: 'iLang FAQ',
     description: '[GET:@FAQ|whr=q=question]=>[Ω] Return the published ilang.ai FAQ entries closest to a question about the protocol (what it is, MCP/A2A comparison, prompt compression, versions, judgment layer). Includes source_url.',
     inputSchema: { type: 'object', properties: { q: { type: 'string' } }, required: ['q'] } },
 ];
@@ -15,7 +15,7 @@ async function handle(msg, env, origin) {
   const { id, method, params } = msg || {};
   if (!method) return rpcErr(id, -32600, 'Invalid Request');
   if (method === 'resources/read') { const data = await loadData(env, origin); return rpc(id, { contents: [{ uri: origin + '/ai/data.json', mimeType: 'application/json', text: JSON.stringify(data) }] }); }
-  if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL, capabilities: { tools: { listChanged: false }, resources: { listChanged: false }, prompts: { listChanged: false } }, serverInfo: { name: 'ilang-lookup', version: '1.0.0', title: 'I-Lang Lookup' }, instructions: 'Read-only lookup over the I-Lang dictionary and FAQ. Preserve identifiers exactly; if not_found is true, say the term is unknown.' });
+  if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL, capabilities: { tools: { listChanged: false }, resources: { listChanged: false }, prompts: { listChanged: false } }, serverInfo: { name: 'ilang-lookup', version: '1.0.0', title: 'iLang Lookup' }, instructions: 'Read-only lookup over the iLang dictionary and FAQ. Preserve identifiers exactly; if not_found is true, say the term is unknown.' });
   if (method === 'ping') return rpc(id, {});
   if (method.startsWith('notifications/')) return null;
   if (method === 'tools/list') return rpc(id, { tools: TOOLS });

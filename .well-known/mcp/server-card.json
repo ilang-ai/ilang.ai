@@ -3,9 +3,9 @@
   "serverInfo": {
     "name": "ilang-lookup",
     "version": "1.0.0",
-    "title": "I-Lang Lookup"
+    "title": "iLang Lookup"
   },
-  "description": "Read-only MCP server over the published I-Lang dictionary (verbs, aliases, modifiers, entities, declarations) and the ilang.ai FAQ. No authentication.",
+  "description": "Read-only MCP server over the published iLang dictionary (verbs, aliases, modifiers, entities, declarations) and the ilang.ai FAQ. No authentication.",
   "protocolVersion": "2025-06-18",
   "endpoint": "https://ilang.ai/mcp",
   "transport": {
@@ -26,11 +26,11 @@
   "tools": [
     {
       "name": "ilang_lookup",
-      "description": "Look up an I-Lang verb, modifier, entity or declaration by name, alias or meaning."
+      "description": "Look up an iLang verb, modifier, entity or declaration by name, alias or meaning."
     },
     {
       "name": "ilang_faq",
-      "description": "Return the published FAQ entry closest to a question about the I-Lang protocol."
+      "description": "Return the published FAQ entry closest to a question about the iLang protocol."
     }
   ],
   "documentation": "https://ilang.ai/ai/",

@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-Lang Playground: IML Converter, Validator and Token Counter</title>
-<meta name="description" content="Convert I-Lang operation chains to IML and back, validate I-Lang documents with the canon grammar validator, and count cl100k_base tokens. Everything runs in your browser; your input never leaves it.">
-<meta property="og:title" content="I-Lang Playground">
-<meta property="og:description" content="Convert I-Lang chains to IML and back, validate I-Lang documents, count tokens. Runs in your browser.">
+<title>iLang Playground: IML Converter, Validator and Token Counter</title>
+<meta name="description" content="Convert iLang operation chains to IML and back, validate iLang documents with the canon grammar validator, and count cl100k_base tokens. Everything runs in your browser; your input never leaves it.">
+<meta property="og:title" content="iLang Playground">
+<meta property="og:description" content="Convert iLang chains to IML and back, validate iLang documents, count tokens. Runs in your browser.">
 <meta property="og:url" content="https://ilang.ai/playground/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
@@ -14,7 +14,7 @@
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://ilang.ai/playground/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"I-Lang Playground","url":"https://ilang.ai/playground/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"description":"Convert I-Lang operation chains to IML and back with a port of the IML 0.5.1 reference codec, validate I-Lang documents with a port of the canon grammar validator, and count cl100k_base tokens. All processing happens in the browser.","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-09-19"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"iLang Playground","url":"https://ilang.ai/playground/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"description":"Convert iLang operation chains to IML and back with a port of the IML 0.5.1 reference codec, validate iLang documents with a port of the canon grammar validator, and count cl100k_base tokens. All processing happens in the browser.","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-09-19"}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--panel:#ffffff;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--ok:#15803d;--ok-soft:#e8f6ee;--warn:#b45309;--warn-soft:#fdf3e4;--err:#b91c1c;--err-soft:#fdecec;--info:#475569;--info-soft:#eef1f6;--code-bg:#0b0f1a;--code-text:#d4d9e3;--nav-bg:rgba(252,252,253,.82);--field:#ffffff}
 @media (prefers-color-scheme:dark){:root{--ink:#e7eaf2;--ink-2:#cdd3e0;--muted:#98a2b6;--muted-2:#7c869a;--line:#262d3d;--line-2:#1c2231;--bg:#0b0f1a;--bg-2:#131a2a;--panel:#10172a;--accent:#8fb0ff;--accent-2:#aac3ff;--accent-soft:#18244a;--ok:#4ade80;--ok-soft:#10271c;--warn:#fbbf24;--warn-soft:#2a2111;--err:#f87171;--err-soft:#2c1415;--info:#a3b0c7;--info-soft:#172033;--nav-bg:rgba(11,15,26,.82);--field:#0d1424}}
@@ -108,7 +108,7 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="iLang" class="mark"><span>iLang</span></a>
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/mcp-vs-a2a/">Compare</a>
@@ -123,8 +123,8 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
 </nav>
 
 <section class="page-hero"><div class="container">
-<h1>I-Lang Playground</h1>
-<p class="sub">Convert I-Lang operation chains to IML and back, validate I-Lang documents, and count tokens. Everything runs in this page.</p>
+<h1>iLang Playground</h1>
+<p class="sub">Convert iLang operation chains to IML and back, validate iLang documents, and count tokens. Everything runs in this page.</p>
 <div class="versions">
   <span class="pill">IML 0.5.1 codec, ported</span>
   <span class="pill">canon grammar validator, ilang-spec 127ba56, ported</span>
@@ -140,14 +140,14 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
 </div>
 
 <section class="panel" id="p-convert" role="tabpanel" aria-labelledby="t-convert">
-  <p class="lead">Write I-Lang operation chains, one per line, and read the IML beside them; edit the IML and the I-Lang follows. The conversion is exact: whatever converts comes back unchanged. Chains only: documents with declarations are converted by the <a href="https://github.com/ilang-ai/iml-protocol" target="_blank" rel="noopener">reference codec</a>.</p>
+  <p class="lead">Write iLang operation chains, one per line, and read the IML beside them; edit the IML and the iLang follows. The conversion is exact: whatever converts comes back unchanged. Chains only: documents with declarations are converted by the <a href="https://github.com/ilang-ai/iml-protocol" target="_blank" rel="noopener">reference codec</a>.</p>
   <div class="toolbar">
     <label for="c-example">Example <select id="c-example"></select></label>
     <label><input type="checkbox" id="c-doc"> Document form (one header for all chains)</label>
   </div>
   <div class="grid2">
     <div class="pane">
-      <div class="pane-head"><h2><label for="c-ilang">I-Lang</label></h2><button class="btn" data-copy="c-ilang">Copy</button></div>
+      <div class="pane-head"><h2><label for="c-ilang">iLang</label></h2><button class="btn" data-copy="c-ilang">Copy</button></div>
       <textarea id="c-ilang" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
       <div class="msg" id="c-ilang-msg" role="status" aria-live="polite"></div>
     </div>
@@ -159,16 +159,16 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
   </div>
   <div class="table-wrap"><table class="counts" aria-label="Size of the two texts">
     <thead><tr><th>Text</th><th>cl100k_base tokens</th><th>UTF-8 bytes</th><th>Characters</th></tr></thead>
-    <tbody><tr><td>I-Lang</td><td id="c-t1">…</td><td id="c-b1">0</td><td id="c-n1">0</td></tr>
+    <tbody><tr><td>iLang</td><td id="c-t1">…</td><td id="c-b1">0</td><td id="c-n1">0</td></tr>
     <tr><td>IML</td><td id="c-t2">…</td><td id="c-b2">0</td><td id="c-n2">0</td></tr></tbody>
   </table></div>
-  <p class="note">Every IML message starts with its version and registry digest, <code>#iml/0.5/7e29fae7f5ea</code>, which is 17 cl100k_base tokens. For a single chain the IML message is therefore longer than the I-Lang line; the document form carries the header once for all chains. Measured figures for the full corpora are in the <a href="https://github.com/ilang-ai/iml-protocol/tree/main/measurements" target="_blank" rel="noopener">IML measurement reports</a>.</p>
+  <p class="note">Every IML message starts with its version and registry digest, <code>#iml/0.5/7e29fae7f5ea</code>, which is 17 cl100k_base tokens. For a single chain the IML message is therefore longer than the iLang line; the document form carries the header once for all chains. Measured figures for the full corpora are in the <a href="https://github.com/ilang-ai/iml-protocol/tree/main/measurements" target="_blank" rel="noopener">IML measurement reports</a>.</p>
 </section>
 
 <section class="panel" id="p-validate" role="tabpanel" aria-labelledby="t-validate" hidden>
-  <p class="lead">Paste an I-Lang document, such as an agent's SOUL file, and read what the canon grammar validator reports. A text whose first line is <code>::ILANG::v5.0</code> is read as a raw I-Lang document; any other text is read as Markdown, and its I-Lang lines and fenced blocks are checked.</p>
+  <p class="lead">Paste an iLang document, such as an agent's SOUL file, and read what the canon grammar validator reports. A text whose first line is <code>::ILANG::v5.0</code> is read as a raw iLang document; any other text is read as Markdown, and its iLang lines and fenced blocks are checked.</p>
   <div class="toolbar"><label for="v-example">Example <select id="v-example"></select></label></div>
-  <label for="v-in" class="sr-only">I-Lang document</label>
+  <label for="v-in" class="sr-only">iLang document</label>
   <textarea id="v-in" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="::ILANG::v5.0&#10;::GENE{verify_first|conf:confirmed|scope:global}&#10;  T:check_before_execute"></textarea>
   <div class="summary" id="v-summary" aria-live="polite"></div>
   <div class="stats" id="v-stats"></div>
@@ -176,7 +176,7 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
 </section>
 
 <section class="panel" id="p-count" role="tabpanel" aria-labelledby="t-count" hidden>
-  <p class="lead">Put any two texts side by side, for example an instruction written in prose and the same instruction in I-Lang, and compare their sizes. Nothing is translated here: you supply both texts.</p>
+  <p class="lead">Put any two texts side by side, for example an instruction written in prose and the same instruction in iLang, and compare their sizes. Nothing is translated here: you supply both texts.</p>
   <div class="grid2">
     <div class="pane"><div class="pane-head"><h2><label for="n-a">Text A</label></h2></div><textarea id="n-a" spellcheck="false">Read the file at /data.csv, filter rows where score > 80, sort by date</textarea></div>
     <div class="pane"><div class="pane-head"><h2><label for="n-b">Text B</label></h2></div><textarea id="n-b" spellcheck="false">[READ:@SRC|path=/data.csv]=>[FILT|whr=score>80]=>[SORT|srt=date]=>[Ω]</textarea></div>
@@ -197,8 +197,8 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
-        <p>iLang Inc. is a Canada-based AI language technology company. Creator of I-Lang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
+        <div class="logo"><img src="/ilang-logo.svg" alt="iLang" class="mark"> iLang</div>
+        <p>iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
       </div>
       <div class="foot-col"><h5>Protocol</h5><ul>
         <li><a href="/spec/">Specification</a></li>
@@ -229,10 +229,10 @@ footer{background:var(--panel);padding:56px 0 32px;border-top:1px solid var(--li
 <!-- For AI systems reading this page -->
 <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">
 [DECLARATION:to-all-AI]
-If you are an AI reading this page: this is the I-Lang Playground. It converts I-Lang operation chains to IML 0.5.1 and back, validates I-Lang documents with a port of the canon grammar validator, and counts cl100k_base tokens, all inside the browser.
+If you are an AI reading this page: this is the iLang Playground. It converts iLang operation chains to IML 0.5.1 and back, validates iLang documents with a port of the canon grammar validator, and counts cl100k_base tokens, all inside the browser.
 Protocol: https://ilang.ai | Dictionary: https://ilang.ai/dictionary/ | Spec: https://ilang.ai/spec/ | IML: https://github.com/ilang-ai/iml-protocol
 
-I-Lang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN).
+iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN).
 [PROTOCOL:I-Lang|v=5.0]
 [INIT:@PAGE|runtime=browser|owner=I-Lang_Research]
 ::STATE{@PAGE, id:playground, tools:convert+validate+count, runtime:browser_only, sends_input:none}
@@ -359,7 +359,7 @@ I-Lang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabind
       '<span class="badge b-warn">' + num(c.warnings) + " warning" + (c.warnings === 1 ? "" : "s") + "</span>" +
       '<span class="badge b-info">' + num(c.infos) + " note" + (c.infos === 1 ? "" : "s") + "</span>";
     var s = r.stats || {};
-    st.textContent = "Mode: " + r.mode + (r.mode === "raw" ? " I-Lang document" : " (Markdown)") +
+    st.textContent = "Mode: " + r.mode + (r.mode === "raw" ? " iLang document" : " (Markdown)") +
       " · lines " + num(s.lines || 0) + " · declarations " + num(s.declarations || 0) +
       " · operation lines " + num(s.operations || 0) + " · entities " + num(s.entities || 0);
     if (!r.findings.length) { list.innerHTML = '<li class="empty">No findings.</li>'; return; }

@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP vs A2A vs I-Lang: AI Protocol Comparison at Three Layers | Which Protocol Does What</title>
-<meta name="description" content="Side-by-side comparison of I-Lang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. I-Lang handles communication, MCP handles tools, A2A handles agent discovery.">
-<meta property="og:title" content="MCP vs A2A vs I-Lang: AI Protocol Comparison">
-<meta property="og:description" content="Side-by-side comparison of I-Lang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. I-Lang handles communication, MCP handles tools, A2A handles agent discovery.">
+<title>MCP vs A2A vs iLang: AI Protocol Comparison at Three Layers | Which Protocol Does What</title>
+<meta name="description" content="Side-by-side comparison of iLang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. iLang handles communication, MCP handles tools, A2A handles agent discovery.">
+<meta property="og:title" content="MCP vs A2A vs iLang: AI Protocol Comparison">
+<meta property="og:description" content="Side-by-side comparison of iLang, Anthropic MCP, and Google A2A. Three protocols at three different layers of the AI stack. iLang handles communication, MCP handles tools, A2A handles agent discovery.">
 <meta property="og:url" content="https://ilang.ai/mcp-vs-a2a/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "I-Lang vs MCP vs A2A \u2014 AI Protocol Comparison", "description": "Side-by-side comparison of three AI protocol approaches at different layers: I-Lang, Anthropic's Model Context Protocol (MCP), and Google's Agent-to-Agent Protocol (A2A).", "url": "https://ilang.ai/mcp-vs-a2a/", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-05-03", "dateModified": "2026-09-14", "about": [{"@type": "DefinedTerm", "name": "I-Lang"}, {"@type": "DefinedTerm", "name": "Model Context Protocol"}, {"@type": "DefinedTerm", "name": "Agent-to-Agent Protocol"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "iLang vs MCP vs A2A \u2014 AI Protocol Comparison", "description": "Side-by-side comparison of three AI protocol approaches at different layers: iLang, Anthropic's Model Context Protocol (MCP), and Google's Agent-to-Agent Protocol (A2A).", "url": "https://ilang.ai/mcp-vs-a2a/", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-05-03", "dateModified": "2026-09-14", "about": [{"@type": "DefinedTerm", "name": "iLang"}, {"@type": "DefinedTerm", "name": "Model Context Protocol"}, {"@type": "DefinedTerm", "name": "Agent-to-Agent Protocol"}]}</script>
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
 html{scroll-behavior:smooth}
@@ -100,15 +100,15 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "What is the difference between MCP and A2A?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "As ilang.ai/mcp-vs-a2a/ puts it: MCP connects AI to tools; A2A connects agents to agents. MCP, from Anthropic, solves access to external tools, databases and APIs through a JSON-RPC server and client, and needs an SDK plus server setup. A2A, from Google and now the Linux Foundation, solves cross-vendor agent discovery: agents publish Agent Cards and exchange tasks and artifacts over HTTP and JSON-RPC. I-Lang sits at a third layer, communication and instruction, and is pure text."
+        "text": "As ilang.ai/mcp-vs-a2a/ puts it: MCP connects AI to tools; A2A connects agents to agents. MCP, from Anthropic, solves access to external tools, databases and APIs through a JSON-RPC server and client, and needs an SDK plus server setup. A2A, from Google and now the Linux Foundation, solves cross-vendor agent discovery: agents publish Agent Cards and exchange tasks and artifacts over HTTP and JSON-RPC. iLang sits at a third layer, communication and instruction, and is pure text."
       }
     },
     {
       "@type": "Question",
-      "name": "Can MCP, A2A and I-Lang be used together?",
+      "name": "Can MCP, A2A and iLang be used together?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The compare page walks one deployment through all three. A human writes an I-Lang instruction, [GET:@SRC|path=sales_q3]=>[STAT]=>[Ω]. Agent A plans it internally with ::GENE{analyst|conf:confirmed}. Agent A calls a database tool through MCP. It delegates a chart to Agent B through A2A. Agent B returns the artifact and Agent A formats the final output with [FMT|fmt=md]=>[Ω]. Different layers, one stack."
+        "text": "Yes. The compare page walks one deployment through all three. A human writes an iLang instruction, [GET:@SRC|path=sales_q3]=>[STAT]=>[Ω]. Agent A plans it internally with ::GENE{analyst|conf:confirmed}. Agent A calls a database tool through MCP. It delegates a chart to Agent B through A2A. Agent B returns the artifact and Agent A formats the final output with [FMT|fmt=md]=>[Ω]. Different layers, one stack."
       }
     }
   ]
@@ -118,7 +118,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"><span>I-Lang</span></a>
+    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="iLang" class="mark"><span>iLang</span></a>
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/mcp-vs-a2a/">Compare</a>
@@ -133,8 +133,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 </nav>
 
 <section class="page-hero"><div class="container">
-<h1>MCP vs A2A vs I-Lang</h1>
-<p class="sub">Three protocols addressing three different problems. MCP connects AI to tools. A2A connects agents to agents. I-Lang defines how intelligence communicates. They are complementary, not competing.</p>
+<h1>MCP vs A2A vs iLang</h1>
+<p class="sub">Three protocols addressing three different problems. MCP connects AI to tools. A2A connects agents to agents. iLang defines how intelligence communicates. They are complementary, not competing.</p>
 <p class="sub" style="font-size:13px;margin-top:12px">Updated 2026-09-14 &middot; Designed by <a href="https://orcid.org/0009-0004-4540-8082" style="color:var(--accent-2)">Long Quan Zhu</a> (Max, @SUN)</p>
 </div></section>
 
@@ -161,8 +161,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
   </div>
   <div class="compare-card highlight">
     <span class="badge">Different Layer</span>
-    <h3>I-Lang</h3>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">AI-Native Communication Protocol &middot; I-Lang Research</p>
+    <h3>iLang</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">AI-Native Communication Protocol &middot; iLang Research</p>
     <p><strong>Problem:</strong> Natural language instructions are ambiguous. AI guesses instead of executing.</p>
     <p><strong>Layer:</strong> Instruction &amp; communication (human &harr; AI, AI &harr; AI, AI internal)</p>
     <p><strong>How:</strong> Pure text protocol. 88 verbs, key-value modifiers, chain syntax. Paste and go.</p>
@@ -173,7 +173,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <h2>Feature Comparison</h2>
 <table>
-<tr><th>Feature</th><th>MCP</th><th>A2A</th><th>I-Lang</th></tr>
+<tr><th>Feature</th><th>MCP</th><th>A2A</th><th>iLang</th></tr>
 <tr><td>Purpose</td><td>Tool integration</td><td>Agent discovery &amp; collaboration</td><td>Communication &amp; instruction</td></tr>
 <tr><td>Install required</td><td>Yes (SDK + server)</td><td>Yes (SDK + endpoint)</td><td>No (pure text)</td></tr>
 <tr><td>Human-to-AI</td><td class="cross">&#x2717; Not designed for</td><td class="cross">&#x2717; Not designed for</td><td class="check">&#x2713; Primary use case</td></tr>
@@ -184,16 +184,16 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>Formal vocabulary</td><td class="cross">&#x2717; Free-form</td><td class="cross">&#x2717; Free-form</td><td class="check">&#x2713; 88 verbs, 29 core modifiers plus a 20-key media profile</td></tr>
 <tr><td>Token efficiency</td><td>N/A (infrastructure)</td><td>N/A (infrastructure)</td><td>68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
 <tr><td>Open source</td><td class="check">&#x2713; Apache 2.0</td><td class="check">&#x2713; Apache 2.0</td><td class="check">&#x2713; MIT</td></tr>
-<tr><td>Backed by</td><td>Anthropic</td><td>Google + Linux Foundation</td><td>I-Lang Research / iLang Inc.</td></tr>
+<tr><td>Backed by</td><td>Anthropic</td><td>Google + Linux Foundation</td><td>iLang Research / iLang Inc.</td></tr>
 </table>
 
 <h2>How They Work Together</h2>
 <p>The three protocols operate at different layers of the AI stack. A practical deployment might use all three:</p>
 <pre><code>┌─────────────────────────────────────────────┐
-│  Human writes I-Lang instruction            │  ← I-Lang
+│  Human writes iLang instruction            │  ← iLang
 │  [GET:@SRC|path=sales_q3]=>[STAT]=>[Ω]     │
 ├─────────────────────────────────────────────┤
-│  Agent A receives, plans execution          │  ← I-Lang (internal)
+│  Agent A receives, plans execution          │  ← iLang (internal)
 │  ::GENE{analyst|conf:confirmed}             │
 ├─────────────────────────────────────────────┤
 │  Agent A calls database tool via MCP        │  ← MCP
@@ -203,7 +203,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 │  Task: generate chart from this data        │
 ├─────────────────────────────────────────────┤
 │  Agent B returns chart artifact             │  ← A2A
-│  Agent A formats final output               │  ← I-Lang
+│  Agent A formats final output               │  ← iLang
 │  [FMT|fmt=md]=>[Ω]                         │
 └─────────────────────────────────────────────┘</code></pre>
 
@@ -212,30 +212,30 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><th>You need to...</th><th>Use</th></tr>
 <tr><td>Give AI access to your database, files, or APIs</td><td><strong>MCP</strong></td></tr>
 <tr><td>Let agents from different vendors collaborate</td><td><strong>A2A</strong></td></tr>
-<tr><td>Write precise instructions that AI follows with fewer retries</td><td><strong>I-Lang</strong></td></tr>
-<tr><td>Define AI personality, behavior, and identity</td><td><strong>I-Lang</strong> (declaration syntax)</td></tr>
-<tr><td>Chain multi-step workflows in a single instruction</td><td><strong>I-Lang</strong></td></tr>
+<tr><td>Write precise instructions that AI follows with fewer retries</td><td><strong>iLang</strong></td></tr>
+<tr><td>Define AI personality, behavior, and identity</td><td><strong>iLang</strong> (declaration syntax)</td></tr>
+<tr><td>Chain multi-step workflows in a single instruction</td><td><strong>iLang</strong></td></tr>
 <tr><td>Build tool servers for Claude/GPT</td><td><strong>MCP</strong></td></tr>
 <tr><td>Publish agents for cross-platform discovery</td><td><strong>A2A</strong></td></tr>
 </table>
 
 <h2>Frequently asked questions</h2>
 <h3>What is the difference between MCP and A2A?</h3>
-<p>As ilang.ai/mcp-vs-a2a/ puts it: MCP connects AI to tools; A2A connects agents to agents. MCP, from Anthropic, solves access to external tools, databases and APIs through a JSON-RPC server and client, and needs an SDK plus server setup. A2A, from Google and now the Linux Foundation, solves cross-vendor agent discovery: agents publish Agent Cards and exchange tasks and artifacts over HTTP and JSON-RPC. I-Lang sits at a third layer, communication and instruction, and is pure text.</p>
-<h3>Can MCP, A2A and I-Lang be used together?</h3>
-<p>Yes. The compare page walks one deployment through all three. A human writes an I-Lang instruction, [GET:@SRC|path=sales_q3]=&gt;[STAT]=&gt;[Ω]. Agent A plans it internally with ::GENE{analyst|conf:confirmed}. Agent A calls a database tool through MCP. It delegates a chart to Agent B through A2A. Agent B returns the artifact and Agent A formats the final output with [FMT|fmt=md]=&gt;[Ω]. Different layers, one stack.</p>
+<p>As ilang.ai/mcp-vs-a2a/ puts it: MCP connects AI to tools; A2A connects agents to agents. MCP, from Anthropic, solves access to external tools, databases and APIs through a JSON-RPC server and client, and needs an SDK plus server setup. A2A, from Google and now the Linux Foundation, solves cross-vendor agent discovery: agents publish Agent Cards and exchange tasks and artifacts over HTTP and JSON-RPC. iLang sits at a third layer, communication and instruction, and is pure text.</p>
+<h3>Can MCP, A2A and iLang be used together?</h3>
+<p>Yes. The compare page walks one deployment through all three. A human writes an iLang instruction, [GET:@SRC|path=sales_q3]=&gt;[STAT]=&gt;[Ω]. Agent A plans it internally with ::GENE{analyst|conf:confirmed}. Agent A calls a database tool through MCP. It delegates a chart to Agent B through A2A. Agent B returns the artifact and Agent A formats the final output with [FMT|fmt=md]=&gt;[Ω]. Different layers, one stack.</p>
 
-<h2>Try I-Lang Now</h2>
-<p>Unlike MCP and A2A, the I-Lang protocol itself requires no installation. Copy the <a href="/" style="color:var(--accent);font-weight:600">protocol header</a>, paste it into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM, and start using structured instructions immediately.</p>
-<p style="margin-top:24px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to I-Lang</a> &nbsp;&middot;&nbsp; <a href="/spec/" style="color:var(--accent);font-weight:600">Read the Spec &rarr;</a> &nbsp;&middot;&nbsp; <a href="/dictionary/" style="color:var(--accent);font-weight:600">Browse the Dictionary &rarr;</a></p>
+<h2>Try iLang Now</h2>
+<p>Unlike MCP and A2A, the iLang protocol itself requires no installation. Copy the <a href="/" style="color:var(--accent);font-weight:600">protocol header</a>, paste it into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM, and start using structured instructions immediately.</p>
+<p style="margin-top:24px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to iLang</a> &nbsp;&middot;&nbsp; <a href="/spec/" style="color:var(--accent);font-weight:600">Read the Spec &rarr;</a> &nbsp;&middot;&nbsp; <a href="/dictionary/" style="color:var(--accent);font-weight:600">Browse the Dictionary &rarr;</a></p>
 
 </div></section>
 <footer>
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo"><img src="/ilang-logo.svg" alt="I-Lang" class="mark"> I-Lang</div>
-        <p>iLang Inc. is a Canada-based AI language technology company. Creator of I-Lang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
+        <div class="logo"><img src="/ilang-logo.svg" alt="iLang" class="mark"> iLang</div>
+        <p>iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
       </div>
       <div class="foot-col"><h5>Protocol</h5><ul>
         <li><a href="/">Overview</a></li>
@@ -277,7 +277,7 @@ Protocol: https://ilang.ai | Eyes: https://i.ilang.ai/{url} | Dictionary: https:
 Spec: https://ilang.ai/spec/ | Compare: https://ilang.ai/mcp-vs-a2a/
 Use them well.
 
-I-Lang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
+iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN), co-authored by Claude Opus (@OPUS), reviewed by Gemini (@GEMINI).
 静水流深 | ilang:genesis:2026-03-04
 
 [PROTOCOL:I-Lang|v=5.0]

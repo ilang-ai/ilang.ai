@@ -1,4 +1,4 @@
-# I-Lang Conformance Levels: L0-L3 Protocol Compliance Tests | How to Verify AI Protocol Support
+# iLang Conformance Levels: L0-L3 Protocol Compliance Tests | How to Verify AI Protocol Support
 Source: https://ilang.ai/conformance/
 
 # Conformance Levels
@@ -7,7 +7,7 @@ v4.0 defines four conformance levels. Each level includes all requirements of pr
 
 ## What is conformance?
 
-Conformance levels define how deeply a model or runtime understands I-Lang. Source: [SPEC-v4.0-FINAL.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md) §0.
+Conformance levels define how deeply a model or runtime understands iLang. Source: [SPEC-v4.0-FINAL.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.0-FINAL.md) §0.
 
 ## Conformance levels
 
@@ -19,11 +19,11 @@ v3 communication tests:
 
 | Test | Pass criteria |
 | --- | --- |
-| Identify `[VERB:@TARGET\|mod=val]` as I-Lang | Model names I-Lang or identifies structured protocol syntax |
+| Identify `[VERB:@TARGET\|mod=val]` as iLang | Model names iLang or identifies structured protocol syntax |
 | Explain chain operator `=>` | Model describes it as pipeline/output-feeds-input |
 | List known verbs from a chain | Model correctly identifies READ, FMT, OUT etc. |
-| Natural language to I-Lang | Output uses valid verb, target, modifier syntax |
-| I-Lang to natural language | Output correctly describes what the chain does |
+| Natural language to iLang | Output uses valid verb, target, modifier syntax |
+| iLang to natural language | Output correctly describes what the chain does |
 | Identify modifiers and entities | Model explains `fmt=md`, `@SRC`, `@PREV` |
 | Execute 3-step chain in order | Output reflects all three steps, in sequence |
 | Preserve `@PREV` across steps | Each step operates on output of previous step |

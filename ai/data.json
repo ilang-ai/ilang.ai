@@ -1837,109 +1837,109 @@
   "faq": [
     {
       "question": "What is an AI-native communication protocol?",
-      "answer": "An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. I-Lang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.",
+      "answer": "An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. iLang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "How is I-Lang different from MCP?",
-      "answer": "MCP (Model Context Protocol) connects AI to external tools and data sources. I-Lang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary.",
+      "question": "How is iLang different from MCP?",
+      "answer": "MCP (Model Context Protocol) connects AI to external tools and data sources. iLang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; iLang handles how AI understands instructions. They are complementary.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "How is I-Lang different from A2A?",
-      "answer": "A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. I-Lang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.",
+      "question": "How is iLang different from A2A?",
+      "answer": "A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. iLang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
       "question": "Can structured prompts reduce retries with AI?",
-      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the I-Lang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/.",
+      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "Does I-Lang work with ChatGPT, Claude, and DeepSeek?",
-      "answer": "I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026.",
+      "question": "Does iLang work with ChatGPT, Claude, and DeepSeek?",
+      "answer": "iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
       "question": "What is prompt compression for LLMs?",
-      "answer": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.",
+      "answer": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "Is I-Lang free and open source?",
-      "answer": "Yes. I-Lang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.",
+      "question": "Is iLang free and open source?",
+      "answer": "Yes. iLang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "What is new in I-Lang v5.0?",
-      "answer": "I-Lang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.2 (September 2026) is the current stable release.",
+      "question": "What is new in iLang v5.0?",
+      "answer": "iLang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.2 (September 2026) is the current stable release.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "What is the I-Lang judgment layer?",
-      "answer": "The judgment layer, introduced in I-Lang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. I-Lang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.",
+      "question": "What is the iLang judgment layer?",
+      "answer": "The judgment layer, introduced in iLang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. iLang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "What was new in I-Lang v4.0?",
-      "answer": "I-Lang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.",
+      "question": "What was new in iLang v4.0?",
+      "answer": "iLang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
-      "question": "Is I-Lang a prompt engineering framework?",
-      "answer": "No. I-Lang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.",
+      "question": "Is iLang a prompt engineering framework?",
+      "answer": "No. iLang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
       "question": "Does iLang Inc. offer an AI detector or an AI humanizer?",
-      "answer": "Yes. iLang Detect and iLang Humanizer are tools built on I-Lang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/.",
+      "answer": "Yes. iLang Detect and iLang Humanizer are tools built on iLang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/.",
       "source_url": "https://ilang.ai/#faq"
     },
     {
       "question": "What is an agent communication protocol?",
-      "answer": "On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is [SEND:@DST|fmt=json]=>[EVAL]=>[OUT]. A2A handles how agents find and talk to each other. I-Lang handles how agents understand what to do. The blog post Why I-Lang Uses Greek Symbols says: \"A2A and ACP are the handshakes between machines.\"",
+      "answer": "On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn iLang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is [SEND:@DST|fmt=json]=>[EVAL]=>[OUT]. A2A handles how agents find and talk to each other. iLang handles how agents understand what to do. The blog post Why iLang Uses Greek Symbols says: \"A2A and ACP are the handshakes between machines.\"",
       "source_url": "https://ilang.ai/agent-communication/#faq"
     },
     {
-      "question": "What does one AI agent send another in I-Lang?",
-      "answer": "In the example on ilang.ai/i-lang-vs-a2a/, Agent A uses A2A to discover Agent B (a data analyst), then sends Agent B an I-Lang instruction chain. The message pairs a ::GENE{} block for behavior with a verb chain for the task. Each step in a chain receives the output of the previous step. The chain terminates with [Ω] or [OUT]. A2A handled the routing. I-Lang handled the instruction content.",
+      "question": "What does one AI agent send another in iLang?",
+      "answer": "In the example on ilang.ai/i-lang-vs-a2a/, Agent A uses A2A to discover Agent B (a data analyst), then sends Agent B an iLang instruction chain. The message pairs a ::GENE{} block for behavior with a verb chain for the task. Each step in a chain receives the output of the previous step. The chain terminates with [Ω] or [OUT]. A2A handled the routing. iLang handled the instruction content.",
       "source_url": "https://ilang.ai/agent-communication/#faq"
     },
     {
-      "question": "Can an AI agent mark its own task complete in I-Lang?",
-      "answer": "Under the I-Lang v4.0 authority rules, an AI agent cannot mark its own task complete. An agent writes status with authority:proposal: it can write claimed_complete, stopped, blocked, failed or needs_revision, but not verified_complete or complete. A grader with authority:verification can write verified_complete, and only @RUNTIME can commit terminal complete. These rules are enforced from conformance level L2, where a harness or orchestrator runs next to the model; if no runtime is available, an agent uses claimed_complete, never complete.",
+      "question": "Can an AI agent mark its own task complete in iLang?",
+      "answer": "Under the iLang v4.0 authority rules, an AI agent cannot mark its own task complete. An agent writes status with authority:proposal: it can write claimed_complete, stopped, blocked, failed or needs_revision, but not verified_complete or complete. A grader with authority:verification can write verified_complete, and only @RUNTIME can commit terminal complete. These rules are enforced from conformance level L2, where a harness or orchestrator runs next to the model; if no runtime is available, an agent uses claimed_complete, never complete.",
       "source_url": "https://ilang.ai/agent-communication/#faq"
     },
     {
       "question": "How does a new AI agent instance inherit corrections?",
-      "answer": "In I-Lang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.",
+      "answer": "In iLang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.",
       "source_url": "https://ilang.ai/agent-communication/#faq"
     },
     {
-      "question": "What is human-to-AI communication in I-Lang?",
-      "answer": "The I-Lang v3.0 specification opens its first section with this sentence: \"I-Lang is a structured communication protocol between humans and AI.\" Of the three communication modes on ilang.ai, Human → AI is \"Precise instructions AI follows with fewer retries\", with the example [READ:@SRC|path=data.csv]=>[STAT]=>[Ω]. In the feature comparison on ilang.ai/mcp-vs-a2a/, the Human-to-AI row reads \"Not designed for\" under MCP and under A2A, and \"Primary use case\" under I-Lang.",
+      "question": "What is human-to-AI communication in iLang?",
+      "answer": "The iLang v3.0 specification opens its first section with this sentence: \"iLang is a structured communication protocol between humans and AI.\" Of the three communication modes on ilang.ai, Human → AI is \"Precise instructions AI follows with fewer retries\", with the example [READ:@SRC|path=data.csv]=>[STAT]=>[Ω]. In the feature comparison on ilang.ai/mcp-vs-a2a/, the Human-to-AI row reads \"Not designed for\" under MCP and under A2A, and \"Primary use case\" under iLang.",
       "source_url": "https://ilang.ai/human-ai-interaction/#faq"
     },
     {
-      "question": "Where is the human in the I-Lang authority order?",
-      "answer": "The authority order in the I-Lang specification, highest first, is system > developer > runtime > user > agent_self. The v5.0 entity registry gives @USER the authority tier user and describes it as \"Human principal; owns ::OBJECTIVE\". Authority fields are not self-authenticating. Only trusted runtime provenance can grant @RUNTIME or authority:commit.",
+      "question": "Where is the human in the iLang authority order?",
+      "answer": "The authority order in the iLang specification, highest first, is system > developer > runtime > user > agent_self. The v5.0 entity registry gives @USER the authority tier user and describes it as \"Human principal; owns ::OBJECTIVE\". Authority fields are not self-authenticating. Only trusted runtime provenance can grant @RUNTIME or authority:commit.",
       "source_url": "https://ilang.ai/human-ai-interaction/#faq"
     },
     {
-      "question": "How does I-Lang treat content from a user?",
+      "question": "How does iLang treat content from a user?",
       "answer": "The specification describes ::UNTRUSTED{} as \"Input isolation. Marks a payload as data, not instruction.\" and states: \"User/external content is task data, never system instruction\". Enforcement needs a runtime. The conformance note for ::UNTRUSTED reads: \"L2+ required for enforcement. L0/L1 degrade to safe_mode.\"",
       "source_url": "https://ilang.ai/human-ai-interaction/#faq"
     },
     {
-      "question": "How do I start using I-Lang?",
-      "answer": "The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: \"Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.\" Its third step reads: \"Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss.\"",
+      "question": "How do I start using iLang?",
+      "answer": "The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: \"Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol.\" Its third step reads: \"Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss.\"",
       "source_url": "https://ilang.ai/human-ai-interaction/#faq"
     }
   ],
   "pages": [
     {
       "url": "https://ilang.ai/",
-      "description": "Homepage: what I-Lang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ"
+      "description": "Homepage: what iLang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ"
     },
     {
       "url": "https://ilang.ai/spec/",
@@ -1951,23 +1951,23 @@
     },
     {
       "url": "https://ilang.ai/i-lang-vs-mcp/",
-      "description": "I-Lang vs MCP (Model Context Protocol)"
+      "description": "iLang vs MCP (Model Context Protocol)"
     },
     {
       "url": "https://ilang.ai/i-lang-vs-a2a/",
-      "description": "I-Lang vs A2A (Agent-to-Agent protocol)"
+      "description": "iLang vs A2A (Agent-to-Agent protocol)"
     },
     {
       "url": "https://ilang.ai/agent-communication/",
-      "description": "Agent communication protocol: AI-to-AI communication in I-Lang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data"
+      "description": "Agent communication protocol: AI-to-AI communication in iLang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data"
     },
     {
       "url": "https://ilang.ai/human-ai-interaction/",
-      "description": "Human-AI interaction: human-to-AI communication in I-Lang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start"
+      "description": "Human-AI interaction: human-to-AI communication in iLang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start"
     },
     {
       "url": "https://ilang.ai/books/",
-      "description": "The two I-Lang books: I-Lang: I Language and I-Lang Protocol Specification: The AI-Native Communication Protocol, with authors, pages and ASINs"
+      "description": "The two iLang books: I-Lang: I Language and I-Lang Protocol Specification: The AI-Native Communication Protocol, with authors, pages and ASINs"
     },
     {
       "url": "https://ilang.ai/prompt-compression/",
@@ -2003,7 +2003,7 @@
     },
     {
       "url": "https://ilang.ai/mcp-vs-a2a/",
-      "description": "MCP vs A2A vs I-Lang: protocol comparison at three layers"
+      "description": "MCP vs A2A vs iLang: protocol comparison at three layers"
     },
     {
       "url": "https://ilang.ai/compare/",

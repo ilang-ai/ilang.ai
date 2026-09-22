@@ -4,7 +4,7 @@ Source: https://ilang.ai/ai/ (this page). Updated 2026-09-12 from ilang-ai/ilang
 
 ## Purpose
 
-I-Lang is an AI-native communication protocol: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, two syntaxes (operations and declarations), three layers (v3.0 communication, v4.0 execution, v5.0 judgment). MIT licensed. Specification: https://github.com/ilang-ai/ilang-spec.
+iLang is an AI-native communication protocol: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, two syntaxes (operations and declarations), three layers (v3.0 communication, v4.0 execution, v5.0 judgment). MIT licensed. Specification: https://github.com/ilang-ai/ilang-spec.
 
 ## What you can retrieve here
 
@@ -30,7 +30,7 @@ I-Lang is an AI-native communication protocol: 88 verbs, 29 core modifiers plus 
 - The dataset is the public dictionary and FAQ; it does not include the full specification text. Read the specification pages for normative wording.
 - Version counts follow the public dictionary: 88 verbs. The judgment layer defines 8 closed modes (M1 to M8) and 11 dimensions; dimension 10 is inertia.
 
-## Agent instructions (I-Lang)
+## Agent instructions (iLang)
 
 ```
 ::ILANG::v5.0

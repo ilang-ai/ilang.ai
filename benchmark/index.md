@@ -1,20 +1,20 @@
-# I-Lang Benchmark: LLM Recognition, Execution, and Token Reduction Tests | Protocol Testing
+# iLang Benchmark: LLM Recognition, Execution, and Token Reduction Tests | Protocol Testing
 Source: https://ilang.ai/benchmark/
 
 # Benchmark
 
-How well do major LLMs recognize, translate, execute, and persist I-Lang instructions? Tested across 7 models, May 2026.
+How well do major LLMs recognize, translate, execute, and persist iLang instructions? Tested across 7 models, May 2026.
 
 ## Testing methodology
 
-Each model is tested with identical prompts across five task categories. Tests are run in fresh sessions with no prior context. Results measure whether the model correctly recognizes, translates, executes, and preserves I-Lang syntax.
+Each model is tested with identical prompts across five task categories. Tests are run in fresh sessions with no prior context. Results measure whether the model correctly recognizes, translates, executes, and preserves iLang syntax.
 
 ## Task categories
 
 | Category | What it tests | Example prompt |
 | --- | --- | --- |
-| Recognize | Can the model identify I-Lang syntax when it appears | "What protocol is this: `[READ:@SRC\|path=data.csv]=>[STAT]=>[OUT]`" |
-| Translate | Can the model convert natural language to I-Lang and back | "Convert this to I-Lang: read the sales CSV, filter revenue over 1000, output as markdown" |
+| Recognize | Can the model identify iLang syntax when it appears | "What protocol is this: `[READ:@SRC\|path=data.csv]=>[STAT]=>[OUT]`" |
+| Translate | Can the model convert natural language to iLang and back | "Convert this to iLang: read the sales CSV, filter revenue over 1000, output as markdown" |
 | Execute | Does the model follow the instruction chain correctly | "Execute: `[READ:@SRC\|path=report.md]=>[SHRT\|len=3]=>[FMT\|fmt=md]=>[OUT]`" |
 | Declare | Does the model respect `::GENE{}` behavioral definitions | "Follow this rule: `::GENE{output\|conf:confirmed} T:conclusions_first A:hedging⇒remove`" |
 | Persist | Does the model maintain declarations across multiple turns | Set `::GENE{}` in turn 1, test compliance in turns 5 and 10 |
@@ -37,7 +37,7 @@ Scores are out of 5 tasks per category. Tests conducted May 2026 using default m
 
 Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice.
 
-| Case | Natural language | I-Lang | Reduction | Text |
+| Case | Natural language | iLang | Reduction | Text |
 | --- | --- | --- | --- | --- |
 | Six-step data request, written tersely | 58 tokens | 54 tokens | 7% | [on the compression page](https://ilang.ai/prompt-compression/) |
 | The same request, as people actually send it | 169 tokens | 54 tokens | 68% | [on the compression page](https://ilang.ai/prompt-compression/) |

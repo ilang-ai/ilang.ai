@@ -1,6 +1,6 @@
 baseURL = "https://ilang.ai/blog/"
 languageCode = "en"
-title = "I-Lang Blog"
+title = "iLang Blog"
 publishDir = "../blog"
 enableRobotsTXT = false
 
@@ -8,7 +8,7 @@ enableRobotsTXT = false
   tag = "tags"
 
 [params]
-  description = "Building the native language of artificial intelligence. Stories from the I-Lang protocol team."
+  description = "Building the native language of artificial intelligence. Stories from the iLang protocol team."
   author = "Long Quan Zhu"
   mainSite = "https://ilang.ai"
 

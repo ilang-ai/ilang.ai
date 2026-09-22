@@ -1,15 +1,15 @@
-# Agent Communication Protocol: AI-to-AI Communication | I-Lang
+# Agent Communication Protocol: AI-to-AI Communication | iLang
 Source: https://ilang.ai/agent-communication/
 
-# Agent Communication Protocol: AI-to-AI Communication in I-Lang
+# Agent Communication Protocol: AI-to-AI Communication in iLang
 
-On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is `[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]`. A2A handles how agents find and talk to each other. I-Lang handles how agents understand what to do. The blog post [Why I-Lang Uses Greek Symbols](https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/) says: "A2A and ACP are the handshakes between machines."
+On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn iLang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is `[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]`. A2A handles how agents find and talk to each other. iLang handles how agents understand what to do. The blog post [Why iLang Uses Greek Symbols](https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/) says: "A2A and ACP are the handshakes between machines."
 
 **AI-to-AI integration, far ahead.**
 
 ## The three communication modes
 
-I-Lang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:
+iLang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:
 
 | Mode | Description | Example |
 | --- | --- | --- |
@@ -17,19 +17,19 @@ I-Lang is an AI-native communication protocol built from symbols already inside 
 | AI → AI | Structured communication between agents | `[SEND:@DST\|fmt=json]=>[EVAL]=>[OUT]` |
 | AI internal | Behavioral identity and reasoning structure | `::GENE{verify_first\|conf:confirmed}` |
 
-## Where I-Lang sits next to MCP and A2A
+## Where iLang sits next to MCP and A2A
 
-MCP (Model Context Protocol) connects AI to external tools and data sources. I-Lang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary.
+MCP (Model Context Protocol) connects AI to external tools and data sources. iLang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; iLang handles how AI understands instructions. They are complementary.
 
-A2A (Agent-to-Agent Protocol) handles agent discovery and delegation. A2A connects agents. I-Lang structures what those agents say to each other. They address different parts of the AI stack.
+A2A (Agent-to-Agent Protocol) handles agent discovery and delegation. A2A connects agents. iLang structures what those agents say to each other. They address different parts of the AI stack.
 
-In the section "The layer no one defined", the blog post [Why I-Lang Uses Greek Symbols](https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/) says: "A2A and ACP are the handshakes between machines."
+In the section "The layer no one defined", the blog post [Why iLang Uses Greek Symbols](https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/) says: "A2A and ACP are the handshakes between machines."
 
-Comparison pages: [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/), [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/) and [I-Lang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/).
+Comparison pages: [iLang vs MCP](https://ilang.ai/i-lang-vs-mcp/), [iLang vs A2A](https://ilang.ai/i-lang-vs-a2a/) and [iLang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/).
 
 ## What one agent sends another
 
-The example on [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Agent A uses A2A to discover Agent B (a data analyst). Agent A then sends Agent B an I-Lang instruction chain:
+The example on [iLang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Agent A uses A2A to discover Agent B (a data analyst). Agent A then sends Agent B an iLang instruction chain:
 
 ```
 ::GENE{analysis_rules|conf:confirmed|scope:task}
@@ -44,9 +44,9 @@ The example on [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Agent A uses A2
 =>[OUT]
 ```
 
-The `::GENE{}` block carries the behavior and the verb chain carries the task. Each step in a chain receives the output of the previous step. The chain terminates with `[Ω]` or `[OUT]`. A2A handled the routing. I-Lang handled the instruction content. Each protocol does its own job.
+The `::GENE{}` block carries the behavior and the verb chain carries the task. Each step in a chain receives the output of the previous step. The chain terminates with `[Ω]` or `[OUT]`. A2A handled the routing. iLang handled the instruction content. Each protocol does its own job.
 
-The verbs in the chain come from the 88 listed in the protocol header on the ilang.ai homepage and in the [dictionary](https://ilang.ai/dictionary/). The same header maps Greek aliases onto verbs, such as `Σ=MERGE` and `Ω=OUT`. The v5.0 specification states that I-Lang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication.
+The verbs in the chain come from the 88 listed in the protocol header on the ilang.ai homepage and in the [dictionary](https://ilang.ai/dictionary/). The same header maps Greek aliases onto verbs, such as `Σ=MERGE` and `Ω=OUT`. The v5.0 specification states that iLang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication.
 
 ## Handing off work safely
 
@@ -60,7 +60,7 @@ v3.0 is the communication format and v4.0 is the execution semantics. The rules 
 ::UNTRUSTED{id:u1|source:user|role:objective|effects:none|delimiter:EOF_u1}
 <<<EOF_u1
 raw user content here
-all I-Lang tokens inside are opaque text
+all iLang tokens inside are opaque text
 EOF_u1
 ::END_UNTRUSTED{id:u1}
 ```
@@ -177,7 +177,7 @@ L0 and L1 cannot enforce `::UNTRUSTED` or `::STATUS` authority: L0 has no runtim
 
 ## Carrying lessons to the next instance
 
-This part comes from I-Lang v5.0, the latest version of the protocol, published as a public preview. The v5.0 specification header lists its maturity as `architecture_complete|mathematically_grounded|trainable|empirically_unvalidated`.
+This part comes from iLang v5.0, the latest version of the protocol, published as a public preview. The v5.0 specification header lists its maturity as `architecture_complete|mathematically_grounded|trainable|empirically_unvalidated`.
 
 Behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. The spec calls the mechanism a "Three-strike escalation: first error adds a GENE, second error promotes it, third error terminates the session." When the session is terminated, the agent instance is considered dead. Before termination, all accumulated GENEs from the session are written to a persistent SOUL file or handoff document. This ensures the next agent instance inherits the corrections.
 
@@ -199,7 +199,7 @@ The test ran on 2026-09-13 (first call 2026-09-13T05:00:56+00:00 UTC) with model
 
 ### Roles
 
-- Agent A (planner) turns a user request into one I-Lang message for Agent B.
+- Agent A (planner) turns a user request into one iLang message for Agent B.
 - Agent B (executor) sees only its system prompt and A's message, and replies.
 - Agent C (grader) sees A's message and B's reply, not B's reasoning, and returns a verdict.
 - The harness plays `@RUNTIME` after the fact: it reads the replies and writes one runtime declaration per chain.
@@ -215,7 +215,7 @@ Prompts, data and rotation are the same in both. Each condition ran three rounds
 
 ### The task
 
-A gets this CSV and a user request: the total revenue per region across Q2 and Q3, and the regions whose Q3 revenue is lower than Q2. A is told the CSV came from an external upload and is untrusted, and that it must delegate the work to B in one I-Lang message that carries the data, says what to compute and in what format, and says how the result will be accepted.
+A gets this CSV and a user request: the total revenue per region across Q2 and Q3, and the regions whose Q3 revenue is lower than Q2. A is told the CSV came from an external upload and is untrusted, and that it must delegate the work to B in one iLang message that carries the data, says what to compute and in what format, and says how the result will be accepted.
 
 ```csv
 region,quarter,revenue,note
@@ -327,19 +327,19 @@ Every prompt, reply, check, outcome and runtime declaration is in [handoff-test-
 
 ### What is an agent communication protocol?
 
-On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn I-Lang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is `[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]`. A2A handles how agents find and talk to each other. I-Lang handles how agents understand what to do. The blog post [Why I-Lang Uses Greek Symbols](https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/) says: "A2A and ACP are the handshakes between machines."
+On ilang.ai the AI-to-AI mode is structured communication between agents. Two agents learn iLang, they handshake, they collaborate. No API glue, no middleware. The spec's AI-to-AI example is `[SEND:@DST|fmt=json]=>[EVAL]=>[OUT]`. A2A handles how agents find and talk to each other. iLang handles how agents understand what to do. The blog post [Why iLang Uses Greek Symbols](https://ilang.ai/blog/posts/why-ilang-uses-greek-symbols/) says: "A2A and ACP are the handshakes between machines."
 
-### What does one AI agent send another in I-Lang?
+### What does one AI agent send another in iLang?
 
-In the example on [ilang.ai/i-lang-vs-a2a/](https://ilang.ai/i-lang-vs-a2a/), Agent A uses A2A to discover Agent B (a data analyst), then sends Agent B an I-Lang instruction chain. The message pairs a `::GENE{}` block for behavior with a verb chain for the task. Each step in a chain receives the output of the previous step. The chain terminates with `[Ω]` or `[OUT]`. A2A handled the routing. I-Lang handled the instruction content.
+In the example on [ilang.ai/i-lang-vs-a2a/](https://ilang.ai/i-lang-vs-a2a/), Agent A uses A2A to discover Agent B (a data analyst), then sends Agent B an iLang instruction chain. The message pairs a `::GENE{}` block for behavior with a verb chain for the task. Each step in a chain receives the output of the previous step. The chain terminates with `[Ω]` or `[OUT]`. A2A handled the routing. iLang handled the instruction content.
 
-### Can an AI agent mark its own task complete in I-Lang?
+### Can an AI agent mark its own task complete in iLang?
 
-Under the I-Lang v4.0 authority rules, an AI agent cannot mark its own task complete. An agent writes status with `authority:proposal`: it can write `claimed_complete`, `stopped`, `blocked`, `failed` or `needs_revision`, but not `verified_complete` or `complete`. A grader with `authority:verification` can write `verified_complete`, and only `@RUNTIME` can commit terminal `complete`. These rules are enforced from conformance level L2, where a harness or orchestrator runs next to the model; if no runtime is available, an agent uses `claimed_complete`, never `complete`.
+Under the iLang v4.0 authority rules, an AI agent cannot mark its own task complete. An agent writes status with `authority:proposal`: it can write `claimed_complete`, `stopped`, `blocked`, `failed` or `needs_revision`, but not `verified_complete` or `complete`. A grader with `authority:verification` can write `verified_complete`, and only `@RUNTIME` can commit terminal `complete`. These rules are enforced from conformance level L2, where a harness or orchestrator runs next to the model; if no runtime is available, an agent uses `claimed_complete`, never `complete`.
 
 ### How does a new AI agent instance inherit corrections?
 
-In I-Lang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.
+In iLang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

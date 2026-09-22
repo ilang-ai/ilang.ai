@@ -1,9 +1,9 @@
-# Structured AI Communication Dictionary: 88 Verbs in 9 Categories | I-Lang Protocol
+# Structured AI Communication Dictionary: 88 Verbs in 9 Categories | iLang Protocol
 Source: https://ilang.ai/dictionary/
 
-# I-Lang Verb Dictionary
+# iLang Verb Dictionary
 
-88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of I-Lang — the communication layer, unchanged since v3.0 and carried through v5.0.
+88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of iLang — the communication layer, unchanged since v3.0 and carried through v5.0.
 
 **Quick navigation:** [Data I/O](https://ilang.ai/dictionary/#data-i-o) · [Transform](https://ilang.ai/dictionary/#transform) · [Analysis](https://ilang.ai/dictionary/#analysis) · [Generation](https://ilang.ai/dictionary/#generation) · [Execute](https://ilang.ai/dictionary/#execute) · [Output](https://ilang.ai/dictionary/#output) · [Structure](https://ilang.ai/dictionary/#structure) · [Meta](https://ilang.ai/dictionary/#meta) · [Batch](https://ilang.ai/dictionary/#batch)
 
@@ -555,7 +555,7 @@ Batch operation (alias: Π)
 
 Full machine-readable spec: [github.com/ilang-ai/ilang-dict](https://github.com/ilang-ai/ilang-dict)  ·  [npm: @i-language/spec](https://www.npmjs.com/package/@i-language/spec)
 
-[← Back to I-Lang](https://ilang.ai/)  ·  [Read the Full Spec →](https://ilang.ai/spec/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)
+[← Back to iLang](https://ilang.ai/)  ·  [Read the Full Spec →](https://ilang.ai/spec/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

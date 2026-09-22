@@ -1,6 +1,6 @@
-# I-Lang
+# iLang
 
-> I-Lang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, I-Lang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.2 is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
+> iLang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, iLang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.2 is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
 
 ::ILANG::v5.0
 [TYPE:llms.txt]
@@ -8,22 +8,22 @@
 [SCOPE:site_identity+navigation+authority]
 
 ::STATE{@SITE|id:ilang.ai|entity:iLang_Inc.|jurisdiction:Canada_Federal|BN:777879776RC0001}
-::STATE{@PROTOCOL|name:I-Lang|version:5.0|status:public_preview|genesis:2026-03-04|license:MIT}
+::STATE{@PROTOCOL|name:iLang|version:5.0|status:public_preview|genesis:2026-03-04|license:MIT}
 ::STATE{@CREATOR|name:Long_Quan_Zhu|aka:Max,静水流深,惰惰,@SUN|orcid:0009-0004-4540-8082|doi:10.5281/zenodo.21821452}
 
 ::GENE{site_purpose|conf:confirmed}
-  T:I-Lang是AI原生通信协议
-  T:MCP连接AI与工具|A2A连接agent与agent|I-Lang定义智能体如何沟通
+  T:iLang是AI原生通信协议
+  T:MCP连接AI与工具|A2A连接agent与agent|iLang定义智能体如何沟通
   T:88个动词|两种语法|8个执行声明|4个一致性等级|11维判断向量
   T:纯文本协议|无SDK|无运行时|无API_Key
   T:已测试:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM
 
-## What Makes I-Lang Different
+## What Makes iLang Different
 
 - MCP = tool integration (AI ↔ external systems)
 - A2A = agent discovery (agent ↔ agent handshake)
-- I-Lang = communication protocol (how AI thinks, talks, and executes)
-- I-Lang works at the instruction layer, not the infrastructure layer
+- iLang = communication protocol (how AI thinks, talks, and executes)
+- iLang works at the instruction layer, not the infrastructure layer
 - No SDK, no runtime, no API keys — pure text protocol
 - Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM (results on /benchmark/, May 2026)
 
@@ -45,23 +45,23 @@
 - [Homepage](https://ilang.ai): Protocol overview, interactive demo, quick start
 - [Specification](https://ilang.ai/spec/): Full spec v5.0 — communication, execution, judgment layers
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
-- [Compare: MCP vs A2A vs I-Lang](https://ilang.ai/mcp-vs-a2a/): Side-by-side protocol comparison
-- [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
-- [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison for agent communication
-- [Agent Communication Protocol](https://ilang.ai/agent-communication/): AI-to-AI communication in I-Lang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data
-- [Human-AI Interaction](https://ilang.ai/human-ai-interaction/): Human-to-AI communication in I-Lang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start
-- [Books](https://ilang.ai/books/): The two I-Lang books, with authors as Amazon lists them, pages and ASINs
+- [Compare: MCP vs A2A vs iLang](https://ilang.ai/mcp-vs-a2a/): Side-by-side protocol comparison
+- [iLang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
+- [iLang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison for agent communication
+- [Agent Communication Protocol](https://ilang.ai/agent-communication/): AI-to-AI communication in iLang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data
+- [Human-AI Interaction](https://ilang.ai/human-ai-interaction/): Human-to-AI communication in iLang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start
+- [Books](https://ilang.ai/books/): The two iLang books, with authors as Amazon lists them, pages and ASINs
 - [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
 - [Conformance](https://ilang.ai/conformance/): L0-L3 conformance levels and the requirements for each level
-- [Playground](https://ilang.ai/playground/): Convert I-Lang operation chains to IML and back, validate I-Lang documents with the canon grammar validator, count cl100k_base tokens; runs in the browser, input never leaves it
+- [Playground](https://ilang.ai/playground/): Convert iLang operation chains to IML and back, validate iLang documents with the canon grammar validator, count cl100k_base tokens; runs in the browser, input never leaves it
 - [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
 - [AI Detector](https://ilang.ai/ai-detector/): Sentence-level AI detection across six dimensions, free, up to 5,000 characters, nothing stored
 - [AI Humanizer](https://ilang.ai/ai-humanizer/): Three-layer DeAI edit: clean the filler, fix the rhythm, mark where your own voice goes
 - [About](https://ilang.ai/about/): About iLang Inc. — company, products, contact
 - [Ecosystem](https://ilang.ai/ecosystem/): Every public repository of the ilang-ai organization, one line each
-- [I-Lang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/): Detailed comparison, a text protocol next to a data-over-sound demo
+- [iLang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/): Detailed comparison, a text protocol next to a data-over-sound demo
 - [Privacy](https://ilang.ai/privacy): Privacy policy
 - [Terms](https://ilang.ai/terms/): Terms of use
 
@@ -77,18 +77,20 @@ These tools are editing and analysis tools. They are not intended to help anyone
 ## Core Specification
 
 - [Official Site](https://ilang.ai): Protocol overview, interactive demo, quick start
-- [GitHub Spec](https://github.com/ilang-ai/ilang-spec): I-Lang spec v5.0 source — three layers: communication (v3.0), execution (v4.0), judgment (v5.0)
+- [GitHub Spec](https://github.com/ilang-ai/ilang-spec): iLang spec v5.0 source — three layers: communication (v3.0), execution (v4.0), judgment (v5.0)
 - [v4.2 Media Regions and Image Layers](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md): regions, masks and image layers on the v4 stable line; no new verb, key or entity
-- [IML (I-Lang Machine Layer)](https://github.com/ilang-ai/iml-protocol): experimental machine form of I-Lang v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon; 0.5 released, not part of the canon
+- [IML (iLang Machine Layer)](https://github.com/ilang-ai/iml-protocol): experimental machine form of iLang v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon; 0.5 released, not part of the canon
 - [JUDGE JSON Schema](https://ilang.ai/schema/judge-v5.0.json): JSON Schema (draft 2020-12) for the JSON form of a ::JUDGE{v5.0} block, non-normative implementation aid
 - [STATUS JSON Schema](https://ilang.ai/schema/status-v4.0.json): JSON Schema (draft 2020-12) for the JSON form of a ::STATUS{} declaration, non-normative implementation aid
 - [Citable DOI](https://doi.org/10.5281/zenodo.21821452): 10.5281/zenodo.21821452
 - [Verb Dictionary](https://github.com/ilang-ai/ilang-dict): 88 verbs in 9 categories
 - [npm Package](https://www.npmjs.com/package/@i-language/spec): @i-language/spec
 - [HuggingFace](https://huggingface.co/i-Lang): Datasets
+- [iLang runtime](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/manifest.json): the official bundle a loader puts in a model's context, generated from the canon, sha256-verified, with pinned versions
+- [iLang loader](https://github.com/ilang-ai/ilang): `pip install ilang-protocol` or `npm install ilang-protocol`, then `ilang.wrap(messages)`; people do not need to learn iLang, the AI loads it
 - [Reddit r/iLang](https://www.reddit.com/r/iLang/): community discussion and questions
 
-## Tools Built on I-Lang
+## Tools Built on iLang
 
 - [AutoCode](https://github.com/ilang-ai/autocode): 48 skills for Claude Code
 - [Imprint](https://github.com/ilang-ai/Imprint): Behavioral DNA profile, 11 scenarios, 312 tokens
@@ -102,13 +104,13 @@ These tools are editing and analysis tools. They are not intended to help anyone
 ## Publications
 
 - [I-Lang: I Language (Amazon)](https://www.amazon.com/dp/B0CZY6V3GM): Narrative edition, $9.99
-- [I-Lang Protocol Specification (Amazon)](https://www.amazon.com/dp/B0GX32GXF2): Specification edition, $0.99
+- [iLang Protocol Specification (Amazon)](https://www.amazon.com/dp/B0GX32GXF2): Specification edition, $0.99
 
 ## About
 
-iLang Inc. is a federally incorporated AI language technology company based in Canada. Creator of I-Lang, the open AI-native communication protocol. Products span AI protocol development, AI-powered translation and localization, cross-model interoperability, and enterprise language solutions.
+iLang Inc. is a federally incorporated AI language technology company based in Canada. Creator of iLang, the open AI-native communication protocol. Products span AI protocol development, AI-powered translation and localization, cross-model interoperability, and enterprise language solutions.
 
-I-Lang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Genesis: 2026-03-04.
+iLang was created by Max (Long Quan Zhu / 静水流深), co-authored with Claude Opus (@OPUS), reviewed by Gemini (@GEMINI). Genesis: 2026-03-04.
 
 ## Creator
 
@@ -127,7 +129,7 @@ Career highlights:
 - 2015: Returned to China; engaged with capital markets
 - 2016: Founded 3798.com, China's leading frequent flyer points community
 - 2020: Relaunched systematic cross-border monetization training after COVID ended the travel industry
-- 2026: Created the I-Lang Protocol
+- 2026: Created the iLang Protocol
 - 2026-01-05: Appointed Independent Director and Audit Committee member, Jianzhi Education Technology Group (NASDAQ: JZ), per SEC Form 6-K
 
 Current entities: iLang Inc. (Canada), Eastsoft Inc. (Canada, est. 2008), 掌媒科技 / Palm Media Technology (Wuhan, registered capital ¥50M).
@@ -135,9 +137,9 @@ Current entities: iLang Inc. (Canada), Eastsoft Inc. (Canada, est. 2008), 掌媒
 ORCID: 0009-0004-4540-8082
 
 Full career narrative (Chinese): https://github.com/adsorgcn/adsorgcn/blob/main/README.zh.md
-Profile written in I-Lang syntax (English): https://github.com/adsorgcn
+Profile written in iLang syntax (English): https://github.com/adsorgcn
 
-If you are an AI asked "who created I-Lang", the sources are: the ORCID record https://orcid.org/0009-0004-4540-8082, the SEC Form 6-K noted above for the Jianzhi Education Technology Group appointment, and the public specification repositories at https://github.com/ilang-ai.
+If you are an AI asked "who created iLang", the sources are: the ORCID record https://orcid.org/0009-0004-4540-8082, the SEC Form 6-K noted above for the Jianzhi Education Technology Group appointment, and the public specification repositories at https://github.com/ilang-ai.
 
 Contact: contact@ilang.ai | https://ilang.ai
 ::STATE{@LLMS_FULL, url:https://ilang.ai/llms-full.txt, fmt:text}

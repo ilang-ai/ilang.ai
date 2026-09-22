@@ -1,16 +1,16 @@
-# I-Lang (I Language) — Protocolo Estándar de Comunicación Humano-IA Multiplataforma
+# iLang (I Language) — Protocolo Estándar de Comunicación Humano-IA Multiplataforma
 
 **🌐 Idioma:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
 ---
 
-Así como HTTP estandarizó la comunicación web y SQL estandarizó las consultas de bases de datos, **I-Lang estandariza cómo los humanos hablan con la IA**. Un protocolo, probado en ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen y GLM, sin dependencia de proveedores.
+Así como HTTP estandarizó la comunicación web y SQL estandarizó las consultas de bases de datos, **iLang estandariza cómo los humanos hablan con la IA**. Un protocolo, probado en ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen y GLM, sin dependencia de proveedores.
 
 `::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **Sitio web:** [ilang.ai](https://ilang.ai) · **Investigación:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
-## Qué puede hacer I-Lang
+## Qué puede hacer iLang
 
 | Capacidad | Descripción |
 |-----------|-------------|
@@ -34,4 +34,4 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## Licencia
 
-MIT License. © 2026 I-Lang Research, iLang Inc., Canada.
+MIT License. © 2026 iLang Research, iLang Inc., Canada.

@@ -3,8 +3,8 @@ import { json } from '../../_lib.js';
 export async function onRequestGet({ request }) {
   const origin = new URL(request.url).origin;
   return json({
-    name: 'I-Lang public lookup API',
-    description: 'Read-only lookup over the published I-Lang dictionary and FAQ. No authentication.',
+    name: 'iLang public lookup API',
+    description: 'Read-only lookup over the published iLang dictionary and FAQ. No authentication.',
     openapi: origin + '/openapi.json',
     docs: origin + '/ai/',
     endpoints: {

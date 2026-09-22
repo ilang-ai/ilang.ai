@@ -1,33 +1,33 @@
 {
   "specVersion": "1.0",
   "host": {
-    "displayName": "I-Lang",
+    "displayName": "iLang",
     "identifier": "did:web:ilang.ai",
     "url": "https://ilang.ai"
   },
   "entries": [
     {
       "identifier": "urn:air:ilang.ai:server:ilang-lookup",
-      "displayName": "I-Lang lookup MCP server",
+      "displayName": "iLang lookup MCP server",
       "type": "application/mcp-server-card+json",
       "url": "https://ilang.ai/.well-known/mcp/server-card.json",
       "representativeQueries": [
-        "what does the I-Lang verb XLAT mean",
-        "which modifier sets the output format in I-Lang",
-        "how is I-Lang different from MCP",
-        "what is the I-Lang judgment layer",
-        "how many verbs does I-Lang have"
+        "what does the iLang verb XLAT mean",
+        "which modifier sets the output format in iLang",
+        "how is iLang different from MCP",
+        "what is the iLang judgment layer",
+        "how many verbs does iLang have"
       ]
     },
     {
       "identifier": "urn:air:ilang.ai:api:agent-lookup",
-      "displayName": "I-Lang public lookup API",
+      "displayName": "iLang public lookup API",
       "type": "application/vnd.oai.openapi+json",
       "url": "https://ilang.ai/openapi.json",
       "representativeQueries": [
-        "look up an I-Lang modifier",
+        "look up an iLang modifier",
         "find the FAQ answer about prompt compression",
-        "is I-Lang open source"
+        "is iLang open source"
       ]
     },
     {
@@ -36,18 +36,18 @@
       "type": "text/markdown",
       "url": "https://ilang.ai/ai/skills/ilang-lookup/SKILL.md",
       "representativeQueries": [
-        "how should an agent answer questions about I-Lang",
-        "cite the I-Lang dictionary correctly"
+        "how should an agent answer questions about iLang",
+        "cite the iLang dictionary correctly"
       ]
     },
     {
       "identifier": "urn:air:ilang.ai:agent:reference",
-      "displayName": "I-Lang Reference Agent (A2A, planned)",
+      "displayName": "iLang Reference Agent (A2A, planned)",
       "type": "application/a2a-agent-card+json",
       "url": "https://ilang.ai/.well-known/agent-card.json",
       "representativeQueries": [
-        "is there an A2A agent for I-Lang",
-        "agent-to-agent lookup of I-Lang terms"
+        "is there an A2A agent for iLang",
+        "agent-to-agent lookup of iLang terms"
       ]
     }
   ]

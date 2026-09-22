@@ -27,7 +27,7 @@ Affiliate links may be used to support our free services. These links contain a 
 
 ## Open-source software
 
-Our open-source tools (I-Lang protocol, AutoCode, Imprint, etc.) run entirely on your local machine or in your AI conversation window. They do not phone home, transmit data, or require network access.
+Our open-source tools (iLang protocol, AutoCode, Imprint, etc.) run entirely on your local machine or in your AI conversation window. They do not phone home, transmit data, or require network access.
 
 ## Children
 

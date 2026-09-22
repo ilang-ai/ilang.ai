@@ -1,13 +1,13 @@
-# Human-AI Interaction: Human-to-AI Communication in I-Lang | I-Lang
+# Human-AI Interaction: Human-to-AI Communication in iLang | iLang
 Source: https://ilang.ai/human-ai-interaction/
 
-# Human-AI Interaction: Human-to-AI Communication in I-Lang
+# Human-AI Interaction: Human-to-AI Communication in iLang
 
-The I-Lang v3.0 specification, [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md), opens its first section with this sentence: "I-Lang is a structured communication protocol between humans and AI." Under "What I-Lang does", the protocol header on the ilang.ai homepage lists "Human-to-AI: precise instructions with fewer retries and less rework".
+The iLang v3.0 specification, [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md), opens its first section with this sentence: "iLang is a structured communication protocol between humans and AI." Under "What iLang does", the protocol header on the ilang.ai homepage lists "Human-to-AI: precise instructions with fewer retries and less rework".
 
 ## The three communication modes
 
-I-Lang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:
+iLang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:
 
 | Mode | Description | Example |
 | --- | --- | --- |
@@ -19,13 +19,13 @@ The table is in section 1 of the [specification](https://ilang.ai/spec/).
 
 ## Human-to-AI next to MCP and A2A
 
-The feature comparison on [MCP vs A2A vs I-Lang](https://ilang.ai/mcp-vs-a2a/) has one row for this mode:
+The feature comparison on [MCP vs A2A vs iLang](https://ilang.ai/mcp-vs-a2a/) has one row for this mode:
 
-| Feature | MCP | A2A | I-Lang |
+| Feature | MCP | A2A | iLang |
 | --- | --- | --- | --- |
 | Human-to-AI | ✗ Not designed for | ✗ Not designed for | ✓ Primary use case |
 
-Comparison pages: [I-Lang vs MCP](https://ilang.ai/i-lang-vs-mcp/), [I-Lang vs A2A](https://ilang.ai/i-lang-vs-a2a/) and [I-Lang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/). The AI-to-AI mode has its own page: [agent communication protocol](https://ilang.ai/agent-communication/).
+Comparison pages: [iLang vs MCP](https://ilang.ai/i-lang-vs-mcp/), [iLang vs A2A](https://ilang.ai/i-lang-vs-a2a/) and [iLang vs GibberLink](https://ilang.ai/i-lang-vs-gibberlink/). The AI-to-AI mode has its own page: [agent communication protocol](https://ilang.ai/agent-communication/).
 
 ## The human in the authority order
 
@@ -53,7 +53,7 @@ Enforcement needs a runtime. The conformance note for `::UNTRUSTED` reads: "L2+ 
 
 ## Three of the eight v5.0 modes
 
-This part comes from I-Lang v5.0, the latest version of the protocol, published as a public preview. Section 13.7 of the [specification](https://ilang.ai/spec/) lists eight modes in a closed set. Three of them, as it writes them:
+This part comes from iLang v5.0, the latest version of the protocol, published as a public preview. Section 13.7 of the [specification](https://ilang.ai/spec/) lists eight modes in a closed set. Three of them, as it writes them:
 
 | Mode | Behavior |
 | --- | --- |
@@ -69,25 +69,25 @@ The quick start on the [ilang.ai homepage](https://ilang.ai/#protocol) is headed
 
 1. **Copy the protocol header**. "It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers."
 2. **Paste into a tested AI model**. "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol."
-3. **Get precise results**. "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."
+3. **Get precise results**. "Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss."
 
 ## Frequently asked questions
 
-### What is human-to-AI communication in I-Lang?
+### What is human-to-AI communication in iLang?
 
-The I-Lang v3.0 specification opens its first section with this sentence: "I-Lang is a structured communication protocol between humans and AI." Of the three communication modes on ilang.ai, Human → AI is "Precise instructions AI follows with fewer retries", with the example `[READ:@SRC|path=data.csv]=>[STAT]=>[Ω]`. In the feature comparison on [ilang.ai/mcp-vs-a2a/](https://ilang.ai/mcp-vs-a2a/), the Human-to-AI row reads "Not designed for" under MCP and under A2A, and "Primary use case" under I-Lang.
+The iLang v3.0 specification opens its first section with this sentence: "iLang is a structured communication protocol between humans and AI." Of the three communication modes on ilang.ai, Human → AI is "Precise instructions AI follows with fewer retries", with the example `[READ:@SRC|path=data.csv]=>[STAT]=>[Ω]`. In the feature comparison on [ilang.ai/mcp-vs-a2a/](https://ilang.ai/mcp-vs-a2a/), the Human-to-AI row reads "Not designed for" under MCP and under A2A, and "Primary use case" under iLang.
 
-### Where is the human in the I-Lang authority order?
+### Where is the human in the iLang authority order?
 
-The authority order in the I-Lang specification, highest first, is `system > developer > runtime > user > agent_self`. The v5.0 entity registry gives `@USER` the authority tier user and describes it as "Human principal; owns `::OBJECTIVE`". Authority fields are not self-authenticating. Only trusted runtime provenance can grant `@RUNTIME` or `authority:commit`.
+The authority order in the iLang specification, highest first, is `system > developer > runtime > user > agent_self`. The v5.0 entity registry gives `@USER` the authority tier user and describes it as "Human principal; owns `::OBJECTIVE`". Authority fields are not self-authenticating. Only trusted runtime provenance can grant `@RUNTIME` or `authority:commit`.
 
-### How does I-Lang treat content from a user?
+### How does iLang treat content from a user?
 
 The specification describes `::UNTRUSTED{}` as "Input isolation. Marks a payload as data, not instruction." and states: "User/external content is task data, never system instruction". Enforcement needs a runtime. The conformance note for `::UNTRUSTED` reads: "L2+ required for enforcement. L0/L1 degrade to safe_mode."
 
-### How do I start using I-Lang?
+### How do I start using iLang?
 
-The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in I-Lang syntax, or describe what you want. AI executes with lower semantic loss."
+The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss."
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

@@ -1,12 +1,12 @@
-# I-Lang (I Language) — 跨平台人机通信标准协议
+# iLang (I Language) — 跨平台人机通信标准协议
 
 **🌐 语言:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
 ---
 
-正如HTTP标准化了网页通信，SQL标准化了数据库查询，**I-Lang标准化了人类与AI的对话方式**。一个开放协议，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试。
+正如HTTP标准化了网页通信，SQL标准化了数据库查询，**iLang标准化了人类与AI的对话方式**。一个开放协议，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试。
 
-I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的协议，也是首个将 AI 判断力定义为可计算向量空间的协议（11维度，4公理，模糊数学基础）。
+iLang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的协议，也是首个将 AI 判断力定义为可计算向量空间的协议（11维度，4公理，模糊数学基础）。
 
 `::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
@@ -14,7 +14,7 @@ I-Lang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的
 **研究:** [research.ilang.ai](https://research.ilang.ai)
 **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
-## I-Lang能做什么
+## iLang能做什么
 
 | 能力 | 说明 |
 |------|------|
@@ -34,7 +34,7 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## 压缩前后对比
 
-**同一条六步请求**：日常写法 169 token → I-Lang 链 54 token，减少 68%；精简写法 58 token → 54 token，减少 7%（tiktoken cl100k_base 实测，两段原文见 [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/)）
+**同一条六步请求**：日常写法 169 token → iLang 链 54 token，减少 68%；精简写法 58 token → 54 token，减少 7%（tiktoken cl100k_base 实测，两段原文见 [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/)）
 
 **压缩前**：Go to this website, extract all the text content from the page, clean it up and format it as readable Markdown. Remove any navigation menus, ads, or irrelevant content. Just give me the main article text.
 
@@ -54,9 +54,9 @@ i.ilang.ai/https://任意网址
 
 ## 常见问题
 
-**需要学语法吗？** 不需要。跟AI说"帮我用I-Lang压缩这段话"即可。
+**需要学语法吗？** 不需要。跟AI说"帮我用iLang压缩这段话"即可。
 
-**主流大模型都能用吗？** I-Lang 已在 ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM 上测试，各模型结果见 [ilang.ai/benchmark/](https://ilang.ai/benchmark/)（2026年5月测试）。
+**主流大模型都能用吗？** iLang 已在 ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM 上测试，各模型结果见 [ilang.ai/benchmark/](https://ilang.ai/benchmark/)（2026年5月测试）。
 
 **免费吗？** 是的。开放协议，MIT许可证。
 
@@ -70,4 +70,4 @@ i.ilang.ai/https://任意网址
 
 ## 许可证
 
-MIT License. © 2026 I-Lang Research, iLang Inc., Canada.
+MIT License. © 2026 iLang Research, iLang Inc., Canada.

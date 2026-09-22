@@ -1,4 +1,4 @@
-# Prompt Compression for LLMs: Reduce Tokens with Structured Syntax | I-Lang Protocol
+# Prompt Compression for LLMs: Reduce Tokens with Structured Syntax | iLang Protocol
 Source: https://ilang.ai/prompt-compression/
 
 # Prompt Compression for LLMs
@@ -9,9 +9,9 @@ Natural language is expensive. Structured syntax conveys the same instructions i
 
 Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. Fewer tokens means faster processing, lower cost, more room in the context window for actual work, and often clearer instructions that lead to fewer retries.
 
-## How I-Lang compresses prompts
+## How iLang compresses prompts
 
-I-Lang achieves compression through structured syntax that eliminates the overhead of natural language: articles, filler words, hedging, and ambiguous phrasing.
+iLang achieves compression through structured syntax that eliminates the overhead of natural language: articles, filler words, hedging, and ambiguous phrasing.
 
 ### Before: natural language, written tersely (49 words, 58 tokens)
 
@@ -19,7 +19,7 @@ I-Lang achieves compression through structured syntax that eliminates the overhe
 Please read the sales data from the CSV file. Then filter it to only include records where the revenue is greater than 1000. After that, calculate statistics grouped by region. Sort the results by revenue in descending order. Finally, format the output as a markdown table and display it.
 ```
 
-### After: I-Lang (54 tokens)
+### After: iLang (54 tokens)
 
 ```
 [READ:@SRC|path=sales.csv]
@@ -32,7 +32,7 @@ Please read the sales data from the CSV file. Then filter it to only include rec
 
 ### Reduction
 
-| Metric | Natural language | I-Lang | Change |
+| Metric | Natural language | iLang | Change |
 | --- | --- | --- | --- |
 | Tokens (cl100k_base) | 58 | 54 | -7% |
 | Ambiguity | Multiple interpretations possible | One interpretation | Lower |
@@ -65,11 +65,11 @@ If you pay per token (API usage, cloud inference), every token in your system pr
 
 ## How it works technically
 
-I-Lang uses an 88-verb dictionary where each verb is a 3-5 character code (READ, FILT, STAT, FMT, OUT). Verbs chain with `=>`. Modifiers use `key=value` pairs. Targets use `@ENTITY` references. No articles, no prepositions, no filler.
+iLang uses an 88-verb dictionary where each verb is a 3-5 character code (READ, FILT, STAT, FMT, OUT). Verbs chain with `=>`. Modifiers use `key=value` pairs. Targets use `@ENTITY` references. No articles, no prepositions, no filler.
 
 The compression comes from three sources:
 
-| Source | Natural language overhead | I-Lang equivalent |
+| Source | Natural language overhead | iLang equivalent |
 | --- | --- | --- |
 | Verb phrases | "Please read the data from" | `[READ:@SRC\|path=...]` |
 | Connectors | "Then", "After that", "Finally" | `=>` |
@@ -77,9 +77,9 @@ The compression comes from three sources:
 
 ## Try it
 
-Paste any natural language prompt into the [interactive compressor on the I-Lang homepage](https://ilang.ai/). See the token reduction for yourself.
+Paste any natural language prompt into the [interactive compressor on the iLang homepage](https://ilang.ai/). See the token reduction for yourself.
 
-[Read the full I-Lang specification →](https://ilang.ai/spec/)
+[Read the full iLang specification →](https://ilang.ai/spec/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

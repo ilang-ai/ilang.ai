@@ -1,9 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "I-Lang public lookup API",
+    "title": "iLang public lookup API",
     "version": "1.0.0",
-    "description": "Read-only lookup over the published I-Lang dictionary and FAQ. No authentication. Source data: ilang-ai/ilang-dict train.csv and the FAQ on ilang.ai."
+    "description": "Read-only lookup over the published iLang dictionary and FAQ. No authentication. Source data: ilang-ai/ilang-dict train.csv and the FAQ on ilang.ai."
   },
   "servers": [
     {
@@ -14,7 +14,7 @@
     "/api/agent/lookup": {
       "get": {
         "operationId": "lookup",
-        "summary": "Look up an I-Lang verb, modifier, entity or declaration",
+        "summary": "Look up an iLang verb, modifier, entity or declaration",
         "parameters": [
           {
             "name": "q",

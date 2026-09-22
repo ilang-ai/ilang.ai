@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use ilang.ai, please cite it as below."
-title: "ilang.ai: the I-Lang protocol website and its agent-readable layer"
+title: "ilang.ai: the iLang protocol website and its agent-readable layer"
 abstract: >-
-  Source of the official I-Lang website at ilang.ai, published on Cloudflare
+  Source of the official iLang website at ilang.ai, published on Cloudflare
   Pages. It carries the protocol pages (specification, dictionary, playground,
   benchmark, conformance, ecosystem and the comparisons with MCP, A2A and
   GibberLink), the blog, and the machine-readable layer the site serves to AI
@@ -22,7 +22,7 @@ license: MIT
 version: "2.0.2"
 date-released: "2026-09-21"
 keywords:
-  - I-Lang
+  - iLang
   - protocol website
   - llms.txt
   - agent-readable

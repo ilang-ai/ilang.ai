@@ -1,16 +1,16 @@
-# I-Lang (I Language) — 跨平台人機通信標準協議
+# iLang (I Language) — 跨平台人機通信標準協議
 
 **🌐 語言:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
 ---
 
-正如HTTP標準化了網頁通信，SQL標準化了資料庫查詢，**I-Lang標準化了人類與AI的對話方式**。一個開放協議，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上測試。
+正如HTTP標準化了網頁通信，SQL標準化了資料庫查詢，**iLang標準化了人類與AI的對話方式**。一個開放協議，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上測試。
 
 `::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **官網:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
-## I-Lang能做什麼
+## iLang能做什麼
 
 | 能力 | 說明 |
 |------|------|
@@ -34,4 +34,4 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## 授權
 
-MIT License. © 2026 I-Lang Research, iLang Inc., Canada.
+MIT License. © 2026 iLang Research, iLang Inc., Canada.

@@ -1,9 +1,9 @@
-# I-Lang Protocol Series: The Two I-Lang Books | I-Lang
+# I-Lang Protocol Series: The Two iLang Books | iLang
 Source: https://ilang.ai/books/
 
-# I-Lang Protocol Series: The Two I-Lang Books
+# I-Lang Protocol Series: The Two iLang Books
 
-Two books on I-Lang, both published by iLang Inc. on 2026-04-15 in the I-Lang Protocol Series.
+Two books on iLang, both published by iLang Inc. on 2026-04-15 in the I-Lang Protocol Series.
 
 ## I-Lang: I Language
 

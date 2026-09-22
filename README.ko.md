@@ -1,16 +1,16 @@
-# I-Lang (I Language) — 크로스 플랫폼 인간-AI 커뮤니케이션 표준 프로토콜
+# iLang (I Language) — 크로스 플랫폼 인간-AI 커뮤니케이션 표준 프로토콜
 
 **🌐 언어:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
 ---
 
-HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준화한 것처럼, **I-Lang은 인간과 AI의 대화를 표준화합니다**. 하나의 프로토콜, ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM에서 테스트됨, 벤더 종속 없음.
+HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준화한 것처럼, **iLang은 인간과 AI의 대화를 표준화합니다**. 하나의 프로토콜, ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM에서 테스트됨, 벤더 종속 없음.
 
 `::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **웹사이트:** [ilang.ai](https://ilang.ai) · **연구:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
-## I-Lang으로 할 수 있는 것
+## iLang으로 할 수 있는 것
 
 | 기능 | 설명 |
 |------|------|
@@ -34,4 +34,4 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## 라이선스
 
-MIT License. © 2026 I-Lang Research, iLang Inc., Canada.
+MIT License. © 2026 iLang Research, iLang Inc., Canada.

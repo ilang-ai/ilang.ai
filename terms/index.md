@@ -11,11 +11,11 @@ By accessing ilang.ai or any product or service operated by iLang Inc. ("we", "u
 
 ## 2. Services
 
-iLang Inc. provides AI language technology, including the I-Lang communication protocol, AI See vision proxy, AutoCode development tools, Imprint behavioral profiles, and related open-source software. Our protocol and tools are provided under the MIT License unless otherwise stated.
+iLang Inc. provides AI language technology, including the iLang communication protocol, AI See vision proxy, AutoCode development tools, Imprint behavioral profiles, and related open-source software. Our protocol and tools are provided under the MIT License unless otherwise stated.
 
 ## 3. Use of the protocol
 
-The I-Lang protocol is open source under the MIT License. You may use, copy, modify, merge, publish, distribute, sublicense, and sell copies, subject to the MIT License terms. Attribution is appreciated but not legally required.
+The iLang protocol is open source under the MIT License. You may use, copy, modify, merge, publish, distribute, sublicense, and sell copies, subject to the MIT License terms. Attribution is appreciated but not legally required.
 
 ## 4. API and interactive services
 
@@ -31,7 +31,7 @@ To the maximum extent permitted by law, iLang Inc. shall not be liable for any i
 
 ## 7. Intellectual property
 
-The I-Lang name, logo, and ilang.ai domain are property of iLang Inc. The I-Lang protocol specification is released under the MIT License. Third-party trademarks (ChatGPT, Claude, Gemini, DeepSeek, etc.) belong to their respective owners.
+The iLang name, logo, and ilang.ai domain are property of iLang Inc. The iLang protocol specification is released under the MIT License. Third-party trademarks (ChatGPT, Claude, Gemini, DeepSeek, etc.) belong to their respective owners.
 
 ## 8. Changes
 

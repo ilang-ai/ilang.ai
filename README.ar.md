@@ -1,16 +1,16 @@
-# I-Lang (I Language) — بروتوكول قياسي متعدد المنصات للتواصل بين الإنسان والذكاء الاصطناعي
+# iLang (I Language) — بروتوكول قياسي متعدد المنصات للتواصل بين الإنسان والذكاء الاصطناعي
 
 **🌐 اللغة:** [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Português](README.pt.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
 ---
 
-كما وحّد HTTP التواصل عبر الويب ووحّد SQL استعلامات قواعد البيانات، **يوحّد I-Lang طريقة تحدث البشر مع الذكاء الاصطناعي**. بروتوكول واحد، تم اختباره على ChatGPT وClaude وGemini وDeepSeek وKimi وQwen وGLM، بدون تبعية لمورّد.
+كما وحّد HTTP التواصل عبر الويب ووحّد SQL استعلامات قواعد البيانات، **يوحّد iLang طريقة تحدث البشر مع الذكاء الاصطناعي**. بروتوكول واحد، تم اختباره على ChatGPT وClaude وGemini وDeepSeek وKimi وQwen وGLM، بدون تبعية لمورّد.
 
 `::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
 
 **الموقع:** [ilang.ai](https://ilang.ai) · **الأبحاث:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 
-## ما يمكن لـ I-Lang فعله
+## ما يمكن لـ iLang فعله
 
 | القدرة | الوصف |
 |--------|-------|
@@ -34,4 +34,4 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## الترخيص
 
-MIT License. © 2026 I-Lang Research, iLang Inc., Canada.
+MIT License. © 2026 iLang Research, iLang Inc., Canada.

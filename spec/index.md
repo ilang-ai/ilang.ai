@@ -1,13 +1,13 @@
-# AI Communication & Judgment Protocol Specification: 88 Verbs, Two Syntaxes, 11-Dimensional Judgment Vector | I-Lang v5.0
+# AI Communication & Judgment Protocol Specification: 88 Verbs, Two Syntaxes, 11-Dimensional Judgment Vector | iLang v5.0
 Source: https://ilang.ai/spec/
 
-# I-Lang v5.0 Specification
+# iLang v5.0 Specification
 
 The complete protocol specification. Three layers — communication, execution, judgment. Two syntaxes, 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, 8 execution declarations, an 11-dimensional judgment vector. MIT licensed.
 
 ## 1. Overview
 
-I-Lang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:
+iLang is an AI-native communication protocol built from symbols already inside every LLM's training data: brackets, pipes, arrows, key-value pairs. It defines a formal vocabulary for three communication modes:
 
 | Mode | Description | Example |
 | --- | --- | --- |
@@ -140,7 +140,7 @@ PARALLEL{a, b}          simultaneous
 ::CREATE{@SUN ∧ @OPUS}{PROTOCOL::ILANG}
 ```
 
-Dialogue, thought, decision, silence, event, creation. This is the birth of I-Lang recorded in I-Lang.
+Dialogue, thought, decision, silence, event, creation. This is the birth of iLang recorded in iLang.
 
 #### Registered Narrative Declarations (v5.0)
 
@@ -327,7 +327,7 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 
 ## 8. JSON AST
 
-I-Lang chains can be represented as JSON AST for machine processing, validation, and interoperability with MCP/A2A.
+iLang chains can be represented as JSON AST for machine processing, validation, and interoperability with MCP/A2A.
 
 ```
 {
@@ -412,7 +412,7 @@ When multiple `::GENE{}` blocks apply, `priority` determines order: `P0` > `P1` 
 
 ## 11. Security Model
 
-I-Lang classifies verbs into three risk levels: **safe** (read-only, no side effects), **guarded** (modifies state, requires confirmation), and **dangerous** (data loss or code execution risk, requires explicit authorization). See the [full security model](https://ilang.ai/security/) for verb classifications and runtime requirements.
+iLang classifies verbs into three risk levels: **safe** (read-only, no side effects), **guarded** (modifies state, requires confirmation), and **dangerous** (data loss or code execution risk, requires explicit authorization). See the [full security model](https://ilang.ai/security/) for verb classifications and runtime requirements.
 
 ## 12. Execution Semantics (v4.0)
 
@@ -610,7 +610,7 @@ Full v5.0 specification: [SPEC-v5.0-PRE.md →](https://github.com/ilang-ai/ilan
 
 ## 14. Versioning
 
-I-Lang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.
+iLang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.
 
 | Version | Date | Changes |
 | --- | --- | --- |
@@ -651,11 +651,11 @@ The complete, machine-readable specification is available at:
 
 JSON Schemas (non-normative implementation aids): [judge-v5.0.json](https://ilang.ai/schema/judge-v5.0.json)  ·  [status-v4.0.json](https://ilang.ai/schema/status-v4.0.json)
 
-Machine layer (experimental, not part of the canon): [ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol), IML (I-Lang Machine Layer), a machine form of v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon.
+Machine layer (experimental, not part of the canon): [ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol), IML (iLang Machine Layer), a machine form of v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon.
 
 Related pages: [Playground](https://ilang.ai/playground/) · [Benchmark](https://ilang.ai/benchmark/) · [Conformance](https://ilang.ai/conformance/) · [Security](https://ilang.ai/security/)
 
-[← Back to I-Lang](https://ilang.ai/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)  ·  [Browse the Dictionary →](https://ilang.ai/dictionary/)
+[← Back to iLang](https://ilang.ai/)  ·  [Compare with MCP & A2A →](https://ilang.ai/mcp-vs-a2a/)  ·  [Browse the Dictionary →](https://ilang.ai/dictionary/)
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

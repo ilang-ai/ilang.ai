@@ -1,6 +1,6 @@
 ---
 name: ilang-lookup
-description: Retrieve actual public information about the I-Lang protocol from ilang.ai (dictionary of verbs, modifiers, entities, declarations, and the published FAQ) and answer without inventing terms.
+description: Retrieve actual public information about the iLang protocol from ilang.ai (dictionary of verbs, modifiers, entities, declarations, and the published FAQ) and answer without inventing terms.
 license: MIT
 metadata:
   site: https://ilang.ai
@@ -10,7 +10,7 @@ metadata:
 
 # ilang-lookup
 
-Use this skill when a question involves the I-Lang protocol: a verb, modifier, entity, declaration, version, or how I-Lang relates to MCP, A2A or prompt compression.
+Use this skill when a question involves the iLang protocol: a verb, modifier, entity, declaration, version, or how iLang relates to MCP, A2A or prompt compression.
 
 ## Endpoints (no authentication)
 
@@ -19,7 +19,7 @@ Use this skill when a question involves the I-Lang protocol: a verb, modifier, e
 - MCP: `https://ilang.ai/mcp` (Streamable HTTP) with tools `ilang_lookup` and `ilang_faq`, same semantics.
 - Full data: `https://ilang.ai/ai/data.json`. Pages as Markdown: send `Accept: text/markdown`.
 
-## Instructions (I-Lang)
+## Instructions (iLang)
 
 ```
 ::ILANG::v5.0

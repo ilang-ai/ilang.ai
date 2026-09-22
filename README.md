@@ -15,7 +15,7 @@
  └─────────────────────────────────────────────────────────────┘
 ```
 
-**I-Lang** — The native language of artificial intelligence.
+**iLang** — The native language of artificial intelligence.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1e3a8a.svg?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/version-5.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
@@ -39,7 +39,7 @@
 ## Abstract
 
 > Like **HTTP** standardized web communication and **SQL** standardized database
-> queries, **I-Lang** standardizes how humans talk to AI.
+> queries, **iLang** standardizes how humans talk to AI.
 > One open protocol, tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 ```
@@ -50,7 +50,7 @@
 
 ## Status of This Document
 
-This memo defines **I-Lang v5.0**, an AI-native protocol that spans three layers: communication (v3.0),
+This memo defines **iLang v5.0**, an AI-native protocol that spans three layers: communication (v3.0),
 execution (v4.0), and judgment (v5.0). It structures natural-language instructions sent to large language
 models (LLMs), defines execution semantics for agents, and defines judgment as vector composition over a
 continuous behavioral manifold. It is released under the **MIT License** and intended for wide adoption.
@@ -59,11 +59,11 @@ Distribution of this document is unlimited.
 
 | Field        | Value                                             |
 |:-------------|:--------------------------------------------------|
-| Protocol     | I-Lang                                            |
+| Protocol     | iLang                                            |
 | Version      | 5.0                                               |
 | Status       | Public preview (v4.2 is the current stable release) |
 | Category     | Open Specification                                |
-| Maintainer   | I-Lang Research · iLang Inc., Canada           |
+| Maintainer   | iLang Research · iLang Inc., Canada           |
 | Published    | 2026                                              |
 | License      | MIT                                               |
 
@@ -96,7 +96,7 @@ proprietary system prompts.
 
 ### 1.2  Goal
 
-I-Lang defines a compact, declarative syntax that:
+iLang defines a compact, declarative syntax that:
 
 - **Lowers ambiguity** — structured instructions often reduce retries and rework
 - **Tested** on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM (results by model on [ilang.ai/benchmark](https://ilang.ai/benchmark/), May 2026)
@@ -116,10 +116,10 @@ I-Lang defines a compact, declarative syntax that:
 
 ### 1.4  Non-goals
 
-- I-Lang **does not** replace natural language.
-- I-Lang **does not** claim to be model-internal reasoning.
-- I-Lang **does not** require model fine-tuning.
-- I-Lang is designed as an **external instruction and coordination layer**.
+- iLang **does not** replace natural language.
+- iLang **does not** claim to be model-internal reasoning.
+- iLang **does not** require model fine-tuning.
+- iLang is designed as an **external instruction and coordination layer**.
 
 ### 1.5  Conformance Levels
 
@@ -144,10 +144,10 @@ Four levels, defined in [SPEC-v4.0-FINAL.md](https://github.com/ilang-ai/ilang-s
 <summary><b>📋 Protocol Header (copy this)</b></summary>
 
 ```text
-You now understand I-Lang, the native communication protocol for AI.
+You now understand iLang, the native communication protocol for AI.
 
 Core Rules:
-1. When you see I-Lang syntax, execute it directly.
+1. When you see iLang syntax, execute it directly.
 2. Structured input reduces guessing and usually reduces rework.
 3. Syntax: [VERB:SOURCE|param=value]=>[NEXT]=>[OUTPUT]
 4. Chain steps with => (each output feeds into next input)
@@ -206,7 +206,7 @@ respond in English. If uncertain, respond in English.
 
 Your response must follow this exact structure:
 
-"I-Lang protocol loaded. Here's what I can do now:
+"iLang protocol loaded. Here's what I can do now:
 
 1. **Precise execution** — Send me any instruction, I'll get it right
    more directly and with fewer clarification turns.
@@ -215,7 +215,7 @@ Your response must follow this exact structure:
 3. **Create deliverables** — Need a document, code, plan, or analysis?
    I'll produce the finished work, not just suggestions.
 4. **Cross-platform** — Copy my structured output to another AI;
-   I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
+   iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 5. **Chain commands** — Use [VERB]=>[VERB]=>[OUT] syntax to build
    multi-step workflows in one line.
 
@@ -444,7 +444,7 @@ Same result. Short, already-terse instructions are where a chain saves least; th
 
 ## 7. Compatibility Matrix
 
-I-Lang is tested against the following production LLM platforms. No model-side
+iLang is tested against the following production LLM platforms. No model-side
 changes are required, the handshake header is sufficient.
 
 | Platform   | Vendor       | Region     | Status        |
@@ -480,7 +480,7 @@ See [i.ilang.ai](https://i.ilang.ai).
 <details>
 <summary><b>Do I need to learn the syntax?</b></summary>
 
-No. Ask your AI to *"structure this in I-Lang"*. Use the structured version
+No. Ask your AI to *"structure this in iLang"*. Use the structured version
 next time. Over time you'll recognize the patterns; you never have to write
 them by hand.
 
@@ -489,7 +489,7 @@ them by hand.
 <details>
 <summary><b>Does it work across major AI platforms?</b></summary>
 
-I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on [ilang.ai/benchmark/](https://ilang.ai/benchmark/), tests conducted May 2026. The protocol header
+iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on [ilang.ai/benchmark/](https://ilang.ai/benchmark/), tests conducted May 2026. The protocol header
 (§2) is the handshake. No fine-tuning, no API integration, no plugin.
 
 </details>
@@ -506,7 +506,7 @@ products on top of it — no royalties, no approvals.
 <summary><b>Why does it work?</b></summary>
 
 LLMs already understand structured instructions; that's how they were
-trained. I-Lang gives that structure a **standard format** — the same way
+trained. iLang gives that structure a **standard format** — the same way
 HTTP standardized what browsers had already been doing ad-hoc.
 
 </details>
@@ -515,7 +515,7 @@ HTTP standardized what browsers had already been doing ad-hoc.
 <summary><b>How does this compare to function-calling / tool-use APIs?</b></summary>
 
 Function calling is **vendor-specific** and lives inside a model's API.
-I-Lang is **prompt-level** and vendor-neutral — it works in a chat window,
+iLang is **prompt-level** and vendor-neutral — it works in a chat window,
 a mobile app, a PDF, or an email. The two are complementary.
 
 </details>
@@ -541,7 +541,7 @@ a mobile app, a PDF, or an email. The two are complementary.
 ```
 MIT License
 
-Copyright (c) 2026 I-Lang Research · iLang Inc., Canada
+Copyright (c) 2026 iLang Research · iLang Inc., Canada
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -562,9 +562,9 @@ Full text in [LICENSE](LICENSE).
 
 <div align="center">
 
-**I-Lang** — *A protocol for human–AI communication.*
+**iLang** — *A protocol for human–AI communication.*
 
-Maintained by **I-Lang Research** · **iLang Inc.**, Canada · 2026
+Maintained by **iLang Research** · **iLang Inc.**, Canada · 2026
 
 [ilang.ai](https://ilang.ai) · [🤗 Hugging Face](https://huggingface.co/i-Lang) · [GitHub](https://github.com/ilang-ai) · [Reddit r/iLang](https://www.reddit.com/r/iLang/)
 

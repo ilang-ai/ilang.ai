@@ -1,71 +1,71 @@
-I-Lang (ilang.ai) - full text for LLMs
+iLang (ilang.ai) - full text for LLMs
 Updated 2026-09-18. Canonical: https://ilang.ai and https://github.com/ilang-ai/ilang-spec. License MIT.
 
 WHAT IT IS
-I-Lang is an AI-native communication protocol between humans and AI, and between AI agents. Two syntaxes: operations [VERB:@TARGET|mod=value]=>[VERB2]=>[Ω] and declarations ::NAME{...}. Three layers: v3.0 communication (88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases; v4.1 adds a 20-key media profile and 3 media entities), v4.0 execution (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK; conformance levels L0-L3), v5.0 judgment (11-dimensional judgment vector, closed set of 8 modes M1-M8, reference function f_v5). Dimension 10 is inertia. Behavioral genes: 12 immutable genes (G001-G012) define core behaviors. Mutable genes adapt per base model.
+iLang is an AI-native communication protocol between humans and AI, and between AI agents. Two syntaxes: operations [VERB:@TARGET|mod=value]=>[VERB2]=>[Ω] and declarations ::NAME{...}. Three layers: v3.0 communication (88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases; v4.1 adds a 20-key media profile and 3 media entities), v4.0 execution (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK; conformance levels L0-L3), v5.0 judgment (11-dimensional judgment vector, closed set of 8 modes M1-M8, reference function f_v5). Dimension 10 is inertia. Behavioral genes: 12 immutable genes (G001-G012) define core behaviors. Mutable genes adapt per base model.
 
-Expression-layer extensions on the v4 stable line: v4.1 media profile (20 target-gated keys, @IMG @VID @AUD) and v4.2 media regions and image layers (four region body keys pts, bnd, vtx, msk; masks; image layers composed by MERGE with ::LIST line order as stacking order). An experimental machine layer, IML (I-Lang Machine Layer), a machine form of v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon, is published at https://github.com/ilang-ai/iml-protocol (0.5) and is not part of the canon.
+Expression-layer extensions on the v4 stable line: v4.1 media profile (20 target-gated keys, @IMG @VID @AUD) and v4.2 media regions and image layers (four region body keys pts, bnd, vtx, msk; masks; image layers composed by MERGE with ::LIST line order as stacking order). An experimental machine layer, IML (iLang Machine Layer), a machine form of v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon, is published at https://github.com/ilang-ai/iml-protocol (0.5) and is not part of the canon.
 
 PAGES
-- https://ilang.ai/: Homepage: what I-Lang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ
+- https://ilang.ai/: Homepage: what iLang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ
 - https://ilang.ai/ai/: Agent entry: Markdown index of the protocol, the dictionary and every agent interface (MCP at https://ilang.ai/mcp, OpenAPI at https://ilang.ai/openapi.json)
 - https://ilang.ai/spec/: Full specification rendered as HTML: verbs, modifiers, entities, declarations, judgment layer
 - https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities
-- https://ilang.ai/i-lang-vs-mcp/: I-Lang vs MCP (Model Context Protocol)
-- https://ilang.ai/i-lang-vs-a2a/: I-Lang vs A2A (Agent-to-Agent protocol)
-- https://ilang.ai/agent-communication/: Agent communication protocol: AI-to-AI communication in I-Lang, v4.0 handoff rules, seven-vendor handoff test
-- https://ilang.ai/human-ai-interaction/: Human-AI interaction: human-to-AI communication in I-Lang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes, quick start
-- https://ilang.ai/books/: The two I-Lang books: authors, publisher, publication date, pages, ASINs
+- https://ilang.ai/i-lang-vs-mcp/: iLang vs MCP (Model Context Protocol)
+- https://ilang.ai/i-lang-vs-a2a/: iLang vs A2A (Agent-to-Agent protocol)
+- https://ilang.ai/agent-communication/: Agent communication protocol: AI-to-AI communication in iLang, v4.0 handoff rules, seven-vendor handoff test
+- https://ilang.ai/human-ai-interaction/: Human-AI interaction: human-to-AI communication in iLang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes, quick start
+- https://ilang.ai/books/: The two iLang books: authors, publisher, publication date, pages, ASINs
 - https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens
 - https://ilang.ai/benchmark/: Benchmark results across models
 - https://ilang.ai/conformance/: Conformance levels and how to claim them
-- https://ilang.ai/playground/: Playground: I-Lang to IML converter, grammar validator and cl100k_base token counter, all in the browser
+- https://ilang.ai/playground/: Playground: iLang to IML converter, grammar validator and cl100k_base token counter, all in the browser
 - https://ilang.ai/security/: Security model: UNTRUSTED input isolation, authority tiers
 - https://ilang.ai/about/: About iLang Inc. and the protocol's authorship
 - https://ilang.ai/ai-see/: AI See product page
 - https://ilang.ai/ai-detector/: iLang Detect, sentence-level AI analysis with rewriting suggestions across 6 dimensions
 - https://ilang.ai/ai-humanizer/: iLang Humanizer: an editor, not a generator. Deletes AI filler, varies rhythm, and marks the [VOICE], [NUMBER] and [STORY] positions you fill yourself.
-- https://ilang.ai/mcp-vs-a2a/: MCP vs A2A vs I-Lang, protocol comparison at three layers
+- https://ilang.ai/mcp-vs-a2a/: MCP vs A2A vs iLang, protocol comparison at three layers
 - https://ilang.ai/compare/: Comparisons: iLang Detect vs other AI detectors
 - https://ilang.ai/for/: Scenario guides: humanizer and detector for students, teachers, essays, blog posts
 - https://ilang.ai/blog/: Blog: protocol and soul, Greek symbols, carbon-silicon symbiosis
 
 FAQ
 Q: What is an AI-native communication protocol?
-A: An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. I-Lang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.
+A: An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. iLang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.
 
-Q: How is I-Lang different from MCP?
-A: MCP (Model Context Protocol) connects AI to external tools and data sources. I-Lang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; I-Lang handles how AI understands instructions. They are complementary.
+Q: How is iLang different from MCP?
+A: MCP (Model Context Protocol) connects AI to external tools and data sources. iLang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; iLang handles how AI understands instructions. They are complementary.
 
-Q: How is I-Lang different from A2A?
-A: A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. I-Lang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.
+Q: How is iLang different from A2A?
+A: A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. iLang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.
 
 Q: Can structured prompts reduce retries with AI?
-A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the I-Lang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/.
+A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on ilang.ai/prompt-compression/.
 
-Q: Does I-Lang work with ChatGPT, Claude, and DeepSeek?
-A: I-Lang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026.
+Q: Does iLang work with ChatGPT, Claude, and DeepSeek?
+A: iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026.
 
 Q: What is prompt compression for LLMs?
-A: Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. I-Lang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.
+A: Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.
 
-Q: Is I-Lang free and open source?
-A: Yes. I-Lang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.
+Q: Is iLang free and open source?
+A: Yes. iLang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.
 
-Q: What is new in I-Lang v5.0?
-A: I-Lang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.2 (September 2026) is the current stable release.
+Q: What is new in iLang v5.0?
+A: iLang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, published as a public preview. v4.2 (September 2026) is the current stable release.
 
-Q: What is the I-Lang judgment layer?
-A: The judgment layer, introduced in I-Lang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. I-Lang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.
+Q: What is the iLang judgment layer?
+A: The judgment layer, introduced in iLang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. iLang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.
 
-Q: What was new in I-Lang v4.0?
-A: I-Lang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.
+Q: What was new in iLang v4.0?
+A: iLang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.
 
-Q: Is I-Lang a prompt engineering framework?
-A: No. I-Lang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.
+Q: Is iLang a prompt engineering framework?
+A: No. iLang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.
 
 Q: Does iLang Inc. offer an AI detector or an AI humanizer?
-A: Yes. iLang Detect and iLang Humanizer are tools built on I-Lang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/.
+A: Yes. iLang Detect and iLang Humanizer are tools built on iLang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at ilang.ai/ai-detector/ and ilang.ai/ai-humanizer/.
 
 VERBS (88)
 - READ (Data I/O): Read content from source

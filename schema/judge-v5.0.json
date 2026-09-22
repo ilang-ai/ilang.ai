@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ilang.ai/schema/judge-v5.0.json",
-  "title": "I-Lang ::JUDGE{v5.0} block, JSON form",
+  "title": "iLang ::JUDGE{v5.0} block, JSON form",
   "description": "Non-normative implementation aid. The canonical form is the four-line text block of SPEC-v5.0-PRE.md Part II §4 (::JUDGE{v5.0} / V: / M: / R:), checked by the reference validator ilang_judge_validator.py. This schema describes the JSON form of a block that the reference validator accepts, including the §4 abstain rule with its erratum of 2026-09-14. Rules that exist only in the text form stay with the validator: exactly four lines, the fixed dimension order, the two-decimal lexical form, and the ban on a field-shaped line right after R:. Whether mode equals f_v5(v) is not a schema rule; the validator reports a mismatch separately.",
   "$comment": "Sources: SPEC-v5.0-PRE.md ::SCHEMA{JUDGE|version:5.0} (spec version 2.1.1, erratum 2026-09-14) and parse_judge_block in ilang_judge_validator.py, ilang-spec repository, file schema/judge-v5.0.json. Numbers carry no multipleOf: a JSON number cannot keep the two-decimal text form, and float-based multipleOf checks reject valid values such as 0.07. Patterns follow ECMA-262, where $ matches only at the end of the string. Python re also lets $ match before a final newline (python-jsonschema passes the pattern to re.search unchanged), so the one pattern that ends in $ sits next to a not-newline clause that gives both dialects the same verdict.",
   "type": "object",

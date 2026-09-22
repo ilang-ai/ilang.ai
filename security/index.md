@@ -1,15 +1,15 @@
-# I-Lang Security Model: Verb Risk Classification and Runtime Requirements | Protocol Safety
+# iLang Security Model: Verb Risk Classification and Runtime Requirements | Protocol Safety
 Source: https://ilang.ai/security/
 
 # Security Model
 
-I-Lang is an instruction format, not an authorization bypass. All dangerous operations require host runtime confirmation, permission checks, and audit logging.
+iLang is an instruction format, not an authorization bypass. All dangerous operations require host runtime confirmation, permission checks, and audit logging.
 
 ## Core principle
 
-I-Lang is an instruction format, not an authorization bypass.
+iLang is an instruction format, not an authorization bypass.
 
-I-Lang structures what an agent is told to do. It does not grant the agent permission to do it. All dangerous operations require host runtime confirmation, permission checks, and audit logging.
+iLang structures what an agent is told to do. It does not grant the agent permission to do it. All dangerous operations require host runtime confirmation, permission checks, and audit logging.
 
 ## Verb risk classification
 
@@ -51,7 +51,7 @@ These verbs can cause data loss, execute arbitrary code, or modify production sy
 
 ## Runtime requirements
 
-Any runtime that executes I-Lang instructions must implement these safeguards:
+Any runtime that executes iLang instructions must implement these safeguards:
 
 | Requirement | Description |
 | --- | --- |
@@ -60,20 +60,20 @@ Any runtime that executes I-Lang instructions must implement these safeguards:
 | Dry-run mode | Allow users to preview the effect of a chain without executing it |
 | Sandbox execution | Dangerous verbs like RUN must execute in an isolated environment by default |
 | Audit log | All guarded and dangerous verb executions must be logged with timestamp, verb, target, modifier, and user who approved |
-| Host policy override | The host system can restrict or block any verb regardless of I-Lang instructions |
+| Host policy override | The host system can restrict or block any verb regardless of iLang instructions |
 
-## What I-Lang does NOT do
+## What iLang does NOT do
 
-| I-Lang does NOT | Explanation |
+| iLang does NOT | Explanation |
 | --- | --- |
-| Grant permissions | I-Lang structures intent. The host runtime enforces permissions. |
+| Grant permissions | iLang structures intent. The host runtime enforces permissions. |
 | Bypass safety layers | Behavioral definitions (`::GENE{}`) operate within the model's existing safety constraints. |
 | Execute code directly | `[RUN\|cmd=...]` is an instruction to the runtime, not direct code execution. |
-| Override host policies | If the host blocks DEL, no I-Lang instruction can override that. |
+| Override host policies | If the host blocks DEL, no iLang instruction can override that. |
 
 ## Reporting security issues
 
-If you discover a security concern with the I-Lang specification or any I-Lang tool, report it via [GitHub security advisory](https://github.com/ilang-ai/ilang-spec/security/advisories/new).
+If you discover a security concern with the iLang specification or any iLang tool, report it via [GitHub security advisory](https://github.com/ilang-ai/ilang-spec/security/advisories/new).
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.
