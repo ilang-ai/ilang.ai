@@ -95,19 +95,24 @@ async function runtimeBlock(media) {
   if (media) parts.push((await bundle('media')).text);
   return PREAMBLE + '\n\n<ilang-runtime version="' + core.version + '">\n' + parts.join('\n\n') + '\n</ilang-runtime>';
 }
-// One section of the full text by heading: the heading line and everything under it.
+// One section of the full text by heading: the heading line and everything under it. A heading
+// whose title is the request, numbering aside, wins; otherwise the deepest heading that contains it.
+const bare = (t) => t.toLowerCase().replace(/^(part [ivx]+|appendix [a-z]|§?[\d.]+)\s*[—:.-]?\s*/, '').trim();
 function section(full, want) {
   const lines = full.split('\n'), w = want.toLowerCase().replace(/^#+\s*/, '').trim();
-  let start = -1, depth = 0, fence = false;
-  for (let i = 0; i < lines.length; i++) {
-    const l = lines[i];
-    if (l.trimStart().startsWith('```')) { fence = !fence; continue; }
+  const heads = [];
+  let fence = false;
+  lines.forEach((l, i) => {
+    if (l.trimStart().startsWith('```')) { fence = !fence; return; }
     const m = !fence && /^(#+) (.*)$/.exec(l);
-    if (!m) continue;
-    if (start >= 0 && m[1].length <= depth) return lines.slice(start, i).join('\n');
-    if (start < 0 && m[2].toLowerCase().includes(w)) { start = i; depth = m[1].length; }
-  }
-  return start >= 0 ? lines.slice(start).join('\n') : null;
+    if (m) heads.push({ i, depth: m[1].length, title: m[2] });
+  });
+  const hits = heads.filter((h) => h.title.toLowerCase().includes(w));
+  if (!hits.length) return null;
+  const pick = hits.find((h) => bare(h.title) === bare(w)) ||
+    hits.reduce((a, b) => (b.depth > a.depth ? b : a));
+  const next = heads.find((h) => h.i > pick.i && h.depth <= pick.depth);
+  return lines.slice(pick.i, next ? next.i : lines.length).join('\n');
 }
 const yes = (v) => v === true || /^(1|true|yes|y|media)$/i.test(String(v || '').trim());
 
