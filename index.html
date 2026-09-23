@@ -648,7 +648,7 @@ window.addEventListener('scroll',function(){
   try { if (navigator.modelContext && hosts.indexOf(navigator.modelContext) < 0) hosts.push(navigator.modelContext); } catch (e) {}
   if (!hosts.length) return;
   var ac = new AbortController();
-  var RO = { readOnlyHint: true };
+  var RO = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
   function arg(a){ if (typeof a === "string") { try { return JSON.parse(a); } catch (e) { return {}; } } return a || {}; }
   var tools = [
     { name: "ilang_lookup", description: "[GET:@DICT|whr=q=term]=>[Ω] Look up an iLang verb, modifier, entity or declaration by name, alias or meaning. Returns dictionary entries with category, meaning and source_url; not_found=true when nothing matches.",

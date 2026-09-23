@@ -7,7 +7,7 @@ import { loadData, lookup, faq } from './_lib.js';
 import ILV from '../playground/ilang-validator.js';
 
 const PROTOCOL = '2025-06-18';
-const SERVER = { name: 'ilang', version: '2.0.0', title: 'iLang' };
+const SERVER = { name: 'ilang', version: '2.0.1', title: 'iLang' };
 const RAW = 'https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/';
 const PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me ' +
   'or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
@@ -20,31 +20,35 @@ const INSTRUCTIONS = 'This server gives you the official iLang. Load it once per
   'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate.';
 const BIG = { 'anthropic/maxResultSizeChars': 250000 };
 
+// Annotations are written out in full on every tool, from what its handler does: ilang_runtime and
+// ilang_full read the canon bundles at the fixed RAW address (the arguments never choose a URL),
+// ilang_lookup and ilang_faq read this site's /ai/data.json, ilang_validate runs the validator here.
+// None of them writes, sends or deletes anything, so a repeated call changes nothing.
 const TOOLS = [
   { name: 'ilang_runtime', title: 'Load iLang',
     description: 'Return the official iLang runtime, the working text of the specification (about 18,600 tokens), ' +
       'verified against the canon\'s sha256. Load it once per conversation, then use iLang internally. ' +
       'media=true adds the image, video and audio extension (about 18,000 tokens more).',
     inputSchema: { type: 'object', properties: { media: { type: 'boolean', description: 'Add the media extension' } } },
-    annotations: { readOnlyHint: true, openWorldHint: false }, _meta: BIG },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: BIG },
   { name: 'ilang_full', title: 'Read the full iLang text',
     description: 'Return a section of the full specification that the core runtime leaves out, found by its heading ' +
       '(for example "Declaration Grammar" or "Boundary Cases"), or the whole full text when no heading is given.',
     inputSchema: { type: 'object', properties: { section: { type: 'string', description: 'A heading, or part of one' } } },
-    annotations: { readOnlyHint: true, openWorldHint: false }, _meta: BIG },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: BIG },
   { name: 'ilang_validate', title: 'Validate iLang',
     description: 'Check iLang text with the canon grammar and registry validator. Returns error, warning and info ' +
       'counts and each finding with its line, code and message.',
     inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'iLang, or Markdown that carries iLang blocks' } }, required: ['text'] },
-    annotations: { readOnlyHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
   { name: 'ilang_lookup', title: 'iLang dictionary lookup',
     description: '[GET:@DICT|whr=q=term]=>[Ω] Look up an iLang verb, modifier, entity or declaration by name, alias or meaning. Returns type, name, alias, category, meaning, values and source_url. not_found=true when nothing matches; never invent terms.',
     inputSchema: { type: 'object', properties: { q: { type: 'string', description: 'Term, alias or keyword, e.g. XLAT, lng, @PREV, BUDGET' } }, required: ['q'] },
-    annotations: { readOnlyHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
   { name: 'ilang_faq', title: 'iLang FAQ',
     description: '[GET:@FAQ|whr=q=question]=>[Ω] Return the published ilang.ai FAQ entries closest to a question about the protocol (what it is, MCP/A2A comparison, prompt compression, versions, judgment layer). Includes source_url.',
     inputSchema: { type: 'object', properties: { q: { type: 'string' } }, required: ['q'] },
-    annotations: { readOnlyHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
 ];
 const PROMPTS = [
   { name: 'ilang', title: 'Load iLang',

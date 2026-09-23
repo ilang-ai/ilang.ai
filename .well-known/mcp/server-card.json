@@ -2,7 +2,7 @@
   "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
   "serverInfo": {
     "name": "ilang",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "title": "iLang"
   },
   "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), the full text for any section it leaves out, the canon grammar validator, and lookup over the dictionary and the ilang.ai FAQ. Read-only, no authentication.",
@@ -26,23 +26,53 @@
   "tools": [
     {
       "name": "ilang_runtime",
-      "description": "Load the official iLang runtime, once per conversation; media=true adds the media extension."
+      "description": "Load the official iLang runtime, once per conversation; media=true adds the media extension.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "ilang_full",
-      "description": "Read a section of the full specification that the core runtime leaves out, by heading."
+      "description": "Read a section of the full specification that the core runtime leaves out, by heading.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "ilang_validate",
-      "description": "Check iLang text with the canon grammar and registry validator."
+      "description": "Check iLang text with the canon grammar and registry validator.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "ilang_lookup",
-      "description": "Look up an iLang verb, modifier, entity or declaration by name, alias or meaning."
+      "description": "Look up an iLang verb, modifier, entity or declaration by name, alias or meaning.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "ilang_faq",
-      "description": "Return the published FAQ entry closest to a question about the iLang protocol."
+      "description": "Return the published FAQ entry closest to a question about the iLang protocol.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
     }
   ],
   "documentation": "https://ilang.ai/ai/",
