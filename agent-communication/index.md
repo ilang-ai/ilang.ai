@@ -46,7 +46,7 @@ The example on [iLang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Agent A uses A2A
 
 The `::GENE{}` block carries the behavior and the verb chain carries the task. Each step in a chain receives the output of the previous step. The chain terminates with `[Ω]` or `[OUT]`. A2A handled the routing. iLang handled the instruction content. Each protocol does its own job.
 
-The verbs in the chain come from the 88 listed in the protocol header on the ilang.ai homepage and in the [dictionary](https://ilang.ai/dictionary/). The same header maps Greek aliases onto verbs, such as `Σ=MERGE` and `Ω=OUT`. The v5.0 specification states that iLang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication.
+The verbs in the chain come from the 88 listed in the [protocol header](https://ilang.ai/spec/#protocol-header) and in the [dictionary](https://ilang.ai/dictionary/). The same header maps Greek aliases onto verbs, such as `Σ=MERGE` and `Ω=OUT`. The v5.0 specification states that iLang is the first protocol to formally map Greek mathematical symbols as primitive verbs for AI-to-AI communication.
 
 ## Handing off work safely
 

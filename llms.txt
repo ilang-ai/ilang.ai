@@ -42,8 +42,9 @@
 
 ## Pages
 
-- [Homepage](https://ilang.ai): Protocol overview, interactive demo, quick start
-- [Specification](https://ilang.ai/spec/): Full spec v5.0 — communication, execution, judgment layers
+- [Homepage](https://ilang.ai): What iLang is, three ways to use it (copy, loader, MCP), tested models, evidence, ecosystem and research DOIs
+- [FAQ](https://ilang.ai/faq/): Frequently asked questions: learning and using iLang, the loader, supported models, MCP and A2A, v4.0 and v5.0
+- [Specification](https://ilang.ai/spec/): Full spec v5.0 — communication, execution, judgment layers; the protocol header to paste and the v4.0 agent runtime header
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
 - [Compare: MCP vs A2A vs iLang](https://ilang.ai/mcp-vs-a2a/): Side-by-side protocol comparison
 - [iLang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
@@ -51,7 +52,7 @@
 - [Agent Communication Protocol](https://ilang.ai/agent-communication/): AI-to-AI communication in iLang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data
 - [Human-AI Interaction](https://ilang.ai/human-ai-interaction/): Human-to-AI communication in iLang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start
 - [Books](https://ilang.ai/books/): The two iLang books, with authors as Amazon lists them, pages and ASINs
-- [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published
+- [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published; the prompt structurer
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
 - [Conformance](https://ilang.ai/conformance/): L0-L3 conformance levels and the requirements for each level

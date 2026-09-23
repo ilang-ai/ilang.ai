@@ -88,6 +88,68 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
 @media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
+/* prompt structurer and Before/After, moved from the home page 2026-09-23 */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:600;transition:all .18s;cursor:pointer;border:1px solid transparent;font-family:inherit}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--accent);transform:translateY(-1px)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-secondary:hover{border-color:var(--ink)}
+.btn .mono{font-size:12px;opacity:.7}
+.btn-sm{padding:8px 14px;font-size:13px;border-radius:6px}
+.btn:disabled{opacity:.6;cursor:default}
+.code-copy{background:transparent;border:1px solid #30363d;color:#c9d1d9;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:5px 11px;border-radius:5px;cursor:pointer;transition:all .15s}
+.code-copy:hover{background:#21262d;border-color:#484f58}
+.try-wrap{
+  background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+}
+.try-head{
+  padding:14px 20px;border-bottom:1px solid var(--line);background:var(--bg-2);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.try-head .label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.try-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-2)}
+.try-textarea{
+  width:100%;border:none;padding:22px 24px;
+  font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.65;
+  resize:none;outline:none;color:var(--ink);background:#fff;
+}
+.try-actions{
+  padding:14px 20px;border-top:1px solid var(--line);background:var(--bg-2);
+  display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+.try-actions-left{display:flex;gap:10px}
+.try-counter{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.try-counter b{color:var(--ink)}
+.try-output{margin-top:16px;background:var(--code-bg);border-radius:10px;padding:20px 24px;display:none}
+.try-output.show{display:block}
+.try-output .out-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:#8b949e;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.try-output pre{
+  font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;
+  color:var(--code-text);white-space:pre-wrap;word-break:break-word;
+}
+.try-output .out-foot{
+  margin-top:16px;padding-top:14px;border-top:1px solid #21262d;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:#8b949e;
+}
+.try-output .saved{color:#3fb950;font-weight:500}
+.try-error{margin-top:12px;padding:12px 16px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;font-size:13px;color:#b91c1c;display:none}
+.try-error.show{display:block}
+.try-loading{margin-top:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;display:none}
+.try-loading.show{display:inline-block}
+.try-loading::after{content:"";animation:dots 1.4s infinite}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+
+.try-tip{
+  margin-top:20px;padding:16px 20px;
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:6px;font-size:14px;color:var(--muted);line-height:1.6;
+}
+.try-tip b{color:var(--ink);font-weight:600}
+.try-tip code{font-family:'JetBrains Mono',monospace;font-size:.9em;background:var(--bg-2);padding:2px 6px;border-radius:3px;color:var(--accent);border:1px solid var(--line)}
+
+.content .try-output pre{margin:0;padding:0;background:none;border-radius:0;overflow:visible}
+.content .try-wrap .try-count,.content .try-counter{color:var(--muted)}
 </style>
 <script type="application/ld+json">
 {
@@ -115,7 +177,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "How do I write system prompts for AI agents with less token overhead?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "System prompts run on every turn, so a 500-token system prompt costs 500 tokens per message. ilang.ai/prompt-compression/ recommends writing behavioral rules as structured ::GENE{} definitions instead of natural-language prose. The homepage publishes a v4.0 header with conformance levels, ::PRIOR defaults, ::OBJECTIVE, ::RUBRIC and ::EVIDENCE blocks for agent runtimes. The benchmark page lists declaration decay, where ::GENE{} rules are followed in turns 1 to 3 and ignored by turn 8 and later, as a common failure mode in long sessions."
+        "text": "System prompts run on every turn, so a 500-token system prompt costs 500 tokens per message. ilang.ai/prompt-compression/ recommends writing behavioral rules as structured ::GENE{} definitions instead of natural-language prose. The specification page publishes a v4.0 agent runtime header, ilang.ai/spec/#s12-5-agent-runtime-header, with conformance levels, ::PRIOR defaults, ::OBJECTIVE, ::RUBRIC and ::EVIDENCE blocks for agent runtimes. The benchmark page lists declaration decay, where ::GENE{} rules are followed in turns 1 to 3 and ignored by turn 8 and later, as a common failure mode in long sessions."
       }
     }
   ]
@@ -200,8 +262,54 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td data-label="Source">Behavioral rules</td><td data-label="Natural language overhead">"Always give conclusions first and do not hedge"</td><td data-label="iLang equivalent"><code>T:conclusions_first A:hedging⇒remove</code></td></tr>
 </table>
 
+<h3>Before and after</h3>
+<p>The same instruction, written as a sentence and written as a chain.</p>
+<table>
+<tr><th>What you want</th><th>iLang</th></tr>
+<tr><td>Extract text from a URL and format as Markdown</td><td><code>[GET:@SRC|path=url]=&gt;[FMT|fmt=md]=&gt;[OUT]</code></td></tr>
+<tr><td>Read all .md files, merge into one, output result</td><td><code>[LIST:@LOCAL|mch=*.md]=&gt;[&#928;:READ]=&gt;[&#931;]=&gt;[&#937;]</code></td></tr>
+<tr><td>Shorten previous output into 3 professional bullet points</td><td><code>[SHRT:@PREV|sty=bullets,len=3,ton=pro]=&gt;[&#937;]</code></td></tr>
+<tr><td>Translate to Japanese, formal tone, then format as table</td><td><code>[&#952;:@PREV|lng=ja,ton=formal]=&gt;[FMT|fmt=csv]=&gt;[&#937;]</code></td></tr>
+</table>
+
 <h2>Try it</h2>
-<p>Paste any natural language prompt into the <a href="/" style="color:var(--accent);font-weight:600">interactive compressor on the iLang homepage</a>. See the token reduction for yourself.</p>
+<p id="try">Drop any prompt in. The iLang engine rewrites it in protocol syntax. Lower semantic loss. AI executes with fewer retries.</p>
+<div>
+      <div class="try-wrap">
+        <div class="try-head">
+          <span class="label">input.txt</span>
+          <span class="try-count"><span id="charCount">0</span> / 2,000</span>
+        </div>
+        <textarea id="input" class="try-textarea" aria-label="Prompt to structure" rows="6" maxlength="2000" placeholder="Paste any prompt here…">Create a stunning cyberpunk cityscape at night where artificial intelligence has transformed everything. Neon holographic interfaces float above the streets, autonomous drones deliver packages between towering glass skyscrapers, people interact with AI assistants projected from their wrists. Style: cinematic, ultra-detailed, 8K, dramatic lighting, blade runner aesthetic.</textarea>
+        <div class="try-actions">
+          <div class="try-actions-left">
+            <button class="btn btn-primary btn-sm" onclick="compress(false)" id="btnCompress">Structure <span class="mono">→</span></button>
+            <button class="btn btn-secondary btn-sm" onclick="compress(true)" id="btnGift">Surprise me</button>
+            <span class="try-loading mono" id="loading">structuring</span>
+          </div>
+          <div class="try-counter"><b id="counterNum">0</b> prompts structured</div>
+        </div>
+      </div>
+
+      <div class="try-error" id="errorBox"><span id="errorText"></span></div>
+      <p style="color:var(--muted);font-size:12px;margin-top:8px">Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See <a href="/privacy" style="color:var(--muted);text-decoration:underline">Privacy Policy</a>.</p>
+      <p style="color:var(--muted);font-size:13px;margin-top:6px">Want nothing to leave your browser? The <a href="/playground/" style="color:var(--accent);font-weight:600">Playground</a> converts iLang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.</p>
+
+      <div class="try-output" id="outputArea">
+        <div class="out-label">output.ilang</div>
+        <pre id="outputText"></pre>
+        <div class="out-foot">
+          <span id="tokenInfo"></span>
+          <button class="code-copy" id="btnCopy" onclick="copyResult()" aria-label="Copy structured output">Copy</button>
+        </div>
+      </div>
+
+      <div class="try-tip">
+        <b>Bonus.</b> Your AI can now read any webpage. Send it:
+        <code>i.ilang.ai/https://any-url</code>
+        — paste into any AI conversation and it fetches + reads the page.
+      </div>
+</div>
 
 <p style="margin-top:40px"><a href="/spec/" style="color:var(--accent);font-weight:600">Read the full iLang specification →</a></p>
 
@@ -281,5 +389,46 @@ iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabinde
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 
+<script>
+// Char count
+var input=document.getElementById('input'),charCount=document.getElementById('charCount');
+function uc(){charCount.textContent=input.value.length.toLocaleString()}
+input.addEventListener('input',uc);uc();
+
+// Compress API
+var API='https://api.ilang.ai';
+async function compress(isGift){
+  var text=input.value.trim();if(!text)return;
+  var bG=document.getElementById('btnGift'),bC=document.getElementById('btnCompress');
+  var loading=document.getElementById('loading'),out=document.getElementById('outputArea');
+  var err=document.getElementById('errorBox');
+  bG.disabled=true;bC.disabled=true;
+  loading.classList.add('show');out.classList.remove('show');err.classList.remove('show');
+  try{
+    var res=await fetch(API+'/compress',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:text})});
+    var data=await res.json();
+    if(!res.ok){document.getElementById('errorText').innerHTML=data.error||'Something went wrong.';err.classList.add('show');return}
+    document.getElementById('outputText').textContent=data.output;
+    document.getElementById('tokenInfo').innerHTML='<span class="saved">'+data.tokens.saved+' saved</span> · '+data.tokens.input+' → '+data.tokens.output+' tokens';
+    out.classList.add('show');
+    fetchStats();
+  }catch(e){document.getElementById('errorText').textContent='Network error. Please try again.';err.classList.add('show')}
+  finally{loading.classList.remove('show');bG.disabled=false;bC.disabled=false}
+}
+function copyResult(){
+  var t=document.getElementById('outputText').textContent;
+  var f='\n\n---\niLang v5.0 · Long Quan Zhu (Max, @SUN, orcid.org/0009-0004-4540-8082) designed · Claude Opus (@OPUS) co-authored · Gemini (@GEMINI) reviewed.\n静水流深 · ilang:genesis:2026-03-04\nDictionary: github.com/ilang-ai/ilang-dict · Eyes: i.ilang.ai/{url}';
+  navigator.clipboard.writeText(t+f).then(function(){
+    var b=document.getElementById('btnCopy');b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1800);
+  });
+}
+async function fetchStats(){
+  try{
+    var r=await fetch(API+'/stats');var d=await r.json();
+    document.getElementById('counterNum').textContent=(d.today||0).toLocaleString();
+  }catch(e){}
+}
+fetchStats();
+</script>
 </body>
 </html>

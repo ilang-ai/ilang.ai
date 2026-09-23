@@ -3,7 +3,7 @@ Source: https://ilang.ai/human-ai-interaction/
 
 # Human-AI Interaction: Human-to-AI Communication in iLang
 
-The iLang v3.0 specification, [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md), opens its first section with this sentence: "iLang is a structured communication protocol between humans and AI." Under "What iLang does", the protocol header on the ilang.ai homepage lists "Human-to-AI: precise instructions with fewer retries and less rework".
+The iLang v3.0 specification, [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md), opens its first section with this sentence: "iLang is a structured communication protocol between humans and AI." Under "What iLang does", the protocol header on the ilang.ai specification page lists "Human-to-AI: precise instructions with fewer retries and less rework".
 
 ## The three communication modes
 
@@ -65,7 +65,7 @@ The other five modes are in section 13.7.
 
 ## Quick start
 
-The quick start on the [ilang.ai homepage](https://ilang.ai/#protocol) is headed "Three steps. No install."
+The quick start on the [ilang.ai specification page](https://ilang.ai/spec/#protocol-header) is headed "Three steps. No install."
 
 1. **Copy the protocol header**. "It's the full v5.0 activation prompt - rules, verbs, aliases, modifiers."
 2. **Paste into a tested AI model**. "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol."
@@ -87,7 +87,7 @@ The specification describes `::UNTRUSTED{}` as "Input isolation. Marks a payload
 
 ### How do I start using iLang?
 
-The quick start on the ilang.ai homepage has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss."
+The quick start on the ilang.ai specification page has three steps and no install: copy the protocol header, paste into a tested AI model, get precise results. Its second step reads: "Tested on ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. The first turn activates the protocol." Its third step reads: "Write instructions in iLang syntax, or describe what you want. AI executes with lower semantic loss."
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

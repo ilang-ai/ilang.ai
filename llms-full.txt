@@ -1,5 +1,5 @@
 iLang (ilang.ai) - full text for LLMs
-Updated 2026-09-18. Canonical: https://ilang.ai and https://github.com/ilang-ai/ilang-spec. License MIT.
+Updated 2026-09-23. Canonical: https://ilang.ai and https://github.com/ilang-ai/ilang-spec. License MIT.
 
 WHAT IT IS
 iLang is an AI-native communication protocol between humans and AI, and between AI agents. Two syntaxes: operations [VERB:@TARGET|mod=value]=>[VERB2]=>[Ω] and declarations ::NAME{...}. Three layers: v3.0 communication (88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases; v4.1 adds a 20-key media profile and 3 media entities), v4.0 execution (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK; conformance levels L0-L3), v5.0 judgment (11-dimensional judgment vector, closed set of 8 modes M1-M8, reference function f_v5). Dimension 10 is inertia. Behavioral genes: 12 immutable genes (G001-G012) define core behaviors. Mutable genes adapt per base model.
@@ -7,16 +7,17 @@ iLang is an AI-native communication protocol between humans and AI, and between 
 Expression-layer extensions on the v4 stable line: v4.1 media profile (20 target-gated keys, @IMG @VID @AUD) and v4.2 media regions and image layers (four region body keys pts, bnd, vtx, msk; masks; image layers composed by MERGE with ::LIST line order as stacking order). An experimental machine layer, IML (iLang Machine Layer), a machine form of v4.x documents, operation chains and declarations, with fixed-width codes derived from the canon, is published at https://github.com/ilang-ai/iml-protocol (0.5) and is not part of the canon.
 
 PAGES
-- https://ilang.ai/: Homepage: what iLang is, three layers (v3 communication, v4 execution, v5 judgment), FAQ
+- https://ilang.ai/: Homepage: what iLang is, three ways to use it (copy, loader, MCP), tested models, evidence, ecosystem and research DOIs
+- https://ilang.ai/faq/: FAQ: learning and using iLang, the loader, supported models, MCP and A2A, v4.0 and v5.0
 - https://ilang.ai/ai/: Agent entry: Markdown index of the protocol, the dictionary and every agent interface (MCP at https://ilang.ai/mcp, OpenAPI at https://ilang.ai/openapi.json)
-- https://ilang.ai/spec/: Full specification rendered as HTML: verbs, modifiers, entities, declarations, judgment layer
+- https://ilang.ai/spec/: Full specification rendered as HTML: the protocol header to paste, verbs, modifiers, entities, declarations, the v4.0 agent runtime header, judgment layer
 - https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities
 - https://ilang.ai/i-lang-vs-mcp/: iLang vs MCP (Model Context Protocol)
 - https://ilang.ai/i-lang-vs-a2a/: iLang vs A2A (Agent-to-Agent protocol)
 - https://ilang.ai/agent-communication/: Agent communication protocol: AI-to-AI communication in iLang, v4.0 handoff rules, seven-vendor handoff test
 - https://ilang.ai/human-ai-interaction/: Human-AI interaction: human-to-AI communication in iLang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes, quick start
 - https://ilang.ai/books/: The two iLang books: authors, publisher, publication date, pages, ASINs
-- https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens
+- https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens; the prompt structurer
 - https://ilang.ai/benchmark/: Benchmark results across models
 - https://ilang.ai/conformance/: Conformance levels and how to claim them
 - https://ilang.ai/playground/: Playground: iLang to IML converter, grammar validator and cl100k_base token counter, all in the browser

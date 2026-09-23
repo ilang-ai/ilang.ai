@@ -75,9 +75,26 @@ The compression comes from three sources:
 | Connectors | "Then", "After that", "Finally" | `=>` |
 | Behavioral rules | "Always give conclusions first and do not hedge" | `T:conclusions_first A:hedging⇒remove` |
 
+### Before and after
+
+The same instruction, written as a sentence and written as a chain.
+
+| What you want | iLang |
+| --- | --- |
+| Extract text from a URL and format as Markdown | [GET:@SRC\|path=url]=>[FMT\|fmt=md]=>[OUT] |
+| Read all .md files, merge into one, output result | [LIST:@LOCAL\|mch=*.md]=>[Π:READ]=>[Σ]=>[Ω] |
+| Shorten previous output into 3 professional bullet points | [SHRT:@PREV\|sty=bullets,len=3,ton=pro]=>[Ω] |
+| Translate to Japanese, formal tone, then format as table | [θ:@PREV\|lng=ja,ton=formal]=>[FMT\|fmt=csv]=>[Ω] |
+
 ## Try it
 
-Paste any natural language prompt into the [interactive compressor on the iLang homepage](https://ilang.ai/). See the token reduction for yourself.
+Drop any prompt in. The iLang engine rewrites it in protocol syntax. Lower semantic loss. AI executes with fewer retries. The structurer runs on the HTML version of this page, https://ilang.ai/prompt-compression/.
+
+Input is sent to api.ilang.ai for structuring. We do not store or use submitted prompts for training. Do not paste sensitive information. See [Privacy Policy](https://ilang.ai/privacy).
+
+Want nothing to leave your browser? The [Playground](https://ilang.ai/playground/) converts iLang chains to IML and back, checks documents against the grammar and counts tokens, all inside the page.
+
+**Bonus.** Your AI can now read any webpage. Send it: `i.ilang.ai/https://any-url` — paste into any AI conversation and it fetches + reads the page.
 
 [Read the full iLang specification →](https://ilang.ai/spec/)
 
