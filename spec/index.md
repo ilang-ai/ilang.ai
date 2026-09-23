@@ -90,7 +90,7 @@ Structured instructions reduce guessing and often reduce retries, rework, and ba
 
 ### Chain workflows
 
-[STEP1]=>[STEP2]=>[OUT]. Multi-step pipelines in a single instruction. Each output feeds the next.
+[VERB1]=>[VERB2]=>[OUT]. Multi-step pipelines in a single instruction. Each output feeds the next.
 
 03 identity
 
@@ -133,7 +133,7 @@ iLang is an AI-native communication protocol built from symbols already inside e
 ### 2.1 Operation Syntax — What AI Does
 
 ```
-[VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω]
+[VERB:@TARGET|modifier=value]=>[VERB2]=>[Ω]
 ```
 
 Operations are executable instructions. Each step in a chain receives the output of the previous step. The chain terminates with `[Ω]` or `[OUT]`.
@@ -340,47 +340,85 @@ Total: **88 verbs**. Full definitions with examples: [Dictionary →](https://il
 
 ## 5. Modifiers
 
-### 5.1 Core Modifiers
+### 5.1 Core Modifiers (29)
 
-Core modifiers are defined in the protocol specification and recognized by all conformant implementations.
+Modifiers attach to verbs as `|mod=value`, and several are separated by commas: `|fmt=json,len=short`. The registry is closed at 29 keys (SPEC.md §4; closed again by PATCH-2 on 2026-08-11): a key outside it is error `E302`, Invalid Modifier. There are no verb-specific extension keys.
 
-| Modifier | Purpose | Example values |
+| Modifier | Type | Meaning | Values |
+| --- | --- | --- | --- |
+| `src=` | entity/string | Explicit source | entity, URI |
+| `dst=` | entity/string | Explicit destination | entity, URI |
+| `path=` | string | Path within entity | string |
+| `fmt=` | string | Output format | text, json, md, csv, xml, html, email, png, jpg, webp, svg, gif, mp4, webm, wav, mp3 |
+| `lng=` | string | Language (ISO 639-1) | ISO 639-1 (en, zh, ja) |
+| `sty=` | string | Style | pro, casual, code, bullets |
+| `ton=` | string | Tone | urgent, neutral, formal |
+| `len=` | string/int | Length target | short, med, long, number |
+| `lim=` | int | Limit | integer |
+| `off=` | int | Offset | integer |
+| `top=` | int | Top N | integer |
+| `bot=` | int | Bottom N | integer |
+| `srt=` | string | Sort by field | field name |
+| `grp=` | string | Group by field | field name |
+| `whr=` | string | Filter/match condition | condition string |
+| `mch=` | string | Match pattern (glob by default) | glob (default) or regex with typ=regex |
+| `exc=` | string | Exclude pattern | glob or regex |
+| `dep=` | int | Traversal depth | integer |
+| `rng=` | string | Range (start:end) | start:end |
+| `typ=` | string | Type expectation | str, int, bool, regex |
+| `enc=` | string | Encoding (utf8, base64, hex) | utf8, base64, hex |
+| `cap=` | int | Capacity (bytes or tokens) | bytes, tokens |
+| `pri=` | string | Priority (p0, p1, p2) | p0, p1, p2 |
+| `col=` | string | Column names (comma-separated) | comma separated |
+| `row=` | string | Row indices | index array |
+| `frm=` | string | From (time/date) | timestamp, URI, @ENTITY |
+| `to=` | string | To (time/date) | timestamp, URI, @ENTITY |
+| `scp=` | string | Scope (global, local, strict) | global, local, strict |
+| `op=` | string | Operation reference (for BATC) | verb name (for BATC) |
+
+`fmt` accepts `text`, `json`, `md`, `csv`, `xml`, `html` and `email`; the media profile adds the image, video and audio formats. `mch` is a glob by default; for a regex add `typ=regex`. `whr` is a condition string the AI interprets in context.
+
+### 5.2 Media Profile (20 keys, v4.1)
+
+Twenty keys counted apart from the core registry and in force only when the target of the operation is a media entity: `@IMG`, `@VID` or `@AUD`. On any other target they are `E302`. A value with a comma or a space is quoted.
+
+| Key | Meaning | Values |
 | --- | --- | --- |
-| `fmt=` | Output format | md, json, csv, html, yaml, txt |
-| `lng=` | Language | en, zh, ja, ko, es, fr, de |
-| `len=` | Length constraint | 3, 100w, 500char |
-| `ton=` | Tone | formal, casual, pro, academic |
-| `sty=` | Style | bullets, prose, table, numbered |
-| `path=` | File/URL path | ./data.csv, https://example.com |
-| `whr=` | Filter condition | *.md, status=active |
-| `mch=` | Match pattern | regex, glob, exact |
-| `src=` | Source | file, url, clipboard, @PREV |
-| `dst=` | Destination | file, screen, @NULL |
+| `sbj=` | Subject identity anchor | label, @ENTITY, or URI |
+| `act=` | Subject action or pose | free text; static |
+| `plc=` | Setting and surroundings | free text; none, transparent |
+| `txt=` | Verbatim on-artifact text | quoted string |
+| `pov=` | Camera viewpoint (shot size/angle/placement) | wide, close_up, eye_level, low_angle, over_shoulder |
+| `fcl=` | Optics (focal length/aperture/depth of field) | 35mm, f1.8, macro, fisheye, shallow_dof |
+| `mvt=` | Camera movement | static, pan_left, tilt_up, dolly_in, orbit, handheld |
+| `lgt=` | Lighting | golden_hour, backlit, softbox, low_key, neon |
+| `pal=` | Colour and grade | monochrome, warm_tones, teal_orange, #0B3D2E |
+| `mdm=` | Medium or rendering school | photo, oil_paint, vector, 3d_render, film_noir, ambient |
+| `asp=` | Aspect ratio | W:H (1:1, 16:9, 9:16), auto |
+| `rsl=` | Output geometry | WxH pixels or tier (720p, 1080p, 2k, 4k), auto |
+| `qly=` | Quality tier | draft, low, std, high, max |
+| `dur=` | Timeline length in seconds | positive number |
+| `fps=` | Frame rate | positive integer |
+| `sed=` | Reproducibility seed | non-negative integer, auto |
+| `adh=` | Adherence to the stated instruction | 0.00-1.00 |
+| `ref=` | Reference asset or declared preset | @ENTITY, URI |
+| `dlg=` | Verbatim spoken lines | quoted string |
+| `sfx=` | Non-speech sound | free text; none |
 
-### 5.2 Extended Modifiers
-
-Extended modifiers are verb-specific parameters defined in the [Dictionary](https://ilang.ai/dictionary/). They follow the same `key=value` syntax but are only meaningful for specific verbs.
-
-| Modifier | Used by | Example |
-| --- | --- | --- |
-| `cmd=` | RUN | `[RUN\|cmd=python script.py]` |
-| `algo=` | HASH, ENCD | `[HASH\|algo=sha256]` |
-| `key=` | CACH | `[CACH\|key=q3data]` |
-| `by=` | SORT, STAT, RANK | `[SORT\|by=revenue,desc]` |
-| `fn=` | MAP, REDU, LOOP | `[MAP\|fn=extract_title]` |
-| `period=` | TRND | `[TRND\|period=Q]` |
-| `threshold=` | ANOM | `[ANOM\|threshold=2.5]` |
-| `scale=` | SCOR | `[SCOR\|scale=1-10]` |
-| `type=` | CREA, GEN | `[CREA\|type=blog,topic=AI]` |
+Example: `[GEN:@IMG|sbj="a ceramic mug on an oak table",pov=close_up,asp=1:1]`. Full text: [SPEC-v4.1-MEDIA-PROFILE.md →](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md)
 
 ### 5.3 Modifier Grammar
 
 ```
-modifier     = core-key "=" value / extension-key "=" value
-core-key     = "fmt" / "lng" / "len" / "ton" / "sty" / "path" / "whr" / "mch" / "src" / "dst"
-extension-key = 1*(ALPHA / DIGIT / "_")
-value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
+modifiers    = modifier *( "," modifier )
+modifier     = key "=" value
+key          = core-key / media-key      ; media-key only on @IMG, @VID, @AUD
+core-key     = "src" / "dst" / "path" / "fmt" / "lng" / "sty" / "ton" / "len" / "lim" / "off" / "top" / "bot" / "srt" / "grp" / "whr" / "mch" / "exc" / "dep" / "rng" / "typ" / "enc" / "cap" / "pri" / "col" / "row" / "frm" / "to" / "scp" / "op"
+media-key    = "sbj" / "act" / "plc" / "txt" / "pov" / "fcl" / "mvt" / "lgt" / "pal" / "mdm" / "asp" / "rsl" / "qly" / "dur" / "fps" / "sed" / "adh" / "ref" / "dlg" / "sfx"
+value        = bareword / quoted-string / number / boolean
 ```
+
+Values follow SPEC.md §2.4: barewords such as `json` or `config.json`, quoted strings for anything with spaces or special characters (escapes `\"`, `\\`, `\n`), numbers as they are, and `true` / `false`.
 
 ## 6. Entities
 
@@ -414,14 +452,13 @@ value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / 
 ; === Operation Syntax ===
 chain        = step *("=>" step)
 step         = "[" verb-call "]"
-verb-call    = VERB [":" target] ["|" modifiers]
-VERB         = 2*5(ALPHA)                    ; e.g., READ, FMT, OUT
+verb-call    = head [":" target] ["|" modifiers]
+head         = VERB / ALIAS                  ; one of the 88 verbs (§3) or 13 Greek aliases (§4)
 target       = "@" entity-name               ; e.g., @SRC, @PREV
-modifiers    = modifier *( "|" modifier )
-modifier     = key "=" value
-key          = 1*(ALPHA / DIGIT / "_")
-value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
-entity-name  = 1*(ALPHA / DIGIT / "_")
+modifiers    = modifier *( "," modifier )    ; commas separate modifiers
+modifier     = key "=" value                 ; key from the closed registry (§5)
+value        = bareword / quoted-string / number / boolean
+entity-name  = UPALPHA *(UPALPHA / DIGIT / "_")
 
 ; === Declaration Syntax ===
 declaration  = gene-block / state-block
@@ -571,8 +608,8 @@ Authority fields are not self-authenticating. Only trusted runtime provenance ca
 
 ```
 [EXTC:@OBJECTIVE|typ=deliverables]
-=>[AUDT:@DELIVERABLES|method=evidence_map]
-=>[VALD:@EVIDENCE|against=@OBJECTIVE|rubric=@RUBRIC]
+=>[AUDT:@DELIVERABLES|typ=evidence_map]
+=>[VALD:@EVIDENCE|src=@OBJECTIVE]=>[SCOR|src=@RUBRIC]
 =>[CHEK:@AUDIT|whr=score>=threshold,no_unknown,no_fail]
 ```
 
@@ -639,8 +676,8 @@ Status Lifecycle:
 
 Completion Audit Chain:
 [EXTC:@OBJECTIVE|typ=deliverables]
-=>[AUDT:@DELIVERABLES|method=evidence_map]
-=>[VALD:@EVIDENCE|against=@OBJECTIVE|rubric=@RUBRIC]
+=>[AUDT:@DELIVERABLES|typ=evidence_map]
+=>[VALD:@EVIDENCE|src=@OBJECTIVE]=>[SCOR|src=@RUBRIC]
 =>[CHEK:@AUDIT|whr=score>=threshold,no_unknown,no_fail]
 
 Anti-patterns:
@@ -816,7 +853,7 @@ iLang evolves as three layered generations. Each generation adds a layer without
 | v4.2 | 2026-09 | **Current stable.** Media regions and image layers: regions as document-scoped entities with four body keys (pts, bnd, vtx, msk), masks by reference or geometry, image layers composed by MERGE with ::LIST line order as stacking order. No new verb, key, entity or declaration; the 88 verbs, the 29 core modifiers, the 20-key media profile and the judgment layer are unchanged. [SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md) |
 | v4.1 | 2026-09 | Stable. Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. [SPEC-v4.1-MEDIA-PROFILE](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md) |
 | v4.0 | 2026-05 | Stable. Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |
-| v3.0 | 2026-04 | Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.) |
+| v3.0 | 2026-04 | Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). (Chapters 1-11.) |
 | v2.0 Dict | 2026-03 | 62 verbs, expanded reference with Greek aliases |
 | v2.0 Spec | 2026-03 | 52 verbs, first formal spec, published in book |
 | v1.0 | 2025 | Initial discovery, basic compression |
@@ -825,7 +862,7 @@ iLang evolves as three layered generations. Each generation adds a layer without
 
 ```
 # Read CSV, filter rows, sort, output as markdown table
-[READ:@SRC|path=sales.csv]=>[φ|whr=revenue>1000]=>[∇|by=revenue,desc]=>[FMT|fmt=md]=>[Ω]
+[READ:@SRC|path=sales.csv]=>[φ|whr=revenue>1000]=>[∇|srt=revenue,desc]=>[FMT|fmt=md]=>[Ω]
 
 # Translate previous output to Japanese, formal tone
 [θ:@PREV|lng=ja,ton=formal]=>[Ω]

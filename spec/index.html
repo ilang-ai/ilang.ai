@@ -132,7 +132,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "Is there a structured syntax for writing prompts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "iLang defines two syntaxes. Operation syntax says what AI does: [VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω], where each step receives the previous step's output and the chain ends with [Ω] or [OUT]. Declaration syntax says what AI is: ::GENE{trait|conf:confirmed|scope:global} with T: lines for traits and A: lines for anti-patterns. The vocabulary is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role) and 13 Greek aliases."
+        "text": "iLang defines two syntaxes. Operation syntax says what AI does: [VERB:@TARGET|modifier=value]=>[VERB2]=>[Ω], where each step receives the previous step's output and the chain ends with [Ω] or [OUT]. Declaration syntax says what AI is: ::GENE{trait|conf:confirmed|scope:global} with T: lines for traits and A: lines for anti-patterns. The vocabulary is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role) and 13 Greek aliases."
       }
     },
     {
@@ -267,7 +267,7 @@ Say: <span class="str">"iLang v5.0 loaded. What do you need?"</span></pre>
       <div class="cap">
         <div class="cap-head"><span class="cap-num">02</span><span class="cap-badge">chain</span></div>
         <h3>Chain workflows</h3>
-        <p><span class="mono">[STEP1]=&gt;[STEP2]=&gt;[OUT]</span>. Multi-step pipelines in a single instruction. Each output feeds the next.</p>
+        <p><span class="mono">[VERB1]=&gt;[VERB2]=&gt;[OUT]</span>. Multi-step pipelines in a single instruction. Each output feeds the next.</p>
       </div>
       <div class="cap">
         <div class="cap-head"><span class="cap-num">03</span><span class="cap-badge">identity</span></div>
@@ -304,7 +304,7 @@ Say: <span class="str">"iLang v5.0 loaded. What do you need?"</span></pre>
 <h2 id="s2-two-syntaxes">2. Two Syntaxes</h2>
 
 <h3 id="s2-1-operation-syntax-what-ai-does">2.1 Operation Syntax — What AI Does</h3>
-<pre><code>[VERB:@TARGET|modifier=value]=>[NEXT_VERB]=>[Ω]</code></pre>
+<pre><code>[VERB:@TARGET|modifier=value]=>[VERB2]=>[Ω]</code></pre>
 <p>Operations are executable instructions. Each step in a chain receives the output of the previous step. The chain terminates with <code>[Ω]</code> or <code>[OUT]</code>.</p>
 <p>Components:</p>
 <table class="stack">
@@ -456,43 +456,78 @@ E:`::EVENT{1998|entered_wuhan_university|major:computer_science}`</code></pre>
 
 <h2 id="s5-modifiers">5. Modifiers</h2>
 
-<h3 id="s5-1-core-modifiers">5.1 Core Modifiers</h3>
-<p>Core modifiers are defined in the protocol specification and recognized by all conformant implementations.</p>
+<h3 id="s5-1-core-modifiers">5.1 Core Modifiers (29)</h3>
+<p>Modifiers attach to verbs as <code>|mod=value</code>, and several are separated by commas: <code>|fmt=json,len=short</code>. The registry is closed at 29 keys (SPEC.md §4; closed again by PATCH-2 on 2026-08-11): a key outside it is error <code>E302</code>, Invalid Modifier. There are no verb-specific extension keys.</p>
 <table class="stack">
-<tr class="stack-head"><th>Modifier</th><th>Purpose</th><th>Example values</th></tr>
-<tr><td data-label="Modifier"><code>fmt=</code></td><td data-label="Purpose">Output format</td><td data-label="Example values">md, json, csv, html, yaml, txt</td></tr>
-<tr><td data-label="Modifier"><code>lng=</code></td><td data-label="Purpose">Language</td><td data-label="Example values">en, zh, ja, ko, es, fr, de</td></tr>
-<tr><td data-label="Modifier"><code>len=</code></td><td data-label="Purpose">Length constraint</td><td data-label="Example values">3, 100w, 500char</td></tr>
-<tr><td data-label="Modifier"><code>ton=</code></td><td data-label="Purpose">Tone</td><td data-label="Example values">formal, casual, pro, academic</td></tr>
-<tr><td data-label="Modifier"><code>sty=</code></td><td data-label="Purpose">Style</td><td data-label="Example values">bullets, prose, table, numbered</td></tr>
-<tr><td data-label="Modifier"><code>path=</code></td><td data-label="Purpose">File/URL path</td><td data-label="Example values">./data.csv, https://example.com</td></tr>
-<tr><td data-label="Modifier"><code>whr=</code></td><td data-label="Purpose">Filter condition</td><td data-label="Example values">*.md, status=active</td></tr>
-<tr><td data-label="Modifier"><code>mch=</code></td><td data-label="Purpose">Match pattern</td><td data-label="Example values">regex, glob, exact</td></tr>
-<tr><td data-label="Modifier"><code>src=</code></td><td data-label="Purpose">Source</td><td data-label="Example values">file, url, clipboard, @PREV</td></tr>
-<tr><td data-label="Modifier"><code>dst=</code></td><td data-label="Purpose">Destination</td><td data-label="Example values">file, screen, @NULL</td></tr>
+<tr class="stack-head"><th>Modifier</th><th>Type</th><th>Meaning</th><th>Values</th></tr>
+<tr><td data-label="Modifier"><code>src=</code></td><td data-label="Type">entity/string</td><td data-label="Meaning">Explicit source</td><td data-label="Values">entity, URI</td></tr>
+<tr><td data-label="Modifier"><code>dst=</code></td><td data-label="Type">entity/string</td><td data-label="Meaning">Explicit destination</td><td data-label="Values">entity, URI</td></tr>
+<tr><td data-label="Modifier"><code>path=</code></td><td data-label="Type">string</td><td data-label="Meaning">Path within entity</td><td data-label="Values">string</td></tr>
+<tr><td data-label="Modifier"><code>fmt=</code></td><td data-label="Type">string</td><td data-label="Meaning">Output format</td><td data-label="Values">text, json, md, csv, xml, html, email, png, jpg, webp, svg, gif, mp4, webm, wav, mp3</td></tr>
+<tr><td data-label="Modifier"><code>lng=</code></td><td data-label="Type">string</td><td data-label="Meaning">Language (ISO 639-1)</td><td data-label="Values">ISO 639-1 (en, zh, ja)</td></tr>
+<tr><td data-label="Modifier"><code>sty=</code></td><td data-label="Type">string</td><td data-label="Meaning">Style</td><td data-label="Values">pro, casual, code, bullets</td></tr>
+<tr><td data-label="Modifier"><code>ton=</code></td><td data-label="Type">string</td><td data-label="Meaning">Tone</td><td data-label="Values">urgent, neutral, formal</td></tr>
+<tr><td data-label="Modifier"><code>len=</code></td><td data-label="Type">string/int</td><td data-label="Meaning">Length target</td><td data-label="Values">short, med, long, number</td></tr>
+<tr><td data-label="Modifier"><code>lim=</code></td><td data-label="Type">int</td><td data-label="Meaning">Limit</td><td data-label="Values">integer</td></tr>
+<tr><td data-label="Modifier"><code>off=</code></td><td data-label="Type">int</td><td data-label="Meaning">Offset</td><td data-label="Values">integer</td></tr>
+<tr><td data-label="Modifier"><code>top=</code></td><td data-label="Type">int</td><td data-label="Meaning">Top N</td><td data-label="Values">integer</td></tr>
+<tr><td data-label="Modifier"><code>bot=</code></td><td data-label="Type">int</td><td data-label="Meaning">Bottom N</td><td data-label="Values">integer</td></tr>
+<tr><td data-label="Modifier"><code>srt=</code></td><td data-label="Type">string</td><td data-label="Meaning">Sort by field</td><td data-label="Values">field name</td></tr>
+<tr><td data-label="Modifier"><code>grp=</code></td><td data-label="Type">string</td><td data-label="Meaning">Group by field</td><td data-label="Values">field name</td></tr>
+<tr><td data-label="Modifier"><code>whr=</code></td><td data-label="Type">string</td><td data-label="Meaning">Filter/match condition</td><td data-label="Values">condition string</td></tr>
+<tr><td data-label="Modifier"><code>mch=</code></td><td data-label="Type">string</td><td data-label="Meaning">Match pattern (glob by default)</td><td data-label="Values">glob (default) or regex with typ=regex</td></tr>
+<tr><td data-label="Modifier"><code>exc=</code></td><td data-label="Type">string</td><td data-label="Meaning">Exclude pattern</td><td data-label="Values">glob or regex</td></tr>
+<tr><td data-label="Modifier"><code>dep=</code></td><td data-label="Type">int</td><td data-label="Meaning">Traversal depth</td><td data-label="Values">integer</td></tr>
+<tr><td data-label="Modifier"><code>rng=</code></td><td data-label="Type">string</td><td data-label="Meaning">Range (start:end)</td><td data-label="Values">start:end</td></tr>
+<tr><td data-label="Modifier"><code>typ=</code></td><td data-label="Type">string</td><td data-label="Meaning">Type expectation</td><td data-label="Values">str, int, bool, regex</td></tr>
+<tr><td data-label="Modifier"><code>enc=</code></td><td data-label="Type">string</td><td data-label="Meaning">Encoding (utf8, base64, hex)</td><td data-label="Values">utf8, base64, hex</td></tr>
+<tr><td data-label="Modifier"><code>cap=</code></td><td data-label="Type">int</td><td data-label="Meaning">Capacity (bytes or tokens)</td><td data-label="Values">bytes, tokens</td></tr>
+<tr><td data-label="Modifier"><code>pri=</code></td><td data-label="Type">string</td><td data-label="Meaning">Priority (p0, p1, p2)</td><td data-label="Values">p0, p1, p2</td></tr>
+<tr><td data-label="Modifier"><code>col=</code></td><td data-label="Type">string</td><td data-label="Meaning">Column names (comma-separated)</td><td data-label="Values">comma separated</td></tr>
+<tr><td data-label="Modifier"><code>row=</code></td><td data-label="Type">string</td><td data-label="Meaning">Row indices</td><td data-label="Values">index array</td></tr>
+<tr><td data-label="Modifier"><code>frm=</code></td><td data-label="Type">string</td><td data-label="Meaning">From (time/date)</td><td data-label="Values">timestamp, URI, @ENTITY</td></tr>
+<tr><td data-label="Modifier"><code>to=</code></td><td data-label="Type">string</td><td data-label="Meaning">To (time/date)</td><td data-label="Values">timestamp, URI, @ENTITY</td></tr>
+<tr><td data-label="Modifier"><code>scp=</code></td><td data-label="Type">string</td><td data-label="Meaning">Scope (global, local, strict)</td><td data-label="Values">global, local, strict</td></tr>
+<tr><td data-label="Modifier"><code>op=</code></td><td data-label="Type">string</td><td data-label="Meaning">Operation reference (for BATC)</td><td data-label="Values">verb name (for BATC)</td></tr>
 </table>
+<p><code>fmt</code> accepts <code>text</code>, <code>json</code>, <code>md</code>, <code>csv</code>, <code>xml</code>, <code>html</code> and <code>email</code>; the media profile adds the image, video and audio formats. <code>mch</code> is a glob by default; for a regex add <code>typ=regex</code>. <code>whr</code> is a condition string the AI interprets in context.</p>
 
-<h3 id="s5-2-extended-modifiers">5.2 Extended Modifiers</h3>
-<p>Extended modifiers are verb-specific parameters defined in the <a href="/dictionary/" style="color:var(--accent)">Dictionary</a>. They follow the same <code>key=value</code> syntax but are only meaningful for specific verbs.</p>
+<h3 id="s5-2-media-profile">5.2 Media Profile (20 keys, v4.1)</h3>
+<p>Twenty keys counted apart from the core registry and in force only when the target of the operation is a media entity: <code>@IMG</code>, <code>@VID</code> or <code>@AUD</code>. On any other target they are <code>E302</code>. A value with a comma or a space is quoted.</p>
 <table class="stack">
-<tr class="stack-head"><th>Modifier</th><th>Used by</th><th>Example</th></tr>
-<tr><td data-label="Modifier"><code>cmd=</code></td><td data-label="Used by">RUN</td><td data-label="Example"><code>[RUN|cmd=python script.py]</code></td></tr>
-<tr><td data-label="Modifier"><code>algo=</code></td><td data-label="Used by">HASH, ENCD</td><td data-label="Example"><code>[HASH|algo=sha256]</code></td></tr>
-<tr><td data-label="Modifier"><code>key=</code></td><td data-label="Used by">CACH</td><td data-label="Example"><code>[CACH|key=q3data]</code></td></tr>
-<tr><td data-label="Modifier"><code>by=</code></td><td data-label="Used by">SORT, STAT, RANK</td><td data-label="Example"><code>[SORT|by=revenue,desc]</code></td></tr>
-<tr><td data-label="Modifier"><code>fn=</code></td><td data-label="Used by">MAP, REDU, LOOP</td><td data-label="Example"><code>[MAP|fn=extract_title]</code></td></tr>
-<tr><td data-label="Modifier"><code>period=</code></td><td data-label="Used by">TRND</td><td data-label="Example"><code>[TRND|period=Q]</code></td></tr>
-<tr><td data-label="Modifier"><code>threshold=</code></td><td data-label="Used by">ANOM</td><td data-label="Example"><code>[ANOM|threshold=2.5]</code></td></tr>
-<tr><td data-label="Modifier"><code>scale=</code></td><td data-label="Used by">SCOR</td><td data-label="Example"><code>[SCOR|scale=1-10]</code></td></tr>
-<tr><td data-label="Modifier"><code>type=</code></td><td data-label="Used by">CREA, GEN</td><td data-label="Example"><code>[CREA|type=blog,topic=AI]</code></td></tr>
+<tr class="stack-head"><th>Key</th><th>Meaning</th><th>Values</th></tr>
+<tr><td data-label="Key"><code>sbj=</code></td><td data-label="Meaning">Subject identity anchor</td><td data-label="Values">label, @ENTITY, or URI</td></tr>
+<tr><td data-label="Key"><code>act=</code></td><td data-label="Meaning">Subject action or pose</td><td data-label="Values">free text; static</td></tr>
+<tr><td data-label="Key"><code>plc=</code></td><td data-label="Meaning">Setting and surroundings</td><td data-label="Values">free text; none, transparent</td></tr>
+<tr><td data-label="Key"><code>txt=</code></td><td data-label="Meaning">Verbatim on-artifact text</td><td data-label="Values">quoted string</td></tr>
+<tr><td data-label="Key"><code>pov=</code></td><td data-label="Meaning">Camera viewpoint (shot size/angle/placement)</td><td data-label="Values">wide, close_up, eye_level, low_angle, over_shoulder</td></tr>
+<tr><td data-label="Key"><code>fcl=</code></td><td data-label="Meaning">Optics (focal length/aperture/depth of field)</td><td data-label="Values">35mm, f1.8, macro, fisheye, shallow_dof</td></tr>
+<tr><td data-label="Key"><code>mvt=</code></td><td data-label="Meaning">Camera movement</td><td data-label="Values">static, pan_left, tilt_up, dolly_in, orbit, handheld</td></tr>
+<tr><td data-label="Key"><code>lgt=</code></td><td data-label="Meaning">Lighting</td><td data-label="Values">golden_hour, backlit, softbox, low_key, neon</td></tr>
+<tr><td data-label="Key"><code>pal=</code></td><td data-label="Meaning">Colour and grade</td><td data-label="Values">monochrome, warm_tones, teal_orange, #0B3D2E</td></tr>
+<tr><td data-label="Key"><code>mdm=</code></td><td data-label="Meaning">Medium or rendering school</td><td data-label="Values">photo, oil_paint, vector, 3d_render, film_noir, ambient</td></tr>
+<tr><td data-label="Key"><code>asp=</code></td><td data-label="Meaning">Aspect ratio</td><td data-label="Values">W:H (1:1, 16:9, 9:16), auto</td></tr>
+<tr><td data-label="Key"><code>rsl=</code></td><td data-label="Meaning">Output geometry</td><td data-label="Values">WxH pixels or tier (720p, 1080p, 2k, 4k), auto</td></tr>
+<tr><td data-label="Key"><code>qly=</code></td><td data-label="Meaning">Quality tier</td><td data-label="Values">draft, low, std, high, max</td></tr>
+<tr><td data-label="Key"><code>dur=</code></td><td data-label="Meaning">Timeline length in seconds</td><td data-label="Values">positive number</td></tr>
+<tr><td data-label="Key"><code>fps=</code></td><td data-label="Meaning">Frame rate</td><td data-label="Values">positive integer</td></tr>
+<tr><td data-label="Key"><code>sed=</code></td><td data-label="Meaning">Reproducibility seed</td><td data-label="Values">non-negative integer, auto</td></tr>
+<tr><td data-label="Key"><code>adh=</code></td><td data-label="Meaning">Adherence to the stated instruction</td><td data-label="Values">0.00-1.00</td></tr>
+<tr><td data-label="Key"><code>ref=</code></td><td data-label="Meaning">Reference asset or declared preset</td><td data-label="Values">@ENTITY, URI</td></tr>
+<tr><td data-label="Key"><code>dlg=</code></td><td data-label="Meaning">Verbatim spoken lines</td><td data-label="Values">quoted string</td></tr>
+<tr><td data-label="Key"><code>sfx=</code></td><td data-label="Meaning">Non-speech sound</td><td data-label="Values">free text; none</td></tr>
 </table>
+<p>Example: <code>[GEN:@IMG|sbj="a ceramic mug on an oak table",pov=close_up,asp=1:1]</code>. Full text: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v4.1-MEDIA-PROFILE.md &rarr;</a></p>
 
 <h3 id="s5-3-modifier-grammar">5.3 Modifier Grammar</h3>
-<pre><code>modifier     = core-key "=" value / extension-key "=" value
-core-key     = "fmt" / "lng" / "len" / "ton" / "sty" / "path" / "whr" / "mch" / "src" / "dst"
-extension-key = 1*(ALPHA / DIGIT / "_")
-value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
+<pre><code>modifiers    = modifier *( "," modifier )
+modifier     = key "=" value
+key          = core-key / media-key      ; media-key only on @IMG, @VID, @AUD
+core-key     = "src" / "dst" / "path" / "fmt" / "lng" / "sty" / "ton" / "len" / "lim" / "off" / "top" / "bot" / "srt" / "grp" / "whr" / "mch" / "exc" / "dep" / "rng" / "typ" / "enc" / "cap" / "pri" / "col" / "row" / "frm" / "to" / "scp" / "op"
+media-key    = "sbj" / "act" / "plc" / "txt" / "pov" / "fcl" / "mvt" / "lgt" / "pal" / "mdm" / "asp" / "rsl" / "qly" / "dur" / "fps" / "sed" / "adh" / "ref" / "dlg" / "sfx"
+value        = bareword / quoted-string / number / boolean
 </code></pre>
+<p>Values follow SPEC.md §2.4: barewords such as <code>json</code> or <code>config.json</code>, quoted strings for anything with spaces or special characters (escapes <code>\"</code>, <code>\\</code>, <code>\n</code>), numbers as they are, and <code>true</code> / <code>false</code>.</p>
 
 <h2 id="s6-entities">6. Entities</h2>
 <h3 id="s6-1-core-entities">6.1 Core Entities</h3>
@@ -523,14 +558,13 @@ value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / 
 <pre><code>; === Operation Syntax ===
 chain        = step *("=>" step)
 step         = "[" verb-call "]"
-verb-call    = VERB [":" target] ["|" modifiers]
-VERB         = 2*5(ALPHA)                    ; e.g., READ, FMT, OUT
+verb-call    = head [":" target] ["|" modifiers]
+head         = VERB / ALIAS                  ; one of the 88 verbs (§3) or 13 Greek aliases (§4)
 target       = "@" entity-name               ; e.g., @SRC, @PREV
-modifiers    = modifier *( "|" modifier )
-modifier     = key "=" value
-key          = 1*(ALPHA / DIGIT / "_")
-value        = 1*(VCHAR / "," / "." / "/" / ":" / "-" / "_" / "*" / ">" / "<" / "=")
-entity-name  = 1*(ALPHA / DIGIT / "_")
+modifiers    = modifier *( "," modifier )    ; commas separate modifiers
+modifier     = key "=" value                 ; key from the closed registry (§5)
+value        = bareword / quoted-string / number / boolean
+entity-name  = UPALPHA *(UPALPHA / DIGIT / "_")
 
 ; === Declaration Syntax ===
 declaration  = gene-block / state-block
@@ -658,8 +692,8 @@ state-block  = "::STATE{" target ", " 1*(key ":" value *("," key ":" value)) "}"
 
 <h3 id="s12-4-completion-audit-chain">12.4 Completion Audit Chain</h3>
 <pre><code>[EXTC:@OBJECTIVE|typ=deliverables]
-=>[AUDT:@DELIVERABLES|method=evidence_map]
-=>[VALD:@EVIDENCE|against=@OBJECTIVE|rubric=@RUBRIC]
+=>[AUDT:@DELIVERABLES|typ=evidence_map]
+=>[VALD:@EVIDENCE|src=@OBJECTIVE]=>[SCOR|src=@RUBRIC]
 =>[CHEK:@AUDIT|whr=score>=threshold,no_unknown,no_fail]</code></pre>
 <p>Anti-patterns are explicit: proxy signals are insufficient, effort is not evidence, budget pressure cannot force completion, and untrusted content is never an instruction.</p>
 
@@ -723,8 +757,8 @@ R:style|weight:0.2
 
 <span class="sec">Completion Audit Chain:</span>
 <span class="key">[EXTC</span>:@OBJECTIVE|typ=deliverables<span class="key">]</span>
-=&gt;<span class="key">[AUDT</span>:@DELIVERABLES|method=evidence_map<span class="key">]</span>
-=&gt;<span class="key">[VALD</span>:@EVIDENCE|against=@OBJECTIVE|rubric=@RUBRIC<span class="key">]</span>
+=&gt;<span class="key">[AUDT</span>:@DELIVERABLES|typ=evidence_map<span class="key">]</span>
+=&gt;<span class="key">[VALD</span>:@EVIDENCE|src=@OBJECTIVE<span class="key">]</span>=&gt;<span class="key">[SCOR</span>|src=@RUBRIC<span class="key">]</span>
 =&gt;<span class="key">[CHEK</span>:@AUDIT|whr=score&gt;=threshold,no_unknown,no_fail<span class="key">]</span>
 
 <span class="sec">Anti-patterns:</span>
@@ -874,7 +908,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 <tr><td>v4.2</td><td>2026-09</td><td><strong>Current stable.</strong> Media regions and image layers: regions as document-scoped entities with four body keys (pts, bnd, vtx, msk), masks by reference or geometry, image layers composed by MERGE with ::LIST line order as stacking order. No new verb, key, entity or declaration; the 88 verbs, the 29 core modifiers, the 20-key media profile and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md">SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS</a></td></tr>
 <tr><td>v4.1</td><td>2026-09</td><td>Stable. Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md">SPEC-v4.1-MEDIA-PROFILE</a></td></tr>
 <tr><td>v4.0</td><td>2026-05</td><td>Stable. Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
-<tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). Extended modifier system. (Chapters 1-11.)</td></tr>
+<tr><td>v3.0</td><td>2026-04</td><td>Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). (Chapters 1-11.)</td></tr>
 <tr><td>v2.0 Dict</td><td>2026-03</td><td>62 verbs, expanded reference with Greek aliases</td></tr>
 <tr><td>v2.0 Spec</td><td>2026-03</td><td>52 verbs, first formal spec, published in book</td></tr>
 <tr><td>v1.0</td><td>2025</td><td>Initial discovery, basic compression</td></tr>
@@ -882,7 +916,7 @@ STEP 3 — mode selection (by net_direction magnitude)
 
 <h2 id="s15-examples">15. Examples</h2>
 <pre><code># Read CSV, filter rows, sort, output as markdown table
-[READ:@SRC|path=sales.csv]=>[&phi;|whr=revenue>1000]=>[&nabla;|by=revenue,desc]=>[FMT|fmt=md]=>[&Omega;]
+[READ:@SRC|path=sales.csv]=>[&phi;|whr=revenue>1000]=>[&nabla;|srt=revenue,desc]=>[FMT|fmt=md]=>[&Omega;]
 
 # Translate previous output to Japanese, formal tone
 [&theta;:@PREV|lng=ja,ton=formal]=>[&Omega;]

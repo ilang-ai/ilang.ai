@@ -61,7 +61,7 @@ CACH
 
 Cache for reuse
 
-[CACH:@PREV|key=q3data]
+[CACH:@PREV|path=q3data]
 
 SYNC
 
@@ -129,37 +129,37 @@ DEDU
 
 Remove duplicates
 
-[DEDU:@PREV|by=email]
+[DEDU:@PREV|col=email]
 
 FLAT
 
 Flatten nested structure
 
-[FLAT:@PREV|depth=2]
+[FLAT:@PREV|dep=2]
 
 NEST
 
 Create nested structure
 
-[NEST:@PREV|by=category]
+[NEST:@PREV|grp=category]
 
 CHNK
 
 Split into sized chunks
 
-[CHNK:@PREV|size=500w]
+[CHNK:@PREV|cap=500]
 
 REDU
 
 Reduce to single value
 
-[REDU:@PREV|fn=sum]
+[REDU:@PREV|whr=sum]
 
 PIVT
 
 Pivot table transformation
 
-[PIVT:@PREV|rows=month,cols=product]
+[PIVT:@PREV|row=month,col=product]
 
 TRNS
 
@@ -227,7 +227,7 @@ MTCH
 
 Match against pattern
 
-[MTCH:@PREV|pat=\d{4}-\d{2}]
+[MTCH:@PREV|mch="\d{4}-\d{2}",typ=regex]
 
 CNT
 
@@ -245,43 +245,43 @@ EVAL
 
 Evaluate quality or correctness
 
-[EVAL:@PREV|criteria=accuracy]
+[EVAL:@PREV|whr=accuracy]
 
 SCOR
 
 Score or rate
 
-[SCOR:@PREV|scale=1-10]
+[SCOR:@PREV|rng=1:10]
 
 RANK
 
 Rank by criteria
 
-[RANK:@PREV|by=relevance]
+[RANK:@PREV|srt=relevance]
 
 TRND
 
 Identify trends
 
-[TRND:@PREV|period=monthly]
+[TRND:@PREV|grp=month]
 
 CORR
 
 Find correlations
 
-[CORR:@PREV|vars=price,demand]
+[CORR:@PREV|col=price,demand]
 
 FRCS
 
 Forecast future values
 
-[FRCS:@PREV|horizon=6m]
+[FRCS:@PREV|to="+6 months"]
 
 ANOM
 
 Detect anomalies
 
-[ANOM:@PREV|threshold=2sigma]
+[ANOM:@PREV|whr="beyond 2 sigma"]
 
 SENT
 
@@ -293,31 +293,31 @@ CLST
 
 Cluster similar items
 
-[CLST:@PREV|k=5]
+[CLST:@PREV|lim=5]
 
 BNCH
 
 Benchmark comparison
 
-[BNCH:@PREV|baseline=v2]
+[BNCH:@PREV|whr="baseline v2"]
 
 AUDT
 
 Audit for compliance
 
-[AUDT:@PREV|standard=gdpr]
+[AUDT:@PREV|whr=gdpr]
 
 VALD
 
 Validate data
 
-[VALD:@PREV|schema=user]
+[VALD:@PREV|src=schemas/user.json]
 
 CLSF
 
 Classify into categories
 
-[CLSF:@PREV|categories=spam,ham]
+[CLSF:@PREV|typ="spam,ham"]
 
 ## Generation 10 verbs
 
@@ -367,13 +367,13 @@ FILL
 
 Fill template with data
 
-[FILL:@PREV|data=@SRC]
+[FILL:@PREV|src=@SRC]
 
 EXTC
 
 Extract specific content
 
-[EXTC:@SRC|type=emails]
+[EXTC:@SRC|typ=email]
 
 GEN
 
@@ -393,19 +393,19 @@ DECI
 
 Make decision
 
-[DECI:@PREV|criteria=cost,speed]
+[DECI:@PREV|whr="cost,speed"]
 
 CHEK
 
 Check status or validity
 
-[CHEK:@SRC|type=syntax]
+[CHEK:@SRC|typ=syntax]
 
 FIX
 
 Fix errors
 
-[FIX:@PREV|type=grammar]
+[FIX:@PREV|typ=grammar]
 
 DPLO
 
@@ -423,19 +423,19 @@ REVW
 
 Review and critique
 
-[REVW:@PREV|focus=security]
+[REVW:@PREV|whr=security]
 
 LERN
 
 Learn from input
 
-[LERN:@SRC|type=feedback]
+[LERN:@SRC|typ=feedback]
 
 TEST
 
 Test functionality
 
-[TEST:@PREV|type=unit]
+[TEST:@PREV|typ=unit]
 
 PARS
 
@@ -447,7 +447,7 @@ LOOP
 
 Iterate over items
 
-[LOOP:@PREV|fn=process]
+[LOOP:@PREV|op=RUN]
 
 WAIT
 
@@ -485,7 +485,7 @@ LOG
 
 Log for debugging
 
-[LOG:@PREV|level=info]
+[LOG:@PREV|typ=info]
 
 ## Structure 5 verbs
 
@@ -493,7 +493,7 @@ LINK
 
 Create association
 
-[LINK:@SRC|dst=@DST|rel=parent]
+[LINK:@SRC|dst=@DST,typ=parent]
 
 SET
 
@@ -505,19 +505,19 @@ TAG
 
 Add tags/labels
 
-[TAG:@PREV|tags=urgent,review]
+[TAG:@PREV|typ="urgent,review"]
 
 GRP
 
 Group by criteria
 
-[GRP:@PREV|by=department]
+[GRP:@PREV|grp=department]
 
 EMBD
 
 Embed content
 
-[EMBD:@SRC|into=@DST]
+[EMBD:@SRC|dst=@DST]
 
 ## Meta 4 verbs
 

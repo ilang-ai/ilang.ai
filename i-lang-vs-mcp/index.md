@@ -34,9 +34,10 @@ Use iLang when you need AI to follow instructions more precisely, with less ambi
 The most powerful setup combines both. MCP gives AI access to tools and data. iLang gives AI structured instructions for how to use those tools. Example: MCP connects to a database; iLang defines the analysis workflow:
 
 ```
-[READ:@DB|query=SELECT * FROM orders WHERE date>2026-01-01]
-=>[STAT|by=region]
-=>[RANK|by=revenue,desc]
+::STATE{@DB, via:mcp, kind:database}
+[READ:@DB|path=orders,whr="date>2026-01-01"]
+=>[STAT|grp=region]
+=>[RANK|srt=revenue,desc]
 =>[FMT|fmt=md]
 =>[OUT]
 ```
@@ -49,7 +50,7 @@ MCP handles the database connection. iLang handles the instruction chain. Neithe
 | --- | --- | --- |
 | Can I use it without writing code? | No, requires server setup | Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM |
 | Does it work across models? | Depends on model support for MCP | Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
-| Does it reduce token usage? | Not its purpose | 68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
+| Does it reduce token usage? | Not its purpose | 67% on a request as people write it (169 to 55 tokens), 5% on a terse rewrite (58 to 55), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
 | Does it define AI behavior? | No | Yes, via `::GENE{}` declarations |
 | Is it open source? | Yes (Anthropic) | Yes (MIT license) |
 

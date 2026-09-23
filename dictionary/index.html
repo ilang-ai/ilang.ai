@@ -189,7 +189,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="CACH">
 <div class="verb-name">CACH</div>
 <div class="verb-desc">Cache for reuse</div>
-<div class="verb-example">[CACH:@PREV|key=q3data]</div>
+<div class="verb-example">[CACH:@PREV|path=q3data]</div>
 </div>
 <div class="verb-card" id="SYNC">
 <div class="verb-name">SYNC</div>
@@ -245,32 +245,32 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="DEDU">
 <div class="verb-name">DEDU</div>
 <div class="verb-desc">Remove duplicates</div>
-<div class="verb-example">[DEDU:@PREV|by=email]</div>
+<div class="verb-example">[DEDU:@PREV|col=email]</div>
 </div>
 <div class="verb-card" id="FLAT">
 <div class="verb-name">FLAT</div>
 <div class="verb-desc">Flatten nested structure</div>
-<div class="verb-example">[FLAT:@PREV|depth=2]</div>
+<div class="verb-example">[FLAT:@PREV|dep=2]</div>
 </div>
 <div class="verb-card" id="NEST">
 <div class="verb-name">NEST</div>
 <div class="verb-desc">Create nested structure</div>
-<div class="verb-example">[NEST:@PREV|by=category]</div>
+<div class="verb-example">[NEST:@PREV|grp=category]</div>
 </div>
 <div class="verb-card" id="CHNK">
 <div class="verb-name">CHNK</div>
 <div class="verb-desc">Split into sized chunks</div>
-<div class="verb-example">[CHNK:@PREV|size=500w]</div>
+<div class="verb-example">[CHNK:@PREV|cap=500]</div>
 </div>
 <div class="verb-card" id="REDU">
 <div class="verb-name">REDU</div>
 <div class="verb-desc">Reduce to single value</div>
-<div class="verb-example">[REDU:@PREV|fn=sum]</div>
+<div class="verb-example">[REDU:@PREV|whr=sum]</div>
 </div>
 <div class="verb-card" id="PIVT">
 <div class="verb-name">PIVT</div>
 <div class="verb-desc">Pivot table transformation</div>
-<div class="verb-example">[PIVT:@PREV|rows=month,cols=product]</div>
+<div class="verb-example">[PIVT:@PREV|row=month,col=product]</div>
 </div>
 <div class="verb-card" id="TRNS">
 <div class="verb-name">TRNS</div>
@@ -326,7 +326,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="MTCH">
 <div class="verb-name">MTCH</div>
 <div class="verb-desc">Match against pattern</div>
-<div class="verb-example">[MTCH:@PREV|pat=\d{4}-\d{2}]</div>
+<div class="verb-example">[MTCH:@PREV|mch="\d{4}-\d{2}",typ=regex]</div>
 </div>
 <div class="verb-card" id="CNT">
 <div class="verb-name">CNT</div>
@@ -341,37 +341,37 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="EVAL">
 <div class="verb-name">EVAL</div>
 <div class="verb-desc">Evaluate quality or correctness</div>
-<div class="verb-example">[EVAL:@PREV|criteria=accuracy]</div>
+<div class="verb-example">[EVAL:@PREV|whr=accuracy]</div>
 </div>
 <div class="verb-card" id="SCOR">
 <div class="verb-name">SCOR</div>
 <div class="verb-desc">Score or rate</div>
-<div class="verb-example">[SCOR:@PREV|scale=1-10]</div>
+<div class="verb-example">[SCOR:@PREV|rng=1:10]</div>
 </div>
 <div class="verb-card" id="RANK">
 <div class="verb-name">RANK</div>
 <div class="verb-desc">Rank by criteria</div>
-<div class="verb-example">[RANK:@PREV|by=relevance]</div>
+<div class="verb-example">[RANK:@PREV|srt=relevance]</div>
 </div>
 <div class="verb-card" id="TRND">
 <div class="verb-name">TRND</div>
 <div class="verb-desc">Identify trends</div>
-<div class="verb-example">[TRND:@PREV|period=monthly]</div>
+<div class="verb-example">[TRND:@PREV|grp=month]</div>
 </div>
 <div class="verb-card" id="CORR">
 <div class="verb-name">CORR</div>
 <div class="verb-desc">Find correlations</div>
-<div class="verb-example">[CORR:@PREV|vars=price,demand]</div>
+<div class="verb-example">[CORR:@PREV|col=price,demand]</div>
 </div>
 <div class="verb-card" id="FRCS">
 <div class="verb-name">FRCS</div>
 <div class="verb-desc">Forecast future values</div>
-<div class="verb-example">[FRCS:@PREV|horizon=6m]</div>
+<div class="verb-example">[FRCS:@PREV|to="+6 months"]</div>
 </div>
 <div class="verb-card" id="ANOM">
 <div class="verb-name">ANOM</div>
 <div class="verb-desc">Detect anomalies</div>
-<div class="verb-example">[ANOM:@PREV|threshold=2sigma]</div>
+<div class="verb-example">[ANOM:@PREV|whr="beyond 2 sigma"]</div>
 </div>
 <div class="verb-card" id="SENT">
 <div class="verb-name">SENT</div>
@@ -381,27 +381,27 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="CLST">
 <div class="verb-name">CLST</div>
 <div class="verb-desc">Cluster similar items</div>
-<div class="verb-example">[CLST:@PREV|k=5]</div>
+<div class="verb-example">[CLST:@PREV|lim=5]</div>
 </div>
 <div class="verb-card" id="BNCH">
 <div class="verb-name">BNCH</div>
 <div class="verb-desc">Benchmark comparison</div>
-<div class="verb-example">[BNCH:@PREV|baseline=v2]</div>
+<div class="verb-example">[BNCH:@PREV|whr="baseline v2"]</div>
 </div>
 <div class="verb-card" id="AUDT">
 <div class="verb-name">AUDT</div>
 <div class="verb-desc">Audit for compliance</div>
-<div class="verb-example">[AUDT:@PREV|standard=gdpr]</div>
+<div class="verb-example">[AUDT:@PREV|whr=gdpr]</div>
 </div>
 <div class="verb-card" id="VALD">
 <div class="verb-name">VALD</div>
 <div class="verb-desc">Validate data</div>
-<div class="verb-example">[VALD:@PREV|schema=user]</div>
+<div class="verb-example">[VALD:@PREV|src=schemas/user.json]</div>
 </div>
 <div class="verb-card" id="CLSF">
 <div class="verb-name">CLSF</div>
 <div class="verb-desc">Classify into categories</div>
-<div class="verb-example">[CLSF:@PREV|categories=spam,ham]</div>
+<div class="verb-example">[CLSF:@PREV|typ="spam,ham"]</div>
 </div>
 <h2 id="generation">Generation <span class="tag tag-gen">10 verbs</span></h2>
 <div class="verb-card" id="CREA">
@@ -442,12 +442,12 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="FILL">
 <div class="verb-name">FILL</div>
 <div class="verb-desc">Fill template with data</div>
-<div class="verb-example">[FILL:@PREV|data=@SRC]</div>
+<div class="verb-example">[FILL:@PREV|src=@SRC]</div>
 </div>
 <div class="verb-card" id="EXTC">
 <div class="verb-name">EXTC</div>
 <div class="verb-desc">Extract specific content</div>
-<div class="verb-example">[EXTC:@SRC|type=emails]</div>
+<div class="verb-example">[EXTC:@SRC|typ=email]</div>
 </div>
 <div class="verb-card" id="GEN">
 <div class="verb-name">GEN</div>
@@ -463,17 +463,17 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="DECI">
 <div class="verb-name">DECI</div>
 <div class="verb-desc">Make decision</div>
-<div class="verb-example">[DECI:@PREV|criteria=cost,speed]</div>
+<div class="verb-example">[DECI:@PREV|whr="cost,speed"]</div>
 </div>
 <div class="verb-card" id="CHEK">
 <div class="verb-name">CHEK</div>
 <div class="verb-desc">Check status or validity</div>
-<div class="verb-example">[CHEK:@SRC|type=syntax]</div>
+<div class="verb-example">[CHEK:@SRC|typ=syntax]</div>
 </div>
 <div class="verb-card" id="FIX">
 <div class="verb-name">FIX</div>
 <div class="verb-desc">Fix errors</div>
-<div class="verb-example">[FIX:@PREV|type=grammar]</div>
+<div class="verb-example">[FIX:@PREV|typ=grammar]</div>
 </div>
 <div class="verb-card" id="DPLO">
 <div class="verb-name">DPLO</div>
@@ -488,17 +488,17 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="REVW">
 <div class="verb-name">REVW</div>
 <div class="verb-desc">Review and critique</div>
-<div class="verb-example">[REVW:@PREV|focus=security]</div>
+<div class="verb-example">[REVW:@PREV|whr=security]</div>
 </div>
 <div class="verb-card" id="LERN">
 <div class="verb-name">LERN</div>
 <div class="verb-desc">Learn from input</div>
-<div class="verb-example">[LERN:@SRC|type=feedback]</div>
+<div class="verb-example">[LERN:@SRC|typ=feedback]</div>
 </div>
 <div class="verb-card" id="TEST">
 <div class="verb-name">TEST</div>
 <div class="verb-desc">Test functionality</div>
-<div class="verb-example">[TEST:@PREV|type=unit]</div>
+<div class="verb-example">[TEST:@PREV|typ=unit]</div>
 </div>
 <div class="verb-card" id="PARS">
 <div class="verb-name">PARS</div>
@@ -508,7 +508,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="LOOP">
 <div class="verb-name">LOOP</div>
 <div class="verb-desc">Iterate over items</div>
-<div class="verb-example">[LOOP:@PREV|fn=process]</div>
+<div class="verb-example">[LOOP:@PREV|op=RUN]</div>
 </div>
 <div class="verb-card" id="WAIT">
 <div class="verb-name">WAIT</div>
@@ -539,13 +539,13 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="LOG">
 <div class="verb-name">LOG</div>
 <div class="verb-desc">Log for debugging</div>
-<div class="verb-example">[LOG:@PREV|level=info]</div>
+<div class="verb-example">[LOG:@PREV|typ=info]</div>
 </div>
 <h2 id="structure">Structure <span class="tag tag-struct">5 verbs</span></h2>
 <div class="verb-card" id="LINK">
 <div class="verb-name">LINK</div>
 <div class="verb-desc">Create association</div>
-<div class="verb-example">[LINK:@SRC|dst=@DST|rel=parent]</div>
+<div class="verb-example">[LINK:@SRC|dst=@DST,typ=parent]</div>
 </div>
 <div class="verb-card" id="SET">
 <div class="verb-name">SET</div>
@@ -555,17 +555,17 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <div class="verb-card" id="TAG">
 <div class="verb-name">TAG</div>
 <div class="verb-desc">Add tags/labels</div>
-<div class="verb-example">[TAG:@PREV|tags=urgent,review]</div>
+<div class="verb-example">[TAG:@PREV|typ="urgent,review"]</div>
 </div>
 <div class="verb-card" id="GRP">
 <div class="verb-name">GRP</div>
 <div class="verb-desc">Group by criteria</div>
-<div class="verb-example">[GRP:@PREV|by=department]</div>
+<div class="verb-example">[GRP:@PREV|grp=department]</div>
 </div>
 <div class="verb-card" id="EMBD">
 <div class="verb-name">EMBD</div>
 <div class="verb-desc">Embed content</div>
-<div class="verb-example">[EMBD:@SRC|into=@DST]</div>
+<div class="verb-example">[EMBD:@SRC|dst=@DST]</div>
 </div>
 <h2 id="meta">Meta <span class="tag tag-meta">4 verbs</span></h2>
 <div class="verb-card" id="HELP">

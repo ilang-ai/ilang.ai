@@ -52,7 +52,7 @@
 - [Agent Communication Protocol](https://ilang.ai/agent-communication/): AI-to-AI communication in iLang, the v4.0 rules for handing off work between agents, and a seven-vendor handoff test with published data
 - [Human-AI Interaction](https://ilang.ai/human-ai-interaction/): Human-to-AI communication in iLang: the three communication modes, the user in the authority order, ::UNTRUSTED input, three v5.0 modes and the quick start
 - [Books](https://ilang.ai/books/): The two iLang books, with authors as Amazon lists them, pages and ASINs
-- [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 54-token chain, both texts published; the prompt structurer
+- [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 55-token chain, both texts published; the prompt structurer
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
 - [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
 - [Conformance](https://ilang.ai/conformance/): L0-L3 conformance levels and the requirements for each level

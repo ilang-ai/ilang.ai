@@ -206,8 +206,8 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
   A:hedging_without_data⇒avoid
 
 [READ:@SRC|path=quarterly_data.csv]
-=&gt;[STAT|by=region,product]
-=&gt;[TRND|period=Q]
+=&gt;[STAT|grp=region,product]
+=&gt;[TRND|grp=quarter]
 =&gt;[FMT|fmt=md]
 =&gt;[OUT]</code></pre>
 <p>The <code>::GENE{}</code> block carries the behavior and the verb chain carries the task. Each step in a chain receives the output of the previous step. The chain terminates with <code>[Ω]</code> or <code>[OUT]</code>. A2A handled the routing. iLang handled the instruction content. Each protocol does its own job.</p>

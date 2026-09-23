@@ -47,7 +47,7 @@ A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes
 
 ### Can structured prompts reduce retries with AI?
 
-Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 54, a 68% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 7%. Both texts are published on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/).
+Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/).
 
 ### Does iLang work with ChatGPT, Claude, and DeepSeek?
 

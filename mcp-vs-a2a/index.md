@@ -63,7 +63,7 @@ AI-Native Communication Protocol · iLang Research
 | Behavioral identity | ✗ | ○ Agent Cards | ✓ ::GENE{} DNA system |
 | Cross-model portable | ○ Server-side | ✓ | ✓ Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
 | Formal vocabulary | ✗ Free-form | ✗ Free-form | ✓ 88 verbs, 29 core modifiers plus a 20-key media profile |
-| Token efficiency | N/A (infrastructure) | N/A (infrastructure) | 68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
+| Token efficiency | N/A (infrastructure) | N/A (infrastructure) | 67% on a request as people write it (169 to 55 tokens), 5% on a terse rewrite (58 to 55), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
 | Open source | ✓ Apache 2.0 | ✓ Apache 2.0 | ✓ MIT |
 | Backed by | Anthropic | Google + Linux Foundation | iLang Research / iLang Inc. |
 

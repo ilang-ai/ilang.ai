@@ -24,7 +24,7 @@ Tout comme HTTP a standardisé la communication web et SQL les requêtes de base
 
 | Capacité | Description |
 |----------|-------------|
-| **Comprimer** | Réduit les prompts de 7% à 68%. Moins de tokens, coût réduit |
+| **Comprimer** | Réduit les prompts de 5% à 67%. Moins de tokens, coût réduit |
 | **Répondre à tout** | L'IA répond directement et complètement, sans disclaimers |
 | **Protéger la vie privée** | Le texte comprimé envoie moins de données aux serveurs IA |
 | **Multiplateforme** | Une même instruction, testée sur ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen et GLM |

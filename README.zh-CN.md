@@ -28,7 +28,7 @@ iLang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的�
 
 | 能力 | 说明 |
 |------|------|
-| **压缩** | 提示词减少 7% 到 68%，取决于原文有多啰嗦。token更少，成本更低 |
+| **压缩** | 提示词减少 5% 到 67%，取决于原文有多啰嗦。token更少，成本更低 |
 | **知无不答** | AI直接、完整回答，不回避，不加免责声明 |
 | **保护隐私** | 压缩后发送更少数据，天然减少信息暴露 |
 | **跨平台** | 同一条指令已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上测试 |
@@ -44,7 +44,7 @@ ChatGPT ✅ | Claude ✅ | Gemini ✅ | DeepSeek ✅ | Kimi ✅ | Qwen ✅ | GLM
 
 ## 压缩前后对比
 
-**同一条六步请求**：日常写法 169 token → iLang 链 54 token，减少 68%；精简写法 58 token → 54 token，减少 7%（tiktoken cl100k_base 实测，两段原文见 [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/)）
+**同一条六步请求**：日常写法 169 token → iLang 链 55 token，减少 67%；精简写法 58 token → 55 token，减少 5%（tiktoken cl100k_base 实测，两段原文见 [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/)）
 
 **压缩前**：Go to this website, extract all the text content from the page, clean it up and format it as readable Markdown. Remove any navigation menus, ads, or irrelevant content. Just give me the main article text.
 

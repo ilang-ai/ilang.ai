@@ -24,7 +24,7 @@ Assim como HTTP padronizou a comunicação web e SQL padronizou consultas de ban
 
 | Capacidade | Descrição |
 |-----------|-----------|
-| **Comprimir** | Reduz prompts em 7% a 68%. Menos tokens |
+| **Comprimir** | Reduz prompts em 5% a 67%. Menos tokens |
 | **Responder tudo** | IA responde direta e completamente, sem disclaimers |
 | **Proteger privacidade** | Texto comprimido envia menos dados |
 | **Multiplataforma** | Uma mesma instrução, testada no ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen e GLM |

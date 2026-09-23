@@ -19,13 +19,13 @@ iLang achieves compression through structured syntax that eliminates the overhea
 Please read the sales data from the CSV file. Then filter it to only include records where the revenue is greater than 1000. After that, calculate statistics grouped by region. Sort the results by revenue in descending order. Finally, format the output as a markdown table and display it.
 ```
 
-### After: iLang (54 tokens)
+### After: iLang (55 tokens)
 
 ```
 [READ:@SRC|path=sales.csv]
 =>[FILT|whr=revenue>1000]
-=>[STAT|by=region]
-=>[SORT|by=revenue,desc]
+=>[STAT|grp=region]
+=>[SORT|srt=revenue,desc]
 =>[FMT|fmt=md]
 =>[OUT]
 ```
@@ -34,10 +34,10 @@ Please read the sales data from the CSV file. Then filter it to only include rec
 
 | Metric | Natural language | iLang | Change |
 | --- | --- | --- | --- |
-| Tokens (cl100k_base) | 58 | 54 | -7% |
+| Tokens (cl100k_base) | 58 | 55 | -5% |
 | Ambiguity | Multiple interpretations possible | One interpretation | Lower |
 
-Seven per cent is the honest number for that comparison, and it is worth understanding why it is so small. The sentence above was written tersely, by someone who already knows what the chain has to say. Brackets, pipes and colons are not free: the tokenizer charges for them. On a short instruction that nobody pads, structure buys precision, not tokens.
+Five per cent is the honest number for that comparison, and it is worth understanding why it is so small. The sentence above was written tersely, by someone who already knows what the chain has to say. Brackets, pipes and colons are not free: the tokenizer charges for them. On a short instruction that nobody pads, structure buys precision, not tokens.
 
 ## Where compression matters most
 
@@ -49,7 +49,7 @@ Real requests are not terse. They open with a greeting, hedge every instruction,
 Hi! Hope you're doing well. I've got a quick favour to ask if you don't mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I'm trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you've got that, could you please work out the summary statistics for me, broken down by region? I'd also really appreciate it if you could sort everything from highest revenue down to lowest, since that's how my manager likes to see it. And then if it's not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help!
 ```
 
-That is 169 tokens against the same 54-token chain, a reduction of 68 per cent. Nothing about the chain changed. The greeting, the hedging and the thank-you are what disappeared, and they are what real prompts are made of.
+That is 169 tokens against the same 55-token chain, a reduction of 67 per cent. Nothing about the chain changed. The greeting, the hedging and the thank-you are what disappeared, and they are what real prompts are made of.
 
 ### System prompts and behavioral rules
 

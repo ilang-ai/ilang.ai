@@ -155,9 +155,10 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <h2>Using them together</h2>
 <p>The most powerful setup combines both. MCP gives AI access to tools and data. iLang gives AI structured instructions for how to use those tools. Example: MCP connects to a database; iLang defines the analysis workflow:</p>
 
-<pre style="background:var(--code-bg);color:var(--code-text);padding:20px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.6"><code>[READ:@DB|query=SELECT * FROM orders WHERE date>2026-01-01]
-=>[STAT|by=region]
-=>[RANK|by=revenue,desc]
+<pre style="background:var(--code-bg);color:var(--code-text);padding:20px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.6"><code>::STATE{@DB, via:mcp, kind:database}
+[READ:@DB|path=orders,whr="date>2026-01-01"]
+=>[STAT|grp=region]
+=>[RANK|srt=revenue,desc]
 =>[FMT|fmt=md]
 =>[OUT]</code></pre>
 
@@ -168,7 +169,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr class="stack-head"><th>Question</th><th>MCP</th><th>iLang</th></tr>
 <tr><td data-label="Question">Can I use it without writing code?</td><td data-label="MCP">No, requires server setup</td><td data-label="iLang">Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM</td></tr>
 <tr><td data-label="Question">Does it work across models?</td><td data-label="MCP">Depends on model support for MCP</td><td data-label="iLang">Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
-<tr><td data-label="Question">Does it reduce token usage?</td><td data-label="MCP">Not its purpose</td><td data-label="iLang">68% on a request as people write it (169 to 54 tokens), 7% on a terse rewrite (58 to 54), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
+<tr><td data-label="Question">Does it reduce token usage?</td><td data-label="MCP">Not its purpose</td><td data-label="iLang">67% on a request as people write it (169 to 55 tokens), 5% on a terse rewrite (58 to 55), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
 <tr><td data-label="Question">Does it define AI behavior?</td><td data-label="MCP">No</td><td data-label="iLang">Yes, via <code>::GENE{}</code> declarations</td></tr>
 <tr><td data-label="Question">Is it open source?</td><td data-label="MCP">Yes (Anthropic)</td><td data-label="iLang">Yes (MIT license)</td></tr>
 </table>

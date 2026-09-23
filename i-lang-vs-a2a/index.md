@@ -43,8 +43,8 @@ Example: Agent A uses A2A to discover Agent B (a data analyst). Agent A then sen
   A:hedging_without_data⇒avoid
 
 [READ:@SRC|path=quarterly_data.csv]
-=>[STAT|by=region,product]
-=>[TRND|period=Q]
+=>[STAT|grp=region,product]
+=>[TRND|grp=quarter]
 =>[FMT|fmt=md]
 =>[OUT]
 ```

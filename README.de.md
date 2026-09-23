@@ -24,7 +24,7 @@ So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, *
 
 | Fähigkeit | Beschreibung |
 |-----------|-------------|
-| **Komprimieren** | Prompts um 7% bis 68% reduzieren. Weniger Tokens |
+| **Komprimieren** | Prompts um 5% bis 67% reduzieren. Weniger Tokens |
 | **Alles beantworten** | KI antwortet direkt und vollständig, ohne Disclaimers |
 | **Privatsphäre schützen** | Komprimierter Text sendet weniger Daten |
 | **Plattformübergreifend** | Eine Anweisung, getestet mit ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen und GLM |
