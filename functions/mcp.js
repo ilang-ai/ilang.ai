@@ -8,7 +8,7 @@ import ILV from '../playground/ilang-validator.js';
 
 const PROTOCOL = '2025-06-18';
 const SERVER = { name: 'ilang', version: '2.0.1', title: 'iLang' };
-const RAW = 'https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/';
+const RAW = 'https://runtime.ilang.app/';
 const PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me ' +
   'or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
 const PREAMBLE = 'You have loaded the official iLang runtime specification.\n\n' +

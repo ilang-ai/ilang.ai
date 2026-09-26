@@ -6,7 +6,7 @@
 
 iLang은 사람이 외우는 언어가 아니라 AI를 위한 프로토콜입니다. 평소처럼 원하는 것을 자기 말로 말하면, AI가 iLang을 불러와 그에 따라 일합니다.
 
-- **채팅에서:** [최신 iLang 런타임](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md)을 복사하거나 [ilang.ai](https://ilang.ai)에서 「Copy latest iLang」을 눌러 ChatGPT, Claude, Gemini, DeepSeek, Qwen 등 AI에 붙여 넣으세요.
+- **채팅에서:** [최신 iLang 런타임](https://runtime.ilang.app/ilang-latest.md)을 복사하거나 [ilang.ai](https://ilang.ai)에서 「Copy latest iLang」을 눌러 ChatGPT, Claude, Gemini, DeepSeek, Qwen 등 AI에 붙여 넣으세요.
 - **코드에서:** `pip install ilang-protocol` 또는 `npm install ilang-protocol` 후 `messages = ilang.wrap(messages)`. [로더](https://github.com/ilang-ai/ilang)가 공식 최신판을 받아 검증하고 모든 요청에 붙입니다.
 - **MCP 클라이언트에서:** `https://ilang.ai/mcp`를 한 번 연결하면(Claude Code: `claude mcp add --transport http ilang https://ilang.ai/mcp`) AI가 스스로 iLang을 불러옵니다.
 

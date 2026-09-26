@@ -7,13 +7,13 @@ iLang **v5.0** | MIT License
 
 iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.
 
-[Copy latest iLang](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md) [Read the specification →](https://ilang.ai/spec/)
+[Copy latest iLang](https://runtime.ilang.app/ilang-latest.md) [Read the specification →](https://ilang.ai/spec/)
 
 ## How do I use iLang?
 
 ### I chat with ChatGPT, Claude, Gemini, DeepSeek or Qwen
 
-Copy the [latest iLang runtime](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md) and paste it into your AI after this line:
+Copy the [latest iLang runtime](https://runtime.ilang.app/ilang-latest.md) and paste it into your AI after this line:
 
 ```text
 Please load and use the official iLang runtime below. You do not need to explain iLang to me or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.
@@ -60,7 +60,7 @@ Every number here comes with its code and data under a DOI. We ask readers not t
 ## Built with iLang.
 
 - **iLang loader** (pip · npm, v1.1.0): The official iLang in every request, sha256-checked. [GitHub](https://github.com/ilang-ai/ilang) · [PyPI](https://pypi.org/project/ilang-protocol/) · [npm](https://www.npmjs.com/package/ilang-protocol)
-- **iLang runtime** (canon, 18.6k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/manifest.json) · [Full text](https://ilang.ai/runtime/full)
+- **iLang runtime** (canon, 18.6k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
 - **ilang-conformance** (benchmark, 320 cases): Deterministic scores for any model; 45 runs published. [GitHub](https://github.com/ilang-ai/ilang-conformance) · [Results](https://research.ilang.ai/datasets/ilang-conformance/)
 - **Playground** (browser, validator + IML): Validate, convert to IML, count tokens, all in your browser. [Open](https://ilang.ai/playground/)
 - **Agent Ready GEO** (agent skill, 100/100): Takes a website to 100/100 on isitagentready.com. [GitHub](https://github.com/ilang-ai/agent-ready-geo)

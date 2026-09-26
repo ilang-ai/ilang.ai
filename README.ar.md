@@ -6,7 +6,7 @@
 
 iLang بروتوكول للذكاء الاصطناعي، وليس لغة يحفظها البشر. تواصل قول ما تريده بكلماتك، ويحمّل ذكاؤك الاصطناعي iLang ويعمل وفقه.
 
-- **في المحادثة:** انسخ [أحدث نسخة من بيئة iLang](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md)، أو اضغط «Copy latest iLang» في [ilang.ai](https://ilang.ai)، والصقها في ChatGPT أو Claude أو Gemini أو DeepSeek أو Qwen أو أي مساعد آخر.
+- **في المحادثة:** انسخ [أحدث نسخة من بيئة iLang](https://runtime.ilang.app/ilang-latest.md)، أو اضغط «Copy latest iLang» في [ilang.ai](https://ilang.ai)، والصقها في ChatGPT أو Claude أو Gemini أو DeepSeek أو Qwen أو أي مساعد آخر.
 - **في الكود:** `pip install ilang-protocol` أو `npm install ilang-protocol`، ثم `messages = ilang.wrap(messages)`. يجلب [المحمّل](https://github.com/ilang-ai/ilang) البيئة الرسمية ويتحقق منها ويضيفها إلى كل طلب.
 - **مع عميل MCP:** اربط `https://ilang.ai/mcp` مرة واحدة (Claude Code: `claude mcp add --transport http ilang https://ilang.ai/mcp`)، وسيحمّل ذكاؤك الاصطناعي iLang بنفسه.
 

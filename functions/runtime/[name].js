@@ -1,8 +1,9 @@
 // The official iLang runtime on ilang.ai, served from the canon: /runtime/core, /runtime/full,
 // /runtime/media and /runtime/manifest pass through the generated files in ilang-spec/runtime,
-// byte for byte, so the site never holds a second copy. The core bundle tells a model to read
+// byte for byte, through runtime.ilang.app, so the site never holds a second copy. The core bundle tells a model to read
 // /runtime/full when it is unsure how a rule applies.
-const RAW = 'https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/';
+const RAW = 'https://runtime.ilang.app/';
+const CANON = 'https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/';
 const FILES = { core: 'ilang-latest.md', full: 'ilang-full.md', media: 'ilang-media-latest.md', manifest: 'manifest.json' };
 
 export async function onRequestGet({ params }) {
@@ -13,7 +14,7 @@ export async function onRequestGet({ params }) {
   }
   const res = await fetch(RAW + file, { cf: { cacheTtl: 300, cacheEverything: true } });
   if (!res.ok) {
-    return new Response('The canon did not answer; the same file is at ' + RAW + file + '\n',
+    return new Response('The runtime host did not answer; the same file is at ' + CANON + file + '\n',
       { status: 502, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
   }
   return new Response(res.body, {

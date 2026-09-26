@@ -6,7 +6,7 @@
 
 iLang 是給 AI 用的協議，不是讓人背的語言。你照常用自己的話說想要什麼，AI 載入 iLang 並照著它工作。
 
-- **在聊天裡用：** 複製[最新版 iLang 執行環境](https://raw.githubusercontent.com/ilang-ai/ilang-spec/main/runtime/ilang-latest.md)，或在 [ilang.ai](https://ilang.ai) 點「Copy latest iLang」，貼給 ChatGPT、Claude、Gemini、DeepSeek、通義千問或任何 AI 助理。
+- **在聊天裡用：** 複製[最新版 iLang 執行環境](https://runtime.ilang.app/ilang-latest.md)，或在 [ilang.ai](https://ilang.ai) 點「Copy latest iLang」，貼給 ChatGPT、Claude、Gemini、DeepSeek、通義千問或任何 AI 助理。
 - **在程式裡用：** `pip install ilang-protocol` 或 `npm install ilang-protocol`，然後 `messages = ilang.wrap(messages)`。[載入器](https://github.com/ilang-ai/ilang)會取得官方最新版、驗證後加進每一次請求。
 - **用 MCP 用戶端：** 接入一次 `https://ilang.ai/mcp`（Claude Code：`claude mcp add --transport http ilang https://ilang.ai/mcp`），AI 會自己載入 iLang。
 
