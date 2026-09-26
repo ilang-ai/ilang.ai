@@ -84,90 +84,97 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
     {
       "@type": "ListItem",
       "position": 4,
+      "name": "ilang-judge",
+      "url": "https://github.com/ilang-ai/ilang-judge",
+      "description": "The iLang v5.0 judgment layer as a service: one stateless endpoint that asks a second judge eleven rubric questions, computes the vector, runs f_v5 from the pinned canon and writes the reason in code. Observer plugins for Hermes and LangBot, and an exporter that publishes decisions without conversation text; two production bots publish daily to the dataset i-Lang/ilang-judge-observations on Hugging Face."
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
       "name": "ilang-conformance",
       "url": "https://github.com/ilang-ai/ilang-conformance",
       "description": "320 deterministic cases for grammar, execution and judgment. Code scores any model behind an API; no model grades another. 45 runs are published."
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "name": "agent-ready-geo",
       "url": "https://github.com/ilang-ai/agent-ready-geo",
       "description": "An agent skill that takes a website to 100/100 on isitagentready.com: llms.txt, Markdown for agents, WebMCP, an MCP server card and more. Its instructions are written in iLang."
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "name": "ilang.ai",
       "url": "https://github.com/ilang-ai/ilang.ai",
       "description": "This site, with the Playground: the canon grammar validator, the IML converter and a cl100k token counter, all in the browser."
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "name": "ilang-dict",
       "url": "https://github.com/ilang-ai/ilang-dict",
       "description": "the complete dictionary: verbs, modifiers, entities and declarations"
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "name": "iml-protocol",
       "url": "https://github.com/ilang-ai/iml-protocol",
       "description": "IML, an experimental machine form of iLang v4.x documents"
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "name": "ilang-Benchmark",
       "url": "https://github.com/ilang-ai/ilang-Benchmark",
       "description": "a prompt benchmark harness and the judgment learnability study"
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "name": "ilang-openclaw",
       "url": "https://github.com/ilang-ai/ilang-openclaw",
       "description": "iLang skills and plugins for OpenClaw, Hermes and other agents"
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "name": "Imprint",
       "url": "https://github.com/ilang-ai/Imprint",
       "description": "a portable working profile for AI agents"
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "name": "Mem-Forever",
       "url": "https://github.com/ilang-ai/Mem-Forever",
       "description": "a Git-native memory layer for AI agents"
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "name": "AutoCode",
       "url": "https://github.com/ilang-ai/autocode",
       "description": "48 agent skills from a spoken request to a deployed URL"
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "name": "TelegramGuard",
       "url": "https://github.com/ilang-ai/TelegramGuard",
       "description": "a guardian bot for Telegram groups"
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "name": "iReview",
       "url": "https://github.com/ilang-ai/iReview",
       "description": "AI-to-AI code review"
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "name": "ZeroCode",
       "url": "https://github.com/ilang-ai/trae",
       "description": "Chinese-language AI coding skills for the Trae IDE"
@@ -185,7 +192,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
       "name": "What does the ilang-ai GitHub organization publish?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The iLang protocol, the tools that load and measure it, and the research built on it. The newest are the iLang loader (pip and npm ilang-protocol), the canon with its runtime bundles, ilang-conformance with 45 scored model runs, Agent Ready GEO and research.ilang.ai. All sixteen repositories are MIT licensed and archived on Zenodo with DOIs."
+        "text": "The iLang protocol, the tools that load and measure it, and the research built on it. The newest are ilang-judge (the v5.0 judgment layer as a service, with a daily public stream of production decisions), the iLang loader (pip and npm ilang-protocol), the canon with its runtime bundles, ilang-conformance with 45 scored model runs, Agent Ready GEO and research.ilang.ai. All sixteen repositories are MIT licensed and archived on Zenodo with DOIs."
       }
     },
     {
@@ -202,6 +209,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A deterministic test set for the iLang protocol: 320 cases across grammar, execution and judgment. Code scores any model reachable over an API; no model grades another. 45 runs are published, and none reached the L1 gate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ilang-judge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The iLang v5.0 judgment layer as a service. One stateless endpoint asks a second judge eleven three-level rubric questions, one per dimension, anchored on the canon's own definitions, computes the eleven-dimension vector, runs f_v5 from the pinned canon validator and writes the deciding step in code. Observer plugins call it from Hermes and LangBot bots without changing their behaviour, and an exporter publishes the decisions daily as a public Hugging Face dataset, with identifiers pseudonymised and no conversation text."
       }
     },
     {
@@ -254,6 +269,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
         <p>research.ilang.ai: the preprint The Missing Definition of Right, the conformance results across 45 model runs, the production audit and the judgment learnability study. 2026-09-22 &middot; DOI <a href="https://doi.org/10.5281/zenodo.22865165" rel="noopener">10.5281/zenodo.22865165</a></p>
       </div>
       <div class="card">
+        <h3><a href="https://github.com/ilang-ai/ilang-judge" rel="noopener">ilang-judge</a></h3>
+        <p>The v5.0 judgment layer as a service: eleven rubric questions to a second judge, f_v5 from the pinned canon, the reason written by code. Observer plugins for Hermes and LangBot; two production bots publish their decisions every day, without the conversation text, to <a href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" rel="noopener">i-Lang/ilang-judge-observations</a>. 2026-09-26</p>
+      </div>
+      <div class="card">
         <h3><a href="https://github.com/ilang-ai/ilang-conformance" rel="noopener">ilang-conformance</a></h3>
         <p>320 deterministic cases for grammar, execution and judgment. Code scores any model behind an API; no model grades another. 45 runs are published. 2026-09-20 &middot; DOI <a href="https://doi.org/10.5281/zenodo.22864929" rel="noopener">10.5281/zenodo.22864929</a></p>
       </div>
@@ -283,11 +302,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
 
     <h2>Questions</h2>
     <h3>What does the ilang-ai GitHub organization publish?</h3>
-    <p>The iLang protocol, the tools that load and measure it, and the research built on it. The newest are the iLang loader (pip and npm ilang-protocol), the canon with its runtime bundles, ilang-conformance with 45 scored model runs, Agent Ready GEO and research.ilang.ai. All sixteen repositories are MIT licensed and archived on Zenodo with DOIs.</p>
+    <p>The iLang protocol, the tools that load and measure it, and the research built on it. The newest are ilang-judge (the v5.0 judgment layer as a service, with a daily public stream of production decisions), the iLang loader (pip and npm ilang-protocol), the canon with its runtime bundles, ilang-conformance with 45 scored model runs, Agent Ready GEO and research.ilang.ai. All sixteen repositories are MIT licensed and archived on Zenodo with DOIs.</p>
     <h3>What is the iLang loader?</h3>
     <p>A small Python and JavaScript package, ilang-protocol, that fetches the official iLang runtime, checks its sha256, caches it and adds it to every model request, for any model. People do not need to learn iLang; the loader gives it to the AI.</p>
     <h3>What is ilang-conformance?</h3>
     <p>A deterministic test set for the iLang protocol: 320 cases across grammar, execution and judgment. Code scores any model reachable over an API; no model grades another. 45 runs are published, and none reached the L1 gate.</p>
+    <h3>What is ilang-judge?</h3>
+    <p>The iLang v5.0 judgment layer as a service. One stateless endpoint asks a second judge eleven three-level rubric questions, one per dimension, anchored on the canon's own definitions, computes the eleven-dimension vector, runs f_v5 from the pinned canon validator and writes the deciding step in code. Observer plugins call it from Hermes and LangBot bots without changing their behaviour, and an exporter publishes the decisions daily as a public Hugging Face dataset, with identifiers pseudonymised and no conversation text.</p>
     <h3>What is Agent Ready GEO?</h3>
     <p>An agent skill for Claude Code, Codex and other clients that load Agent Skills. It takes a website to 100/100 on isitagentready.com, and its instructions are written in iLang.</p>
 
