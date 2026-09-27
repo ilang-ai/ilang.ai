@@ -5,6 +5,8 @@ iLang **v5.0** | MIT License
 
 # Don't learn iLang. Your AI should.
 
+**iLang tells AI what a sentence is allowed to become.** Not by adding rules, but by measuring what is already there.
+
 iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.
 
 [Copy latest iLang](https://runtime.ilang.app/ilang-latest.md) [Read the specification →](https://ilang.ai/spec/)
@@ -46,8 +48,13 @@ In Cursor, add it from the deeplink `cursor://anysphere.cursor-deeplink/mcp/inst
 - [Conformance results, 45 model runs](https://research.ilang.ai/datasets/ilang-conformance/)
 - [Preprint: The Missing Definition of Right](https://doi.org/10.5281/zenodo.22882691)
 - [The canon on GitHub](https://github.com/ilang-ai/ilang-spec)
+- [Agent input authority mapping](https://research.ilang.ai/protocol/agent-input/)
 
 Tested across 7 models: ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Not tied to any model: anything that takes enough context can load iLang.
+
+## Why this exists
+
+A flagship model read all 18 of our repositories. 74 MB of specifications, validators, test suites, and skills. It then received a real iLang engineering document and spent six rounds and 6.8 million tokens measuring whether iLang saves tokens. It took being corrected six times before it understood: iLang is not a compression format. It is compiled judgment. Ordinary prompts are conversations with a model. iLang is a specification that decides, before the model acts, what a sentence is authorized to become. The difference is not length. It is whether failure produces a signal.
 
 ## Measured, not assumed.
 

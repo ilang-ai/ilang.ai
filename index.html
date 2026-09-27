@@ -223,6 +223,13 @@ nav{
   background:var(--bg-2);padding:1px 6px;border-radius:4px;
   color:var(--ink);border:1px solid var(--line);
 }
+.hero .def{
+  font-size:clamp(18px,1.55vw,21px);font-weight:600;color:var(--ink);
+  max-width:640px;line-height:1.45;margin-bottom:16px;letter-spacing:-.01em;
+}
+.hero .def span{display:block;font-weight:500;color:var(--muted)}
+#why .sect-head{margin-bottom:0;max-width:760px}
+#why .sect-head p{max-width:none}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
@@ -401,6 +408,11 @@ footer{
           <span class="em">Your AI should.</span>
         </h1>
 
+        <p class="def">
+          iLang tells AI what a sentence is allowed to become.
+          <span>Not by adding rules, but by measuring what is already there.</span>
+        </p>
+
         <p class="lede">
           iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.
         </p>
@@ -440,9 +452,20 @@ messages = ilang.wrap(messages)</code></pre>
             <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">Conformance results, 45 model runs</a></li>
             <li><a href="https://doi.org/10.5281/zenodo.22882691" target="_blank" rel="noopener">Preprint: The Missing Definition of Right</a></li>
             <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">The canon on GitHub</a></li>
+            <li><a href="https://research.ilang.ai/protocol/agent-input/" target="_blank" rel="noopener">Agent input authority mapping</a></li>
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS EXISTS -->
+<section id="why">
+  <div class="container">
+    <div class="sect-head fade">
+      <h2>Why this exists</h2>
+      <p>A flagship model read all 18 of our repositories. 74 MB of specifications, validators, test suites, and skills. It then received a real iLang engineering document and spent six rounds and 6.8 million tokens measuring whether iLang saves tokens. It took being corrected six times before it understood: iLang is not a compression format. It is compiled judgment. Ordinary prompts are conversations with a model. iLang is a specification that decides, before the model acts, what a sentence is authorized to become. The difference is not length. It is whether failure produces a signal.</p>
     </div>
   </div>
 </section>
