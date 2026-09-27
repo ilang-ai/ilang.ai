@@ -46,7 +46,7 @@ In Cursor, add it from the deeplink `cursor://anysphere.cursor-deeplink/mcp/inst
 
 - [Full specification](https://ilang.ai/spec/)
 - [Conformance results, 45 model runs](https://research.ilang.ai/datasets/ilang-conformance/)
-- [Preprint: The Missing Definition of Right](https://doi.org/10.5281/zenodo.22882691)
+- [Preprint: The Missing Definition of Right](https://doi.org/10.5281/zenodo.22960030)
 - [The canon on GitHub](https://github.com/ilang-ai/ilang-spec)
 - [Agent input authority mapping](https://research.ilang.ai/protocol/agent-input/)
 
@@ -61,13 +61,13 @@ A flagship model read all 18 of our repositories. 74 MB of specifications, valid
 Every number here comes with its code and data under a DOI. We ask readers not to trust our numbers but to re-run them.
 
 - **45**: model runs, 320 cases each, scored by deterministic code and the canon's own validators. No model grades another. [Conformance results →](https://research.ilang.ai/datasets/ilang-conformance/)
-- **80% vs 9%**: median pass rate on grammar cases against execution cases, across the 34 comparable runs. Form is attainable; action is not. [Preprint →](https://doi.org/10.5281/zenodo.22882691)
+- **83% vs 11%**: median pass rate on grammar cases against execution cases, across the 32 comparable runs. Form is attainable; action is not. [Preprint →](https://doi.org/10.5281/zenodo.22960030)
 - **68.4% → 80.9%**: agreement between the judge and the reference on an unbiased random sample, over three days in production. [Production audit →](https://research.ilang.ai/datasets/judgment-layer-audit/)
 
 ## Built with iLang.
 
-- **iLang loader** (pip · npm, v1.1.0): The official iLang in every request, sha256-checked. [GitHub](https://github.com/ilang-ai/ilang) · [PyPI](https://pypi.org/project/ilang-protocol/) · [npm](https://www.npmjs.com/package/ilang-protocol)
-- **iLang runtime** (canon, 18.6k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
+- **iLang loader** (pip · npm, v1.1.1): The official iLang in every request, sha256-checked. [GitHub](https://github.com/ilang-ai/ilang) · [PyPI](https://pypi.org/project/ilang-protocol/) · [npm](https://www.npmjs.com/package/ilang-protocol)
+- **iLang runtime** (canon, 27k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
 - **ilang-conformance** (benchmark, 320 cases): Deterministic scores for any model; 45 runs published. [GitHub](https://github.com/ilang-ai/ilang-conformance) · [Results](https://research.ilang.ai/datasets/ilang-conformance/)
 - **Playground** (browser, validator + IML): Validate, convert to IML, count tokens, all in your browser. [Open](https://ilang.ai/playground/)
 - **Agent Ready GEO** (agent skill, 100/100): Takes a website to 100/100 on isitagentready.com. [GitHub](https://github.com/ilang-ai/agent-ready-geo)
@@ -77,7 +77,7 @@ Every number here comes with its code and data under a DOI. We ask readers not t
 ## Open, archived, citable.
 
 - [iLang Protocol Specification](https://doi.org/10.5281/zenodo.21821452): the canon, all versions, 10.5281/zenodo.21821452
-- [The Missing Definition of Right](https://doi.org/10.5281/zenodo.22882691): preprint, CC BY 4.0, 10.5281/zenodo.22882691
+- [The Missing Definition of Right](https://doi.org/10.5281/zenodo.22960030): preprint, CC BY 4.0, 10.5281/zenodo.22960030
 - [ilang-conformance](https://doi.org/10.5281/zenodo.22864929): benchmark code and corpus, 10.5281/zenodo.22864929
 - [iLang Research](https://doi.org/10.5281/zenodo.22865165): datasets and records, 10.5281/zenodo.22865165
 - [iLang loader](https://doi.org/10.5281/zenodo.22899027): pip and npm ilang-protocol, 10.5281/zenodo.22899027
