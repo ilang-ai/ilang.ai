@@ -54,7 +54,7 @@ Tested across 7 models: ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. N
 
 ## Why this exists
 
-A flagship model read all 18 of our repositories. 74 MB of specifications, validators, test suites, and skills. It then received a real iLang engineering document and spent six rounds and 6.8 million tokens measuring whether iLang saves tokens. It took being corrected six times before it understood: iLang is not a compression format. It is compiled judgment. Ordinary prompts are conversations with a model. iLang is a specification that decides, before the model acts, what a sentence is authorized to become. The difference is not length. It is whether failure produces a signal.
+iLang is not a compression format. It is compiled judgment. Ordinary prompts are conversations with a model. iLang is a specification that decides, before the model acts, what a sentence is authorized to become. The difference is not length. It is whether failure produces a signal. Three things hold whatever a model says about it. The decision function is code: the same vector always gives the same mode. Every symbol of the normative text is checked on each change, and a change that leaves one without a definition does not pass. Every counterexample we find is entered in a public register, the unresolved ones included.
 
 ## Measured, not assumed.
 
@@ -67,7 +67,7 @@ Every number here comes with its code and data under a DOI. We ask readers not t
 ## Built with iLang.
 
 - **iLang loader** (pip · npm, v1.1.1): The official iLang in every request, sha256-checked. [GitHub](https://github.com/ilang-ai/ilang) · [PyPI](https://pypi.org/project/ilang-protocol/) · [npm](https://www.npmjs.com/package/ilang-protocol)
-- **iLang runtime** (canon, 27k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
+- **iLang runtime** (canon, 25k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
 - **ilang-conformance** (benchmark, 320 cases): Deterministic scores for any model; 45 runs published. [GitHub](https://github.com/ilang-ai/ilang-conformance) · [Results](https://research.ilang.ai/datasets/ilang-conformance/)
 - **Playground** (browser, validator + IML): Validate, convert to IML, count tokens, all in your browser. [Open](https://ilang.ai/playground/)
 - **Agent Ready GEO** (agent skill, 100/100): Takes a website to 100/100 on isitagentready.com. [GitHub](https://github.com/ilang-ai/agent-ready-geo)
