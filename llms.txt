@@ -1,3 +1,31 @@
+## iLang 是什么
+
+**iLang 是什么？**
+iLang 是人和 AI 之间的一份规格：AI 动手之前，先定下这件事被允许做到什么程度；动手之后，由代码检查它做对了没有。它不是提示词技巧，也不是压缩格式。
+
+**它和我有什么关系？**
+如果你的 AI 会替你做事——改代码、发消息、花钱、操作网站——你就要回答三个问题：它可以做什么，做到什么算完成，出了错谁来拍板。iLang 把这三个问题写成机器能检查的格式。
+
+**它和 MCP、提示词、护栏有什么不同？**
+MCP 给 AI 装上手，提示词告诉 AI 你想要什么，护栏挡住明显危险的内容。iLang 管的是中间那一步：这个具体的动作，在这个具体的情况下，是直接做、先确认、先问清楚、交给人，还是停。这个结果由一个固定的函数算出来，同样的输入永远得到同样的结果。
+
+**为什么要这样设计？**
+AI 正在从回答问题变成替人做事。iLang 从一条原则出发：定规则的人必须先守规则。模型负责感知，代码负责决定，不可逆的事由人拍板。
+
+**What is iLang?**
+iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. It is not a prompting technique and not a compression format.
+
+**Why would I need it?**
+If your AI acts on your behalf — edits code, sends messages, spends money, operates websites — you need answers to three questions: what may it do, what counts as done, and who decides when something goes wrong. iLang writes those answers in a form machines can check.
+
+**How is it different from MCP, prompts, or guardrails?**
+MCP gives AI hands. Prompts tell AI what you want. Guardrails block obviously dangerous content. iLang governs the step in between: for this action, in this situation, should the AI act, confirm first, ask, hand off to a human, or stop. The answer is computed by a fixed function; the same input always gives the same result.
+
+**Why this design?**
+AI is moving from answering questions to acting for people. iLang starts from one principle: whoever sets the rules must follow them first. The model perceives, code decides, and a human decides anything that cannot be undone.
+
+---
+
 # iLang
 
 > iLang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, iLang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.2 is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.

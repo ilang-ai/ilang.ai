@@ -26,7 +26,7 @@ const BIG = { 'anthropic/maxResultSizeChars': 250000 };
 // None of them writes, sends or deletes anything, so a repeated call changes nothing.
 const TOOLS = [
   { name: 'ilang_runtime', title: 'Load iLang',
-    description: 'Return the official iLang runtime, the working text of the specification (about 18,600 tokens), ' +
+    description: 'iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. Return the official iLang runtime, the working text of the specification (about 18,600 tokens), ' +
       'verified against the canon\'s sha256. Load it once per conversation, then use iLang internally. ' +
       'media=true adds the image, video and audio extension (about 18,000 tokens more).',
     inputSchema: { type: 'object', properties: { media: { type: 'boolean', description: 'Add the media extension' } } },
