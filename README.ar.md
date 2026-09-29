@@ -16,7 +16,7 @@ iLang بروتوكول للذكاء الاصطناعي، وليس لغة يحف�
 
 كما وحّد HTTP التواصل عبر الويب ووحّد SQL استعلامات قواعد البيانات، **يوحّد iLang طريقة تحدث البشر مع الذكاء الاصطناعي**. بروتوكول واحد، تم اختباره على ChatGPT وClaude وGemini وDeepSeek وKimi وQwen وGLM، بدون تبعية لمورّد.
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **الموقع:** [ilang.ai](https://ilang.ai) · **الأبحاث:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

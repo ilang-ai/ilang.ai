@@ -177,7 +177,7 @@ L0 and L1 cannot enforce `::UNTRUSTED` or `::STATUS` authority: L0 has no runtim
 
 ## Carrying lessons to the next instance
 
-This part comes from iLang v5.0, the latest version of the protocol, published as a public preview. The v5.0 specification header lists its maturity as `architecture_complete|mathematically_grounded|trainable|empirically_unvalidated`.
+This part comes from iLang v5.0, the latest version of the protocol, released as 5.0.0 on 29 September 2026. The v5.0 specification header lists its maturity as `architecture_complete|mathematically_grounded|trainable|empirically_unvalidated`.
 
 Behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. The spec calls the mechanism a "Three-strike escalation: first error adds a GENE, second error promotes it, third error terminates the session." When the session is terminated, the agent instance is considered dead. Before termination, all accumulated GENEs from the session are written to a persistent SOUL file or handoff document. This ensures the next agent instance inherits the corrections.
 
@@ -339,7 +339,7 @@ Under the iLang v4.0 authority rules, an AI agent cannot mark its own task compl
 
 ### How does a new AI agent instance inherit corrections?
 
-In iLang v5.0, the latest version of the protocol, published as a public preview, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.
+In iLang v5.0, the latest version of the protocol, released as 5.0.0 on 29 September 2026, behavioral errors are corrected by mutating the agent's GENE declarations, not by retraining the model. The cycle starts when the human principal identifies a behavioral error in agent output. A first error adds a GENE, a second occurrence promotes it, and a third terminates the session. Before termination, the session's GENEs are written to a persistent SOUL file or handoff document, so the next agent instance inherits the corrections. The module's own conformance clause makes that persistence an enforced requirement at L2.
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.

@@ -16,7 +16,7 @@ iLang — это протокол для ИИ, а не язык, который 
 
 Как HTTP стандартизировал веб-коммуникацию, а SQL — запросы к базам данных, **iLang стандартизирует общение человека с ИИ**. Один протокол, протестированный на ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen и GLM, без привязки к вендору.
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **Сайт:** [ilang.ai](https://ilang.ai) · **Исследования:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

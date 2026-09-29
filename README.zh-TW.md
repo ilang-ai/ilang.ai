@@ -16,7 +16,7 @@ iLang 是給 AI 用的協議，不是讓人背的語言。你照常用自己的�
 
 正如HTTP標準化了網頁通信，SQL標準化了資料庫查詢，**iLang標準化了人類與AI的對話方式**。一個開放協議，已在ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLM上測試。
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **官網:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

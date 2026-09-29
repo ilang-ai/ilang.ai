@@ -1248,7 +1248,7 @@
     }
     if (!(val.startsWith("[") && val.endsWith("]"))) {
       this.add(WARN, lineno, "E300", key + " is a B4 vector line `" + key + ":[x,y,...]` (v4.2 " +
-               "\u00a74.5.3; SPEC-v5.0-PRE Part III \u00a71.2)");
+               "\u00a74.5.3; SPEC-v5.0 Part III \u00a71.2)");
       return;
     }
     var items = val.slice(1, -1).split(",").map(strip);

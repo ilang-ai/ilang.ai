@@ -16,7 +16,7 @@ Todo lo que sigue es para la IA, los desarrolladores, los investigadores y quien
 
 Así como HTTP estandarizó la comunicación web y SQL estandarizó las consultas de bases de datos, **iLang estandariza cómo los humanos hablan con la IA**. Un protocolo, probado en ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen y GLM, sin dependencia de proveedores.
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **Sitio web:** [ilang.ai](https://ilang.ai) · **Investigación:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

@@ -3,10 +3,10 @@
   "$id": "https://ilang.ai/schema/status-v4.0.json",
   "title": "iLang ::STATUS{} declaration (v4.0), JSON form",
   "description": "Non-normative implementation aid. SPEC-v4.0-FINAL.md (Non-Normative Release Artifacts) allows JSON Schemas for the v4.0 declarations as implementation aids that do not change the normative protocol semantics. The canonical form is the inline text declaration, for example ::STATUS{@TASK|state:running|objective:g1|by:@RUNTIME|authority:commit|since:round_3}. In the JSON form every key:value field becomes a property and the positional first segment (@TASK) becomes target. The schema checks one declaration on its own against the §4 three-tier authority table, read strictly. It cannot check transitions across declarations, budget exhaustion against a ::BUDGET, or whether by and authority come from a trusted runtime: authority fields are not self-authenticating (SPEC-v4.0-FINAL.md, Authority Model).",
-  "$comment": "Sources: SPEC-v4.0-FINAL.md §4 (examples, state machine, three-tier authority, transition rules), §7 and the Authority Model section; SPEC.md §2.4 (value forms) and §2.5 (declaration field keys are lowercase); SPEC-v5.0-PRE.md ::CLAUSE{KEY-SCOPING} (an unknown key in a known declaration is a field, not rejected) and ::REGISTRY{custom} (entity names @[A-Z][A-Z0-9_]*); ilang-spec repository, file schema/status-v4.0.json. The spec text names no field as always required, so none is required outright; the states that one writer alone may set require that writer. No range or type beyond the SPEC.md §2.4 value forms is placed on score or any other field the spec only shows by example. Patterns follow ECMA-262, where $ matches only at the end of the string; each pattern that ends in $ sits next to a not-newline clause so that Python re, where $ also matches before a final newline, reaches the same verdict.",
+  "$comment": "Sources: SPEC-v4.0-FINAL.md §4 (examples, state machine, three-tier authority, transition rules), §7 and the Authority Model section; SPEC.md §2.4 (value forms) and §2.5 (declaration field keys are lowercase); SPEC-v5.0.md ::CLAUSE{KEY-SCOPING} (an unknown key in a known declaration is a field, not rejected) and ::REGISTRY{custom} (entity names @[A-Z][A-Z0-9_]*); ilang-spec repository, file schema/status-v4.0.json. The spec text names no field as always required, so none is required outright; the states that one writer alone may set require that writer. No range or type beyond the SPEC.md §2.4 value forms is placed on score or any other field the spec only shows by example. Patterns follow ECMA-262, where $ matches only at the end of the string; each pattern that ends in $ sits next to a not-newline clause so that Python re, where $ also matches before a final newline, reaches the same verdict.",
   "type": "object",
   "propertyNames": {
-    "description": "Declaration field keys are lowercase ASCII (SPEC.md §2.5; SPEC-v5.0-PRE.md ::CLAUSE{ENCODING} structural tokens are ASCII).",
+    "description": "Declaration field keys are lowercase ASCII (SPEC.md §2.5; SPEC-v5.0.md ::CLAUSE{ENCODING} structural tokens are ASCII).",
     "pattern": "^[a-z_][a-z0-9_]*$",
     "not": {"pattern": "\\n"}
   },
@@ -46,7 +46,7 @@
     "score": {"$ref": "#/$defs/value", "description": "Grader score, for example 0.78. The spec gives no range."}
   },
   "additionalProperties": {
-    "description": "Unknown keys are kept as fields, not rejected (SPEC-v5.0-PRE.md ::CLAUSE{KEY-SCOPING}).",
+    "description": "Unknown keys are kept as fields, not rejected (SPEC-v5.0.md ::CLAUSE{KEY-SCOPING}).",
     "$ref": "#/$defs/value"
   },
   "allOf": [
@@ -103,7 +103,7 @@
   ],
   "$defs": {
     "entity": {
-      "description": "Entity name @[A-Z][A-Z0-9_]* (SPEC-v5.0-PRE.md ::REGISTRY{custom}).",
+      "description": "Entity name @[A-Z][A-Z0-9_]* (SPEC-v5.0.md ::REGISTRY{custom}).",
       "type": "string",
       "pattern": "^@[A-Z][A-Z0-9_]*$",
       "not": {"pattern": "\\n"}

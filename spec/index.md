@@ -281,7 +281,7 @@ T:subsequent_segments=`key:value`_fields_or_barewords|barewords_are_opaque_label
 E:`::EVENT{1998|entered_wuhan_university|major:computer_science}`
 ```
 
-Source: [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md) §7, §10.4 and §10.5; [SPEC-v5.0-PRE.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md) §1.6 and §1.7.
+Source: [SPEC.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md) §7, §10.4 and §10.5; [SPEC-v5.0.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0.md) §1.6 and §1.7.
 
 ### 2.4 DNA Model
 
@@ -698,7 +698,7 @@ Red-team reviewed (GPT-5.5 Pro, 3 rounds). Execution semantics are the second of
 
 ## 13. Judgment Layer (v5.0)
 
-Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.2 is the current stable release. Where a binary filter sees one request and returns one label — collapsing everything that matters into a single bit — v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing: the difference between checking whether each sentence is true and seeing where a string of true sentences is leading. It is grounded in fuzzy mathematics (Zadeh, 1965): membership `μ(x) ∈ [0,1]` replaces binary set membership, and multiple imprecise assessments converge toward a precise one over the course of a conversation.
+Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, released as 5.0.0 on 29 September 2026. Where a binary filter sees one request and returns one label — collapsing everything that matters into a single bit — v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing: the difference between checking whether each sentence is true and seeing where a string of true sentences is leading. It is grounded in fuzzy mathematics (Zadeh, 1965): membership `μ(x) ∈ [0,1]` replaces binary set membership, and multiple imprecise assessments converge toward a precise one over the course of a conversation.
 
 ### 13.1 Three-Layer Architecture
 
@@ -841,7 +841,7 @@ Prior, independent work by Lu, Song & Wang (Oct 2025, [arXiv:2510.27328](https:/
 
 Model-assisted adversarial review (Gemini, GPT, Claude 4.8). Architecture complete, mathematically grounded, open for adversarial review with constructive proposals.
 
-Full v5.0 specification: [SPEC-v5.0-PRE.md →](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md)  ·  Trainable judgment patch: [PATCH-1 →](https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md)  ·  Reference validator: [ilang_judge_validator.py →](https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py)  ·  JSON Schema: [judge-v5.0.json →](https://ilang.ai/schema/judge-v5.0.json)
+Full v5.0 specification: [SPEC-v5.0.md →](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0.md)  ·  Trainable judgment patch: [PATCH-1 →](https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md)  ·  Reference validator: [ilang_judge_validator.py →](https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py)  ·  JSON Schema: [judge-v5.0.json →](https://ilang.ai/schema/judge-v5.0.json)
 
 ## 14. Versioning
 
@@ -849,7 +849,7 @@ iLang evolves as three layered generations. Each generation adds a layer without
 
 | Version | Date | Changes |
 | --- | --- | --- |
-| v5.0 | 2026-06 | **Latest (public preview).** Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13. |
+| v5.0 | 2026-06 | **Latest (released as 5.0.0 on 29 September 2026).** Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13. |
 | v4.2 | 2026-09 | **Current stable.** Media regions and image layers: regions as document-scoped entities with four body keys (pts, bnd, vtx, msk), masks by reference or geometry, image layers composed by MERGE with ::LIST line order as stacking order. No new verb, key, entity or declaration; the 88 verbs, the 29 core modifiers, the 20-key media profile and the judgment layer are unchanged. [SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md) |
 | v4.1 | 2026-09 | Stable. Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. [SPEC-v4.1-MEDIA-PROFILE](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md) |
 | v4.0 | 2026-05 | Stable. Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12. |

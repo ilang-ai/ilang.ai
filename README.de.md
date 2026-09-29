@@ -16,7 +16,7 @@ Alles Weitere richtet sich an KI, Entwickler, Forschende und alle, die das Proto
 
 So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, **standardisiert iLang die Kommunikation zwischen Mensch und KI**. Ein offenes Protokoll, getestet mit ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen und GLM.
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **Website:** [ilang.ai](https://ilang.ai) · **Forschung:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

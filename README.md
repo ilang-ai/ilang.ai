@@ -21,7 +21,7 @@
 [![Version](https://img.shields.io/badge/version-5.0-1e3a8a.svg?style=flat-square)](https://github.com/ilang-ai/ilang.ai/releases)
 [![Website](https://img.shields.io/badge/web-ilang.ai-1e3a8a.svg?style=flat-square)](https://ilang.ai)
 [![HuggingFace](https://img.shields.io/badge/🤗-i--Lang-ffcc4d.svg?style=flat-square)](https://huggingface.co/i-Lang)
-[![Status](https://img.shields.io/badge/status-public%20preview-c1121f.svg?style=flat-square)]()
+[![Status](https://img.shields.io/badge/status-released%205.0.0-2e7d32.svg?style=flat-square)]()
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22865167.svg)](https://doi.org/10.5281/zenodo.22865167)
 
 [**Website**](https://ilang.ai) · [**Specification**](https://ilang.ai/spec/) · [**Research**](https://research.ilang.ai) · [**AI See**](https://i.ilang.ai) · [**Dictionary**](https://github.com/ilang-ai/ilang-dict) · [**🤗 Hugging Face**](https://huggingface.co/i-Lang)
@@ -53,7 +53,7 @@ Everything below is for AI, developers, researchers and anyone auditing the prot
 > One open protocol, tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM.
 
 ```
-::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}
+::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}
 ```
 
 ---
@@ -71,7 +71,7 @@ Distribution of this document is unlimited.
 |:-------------|:--------------------------------------------------|
 | Protocol     | iLang                                            |
 | Version      | 5.0                                               |
-| Status       | Public preview (v4.2 is the current stable release) |
+| Status       | Released: v5.0.0, 29 September 2026 |
 | Category     | Open Specification                                |
 | Maintainer   | iLang Research · iLang Inc., Canada           |
 | Published    | 2026                                              |

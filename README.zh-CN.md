@@ -18,7 +18,7 @@ iLang 是给 AI 用的协议，不是让人背的语言。你照常用自己的�
 
 iLang 是首个将希腊数学符号正式定义为 AI 间通信原语动词的协议，也是首个将 AI 判断力定义为可计算向量空间的协议（11维度，4公理，模糊数学基础）。
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **官网:** [ilang.ai](https://ilang.ai)
 **研究:** [research.ilang.ai](https://research.ilang.ai)

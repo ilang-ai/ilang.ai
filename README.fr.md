@@ -16,7 +16,7 @@ La suite s'adresse à l'IA, aux développeurs, aux chercheurs et à toute person
 
 Tout comme HTTP a standardisé la communication web et SQL les requêtes de bases de données, **iLang standardise la façon dont les humains parlent à l'IA**. Un protocole, testé sur ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen et GLM, aucune dépendance fournisseur.
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **Site web:** [ilang.ai](https://ilang.ai) · **Recherche:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

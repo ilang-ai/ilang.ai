@@ -16,7 +16,7 @@ iLang は AI のためのプロトコルで、人が覚える言語ではあり�
 
 HTTPがWeb通信を標準化し、SQLがデータベースクエリを標準化したように、**iLangは人間とAIの対話を標準化します**。1つのオープンプロトコルで、ChatGPT、Claude、Gemini、DeepSeek、Kimi、Qwen、GLMでテスト済みです。
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **公式サイト:** [ilang.ai](https://ilang.ai) · **研究:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

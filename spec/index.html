@@ -156,7 +156,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
       "name": "Where do I read the iLang specification and dictionary?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the latest version of the protocol, published as a public preview in SPEC-v5.0-PRE.md; v4.2 is the current stable release. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
+        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the latest version of the protocol, released as 5.0.0 on 29 September 2026 in SPEC-v5.0.md. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
       }
     }
   ]
@@ -404,7 +404,7 @@ E:`T[0]  ::EVENT{1998|entered_wuhan_university}` , `T[9]=2015`
 T:narrative_payload_braces_MAY_carry_pipe_separated_fields|first_segment=name
 T:subsequent_segments=`key:value`_fields_or_barewords|barewords_are_opaque_labels
 E:`::EVENT{1998|entered_wuhan_university|major:computer_science}`</code></pre>
-<p>Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC.md</a> &sect;7, &sect;10.4 and &sect;10.5; <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md</a> &sect;1.6 and &sect;1.7.</p>
+<p>Source: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC.md</a> &sect;7, &sect;10.4 and &sect;10.5; <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0.md</a> &sect;1.6 and &sect;1.7.</p>
 
 <h3 id="s2-4-dna-model">2.4 DNA Model</h3>
 <pre><code>Ψ(t) = (G ⊗ B) · E(t) · ∫₀ᵗ S(τ)dτ</code></pre>
@@ -777,7 +777,7 @@ Warn when safety-critical semantics cannot be enforced.</pre>
 <p>Red-team reviewed (GPT-5.5 Pro, 3 rounds). Execution semantics are the second of three layers; the judgment layer below is the third. The v3.0 communication baseline is unchanged: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC.md &rarr;</a></p>
 
 <h2 id="s13-judgment-layer-v5-0">13. Judgment Layer (v5.0)</h2>
-<p>Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, published as a public preview; v4.2 is the current stable release. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing: the difference between checking whether each sentence is true and seeing where a string of true sentences is leading. It is grounded in fuzzy mathematics (Zadeh, 1965): membership <code>&mu;(x) &isin; [0,1]</code> replaces binary set membership, and multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
+<p>Version 5.0 adds the third layer: how an AI makes judgments. It is the latest version of the protocol, released as 5.0.0 on 29 September 2026. Where a binary filter sees one request and returns one label &mdash; collapsing everything that matters into a single bit &mdash; v5.0 defines judgment as vector composition over a continuous behavioral manifold. It reads a request across eleven axes and sees the direction it is actually pointing: the difference between checking whether each sentence is true and seeing where a string of true sentences is leading. It is grounded in fuzzy mathematics (Zadeh, 1965): membership <code>&mu;(x) &isin; [0,1]</code> replaces binary set membership, and multiple imprecise assessments converge toward a precise one over the course of a conversation.</p>
 
 <h3 id="s13-1-three-layer-architecture">13.1 Three-Layer Architecture</h3>
 <p>Judgment executes in three layers, each gating the next. Execution order: A &rarr; B &rarr; C.</p>
@@ -898,13 +898,13 @@ STEP 3 — mode selection (by net_direction magnitude)
 <p>Prior, independent work by Lu, Song &amp; Wang (Oct 2025, <a href="https://arxiv.org/abs/2510.27328">arXiv:2510.27328</a>) finds a dominant <strong>Valence-Assent Axis</strong> in the activations of eight dense, instruction-tuned LLMs (Qwen2.5 3B to 72B, Llama-3.1-8B, Mistral-7B, Gemma-2-9B). It is a single internal direction that jointly encodes what the model finds good and what it assents to as true. Steering along it shifts judgments in unrelated tasks, and it subordinates reasoning to that evaluative state: the model constructs a rationale consistent with its stance, even at the cost of factual accuracy. iLang v5.0 addresses the same failure mode from the protocol side. Judgment is externalized as an 11-dimensional vector and the decision is a fixed, auditable function of that vector (perception learned, decision specified), so the evaluative state is inspectable rather than latent and a rationale cannot silently move the verdict. Their finding is mechanistic and internal to the model; iLang is a behavioral constraint imposed from outside it.</p>
 <p>Model-assisted adversarial review (Gemini, GPT, Claude 4.8). Architecture complete, mathematically grounded, open for adversarial review with constructive proposals.</p>
 
-<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0-PRE.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a> &nbsp;&middot;&nbsp; JSON Schema: <a href="/schema/judge-v5.0.json" style="color:var(--accent);font-weight:600">judge-v5.0.json &rarr;</a></p>
+<p>Full v5.0 specification: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0.md" style="color:var(--accent);font-weight:600" target="_blank">SPEC-v5.0.md &rarr;</a> &nbsp;&middot;&nbsp; Trainable judgment patch: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/archive/SPEC-v5.0-PATCH-1.md" style="color:var(--accent);font-weight:600" target="_blank">PATCH-1 &rarr;</a> &nbsp;&middot;&nbsp; Reference validator: <a href="https://github.com/ilang-ai/ilang-spec/blob/main/ilang_judge_validator.py" style="color:var(--accent);font-weight:600" target="_blank">ilang_judge_validator.py &rarr;</a> &nbsp;&middot;&nbsp; JSON Schema: <a href="/schema/judge-v5.0.json" style="color:var(--accent);font-weight:600">judge-v5.0.json &rarr;</a></p>
 
 <h2 id="s14-versioning">14. Versioning</h2>
 <p>iLang evolves as three layered generations. Each generation adds a layer without breaking the ones below it: v3.0 defined communication, v4.0 defined execution, v5.0 defined judgment.</p>
 <table>
 <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
-<tr><td>v5.0</td><td>2026-06</td><td><strong>Latest (public preview).</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
+<tr><td>v5.0</td><td>2026-06</td><td><strong>Latest (released as 5.0.0 on 29 September 2026).</strong> Judgment layer. Judgment defined as vector composition over a continuous behavioral manifold. 11-dimensional judgment vector, 4 axioms, three-layer architecture (exact predicate / vector logic / co-evolutionary trust), 8 decision modes (M1-M8), fuzzy-mathematical foundation. See §13.</td></tr>
 <tr><td>v4.2</td><td>2026-09</td><td><strong>Current stable.</strong> Media regions and image layers: regions as document-scoped entities with four body keys (pts, bnd, vtx, msk), masks by reference or geometry, image layers composed by MERGE with ::LIST line order as stacking order. No new verb, key, entity or declaration; the 88 verbs, the 29 core modifiers, the 20-key media profile and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS.md">SPEC-v4.2-MEDIA-REGIONS-AND-LAYERS</a></td></tr>
 <tr><td>v4.1</td><td>2026-09</td><td>Stable. Media profile: 20 target-gated keys and three media entities (@IMG, @VID, @AUD), counted apart from the 29 core modifiers. Expression layer; the 88 verbs and the judgment layer are unchanged. <a href="https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v4.1-MEDIA-PROFILE.md">SPEC-v4.1-MEDIA-PROFILE</a></td></tr>
 <tr><td>v4.0</td><td>2026-05</td><td>Stable. Execution semantics. 8 new declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3), three-tier authority model. 0 new verbs. See §12.</td></tr>
@@ -1014,7 +1014,7 @@ iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabinde
   T:two_syntaxes|operations:executable|declarations:behavioral
   T:zero_install|pure_text|cross_model
   T:MIT_licensed|open_source|free_forever
-::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}
+::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 

@@ -28,7 +28,7 @@ AI is moving from answering questions to acting for people. iLang starts from on
 
 # iLang
 
-> iLang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, iLang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version (public preview; v4.2 is the current stable release): 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
+> iLang is the AI-native communication protocol — the semantic communication layer missing from Anthropic's Model Context Protocol (MCP) and Google's Agent-to-Agent Protocol (A2A). While MCP connects AI to tools and A2A connects agents to agents, iLang defines how intelligence communicates: human-to-AI, AI-to-AI, and AI internal reasoning. It is a protocol built from symbols already inside every LLM's training data — brackets, pipes, arrows, key-value pairs. v5.0 is the latest version, released as 5.0.0 on 2026-09-29: 88 verbs, two syntaxes, 8 execution declarations (UNTRUSTED, BUDGET, STATUS, OBJECTIVE, RUBRIC, EVIDENCE, PRIOR, FALLBACK), 4 conformance levels (L0-L3). v5.0 includes a trainable judgment layer that defines judgment as vector composition over a continuous behavioral manifold — an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and 8 decision modes (M1-M8), grounded in fuzzy mathematics. MIT licensed.
 
 ::ILANG::v5.0
 [TYPE:llms.txt]
@@ -36,7 +36,7 @@ AI is moving from answering questions to acting for people. iLang starts from on
 [SCOPE:site_identity+navigation+authority]
 
 ::STATE{@SITE|id:ilang.ai|entity:iLang_Inc.|jurisdiction:Canada_Federal|BN:777879776RC0001}
-::STATE{@PROTOCOL|name:iLang|version:5.0|status:public_preview|genesis:2026-03-04|license:MIT}
+::STATE{@PROTOCOL|name:iLang|version:5.0|status:released|genesis:2026-03-04|license:MIT}
 ::STATE{@CREATOR|name:Long_Quan_Zhu|aka:Max,静水流深,惰惰,@SUN|orcid:0009-0004-4540-8082|doi:10.5281/zenodo.21821452}
 
 ::GENE{site_purpose|conf:confirmed}

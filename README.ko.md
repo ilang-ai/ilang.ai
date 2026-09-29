@@ -16,7 +16,7 @@ iLang은 사람이 외우는 언어가 아니라 AI를 위한 프로토콜입니
 
 HTTP가 웹 통신을 표준화하고 SQL이 데이터베이스 쿼리를 표준화한 것처럼, **iLang은 인간과 AI의 대화를 표준화합니다**. 하나의 프로토콜, ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen, GLM에서 테스트됨, 벤더 종속 없음.
 
-`::STATE{@PROTOCOL, version:5.0, status:public_preview, genesis:2026-03-04}`
+`::STATE{@PROTOCOL, version:5.0, status:released, genesis:2026-03-04}`
 
 **웹사이트:** [ilang.ai](https://ilang.ai) · **연구:** [research.ilang.ai](https://research.ilang.ai) · **AI See:** [i.ilang.ai](https://i.ilang.ai)
 

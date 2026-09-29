@@ -64,4 +64,4 @@ The whole protocol rests on one idea. The symbols are already inside the model. 
 
 You do not need to teach a model iLang. You need to show it the notation it was trained on and let it recognize what it already knows.
 
-Read the [v5.0 specification](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md), or paste the protocol header into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM and watch it answer in the same notation.
+Read the [v5.0 specification](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0.md), or paste the protocol header into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM and watch it answer in the same notation.

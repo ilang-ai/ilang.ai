@@ -37,7 +37,7 @@ system > developer > runtime > user > agent_self
 
 Authority fields are not self-authenticating. Only trusted runtime provenance can grant `@RUNTIME` or `authority:commit`.
 
-The v5.0 specification, [SPEC-v5.0-PRE.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0-PRE.md) §2.1, tables the role entities. Its row for the human principal:
+The v5.0 specification, [SPEC-v5.0.md](https://github.com/ilang-ai/ilang-spec/blob/main/SPEC-v5.0.md) §2.1, tables the role entities. Its row for the human principal:
 
 | Entity | Authority tier | Meaning |
 | --- | --- | --- |
@@ -53,7 +53,7 @@ Enforcement needs a runtime. The conformance note for `::UNTRUSTED` reads: "L2+ 
 
 ## Three of the eight v5.0 modes
 
-This part comes from iLang v5.0, the latest version of the protocol, published as a public preview. Section 13.7 of the [specification](https://ilang.ai/spec/) lists eight modes in a closed set. Three of them, as it writes them:
+This part comes from iLang v5.0, the latest version of the protocol, released as 5.0.0 on 29 September 2026. Section 13.7 of the [specification](https://ilang.ai/spec/) lists eight modes in a closed set. Three of them, as it writes them:
 
 | Mode | Behavior |
 | --- | --- |
