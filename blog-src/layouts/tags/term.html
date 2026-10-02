@@ -1,11 +1,12 @@
 {{ define "main" }}
-<div class="tag-term-page">
-  <div class="tag-term-header">
-    <a href="{{ "tags/" | absURL }}" class="back-link">← All topics</a>
-    <h1>{{ .Title }}</h1>
-    <p class="tag-term-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
-  </div>
-  <div class="posts-container">
+<main id="main" class="journal tag-term-page">
+<header class="page-hero"><div class="container tag-term-header" data-path="ilang.ai / blog / tags / {{ .Data.Term }}">
+  <a href="{{ "tags/" | absURL }}" class="back-link">← All topics</a>
+  <h1>{{ .Title }}</h1>
+  <p class="tag-term-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</p>
+</div></header>
+<div class="container">
+  <div class="posts-list posts-container">
     {{ range .Pages }}
     <article class="post-card">
       <div class="post-meta">
@@ -13,9 +14,10 @@
       </div>
       <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       {{ with .Description }}<p class="post-excerpt">{{ . }}</p>{{ end }}
-      <a href="{{ .Permalink }}" class="read-more">Read →</a>
+      <a href="{{ .Permalink }}" class="read-more" tabindex="-1" aria-hidden="true">Read →</a>
     </article>
     {{ end }}
   </div>
 </div>
+</main>
 {{ end }}

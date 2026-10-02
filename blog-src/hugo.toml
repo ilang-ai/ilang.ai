@@ -39,3 +39,8 @@ enableRobotsTXT = false
   home = ["HTML"]
   section = ["HTML"]
   page = ["HTML"]
+
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepComments = true

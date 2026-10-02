@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,82 +13,16 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/security/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://cdn.jsdmirror.com">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"iLang Security Model","description":"Verb risk classification and runtime security requirements for the iLang protocol. Classifies 88 verbs as safe, guarded, or dangerous with required safeguards for each level.","url":"https://ilang.ai/security/","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-05-07"}</script>
-<style>*{margin:0;padding:0;box-sizing:border-box}
-:root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--muted-2:#8a94a8;--line:#e4e7ee;--line-2:#f0f2f6;--bg:#fafbfc;--bg-2:#f3f5f9;--accent:#1e3a8a;--accent-2:#2b4fb8;--accent-soft:#eaf0ff;--signal:#dc2626;--code-bg:#0b0f1a;--code-text:#d4d9e3;--code-accent:#86efac}
-html{scroll-behavior:smooth}
-body{font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace}
-a{color:inherit;text-decoration:none}
-.container{max-width:1160px;margin:0 auto;padding:0 32px}
-@media(max-width:640px){.container{padding:0 20px}}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
-.brand .mark{width:28px;height:28px;border-radius:6px}
-.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
-.nav-cta:hover{background:var(--accent-2)}
-@media(max-width:1000px){.nav-links{gap:16px;font-size:13px}}
-@media(max-width:760px){.nav-links{display:none}}
-.page-hero{padding:120px 0 60px}
-.page-hero h1{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
-.page-hero .sub{font-size:17px;color:var(--muted);max-width:700px;line-height:1.7}
-.content{padding:40px 0 80px}
-.content h2{font-size:24px;font-weight:700;margin:48px 0 16px;letter-spacing:-.01em}
-.content h3{font-size:18px;font-weight:600;margin:32px 0 12px}
-.content p{margin:0 0 16px;color:var(--ink-2)}
-.content table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
-.content th{text-align:left;padding:12px 16px;background:var(--bg-2);border:1px solid var(--line);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
-.content td{padding:12px 16px;border:1px solid var(--line);vertical-align:top}
-.content code{font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--bg-2);padding:2px 6px;border-radius:4px}
-.content pre{background:var(--code-bg);color:var(--code-text);padding:20px 24px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;margin:16px 0 24px}
-.content pre code{background:none;padding:0}
-.tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:12px;font-weight:600;margin:2px}
-.tag-io{background:#dbeafe;color:#1e40af}
-.tag-transform{background:#fef3c7;color:#92400e}
-.tag-analysis{background:#d1fae5;color:#065f46}
-.tag-gen{background:#fce7f3;color:#9d174d}
-.tag-exec{background:#e0e7ff;color:#3730a3}
-.tag-output{background:#f3e8ff;color:#6b21a8}
-.tag-struct{background:#ccfbf1;color:#134e4a}
-.tag-meta{background:#f1f5f9;color:#475569}
-.tag-batch{background:#fee2e2;color:#991b1b}
-.verb-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 24px;margin:12px 0}
-.verb-card .verb-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:var(--accent)}
-.verb-card .verb-desc{color:var(--ink-2);margin:8px 0}
-.verb-card .verb-example{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--code-accent);background:var(--code-bg);padding:8px 12px;border-radius:4px;margin-top:8px}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin:32px 0}
-@media(max-width:768px){.compare-grid{grid-template-columns:1fr}}
-.compare-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;position:relative}
-.compare-card.highlight{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.compare-card h3{margin-top:0}
-.compare-card .badge{position:absolute;top:-10px;right:16px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
-.check{color:#16a34a}
-.cross{color:#dc2626}
-.partial{color:#d97706}
-footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-@media(max-width:768px){.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
-.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:12px}
-.foot-brand .logo .mark{width:28px;height:28px;border-radius:6px}
-.foot-brand p{font-size:13px;color:var(--muted);line-height:1.7}
-.foot-col h5{font-size:13px;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
-.foot-col ul{list-style:none}
-.foot-col li{margin:8px 0}
-.foot-col a{font-size:14px;color:var(--ink-2)}
-.foot-col a:hover{color:var(--accent)}
-.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
-.foot-bottom .ids{display:flex;gap:16px}@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
-@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
-</style>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
+<script>
+// Before first paint: mark that scripts run, put back the reader's own choice of paper or ink, and let the page
+// move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
+(function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=e695ff3c">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,24 +41,28 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <a href="/" class="brand" aria-label="iLang home"><img src="/ilang-logo.svg" alt="" width="28" height="28"><span>iLang</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main">
+    <a href="/spec/" style="--i:0">Specification</a>
+    <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
+    <a href="/dictionary/" style="--i:2">Dictionary</a>
+    <a href="/playground/" style="--i:3">Playground</a>
+    <a href="/ecosystem/" style="--i:4">Ecosystem</a>
+    <a href="/faq/" style="--i:5">FAQ</a>
+    <a href="/about/" style="--i:6">About</a>
+    <a href="/blog/" style="--i:7">Blog</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:8">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+  </nav>
+  <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
+  <span class="progress" id="progress" aria-hidden="true"></span>
+</header>
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="brand"><img src="/ilang-logo.svg" alt="iLang" class="mark"><span>iLang</span></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/mcp-vs-a2a/">Compare</a>
-      <a href="/spec/">Spec</a>
-      <a href="/dictionary/">Dictionary</a>
-      <a href="/playground/">Playground</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-    </div>
-    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="nav-cta">GitHub <span class="mono">↗</span></a>
-  </div>
-</nav>
-
-<section class="page-hero"><div class="container">
+<main id="main">
+<section class="page-hero"><div class="container" data-path="ilang.ai / security">
 <h1>Security Model</h1>
 <p class="sub">iLang is an instruction format, not an authorization bypass. All dangerous operations require host runtime confirmation, permission checks, and audit logging.</p>
 </div></section>
@@ -137,7 +75,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <h2>Verb risk classification</h2>
 
-<h3 style="color:#16a34a">Safe verbs (no side effects)</h3>
+<h3 style="color:var(--ok)">Safe verbs (no side effects)</h3>
 <p>These verbs read, analyze, or format data without modifying external state.</p>
 <table>
 <tr><th>Verb</th><th>Risk</th><th>Reason</th></tr>
@@ -148,7 +86,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>HELP, DESC, INTR, NOOP</td><td>Safe</td><td>Informational</td></tr>
 </table>
 
-<h3 style="color:#ca8a04">Guarded verbs (require confirmation)</h3>
+<h3 style="color:var(--warn)">Guarded verbs (require confirmation)</h3>
 <p>These verbs modify files, send data, or change external state. Host runtime must require user confirmation before execution.</p>
 <table>
 <tr><th>Verb</th><th>Risk</th><th>Required safeguard</th></tr>
@@ -161,7 +99,7 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <tr><td>SAVE</td><td>Guarded</td><td>Confirm state checkpoint location</td></tr>
 </table>
 
-<h3 style="color:#dc2626">Dangerous verbs (require explicit authorization)</h3>
+<h3 style="color:var(--bad)">Dangerous verbs (require explicit authorization)</h3>
 <p>These verbs can cause data loss, execute arbitrary code, or modify production systems. Host runtime must enforce permission checks, dry-run mode, sandbox execution, and audit logging.</p>
 <table>
 <tr><th>Verb</th><th>Risk</th><th>Required safeguards</th></tr>
@@ -195,48 +133,70 @@ footer{background:#fff;padding:56px 0 32px;border-top:1px solid var(--line)}
 <p>If you discover a security concern with the iLang specification or any iLang tool, report it via <a href="https://github.com/ilang-ai/ilang-spec/security/advisories/new" target="_blank" style="color:var(--accent)">GitHub security advisory</a>.</p>
 
 </div></section>
+</main>
 
 <footer>
-  <div class="container">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="logo"><img src="/ilang-logo.svg" alt="iLang" class="mark"> iLang</div>
-        <p>iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured AI communication. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <p class="f-brand"><img src="/ilang-logo.svg" alt="" width="28" height="28"> iLang</p>
+        <p class="footer-about">iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai">contact@ilang.ai</a><!--/email_off--></p>
       </div>
-      <div class="foot-col"><h5>Protocol</h5><ul>
-        <li><a href="/">Overview</a></li>
-        <li><a href="/mcp-vs-a2a/">Compare</a></li>
-        <li><a href="/spec/">Specification</a></li>
-        <li><a href="/dictionary/">Dictionary</a></li>
-      </ul></div>
-      <div class="foot-col">
-        <h5>Build</h5>
+      <div>
+        <p class="footer-col-title">Protocol</p>
+        <ul>
+          <li><a href="/mcp-vs-a2a/">Compare</a></li>
+          <li><a href="/spec/">Specification</a></li>
+          <li><a href="/dictionary/">Dictionary</a></li>
+          <li><a href="/playground/">Playground</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">GitHub Spec</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Build</p>
         <ul>
           <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
           <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
           <li><a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">Agent Ready GEO</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h5>Research</h5>
+      <div>
+        <p class="footer-col-title">Research</p>
         <ul>
           <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">45-model conformance</a></li>
           <li><a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit</a></li>
+          <li><a href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" target="_blank" rel="noopener">Judge observations, daily</a></li>
           <li><a href="https://research.ilang.ai/papers/missing-definition-of-right/" target="_blank" rel="noopener">Preprint</a></li>
           <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">All research</a></li>
         </ul>
       </div>
-      <div class="foot-col"><h5>Community</h5><ul>
-        <li><a href="https://github.com/ilang-ai" target="_blank">GitHub</a></li>
-        <li><a href="https://huggingface.co/i-Lang" target="_blank">Hugging Face</a></li>
-        <li><a href="/about/">About</a></li>
-      <li><a href="/blog/">Blog</a></li>
-        <li><a href="https://ilang.cn" target="_blank">中文站</a></li>
-      </ul></div>
+      <div>
+        <p class="footer-col-title">Community</p>
+        <ul>
+          <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
+          <li><a href="https://www.reddit.com/r/iLang/" target="_blank" rel="noopener">Reddit</a></li>
+          <li><a href="https://ilang.cn" target="_blank" rel="noopener" lang="zh-CN">中文站</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul>
+          <li><a href="/about/">About iLang</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><!--email_off--><a href="mailto:contact@ilang.ai">Contact</a><!--/email_off--></li>
+        </ul>
+      </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 iLang Inc. &middot; Canada &middot; AI language technology</span>
-      <div class="ids"><span>MIT License</span><span>ilang:genesis:2026-03-04</span></div>
+    <div class="footer-bottom">
+      <span>© 2026 iLang Inc. · Canada · AI language technology</span>
+      <div class="ids">
+        <span>MIT License</span>
+        <span>ilang:genesis:2026-03-04</span>
+      </div>
     </div>
   </div>
 </footer>
@@ -270,5 +230,6 @@ iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabinde
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 
+<script src="/assets/site.js?v=e695ff3c" defer></script>
 </body>
 </html>

@@ -1,7 +1,10 @@
 {{ define "main" }}
-<div class="tags-page">
+<main id="main" class="journal tags-page">
+<header class="page-hero"><div class="container" data-path="ilang.ai / blog / tags">
   <h1>Topics</h1>
-  <p class="tags-intro">All topics covered on the iLang Blog. Each tag is a rabbit hole.</p>
+  <p class="sub tags-intro">All topics covered on the iLang Blog. Each tag is a rabbit hole.</p>
+</div></header>
+<div class="container">
   <div class="tags-cloud">
     {{ range .Data.Terms.Alphabetical }}
     <a href="{{ .Page.Permalink }}" class="tag-pill">
@@ -11,4 +14,5 @@
     {{ end }}
   </div>
 </div>
+</main>
 {{ end }}

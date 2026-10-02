@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,9 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/ilang-favicon.png" type="image/png">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="{{ "css/blog.css" | absURL }}?v=4">
+{{ partial "site-head.html" . }}
+<link rel="stylesheet" href="/blog/css/blog.css?v=6">
+{{ if and .IsPage (findRE `\$\$` .RawContent) }}<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css">{{ end }}
 {{ if .IsPage }}
 <script type="application/ld+json">
 {
@@ -70,6 +65,7 @@
 {{ partial "header.html" . }}
 {{ block "main" . }}{{ end }}
 {{ partial "footer.html" . }}
+{{ partial "site-script.html" . }}
 {{ block "scripts" . }}{{ end }}
 </body>
 </html>

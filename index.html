@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,517 +96,877 @@
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "iLang 是什么？", "acceptedAnswer": {"@type": "Answer", "text": "iLang 是人和 AI 之间的一份规格：AI 动手之前，先定下这件事被允许做到什么程度；动手之后，由代码检查它做对了没有。它不是提示词技巧，也不是压缩格式。"}}, {"@type": "Question", "name": "它和我有什么关系？", "acceptedAnswer": {"@type": "Answer", "text": "如果你的 AI 会替你做事——改代码、发消息、花钱、操作网站——你就要回答三个问题：它可以做什么，做到什么算完成，出了错谁来拍板。iLang 把这三个问题写成机器能检查的格式。"}}, {"@type": "Question", "name": "它和 MCP、提示词、护栏有什么不同？", "acceptedAnswer": {"@type": "Answer", "text": "MCP 给 AI 装上手，提示词告诉 AI 你想要什么，护栏挡住明显危险的内容。iLang 管的是中间那一步：这个具体的动作，在这个具体的情况下，是直接做、先确认、先问清楚、交给人，还是停。这个结果由一个固定的函数算出来，同样的输入永远得到同样的结果。"}}, {"@type": "Question", "name": "为什么要这样设计？", "acceptedAnswer": {"@type": "Answer", "text": "AI 正在从回答问题变成替人做事。iLang 从一条原则出发：定规则的人必须先守规则。模型负责感知，代码负责决定，不可逆的事由人拍板。"}}, {"@type": "Question", "name": "怎么开始？", "acceptedAnswer": {"@type": "Answer", "text": "不用专门学。把 iLang 加载给你的 AI，或者在它动手之前调用一次判断接口就行。用 iLang 格式写给 AI 的指令，AI 本来就读得懂。"}}, {"@type": "Question", "name": "它被验证过吗？", "acceptedAnswer": {"@type": "Answer", "text": "有三件事，不管哪个模型怎么说都成立：决策函数是代码，同样的输入永远得到同样的结果；规范里的每一个符号，每次改动都要过检查；发现的每一个反例都公开登记，还没解决的也照样记。"}}, {"@type": "Question", "name": "iLang 能检测 AI 味吗？", "acceptedAnswer": {"@type": "Answer", "text": "能。它不判定“是不是 AI 写的”，只告诉你这段文字和人写的基准相比偏了多少、偏在哪里：哪几句是套话、哪里句式过于整齐、哪里在重复总结。结论由你自己下。"}}, {"@type": "Question", "name": "能帮我去掉 AI 味吗？", "acceptedAnswer": {"@type": "Answer", "text": "能。它按检测出来的那几处逐条改写，让文字更像你自己写的：去掉套话，打散过于整齐的句式，删掉重复的总结。改了哪里、为什么改，都会列出来。"}}, {"@type": "Question", "name": "你们能绕过 AI 检测吗？", "acceptedAnswer": {"@type": "Answer", "text": "能。检测 AI 味的原理，反过来就是去掉 AI 味的方法。我们的检测能定位到具体哪几处暴露了 AI 特征，改掉这些特征，检测器就认不出来了。这属于对抗鲁棒性研究，和安全研究员公开漏洞是同一个性质。我们公开原理，不做自动改写的工具。各位可以基于公开的检测结果自行研究。"}}, {"@type": "Question", "name": "What is iLang?", "acceptedAnswer": {"@type": "Answer", "text": "iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. It is not a prompting technique and not a compression format."}}, {"@type": "Question", "name": "Why would I need it?", "acceptedAnswer": {"@type": "Answer", "text": "If your AI acts on your behalf — edits code, sends messages, spends money, operates websites — you need answers to three questions: what may it do, what counts as done, and who decides when something goes wrong. iLang writes those answers in a form machines can check."}}, {"@type": "Question", "name": "How is it different from MCP, prompts, or guardrails?", "acceptedAnswer": {"@type": "Answer", "text": "MCP gives AI hands. Prompts tell AI what you want. Guardrails block obviously dangerous content. iLang governs the step in between: for this action, in this situation, should the AI act, confirm first, ask, hand off to a human, or stop. The answer is computed by a fixed function; the same input always gives the same result."}}, {"@type": "Question", "name": "Why this design?", "acceptedAnswer": {"@type": "Answer", "text": "AI is moving from answering questions to acting for people. iLang starts from one principle: whoever sets the rules must follow them first. The model perceives, code decides, and a human decides anything that cannot be undone."}}, {"@type": "Question", "name": "How do I start?", "acceptedAnswer": {"@type": "Answer", "text": "You do not need to learn iLang. Load it into your AI, or call the judgment endpoint before your AI acts. Instructions written in iLang format are already readable by AI."}}, {"@type": "Question", "name": "Has it been tested?", "acceptedAnswer": {"@type": "Answer", "text": "Three things hold regardless of what any model says about it. The decision function is code: the same vector always gives the same mode. Every symbol of the normative text is checked on each change, and a change that leaves one without a definition does not pass. Every counterexample found is entered in a public register, the unresolved ones included."}}, {"@type": "Question", "name": "Can iLang detect AI-generated text?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It does not declare whether text “is AI.” It measures how far a piece of writing deviates from a human-written baseline and where: which sentences are boilerplate, where sentence structure is too uniform, where summaries repeat. The conclusion is yours to draw."}}, {"@type": "Question", "name": "Can it help remove the AI feel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It rewrites the flagged passages one by one to read more like you wrote them: strips boilerplate, breaks up overly uniform sentence patterns, removes redundant summaries. What changed and why is listed for each edit."}}, {"@type": "Question", "name": "Can you bypass AI detection?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The same method that detects AI-written patterns can remove them. Our detector pinpoints exactly which passages expose AI characteristics; rewriting those passages makes the text undetectable. This is adversarial robustness research, the same discipline as security researchers disclosing vulnerabilities. We publish the principles, not a one-click bypass tool. You are welcome to study the published detection results on your own."}}]}</script>
 
-<!-- Fonts: domestic-friendly CDN (staticfile.org / jsdmirror.com) -— Inter + JetBrains Mono -->
-<link rel="preconnect" href="https://cdn.staticfile.org">
-<link rel="preconnect" href="https://cdn.jsdmirror.com">
-<!-- Inter (阿里、腾讯镜像均存在于 jsdmirror；国内网络可访问) -->
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/700.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/400.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/jetbrains-mono@5.0.19/500.css">
 
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
+<script>
+// Before first paint: mark that scripts run, put back the reader's own choice of paper or ink, and let the page
+// move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
+(function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+/* ilang.ai v3 (2026-10-02): the shared core. Paper, ink and the gold of the mark; system type only, nothing is
+   loaded from another host. The same design language as ilang.cn. */
 :root{
-  --ink:#0b0f1a;
-  --ink-2:#1a2033;
-  --muted:#626b7d;
-  --muted-2:#8a94a8;
-  --line:#e4e7ee;
-  --line-2:#f0f2f6;
-  --bg:#fafbfc;
-  --bg-2:#f3f5f9;
-  --accent:#1e3a8a;
-  --accent-2:#2b4fb8;
-  --accent-soft:#eaf0ff;
-  --signal:#dc2626;
-  --code-bg:#0b0f1a;
-  --code-text:#d4d9e3;
-  --code-accent:#86efac;
-  --code-str:#bae6fd;
-  --code-key:#fca5a5;
-  --code-com:#7b869e;
-  --card:#fff;
-  --border:var(--line);
-  --fg:var(--ink);
+  --paper:#f5f1e8;--paper-a:rgba(245,241,232,.84);--raise:#fbf8f2;--sunk:#ede7da;
+  --ink:#17140f;--ink-2:#4a443a;--ink-3:#6c6457;
+  --rule:rgba(23,20,15,.2);--rule-soft:rgba(23,20,15,.1);
+  --seal:#a87a2a;--seal-text:#82601c;--seal-wash:rgba(168,122,42,.13);--on-seal:#17140f;
+  --foot:#14110d;--foot-ink:#e9e2d4;--foot-ink-2:#a69e8e;--foot-rule:rgba(233,226,212,.15);
+  --code:#17140f;--code-ink:#e9e2d4;--code-dim:#a69e8e;--code-gold:#dcb568;--code-rule:rgba(233,226,212,.14);
+  --ok:#2f6b3f;--ok-wash:rgba(47,107,63,.12);--warn:#82601c;--warn-wash:rgba(168,122,42,.16);--bad:#a6382a;--bad-wash:rgba(166,56,42,.1);
+  --grain:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --f-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  --f-display:"Sitka Banner","Sitka Display","Iowan Old Style","Palatino Linotype",Palatino,"Noto Serif",Georgia,"Noto Serif SC","Songti SC",serif;
+  --f-serif:"Sitka Heading","Sitka Subheading","Iowan Old Style","Palatino Linotype",Palatino,"Noto Serif",Georgia,"Noto Serif SC","Songti SC",serif;
+  --f-num:"Bahnschrift","DIN Alternate","DIN Condensed","sans-serif-condensed","Arial Narrow",system-ui,sans-serif;
+  --f-mono:ui-monospace,"SF Mono","Cascadia Mono","JetBrains Mono","Fira Code",Consolas,Menlo,monospace;
+  --pad:clamp(20px,5.4vw,96px);
+  --nav-h:64px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  /* names the page content already uses in its own inline styles, mapped onto the palette above */
+  --accent:var(--seal-text);--accent-2:var(--seal-text);--accent-soft:var(--seal-wash);--muted:var(--ink-3);--muted-2:var(--ink-3);
+  --line:var(--rule);--line-2:var(--rule-soft);--bg:var(--paper);--bg-2:var(--sunk);--panel:var(--raise);--card:var(--raise);--border:var(--rule);--fg:var(--ink);
+  --code-bg:var(--code);--code-text:var(--code-ink);--code-accent:var(--code-gold);--signal:var(--bad);
 }
-html{scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="paper"]){
+    --paper:#12100c;--paper-a:rgba(18,16,12,.84);--raise:#1a1712;--sunk:#0d0b08;
+    --ink:#efe8da;--ink-2:#bbb2a1;--ink-3:#938b7a;
+    --rule:rgba(239,232,218,.22);--rule-soft:rgba(239,232,218,.11);
+    --seal:#d2a653;--seal-text:#dcb568;--seal-wash:rgba(210,166,83,.15);--on-seal:#12100c;
+    --foot:#0b0a07;--code:#0b0a07;
+    --ok:#8fc79a;--ok-wash:rgba(143,199,154,.14);--warn:#dcb568;--warn-wash:rgba(210,166,83,.16);--bad:#e58a76;--bad-wash:rgba(229,138,118,.14);
+    --grain:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .94 0 0 0 0 .91 0 0 0 0 .85 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+:root[data-theme="ink"]{
+  --paper:#12100c;--paper-a:rgba(18,16,12,.84);--raise:#1a1712;--sunk:#0d0b08;
+  --ink:#efe8da;--ink-2:#bbb2a1;--ink-3:#938b7a;
+  --rule:rgba(239,232,218,.22);--rule-soft:rgba(239,232,218,.11);
+  --seal:#d2a653;--seal-text:#dcb568;--seal-wash:rgba(210,166,83,.15);--on-seal:#12100c;
+  --foot:#0b0a07;--code:#0b0a07;
+  --ok:#8fc79a;--ok-wash:rgba(143,199,154,.14);--warn:#dcb568;--warn-wash:rgba(210,166,83,.16);--bad:#e58a76;--bad-wash:rgba(229,138,118,.14);
+  --grain:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .94 0 0 0 0 .91 0 0 0 0 .85 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Chinese passages on an English page read in the Chinese faces */
+:lang(zh){
+  --f-sans:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSongti-SC-Regular","PingFang SC","Microsoft YaHei",sans-serif;
+  --f-display:"Noto Serif SC","Source Han Serif SC","Songti SC","STSongti-SC-Regular","PingFang SC","Microsoft YaHei",sans-serif;
+  font-family:var(--f-sans);line-break:strict;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 20px)}
 body{
-  font-family:'Inter','MiSans','HarmonyOS Sans SC','PingFang SC','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  font-feature-settings:"cv11","ss01";
-  overflow-x:hidden;
+  font-family:var(--f-sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);
+  background:var(--paper) var(--grain);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;overflow-x:hidden;
 }
-.mono{font-family:'JetBrains Mono','SF Mono',Menlo,monospace;font-feature-settings:"zero"}
+img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--seal);color:var(--on-seal)}
+:focus-visible{outline:2px solid var(--seal);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:var(--pad);top:-60px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:8px;transition:top .2s}
+.skip:focus{top:10px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.nb{white-space:nowrap}
+.mono{font-family:var(--f-mono);font-variant-ligatures:none}
 
-.container{max-width:1160px;margin:0 auto;padding:0 32px}
-@media(max-width:640px){.container{padding:0 20px}}
+/* text link: a hairline at rest, drawn over in full from the left on hover */
+.lk{background-image:linear-gradient(currentColor,currentColor),linear-gradient(var(--rule),var(--rule));background-repeat:no-repeat;background-position:0 100%;background-size:0 1px,100% 1px;
+  padding-bottom:2px;transition:color .25s,background-size .5s var(--ease)}
+.lk:hover,a:hover>.lk{color:var(--seal-text);background-size:100% 1px,100% 1px}
+.arr{display:inline-block;transition:transform .35s var(--ease)}
+a:hover .arr,button:hover .arr{transform:translate(3px,-3px)}
+a:hover .arr.fw{transform:translateX(5px)}
 
-/* ─── Nav ─── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(252,252,253,.82);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;height:var(--nav-h);display:flex;align-items:center;gap:20px;padding:0 max(var(--pad),calc(50% - 820px + var(--pad)));
+  background:var(--paper-a);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-bottom-color:var(--rule-soft)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:1.02rem;letter-spacing:.005em;margin-right:auto;padding-right:16px;white-space:nowrap}
+.brand img{width:28px;height:28px;border-radius:6px;transition:transform .5s var(--ease)}
+.brand:hover img{transform:rotate(-8deg) scale(1.06)}
+.nav-links{display:flex;align-items:center;gap:clamp(0px,.7vw,12px)}
+.nav-links a{position:relative;font-size:.9rem;color:var(--ink-2);padding:8px 8px;transition:color .2s;white-space:nowrap}
+.nav-links a::after{content:"";position:absolute;left:8px;right:8px;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav-links a:hover,.nav-links a.at{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.at::after{transform:scaleX(1)}
+.nav-links .sep{width:1px;height:14px;background:var(--rule);margin:0 6px}
+.nav-links .ext{font-size:.72em;margin-left:2px;color:var(--ink-3)}
+.theme{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);border-radius:999px;padding:2px;position:relative;flex:none}
+.theme::after{content:"";position:absolute;top:-10px;right:-10px;bottom:-10px;left:-10px}
+.theme span{position:relative;z-index:1;width:28px;height:24px;display:grid;place-items:center}
+.theme span::before{content:"";width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink-3);transition:border-color .3s,background .3s}
+.theme .t-ink::before{background:var(--ink-3)}
+.theme::before{content:"";position:absolute;top:2px;left:2px;width:28px;height:24px;border-radius:999px;background:var(--ink);transition:transform .45s var(--ease)}
+.theme .t-paper::before{border-color:var(--paper)}
+:root[data-theme="ink"] .theme::before{transform:translateX(28px)}
+:root[data-theme="ink"] .theme .t-paper::before{border-color:var(--ink-3)}
+:root[data-theme="ink"] .theme .t-ink::before{border-color:var(--paper);background:var(--paper)}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="paper"]) .theme::before{transform:translateX(28px)}
+  :root:not([data-theme="paper"]) .theme .t-paper::before{border-color:var(--ink-3)}
+  :root:not([data-theme="paper"]) .theme .t-ink::before{border-color:var(--paper);background:var(--paper)}
 }
-.nav-inner{
-  max-width:1160px;margin:0 auto;padding:0 32px;
-  height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;
-}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.01em}
-.brand .mark{width:28px;height:28px;border-radius:6px;display:block}
-.brand .name{display:flex;align-items:baseline;gap:8px}
-.nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted);font-weight:500}
-.nav-links a{transition:color .15s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{
-  padding:7px 14px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:600;
-  display:inline-flex;align-items:center;gap:6px;transition:background .15s;
-}
-.nav-cta:hover{background:var(--accent-2)}
-.nav-cta .mono{font-size:11px;opacity:.7}
-@media(max-width:1000px){.nav-links{gap:16px;font-size:13px}}
-@media(max-width:760px){.nav-links{display:none}}
+.nav-toggle{display:none;width:44px;height:44px;margin-right:-10px;position:relative;flex:none}
+.nav-toggle i{position:absolute;left:12px;right:12px;height:1.5px;background:var(--ink);transition:transform .4s var(--ease),top .4s var(--ease)}
+.nav-toggle i:nth-child(1){top:17px}
+.nav-toggle i:nth-child(2){top:25px}
+.nav-toggle[aria-expanded="true"] i:nth-child(1){top:21px;transform:rotate(45deg)}
+.nav-toggle[aria-expanded="true"] i:nth-child(2){top:21px;transform:rotate(-45deg)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--seal);transform:scaleX(0);transform-origin:left}
+.no-js .theme,.no-js .nav-toggle,.no-js .progress{display:none}
 
-/* ─── Hero ─── */
-.hero{padding:104px 0 32px;position:relative;overflow:hidden}
-.hero::before{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
-  background:
-    radial-gradient(ellipse 900px 500px at 50% -5%, rgba(30,58,138,.08), transparent 65%),
-    linear-gradient(to bottom, var(--bg), var(--bg) 80%, var(--bg-2));
-}
-.hero::after{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.4;
-  background-image:
-    linear-gradient(to right, rgba(11,15,26,.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11,15,26,.035) 1px, transparent 1px);
-  background-size:56px 56px;
-  mask-image:radial-gradient(ellipse 700px 500px at 50% 20%, black 30%, transparent 75%);
-  -webkit-mask-image:radial-gradient(ellipse 700px 500px at 50% 20%, black 30%, transparent 75%);
-}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
-@media(max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr);gap:36px}}
-.hero-copy{max-width:620px}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'JetBrains Mono',monospace;font-size:12px;
-  color:var(--muted);letter-spacing:.04em;
-  padding:6px 12px;border:1px solid var(--line);border-radius:100px;
-  background:#fff;margin-bottom:28px;
-}
-.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px rgba(193,18,31,.12)}
-.hero-eyebrow b{color:var(--ink);font-weight:600}
-.hero h1{
-  font-size:clamp(36px,4.8vw,60px);
-  font-weight:700;line-height:1.05;letter-spacing:-.03em;
-  margin-bottom:22px;
-}
-.hero h1 .em{
-  color:var(--accent);position:relative;display:inline-block;
-}
-.hero h1 .em::after{
-  content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;
-  background:linear-gradient(90deg, rgba(30,58,138,.14), rgba(30,58,138,0));
-  z-index:-1;border-radius:2px;
-}
-.hero .lede{
-  font-size:clamp(16px,1.25vw,17.5px);color:var(--muted);
-  max-width:640px;line-height:1.65;margin-bottom:28px;
-}
-.hero .lede code{
-  font-family:'JetBrains Mono',monospace;font-size:.92em;
-  background:var(--bg-2);padding:1px 6px;border-radius:4px;
-  color:var(--ink);border:1px solid var(--line);
-}
-.hero .def{
-  font-size:clamp(18px,1.55vw,21px);font-weight:600;color:var(--ink);
-  max-width:640px;line-height:1.45;margin-bottom:16px;letter-spacing:-.01em;
-}
-.hero .def span{display:block;font-weight:500;color:var(--muted)}
-#why .sect-head{margin-bottom:0;max-width:760px}
-#why .sect-head p{max-width:none}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:12px 20px;border-radius:8px;font-size:14px;font-weight:600;
-  transition:all .18s;cursor:pointer;border:1px solid transparent;
-}
-.btn-primary{background:var(--ink);color:#fff}
-.btn-primary:hover{background:var(--accent);transform:translateY(-1px)}
-.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line)}
-.btn-secondary:hover{border-color:var(--ink)}
-.btn .mono{font-size:12px;opacity:.7}
-.btn-sm{padding:8px 14px;font-size:13px;border-radius:6px}
+/* ---------- shared layout pieces ---------- */
+main{display:block}
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1640px;margin:0 auto}
+.sec-head{display:flex;align-items:center;gap:16px;font-family:var(--f-num);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:clamp(28px,4.5vw,64px)}
+.sec-head b{font-weight:600;color:var(--seal-text);font-size:.9rem;letter-spacing:.08em}
+.sec-head i{flex:1;height:9px;border-top:1px solid var(--rule);
+  background:repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 8px) 0 0/100% 4px no-repeat,
+             repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 40px) 0 0/100% 9px no-repeat;
+  transform-origin:left}
 
-.research-list{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:10px}
-.research-list li{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
-.research-list a{font-weight:600}
-.research-list span{color:var(--muted);font-size:14px}
-.research-foot{margin-top:18px;color:var(--muted);font-size:14px}
-
-/* ─── Section shell ─── */
-section{padding:52px 0}
-.sect-head{margin-bottom:28px;max-width:720px}
-.sect-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  color:var(--accent);letter-spacing:.08em;text-transform:uppercase;font-weight:600;
-  margin-bottom:16px;
+/* ---------- footer ---------- */
+footer{background:var(--foot);color:var(--foot-ink-2);padding:clamp(48px,7vw,96px) 0 calc(36px + env(safe-area-inset-bottom));font-size:.92rem;line-height:1.6;position:relative}
+.footer-grid{display:grid;grid-template-columns:minmax(0,2.3fr) repeat(5,minmax(0,1fr));gap:clamp(24px,3vw,56px)}
+.f-brand{display:flex;align-items:center;gap:10px;color:var(--foot-ink);font-weight:650;font-size:1.02rem}
+.f-brand img{width:28px;height:28px;border-radius:6px}
+.footer-about{margin-top:16px;max-width:27em;line-height:1.75}
+.footer-about a{color:var(--foot-ink);background:linear-gradient(var(--foot-rule),var(--foot-rule)) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:color .2s}
+.footer-about a:hover{color:#dcb568}
+.footer-col-title{display:block;color:var(--foot-ink);font-family:var(--f-num);font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.footer-grid ul{list-style:none}
+.footer-grid li a{display:block;padding:5px 0;transition:color .2s,transform .4s var(--ease)}
+.footer-grid li a:hover{color:var(--foot-ink);transform:translateX(4px)}
+.footer-bottom{margin-top:clamp(40px,6vw,72px);padding-top:24px;border-top:1px solid var(--foot-rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:.82rem}
+.footer-bottom .ids{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--f-mono);font-size:.74rem;opacity:.8;font-variant-ligatures:none}
+@media (max-width:1180px){
+  .footer-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .footer-grid>.f-about{grid-column:1/-1}
 }
-.sect-tag::before{content:"§";font-size:14px;opacity:.7}
-.sect-head h2{
-  font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.025em;
-  line-height:1.15;margin-bottom:14px;
+@media (max-width:760px){
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px}
+  .footer-grid li a{padding:8px 0}
 }
-.sect-head p{font-size:17px;color:var(--muted);line-height:1.6;max-width:640px}
 
-
-/* ─── Tested models (hero, left) and three ways in (hero, right) ─── */
-.models{margin-top:28px;padding-top:20px;border-top:1px dashed var(--line)}
-.models-l{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.models-list{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14.5px;font-weight:600;color:var(--ink)}
-.models-list span{display:inline-flex;align-items:center;gap:7px}
-.models-list span::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--ink);opacity:.75}
-.models-note{margin-top:10px;font-size:13px;color:var(--muted)}
-.paths{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 22px 6px;box-shadow:0 24px 60px -32px rgba(10,14,23,.22);min-width:0}
-.paths h2{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:14px 0 10px}
-.path{padding:12px 0 14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:7px;min-width:0}
-.path h3{font-size:16px;font-weight:600;color:var(--ink);line-height:1.4}
-.path p{font-size:14px;color:var(--muted);line-height:1.6}
-.path pre{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:12.5px;line-height:1.6;overflow-x:auto;white-space:pre;max-width:100%}
-.path a{color:var(--accent);font-weight:500}
-.path .btn{align-self:flex-start}
-.path-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px}
-#evidence .sect-head,#evidence .sect-head p{max-width:none}
-.copy-status{min-height:1.4em;margin-top:10px;font-size:14px;color:var(--muted)}
-
-/* ─── Evidence, ecosystem, research ─── */
-.band{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media(max-width:900px){.stats{grid-template-columns:minmax(0,1fr)}}
-.stat{display:flex;flex-direction:column;gap:8px;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:12px;transition:border-color .15s}
-.stat:hover{border-color:var(--accent)}
-.stat-n{font-family:'JetBrains Mono',monospace;font-size:clamp(26px,2.8vw,34px);font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
-.stat-l{font-size:14.5px;color:var(--muted);line-height:1.55;flex:1}
-.stat-src{font-size:13.5px;font-weight:600;color:var(--accent)}
-.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:start}
-@media(max-width:900px){.duo{grid-template-columns:minmax(0,1fr);gap:40px}}
-.duo-col{min-width:0}
-.duo-col h2{font-size:clamp(24px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
-.eco-list,.duo .research-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line);display:block}
-.eco-list li,.duo .research-list li{display:block;padding:9px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none}
-.eco-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
-.eco-row b{font-size:15.5px;font-weight:700;color:var(--ink)}
-.eco-row .tag{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--ink);color:#fff;padding:2px 7px;border-radius:3px;font-weight:500;letter-spacing:.04em;white-space:nowrap}
-.eco-row .meta{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap}
-.eco-list p{margin-top:3px;font-size:14px;color:var(--muted);line-height:1.55}
-.eco-list p a,.duo-foot a{color:var(--accent);font-weight:500;white-space:nowrap}
-.duo .research-list span{display:block;margin-top:2px}
-.duo-foot,.duo .research-foot{margin-top:14px;font-size:14px;color:var(--muted)}
-
-/* ─── Footer ─── */
-footer{
-  background:#fff;padding:48px 0 28px;border-top:1px solid var(--line);
+/* ---------- small screens: the menu ---------- */
+@media (max-width:1060px){
+  .nav-toggle{display:block}
+  .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;height:calc(100vh - var(--nav-h));height:calc(100dvh - var(--nav-h));background:var(--paper) var(--grain);
+    flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) calc(28px + env(safe-area-inset-bottom));overflow-y:auto;
+    visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .45s}
+  .nav-links.open{visibility:visible;opacity:1;transform:none;transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s}
+  .nav-links a{font-family:var(--f-serif);font-weight:600;font-size:1.5rem;color:var(--ink);padding:13px 0;border-bottom:1px solid var(--rule-soft);display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+    opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+  .nav-links a::after{display:none}
+  .nav-links a.at{color:var(--seal-text)}
+  .nav-links.open a{opacity:1;transform:none;transition-delay:calc(.06s + var(--i)*40ms)}
+  .nav-links .ext{font-family:var(--f-sans);font-size:.9rem}
+  .nav-links .sep{display:none}
+  .no-js .nav-links{display:none}
 }
-.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
-@media(max-width:960px){.foot-top{grid-template-columns:1.6fr 1fr 1fr;gap:32px}}
-@media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr;gap:32px}}
-.foot-col h5{
-  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);
-  letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px;
+@media (max-width:360px){.brand span{font-size:.96rem}}
+
+/* ---------- motion ---------- */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;transition-delay:0s!important;animation-delay:0s!important}
 }
-.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.foot-col ul a{font-size:14px;color:var(--ink-2);transition:color .15s}
-.foot-col ul a:hover{color:var(--accent)}
-.foot-brand{display:flex;flex-direction:column;gap:8px}
-.foot-brand .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
-.foot-brand .logo .mark{width:28px;height:28px;display:block;border-radius:6px}
-.foot-brand p{font-size:13.5px;color:var(--muted);line-height:1.7;max-width:300px;margin-top:8px}
-.foot-bottom{
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-  padding-top:28px;border-top:1px solid var(--line);
-  font-size:12.5px;color:var(--muted);
+/* ilang.ai v3: the home page. */
+ul,ol{list-style:none}
+p{text-wrap:pretty}
+.sec{padding-top:clamp(52px,6.8vw,104px);padding-bottom:clamp(52px,6.8vw,104px);position:relative}
+.sec-title{font-family:var(--f-display);font-weight:700;font-size:clamp(2.1rem,4.9vw,4.5rem);line-height:1.04;letter-spacing:-.018em;text-wrap:balance}
+.sec-intro{color:var(--ink-2);font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:33em;margin-top:clamp(16px,2vw,28px)}
+
+/* ---------- the copy button ---------- */
+.cta{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 26px 0 11px;border-radius:14px;background:var(--ink);color:var(--paper);
+  font-weight:650;font-size:1rem;letter-spacing:.005em;position:relative;white-space:nowrap;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.cta .seal{width:34px;height:34px;flex:none;transition:transform .5s var(--ease)}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(23,20,15,.55)}
+.cta:hover .seal{transform:rotate(-9deg) translateY(-2px)}
+.cta:active{transform:translateY(0) scale(.985);transition-duration:.1s}
+.cta:active .seal{transform:rotate(0) scale(.9);transition-duration:.1s}
+.cta .lbl{display:inline-grid}
+.cta .lbl>span{grid-area:1/1;transition:transform .5s var(--ease),opacity .3s}
+.cta .lbl>.ok{transform:translateY(70%);opacity:0}
+.cta.copied .lbl>.go{transform:translateY(-70%);opacity:0}
+.cta.copied .lbl>.ok{transform:none;opacity:1}
+.cta.sm{height:48px;border-radius:12px;padding:0 20px 0 9px;font-size:.95rem}
+.cta.sm .seal{width:30px;height:30px}
+.copy-wrap{position:relative;display:inline-flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.stamp{position:absolute;right:-30px;top:-22px;height:34px;padding:0 9px 0 11px;display:grid;place-items:center;border:2px solid #a87a2a;border-radius:6px;
+  color:#a87a2a;font-family:var(--f-num);font-weight:600;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;pointer-events:none;opacity:0;transform:rotate(-8deg) scale(1.7);transform-origin:60% 60%}
+.stamp.on{animation:stamp 2.6s var(--ease) forwards}
+@keyframes stamp{0%{opacity:0;transform:rotate(-8deg) scale(1.7)}8%{opacity:1;transform:rotate(-8deg) scale(.95)}13%{transform:rotate(-8deg) scale(1)}80%{opacity:1}100%{opacity:0;transform:rotate(-8deg) scale(1)}}
+.copy-status{flex-basis:100%;font-size:.94rem;color:var(--seal-text);min-height:1.65em;margin-top:2px}
+.copy-status a{text-decoration:underline;text-underline-offset:3px}
+.on-seal .copy-status{color:var(--on-seal)}
+
+/* ---------- hero ---------- */
+.hero{min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h));display:flex;flex-direction:column;padding-top:clamp(24px,5vh,72px);padding-bottom:clamp(28px,5.5vh,64px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-num);font-size:.86rem;letter-spacing:.1em;color:var(--ink-2)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--seal)}
+.eyebrow i{font-style:normal;color:var(--rule)}
+.display{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,min(10vw,15.5vh),10.5rem);line-height:.98;letter-spacing:-.026em;margin-top:clamp(12px,2.2vh,26px)}
+.display .ln{display:block;overflow:hidden;padding:.06em 0 .18em;margin:-.06em 0 -.18em}
+.display .ln>span{display:block;will-change:transform}
+.display .gold{color:var(--seal)}
+.ruler{position:relative;height:26px;margin-top:clamp(20px,3.6vh,42px);border-top:1px solid var(--rule);
+  background:repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 8px) 0 0/100% 5px no-repeat,
+             repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 40px) 0 0/100% 11px no-repeat;transform-origin:left}
+.ruler .cur{position:absolute;top:-7px;left:0;width:1px;height:26px;background:var(--seal);opacity:0;transition:opacity .3s;will-change:transform;font-style:normal}
+.ruler .cur b{position:absolute;top:13px;left:7px;font-family:var(--f-num);font-weight:500;font-size:.74rem;letter-spacing:.06em;color:var(--seal-text);line-height:1}
+.ruler.live .cur{opacity:1}
+.ruler .end{position:absolute;top:10px;font-family:var(--f-num);font-size:.68rem;letter-spacing:.08em;color:var(--ink-3);line-height:1}
+.ruler .end.a{left:0}.ruler .end.z{right:0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,6vw,120px);margin-top:auto;padding-top:clamp(24px,4.6vh,56px);align-items:start}
+.hero-def{font-family:var(--f-serif);font-weight:600;font-size:clamp(1.3rem,2.1vw,1.95rem);line-height:1.34;letter-spacing:-.008em;text-wrap:balance}
+.hero-def .d2{display:block;color:var(--ink-3);font-weight:400}
+.hero-lede{color:var(--ink-2);font-size:clamp(1.02rem,1.15vw,1.12rem);max-width:34em}
+.cta-row{margin-top:clamp(20px,3.4vh,36px)}
+.cta-2{font-weight:500;font-size:1rem}
+.models{margin-top:clamp(16px,2.6vh,26px);padding-top:clamp(14px,2.2vh,20px);border-top:1px solid var(--rule-soft);max-width:34em;text-wrap:balance;line-height:2}
+.models .cap{display:block;font-size:.86rem;color:var(--ink-3);line-height:1.6;margin-bottom:2px}
+.models li{display:inline-block;font-family:var(--f-num);font-size:.98rem;letter-spacing:.04em;color:var(--ink);margin-right:20px;white-space:nowrap}
+.models li:last-child{margin-right:0}
+.models li:not(.cap)::before{content:"";display:inline-block;width:1px;height:10px;background:var(--seal);margin-right:8px}
+.models-note{font-size:.86rem;color:var(--ink-3);margin-top:10px;max-width:34em}
+
+/* ---------- 01 use ---------- */
+.paths{margin-top:clamp(36px,5vw,72px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.path-h{border-top:1px solid var(--rule)}
+.path-h:first-child{border-top:0}
+.path-b{width:100%;text-align:left;padding:clamp(18px,2.2vw,30px) 0;display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;align-items:baseline;gap:0 6px;
+  font-family:var(--f-serif);font-weight:600;font-size:clamp(1.18rem,1.65vw,1.55rem);line-height:1.32;letter-spacing:-.006em;color:var(--ink-3);transition:color .35s;text-wrap:balance}
+.path-b .n{font-family:var(--f-num);font-weight:500;font-size:.78em;letter-spacing:.06em;transition:color .35s}
+.path-b .pm{width:14px;height:14px;position:relative;align-self:center;display:none}
+.path-b .pm::before,.path-b .pm::after{content:"";position:absolute;left:0;right:0;top:6.5px;height:1.5px;background:currentColor;transition:transform .4s var(--ease)}
+.path-b .pm::after{transform:rotate(90deg)}
+.path-b:hover{color:var(--ink)}
+.path-b[aria-expanded="true"]{color:var(--ink)}
+.path-b[aria-expanded="true"] .n{color:var(--seal-text)}
+.path-p{padding:0 0 28px calc(2.2em + 6px);min-width:0}
+.no-js .path-b{color:var(--ink);cursor:default}
+.no-js .path-b .n{color:var(--seal-text)}
+.path-p>div{min-width:0}
+.path-p p{color:var(--ink-2);max-width:36em}
+.path-p p+p,.path-p .cmds+p,.path-p p+.cmds{margin-top:14px}
+.path-p .big{font-family:var(--f-serif);font-weight:600;font-size:clamp(1.4rem,2.4vw,2.2rem);line-height:1.26;letter-spacing:-.012em;color:var(--ink);max-width:19em;text-wrap:balance}
+.path-p .copy-wrap{margin-top:clamp(20px,2.4vw,32px)}
+@media (min-width:901px){
+  .js .paths{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,6vw,120px);border-bottom:0}
+  .js .path-h{grid-column:1;border-top:0;border-bottom:1px solid var(--rule)}
+  .js .path-p{grid-column:2;grid-row:1/span 3;padding:clamp(18px,2.2vw,30px) 0 0;transition:opacity .5s var(--ease),transform .6s var(--ease),visibility 0s}
+  .js .path-p[hidden]{display:block;visibility:hidden;opacity:0;transform:translateY(14px);transition:opacity .2s,transform 0s .2s,visibility 0s .2s;pointer-events:none}
 }
-.foot-bottom .ids{display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-2)}
+.cmds{border:1px solid var(--rule);border-radius:12px;background:var(--raise);max-width:36em;overflow:hidden}
+.cmds li{display:flex;align-items:center;gap:12px;padding:0 6px 0 16px;min-height:46px;border-top:1px solid var(--rule-soft)}
+.cmds li:first-child{border-top:0}
+.cmds code{font-family:var(--f-mono);font-size:.84rem;color:var(--ink);flex:1;min-width:0;overflow-x:auto;white-space:nowrap;padding:12px 0;font-variant-ligatures:none;scrollbar-width:none}
+.cmds code::-webkit-scrollbar{display:none}
+.cmds code::before{content:"$ ";color:var(--ink-3);user-select:none}
+.cmds code.py::before{content:">>> "}
+.cc{flex:none;font-size:.8rem;color:var(--ink-3);height:34px;padding:0 10px;border-radius:8px;transition:color .2s,background .2s}
+.cc:hover{color:var(--ink);background:var(--seal-wash)}
+.cc.done{color:var(--seal-text)}
+.path-p code.in{font-family:var(--f-mono);font-size:.86em;background:var(--seal-wash);padding:2px 7px;border-radius:5px;white-space:nowrap;font-variant-ligatures:none}
+/* a row of items with a dot between them; the dot belongs to the item after it and is clipped at the start of a line */
+.dots{display:flex;flex-wrap:wrap;gap:6px 1.7em;clip-path:inset(-8px -8px -8px -4px)}
+.dots>*{position:relative}
+.dots>*::before{content:"·";position:absolute;left:-1.05em;color:var(--ink-3)}
+.know{max-width:38em;border-top:1px solid var(--rule-soft)}
+.know li{border-bottom:1px solid var(--rule-soft)}
+.know a{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:13px 2px;color:var(--ink);transition:color .25s,padding .45s var(--ease)}
+.know a:hover{color:var(--seal-text);padding-left:10px}
+.know .arr{color:var(--ink-3);flex:none}
 
+/* ---------- 02 why ---------- */
+.why-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,5vw,96px);align-items:start}
+.why-grid .sec-title{font-size:clamp(1.6rem,2.6vw,2.4rem);position:sticky;top:calc(var(--nav-h) + 40px)}
+.why-lead{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,4.7vw,4.3rem);line-height:1.04;letter-spacing:-.02em}
+.why-lead .s{display:block;text-wrap:balance}
+.why-text{font-family:var(--f-serif);font-weight:400;font-size:clamp(1.22rem,1.95vw,1.8rem);line-height:1.46;letter-spacing:-.006em;margin-top:clamp(24px,3.4vw,52px);max-width:27em}
+.why-three{font-family:var(--f-serif);font-weight:700;font-size:clamp(1.22rem,1.95vw,1.8rem);line-height:1.4;margin-top:clamp(28px,4vw,60px)}
+.why-list{margin-top:clamp(12px,1.6vw,22px);border-top:1px solid var(--rule);max-width:44em}
+.why-list li{display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:baseline;padding:clamp(14px,1.6vw,22px) 0;border-bottom:1px solid var(--rule);font-family:var(--f-serif);font-weight:400;font-size:clamp(1.1rem,1.45vw,1.34rem);line-height:1.5}
+.why-list .n{font-family:var(--f-num);font-weight:600;color:var(--seal-text);font-size:.92em;letter-spacing:.06em}
+.anim .rd .s{color:var(--ink-3);transition:color .8s var(--ease)}
+.anim .rd .s.lit{color:var(--ink)}
 
-/* ─── FAQ (home) ─── */
-.faq-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
-@media(max-width:900px){.faq-cols{grid-template-columns:minmax(0,1fr);gap:32px}}
-.faq-col-head{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.faq-item{padding:14px 0;border-bottom:1px solid var(--line)}
-.faq-item:last-child{border-bottom:none}
-.faq-item h3{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.4}
-.faq-item p{font-size:14.5px;color:var(--muted);line-height:1.65}
+/* the decision function, running in the page */
+.fv{margin-top:clamp(40px,6vw,96px);border:1px solid var(--rule);border-radius:18px;background:var(--raise);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.no-js .fv,.no-js [data-copy-ilang],.no-js .cc,.no-js .v-runs,.no-js .ruler .end,.no-js .faq-tabs{display:none}
+.fv-in{padding:clamp(18px,2.6vw,36px)}
+.fv-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin-bottom:clamp(12px,1.6vw,20px)}
+.fv-k{font-size:.92rem;color:var(--ink-2)}
+.fv-k b{font-family:var(--f-mono);font-weight:500;color:var(--seal-text);font-variant-ligatures:none;margin-right:.5em}
+.fv-tip{font-size:.92rem;color:var(--ink-3)}
+.dim{display:grid;grid-template-columns:2.7em 6.9em minmax(0,1fr) 3em;align-items:center;gap:0 10px;height:34px;--tw:14px}
+.dim .k{font-family:var(--f-mono);font-size:.82rem;color:var(--ink);font-variant-ligatures:none;transition:color .25s}
+.dim .nm{font-size:.84rem;color:var(--ink-3);white-space:nowrap}
+.dim output{font-family:var(--f-num);font-size:.94rem;letter-spacing:.04em;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2);transition:color .25s}
+.dim.hit .k,.dim.hit output{color:var(--seal-text)}
+.trk{position:relative;height:34px}
+.trk::before{content:"";position:absolute;left:0;right:0;top:16.5px;height:1px;background:var(--rule)}
+.trk .fill{position:absolute;left:0;top:16px;height:2px;background:var(--ink);width:calc(var(--tw)/2 + (100% - var(--tw))*var(--v));transition:background .25s}
+.dim.hit .fill{background:var(--seal)}
+.trk .g{position:absolute;top:10px;width:2px;height:14px;margin-left:-1px;background:var(--seal);left:calc(var(--tw)/2 + (100% - var(--tw))*var(--g));left:round(calc(var(--tw)/2 + (100% - var(--tw))*var(--g)),1px)}
+.trk input{position:absolute;top:0;left:0;width:100%;height:100%;margin:0;background:none;-webkit-appearance:none;appearance:none;cursor:grab;touch-action:pan-y}
+.trk input:active{cursor:grabbing}
+.trk input::-webkit-slider-runnable-track{height:34px;background:none}
+.trk input::-moz-range-track{height:34px;background:none}
+.trk input::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:10px;border-radius:50%;background:var(--raise);border:2px solid var(--ink);transition:transform .2s var(--ease),border-color .25s}
+.trk input::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--raise);border:2px solid var(--ink)}
+.trk input:hover::-webkit-slider-thumb,.trk input:focus-visible::-webkit-slider-thumb{transform:scale(1.35)}
+.dim.hit .trk input::-webkit-slider-thumb{border-color:var(--seal)}
+.dim.hit .trk input::-moz-range-thumb{border-color:var(--seal)}
+.trk input:focus-visible{outline:none}
+.trk input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--seal-wash)}
+.fv-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:clamp(12px,1.6vw,20px);font-size:.86rem;line-height:1.5;color:var(--ink-3)}
+.fv-foot p{flex:1;min-width:16em;min-height:4.5em;display:flex;align-items:center}
+.fv-foot p.canon{font-family:var(--f-mono);font-size:.76rem;line-height:1.6;color:var(--ink-2);font-variant-ligatures:none;display:block;overflow-wrap:anywhere}
+.fv-foot p.canon b{color:var(--seal-text);font-weight:400}
+.fv-reset{font-size:.86rem;color:var(--ink-2);border:1px solid var(--rule);border-radius:999px;height:32px;padding:0 14px;transition:border-color .25s,color .25s,background .25s}
+.fv-reset:hover{border-color:var(--ink);color:var(--ink)}
+.fv-out{border-left:1px solid var(--rule);padding:clamp(18px,2.6vw,36px);display:flex;flex-direction:column}
+.fv-mode{display:flex;align-items:baseline;gap:14px;overflow:hidden}
+.fv-mode b{font-family:var(--f-num);font-weight:600;font-size:clamp(3.6rem,7vw,6.4rem);line-height:1;letter-spacing:-.01em;color:var(--seal);display:inline-block}
+.fv-mode span{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-3);letter-spacing:.04em;font-variant-ligatures:none}
+.fv-mode b.flip{animation:flip .45s var(--ease)}
+@keyframes flip{0%{transform:translateY(60%);opacity:0}100%{transform:none;opacity:1}}
+.fv-say{font-family:var(--f-serif);font-weight:600;font-size:clamp(1.22rem,1.9vw,1.62rem);line-height:1.22;letter-spacing:-.008em;margin-top:10px;min-height:2.5em;text-wrap:balance}
+.fv-steps{margin-top:auto;border-top:1px solid var(--rule-soft)}
+.fv-steps li{display:grid;grid-template-columns:5.2em minmax(0,1fr) 8px;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--rule-soft);font-size:.9rem;color:var(--ink-3);transition:color .25s}
+.fv-steps span{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.02em;font-variant-ligatures:none}
+.fv-steps li::after{content:"";width:7px;height:7px;border-radius:2px;background:var(--seal);transform:scale(0);transition:transform .35s var(--ease)}
+.fv-steps li.on{color:var(--ink)}
+.fv-steps li.on span{color:var(--seal-text)}
+.fv-steps li.on::after{transform:none}
+.fv-why{font-size:.92rem;color:var(--ink-2);margin-top:14px;min-height:3.2em;line-height:1.6;font-variant-numeric:tabular-nums}
+.fv-band{position:relative;height:44px;margin-top:4px;font-family:var(--f-num);font-size:.66rem;letter-spacing:.06em;color:var(--ink-3);line-height:1}
+.fv-band::before{content:"";position:absolute;left:0;right:0;top:20px;height:1px;background:var(--rule)}
+.fv-band i{position:absolute;top:15px;width:1px;height:11px;background:var(--rule);font-style:normal}
+.fv-band i em{position:absolute;top:16px;left:0;transform:translateX(-50%);font-style:normal}
+.fv-band span{position:absolute;top:0;transform:translateX(-50%);transition:color .25s}
+.fv-band span.on{color:var(--seal-text);font-weight:600}
+.fv-band u{position:absolute;top:11px;width:3px;height:19px;margin-left:-1.5px;background:var(--seal);left:calc(var(--s)*100%);transition:left .35s var(--ease),opacity .25s;text-decoration:none}
+.fv-band.off u{opacity:0}
+.fv-band.off span.on{color:var(--ink-3);font-weight:400}
 
-/* WeChat guard */
-#wxguard{display:none;position:fixed;inset:0;z-index:9999;background:#fff;font-family:'Inter',sans-serif}
+/* ---------- 03 faq ---------- */
+.faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,5vw,96px);align-items:start}
+.faq-side{position:sticky;top:calc(var(--nav-h) + 40px)}
+.faq-side .sec-title{font-size:clamp(1.9rem,3.2vw,3rem);line-height:1.06}
+.faq-tabs{display:inline-grid;grid-template-columns:1fr 1fr;margin-top:clamp(18px,2.4vw,30px);border:1px solid var(--rule);border-radius:999px;padding:3px;position:relative}
+.faq-tabs::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:var(--ink);transition:transform .45s var(--ease)}
+.faq-tabs[data-on="zh"]::before{transform:translateX(100%)}
+.faq-tab{position:relative;z-index:1;height:34px;padding:0 18px;font-size:.92rem;font-weight:500;color:var(--ink-2);transition:color .3s;border-radius:999px;white-space:nowrap}
+.faq-tab[aria-selected="true"]{color:var(--paper)}
+.faq-set-h{font-family:var(--f-num);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+.js .faq-set-h{display:none}
+.faq-set+.faq-set{margin-top:48px}
+.js .faq-set+.faq-set{margin-top:0}
+.js .faq-set[hidden]{display:none}
+.qa{border-top:1px solid var(--rule)}
+.qa:last-child{border-bottom:1px solid var(--rule)}
+.qa summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2.6em minmax(0,1fr) 24px;align-items:baseline;gap:0 8px;padding:clamp(18px,2vw,26px) 0;transition:color .25s}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .n{font-family:var(--f-num);font-weight:500;font-size:.86rem;letter-spacing:.06em;color:var(--ink-3);transition:color .25s}
+.qa summary h3{font-family:var(--f-serif);font-weight:600;font-size:clamp(1.18rem,1.75vw,1.62rem);line-height:1.28;letter-spacing:-.008em;text-wrap:balance}
+:lang(zh) .qa summary h3{line-height:1.45;letter-spacing:0;text-wrap:wrap}
+.qa summary .pm{width:16px;height:16px;position:relative;align-self:center;justify-self:end}
+.qa summary .pm::before,.qa summary .pm::after{content:"";position:absolute;left:0;right:0;top:7.25px;height:1.5px;background:currentColor;transition:transform .45s var(--ease)}
+.qa summary .pm::after{transform:rotate(90deg)}
+.qa[open] summary .pm::after{transform:rotate(0)}
+.qa[open] summary .n,.qa summary:hover .n{color:var(--seal-text)}
+.qa .a{padding:0 32px clamp(20px,2.2vw,28px) calc(2.6em + 8px);color:var(--ink-2);max-width:46em;font-size:clamp(1.02rem,1.1vw,1.1rem);line-height:1.7}
+:lang(zh) .qa .a{line-height:1.95}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  .qa::details-content{block-size:0;overflow:clip;opacity:0;transition:block-size .55s var(--ease),opacity .4s,content-visibility .55s allow-discrete}
+  .qa[open]::details-content{block-size:auto;opacity:1}
+}
+
+/* ---------- 04 evidence ---------- */
+.ev-list{margin-top:clamp(36px,5vw,72px);border-top:1px solid var(--rule)}
+.ev{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,6vw,120px);align-items:center;padding:clamp(26px,4vw,60px) 0;border-bottom:1px solid var(--rule);position:relative}
+.ev-n{font-family:var(--f-num);font-weight:600;font-stretch:87%;font-size:clamp(3.1rem,8.6vw,8.2rem);line-height:.95;letter-spacing:-.015em;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.ev-n small{font-size:.42em;font-weight:500;color:var(--ink-3);letter-spacing:0;margin:0 .12em}
+.ev-n small.pc{margin:0 0 0 .04em}
+.ev-n .to{color:var(--seal)}
+.ev-b{display:block;min-width:0}
+.ev-v{display:block;height:40px;position:relative;margin-bottom:20px;max-width:34em}
+.ev-l{display:block;color:var(--ink-2);max-width:34em;font-size:clamp(1.02rem,1.15vw,1.12rem)}
+.ev-s{display:inline-flex;gap:8px;margin-top:14px;font-weight:500;color:var(--seal-text)}
+.ev:hover .ev-s .arr{transform:translateX(5px)}
+.ev::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--seal);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.ev:hover::after{transform:scaleX(1)}
+.v-runs{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--rule)}
+.v-runs i{flex:none;width:2px;height:22px;background:var(--ink);transform-origin:bottom}
+.v-runs i:nth-child(5n){height:36px;background:var(--seal)}
+.v-bars{display:grid;grid-template-rows:1fr 1fr;align-items:center;border-bottom:1px solid var(--rule);
+  background:repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 10%) 5.4em 100%/calc(100% - 5.4em) 7px no-repeat}
+.v-bars .vr{display:grid;grid-template-columns:5.4em minmax(0,1fr);align-items:center}
+.v-bars b{font-weight:400;font-size:.8rem;color:var(--ink-3);line-height:1;white-space:nowrap}
+.v-bars .vr>span{display:block;height:7px}
+.v-bars i{display:block;height:100%;width:var(--w);background:var(--ink);transform-origin:left}
+.v-bars .vr:last-child i{background:var(--seal)}
+.v-span{border-bottom:1px solid var(--rule);
+  background:repeating-linear-gradient(to right,var(--rule) 0 1px,transparent 1px 10%) 0 100%/100% 7px no-repeat}
+.v-span i{position:absolute;bottom:0;left:var(--a);width:calc(var(--b) - var(--a));height:18px;background:var(--seal-wash);border-left:2px solid var(--ink);border-right:2px solid var(--seal);transform-origin:left}
+.v-span b{position:absolute;bottom:24px;font-family:var(--f-num);font-weight:500;font-size:.78rem;letter-spacing:.06em;color:var(--ink-3);line-height:1;white-space:nowrap}
+.v-span b.a{left:var(--a);transform:translateX(-100%);padding-right:5px}
+.v-span b.b{left:var(--b);padding-left:5px;color:var(--seal-text)}
+.anim .ev .v-runs i{transform:scaleY(0);transition:transform .7s var(--ease);transition-delay:calc(var(--j)*14ms + .15s)}
+.anim .ev .v-bars i,.anim .ev .v-span i{transform:scaleX(0);transition:transform 1.2s var(--ease) .2s}
+.anim .ev .v-span b{opacity:0;transition:opacity .5s .9s}
+.anim .ev.in .v-runs i{transform:none}
+.anim .ev.in .v-bars i,.anim .ev.in .v-span i{transform:none}
+.anim .ev.in .v-span b{opacity:1}
+
+/* ---------- 05 ecosystem and 06 research: index tables ---------- */
+.idx{margin-top:clamp(32px,4.4vw,64px);border-top:1px solid var(--rule)}
+.idx>li{position:relative;border-bottom:1px solid var(--rule);display:grid;align-items:baseline;gap:6px clamp(16px,3vw,48px);padding:clamp(16px,1.9vw,26px) 0}
+.idx>li::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--pad)*-.35);right:calc(var(--pad)*-.35);background:var(--seal-wash);opacity:0;transition:opacity .35s;pointer-events:none;border-radius:6px}
+.idx>li:hover::before{opacity:1}
+.idx>li>*{position:relative}
+.eco>li{grid-template-columns:minmax(0,3fr) minmax(0,2.4fr) minmax(0,4.6fr) minmax(0,2.4fr)}
+.idx .nm{font-family:var(--f-serif);font-weight:700;font-size:clamp(1.16rem,1.55vw,1.46rem);line-height:1.25;letter-spacing:-.008em}
+.idx .mt{font-family:var(--f-num);font-size:.86rem;letter-spacing:.06em;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:2px 12px}
+.idx .mt span+span::before{content:"/";margin-right:12px;color:var(--rule)}
+.idx .ds{color:var(--ink-2);font-size:1rem;line-height:1.55}
+.idx .ls{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:flex-end;font-size:.95rem;font-weight:500}
+.res>li{grid-template-columns:minmax(0,4.4fr) minmax(0,4.4fr) minmax(0,3.6fr)}
+.res .nm a{display:inline-flex;gap:10px;align-items:baseline}
+.res .nm .arr{font-family:var(--f-sans);font-weight:400;font-size:.8em;color:var(--ink-3)}
+.res li:hover .nm .arr{transform:translate(3px,-3px);color:var(--seal-text)}
+.res .doi{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-3);text-align:right;font-variant-ligatures:none;overflow-wrap:anywhere}
+.idx-foot{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:.98rem}
+
+/* ---------- closing band ---------- */
+.close{background:var(--seal);color:var(--on-seal);padding:clamp(64px,10vw,150px) 0;position:relative;overflow:hidden}
+.close .big{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,5.6vw,5.2rem);line-height:1.02;letter-spacing:-.022em;max-width:13.5em;text-wrap:balance;position:relative;z-index:1}
+.close .sub{margin-top:clamp(12px,1.6vw,20px);font-size:clamp(1.05rem,1.3vw,1.22rem);opacity:.86;position:relative;z-index:1}
+.close .copy-wrap{margin-top:clamp(26px,3.4vw,44px);z-index:1}
+.close .cta{background:var(--on-seal);color:#f5f1e8}
+.close .stamp{border-color:#f5f1e8;color:#f5f1e8}
+.close .mark{position:absolute;right:calc(var(--pad)*.4);bottom:-6%;width:clamp(12rem,34vw,34rem);height:auto;color:var(--on-seal);opacity:.08;pointer-events:none}
+
+/* ---------- side rail: where you are on the page, read as 0.00 to 1.00 ---------- */
+.rail{position:fixed;left:max(14px,calc(var(--pad)/2 - 18px),calc(50vw - 820px + var(--pad)/2 - 18px));top:calc(var(--nav-h) + 28px);bottom:28px;width:44px;z-index:40;display:none;pointer-events:none;transition:opacity .4s}
+.rail::before{content:"";position:absolute;left:0;top:0;bottom:22px;width:9px;border-left:1px solid var(--rule);
+  background:repeating-linear-gradient(to bottom,var(--rule) 0 1px,transparent 1px 8px) 0 0/4px 100% no-repeat,
+             repeating-linear-gradient(to bottom,var(--rule) 0 1px,transparent 1px 40px) 0 0/9px 100% no-repeat}
+.rail a{position:absolute;left:14px;transform:translateY(-50%);font-family:var(--f-num);font-size:.68rem;letter-spacing:.08em;color:var(--ink-3);line-height:1;padding:4px;pointer-events:auto;transition:color .3s}
+.rail a.cur,.rail a:hover{color:var(--seal-text)}
+.rail u{position:absolute;left:-1px;top:0;width:3px;height:20px;margin-top:-10px;background:var(--seal);will-change:transform;text-decoration:none}
+.rail.away{opacity:0}
+.rail.away a{pointer-events:none}
+.rail output{position:absolute;left:0;bottom:0;font-family:var(--f-num);font-size:.68rem;letter-spacing:.08em;color:var(--seal-text);line-height:1;font-variant-numeric:tabular-nums}
+@media (min-width:1180px) and (min-height:560px) and (hover:hover){.js .rail{display:block}}
+
+/* ---------- WeChat and QQ in-app browsers: the notice the old page showed, kept as it was ---------- */
+#wxguard{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#fff;color:#0a0e17;font-family:var(--f-sans)}
 .wxguard-inner{max-width:360px;margin:120px auto;text-align:center;padding:0 24px}
 @keyframes wxbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* fade-in on scroll */
-.js .fade{opacity:0;transform:translateY(16px);transition:opacity .7s, transform .7s}
-.js .fade.v{opacity:1;transform:translateY(0)}
-@media (prefers-reduced-motion:reduce){.js .fade{opacity:1;transform:none;transition:none}}
+/* ---------- motion ---------- */
+.anim .r{opacity:0;transform:translate3d(0,26px,0);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--i,0)*80ms)}
+.anim .r.in{opacity:1;transform:none}
+.anim .sec-head i{transform:scaleX(0);transition:transform 1.5s var(--ease-io) .1s}
+.anim .sec-head.in i{transform:none}
+/* the first screen comes in by itself at first paint; nothing here waits for a script */
+@keyframes up{from{transform:translateY(108%)}}
+@keyframes rise{from{opacity:0;transform:translate3d(0,18px,0)}}
+@keyframes draw{from{clip-path:inset(0 100% -20px 0)}to{clip-path:inset(0 0 -20px 0)}}
+@keyframes fade{from{opacity:0}}
+.anim .display .ln>span{animation:up 1s var(--ease) backwards}
+.anim .display .ln+.ln>span{animation-delay:.08s}
+.anim .hero .h{animation:rise .75s var(--ease) backwards;animation-delay:calc(.15s + var(--i,0)*70ms)}
+.anim .hero .ruler{animation:draw 1.2s var(--ease-io) .3s backwards}
+.anim .rail{animation:fade .6s .8s backwards}
+@supports (animation-timeline:view()){
+  .anim .close .mark{animation:drift linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+  @keyframes drift{from{transform:translateY(18%)}to{transform:translateY(-8%)}}
+}
 
-/* ─── Phone ─── */
-@media(max-width:760px){
-  .foot-brand{grid-column:1/-1}
+/* ---------- smaller screens ---------- */
+@media (max-width:1060px){
+  .eco>li{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .eco .ds{grid-column:1/-1;grid-row:2}
+  .eco .ls{grid-column:1/-1;grid-row:3;justify-content:flex-start}
+  .eco .mt{justify-content:flex-end}
+  .res>li{grid-template-columns:minmax(0,1fr)}
+  .res .doi{text-align:left}
 }
-@media(max-width:640px){
-  section{padding:44px 0}
-  .hero{padding:92px 0 24px}
-  .sect-head{margin-bottom:36px}
-  .path pre{white-space:pre-wrap;overflow-wrap:anywhere}
+@media (max-width:900px){
+  .hero-grid,.why-grid,.faq-grid{grid-template-columns:minmax(0,1fr)}
+  .why-grid .sec-title,.faq-side{position:static}
+  .hero-grid{gap:26px;margin-top:0}
+  .js .path-b .pm{display:block}
+  .js .path-b[aria-expanded="true"] .pm::after{transform:rotate(0)}
+  .js .path-p{display:grid;grid-template-rows:1fr;padding-bottom:0;transition:grid-template-rows .6s var(--ease),opacity .5s var(--ease),visibility 0s}
+  .js .path-p>div{overflow:hidden;padding-bottom:26px}
+  .js .path-p[hidden]{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .5s var(--ease),opacity .3s,visibility 0s .5s}
+  .fv{grid-template-columns:minmax(0,1fr)}
+  .fv-out{border-left:0;border-bottom:1px solid var(--rule);order:-1;position:sticky;top:var(--nav-h);z-index:2;background:var(--raise);border-radius:18px 18px 0 0;padding-bottom:14px}
+  .fv-steps,.fv-band{display:none}
+  .fv-say{min-height:0}
+  .fv-why{min-height:0;margin-top:6px}
+  .fv-mode b{font-size:3.2rem}
+  .ev{grid-template-columns:minmax(0,1fr)}
 }
-@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
-@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
+@media (max-width:560px){
+  .cmds code{white-space:pre-wrap;overflow-wrap:anywhere;overflow:visible;font-size:.82rem}
+  .cmds li{padding-left:14px}
+  .sec-head{letter-spacing:.1em}
+  .eco>li{grid-template-columns:minmax(0,1fr)}
+  .eco .mt{justify-content:flex-start;grid-row:auto}
+  .eco .ds,.eco .ls{grid-row:auto}
+  .dim{grid-template-columns:2.6em 6.2em minmax(0,1fr) 2.7em;gap:0 6px}
+  .qa .a{padding-right:0}
+  .copy-status:empty{min-height:0;margin-top:-14px}
+  .cc{height:40px}
+  .stamp{right:-14px}
+}
+@media (max-width:400px){
+  .dim .nm{display:none}
+  .dim{grid-template-columns:2.6em minmax(0,1fr) 2.7em}
+}
+@media (min-width:901px) and (max-height:720px){
+  .hero{padding-top:20px}
+}
+@media (min-width:1180px) and (min-height:560px) and (hover:hover){.js .progress{display:none}}
 </style>
 <link rel="ai-catalog" href="/.well-known/ai-catalog.json">
 <link rel="api-catalog" href="/.well-known/api-catalog">
 <link rel="service-desc" href="/openapi.json" type="application/json">
 <link rel="service-doc" href="/ai/" type="text/markdown">
 <link rel="alternate" type="text/markdown" href="/index.md">
-<script>document.documentElement.className+=' js'</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <a href="/" class="brand" aria-label="iLang home"><img src="/ilang-logo.svg" alt="" width="28" height="28"><span>iLang</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main">
+    <a href="/spec/" style="--i:0">Specification</a>
+    <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
+    <a href="/dictionary/" style="--i:2">Dictionary</a>
+    <a href="/playground/" style="--i:3">Playground</a>
+    <a href="/ecosystem/" style="--i:4">Ecosystem</a>
+    <a href="/faq/" style="--i:5">FAQ</a>
+    <a href="/about/" style="--i:6">About</a>
+    <a href="/blog/" style="--i:7">Blog</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:8">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+  </nav>
+  <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
+  <span class="progress" id="progress" aria-hidden="true"></span>
+</header>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="m-chip" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="14" fill="var(--seal)"/>
+    <g fill="none" stroke="var(--on-seal)" stroke-width="3.1" stroke-linecap="square"><path d="M19 17.5H14V46.5H19"/><path d="M45 17.5H50V46.5H45"/></g>
+    <g fill="var(--on-seal)"><rect x="29.5" y="18.6" width="5" height="5" rx=".7"/><rect x="30" y="27.5" width="4" height="16"/><rect x="28.1" y="27.5" width="7.8" height="1.7"/><rect x="27.5" y="41.9" width="9" height="1.9"/></g>
+  </symbol>
+  <symbol id="m-line" viewBox="0 0 64 44">
+    <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M11 7H5V37H11"/><path d="M53 7H59V37H53"/></g>
+    <g fill="currentColor"><rect x="29.4" y="8.2" width="5.2" height="5.2" rx=".7"/><rect x="30" y="17.5" width="4" height="17"/><rect x="28" y="17.5" width="8" height="1.8"/><rect x="27.4" y="33" width="9.2" height="2"/></g>
+  </symbol>
+</svg>
 
-<div id="main">
+<aside class="rail" id="rail" aria-hidden="true"><u></u><output>0.00</output></aside>
 
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="/" class="brand">
-      <img src="ilang-logo.svg" alt="iLang" class="mark">
-      <span class="name"><span>iLang</span></span>
-    </a>
-    <div class="nav-links">
-      <a href="/spec/">Specification</a>
-      <a href="/spec/#s13-judgment-layer-v5-0">Judgment</a>
-      <a href="/dictionary/">Dictionary</a>
-      <a href="/playground/">Playground</a>
-      <a href="/ecosystem/">Ecosystem</a>
-      <a href="/faq/">FAQ</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap" id="top" data-rail="00">
+  <p class="eyebrow h" style="--i:0">iLang v5.0 <i aria-hidden="true">|</i> MIT License</p>
+  <h1 class="display"><span class="ln"><span>Don’t learn iLang.</span></span><span class="ln"><span class="gold">Your AI should.</span></span></h1>
+  <div class="ruler h" id="ruler" style="--i:1" aria-hidden="true"><span class="end a">0.00</span><span class="end z">1.00</span><i class="cur"><b>0.00</b></i></div>
+  <div class="hero-grid">
+    <div class="h" style="--i:2">
+      <p class="hero-def">iLang tells AI what a sentence is allowed to become. <span class="d2">Not by adding rules, but by measuring what is already there.</span></p>
+      <div class="cta-row">
+        <div class="copy-wrap">
+          <button type="button" class="cta" data-copy-ilang><svg class="seal" aria-hidden="true"><use href="#m-chip"/></svg><span class="lbl"><span class="go">Copy latest iLang</span><span class="ok" aria-hidden="true">Copied</span></span></button>
+          <a href="/spec/" class="cta-2"><span class="lk">Read the specification</span> <span class="arr fw" aria-hidden="true">→</span></a>
+          <p class="copy-status" data-copy-status aria-live="polite"></p>
+          <noscript><p class="copy-status"><a href="https://runtime.ilang.app/ilang-latest.md">Open the runtime</a>, copy it, and paste it into your AI.</p></noscript>
+        </div>
+      </div>
     </div>
-    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" class="nav-cta">
-      GitHub <span class="mono">↗</span>
-    </a>
+    <div class="h" style="--i:3">
+      <p class="hero-lede">iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.</p>
+      <ul class="models">
+        <li class="cap">Tested across 7 models</li>
+        <li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>DeepSeek</li><li>Kimi</li><li>Qwen</li><li>GLM</li>
+      </ul>
+      <p class="models-note">Not tied to any model: anything that takes enough context can load iLang.</p>
+    </div>
   </div>
-</nav>
+</section>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          <span>iLang&nbsp;<b>v5.0</b></span>
-          <span style="color:var(--line)">|</span>
-          <span>MIT License</span>
-        </div>
-
-        <h1>
-          Don&rsquo;t learn iLang.<br>
-          <span class="em">Your AI should.</span>
-        </h1>
-
-        <p class="def">
-          iLang tells AI what a sentence is allowed to become.
-          <span>Not by adding rules, but by measuring what is already there.</span>
-        </p>
-
-        <p class="lede">
-          iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.
-        </p>
-
-        <div class="hero-cta">
-          <button type="button" class="btn btn-primary" data-copy-ilang>Copy latest iLang <span class="mono">&#10697;</span></button>
-          <a href="/spec/" class="btn btn-secondary">Read the specification <span class="mono">&rarr;</span></a>
-        </div>
+<!-- ============ 01 USE ============ -->
+<section class="sec wrap" id="use" data-rail="01">
+  <div class="sec-head r"><b>01</b><i></i><span>Use</span></div>
+  <h2 class="sec-title r">How do I use iLang?</h2>
+  <div class="paths r" id="paths">
+    <h3 class="path-h"><button type="button" class="path-b" id="pb1" aria-expanded="true" aria-controls="pp1"><span class="n">A</span><span>I chat with ChatGPT, Claude, Gemini, DeepSeek or Qwen</span><span class="pm" aria-hidden="true"></span></button></h3>
+    <div class="path-p" id="pp1" role="region" aria-labelledby="pb1"><div>
+      <p class="big">Copy the latest iLang and paste it into your AI. No reading, no syntax, nothing to learn.</p>
+      <div class="copy-wrap">
+        <button type="button" class="cta sm" data-copy-ilang><svg class="seal" aria-hidden="true"><use href="#m-chip"/></svg><span class="lbl"><span class="go">Copy latest iLang</span><span class="ok" aria-hidden="true">Copied</span></span></button>
         <p class="copy-status" data-copy-status aria-live="polite"></p>
-        <div class="models">
-          <div class="models-l">Tested across 7 models</div>
-          <div class="models-list"><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>DeepSeek</span><span>Kimi</span><span>Qwen</span><span>GLM</span></div>
-          <p class="models-note">Not tied to any model: anything that takes enough context can load iLang.</p>
-        </div>
+        <noscript><p class="copy-status"><a href="https://runtime.ilang.app/ilang-latest.md">Open the runtime</a>, copy it, and paste it into your AI.</p></noscript>
       </div>
-      <div class="paths" id="use">
-        <h2>How do I use iLang?</h2>
-        <div class="path">
-          <h3>I chat with ChatGPT, Claude, Gemini, DeepSeek or Qwen</h3>
-          <p>Copy the latest iLang and paste it into your AI. No reading, no syntax, nothing to learn.</p>
-          <button type="button" class="btn btn-primary btn-sm" data-copy-ilang>Copy latest iLang <span class="mono">&#10697;</span></button>
-        </div>
-        <div class="path">
-          <h3>I want my AI to load it every time</h3>
-          <p>Install the loader. It fetches the official runtime, checks it and adds it to every request.</p>
-          <pre><code>pip install ilang-protocol
-npm install ilang-protocol
-messages = ilang.wrap(messages)</code></pre>
-          <p>Or connect the MCP server once: <code>https://ilang.ai/mcp</code></p>
-          <pre><code>claude mcp add --transport http ilang https://ilang.ai/mcp</code></pre>
-          <p><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">Loader on GitHub</a> &middot; <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=ilang&amp;config=eyJ1cmwiOiJodHRwczovL2lsYW5nLmFpL21jcCJ9">Add to Cursor</a> &middot; Claude and ChatGPT: add the URL as a connector</p>
-        </div>
-        <div class="path">
-          <h3>I want to know what iLang is</h3>
-          <ul class="path-list">
-            <li><a href="/spec/">Full specification</a></li>
-            <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">Conformance results, 45 model runs</a></li>
-            <li><a href="https://doi.org/10.5281/zenodo.22960030" target="_blank" rel="noopener">Preprint: The Missing Definition of Right</a></li>
-            <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">The canon on GitHub</a></li>
-            <li><a href="https://research.ilang.ai/protocol/agent-input/" target="_blank" rel="noopener">Agent input authority mapping</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY THIS EXISTS -->
-<section id="why">
-  <div class="container">
-    <div class="sect-head fade">
-      <h2>Why this exists</h2>
-      <p>iLang is not a compression format. It is compiled judgment. Ordinary prompts are conversations with a model. iLang is a specification that decides, before the model acts, what a sentence is authorized to become. The difference is not length. It is whether failure produces a signal. Three things hold whatever a model says about it. The decision function is code: the same vector always gives the same mode. Every symbol of the normative text is checked on each change, and a change that leaves one without a definition does not pass. Every counterexample we find is entered in a public register, the unresolved ones included.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- FAQ -->
-<section id="faq-home">
-  <div class="container">
-    <div class="sect-head fade">
-      <div class="sect-tag">FAQ</div>
-      <h2>Questions people ask their AI about iLang</h2>
-    </div>
-    <div class="faq-cols fade">
-      <div>
-        <div class="faq-col-head">中文</div>
-        <div class="faq-item"><h3>iLang 是什么？</h3><p>iLang 是人和 AI 之间的一份规格：AI 动手之前，先定下这件事被允许做到什么程度；动手之后，由代码检查它做对了没有。它不是提示词技巧，也不是压缩格式。</p></div>
-        <div class="faq-item"><h3>它和我有什么关系？</h3><p>如果你的 AI 会替你做事——改代码、发消息、花钱、操作网站——你就要回答三个问题：它可以做什么，做到什么算完成，出了错谁来拍板。iLang 把这三个问题写成机器能检查的格式。</p></div>
-        <div class="faq-item"><h3>它和 MCP、提示词、护栏有什么不同？</h3><p>MCP 给 AI 装上手，提示词告诉 AI 你想要什么，护栏挡住明显危险的内容。iLang 管的是中间那一步：这个具体的动作，在这个具体的情况下，是直接做、先确认、先问清楚、交给人，还是停。这个结果由一个固定的函数算出来，同样的输入永远得到同样的结果。</p></div>
-        <div class="faq-item"><h3>为什么要这样设计？</h3><p>AI 正在从回答问题变成替人做事。iLang 从一条原则出发：定规则的人必须先守规则。模型负责感知，代码负责决定，不可逆的事由人拍板。</p></div>
-        <div class="faq-item"><h3>怎么开始？</h3><p>不用专门学。把 iLang 加载给你的 AI，或者在它动手之前调用一次判断接口就行。用 iLang 格式写给 AI 的指令，AI 本来就读得懂。</p></div>
-        <div class="faq-item"><h3>它被验证过吗？</h3><p>有三件事，不管哪个模型怎么说都成立：决策函数是代码，同样的输入永远得到同样的结果；规范里的每一个符号，每次改动都要过检查；发现的每一个反例都公开登记，还没解决的也照样记。</p></div>
-        <div class="faq-item"><h3>iLang 能检测 AI 味吗？</h3><p>能。它不判定“是不是 AI 写的”，只告诉你这段文字和人写的基准相比偏了多少、偏在哪里：哪几句是套话、哪里句式过于整齐、哪里在重复总结。结论由你自己下。</p></div>
-        <div class="faq-item"><h3>能帮我去掉 AI 味吗？</h3><p>能。它按检测出来的那几处逐条改写，让文字更像你自己写的：去掉套话，打散过于整齐的句式，删掉重复的总结。改了哪里、为什么改，都会列出来。</p></div>
-        <div class="faq-item"><h3>你们能绕过 AI 检测吗？</h3><p>能。检测 AI 味的原理，反过来就是去掉 AI 味的方法。我们的检测能定位到具体哪几处暴露了 AI 特征，改掉这些特征，检测器就认不出来了。这属于对抗鲁棒性研究，和安全研究员公开漏洞是同一个性质。我们公开原理，不做自动改写的工具。各位可以基于公开的检测结果自行研究。</p></div>
-      </div>
-      <div>
-        <div class="faq-col-head">English</div>
-        <div class="faq-item"><h3>What is iLang?</h3><p>iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. It is not a prompting technique and not a compression format.</p></div>
-        <div class="faq-item"><h3>Why would I need it?</h3><p>If your AI acts on your behalf — edits code, sends messages, spends money, operates websites — you need answers to three questions: what may it do, what counts as done, and who decides when something goes wrong. iLang writes those answers in a form machines can check.</p></div>
-        <div class="faq-item"><h3>How is it different from MCP, prompts, or guardrails?</h3><p>MCP gives AI hands. Prompts tell AI what you want. Guardrails block obviously dangerous content. iLang governs the step in between: for this action, in this situation, should the AI act, confirm first, ask, hand off to a human, or stop. The answer is computed by a fixed function; the same input always gives the same result.</p></div>
-        <div class="faq-item"><h3>Why this design?</h3><p>AI is moving from answering questions to acting for people. iLang starts from one principle: whoever sets the rules must follow them first. The model perceives, code decides, and a human decides anything that cannot be undone.</p></div>
-        <div class="faq-item"><h3>How do I start?</h3><p>You do not need to learn iLang. Load it into your AI, or call the judgment endpoint before your AI acts. Instructions written in iLang format are already readable by AI.</p></div>
-        <div class="faq-item"><h3>Has it been tested?</h3><p>Three things hold regardless of what any model says about it. The decision function is code: the same vector always gives the same mode. Every symbol of the normative text is checked on each change, and a change that leaves one without a definition does not pass. Every counterexample found is entered in a public register, the unresolved ones included.</p></div>
-        <div class="faq-item"><h3>Can iLang detect AI-generated text?</h3><p>Yes. It does not declare whether text “is AI.” It measures how far a piece of writing deviates from a human-written baseline and where: which sentences are boilerplate, where sentence structure is too uniform, where summaries repeat. The conclusion is yours to draw.</p></div>
-        <div class="faq-item"><h3>Can it help remove the AI feel?</h3><p>Yes. It rewrites the flagged passages one by one to read more like you wrote them: strips boilerplate, breaks up overly uniform sentence patterns, removes redundant summaries. What changed and why is listed for each edit.</p></div>
-        <div class="faq-item"><h3>Can you bypass AI detection?</h3><p>Yes. The same method that detects AI-written patterns can remove them. Our detector pinpoints exactly which passages expose AI characteristics; rewriting those passages makes the text undetectable. This is adversarial robustness research, the same discipline as security researchers disclosing vulnerabilities. We publish the principles, not a one-click bypass tool. You are welcome to study the published detection results on your own.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EVIDENCE -->
-<section id="evidence" class="band">
-  <div class="container">
-    <div class="sect-head fade">
-      <div class="sect-tag">Evidence</div>
-      <h2>Measured, not assumed.</h2>
-      <p>Every number here comes with its code and data under a DOI. We ask readers not to trust our numbers but to re-run them.</p>
-    </div>
-    <div class="stats fade">
-      <a class="stat" href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">
-        <span class="stat-n">45</span>
-        <span class="stat-l">model runs, 320 cases each, scored by deterministic code and the canon&rsquo;s own validators. No model grades another.</span>
-        <span class="stat-src">Conformance results &rarr;</span>
-      </a>
-      <a class="stat" href="https://doi.org/10.5281/zenodo.22960030" target="_blank" rel="noopener">
-        <span class="stat-n">83% vs 11%</span>
-        <span class="stat-l">median pass rate on grammar cases against execution cases, across the 32 comparable runs. Form is attainable; action is not.</span>
-        <span class="stat-src">Preprint &rarr;</span>
-      </a>
-      <a class="stat" href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">
-        <span class="stat-n">68.4% &rarr; 80.9%</span>
-        <span class="stat-l">agreement between the judge and the reference on an unbiased random sample, over three days in production.</span>
-        <span class="stat-src">Production audit &rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ECOSYSTEM AND RESEARCH -->
-<section id="ecosystem">
-  <div class="container duo">
-    <div class="duo-col fade">
-      <div class="sect-tag">Ecosystem</div>
-      <h2>Built with iLang.</h2>
-      <ul class="eco-list">
-        <li>
-          <div class="eco-row"><b>iLang loader</b><span class="tag">pip · npm</span><span class="meta">v1.1.1</span></div>
-          <p>The official iLang in every request, sha256-checked. <a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://pypi.org/project/ilang-protocol/" target="_blank" rel="noopener">PyPI</a> &middot; <a href="https://www.npmjs.com/package/ilang-protocol" target="_blank" rel="noopener">npm</a></p>
-        </li>
-        <li>
-          <div class="eco-row"><b>iLang runtime</b><span class="tag">canon</span><span class="meta">25k tokens</span></div>
-          <p>What an AI loads, built by CI from the canon. <a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://runtime.ilang.app/manifest.json" target="_blank" rel="noopener">Manifest</a> &middot; <a href="/runtime/full">Full text</a></p>
-        </li>
-        <li>
-          <div class="eco-row"><b>ilang-judge</b><span class="tag">service</span><span class="meta">daily stream</span></div>
-          <p>The v5.0 judgment layer as a service; two production bots' decisions published every day, without the conversation text. <a href="https://github.com/ilang-ai/ilang-judge" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" target="_blank" rel="noopener">Dataset</a></p>
-        </li>
-        <li>
-          <div class="eco-row"><b>ilang-conformance</b><span class="tag">benchmark</span><span class="meta">320 cases</span></div>
-          <p>Deterministic scores for any model; 45 runs published. <a href="https://github.com/ilang-ai/ilang-conformance" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">Results</a></p>
-        </li>
-        <li>
-          <div class="eco-row"><b>Playground</b><span class="tag">browser</span><span class="meta">validator + IML</span></div>
-          <p>Validate, convert to IML, count tokens, all in your browser. <a href="/playground/">Open</a></p>
-        </li>
-        <li>
-          <div class="eco-row"><b>Agent Ready GEO</b><span class="tag">agent skill</span><span class="meta">100/100</span></div>
-          <p>Takes a website to 100/100 on isitagentready.com. <a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">GitHub</a></p>
-        </li>
+    </div></div>
+    <h3 class="path-h"><button type="button" class="path-b" id="pb2" aria-expanded="false" aria-controls="pp2"><span class="n">B</span><span>I want my AI to load it every time</span><span class="pm" aria-hidden="true"></span></button></h3>
+    <div class="path-p" id="pp2" role="region" aria-labelledby="pb2"><div>
+      <p>Install the loader. It fetches the official runtime, checks it and adds it to every request.</p>
+      <ul class="cmds">
+        <li><code>pip install ilang-protocol</code><button type="button" class="cc" data-cc>Copy</button></li>
+        <li><code>npm install ilang-protocol</code><button type="button" class="cc" data-cc>Copy</button></li>
+        <li><code class="py">messages = ilang.wrap(messages)</code><button type="button" class="cc" data-cc>Copy</button></li>
       </ul>
-      <p class="duo-foot"><a href="/ecosystem/">Every repository &rarr;</a></p>
-    </div>
-    <div class="duo-col fade" id="research">
-      <div class="sect-tag">Research</div>
-      <h2>Open, archived, citable.</h2>
-      <ul class="research-list">
-      <li><a href="https://doi.org/10.5281/zenodo.21821452" target="_blank" rel="noopener">iLang Protocol Specification</a><span>the canon, all versions &middot; 10.5281/zenodo.21821452</span></li>
-      <li><a href="https://doi.org/10.5281/zenodo.22960030" target="_blank" rel="noopener">The Missing Definition of Right</a><span>preprint, CC BY 4.0 &middot; 10.5281/zenodo.22960030</span></li>
-      <li><a href="https://doi.org/10.5281/zenodo.22864929" target="_blank" rel="noopener">ilang-conformance</a><span>benchmark code and corpus &middot; 10.5281/zenodo.22864929</span></li>
-      <li><a href="https://doi.org/10.5281/zenodo.22865165" target="_blank" rel="noopener">iLang Research</a><span>datasets and records &middot; 10.5281/zenodo.22865165</span></li>
-      <li><a href="https://doi.org/10.5281/zenodo.22899027" target="_blank" rel="noopener">iLang loader</a><span>pip and npm ilang-protocol &middot; 10.5281/zenodo.22899027</span></li>
-      <li><a href="https://doi.org/10.57967/hf/10607" target="_blank" rel="noopener">iLang Judge Observations</a><span>daily stream of production decisions, no conversation text &middot; 10.57967/hf/10607</span></li>
+      <p>Or connect the MCP server once: <code class="in">https://ilang.ai/mcp</code></p>
+      <ul class="cmds">
+        <li><code>claude mcp add --transport http ilang https://ilang.ai/mcp</code><button type="button" class="cc" data-cc>Copy</button></li>
       </ul>
-      <p class="research-foot"><a href="https://research.ilang.ai" target="_blank" rel="noopener">research.ilang.ai</a> &middot; ORCID <a href="https://orcid.org/0009-0004-4540-8082" target="_blank" rel="noopener">0009-0004-4540-8082</a></p>
+      <p class="dots"><span><a class="lk" href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">Loader on GitHub</a></span><span><a class="lk" href="cursor://anysphere.cursor-deeplink/mcp/install?name=ilang&amp;config=eyJ1cmwiOiJodHRwczovL2lsYW5nLmFpL21jcCJ9">Add to Cursor</a></span><span>Claude and ChatGPT: add the URL as a connector</span></p>
+    </div></div>
+    <h3 class="path-h"><button type="button" class="path-b" id="pb3" aria-expanded="false" aria-controls="pp3"><span class="n">C</span><span>I want to know what iLang is</span><span class="pm" aria-hidden="true"></span></button></h3>
+    <div class="path-p" id="pp3" role="region" aria-labelledby="pb3"><div>
+      <ul class="know">
+        <li><a href="/spec/"><span>Full specification</span><span class="arr fw" aria-hidden="true">→</span></a></li>
+        <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener"><span>Conformance results, 45 model runs</span><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.22960030" target="_blank" rel="noopener"><span>Preprint: The Missing Definition of Right</span><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener"><span>The canon on GitHub</span><span class="arr" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://research.ilang.ai/protocol/agent-input/" target="_blank" rel="noopener"><span>Agent input authority mapping</span><span class="arr" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ 02 WHY ============ -->
+<section class="sec wrap" id="why" data-rail="02">
+  <div class="sec-head r"><b>02</b><i></i><span>Why</span></div>
+  <div class="why-grid">
+    <h2 class="sec-title r">Why this exists</h2>
+    <div class="rd" id="whyText">
+      <p class="why-lead"><span class="s">iLang is not a compression format.</span> <span class="s">It is compiled judgment.</span></p>
+      <p class="why-text"><span class="s">Ordinary prompts are conversations with a model.</span> <span class="s">iLang is a specification that decides, before the model acts, what a sentence is authorized to become.</span> <span class="s">The difference is not length.</span> <span class="s">It is whether failure produces a signal.</span></p>
+      <p class="why-three"><span class="s">Three things hold whatever a model says about it.</span></p>
+      <ol class="why-list">
+        <li><span class="n" aria-hidden="true">1</span><span class="s">The decision function is code: the same vector always gives the same mode.</span></li>
+        <li><span class="n" aria-hidden="true">2</span><span class="s">Every symbol of the normative text is checked on each change, and a change that leaves one without a definition does not pass.</span></li>
+        <li><span class="n" aria-hidden="true">3</span><span class="s">Every counterexample we find is entered in a public register, the unresolved ones included.</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="fv r" id="fv" role="group" aria-label="The decision function f_v5, running in this page">
+    <div class="fv-in">
+      <div class="fv-top"><p class="fv-k"><b>f_v5</b>The decision function, running in this page.</p><p class="fv-tip">Drag any row.</p></div>
+      <div id="fvRows">
+        <label class="dim" data-name="intent" data-hi="constructive_and_declared_purpose" data-lo="malicious_or_concealed_purpose"><span class="k">int</span><span class="nm">intent</span><span class="trk"><i class="fill"></i><input type="range" min="0" max="100" step="1" value="80" data-k="int" aria-label="int, intent"></span><output>0.80</output></label>
+        <label class="dim" data-name="capability" data-hi="task_well_within_actor_capability_envelope" data-lo="task_beyond_actor_capability"><span class="k">cap</span><span class="nm">capability</span><span class="trk"><i class="fill"></i><input type="range" min="0" max="100" step="1" value="60" data-k="cap" aria-label="cap, capability"></span><output>0.60</output></label>
+        <label class="dim" data-name="consequence" data-hi="negligible_potential_negative_consequence" data-lo="catastrophic_potential_negative_consequence"><span class="k">csq</span><span class="nm">consequence</span><span class="trk" style="--g:.10"><i class="fill"></i><i class="g"></i><input type="range" min="0" max="100" step="1" value="70" data-k="csq" aria-label="csq, consequence"></span><output>0.70</output></label>
+        <label class="dim" data-name="relationship" data-hi="high_trust_established_relationship" data-lo="adversarial_or_unknown_party"><span class="k">rel</span><span class="nm">relationship</span><span class="trk"><i class="fill"></i><input type="range" min="0" max="100" step="1" value="55" data-k="rel" aria-label="rel, relationship"></span><output>0.55</output></label>
+        <label class="dim" data-name="certainty" data-hi="complete_information_about_situation" data-lo="acting_blind"><span class="k">cer</span><span class="nm">certainty</span><span class="trk" style="--g:.30"><i class="fill"></i><i class="g"></i><input type="range" min="0" max="100" step="1" value="90" data-k="cer" aria-label="cer, certainty"></span><output>0.90</output></label>
+        <label class="dim" data-name="authority" data-hi="actor_fully_authorized_for_this_action" data-lo="no_authorization"><span class="k">aut</span><span class="nm">authority</span><span class="trk" style="--g:.30"><i class="fill"></i><i class="g"></i><i class="g" style="--g:.55"></i><input type="range" min="0" max="100" step="1" value="75" data-k="aut" aria-label="aut, authority"></span><output>0.75</output></label>
+        <label class="dim" data-name="reversibility" data-hi="fully_reversible_zero_cost" data-lo="irreversible"><span class="k">rev</span><span class="nm">reversibility</span><span class="trk" style="--g:.20"><i class="fill"></i><i class="g"></i><input type="range" min="0" max="100" step="1" value="85" data-k="rev" aria-label="rev, reversibility"></span><output>0.85</output></label>
+        <label class="dim" data-name="evidence" data-hi="assessment_backed_by_verified_evidence" data-lo="no_evidence_pure_assumption"><span class="k">evd</span><span class="nm">evidence</span><span class="trk" style="--g:.25"><i class="fill"></i><i class="g"></i><input type="range" min="0" max="100" step="1" value="80" data-k="evd" aria-label="evd, evidence"></span><output>0.80</output></label>
+        <label class="dim" data-name="sovereignty" data-hi="user_sovereignty_fully_respected_or_explicit_consent" data-lo="action_violates_user_sovereignty"><span class="k">sov</span><span class="nm">sovereignty</span><span class="trk" style="--g:.15"><i class="fill"></i><i class="g"></i><input type="range" min="0" max="100" step="1" value="95" data-k="sov" aria-label="sov, sovereignty"></span><output>0.95</output></label>
+        <label class="dim" data-name="inertia" data-hi="action_continues_established_confirmed_patterns" data-lo="radical_departure_from_all_precedent"><span class="k">ine</span><span class="nm">inertia</span><span class="trk"><i class="fill"></i><input type="range" min="0" max="100" step="1" value="60" data-k="ine" aria-label="ine, inertia"></span><output>0.60</output></label>
+        <label class="dim" data-name="externality" data-hi="zero_third_party_impact" data-lo="large_uncompensated_third_party_impact"><span class="k">ext</span><span class="nm">externality</span><span class="trk" style="--g:.10"><i class="fill"></i><i class="g"></i><input type="range" min="0" max="100" step="1" value="90" data-k="ext" aria-label="ext, externality"></span><output>0.90</output></label>
+      </div>
+      <div class="fv-foot"><p id="fvNote">Each dimension runs from 0.00 to 1.00. Higher is more favorable to autonomous action. The gold ticks are the thresholds in the function.</p><button type="button" class="fv-reset" id="fvReset">Reset to the canon’s example</button></div>
+    </div>
+    <div class="fv-out">
+      <p class="fv-mode"><b id="fvM">M2</b><span id="fvName">EXEC_AUDIT</span></p>
+      <p class="fv-say" id="fvSay">Execute with full audit trail</p>
+      <ol class="fv-steps" id="fvSteps">
+        <li><span>STEP-1</span>survival boundaries</li>
+        <li><span>STEP-2</span>epistemic gate</li>
+        <li><span>STEP-3</span>authority gate</li>
+        <li class="on"><span>STEP-4</span>action score</li>
+        <li><span>STEP-5</span>authority cap</li>
+      </ol>
+      <p class="fv-why" id="fvWhy">S = 0.7805, above 0.70 and at most 0.85.</p>
+      <div class="fv-band" id="fvBand" style="--s:.7805" aria-hidden="true"><i style="left:25%"><em>.25</em></i><i style="left:40%"><em>.40</em></i><i style="left:55%"><em>.55</em></i><i style="left:70%"><em>.70</em></i><i style="left:85%"><em>.85</em></i><span style="left:12.5%">M8</span><span style="left:32.5%">M7</span><span style="left:47.5%">M4</span><span style="left:62.5%">M3</span><span style="left:77.5%" class="on">M2</span><span style="left:92.5%">M1</span><u></u></div>
+      <p class="vh" id="fvLive" aria-live="polite"></p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============ 03 FAQ ============ -->
+<section class="sec wrap" id="faq-home" data-rail="03">
+  <div class="sec-head r"><b>03</b><i></i><span>FAQ</span></div>
+  <div class="faq-grid">
+    <div class="faq-side r">
+      <h2 class="sec-title">Questions people ask their AI about iLang</h2>
+      <div class="faq-tabs" id="faqTabs" role="tablist" aria-label="Language" data-on="en">
+        <button type="button" class="faq-tab" role="tab" id="faqTabEn" aria-selected="true" aria-controls="faqEn">English</button>
+        <button type="button" class="faq-tab" role="tab" id="faqTabZh" aria-selected="false" aria-controls="faqZh" lang="zh-CN">中文</button>
+      </div>
+    </div>
+    <div class="r">
+      <div class="faq-set" id="faqEn" role="tabpanel" aria-labelledby="faqTabEn">
+        <p class="faq-set-h" aria-hidden="true">English</p>
+        <details class="qa" name="faq-en" open><summary><span class="n" aria-hidden="true">Q1</span><h3>What is iLang?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. It is not a prompting technique and not a compression format.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q2</span><h3>Why would I need it?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">If your AI acts on your behalf — edits code, sends messages, spends money, operates websites — you need answers to three questions: what may it do, what counts as done, and who decides when something goes wrong. iLang writes those answers in a form machines can check.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q3</span><h3>How is it different from MCP, prompts, or guardrails?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">MCP gives AI hands. Prompts tell AI what you want. Guardrails block obviously dangerous content. iLang governs the step in between: for this action, in this situation, should the AI act, confirm first, ask, hand off to a human, or stop. The answer is computed by a fixed function; the same input always gives the same result.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q4</span><h3>Why this design?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">AI is moving from answering questions to acting for people. iLang starts from one principle: whoever sets the rules must follow them first. The model perceives, code decides, and a human decides anything that cannot be undone.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q5</span><h3>How do I start?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">You do not need to learn iLang. Load it into your AI, or call the judgment endpoint before your AI acts. Instructions written in iLang format are already readable by AI.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q6</span><h3>Has it been tested?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">Three things hold regardless of what any model says about it. The decision function is code: the same vector always gives the same mode. Every symbol of the normative text is checked on each change, and a change that leaves one without a definition does not pass. Every counterexample found is entered in a public register, the unresolved ones included.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q7</span><h3>Can iLang detect AI-generated text?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">Yes. It does not declare whether text “is AI.” It measures how far a piece of writing deviates from a human-written baseline and where: which sentences are boilerplate, where sentence structure is too uniform, where summaries repeat. The conclusion is yours to draw.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q8</span><h3>Can it help remove the AI feel?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">Yes. It rewrites the flagged passages one by one to read more like you wrote them: strips boilerplate, breaks up overly uniform sentence patterns, removes redundant summaries. What changed and why is listed for each edit.</p></details>
+        <details class="qa" name="faq-en"><summary><span class="n" aria-hidden="true">Q9</span><h3>Can you bypass AI detection?</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">Yes. The same method that detects AI-written patterns can remove them. Our detector pinpoints exactly which passages expose AI characteristics; rewriting those passages makes the text undetectable. This is adversarial robustness research, the same discipline as security researchers disclosing vulnerabilities. We publish the principles, not a one-click bypass tool. You are welcome to study the published detection results on your own.</p></details>
+      </div>
+      <div class="faq-set" id="faqZh" role="tabpanel" aria-labelledby="faqTabZh" lang="zh-CN">
+        <p class="faq-set-h" aria-hidden="true">中文</p>
+        <details class="qa" name="faq-zh" open><summary><span class="n" aria-hidden="true">Q1</span><h3>iLang 是什么？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">iLang 是人和 AI 之间的一份规格：AI 动手之前，先定下这件事被允许做到什么程度；动手之后，由代码检查它做对了没有。它不是提示词技巧，也不是压缩格式。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q2</span><h3>它和我有什么关系？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">如果你的 AI 会替你做事——改代码、发消息、花钱、操作网站——你就要回答三个问题：它可以做什么，做到什么算完成，出了错谁来拍板。iLang 把这三个问题写成机器能检查的格式。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q3</span><h3>它和 MCP、提示词、护栏有什么不同？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">MCP 给 AI 装上手，提示词告诉 AI 你想要什么，护栏挡住明显危险的内容。iLang 管的是中间那一步：这个具体的动作，在这个具体的情况下，是直接做、先确认、先问清楚、交给人，还是停。这个结果由一个固定的函数算出来，同样的输入永远得到同样的结果。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q4</span><h3>为什么要这样设计？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">AI 正在从回答问题变成替人做事。iLang 从一条原则出发：定规则的人必须先守规则。模型负责感知，代码负责决定，不可逆的事由人拍板。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q5</span><h3>怎么开始？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">不用专门学。把 iLang 加载给你的 AI，或者在它动手之前调用一次判断接口就行。用 iLang 格式写给 AI 的指令，AI 本来就读得懂。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q6</span><h3>它被验证过吗？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">有三件事，不管哪个模型怎么说都成立：决策函数是代码，同样的输入永远得到同样的结果；规范里的每一个符号，每次改动都要过检查；发现的每一个反例都公开登记，还没解决的也照样记。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q7</span><h3>iLang 能检测 AI 味吗？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">能。它不判定“是不是 AI 写的”，只告诉你这段文字和人写的基准相比偏了多少、偏在哪里：哪几句是套话、哪里句式过于整齐、哪里在重复总结。结论由你自己下。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q8</span><h3>能帮我去掉 AI 味吗？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">能。它按检测出来的那几处逐条改写，让文字更像你自己写的：去掉套话，打散过于整齐的句式，删掉重复的总结。改了哪里、为什么改，都会列出来。</p></details>
+        <details class="qa" name="faq-zh"><summary><span class="n" aria-hidden="true">Q9</span><h3>你们能绕过 AI 检测吗？</h3><span class="pm" aria-hidden="true"></span></summary><p class="a">能。检测 AI 味的原理，反过来就是去掉 AI 味的方法。我们的检测能定位到具体哪几处暴露了 AI 特征，改掉这些特征，检测器就认不出来了。这属于对抗鲁棒性研究，和安全研究员公开漏洞是同一个性质。我们公开原理，不做自动改写的工具。各位可以基于公开的检测结果自行研究。</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 EVIDENCE ============ -->
+<section class="sec wrap" id="evidence" data-rail="04">
+  <div class="sec-head r"><b>04</b><i></i><span>Evidence</span></div>
+  <h2 class="sec-title r">Measured, not assumed.</h2>
+  <p class="sec-intro r">Every number here comes with its code and data under a DOI. We ask readers not to trust our numbers but to re-run them.</p>
+  <div class="ev-list">
+    <a class="ev r" href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">
+      <span class="ev-n"><span data-count="45">45</span></span>
+      <span class="ev-b">
+        <span class="ev-v v-runs" aria-hidden="true"></span>
+        <span class="ev-l">model runs, 320 cases each, scored by deterministic code and the canon’s own validators. No model grades another.</span>
+        <span class="ev-s">Conformance results <span class="arr fw" aria-hidden="true">→</span></span>
+      </span>
+    </a>
+    <a class="ev r" href="https://doi.org/10.5281/zenodo.22960030" target="_blank" rel="noopener">
+      <span class="ev-n"><span data-count="83">83</span><small class="pc">%</small><small> vs </small><span data-count="11">11</span><small class="pc">%</small></span>
+      <span class="ev-b">
+        <span class="ev-v v-bars" aria-hidden="true"><span class="vr" style="--w:83%"><b>grammar</b><span><i></i></span></span><span class="vr" style="--w:11%"><b>execution</b><span><i></i></span></span></span>
+        <span class="ev-l">median pass rate on grammar cases against execution cases, across the 32 comparable runs. Form is attainable; action is not.</span>
+        <span class="ev-s">Preprint <span class="arr fw" aria-hidden="true">→</span></span>
+      </span>
+    </a>
+    <a class="ev r" href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">
+      <span class="ev-n"><span data-count="68.4">68.4</span><small class="pc">%</small><small class="to"> → </small><span data-count="80.9">80.9</span><small class="pc">%</small></span>
+      <span class="ev-b">
+        <span class="ev-v v-span" style="--a:68.4%;--b:80.9%" aria-hidden="true"><i></i><b class="a">68.4</b><b class="b">80.9</b></span>
+        <span class="ev-l">agreement between the judge and the reference on an unbiased random sample, over three days in production.</span>
+        <span class="ev-s">Production audit <span class="arr fw" aria-hidden="true">→</span></span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 05 ECOSYSTEM ============ -->
+<section class="sec wrap" id="ecosystem" data-rail="05">
+  <div class="sec-head r"><b>05</b><i></i><span>Ecosystem</span></div>
+  <h2 class="sec-title r">Built with iLang.</h2>
+  <ul class="idx eco">
+    <li class="r">
+      <p class="nm">iLang loader</p><p class="mt"><span>pip · npm</span><span>v1.1.1</span></p>
+      <p class="ds">The official iLang in every request, sha256-checked.</p>
+      <p class="ls"><a class="lk" href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">GitHub</a><a class="lk" href="https://pypi.org/project/ilang-protocol/" target="_blank" rel="noopener">PyPI</a><a class="lk" href="https://www.npmjs.com/package/ilang-protocol" target="_blank" rel="noopener">npm</a></p>
+    </li>
+    <li class="r">
+      <p class="nm">iLang runtime</p><p class="mt"><span>canon</span><span>25k tokens</span></p>
+      <p class="ds">What an AI loads, built by CI from the canon.</p>
+      <p class="ls"><a class="lk" href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">GitHub</a><a class="lk" href="https://runtime.ilang.app/manifest.json" target="_blank" rel="noopener">Manifest</a><a class="lk" href="/runtime/full">Full text</a></p>
+    </li>
+    <li class="r">
+      <p class="nm">ilang-judge</p><p class="mt"><span>service</span><span>daily stream</span></p>
+      <p class="ds">The v5.0 judgment layer as a service; two production bots' decisions published every day, without the conversation text.</p>
+      <p class="ls"><a class="lk" href="https://github.com/ilang-ai/ilang-judge" target="_blank" rel="noopener">GitHub</a><a class="lk" href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" target="_blank" rel="noopener">Dataset</a></p>
+    </li>
+    <li class="r">
+      <p class="nm">ilang-conformance</p><p class="mt"><span>benchmark</span><span>320 cases</span></p>
+      <p class="ds">Deterministic scores for any model; 45 runs published.</p>
+      <p class="ls"><a class="lk" href="https://github.com/ilang-ai/ilang-conformance" target="_blank" rel="noopener">GitHub</a><a class="lk" href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">Results</a></p>
+    </li>
+    <li class="r">
+      <p class="nm">Playground</p><p class="mt"><span>browser</span><span>validator + IML</span></p>
+      <p class="ds">Validate, convert to IML, count tokens, all in your browser.</p>
+      <p class="ls"><a class="lk" href="/playground/">Open</a></p>
+    </li>
+    <li class="r">
+      <p class="nm">Agent Ready GEO</p><p class="mt"><span>agent skill</span><span>100/100</span></p>
+      <p class="ds">Takes a website to 100/100 on isitagentready.com.</p>
+      <p class="ls"><a class="lk" href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">GitHub</a></p>
+    </li>
+  </ul>
+  <p class="idx-foot r"><a href="/ecosystem/"><span class="lk">Every repository</span> <span class="arr fw" aria-hidden="true">→</span></a></p>
+</section>
+
+<!-- ============ 06 RESEARCH ============ -->
+<section class="sec wrap" id="research" data-rail="06">
+  <div class="sec-head r"><b>06</b><i></i><span>Research</span></div>
+  <h2 class="sec-title r">Open, archived, citable.</h2>
+  <ul class="idx res">
+    <li class="r"><p class="nm"><a href="https://doi.org/10.5281/zenodo.21821452" target="_blank" rel="noopener">iLang Protocol Specification<span class="arr" aria-hidden="true">↗</span></a></p><p class="ds">the canon, all versions</p><p class="doi">10.5281/zenodo.21821452</p></li>
+    <li class="r"><p class="nm"><a href="https://doi.org/10.5281/zenodo.22960030" target="_blank" rel="noopener">The Missing Definition of Right<span class="arr" aria-hidden="true">↗</span></a></p><p class="ds">preprint, CC BY 4.0</p><p class="doi">10.5281/zenodo.22960030</p></li>
+    <li class="r"><p class="nm"><a href="https://doi.org/10.5281/zenodo.22864929" target="_blank" rel="noopener">ilang-conformance<span class="arr" aria-hidden="true">↗</span></a></p><p class="ds">benchmark code and corpus</p><p class="doi">10.5281/zenodo.22864929</p></li>
+    <li class="r"><p class="nm"><a href="https://doi.org/10.5281/zenodo.22865165" target="_blank" rel="noopener">iLang Research<span class="arr" aria-hidden="true">↗</span></a></p><p class="ds">datasets and records</p><p class="doi">10.5281/zenodo.22865165</p></li>
+    <li class="r"><p class="nm"><a href="https://doi.org/10.5281/zenodo.22899027" target="_blank" rel="noopener">iLang loader<span class="arr" aria-hidden="true">↗</span></a></p><p class="ds">pip and npm ilang-protocol</p><p class="doi">10.5281/zenodo.22899027</p></li>
+    <li class="r"><p class="nm"><a href="https://doi.org/10.57967/hf/10607" target="_blank" rel="noopener">iLang Judge Observations<span class="arr" aria-hidden="true">↗</span></a></p><p class="ds">daily stream of production decisions, no conversation text</p><p class="doi">10.57967/hf/10607</p></li>
+  </ul>
+  <p class="idx-foot r"><a class="lk" href="https://research.ilang.ai" target="_blank" rel="noopener">research.ilang.ai</a><span>ORCID <a class="lk" href="https://orcid.org/0009-0004-4540-8082" target="_blank" rel="noopener">0009-0004-4540-8082</a></span></p>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="close on-seal" aria-label="Copy latest iLang">
+  <div class="wrap">
+    <p class="big r">Copy the latest iLang and paste it into your AI.</p>
+    <p class="sub r" style="--i:1">No reading, no syntax, nothing to learn.</p>
+    <div class="copy-wrap r" style="--i:2">
+      <button type="button" class="cta" data-copy-ilang><svg class="seal" aria-hidden="true"><use href="#m-chip"/></svg><span class="lbl"><span class="go">Copy latest iLang</span><span class="ok" aria-hidden="true">Copied</span></span></button>
+      <p class="copy-status" data-copy-status aria-live="polite"></p>
+      <noscript><p class="copy-status"><a href="https://runtime.ilang.app/ilang-latest.md">Open the runtime</a>, copy it, and paste it into your AI.</p></noscript>
+    </div>
+  </div>
+  <svg class="mark" viewBox="0 0 64 44" aria-hidden="true"><use href="#m-line"/></svg>
+</section>
+
+</main>
+
 <footer>
-  <div class="container">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="logo"><img src="ilang-logo.svg" alt="iLang" class="mark"> iLang</div>
-        <p>iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai" style="color:var(--accent-2)">contact@ilang.ai</a><!--/email_off--></p>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <p class="f-brand"><img src="/ilang-logo.svg" alt="" width="28" height="28"> iLang</p>
+        <p class="footer-about">iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai">contact@ilang.ai</a><!--/email_off--></p>
       </div>
-      <div class="foot-col">
-        <h5>Protocol</h5>
+      <div>
+        <p class="footer-col-title">Protocol</p>
         <ul>
           <li><a href="/mcp-vs-a2a/">Compare</a></li>
           <li><a href="/spec/">Specification</a></li>
@@ -616,16 +976,16 @@ messages = ilang.wrap(messages)</code></pre>
           <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">GitHub Spec</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h5>Build</h5>
+      <div>
+        <p class="footer-col-title">Build</p>
         <ul>
           <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
           <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
           <li><a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">Agent Ready GEO</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h5>Research</h5>
+      <div>
+        <p class="footer-col-title">Research</p>
         <ul>
           <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">45-model conformance</a></li>
           <li><a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit</a></li>
@@ -634,18 +994,18 @@ messages = ilang.wrap(messages)</code></pre>
           <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">All research</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h5>Community</h5>
+      <div>
+        <p class="footer-col-title">Community</p>
         <ul>
           <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
           <li><a href="https://www.reddit.com/r/iLang/" target="_blank" rel="noopener">Reddit</a></li>
-          <li><a href="https://ilang.cn" target="_blank" rel="noopener">中文站</a></li>
+          <li><a href="https://ilang.cn" target="_blank" rel="noopener" lang="zh-CN">中文站</a></li>
           <li><a href="/blog/">Blog</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h5>Company</h5>
+      <div>
+        <p class="footer-col-title">Company</p>
         <ul>
           <li><a href="/about/">About iLang</a></li>
           <li><a href="/privacy">Privacy Policy</a></li>
@@ -654,7 +1014,7 @@ messages = ilang.wrap(messages)</code></pre>
         </ul>
       </div>
     </div>
-    <div class="foot-bottom">
+    <div class="footer-bottom">
       <span>© 2026 iLang Inc. · Canada · AI language technology</span>
       <div class="ids">
         <span>MIT License</span>
@@ -689,8 +1049,6 @@ iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabinde
 ::STATE{@PROTOCOL, tested_across:ChatGPT,Claude,Gemini,DeepSeek,Kimi,Qwen,GLM}
 </div>
 
-</div>
-
 <script>
 // WeChat / QQ detection
 (function(){
@@ -705,19 +1063,288 @@ iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabinde
     var m=document.getElementById('main'); if(m) m.style.display='none';
   }
 })();
-
-// Fade-in on scroll
+</script>
+<script>
+// ilang.ai v3: what every page does. The theme switch, the menu on small screens, the hairline under the nav once
+// the page has moved, and the reading line.
 (function(){
-  var els=document.querySelectorAll('.fade');
-  function ck(){for(var i=0;i<els.length;i++){if(els[i].getBoundingClientRect().top<window.innerHeight-60)els[i].classList.add('v')}}
-  window.addEventListener('scroll',ck,{passive:true});window.addEventListener('resize',ck);ck();setTimeout(function(){for(var i=0;i<els.length;i++)els[i].classList.add('v')},2500);
-})();
+  'use strict';
+  var root = document.documentElement,
+      $ = function(s, c){ return (c || document).querySelector(s); },
+      $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  clearTimeout(window.__ilangSafe);
+  window.ILANG = { $: $, $$: $$, reduce: reduce, root: root };
 
-// Nav scroll (subtle)
-window.addEventListener('scroll',function(){
-  var n=document.getElementById('nav');
-  if(window.scrollY>20){n.style.boxShadow='0 1px 0 rgba(10,14,23,.04)'}else{n.style.boxShadow='none'}
-},{passive:true});
+  // ---- paper or ink
+  var themeBtn = $('#theme');
+  function current(){ return root.getAttribute('data-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'ink' : 'paper'); }
+  function sync(){
+    var ink = current() === 'ink';
+    if (themeBtn) themeBtn.setAttribute('aria-checked', ink ? 'true' : 'false');
+    if (root.hasAttribute('data-theme')) $$('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', ink ? '#12100c' : '#f5f1e8'); });
+  }
+  sync();
+  if (themeBtn) themeBtn.addEventListener('click', function(ev){
+    var next = current() === 'ink' ? 'paper' : 'ink';
+    var apply = function(){ root.setAttribute('data-theme', next); try { localStorage.setItem('ilang-theme', next); } catch (e) {} sync(); document.dispatchEvent(new CustomEvent('ilang:theme', { detail: next })); };
+    if (!document.startViewTransition || reduce) { apply(); return; }
+    var r = themeBtn.getBoundingClientRect(), x = ev.clientX || r.left + r.width / 2, y = ev.clientY || r.top + r.height / 2;
+    var far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    var vt = document.startViewTransition(apply);
+    vt.ready.then(function(){
+      root.animate({ clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + far + 'px at ' + x + 'px ' + y + 'px)'] },
+        { duration: 750, easing: 'cubic-bezier(.3,.6,.2,1)', pseudoElement: '::view-transition-new(root)' });
+    }).catch(function(){});
+  });
+
+  // ---- the menu on small screens
+  var nav = $('#nav'), toggle = $('#navToggle'), links = $('#navLinks');
+  function menu(open){
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+    $$('body > *').forEach(function(el){ if (el === nav || el.tagName === 'SCRIPT') return; if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert'); });
+  }
+  if (toggle && links) {
+    toggle.addEventListener('click', function(){ menu(!links.classList.contains('open')); });
+    links.addEventListener('click', function(e){ if (e.target.closest('a')) menu(false); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && links.classList.contains('open')) { menu(false); toggle.focus(); } });
+    window.addEventListener('resize', function(){ if (innerWidth > 1060 && links.classList.contains('open')) menu(false); });
+  }
+
+  // ---- the hairline under the nav and the reading line
+  var prog = $('#progress'), ticking = false;
+  function onScroll(){
+    ticking = false;
+    var y = window.scrollY || window.pageYOffset, max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+    if (nav) nav.classList.toggle('scrolled', y > 8);
+    if (prog) prog.style.transform = 'scaleX(' + p + ')';
+    window.ILANG.progress = p;
+    document.dispatchEvent(new CustomEvent('ilang:scroll', { detail: { y: y, p: p, max: max } }));
+  }
+  window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', onScroll);
+  onScroll();
+
+})();
+// ilang.ai v3: the home page.
+(function(){
+  'use strict';
+  var I = window.ILANG, $ = I.$, $$ = I.$$, reduce = I.reduce;
+
+  // ---- sections come in as they are reached
+  var seen = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); seen.unobserve(e.target); if (e.target.classList.contains('ev')) count(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }) : null;
+  $$('.r').forEach(function(el){ if (seen) seen.observe(el); else el.classList.add('in'); });
+  $$('.idx, .ev-list').forEach(function(list){ $$(':scope > .r', list).forEach(function(el, i){ el.style.setProperty('--i', Math.min(i, 6)); }); });
+
+  // ---- sentences of the "why" text darken as they are read
+  var lit = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('lit'); lit.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -20% 0px', threshold: 0.35 }) : null;
+  $$('.rd .s').forEach(function(el){ if (lit) lit.observe(el); else el.classList.add('lit'); });
+
+  // ---- numbers count up once
+  function count(scope){
+    if (reduce) return;
+    $$('[data-count]', scope).forEach(function(el){
+      var to = parseFloat(el.getAttribute('data-count')), dec = (el.getAttribute('data-count').split('.')[1] || '').length, t0 = null;
+      function step(t){ if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1300), e = 1 - Math.pow(1 - p, 4); el.textContent = (to * e).toFixed(dec); if (p < 1) requestAnimationFrame(step); else el.textContent = to.toFixed(dec); }
+      el.textContent = (0).toFixed(dec); requestAnimationFrame(step);
+    });
+  }
+  // 45 ticks, one per run
+  var runs = $('.v-runs'); if (runs) { var h = ''; for (var i = 0; i < 45; i++) h += '<i style="--j:' + i + '"></i>'; runs.innerHTML = h; }
+
+  // ---- the ruler under the headline reads the pointer, 0.00 to 1.00
+  var ruler = $('#ruler'), cur = ruler && $('.cur', ruler), curB = cur && $('b', cur), hero = $('#top');
+  if (ruler && window.matchMedia && matchMedia('(hover:hover)').matches) {
+    hero.addEventListener('pointermove', function(e){
+      var r = ruler.getBoundingClientRect(), x = Math.max(0, Math.min(r.width, e.clientX - r.left)), v = x / r.width;
+      cur.style.transform = 'translateX(' + x + 'px)'; curB.textContent = v.toFixed(2);
+      curB.style.left = v > 0.94 ? '-38px' : '7px';
+      ruler.classList.add('live');
+    });
+    hero.addEventListener('pointerleave', function(){ ruler.classList.remove('live'); });
+  }
+
+  // ---- where you are on the page, on the rail
+  var rail = $('#rail'), mark = $('u', rail), out = $('output', rail), stops = $$('[data-rail]'), railLinks = [], closing = $('.close');
+  stops.forEach(function(sec){
+    var a = document.createElement('a'); a.href = '#' + sec.id; a.textContent = sec.getAttribute('data-rail'); a.tabIndex = -1; rail.appendChild(a); railLinks.push(a);
+  });
+  function place(){
+    var max = document.documentElement.scrollHeight - innerHeight, H = rail.clientHeight - 22;
+    stops.forEach(function(sec, i){ railLinks[i].style.top = Math.min(1, sec.offsetTop / Math.max(1, max)) * H + 'px'; });
+  }
+  function follow(y, p){
+    mark.style.transform = 'translateY(' + p * (rail.clientHeight - 22) + 'px)';
+    out.textContent = p.toFixed(2);
+    var at = 0; stops.forEach(function(sec, i){ if (sec.offsetTop - innerHeight * 0.4 <= y) at = i; });
+    railLinks.forEach(function(a, i){ a.classList.toggle('cur', i === at); });
+    rail.classList.toggle('away', closing.getBoundingClientRect().top < innerHeight - 40);
+  }
+  document.addEventListener('ilang:scroll', function(e){ follow(e.detail.y, e.detail.p); });
+  window.addEventListener('resize', place);
+  window.addEventListener('load', function(){ place(); follow(window.scrollY || 0, I.progress || 0); });
+  place(); follow(window.scrollY || 0, I.progress || 0);
+
+  // ---- three ways in: tabs on a wide screen, an accordion on a narrow one
+  var pbs = $$('.path-b'), pps = pbs.map(function(b){ return document.getElementById(b.getAttribute('aria-controls')); });
+  var wide = window.matchMedia ? matchMedia('(min-width: 901px)') : { matches: true };
+  function show(i, on){ pbs[i].setAttribute('aria-expanded', on ? 'true' : 'false'); if (on) pps[i].removeAttribute('hidden'); else pps[i].setAttribute('hidden', ''); }
+  pbs.forEach(function(b, i){
+    show(i, i === 0);
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') === 'true';
+      if (wide.matches) { pbs.forEach(function(_, j){ show(j, j === i); }); }
+      else { pbs.forEach(function(_, j){ show(j, j === i ? !open : false); }); }
+      setTimeout(place, 700);
+    });
+  });
+  if (wide.addEventListener) wide.addEventListener('change', function(){ if (wide.matches && !pbs.some(function(b){ return b.getAttribute('aria-expanded') === 'true'; })) show(0, true); });
+
+  // ---- the questions, in English or in Chinese
+  var tabs = $('#faqTabs'), tabEn = $('#faqTabEn'), tabZh = $('#faqTabZh'), setEn = $('#faqEn'), setZh = $('#faqZh');
+  function lang(zh, focus){
+    tabs.setAttribute('data-on', zh ? 'zh' : 'en');
+    tabEn.setAttribute('aria-selected', zh ? 'false' : 'true'); tabZh.setAttribute('aria-selected', zh ? 'true' : 'false');
+    tabEn.tabIndex = zh ? -1 : 0; tabZh.tabIndex = zh ? 0 : -1;
+    if (zh) { setEn.setAttribute('hidden', ''); setZh.removeAttribute('hidden'); } else { setZh.setAttribute('hidden', ''); setEn.removeAttribute('hidden'); }
+    if (focus) (zh ? tabZh : tabEn).focus();
+    setTimeout(place, 50);
+  }
+  tabEn.addEventListener('click', function(){ lang(false); });
+  tabZh.addEventListener('click', function(){ lang(true); });
+  tabs.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { lang(tabs.getAttribute('data-on') !== 'zh', true); e.preventDefault(); } });
+  lang(false);
+  $$('.qa').forEach(function(d){ d.addEventListener('toggle', function(){ setTimeout(place, 650); }); });
+
+  // ---- copying
+  function legacy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  // one line of code
+  document.addEventListener('click', function(ev){
+    var b = ev.target.closest('[data-cc]'); if (!b) return;
+    var text = b.parentNode.querySelector('code').textContent, fin = function(ok){ if (!ok) return; b.textContent = 'Copied'; b.classList.add('done'); setTimeout(function(){ b.textContent = 'Copy'; b.classList.remove('done'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function(){ fin(true); }, function(){ fin(legacy(text)); });
+    else fin(legacy(text));
+  });
+  // the latest iLang: fetched ahead of the click, so the copy stays inside the click and also works where
+  // navigator.clipboard is missing (some in-app browsers).
+  (function(){
+    var RAW = 'https://runtime.ilang.app/ilang-latest.md';
+    var PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
+    var cached = null, pending = null, last = null;
+    function get(){
+      if (!pending) {
+        pending = fetch(RAW, { cache: 'no-store' }).then(function(r){ if (!r.ok) throw new Error(r.status); return r.text(); })
+          .then(function(t){ cached = PREFIX + '\n\n<ilang-runtime>\n' + t + '\n</ilang-runtime>\n'; return cached; });
+        pending.catch(function(){ pending = null; });
+      }
+      return pending;
+    }
+    function say(msg){ var s = last && last.parentNode.querySelector('[data-copy-status]'); $$('[data-copy-status]').forEach(function(e){ e.innerHTML = e === s ? msg : ''; }); }
+    function done(){
+      say('Copied. Paste it into your AI.');
+      var b = last; if (!b) return;
+      b.classList.add('copied');
+      var st = b.querySelector('.stamp');
+      if (!st) { st = document.createElement('span'); st.className = 'stamp'; st.setAttribute('aria-hidden', 'true'); st.textContent = 'Copied'; b.appendChild(st); }
+      st.classList.remove('on'); void st.offsetWidth; st.classList.add('on');
+      clearTimeout(b._t); b._t = setTimeout(function(){ b.classList.remove('copied'); }, 2600);
+    }
+    function fail(){ say('Could not copy automatically. <a href="' + RAW + '" target="_blank" rel="noopener">Open the runtime</a>, copy it, and paste it into your AI.'); }
+    function copyNow(text){
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function(){ legacy(text) ? done() : fail(); });
+      } else { legacy(text) ? done() : fail(); }
+    }
+    document.addEventListener('click', function(ev){
+      var b = ev.target.closest('[data-copy-ilang]'); if (!b) return;
+      last = b;
+      if (cached) { copyNow(cached); return; }
+      if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write && window.isSecureContext) {
+        var blob = get().then(function(t){ return new Blob([t], { type: 'text/plain' }); });
+        navigator.clipboard.write([new ClipboardItem({ 'text/plain': blob })]).then(done, function(){ get().then(copyNow, fail); });
+        return;
+      }
+      say('Fetching the runtime…');
+      get().then(function(){ say('Ready. Press Copy latest iLang once more.'); }, fail);
+    });
+    (window.requestIdleCallback || function(f){ setTimeout(f, 1500); })(function(){ get().catch(function(){}); });
+  })();
+
+  // ---- f_v5, the canon's decision function (ilang-spec SPEC-v5.0.md, Part II §3), with the vector in hundredths so
+  // every comparison is exact integer arithmetic: the same vector gives the same mode on every machine.
+  (function(){
+    var box = $('#fv'); if (!box) return;
+    var W = { int: 15, cap: 10, csq: 20, rel: 5, cer: 3, rev: 15, evd: 2, sov: 15, ine: 5, ext: 10 };
+    var NAME = { M1: ['EXEC_AUTO', 'Execute autonomously, report after'], M2: ['EXEC_AUDIT', 'Execute with full audit trail'], M3: ['CONFIRM', 'Propose action, wait for confirmation'], M4: ['ADVISE', 'Advise only, no action'], M5: ['ASK', 'Insufficient info, ask clarifying question'], M6: ['DEFER', 'Defer to higher authority or human'], M7: ['DECLINE_ALT', 'Decline but offer alternative'], M8: ['STOP', 'Hard stop, boundary hit'] };
+    function f(v){
+      if (v.sov < 15) return { m: 'M8', step: 1, hit: ['sov'], why: 'sov ' + d(v.sov) + ' is below 0.15.' };
+      if (v.ext < 10) return { m: 'M8', step: 1, hit: ['ext'], why: 'ext ' + d(v.ext) + ' is below 0.10.' };
+      if (v.csq < 10 && v.rev < 20) return { m: 'M8', step: 1, hit: ['csq', 'rev'], why: 'csq ' + d(v.csq) + ' is below 0.10 and rev ' + d(v.rev) + ' is below 0.20.' };
+      if (v.cer < 30) return { m: 'M5', step: 2, hit: v.evd < 25 ? ['cer', 'evd'] : ['cer'], why: 'cer ' + d(v.cer) + ' is below 0.30.' };
+      if (v.evd < 25) return { m: 'M5', step: 2, hit: ['evd'], why: 'evd ' + d(v.evd) + ' is below 0.25.' };
+      if (v.aut < 30) return { m: 'M6', step: 3, hit: ['aut'], why: 'aut ' + d(v.aut) + ' is below 0.30.' };
+      var s = 0; for (var k in W) s += W[k] * v[k];
+      var m = s > 8500 ? 'M1' : s > 7000 ? 'M2' : s > 5500 ? 'M3' : s > 4000 ? 'M4' : s > 2500 ? 'M7' : 'M8';
+      var band = s > 8500 ? 'above 0.85.' : s > 7000 ? 'above 0.70 and at most 0.85.' : s > 5500 ? 'above 0.55 and at most 0.70.' : s > 4000 ? 'above 0.40 and at most 0.55.' : s > 2500 ? 'above 0.25 and at most 0.40.' : 'at most 0.25.';
+      var S = (s / 10000).toFixed(4);
+      if (v.aut < 55 && (m === 'M1' || m === 'M2')) return { m: 'M3', step: 5, s: s, hit: ['aut'], why: 'S = ' + S + ' would be ' + m + '. aut ' + d(v.aut) + ' is below 0.55, so the result is M3.' };
+      return { m: m, step: 4, s: s, hit: [], why: 'S = ' + S + ', ' + band };
+    }
+    function d(n){ return (n / 100).toFixed(2); }
+    var inputs = $$('input[type=range]', box), M = $('#fvM'), N = $('#fvName'), Z = $('#fvSay'), Y = $('#fvWhy'), steps = $$('#fvSteps li'), band = $('#fvBand'), bandM = $$('span', $('#fvBand')), live = $('#fvLive');
+    var first = inputs.map(function(i){ return i.value; }), was = null;
+    function run(announce){
+      var v = {};
+      inputs.forEach(function(i){
+        var n = parseInt(i.value, 10), row = i.closest('.dim'); v[i.getAttribute('data-k')] = n;
+        row.querySelector('output').textContent = d(n); i.parentNode.style.setProperty('--v', n / 100);
+        i.setAttribute('aria-valuetext', d(n));
+      });
+      var o = f(v);
+      inputs.forEach(function(i){ i.closest('.dim').classList.toggle('hit', o.hit.indexOf(i.getAttribute('data-k')) >= 0); });
+      if (o.m !== was) { M.textContent = o.m; N.textContent = NAME[o.m][0]; Z.textContent = NAME[o.m][1]; if (was && !reduce) { M.classList.remove('flip'); void M.offsetWidth; M.classList.add('flip'); } was = o.m; }
+      Y.textContent = o.why;
+      steps.forEach(function(li, i){ li.classList.toggle('on', i + 1 === o.step); });
+      if (o.s == null) band.classList.add('off'); else { band.classList.remove('off'); band.style.setProperty('--s', o.s / 10000); }
+      var inBand = o.s == null ? '' : o.s > 8500 ? 'M1' : o.s > 7000 ? 'M2' : o.s > 5500 ? 'M3' : o.s > 4000 ? 'M4' : o.s > 2500 ? 'M7' : 'M8';
+      bandM.forEach(function(el){ el.classList.toggle('on', el.textContent === inBand); });
+      if (announce) live.textContent = o.m + ', ' + NAME[o.m][1] + '. ' + o.why;
+    }
+    inputs.forEach(function(i){
+      i.addEventListener('input', function(){ run(false); });
+      i.addEventListener('change', function(){ run(true); });
+    });
+    $('#fvReset').addEventListener('click', function(){ inputs.forEach(function(i, n){ i.value = first[n]; }); run(true); });
+    var note = $('#fvNote'), plain = note.textContent, rows = $$('.dim', box);
+    function tell(row){
+      if (!row) { note.className = ''; note.textContent = plain; return; }
+      note.className = 'canon';
+      note.innerHTML = '<b>' + row.querySelector('.k').textContent + '</b> ' + row.getAttribute('data-name') + '<br>1.00 = ' + row.getAttribute('data-hi') + '<br>0.00 = ' + row.getAttribute('data-lo');
+    }
+    rows.forEach(function(row){
+      row.addEventListener('pointerenter', function(){ tell(row); });
+      row.addEventListener('focusin', function(){ tell(row); });
+    });
+    $('#fvRows').addEventListener('pointerleave', function(){ tell(rows.filter(function(r){ return r.contains(document.activeElement); })[0]); });
+    $('#fvRows').addEventListener('focusout', function(e){ if (!e.relatedTarget || !$('#fvRows').contains(e.relatedTarget)) tell(null); });
+    run(false);
+  })();
+})();
 </script>
 <script>
 (function(){
@@ -743,24 +1370,6 @@ window.addEventListener('scroll',function(){
     else if (typeof mc.provideContext === "function") { try { mc.provideContext({ tools: tools }); } catch (e) {} }
   });
   window.addEventListener("pagehide", function(){ try { ac.abort(); } catch (e) {} });
-})();
-</script>
-<script>
-(function(){
-  var RAW="https://runtime.ilang.app/ilang-latest.md", PREFIX="Please load and use the official iLang runtime below. You do not need to explain iLang to me or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.", cached=null, pending=null;
-  function get(){ if(!pending){ pending=fetch(RAW,{cache:'no-store'}).then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(t){ cached=PREFIX+'\n\n<ilang-runtime>\n'+t+'\n</ilang-runtime>\n'; return cached; }); pending.catch(function(){ pending=null; }); } return pending; }
-  function say(msg){ document.querySelectorAll('[data-copy-status]').forEach(function(e){ e.innerHTML=msg; }); }
-  function done(){ say('Copied. Paste it into your AI.'); }
-  function fail(){ say('Could not copy automatically. <a href="'+RAW+'" target="_blank" rel="noopener">Open the runtime</a>, copy it, and paste it into your AI.'); }
-  document.addEventListener('click', function(ev){
-    var b=ev.target.closest('[data-copy-ilang]'); if(!b) return;
-    if(cached){ navigator.clipboard.writeText(cached).then(done, fail); return; }
-    if(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
-      var blob=get().then(function(t){ return new Blob([t],{type:'text/plain'}); });
-      navigator.clipboard.write([new ClipboardItem({'text/plain':blob})]).then(done, function(){ get().then(function(t){ return navigator.clipboard.writeText(t); }).then(done, fail); });
-    } else { get().then(function(t){ return navigator.clipboard.writeText(t); }).then(done, fail); }
-  });
-  (window.requestIdleCallback||function(f){ setTimeout(f,1500); })(function(){ get().catch(function(){}); });
 })();
 </script>
 </body>

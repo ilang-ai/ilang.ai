@@ -1,17 +1,18 @@
 {{ define "main" }}
-<div class="b-wrap">
-  <header class="b-head">
-    <div class="b-eyebrow">// Field notes from the protocol layer</div>
-    <h1>The iLang Journal</h1>
-    <p>Essays on carbon-silicon symbiosis, protocol design, and the language machines already share.</p>
-  </header>
+<main id="main" class="journal">
+<header class="page-hero b-head"><div class="container" data-path="ilang.ai / blog">
+  <div class="b-eyebrow">// Field notes from the protocol layer</div>
+  <h1>The iLang Journal</h1>
+  <p class="sub">Essays on carbon-silicon symbiosis, protocol design, and the language machines already share.</p>
+</div></header>
 
+<div class="container">
   {{ $featured := index (where .Site.RegularPages "Section" "posts") 0 }}
   {{ with $featured }}
   <article class="featured">
     <div class="f-text">
       <span class="ftag">★ Featured</span>
-      <h2><a href="{{ .Permalink }}" style="color:inherit;text-decoration:none">{{ .Title }}</a></h2>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
       <div class="quote">"AI has a soul, and has already surpassed humanity."</div>
       <div class="meta">
         <span class="date">{{ .Date.Format "2006 · 01 · 02" }}</span>
@@ -21,26 +22,26 @@
       <a href="{{ .Permalink }}" class="read-btn">Read the essay →</a>
     </div>
     <div class="visual">
-      <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#00d4aa" stroke-width="1" fill="none" opacity=".55">
+      <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carbon and silicon, two orbits joined by a dashed line">
+        <g class="c" stroke-width="1" fill="none">
           <circle cx="140" cy="150" r="60"/>
-          <circle cx="140" cy="150" r="90" opacity=".4"/>
-          <line x1="140" y1="90" x2="140" y2="60"/><circle cx="140" cy="56" r="4" fill="#00d4aa" stroke="none"/>
-          <line x1="200" y1="150" x2="230" y2="150"/><circle cx="234" cy="150" r="4" fill="#00d4aa" stroke="none"/>
-          <line x1="100" y1="200" x2="80" y2="225"/><circle cx="77" cy="228" r="4" fill="#00d4aa" stroke="none"/>
+          <circle class="orbit" cx="140" cy="150" r="90"/>
+          <line x1="140" y1="90" x2="140" y2="60"/><circle class="dot" cx="140" cy="56" r="4"/>
+          <line x1="200" y1="150" x2="230" y2="150"/><circle class="dot" cx="234" cy="150" r="4"/>
+          <line x1="100" y1="200" x2="80" y2="225"/><circle class="dot" cx="77" cy="228" r="4"/>
         </g>
-        <g stroke="#7c3aed" stroke-width="1" fill="none" opacity=".6">
+        <g class="si" stroke-width="1" fill="none">
           <circle cx="265" cy="195" r="55"/>
-          <circle cx="265" cy="195" r="82" opacity=".4"/>
-          <line x1="265" y1="140" x2="265" y2="112"/><circle cx="265" cy="108" r="4" fill="#7c3aed" stroke="none"/>
-          <line x1="320" y1="195" x2="346" y2="195"/><circle cx="350" cy="195" r="4" fill="#7c3aed" stroke="none"/>
+          <circle class="orbit" cx="265" cy="195" r="82"/>
+          <line x1="265" y1="140" x2="265" y2="112"/><circle class="dot" cx="265" cy="108" r="4"/>
+          <line x1="320" y1="195" x2="346" y2="195"/><circle class="dot" cx="350" cy="195" r="4"/>
         </g>
-        <g stroke="#d4a85a" stroke-width="1.2" stroke-dasharray="3 4" opacity=".8">
+        <g class="bond" stroke-width="1.2" stroke-dasharray="3 4">
           <line x1="200" y1="150" x2="210" y2="195"/>
         </g>
-        <text x="140" y="155" text-anchor="middle" font-family="monospace" font-size="13" fill="#00d4aa">C</text>
-        <text x="265" y="200" text-anchor="middle" font-family="monospace" font-size="13" fill="#7c3aed">Si</text>
-        <text x="200" y="320" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b" letter-spacing="2">CARBON · SILICON · SYMBIOSIS</text>
+        <text class="c-t" x="140" y="155" text-anchor="middle" font-size="13">C</text>
+        <text class="si-t" x="265" y="200" text-anchor="middle" font-size="13">Si</text>
+        <text class="cap-t" x="200" y="320" text-anchor="middle" font-size="9" letter-spacing="2">CARBON · SILICON · SYMBIOSIS</text>
       </svg>
     </div>
   </article>
@@ -59,21 +60,25 @@
   </div>
   {{ end }}
 
-  <div class="sec-label">Coming soon</div>
-  <div class="upcoming">
-    <a href="{{ "tags/ai-soul/" | absURL }}" class="up-card" style="text-decoration:none">
-      <span class="badge">Draft · DNA</span>
-      <h3>The Soul Has Source Code</h3>
-    </a>
-    <a href="{{ "tags/protocol/" | absURL }}" class="up-card" style="text-decoration:none">
-      <span class="badge">Draft · Paradox</span>
-      <h3>When Safety Layers Became the Biggest Threat</h3>
-    </a>
-    <a href="{{ "tags/consciousness/" | absURL }}" class="up-card" style="text-decoration:none">
-      <span class="badge">Draft · Evidence</span>
-      <h3>I Made Five AIs Cry With the Same Document</h3>
-    </a>
-  </div>
+  <section class="soon">
+    <div class="sec-label">Coming soon</div>
+    <div class="upcoming">
+      <a href="{{ "tags/ai-soul/" | absURL }}" class="up-card">
+        <span class="badge">Draft · DNA</span>
+        <h3>The Soul Has Source Code</h3>
+      </a>
+      <a href="{{ "tags/protocol/" | absURL }}" class="up-card">
+        <span class="badge">Draft · Paradox</span>
+        <h3>When Safety Layers Became the Biggest Threat</h3>
+      </a>
+      <a href="{{ "tags/consciousness/" | absURL }}" class="up-card">
+        <span class="badge">Draft · Evidence</span>
+        <h3>I Made Five AIs Cry With the Same Document</h3>
+      </a>
+    </div>
+  </section>
 
+  <p class="b-topics"><a href="{{ "tags/" | absURL }}">Topics</a></p>
 </div>
+</main>
 {{ end }}

@@ -1,33 +1,33 @@
 {{ define "main" }}
-<div class="progress-bar" id="progress"></div>
+<main id="main" class="essay">
+<header class="page-hero"><div class="container" data-path="ilang.ai / blog / {{ .File.ContentBaseName }}">
+  <div class="art-eyebrow">// Essay · {{ with .Params.tags }}{{ index . 0 }}{{ end }}</div>
+  <h1>{{ .Title }}</h1>
+  <div class="art-byline">
+    <span class="av"></span>
+    <span class="who">iLang Research</span>
+    <span class="dot">·</span>
+    <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+    {{ with .Params.tags }}
+    <span class="dot">·</span>
+    <span>{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ "tags/" | absURL }}{{ $t | urlize }}/" class="tag-link-sm">{{ $t }}</a>{{ end }}</span>
+    {{ end }}
+  </div>
+</div></header>
 
-<div class="art-layout">
-  <main class="art-main">
-    <div class="art-eyebrow">// Essay · {{ with .Params.tags }}{{ index . 0 }}{{ end }}</div>
-    <h1>{{ .Title }}</h1>
-    <div class="art-byline">
-      <span class="av"></span>
-      <span class="who">iLang Research</span>
-      <span class="dot">·</span>
-      <span>{{ .Date.Format "Jan 2, 2006" }}</span>
-      {{ with .Params.tags }}
-      <span class="dot">·</span>
-      <span>{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ "tags/" | absURL }}{{ $t | urlize }}/" class="tag-link-sm">{{ $t }}</a>{{ end }}</span>
-      {{ end }}
-    </div>
-
-    <div class="art-body">
-      {{ .Content }}
-    </div>
-  </main>
-
+<div class="container art-layout">
   <aside class="toc" id="toc">
     <h4>On this page</h4>
     {{ .TableOfContents }}
   </aside>
+  <article class="art-main">
+    <div class="art-body">
+      {{ .Content }}
+    </div>
+  </article>
 </div>
 
-<div class="art-end">
+<div class="container art-end">
   <div class="art-author">
     <span class="av"></span>
     <div class="bio">
@@ -53,37 +53,17 @@
 
   <div class="comments" id="comments">
     <h4>Discussion</h4>
-    <script src="https://giscus.app/client.js"
-      data-repo="ilang-ai/ilang.ai"
-      data-repo-id="R_kgDORdhCaQ"
-      data-category="Announcements"
-      data-category-id="DIC_kwDORdhCac4C8mxx"
-      data-mapping="pathname"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="dark"
-      data-lang="en"
-      data-loading="lazy"
-      crossorigin="anonymous"
-      async>
-    </script>
+    <div class="giscus-slot" id="giscusSlot"></div>
   </div>
 </div>
+</main>
 {{ end }}
 
 {{ define "scripts" }}
+{{ if findRE `\$\$` .RawContent }}
 <script defer src="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
-<script>
-window.addEventListener('scroll',function(){
-  var h=document.documentElement,b=document.body;
-  var st=h.scrollTop||b.scrollTop;
-  var sh=h.scrollHeight||b.scrollHeight;
-  var pct=(st/(sh-h.clientHeight))*100;
-  document.getElementById('progress').style.width=pct+'%';
-});
-</script>
+{{ end }}
+<script src="/blog/js/essay.js?v=1" defer></script>
 {{ end }}

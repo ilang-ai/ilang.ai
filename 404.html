@@ -1,38 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page not found · iLang</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://cdn.jsdmirror.com">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/400.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/500.css">
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fontsource/inter@5.0.17/600.css">
-<style>*{margin:0;padding:0;box-sizing:border-box}
-:root{--ink:#0b0f1a;--ink-2:#1a2033;--muted:#626b7d;--line:#e4e7ee;--bg:#fafbfc;--accent-2:#2b4fb8}
-body{font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--accent-2);text-decoration:none}
-a:hover{text-decoration:underline}
-.container{max-width:720px;margin:0 auto;padding:0 32px}
-@media(max-width:640px){.container{padding:0 20px}}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,253,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
-.nav-inner img{width:28px;height:28px;border-radius:6px}
-h1{padding:100px 0 12px;font-size:28px;font-weight:800;letter-spacing:-.02em}
-.date{color:var(--muted);font-size:14px;margin-bottom:40px}
-h2{font-size:18px;font-weight:700;margin:36px 0 12px}
-p{margin:0 0 16px;color:var(--ink-2)}
-footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size:13px;color:var(--muted)}
-@media(max-width:768px){table{display:block;max-width:100%;overflow-x:auto}pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word}}
-@media(max-width:768px){table.stack{display:block;overflow:visible;border:0;background:none}table.stack tbody,table.stack tr,table.stack td,table.stack th{display:block;width:auto}table.stack tr.stack-head{display:none}table.stack tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:8px 16px;background:#fff}table.stack td,table.stack th{border:0;padding:5px 0;background:none;text-align:left}table.stack td::before{content:attr(data-label);display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.stack td:first-child{font-weight:600}table.stack td:first-child::before{display:none}.foot-brand{grid-column:1/-1}.foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}}
-</style>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
+<script>
+// Before first paint: mark that scripts run, put back the reader's own choice of paper or ink, and let the page
+// move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
+(function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=e695ff3c">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/"><img src="/ilang-logo.svg" alt="iLang"> iLang</a></div></nav>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <a href="/" class="brand" aria-label="iLang home"><img src="/ilang-logo.svg" alt="" width="28" height="28"><span>iLang</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main">
+    <a href="/spec/" style="--i:0">Specification</a>
+    <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
+    <a href="/dictionary/" style="--i:2">Dictionary</a>
+    <a href="/playground/" style="--i:3">Playground</a>
+    <a href="/ecosystem/" style="--i:4">Ecosystem</a>
+    <a href="/faq/" style="--i:5">FAQ</a>
+    <a href="/about/" style="--i:6">About</a>
+    <a href="/blog/" style="--i:7">Blog</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:8">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+  </nav>
+  <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
+  <span class="progress" id="progress" aria-hidden="true"></span>
+</header>
 
-<main style="max-width:760px;margin:0 auto;padding:72px 24px 96px">
+<main id="main" class="notfound" data-path="ilang.ai / ?">
 <h1>Page not found</h1>
 <p>This address does not exist on ilang.ai.</p>
 <ul>
@@ -45,9 +50,70 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-size
 </ul>
 </main>
 <footer>
-<div class="container">
-  <span>© 2026 iLang Inc. · Canada · <a href="/privacy">Privacy</a> · <a href="/about/">About</a></span>
-</div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <p class="f-brand"><img src="/ilang-logo.svg" alt="" width="28" height="28"> iLang</p>
+        <p class="footer-about">iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai">contact@ilang.ai</a><!--/email_off--></p>
+      </div>
+      <div>
+        <p class="footer-col-title">Protocol</p>
+        <ul>
+          <li><a href="/mcp-vs-a2a/">Compare</a></li>
+          <li><a href="/spec/">Specification</a></li>
+          <li><a href="/dictionary/">Dictionary</a></li>
+          <li><a href="/playground/">Playground</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">GitHub Spec</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Build</p>
+        <ul>
+          <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
+          <li><a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">Agent Ready GEO</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Research</p>
+        <ul>
+          <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">45-model conformance</a></li>
+          <li><a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit</a></li>
+          <li><a href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" target="_blank" rel="noopener">Judge observations, daily</a></li>
+          <li><a href="https://research.ilang.ai/papers/missing-definition-of-right/" target="_blank" rel="noopener">Preprint</a></li>
+          <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">All research</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Community</p>
+        <ul>
+          <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
+          <li><a href="https://www.reddit.com/r/iLang/" target="_blank" rel="noopener">Reddit</a></li>
+          <li><a href="https://ilang.cn" target="_blank" rel="noopener" lang="zh-CN">中文站</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul>
+          <li><a href="/about/">About iLang</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><!--email_off--><a href="mailto:contact@ilang.ai">Contact</a><!--/email_off--></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 iLang Inc. · Canada · AI language technology</span>
+      <div class="ids">
+        <span>MIT License</span>
+        <span>ilang:genesis:2026-03-04</span>
+      </div>
+    </div>
+  </div>
 </footer>
+<script src="/assets/site.js?v=e695ff3c" defer></script>
 </body>
 </html>
