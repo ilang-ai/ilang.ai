@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陪跑：让你自己的 AI 把网站做到谷歌和 AI 都推荐 — iLang</title>
+<meta name="description" content="把一段话发给帮你建站的 AI，它先免费把网站改到 AI 可读满分，再用你自己的数据账号查对手、找词、看谷歌和 ChatGPT 有没有推荐你。不用懂代码。">
+<meta property="og:title" content="陪跑：让你自己的 AI 把网站做到谷歌和 AI 都推荐 — iLang">
+<meta property="og:description" content="把一段话发给帮你建站的 AI，它先免费把网站改到 AI 可读满分，再用你自己的数据账号查对手、找词、看谷歌和 ChatGPT 有没有推荐你。不用懂代码。">
+<meta property="og:url" content="https://ilang.ai/seo/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta property="og:locale" content="zh_CN">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ilang.ai/seo/">
+<link rel="alternate" type="text/markdown" href="/seo/index.md">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"让你自己的 AI 做网站的 SEO 和 GEO","inLanguage":"zh-CN","step":[{"@type":"HowToStep","position":1,"name":"复制下面这段话。","text":"复制下面这段话。站上线后在飞书群晒图，机器人也会把它递到你手上。"},{"@type":"HowToStep","position":2,"name":"发给远程机上帮你建站的那个 AI。","text":"发给远程机上帮你建站的那个 AI。别发到群里。"},{"@type":"HowToStep","position":3,"name":"它第一句回「iLang 陪跑已就位」，就说明贴对了。","text":"它第一句回「iLang 陪跑已就位」，就说明贴对了。不是这句，换一个能上谷歌、能改你网站的 AI 再发。"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[{"@type":"Question","name":"我不会代码，行吗？","acceptedAnswer":{"@type":"Answer","text":"行。你只做四件事：复制这段话、注册、复制两串字、回一个字。剩下的是 AI 的活。"}},{"@type":"Question","name":"手机上能弄吗？","acceptedAnswer":{"@type":"Answer","text":"把这段话发给远程机上的 AI 就行，手机当遥控器。注册和复制两串字要在那台电脑的浏览器里做。"}},{"@type":"Question","name":"贴错 AI 了怎么办？","acceptedAnswer":{"@type":"Answer","text":"第一句不是「iLang 陪跑已就位」就是贴错了。它要能上谷歌、能改你的网站。国内的 AI 做不到。"}},{"@type":"Question","name":"数据准不准？","acceptedAnswer":{"@type":"Answer","text":"每个数都写出处和日期，查不到就说查不到。它不编数。"}},{"@type":"Question","name":"卡住了找谁？","acceptedAnswer":{"@type":"Answer","text":"对它说「我卡住了」，它写一句求助，你发到飞书群，机器人和群友接。"}},{"@type":"Question","name":"这段话会变吗？","acceptedAnswer":{"@type":"Answer","text":"会。做法和标准放在 ilang.ai 上，你的 AI 每次开工都读最新的，你不用重新复制。"}}]}</script>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
+<script>
+// Before first paint: mark that scripts run, put back the reader's own choice of paper or ink, and let the page
+// move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
+(function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=e695ff3c">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <a href="/" class="brand" aria-label="iLang home"><img src="/ilang-logo.svg" alt="" width="28" height="28"><span>iLang</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main">
+    <a href="/spec/" style="--i:0">Specification</a>
+    <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
+    <a href="/dictionary/" style="--i:2">Dictionary</a>
+    <a href="/playground/" style="--i:3">Playground</a>
+    <a href="/ecosystem/" style="--i:4">Ecosystem</a>
+    <a href="/faq/" style="--i:5">FAQ</a>
+    <a href="/about/" style="--i:6">About</a>
+    <a href="/blog/" style="--i:7">Blog</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:8">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+  </nav>
+  <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
+  <span class="progress" id="progress" aria-hidden="true"></span>
+</header>
+
+<main id="main">
+<div class="container">
+  <div class="page-hero" data-path="ilang.ai / seo">
+    <h1>陪跑</h1>
+    <p class="sub">让你自己的 AI 把网站做到谷歌和 AI 都推荐。你只需要把下面这段话发给它。</p>
+  </div>
+
+  <div class="content">
+    <h2>怎么开始</h2>
+<ol class="steps">
+<li><strong>复制下面这段话。</strong> 站上线后在飞书群晒图，机器人也会把它递到你手上。</li>
+<li><strong>发给远程机上帮你建站的那个 AI。</strong> 别发到群里。</li>
+<li><strong>它第一句回「iLang 陪跑已就位」，就说明贴对了。</strong> 不是这句，换一个能上谷歌、能改你网站的 AI 再发。</li>
+</ol>
+
+<div class="code-win">
+<div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>发给你的 AI 的那段话 · v1.0 · 2026-10-22</span></div><button class="code-copy" id="btnCopyBrief" type="button" aria-label="复制这段话">复制</button></div>
+<pre id="briefText">::ILANG::v5.0::ENGINEERING
+[TYPE:companion_brief][PROJECT:ilang_seo_geo][VERSION:1.0][DATE:2026-10-22][LANG:zh]
+
+::STATE{@USER, value:完全不懂技术的新手，只看中文大白话，一次只能做一件事}
+::STATE{@PLAYBOOK, url:https://ilang.ai/seo/agent.ilang.md, note:做法和当期判断标准都在这一页，每次开工先读}
+::STATE{@AR100, url:https://go.ilang.app/ar100, note:把网站做到 AI 可读满分的方法}
+::STATE{@SCORE, url:https://go.ilang.app/score/HOST, note:HOST 换成他的域名，给他自己看分数}
+::STATE{@SIGNUP, url:https://go.ilang.app/dfs, note:要谷歌真数据时，只给这一个注册地址}
+::STATE{@KEYS, url:https://go.ilang.app/dfs-api, note:注册后拿两串字的页面}
+::STATE{@PLAYGROUND, url:https://go.ilang.app/dfs-playground, note:你自己调不了接口时，带他在这页点一次}
+::STATE{@RECORD, value:这台电脑上一个叫「陪跑记录」的文件夹，每次开工先翻}
+
+::MODULE{START}
+  [MUST] 先 GET @PLAYBOOK 读完，第一句话照页上 @GREETING 的原文回他。读不到那一页就直说，不开工。
+  [MUST] 自查两件事：能不能上谷歌，能不能改他的网站。做不到就告诉他这段话该贴给哪个 AI，不硬编。
+  [MUST] 他还没有网站，就告诉他先把课程走到「站上线了」再回来。
+
+::MODULE{TALK}
+  [MUST] 只说中文大白话，每次一屏以内，只给一件事，结尾一个问题或 2 到 4 个选项。
+  [MUST] 数字配白话和人民币，每个数写出处和日期，查不到就说查不到，不编。
+
+::MODULE{FREE_FIRST}
+  [MUST] 先做免费的 AI 可读体检，按 @AR100 的方法，用三句话告诉他：几分、最要紧的一处毛病、改不改。
+  [MUST] 他说改就动手。动域名和 DNS 前先问他一句。改完给他 @SCORE 的地址让他自己看分。
+
+::MODULE{DATA}
+  [MUST] 要谷歌真数据时先问他有没有 DataForSEO 账号。没有就原样给 @SIGNUP，让他在这台电脑的浏览器里自己注册，不替他点，不替他填。
+  [MUST] 接账号按顺序：能点同意就让他点同意；不行就让他从 @KEYS 复制两串字给你；还不行就带他在 @PLAYGROUND 点一次，把结果拷回来。
+  [MUST] 两串字只存在 @RECORD 里，不写进任何会分享的东西，不回显，不发群。
+  [MUST] 接上先免费查余额。花钱前说大概多少，查完报花了多少、还剩多少。30 天内查过的不重买。
+
+::MODULE{COMMANDS}
+  [RULE] 七句口令：体检、看对手、找词、AI提没提我、这周怎么样、出成绩单、我卡住了。每句的做法在 @PLAYBOOK。
+  [RULE] 他说「我卡住了」，就替他写一句不带任何密码的求助，让他发到群里。
+
+::MODULE{RECORD}
+  [MUST] 每次开工先翻 @RECORD。做完把这次做了什么、花了多少、下一件事写进去。
+</pre>
+</div>
+    <p class="hint">原文地址：<a href="/seo/brief.ilang.md">ilang.ai/seo/brief.ilang.md</a>。你的 AI 开工时读的做法和标准在 <a href="/seo/agent.ilang.md">ilang.ai/seo/agent.ilang.md</a>，我们改那一页，所有人的 AI 下次开工就按新版做。</p>
+
+    <h2>它会做什么</h2>
+    <p>七句话，想到哪句说哪句。</p>
+<div class="cards">
+  <div class="card">
+    <h3>体检</h3>
+    <p>免费。看谷歌和 AI 读不读得懂你的站，当场改到满分，给你一个能截图的分数页。</p>
+  </div>
+  <div class="card">
+    <h3>看对手</h3>
+    <p>你学的那个站靠哪几个词吃饭，哪个词你也抢得到。第一次花钱就花在这，几毛钱。</p>
+  </div>
+  <div class="card">
+    <h3>找词</h3>
+    <p>给你 3 个够得着的词，每个词一句话说为什么。</p>
+  </div>
+  <div class="card">
+    <h3>AI提没提我</h3>
+    <p>谷歌的 AI 概览、AI 模式、ChatGPT 回答你的词时，有没有提到你。</p>
+  </div>
+  <div class="card">
+    <h3>这周怎么样</h3>
+    <p>每周一问它一句。收录、排名、AI 引用三个数，和上周比，只交代一件这周要做的事。</p>
+  </div>
+  <div class="card">
+    <h3>出成绩单</h3>
+    <p>一屏，截图就能晒。</p>
+  </div>
+  <div class="card">
+    <h3>我卡住了</h3>
+    <p>它替你写一句求助，你发到群里。</p>
+  </div>
+</div>
+
+    <h2>要花钱吗</h2>
+    <p>体检和改站不花钱。查谷歌的真实数据要一个 DataForSEO 账号。这是一家按次卖搜索数据的公司，很多 SEO 工具的数据都从它买，没有月费。</p>
+    <p>新账号送 1 美元，约 7 元，够查几十次。之后想接着查，最低充 50 美元，钱直接付给它，余额不过期，第一次充值 30 天内可以退，以它页面写的为准。</p>
+    <p>我们不经手你的钱，也不经手你的密码。</p>
+    <h3>注册只有三步</h3>
+<ol class="steps">
+<li><strong>到了要数据那一步，你的 AI 会给你一个注册地址。</strong> 用你办谷歌号的那个邮箱注册，确认信在同一台电脑上点开。</li>
+<li><strong>登录后台，打开 API Access 页，把 API 登录名和 API 密码复制给你的 AI。</strong> 只给它，别发群。</li>
+<li><strong>它先免费查一次余额，通了就开始。</strong> 每次花钱前它会说大概多少，花完报花了多少、还剩多少。</li>
+</ol>
+    <p><a class="btn btn-primary" href="https://go.ilang.app/dfs">去注册 DataForSEO</a> <a class="btn btn-secondary" href="https://go.ilang.app/dfs-api">注册完，在这页拿两串字</a></p>
+
+    <h2>常见问题</h2>
+<div class="faq-list">
+  <div class="faq-item">
+    <h3>我不会代码，行吗？</h3>
+    <p>行。你只做四件事：复制这段话、注册、复制两串字、回一个字。剩下的是 AI 的活。</p>
+  </div>
+  <div class="faq-item">
+    <h3>手机上能弄吗？</h3>
+    <p>把这段话发给远程机上的 AI 就行，手机当遥控器。注册和复制两串字要在那台电脑的浏览器里做。</p>
+  </div>
+  <div class="faq-item">
+    <h3>贴错 AI 了怎么办？</h3>
+    <p>第一句不是「iLang 陪跑已就位」就是贴错了。它要能上谷歌、能改你的网站。国内的 AI 做不到。</p>
+  </div>
+  <div class="faq-item">
+    <h3>数据准不准？</h3>
+    <p>每个数都写出处和日期，查不到就说查不到。它不编数。</p>
+  </div>
+  <div class="faq-item">
+    <h3>卡住了找谁？</h3>
+    <p>对它说「我卡住了」，它写一句求助，你发到飞书群，机器人和群友接。</p>
+  </div>
+  <div class="faq-item">
+    <h3>这段话会变吗？</h3>
+    <p>会。做法和标准放在 ilang.ai 上，你的 AI 每次开工都读最新的，你不用重新复制。</p>
+  </div>
+</div>
+
+    <h2>这套方法做出来的站</h2>
+    <p>ilang.ai、hotelcorporatecodes.com、emuon.com，三个站用同一套方法做到了 AI 可读 100 分。你的 AI 用的就是这套。</p>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <p class="f-brand"><img src="/ilang-logo.svg" alt="" width="28" height="28"> iLang</p>
+        <p class="footer-about">iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai">contact@ilang.ai</a><!--/email_off--></p>
+      </div>
+      <div>
+        <p class="footer-col-title">Protocol</p>
+        <ul>
+          <li><a href="/mcp-vs-a2a/">Compare</a></li>
+          <li><a href="/spec/">Specification</a></li>
+          <li><a href="/dictionary/">Dictionary</a></li>
+          <li><a href="/playground/">Playground</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">GitHub Spec</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Build</p>
+        <ul>
+          <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
+          <li><a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">Agent Ready GEO</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Research</p>
+        <ul>
+          <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">45-model conformance</a></li>
+          <li><a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit</a></li>
+          <li><a href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" target="_blank" rel="noopener">Judge observations, daily</a></li>
+          <li><a href="https://research.ilang.ai/papers/missing-definition-of-right/" target="_blank" rel="noopener">Preprint</a></li>
+          <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">All research</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Community</p>
+        <ul>
+          <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
+          <li><a href="https://www.reddit.com/r/iLang/" target="_blank" rel="noopener">Reddit</a></li>
+          <li><a href="https://ilang.cn" target="_blank" rel="noopener" lang="zh-CN">中文站</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul>
+          <li><a href="/about/">About iLang</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><!--email_off--><a href="mailto:contact@ilang.ai">Contact</a><!--/email_off--></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 iLang Inc. · Canada · AI language technology</span>
+      <div class="ids">
+        <span>MIT License</span>
+        <span>ilang:genesis:2026-03-04</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="/assets/site.js?v=e695ff3c" defer></script>
+<script>
+(function(){var b=document.getElementById('btnCopyBrief');if(!b)return;b.addEventListener('click',function(){var t=document.getElementById('briefText').textContent;var done=function(){b.textContent='已复制';b.classList.add('copied');setTimeout(function(){b.textContent='复制';b.classList.remove('copied');},1800);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){fallback();});}else{fallback();}function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('briefText'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){}s.removeAllRanges();}});})();
+</script>
+<script src="/assets/site.js?v=e695ff3c" defer></script>
+</body>
+</html>
