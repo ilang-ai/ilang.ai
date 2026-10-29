@@ -1,0 +1,61 @@
+# 四本样书 官方校验器复跑记录  复跑时间 2026-10-30 04:15:36 本机 Windows py -3 -X utf8
+# 校验器 A = ilang_grammar_validator.py GitHub ilang-ai/ilang-spec main（10-29 01:38 拉取）sha256 前16 fbe2a30ffa1ad662 64778 字节
+# 校验器 B = DeepSeek Harness run1 自己从 raw.githubusercontent 拉的同名文件 sha256 前16 14c2f203066addfc 66105 字节
+# 命令：py -3 -X utf8 <校验器> --lint <书> --strict ；下面每本书各跑 A B 两次 原样贴出
+
+==================================================================
+## 工程书母本-Harness样例书-run1-cloudflare-pages-母本v2.4-2026-10-29.ilang.md
+## sha256 87c1ab360204326c73d1b9a93aa74a71c291fec35c62e83fd569a5d8ea47d69d  4881 字节  4879 字
+--- ilang_grammar_validator.py --lint --strict
+工程书母本-Harness样例书-run1-cloudflare-pages-母本v2.4-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+--- validator-fetched.py --lint --strict
+工程书母本-Harness样例书-run1-cloudflare-pages-母本v2.4-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+
+==================================================================
+## 工程书母本-Harness样例书-run2-impact-母本v2.5-2026-10-29.ilang.md
+## sha256 cc96a39082cd67c278f8cd9daf0d27a795b815de68de6d44582f8472cdece169  4244 字节  4244 字
+--- ilang_grammar_validator.py --lint --strict
+工程书母本-Harness样例书-run2-impact-母本v2.5-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+--- validator-fetched.py --lint --strict
+工程书母本-Harness样例书-run2-impact-母本v2.5-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+
+==================================================================
+## 工程书母本-Harness样例书-run3-cloudflare-pages-母本v2.6-2026-10-29.ilang.md
+## sha256 cc7b88b05b8662bd7f3e9439bbaa2ea6939ee755e77b5f0ee20ee86c4f7250ec  4693 字节  4693 字
+--- ilang_grammar_validator.py --lint --strict
+工程书母本-Harness样例书-run3-cloudflare-pages-母本v2.6-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+--- validator-fetched.py --lint --strict
+工程书母本-Harness样例书-run3-cloudflare-pages-母本v2.6-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+
+==================================================================
+## 工程书母本-Harness样例书-run4-公众号文章-红狐-母本v2.7-2026-10-29.ilang.md
+## sha256 4a54f076108497efb21e13fa5785c11814b0ecfeef3e498113452aa1cf888128  5560 字节  5560 字
+--- ilang_grammar_validator.py --lint --strict
+工程书母本-Harness样例书-run4-公众号文章-红狐-母本v2.7-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+--- validator-fetched.py --lint --strict
+工程书母本-Harness样例书-run4-公众号文章-红狐-母本v2.7-2026-10-29.ilang.md: 0 error(s), 0 warning(s) | mode=raw fences linted=0 skipped=0 annotations=0
+
+TOTAL: 0 error(s), 0 warning(s) in 1 file(s)
+--- rc=0
+
