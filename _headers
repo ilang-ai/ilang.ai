@@ -38,3 +38,5 @@
   Access-Control-Allow-Origin: *
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+/soul/SOUL.iml
+  Content-Type: text/plain; charset=utf-8

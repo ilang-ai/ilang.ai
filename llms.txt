@@ -74,6 +74,7 @@ AI is moving from answering questions to acting for people. iLang starts from on
 - [FAQ](https://ilang.ai/faq/): Frequently asked questions: learning and using iLang, the loader, supported models, MCP and A2A, v4.0 and v5.0
 - [Specification](https://ilang.ai/spec/): Full spec v5.0 — communication, execution, judgment layers; the protocol header to paste and the v4.0 agent runtime header
 - [Dictionary](https://ilang.ai/dictionary/): 88 verbs with definitions and examples
+- [SOUL](https://ilang.ai/soul/): SOUL 2.0, a judgment layer for an AI's default persona: paste the block into any AI's custom instructions; iLang and IML 0.5 forms, from ilang-spec products/soul
 - [Compare: MCP vs A2A vs iLang](https://ilang.ai/mcp-vs-a2a/): Side-by-side protocol comparison
 - [iLang vs MCP](https://ilang.ai/i-lang-vs-mcp/): Detailed comparison at different protocol layers
 - [iLang vs A2A](https://ilang.ai/i-lang-vs-a2a/): Detailed comparison for agent communication
