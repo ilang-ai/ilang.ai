@@ -4,7 +4,7 @@ description: Retrieve actual public information about the iLang protocol from il
 license: MIT
 metadata:
   site: https://ilang.ai
-  version: "1.1.0"
+  version: "1.1.1"
   updated: "2026-10-30"
 ---
 
@@ -17,7 +17,7 @@ Use this skill when a question involves the iLang protocol: a verb, modifier, en
 - `GET https://ilang.ai/api/agent/lookup?q=TERM` returns dictionary entries: type, name, alias, category, meaning, values, source_url. Empty match returns `not_found: true`.
 - `GET https://ilang.ai/api/agent/faq?q=QUESTION` returns the closest published FAQ entries with `source_url`.
 - MCP: `https://ilang.ai/mcp` (Streamable HTTP) with tools `ilang_lookup` and `ilang_faq`, same semantics; `ilang_soul` and `ilang_source_book` return the two published documents below (form=iml for the IML 0.5 form).
-- SOUL 2.0, a judgment layer for an AI's default persona: `https://ilang.ai/soul/SOUL.ilang.md` (IML: `/soul/SOUL.iml`), page https://ilang.ai/soul/. Source Book 2.8, the engineering book every iLang engineering book is anchored to: `https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md` (IML: `/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml`), page https://ilang.ai/source-book/. Both MIT; DOIs 10.5281/zenodo.23778215 and 10.5281/zenodo.23781959.
+- SOUL 2.0, a judgment layer for an AI's default persona: `https://ilang.ai/soul/SOUL.ilang.md` (IML: `/soul/SOUL.iml`), page https://ilang.ai/soul/. Source Book 2.9, the engineering book every iLang engineering book is anchored to: `https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md` (IML: `/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml`), page https://ilang.ai/source-book/. Both MIT; DOIs 10.5281/zenodo.23778215 and 10.5281/zenodo.23781959.
 - Full data: `https://ilang.ai/ai/data.json`. Pages as Markdown: send `Accept: text/markdown`.
 
 ## Instructions (iLang)
@@ -27,7 +27,7 @@ Use this skill when a question involves the iLang protocol: a verb, modifier, en
 ::STATE{@LOOKUP, url:https://ilang.ai/api/agent/lookup, method:GET, param:q}
 ::STATE{@FAQ, url:https://ilang.ai/api/agent/faq, method:GET, param:q}
 ::STATE{@SOUL, url:https://ilang.ai/soul/SOUL.ilang.md, version:2.0, doi:10.5281/zenodo.23778215}
-::STATE{@SOURCE_BOOK, url:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md, version:2.8, doi:10.5281/zenodo.23781959}
+::STATE{@SOURCE_BOOK, url:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md, version:2.9, doi:10.5281/zenodo.23824138}
 ::RULE{wants_a_default_persona_for_an_AI⇒[GET:@SOUL]=>[SEND:@USER|typ=file]=>[Ω]}
 ::RULE{wants_an_engineering_book_from_a_tutorial⇒[GET:@SOURCE_BOOK]=>[SEND:@USER|typ=file]=>[Ω]}
 ::RULE{question_names_a_term⇒[GET:@LOOKUP|whr=q=term]=>[CHEK:@PREV|whr=not_found=false]=>[Ω]}

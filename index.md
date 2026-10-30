@@ -18,7 +18,7 @@ You keep saying what you want in your own words: your goals, your conditions, wh
 Two iLang documents from the canon, pasted as written. Each page holds the file in iLang and in IML 0.5, with its DOI.
 
 - SOUL 2.0 (free, any AI): a judgment layer for your AI's default persona. Paste it where the AI reads its instructions. https://ilang.ai/soul/ ; file https://ilang.ai/soul/SOUL.ilang.md
-- Source Book 2.8 (an agent app, your DeepSeek key): the engineering book every engineering book is anchored to. Paste it into an agent app, give it a tutorial, and it writes BOOK.md. https://ilang.ai/source-book/ ; file https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md
+- Source Book 2.9 (an agent app, your DeepSeek key): the engineering book every engineering book is anchored to. Paste it into an agent app, give it a tutorial, and it writes BOOK.md. https://ilang.ai/source-book/ ; file https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md
 
 ## How do I use iLang?
 

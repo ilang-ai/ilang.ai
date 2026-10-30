@@ -1,6 +1,6 @@
 # ilang.ai for agents
 
-Source: https://ilang.ai/ai/ (this page). Updated 2026-10-30 from ilang-ai/ilang-dict train.csv, the ilang.ai FAQ and ilang-spec products/ (SOUL 2.0, Source Book 2.8).
+Source: https://ilang.ai/ai/ (this page). Updated 2026-10-30 from ilang-ai/ilang-dict train.csv, the ilang.ai FAQ and ilang-spec products/ (SOUL 2.0, Source Book 2.9).
 
 ## Purpose
 
@@ -12,7 +12,7 @@ iLang is an AI-native communication protocol: 88 verbs, 29 core modifiers plus a
 - FAQ answers about the protocol: GET https://ilang.ai/api/agent/faq?q=QUESTION
 - MCP (Streamable HTTP, no auth): https://ilang.ai/mcp. Prompt `ilang` and tool ilang_runtime load the official iLang; ilang_full reads a left-out section; ilang_validate runs the canon grammar validator; ilang_lookup and ilang_faq as above; ilang_soul and ilang_source_book return the two published documents below
 - SOUL 2.0, a judgment layer for an AI's default persona (paste it where the AI reads its instructions): https://ilang.ai/soul/ ; the file https://ilang.ai/soul/SOUL.ilang.md and its IML 0.5 form https://ilang.ai/soul/SOUL.iml
-- Source Book 2.8, the engineering book every iLang engineering book is anchored to (paste it into an agent app with a tutorial; the agent writes BOOK.md): https://ilang.ai/source-book/ ; the file https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md and its IML 0.5 form https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml
+- Source Book 2.9, the engineering book every iLang engineering book is anchored to (paste it into an agent app with a tutorial; the agent writes BOOK.md): https://ilang.ai/source-book/ ; the file https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md and its IML 0.5 form https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml
 - Feedback on SOUL or the Source Book: file a counterexample or an amendment through the forms at https://github.com/ilang-ai/ilang-research/issues/new/choose ; the gates the canon defines run automatically and every submission is recorded verbatim under https://github.com/ilang-ai/ilang-research/tree/main/records ; nothing is merged by a machine
 - Full dataset behind both: https://ilang.ai/ai/data.json
 - Machine-readable pages: request any HTML page with Accept: text/markdown, or read https://ilang.ai/llms-full.txt
@@ -42,7 +42,7 @@ iLang is an AI-native communication protocol: 88 verbs, 29 core modifiers plus a
 ::STATE{@FAQ, url:https://ilang.ai/api/agent/faq, method:GET, param:q}
 ::STATE{@MCP, url:https://ilang.ai/mcp, transport:streamable_http, tools:ilang_runtime+ilang_full+ilang_validate+ilang_lookup+ilang_faq+ilang_soul+ilang_source_book, prompt:ilang}
 ::STATE{@SOUL, url:https://ilang.ai/soul/SOUL.ilang.md, iml:https://ilang.ai/soul/SOUL.iml, page:https://ilang.ai/soul/, version:2.0, doi:10.5281/zenodo.23778215, license:MIT}
-::STATE{@SOURCE_BOOK, url:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md, iml:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml, page:https://ilang.ai/source-book/, version:2.8, doi:10.5281/zenodo.23781959, license:MIT}
+::STATE{@SOURCE_BOOK, url:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md, iml:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml, page:https://ilang.ai/source-book/, version:2.8, doi:10.5281/zenodo.23781959, license:MIT}
 ::STATE{@DEAI, detector:https://ilang.ai/ai-detector/, humanizer:https://ilang.ai/ai-humanizer/, access:web_page, auth:none}
 ::RULE{term_question⇒[GET:@LOOKUP|whr=q=term]=>[CHEK:@PREV|whr=not_found=false]=>[XLAT:@PREV|lng=visitor]=>[Ω]}
 ::RULE{protocol_question⇒[GET:@FAQ|whr=q=question]=>[CHEK:@PREV|whr=not_found=false]=>[XLAT:@PREV|lng=visitor]=>[Ω]}
