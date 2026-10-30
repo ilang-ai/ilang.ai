@@ -250,7 +250,7 @@ p{text-wrap:pretty}
 
 /* ---------- tables ---------- */
 .content table{width:100%;border-collapse:collapse;margin:22px 0 28px;font-size:.95rem;line-height:1.5}
-@media (min-width:641px){.content table{width:auto;max-width:min(100%,36em)}.content table:has(td:nth-child(3)){max-width:min(100%,44em)}}
+@media (min-width:641px){.content table{width:auto;max-width:min(100%,36em)}.content table:has(td:nth-child(3)){max-width:min(100%,44em)}.content .table-wrap>table{width:100%;max-width:none}}
 .content th{text-align:left;padding:11px 16px 11px 0;border-bottom:1px solid var(--rule);border-top:1px solid var(--rule);font-weight:600;font-size:.84rem;color:var(--ink-3);vertical-align:bottom}
 .content td{padding:13px 16px 13px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top;color:var(--ink-2);max-width:34em}
 .content td code{overflow-wrap:normal;white-space:nowrap}
