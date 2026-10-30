@@ -1,13 +1,15 @@
-# iLang: AI-Native Communication Protocol for Humans and Agents
+# iLang is I Language: the protocol between AIs
 Source: https://ilang.ai
 
-iLang **v5.0** | MIT License
+iLang **v5.0** | MIT License
 
-# Don't learn iLang. Your AI should.
+# iLang is I Language.
 
-**iLang tells AI what a sentence is allowed to become.** Not by adding rules, but by measuring what is already there.
+**The protocol agents understand each other by.** Intent, authority and what counts as done, carried between AIs and checked by code on both ends.
 
-iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.
+iLang defined in iLang, with its IML form, is on the page: https://ilang.ai/#definition
+
+You keep saying what you want in your own words: your goals, your conditions, what may and may not be done. Your AI loads iLang, reads it, writes it and works by it.
 
 [Copy latest iLang](https://runtime.ilang.app/ilang-latest.md) [Read the specification →](https://ilang.ai/spec/)
 

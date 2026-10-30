@@ -28,7 +28,7 @@
 
 </div>
 
-## Don't learn iLang. Your AI should.
+## iLang is I Language. The protocol agents understand each other by.
 
 iLang is a protocol for AI, not a language for people to memorise. You keep saying what you want in your own words; your AI loads iLang and works by it.
 
