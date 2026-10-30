@@ -15,7 +15,7 @@
   function sync(){
     var ink = current() === 'ink';
     if (themeBtn) themeBtn.setAttribute('aria-checked', ink ? 'true' : 'false');
-    if (root.hasAttribute('data-theme')) $$('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', ink ? '#12100c' : '#f5f1e8'); });
+    if (root.hasAttribute('data-theme')) $$('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', ink ? '#1a1b1d' : '#e9eaec'); });
   }
   sync();
   if (themeBtn) themeBtn.addEventListener('click', function(ev){
