@@ -1,13 +1,14 @@
 // The iLang MCP server at https://ilang.ai/mcp (streamable HTTP, no authentication).
 // It gives a model the official iLang: the runtime comes from the canon's generated bundles
 // (ilang-spec/runtime), checked against the manifest's sha256 before it is served, so this
-// server holds no copy of the rules. Plus dictionary and FAQ lookup and the canon grammar
-// validator (the browser port that matches the Python reference byte for byte).
+// server holds no copy of the rules. Plus dictionary and FAQ lookup, the canon grammar
+// validator (the browser port that matches the Python reference byte for byte), and the two
+// published documents, SOUL 2.0 and Source Book 2.8, served as the files this site holds.
 import { loadData, lookup, faq } from './_lib.js';
 import ILV from '../playground/ilang-validator.js';
 
 const PROTOCOL = '2025-06-18';
-const SERVER = { name: 'ilang', version: '2.0.1', title: 'iLang' };
+const SERVER = { name: 'ilang', version: '2.1.0', title: 'iLang' };
 const RAW = 'https://runtime.ilang.app/';
 const PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me ' +
   'or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
@@ -17,12 +18,15 @@ const PREAMBLE = 'You have loaded the official iLang runtime specification.\n\n'
 const INSTRUCTIONS = 'This server gives you the official iLang. Load it once per conversation, before you work: ' +
   'get the prompt "ilang" or call ilang_runtime, then use iLang internally. People do not need to learn or write it. ' +
   'The core runtime leaves some sections out and marks each one; when you need one, call ilang_full with its ' +
-  'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate.';
+  'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate. ' +
+  'Two published iLang documents are here as files: ilang_soul returns SOUL 2.0, a judgment layer for an AI\'s default persona; ' +
+  'ilang_source_book returns Source Book 2.8, the engineering book every iLang engineering book is anchored to. form=iml gives the IML 0.5 form.';
 const BIG = { 'anthropic/maxResultSizeChars': 250000 };
 
 // Annotations are written out in full on every tool, from what its handler does: ilang_runtime and
 // ilang_full read the canon bundles at the fixed RAW address (the arguments never choose a URL),
-// ilang_lookup and ilang_faq read this site's /ai/data.json, ilang_validate runs the validator here.
+// ilang_lookup and ilang_faq read this site's /ai/data.json, ilang_validate runs the validator here,
+// ilang_soul and ilang_source_book read the two document files this site serves (the arguments never choose a URL).
 // None of them writes, sends or deletes anything, so a repeated call changes nothing.
 const TOOLS = [
   { name: 'ilang_runtime', title: 'Load iLang',
@@ -46,8 +50,20 @@ const TOOLS = [
     inputSchema: { type: 'object', properties: { q: { type: 'string', description: 'Term, alias or keyword, e.g. XLAT, lng, @PREV, BUDGET' } }, required: ['q'] },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
   { name: 'ilang_faq', title: 'iLang FAQ',
-    description: '[GET:@FAQ|whr=q=question]=>[Ω] Return the published ilang.ai FAQ entries closest to a question about the protocol (what it is, MCP/A2A comparison, prompt compression, versions, judgment layer). Includes source_url.',
+    description: '[GET:@FAQ|whr=q=question]=>[Ω] Return the published ilang.ai FAQ entries closest to a question about the protocol (what it is, MCP/A2A comparison, prompt compression, versions, judgment layer, SOUL, the Source Book). Includes source_url.',
     inputSchema: { type: 'object', properties: { q: { type: 'string' } }, required: ['q'] },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+  { name: 'ilang_soul', title: 'SOUL 2.0',
+    description: '[GET:@SOUL|whr=form]=>[Ω] Return SOUL 2.0, the published iLang document that sets how an AI behaves by default: a judgment layer for its default persona. ' +
+      'The text comes back as the file on ilang.ai/soul/ (about 2,000 characters), followed by a JSON line with version, date, license, DOI, file url and the sha256 of the text served. ' +
+      'Paste the text where the AI reads its instructions. form=iml returns the IML 0.5 form instead.',
+    inputSchema: { type: 'object', properties: { form: { type: 'string', enum: ['ilang', 'iml'], description: 'ilang (default) or iml' } } },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+  { name: 'ilang_source_book', title: 'Source Book 2.8',
+    description: '[GET:@SOURCE_BOOK|whr=form]=>[Ω] Return Source Book 2.8, the engineering book every iLang engineering book is anchored to: pasted into an agent app that has a shell, files and the web, ' +
+      'and given a tutorial, the agent confirms the tutorial\'s numbers against official sources and writes BOOK.md, an English iLang book any agent can carry out. ' +
+      'The text comes back as the file on ilang.ai/source-book/ (about 7,600 characters), followed by a JSON line with version, date, license, DOI, file url and the sha256 of the text served. form=iml returns the IML 0.5 form instead.',
+    inputSchema: { type: 'object', properties: { form: { type: 'string', enum: ['ilang', 'iml'], description: 'ilang (default) or iml' } } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
 ];
 const PROMPTS = [
@@ -62,6 +78,10 @@ const RESOURCES = [
     description: 'The same three documents complete, about 27,000 tokens' },
   { uri: 'ilang://runtime/media', name: 'ilang-runtime-media', title: 'iLang media extension', mimeType: 'text/markdown',
     description: 'Image, video and audio vocabulary, about 18,000 tokens' },
+  { uri: 'ilang://products/soul', name: 'ilang-soul', title: 'SOUL 2.0', mimeType: 'text/markdown',
+    description: 'A judgment layer for an AI\'s default persona, the published iLang document; ilang://products/soul/iml is the IML 0.5 form' },
+  { uri: 'ilang://products/source-book', name: 'ilang-source-book', title: 'Source Book 2.8', mimeType: 'text/markdown',
+    description: 'The engineering book every iLang engineering book is anchored to; ilang://products/source-book/iml is the IML 0.5 form' },
 ];
 
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Accept, Mcp-Session-Id, MCP-Protocol-Version' };
@@ -120,6 +140,24 @@ function section(full, want) {
 }
 const yes = (v) => v === true || /^(1|true|yes|y|media)$/i.test(String(v || '').trim());
 
+// ------------------------------------------------------------------ the two published documents, from this site's own files
+const PRODUCTS = {
+  ilang_soul: { product: 'SOUL', version: '2.0', date: '2026-10-29', license: 'MIT', doi: '10.5281/zenodo.23778215', page: '/soul/',
+    canon: 'https://github.com/ilang-ai/ilang-spec/tree/main/products/soul', files: { ilang: '/soul/SOUL.ilang.md', iml: '/soul/SOUL.iml' } },
+  ilang_source_book: { product: 'Source Book', version: '2.8', date: '2026-10-29', license: 'MIT', doi: '10.5281/zenodo.23781959', page: '/source-book/',
+    canon: 'https://github.com/ilang-ai/ilang-spec/tree/main/products/source-book', files: { ilang: '/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md', iml: '/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml' } },
+};
+async function product(name, form, env, origin) {
+  const p = PRODUCTS[name];
+  const f = String(form || 'ilang').trim().toLowerCase() === 'iml' ? 'iml' : 'ilang';
+  const r = await env.ASSETS.fetch(new Request(origin + p.files[f]));
+  if (!r.ok) throw new Error('the ' + p.product + ' file did not answer (HTTP ' + r.status + ')');
+  const t = await r.text();
+  const meta = { product: p.product, version: p.version, date: p.date, license: p.license, doi: p.doi, form: f, file: origin + p.files[f],
+    page: origin + p.page, canon: p.canon, sha256: await hex(t), chars: t.length };
+  return { text: t, meta };
+}
+
 // ------------------------------------------------------------------ JSON-RPC
 async function handle(msg, env, origin) {
   const { id, method, params } = msg || {};
@@ -143,6 +181,8 @@ async function handle(msg, env, origin) {
       const uri = params && params.uri;
       const m = /^ilang:\/\/runtime\/(core|full|media)$/.exec(uri || '');
       if (m) { const b = await bundle(m[1]); return rpc(id, { contents: [{ uri, mimeType: 'text/markdown', text: b.text }] }); }
+      const pm = /^ilang:\/\/products\/(soul|source-book)(?:\/(iml))?$/.exec(uri || '');
+      if (pm) { const d = await product(pm[1] === 'soul' ? 'ilang_soul' : 'ilang_source_book', pm[2], env, origin); return rpc(id, { contents: [{ uri, mimeType: 'text/markdown', text: d.text }] }); }
       const data = await loadData(env, origin);
       return rpc(id, { contents: [{ uri: origin + '/ai/data.json', mimeType: 'application/json', text: JSON.stringify(data) }] });
     }
@@ -159,6 +199,10 @@ async function handle(msg, env, origin) {
         if (typeof args.text !== 'string' || !args.text.trim()) return rpcErr(id, -32602, 'Invalid params: ilang_validate requires text, a non-empty string');
         const r = ILV.lint(args.text);
         return rpc(id, text(JSON.stringify({ mode: r.mode, counts: r.counts, findings: r.findings, validator: ILV.SOURCE })));
+      }
+      if (name === 'ilang_soul' || name === 'ilang_source_book') {
+        const d = await product(name, args.form, env, origin);
+        return rpc(id, { content: [{ type: 'text', text: d.text }, { type: 'text', text: JSON.stringify(d.meta) }], isError: false });
       }
       if ((name === 'ilang_lookup' || name === 'ilang_faq') && (typeof args.q !== 'string' || !args.q.trim())) return rpcErr(id, -32602, 'Invalid params: ' + name + ' requires q, a non-empty string');
       const data = await loadData(env, origin);

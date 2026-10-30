@@ -4,9 +4,9 @@
     {
       "name": "ilang-lookup",
       "type": "skill-md",
-      "description": "Retrieve actual public information about the iLang protocol from ilang.ai: dictionary lookup and FAQ, with rules for citing and never inventing terms.",
+      "description": "Retrieve actual public information about the iLang protocol from ilang.ai: dictionary lookup, FAQ, and the two published documents SOUL 2.0 and Source Book 2.8, with rules for citing and never inventing terms.",
       "url": "https://ilang.ai/ai/skills/ilang-lookup/SKILL.md",
-      "digest": "sha256:bf3980e1363f6e637d7c7a07d2608f8243d6966a3c2e46d35966d4fba0c2787f"
+      "digest": "sha256:8b864c1200c2228745ffb72d24b8c3b04a675403a63210f0b73d4ea27850036e"
     }
   ]
 }

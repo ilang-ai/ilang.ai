@@ -2,7 +2,7 @@
 
 SOUL 2.0 is an iLang document that sets how an AI behaves by default. You set the direction; the AI does the work. It asks before anything it cannot undo. It marks claims verified, inferred, or unknown. It ends each task with a score.
 
-- Version 2.0, 2026-10-29, MIT. DOI 10.5281/zenodo.21821452. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/soul
+- Version 2.0, 2026-10-29, MIT. DOI 10.5281/zenodo.23778215. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/soul
 - Files: https://ilang.ai/soul/SOUL.ilang.md (sha256 9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1), https://ilang.ai/soul/SOUL.iml (sha256 f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e)
 
 ## iLang
@@ -120,3 +120,5 @@ Paste the iLang block, written for people and models. The IML block is the same 
 **What is the score at the end?** S is the iLang judgment layer's action score, reported to two decimals. It is a weighted sum of ten of the eleven dimensions the model scores its own action on. They are intent, capability, consequence, relationship, certainty, reversibility, evidence, sovereignty, inertia, and externality. Authority is gated separately. A task ends with it; a question's answer does not. Ask and it writes the full JUDGE block: vector, mode, reason.
 
 **Which models does it run on?** It runs as written on Claude, GPT, Gemini, Grok, Muse, DeepSeek, GLM, Kimi, Qwen, and other current models.
+
+Want your AI to write engineering books? See the Source Book: https://ilang.ai/source-book/

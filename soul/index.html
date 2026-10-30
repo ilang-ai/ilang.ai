@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://ilang.ai/soul/">
 <link rel="alternate" type="text/markdown" href="/soul/index.md">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang SOUL 2.0","alternateName":"SOUL 2.0","version":"2.0","datePublished":"2026-10-29","inLanguage":"en","description":"A judgment layer for an AI's default persona, written in iLang: paste it into the custom instructions of any AI. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/soul/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/soul","identifier":"10.5281/zenodo.21821452","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"SOUL.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/soul/SOUL.ilang.md","sha256":"9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1"},{"@type":"MediaObject","name":"SOUL.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/soul/SOUL.iml","sha256":"f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang SOUL 2.0","alternateName":"SOUL 2.0","version":"2.0","datePublished":"2026-10-29","inLanguage":"en","description":"A judgment layer for an AI's default persona, written in iLang: paste it into the custom instructions of any AI. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/soul/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/soul","identifier":"10.5281/zenodo.23778215","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"SOUL.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/soul/SOUL.ilang.md","sha256":"9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1"},{"@type":"MediaObject","name":"SOUL.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/soul/SOUL.iml","sha256":"f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e"}]}</script>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
@@ -23,7 +23,7 @@
 // move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=25092455">
+<link rel="stylesheet" href="/assets/site.css?v=0fc051df">
 <style>
 .soul-labels{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:clamp(18px,2.4vw,30px);font-family:var(--f-num);font-size:.8rem;letter-spacing:.02em;color:var(--ink-3)}
 .soul-labels b{font-weight:500;color:var(--seal-text)}
@@ -81,7 +81,7 @@
 <section class="page-hero"><div class="container" data-path="ilang.ai / soul">
 <h1>SOUL 2.0</h1>
 <p class="sub">SOUL 2.0 is an iLang document that sets how an AI behaves by default. You set the direction; the AI does the work. It asks before anything it cannot undo. It marks claims verified, inferred, or unknown. It ends each task with a score.</p>
-<p class="soul-labels"><span><b>Version</b> 2.0</span><span><b>Date</b> 2026-10-29</span><span><b>License</b> MIT</span><span><a class="lk" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.21821452">DOI 10.5281/zenodo.21821452</a></span><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/tree/main/products/soul">ilang-spec / products / soul</a></p>
+<p class="soul-labels"><span><b>Version</b> 2.0</span><span><b>Date</b> 2026-10-29</span><span><b>License</b> MIT</span><span><a class="lk" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.23778215">DOI 10.5281/zenodo.23778215</a></span><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/tree/main/products/soul">ilang-spec / products / soul</a></p>
 </div></section>
 
 <section class="content"><div class="container">
@@ -174,6 +174,7 @@ RD@USty=intent GTwh=evidence CKwh=authority PL CE CKwh=delivered LG SN@US $
 <div class="faq-item"><h3>What is the score at the end?</h3><p>S is the iLang judgment layer's action score, reported to two decimals. It is a weighted sum of ten of the eleven dimensions the model scores its own action on. They are intent, capability, consequence, relationship, certainty, reversibility, evidence, sovereignty, inertia, and externality. Authority is gated separately. A task ends with it; a question's answer does not. Ask and it writes the full JUDGE block: vector, mode, reason.</p></div>
 <div class="faq-item"><h3>Which models does it run on?</h3><p>It runs as written on Claude, GPT, Gemini, Grok, Muse, DeepSeek, GLM, Kimi, Qwen, and other current models.</p></div>
 </div>
+<p class="next">Want your AI to write engineering books? See the <a href="/source-book/" target="_blank" rel="noopener">Source Book</a>.</p>
 </div></section>
 </main>
 
@@ -261,6 +262,6 @@ RD@USty=intent GTwh=evidence CKwh=authority PL CE CKwh=delivered LG SN@US $
   });
 })();
 </script>
-<script src="/assets/site.js?v=25092455" defer></script>
+<script src="/assets/site.js?v=05496381" defer></script>
 </body>
 </html>
