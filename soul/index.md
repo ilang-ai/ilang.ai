@@ -119,4 +119,4 @@ Paste the iLang block, written for people and models. The IML block is the same 
 
 **What is the score at the end?** S is the iLang judgment layer's action score, reported to two decimals. It is a weighted sum of ten of the eleven dimensions the model scores its own action on. They are intent, capability, consequence, relationship, certainty, reversibility, evidence, sovereignty, inertia, and externality. Authority is gated separately. A task ends with it; a question's answer does not. Ask and it writes the full JUDGE block: vector, mode, reason.
 
-**Which models does it run on?** It runs as written on Claude, GPT, Gemini, Grok, Muse, DeepSeek, GLM, Kimi, and other current models.
+**Which models does it run on?** It runs as written on Claude, GPT, Gemini, Grok, Muse, DeepSeek, GLM, Kimi, Qwen, and other current models.
