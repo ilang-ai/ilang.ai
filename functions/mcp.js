@@ -8,7 +8,7 @@ import { loadData, lookup, faq } from './_lib.js';
 import ILV from '../playground/ilang-validator.js';
 
 const PROTOCOL = '2025-06-18';
-const SERVER = { name: 'ilang', version: '2.1.0', title: 'iLang' };
+const SERVER = { name: 'ilang', version: '2.1.1', title: 'iLang' };
 const RAW = 'https://runtime.ilang.app/';
 const PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me ' +
   'or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
@@ -142,9 +142,9 @@ const yes = (v) => v === true || /^(1|true|yes|y|media)$/i.test(String(v || '').
 
 // ------------------------------------------------------------------ the two published documents, from this site's own files
 const PRODUCTS = {
-  ilang_soul: { product: 'SOUL', version: '2.0', date: '2026-10-29', license: 'MIT', doi: '10.5281/zenodo.23778215', page: '/soul/',
+  ilang_soul: { product: 'SOUL', version: '2.0', date: '2026-10-29', license: 'MIT', doi: '10.5281/zenodo.23778215', page: '/soul/', feedback: 'https://github.com/ilang-ai/ilang-research/issues/new/choose',
     canon: 'https://github.com/ilang-ai/ilang-spec/tree/main/products/soul', files: { ilang: '/soul/SOUL.ilang.md', iml: '/soul/SOUL.iml' } },
-  ilang_source_book: { product: 'Source Book', version: '2.8', date: '2026-10-29', license: 'MIT', doi: '10.5281/zenodo.23781959', page: '/source-book/',
+  ilang_source_book: { product: 'Source Book', version: '2.8', date: '2026-10-29', license: 'MIT', doi: '10.5281/zenodo.23781959', page: '/source-book/', feedback: 'https://github.com/ilang-ai/ilang-research/issues/new/choose',
     canon: 'https://github.com/ilang-ai/ilang-spec/tree/main/products/source-book', files: { ilang: '/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md', iml: '/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml' } },
 };
 async function product(name, form, env, origin) {
@@ -154,7 +154,7 @@ async function product(name, form, env, origin) {
   if (!r.ok) throw new Error('the ' + p.product + ' file did not answer (HTTP ' + r.status + ')');
   const t = await r.text();
   const meta = { product: p.product, version: p.version, date: p.date, license: p.license, doi: p.doi, form: f, file: origin + p.files[f],
-    page: origin + p.page, canon: p.canon, sha256: await hex(t), chars: t.length };
+    page: origin + p.page, canon: p.canon, feedback: p.feedback, sha256: await hex(t), chars: t.length };
   return { text: t, meta };
 }
 

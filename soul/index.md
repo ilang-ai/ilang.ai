@@ -121,4 +121,12 @@ Paste the iLang block, written for people and models. The IML block is the same 
 
 **Which models does it run on?** It runs as written on Claude, GPT, Gemini, Grok, Muse, DeepSeek, GLM, Kimi, Qwen, and other current models.
 
+## Feedback
+
+Found a case where it fails? File a counterexample: https://github.com/ilang-ai/ilang-research/issues/new?template=counterexample.yml
+
+Want a rule changed? File an amendment with the fix: https://github.com/ilang-ai/ilang-research/issues/new?template=amendment.yml
+
+Both run the gates the canon defines and are recorded verbatim at research (https://github.com/ilang-ai/ilang-research/tree/main/records); nothing is merged by a machine.
+
 Want your AI to write engineering books? See the Source Book: https://ilang.ai/source-book/

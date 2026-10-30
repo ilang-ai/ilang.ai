@@ -2,7 +2,7 @@
   "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
   "serverInfo": {
     "name": "ilang",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "title": "iLang"
   },
   "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.8, as files with version, DOI and sha256. Read-only, no authentication.",

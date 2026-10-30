@@ -1975,6 +1975,16 @@
       "question": "Source Book 2.8: Can I change it?",
       "answer": "Yes, the license is MIT. You may copy, edit and republish the file. The published Source Book keeps its ID, version and date. To get a book for a tutorial, you change nothing: paste the file and give the tutorial. The course bot that hands it over never edits a tag or fills a blank either.",
       "source_url": "https://ilang.ai/source-book/"
+    },
+    {
+      "question": "SOUL 2.0: Where do I report a case where it fails, or propose a change?",
+      "answer": "File a counterexample (a reproducible case against a clause) or an amendment (a change with the fix, as a diff against the canon) through the issue forms of ilang-research: https://github.com/ilang-ai/ilang-research/issues/new/choose . The gates the canon defines run automatically: the grammar validator in strict mode, the spec's own CI on the patched canon, and a judgment of the action 'merge this' by a model that is not the proposer with the mode computed by f_v5. Every submission is recorded verbatim under https://github.com/ilang-ai/ilang-research/tree/main/records . Nothing is merged by a machine; the owner merges by hand.",
+      "source_url": "https://ilang.ai/soul/#feedback"
+    },
+    {
+      "question": "Source Book 2.8: Where do I report a case where it fails, or propose a change?",
+      "answer": "File a counterexample (a reproducible case against a clause) or an amendment (a change with the fix, as a diff against the canon) through the issue forms of ilang-research: https://github.com/ilang-ai/ilang-research/issues/new/choose . The gates the canon defines run automatically: the grammar validator in strict mode, the spec's own CI on the patched canon, and a judgment of the action 'merge this' by a model that is not the proposer with the mode computed by f_v5. Every submission is recorded verbatim under https://github.com/ilang-ai/ilang-research/tree/main/records . Nothing is merged by a machine; the owner merges by hand.",
+      "source_url": "https://ilang.ai/source-book/#feedback"
     }
   ],
   "pages": [
@@ -2064,11 +2074,11 @@
     },
     {
       "url": "https://ilang.ai/soul/",
-      "description": "SOUL 2.0: a judgment layer for an AI's default persona; the iLang and IML 0.5 files with one-click copy, where to paste it, line by line, four questions"
+      "description": "SOUL 2.0: a judgment layer for an AI's default persona; the iLang and IML 0.5 files with one-click copy, where to paste it, line by line, four questions, a feedback entry (counterexample and amendment forms at research)"
     },
     {
       "url": "https://ilang.ai/source-book/",
-      "description": "Source Book 2.8: the engineering book every iLang engineering book is anchored to; the iLang and IML 0.5 files, how to run it, what it writes, four sample runs, four questions"
+      "description": "Source Book 2.8: the engineering book every iLang engineering book is anchored to; the iLang and IML 0.5 files, how to run it, what it writes, four sample runs, four questions, a feedback entry (counterexample and amendment forms at research)"
     }
   ],
   "schemas": [

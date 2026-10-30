@@ -192,3 +192,11 @@ Paste the iLang block. It is written for people and models; it is what the agent
 **Does it need a DeepSeek key or a RedFox key?** Each key has one use. A DeepSeek key is used only when your agent app has no web search and fetch of its own. Then it calls DeepSeek's search and fetch with your key. Your own RedFox key is used only for a social-platform link a plain fetch cannot read. When a key is needed and missing, the agent tells you in one sentence and stops. The agent never prints or stores either key.
 
 **Can I change it?** Yes, the license is MIT. You may copy, edit and republish the file. The published Source Book keeps its ID, version and date. To get a book for a tutorial, you change nothing: paste the file and give the tutorial. The course bot that hands it over never edits a tag or fills a blank either.
+
+## Feedback
+
+Found a case where it fails? File a counterexample: https://github.com/ilang-ai/ilang-research/issues/new?template=counterexample.yml
+
+Want a rule changed? File an amendment with the fix: https://github.com/ilang-ai/ilang-research/issues/new?template=amendment.yml
+
+Both run the gates the canon defines and are recorded verbatim at research (https://github.com/ilang-ai/ilang-research/tree/main/records); nothing is merged by a machine.
