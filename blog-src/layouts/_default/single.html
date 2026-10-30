@@ -17,7 +17,7 @@
 
 <div class="container art-layout">
   <aside class="toc" id="toc">
-    <h4>On this page</h4>
+    <h2>On this page</h2>
     {{ .TableOfContents }}
   </aside>
   <article class="art-main">
@@ -39,7 +39,7 @@
   {{ $related := .Site.RegularPages.Related . | first 2 }}
   {{ with $related }}
   <div class="related-posts">
-    <h4>Read next</h4>
+    <h2>Read next</h2>
     <div class="related-grid">
       {{ range . }}
       <a href="{{ .Permalink }}" class="rel-card">
@@ -52,7 +52,7 @@
   {{ end }}
 
   <div class="comments" id="comments">
-    <h4>Discussion</h4>
+    <h2>Discussion</h2>
     <div class="giscus-slot" id="giscusSlot"></div>
   </div>
 </div>

@@ -25,7 +25,7 @@
 // move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=cc299d88">
+<link rel="stylesheet" href="/assets/site.css?v=25092455">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,7 +84,7 @@
 
 <div class="compare-grid">
   <div class="compare-card">
-    <h3>MCP</h3>
+    <h2>MCP</h2>
     <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Model Context Protocol &middot; Anthropic</p>
     <p><strong>Problem:</strong> AI needs access to external tools, databases, and APIs.</p>
     <p><strong>Layer:</strong> Tool integration (AI &harr; systems)</p>
@@ -93,7 +93,7 @@
     <p><strong>Scope:</strong> Single agent &harr; its tools</p>
   </div>
   <div class="compare-card">
-    <h3>A2A</h3>
+    <h2>A2A</h2>
     <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Agent-to-Agent Protocol &middot; Google / Linux Foundation</p>
     <p><strong>Problem:</strong> Agents from different vendors need to discover and talk to each other.</p>
     <p><strong>Layer:</strong> Agent discovery &amp; orchestration</p>
@@ -103,7 +103,7 @@
   </div>
   <div class="compare-card highlight">
     <span class="badge">Different Layer</span>
-    <h3>iLang</h3>
+    <h2>iLang</h2>
     <p style="font-size:13px;color:var(--muted);margin-bottom:16px">AI-Native Communication Protocol &middot; iLang Research</p>
     <p><strong>Problem:</strong> Natural language instructions are ambiguous. AI guesses instead of executing.</p>
     <p><strong>Layer:</strong> Instruction &amp; communication (human &harr; AI, AI &harr; AI, AI internal)</p>

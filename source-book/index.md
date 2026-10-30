@@ -2,7 +2,7 @@
 
 Source Book 2.8 is the engineering book every iLang engineering book is anchored to. Paste it into an agent app and give the agent a tutorial. The agent confirms the tutorial's numbers against official sources and writes BOOK.md, an English iLang book. Any agent can carry it out for you, end to end.
 
-- Version 2.8, 2026-10-29, MIT. DOI 10.5281/zenodo.23781959. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/source-book
+- Version 2.8, 2026-10-29, MIT. DOI 10.5281/zenodo.21821452. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/source-book
 - Files: https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md (sha256 56f953fe23ba09b110ab8d4f40ee8f263680b3e5c36bb26f6291b8a013334f86), https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml (sha256 32b13b762c8e1e2d30c79352b36b9c6d2fc96f44e7e569c5e65428a06ff81d88)
 
 ## iLang

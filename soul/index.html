@@ -14,25 +14,25 @@
 <link rel="canonical" href="https://ilang.ai/soul/">
 <link rel="alternate" type="text/markdown" href="/soul/index.md">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang SOUL 2.0","alternateName":"SOUL 2.0","version":"2.0","datePublished":"2026-10-29","inLanguage":"en","description":"A judgment layer for an AI's default persona, written in iLang: paste it into the custom instructions of any AI. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/soul/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/soul","identifier":"10.5281/zenodo.23778215","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"SOUL.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/soul/SOUL.ilang.md","sha256":"9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1"},{"@type":"MediaObject","name":"SOUL.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/soul/SOUL.iml","sha256":"f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang SOUL 2.0","alternateName":"SOUL 2.0","version":"2.0","datePublished":"2026-10-29","inLanguage":"en","description":"A judgment layer for an AI's default persona, written in iLang: paste it into the custom instructions of any AI. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/soul/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/soul","identifier":"10.5281/zenodo.21821452","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"SOUL.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/soul/SOUL.ilang.md","sha256":"9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1"},{"@type":"MediaObject","name":"SOUL.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/soul/SOUL.iml","sha256":"f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e"}]}</script>
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#e9eaec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1a1b1d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
 <script>
 // Before first paint: mark that scripts run, put back the reader's own choice of paper or ink, and let the page
 // move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=cc299d88">
+<link rel="stylesheet" href="/assets/site.css?v=25092455">
 <style>
-.soul-labels{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:clamp(18px,2.4vw,30px);font-family:var(--f-num);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.soul-labels{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:clamp(18px,2.4vw,30px);font-family:var(--f-num);font-size:.8rem;letter-spacing:.02em;color:var(--ink-3)}
 .soul-labels b{font-weight:500;color:var(--seal-text)}
 .soul-labels a{text-transform:none;letter-spacing:0;font-family:var(--f-sans);font-size:.92rem;color:var(--ink)}
 .soul-win{margin-top:0}
 .content .soul-win pre{max-height:none;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.8rem;line-height:1.7}
 .content .soul-win pre code{white-space:inherit;overflow-wrap:anywhere;word-break:break-word}
-.soul-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--f-num);font-size:.76rem;letter-spacing:.08em;color:var(--ink-3);margin:-14px 0 0}
-.soul-meta code{font-family:var(--f-mono);font-size:.74rem;background:none;padding:0;color:var(--ink-2)}
+.soul-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--f-num);font-size:.78rem;letter-spacing:.02em;color:var(--ink-3);margin:-14px 0 0}
+.soul-meta code{font-family:var(--f-mono);font-size:.78rem;background:none;padding:0;color:var(--ink-2)}
 .soul-meta a{font-family:var(--f-sans);letter-spacing:0;font-size:.86rem}
 .content .soul-copy-fallback{position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0}
 /* where to paste it: a term and its line, one hairline between rows */
@@ -42,10 +42,11 @@
 .soul-paste dt{font-weight:650;color:var(--ink);line-height:1.6}
 .soul-paste dd{margin:0;color:var(--ink-2);line-height:1.65}
 /* line by line: the number in the gutter, the line as written, then what it makes the AI do */
-.content .soul-lines{list-style:none;margin:0;padding:0;max-width:none;counter-reset:none}
-.content .soul-lines li{margin:0;padding:17px 0 19px;display:grid;grid-template-columns:2.4rem minmax(0,1fr);column-gap:12px;border-bottom:1px solid var(--rule-soft);scroll-margin-top:calc(var(--nav-h) + 20px)}
+.content .soul-lines{list-style:none;margin:0;padding:0;max-width:none;counter-reset:none;border-top:1px solid var(--rule)}
+.content .soul-lines li p{max-width:31em}
+.content .soul-lines li{margin:0;padding:17px 0 19px;display:grid;grid-template-columns:2.4rem minmax(0,1fr);column-gap:12px;scroll-margin-top:calc(var(--nav-h) + 20px)}
 .content .soul-lines li:first-child{padding-top:2px}
-.soul-lines .ln{grid-row:1/3;font-family:var(--f-num);font-size:.78rem;letter-spacing:.1em;color:var(--seal-text);padding-top:5px;transition:color .25s}
+.soul-lines .ln{grid-row:1/3;font-family:var(--f-num);font-size:.78rem;letter-spacing:.02em;color:var(--seal-text);padding-top:5px;transition:color .25s}
 .content .soul-lines code{display:block;background:none;padding:0;border-radius:0;font-size:.78rem;line-height:1.65;color:var(--ink-3);white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;transition:color .25s}
 .content .soul-lines p{margin:7px 0 0;max-width:46em;color:var(--ink);font-size:1.02rem;line-height:1.65}
 .soul-lines li:hover .ln,.soul-lines li:hover code{color:var(--ink-2)}
@@ -80,7 +81,7 @@
 <section class="page-hero"><div class="container" data-path="ilang.ai / soul">
 <h1>SOUL 2.0</h1>
 <p class="sub">SOUL 2.0 is an iLang document that sets how an AI behaves by default. You set the direction; the AI does the work. It asks before anything it cannot undo. It marks claims verified, inferred, or unknown. It ends each task with a score.</p>
-<p class="soul-labels"><span><b>Version</b> 2.0</span><span><b>Date</b> 2026-10-29</span><span><b>License</b> MIT</span><span><a class="lk" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.23778215">DOI 10.5281/zenodo.23778215</a></span><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/tree/main/products/soul">ilang-spec / products / soul</a></p>
+<p class="soul-labels"><span><b>Version</b> 2.0</span><span><b>Date</b> 2026-10-29</span><span><b>License</b> MIT</span><span><a class="lk" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.21821452">DOI 10.5281/zenodo.21821452</a></span><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/tree/main/products/soul">ilang-spec / products / soul</a></p>
 </div></section>
 
 <section class="content"><div class="container">
@@ -260,6 +261,6 @@ RD@USty=intent GTwh=evidence CKwh=authority PL CE CKwh=delivered LG SN@US $
   });
 })();
 </script>
-<script src="/assets/site.js?v=c14ed17d" defer></script>
+<script src="/assets/site.js?v=25092455" defer></script>
 </body>
 </html>

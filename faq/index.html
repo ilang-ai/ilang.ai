@@ -23,7 +23,7 @@
 // move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=cc299d88">
+<link rel="stylesheet" href="/assets/site.css?v=25092455">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -56,79 +56,79 @@
 <section class="content"><div class="container">
 <div class="faq-list">
       <div class="faq-item">
-        <h3>How do I learn iLang?</h3>
+        <h2>How do I learn iLang?</h2>
         <p>You don't. iLang is a protocol for AI, not a language people have to memorise. Tell your AI what you want in your own words. To put iLang to work, copy the latest iLang into your AI or install the loader. The full specification is for AI, developers, researchers and anyone auditing the protocol.</p>
       </div>
       <div class="faq-item">
-        <h3>Do I need to write iLang?</h3>
+        <h2>Do I need to write iLang?</h2>
         <p>No. In normal use you never write a line of it. Your AI reads and writes iLang; you keep speaking naturally.</p>
       </div>
       <div class="faq-item">
-        <h3>Why is the full grammar public if I don't need to learn it?</h3>
+        <h2>Why is the full grammar public if I don't need to learn it?</h2>
         <p>Because a protocol has to be open, auditable and reproducible, and AI, developers and researchers need to read the whole of it. A public specification is not homework for users.</p>
       </div>
       <div class="faq-item">
-        <h3>Which models does iLang work with?</h3>
+        <h2>Which models does iLang work with?</h2>
         <p>iLang is not tied to any model. Any model that accepts enough context can load it: ChatGPT, Claude, Gemini, DeepSeek, Qwen and others. The loader adds the official runtime to the context, and switching models only means loading it again.</p>
       </div>
       <div class="faq-item">
-        <h3>Do I have to learn it again when I switch models?</h3>
+        <h2>Do I have to learn it again when I switch models?</h2>
         <p>No. You don't learn it, and the model needs no special training. After you switch models, load iLang again: paste the latest iLang, or let the loader add it.</p>
       </div>
       <div class="faq-item">
-        <h3>Is there an iLang tutorial?</h3>
+        <h2>Is there an iLang tutorial?</h2>
         <p>There is nothing to study. Tell your AI what you want in your own words and give it the latest iLang: paste it into the chat, or install the loader. The specification is there for AI, developers and researchers.</p>
       </div>
       <div class="faq-item">
-        <h3>Is there an iLang plugin?</h3>
+        <h2>Is there an iLang plugin?</h2>
         <p>Yes, the loader: pip install ilang-protocol or npm install ilang-protocol, then ilang.wrap(messages). It fetches the official runtime, checks its sha256 and adds it to every request, for any model.</p>
       </div>
       <div class="faq-item">
-        <h3>What is an AI-native communication protocol?</h3>
+        <h2>What is an AI-native communication protocol?</h2>
         <p>An AI-native communication protocol is a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs. iLang is one such protocol, providing 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication.</p>
       </div>
       <div class="faq-item">
-        <h3>How is iLang different from MCP?</h3>
+        <h2>How is iLang different from MCP?</h2>
         <p>MCP (Model Context Protocol) connects AI to external tools and data sources. iLang operates at a different layer: it structures the communication itself. MCP handles what AI connects to; iLang handles how AI understands instructions. They are complementary.</p>
       </div>
       <div class="faq-item">
-        <h3>How is iLang different from A2A?</h3>
+        <h2>How is iLang different from A2A?</h2>
         <p>A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. iLang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.</p>
       </div>
       <div class="faq-item">
-        <h3>Can structured prompts reduce retries with AI?</h3>
+        <h2>Can structured prompts reduce retries with AI?</h2>
         <p>Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a>.</p>
       </div>
       <div class="faq-item">
-        <h3>Does iLang work with ChatGPT, Claude, and DeepSeek?</h3>
+        <h2>Does iLang work with ChatGPT, Claude, and DeepSeek?</h2>
         <p>iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on <a href="/benchmark/">ilang.ai/benchmark/</a>, tests conducted May 2026.</p>
       </div>
       <div class="faq-item">
-        <h3>What is prompt compression for LLMs?</h3>
+        <h2>What is prompt compression for LLMs?</h2>
         <p>Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.</p>
       </div>
       <div class="faq-item">
-        <h3>Is iLang free and open source?</h3>
+        <h2>Is iLang free and open source?</h2>
         <p>Yes. iLang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.</p>
       </div>
       <div class="faq-item">
-        <h3>What is new in iLang v5.0?</h3>
+        <h2>What is new in iLang v5.0?</h2>
         <p>iLang v5.0 adds a trainable judgment layer on top of the v4.0 execution semantics and v3.0 communication format. It defines judgment as vector composition over a continuous behavioral manifold instead of binary allow/deny classification. The judgment layer has 11 dimensions (intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality), 4 axioms (no constant rules, irreversibility gate, consistency detection, externality conservation), a three-layer architecture (exact predicates that are binary, vector logic that is continuous, and co-evolutionary trust that adapts), and a closed set of 8 decision modes from M1 EXEC_AUTO to M8 STOP. It is grounded in fuzzy mathematics: multiple imprecise assessments converge to precise values over the course of a conversation. Fully backward compatible with v4.0 and v3.0. v5.0 (June 2026) is the latest version of the protocol, released as 5.0.0 on 29 September 2026. v4.2 (September 2026) is the latest release of the v4 line.</p>
       </div>
       <div class="faq-item">
-        <h3>What is the iLang judgment layer?</h3>
+        <h2>What is the iLang judgment layer?</h2>
         <p>The judgment layer, introduced in iLang v5.0, is a computable vector space for AI judgment. Most safety systems treat a request as binary: allowed or forbidden, one label in, one verdict out. iLang instead reads a request across 11 dimensions and composes them into a direction, so it can see where a string of individually acceptable steps is actually heading. Barrier functions for irreversibility and third-party externality act as independent gates that cannot be averaged away by a high overall score. The layer is trainable: weights start at zero and self-calibrate through interaction, with no pre-calibration required for deployment.</p>
       </div>
       <div class="faq-item">
-        <h3>What was new in iLang v4.0?</h3>
+        <h2>What was new in iLang v4.0?</h2>
         <p>iLang v4.0 added execution semantics on top of the v3.0 communication format. Eight new declarations: UNTRUSTED for input isolation, BUDGET for resource awareness, STATUS for task lifecycle, OBJECTIVE for goal anchoring, RUBRIC and EVIDENCE for completion audit, PRIOR for default behavior control, and FALLBACK for degradation strategy. Four conformance levels from L0 to L3. Zero new verbs, fully backward compatible with v3.0.</p>
       </div>
       <div class="faq-item">
-        <h3>Is iLang a prompt engineering framework?</h3>
+        <h2>Is iLang a prompt engineering framework?</h2>
         <p>No. iLang is not a prompt engineering framework. It is an open AI-native communication protocol, a structured format designed from symbols AI models already understand well: brackets, pipes, arrows, and key-value pairs, with 88 verbs and two syntaxes for human-to-AI, AI-to-AI, and agent-internal communication. The ilang.ai benchmark page reports it tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM, May 2026. Free, open, MIT licensed.</p>
       </div>
       <div class="faq-item">
-        <h3>Does iLang Inc. offer an AI detector or an AI humanizer?</h3>
+        <h2>Does iLang Inc. offer an AI detector or an AI humanizer?</h2>
         <p>Yes. iLang Detect and iLang Humanizer are tools built on iLang, the protocol, by iLang Inc. iLang Detect provides sentence-level AI analysis with rewriting suggestions across 6 dimensions. iLang Humanizer is a free AI humanizer built on the DeAI three-layer method: remove AI filler phrases, restructure rhythm, mark positions for your authentic voice. It is an editor, not a generator. Both run at <a href="/ai-detector/">ilang.ai/ai-detector/</a> and <a href="/ai-humanizer/">ilang.ai/ai-humanizer/</a>.</p>
       </div>
 </div>
