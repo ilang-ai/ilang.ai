@@ -19,6 +19,8 @@ function prefersMarkdown(accept) {
 export async function onRequest(context) {
   const { request, next, env } = context;
   const url = new URL(request.url);
+  // The Pages preview host is not a second site: send it to the canonical one, path and query kept.
+  if (url.hostname.endsWith('.pages.dev')) return Response.redirect('https://ilang.ai' + url.pathname + url.search, 301);
   const accept = request.headers.get('accept') || '';
   if (request.method === 'GET' && prefersMarkdown(accept)) {
     const p = url.pathname;
