@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Communication & Judgment Protocol Specification: 88 Verbs, Two Syntaxes, 11-Dimensional Judgment Vector | iLang v5.0</title>
-<meta name="description" content="Complete specification of iLang v5.0. Three layers: communication (v3.0), execution (v4.0), and judgment (v5.0). Two syntaxes, 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, 8 execution declarations, and an 11-dimensional judgment vector governed by 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
+<title>iLang v5.0 Specification: communication, execution, judgment</title>
+<meta name="description" content="The iLang v5.0 specification: communication (v3.0), execution (v4.0) and judgment (v5.0). Two syntaxes, 88 verbs, 25 entities, an 11-dimension judgment vector.">
 <meta property="og:title" content="iLang v5.0 Specification — AI-Native Communication and Judgment Protocol">
 <meta property="og:description" content="Complete specification of iLang v5.0. Communication, execution, and judgment layers. 88 verbs, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms. The semantic and judgment layer for the MCP/A2A era.">
 <meta property="og:url" content="https://ilang.ai/spec/">
@@ -12,9 +12,6 @@
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/spec/">
-<link rel="alternate" hreflang="en" href="https://ilang.ai/spec/">
-<link rel="alternate" hreflang="zh" href="https://ilang.cn/">
-<link rel="alternate" hreflang="x-default" href="https://ilang.ai/spec/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "iLang v5.0 Specification", "description": "Complete specification of the iLang AI-native communication and judgment protocol v5.0. 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and fuzzy-mathematical foundation.", "url": "https://ilang.ai/spec/", "version": "5.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "dateModified": "2026-09-18", "license": "https://opensource.org/licenses/MIT"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use iLang Protocol","description":"Three steps to start using iLang. No install required.","step":[{"@type":"HowToStep","position":1,"name":"Copy the protocol header","text":"Copy the iLang v5.0 protocol header from ilang.ai/spec/. It contains 88 verbs, aliases, modifiers, rules, and the judgment layer."},{"@type":"HowToStep","position":2,"name":"Paste into a tested AI model","text":"Paste into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM. The first message activates the protocol."},{"@type":"HowToStep","position":3,"name":"Get precise results","text":"Write instructions in iLang syntax or natural language. AI follows structured intent with lower semantic loss."}]}</script>
@@ -27,46 +24,6 @@
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="/assets/site.css?v=7582da8c">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is there a structured syntax for writing prompts?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "iLang defines two syntaxes. Operation syntax says what AI does: [VERB:@TARGET|modifier=value]=>[VERB2]=>[Ω], where each step receives the previous step's output and the chain ends with [Ω] or [OUT]. Declaration syntax says what AI is: ::GENE{trait|conf:confirmed|scope:global} with T: lines for traits and A: lines for anti-patterns. The vocabulary is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role) and 13 Greek aliases."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I give an AI a persistent personality or behavior across sessions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use declaration syntax. ::GENE{name|conf:confirmed|scope:global} followed by T: lines for traits and A: lines for anti-patterns defines behavioral identity, and the spec says declarations can persist across sessions when stored in profile or configuration files. Scopes are global, session, project or task. The capabilities list on this page calls this behavioral DNA: traits, anti-patterns and genes that persist across sessions and models. Imprint packages one such profile in 312 tokens."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the 11 dimensions and the 8 decision modes in iLang v5.0?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dimensions: intent, capability, consequence, relationship, certainty, authority, reversibility, evidence, sovereignty, inertia, externality, with uniform polarity where 1.00 is the condition most favorable to autonomous action; the tenth is inertia, renamed from drift. Modes are a closed, frozen set of eight: M1 EXEC_AUTO, M2 EXEC_AUDIT, M3 CONFIRM, M4 ADVISE, M5 ASK, M6 DEFER, M7 DECLINE_ALT, M8 STOP. A reference function maps the vector to a mode deterministically, so the decision is auditable."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do I read the iLang specification and dictionary?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The specification is at ilang.ai/spec/ and in the ilang-spec repository: 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities and two syntaxes for structured AI communication. v5.0 is the latest version of the protocol, released as 5.0.0 on 29 September 2026 in SPEC-v5.0.md. The dictionary is at ilang.ai/dictionary/ and in ilang-dict: the complete reference for the 88 verbs across 9 categories. Both are MIT licensed."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

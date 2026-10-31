@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iLang Security Model: Verb Risk Classification and Runtime Requirements | Protocol Safety</title>
-<meta name="description" content="iLang security model: verb risk classification (safe, guarded, dangerous), runtime requirements for permission checks, sandboxing, and audit logging. iLang is an instruction format, not an authorization bypass.">
+<title>iLang Security Model: verb risk classes and runtime requirements</title>
+<meta name="description" content="Verb risk classes (safe, guarded, dangerous) and runtime requirements for permission checks, sandboxing and audit logs. An instruction format, not a bypass.">
 <meta property="og:title" content="iLang Security Model: Verb Risk Classification">
 <meta property="og:description" content="Safe, guarded, and dangerous verb classifications. Runtime requirements for permission checks, sandboxing, and audit logging.">
 <meta property="og:url" content="https://ilang.ai/security/">
@@ -23,22 +23,6 @@
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="/assets/site.css?v=7582da8c">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Does iLang grant permissions or bypass safety layers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The security page's core principle: iLang is an instruction format, not an authorization bypass. It structures what an agent is told to do; it does not grant permission to do it. Verbs are classed safe, guarded or dangerous; DEL, RUN and DPLO require user confirmation, dry-run, sandbox and audit logging from the host runtime, and the host can block any verb regardless of the instruction. ::GENE{} definitions operate within the model's existing safety constraints."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

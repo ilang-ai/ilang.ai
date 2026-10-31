@@ -1,4 +1,6 @@
 <meta name="color-scheme" content="light dark">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 155 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
 <meta name="theme-color" content="#e9eaec" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1a1b1d" media="(prefers-color-scheme: dark)">
 <script>

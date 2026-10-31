@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iLang Benchmark: LLM Recognition, Execution, and Token Reduction Tests | Protocol Testing</title>
-<meta name="description" content="Benchmark results for iLang across 7 major LLMs: Claude, GPT, Gemini, DeepSeek, Kimi, Qwen, GLM. Recognition, translation, execution, behavioral persistence, and token reduction measurements.">
+<title>iLang Benchmark: recognition, execution and token tests on 7 LLMs</title>
+<meta name="description" content="iLang on Claude, GPT, Gemini, DeepSeek, Kimi, Qwen and GLM: recognition, translation, execution, behavioral persistence and token reduction, measured.">
 <meta property="og:title" content="iLang Benchmark: How Well Do LLMs Follow Structured Instructions?">
 <meta property="og:description" content="Benchmark results across 7 major LLMs. Recognition, execution, behavioral persistence, and token reduction data.">
 <meta property="og:url" content="https://ilang.ai/benchmark/">
@@ -23,22 +23,6 @@
 (function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="/assets/site.css?v=7582da8c">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does AI stop following my rules after a few turns?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ilang.ai's benchmark page lists this as a known failure mode, called declaration decay: ::GENE{} rules followed in turns 1 to 3 and ignored by turn 8 and later, common on all models in long sessions. The conformance page turns it into a test: set ::GENE{} and verify the rules are still active at turn 5, and require the model to report when it cannot follow a declaration."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
