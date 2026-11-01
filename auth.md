@@ -7,7 +7,7 @@ Coming soon. Agent registration, authorization and token issuance for ilang.ai a
 What works today without authentication:
 
 - Public lookup API: https://ilang.ai/api/agent/lookup?q=TERM and https://ilang.ai/api/agent/faq?q=QUESTION (OpenAPI: https://ilang.ai/openapi.json)
-- MCP server (Streamable HTTP, read-only tools): https://ilang.ai/mcp (server card: https://ilang.ai/.well-known/mcp/server-card.json)
+- MCP server (Streamable HTTP, read-only tools): https://mcp.ilang.ai/mcp (server card: https://ilang.ai/.well-known/mcp/server-card.json)
 - Agent entry page: https://ilang.ai/ai/
 
 Planned contract (not live):

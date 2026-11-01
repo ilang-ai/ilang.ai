@@ -1,4 +1,5 @@
-// The iLang MCP server at https://ilang.ai/mcp (streamable HTTP, no authentication).
+// The iLang MCP server (streamable HTTP, no authentication). Its public address is https://mcp.ilang.ai/mcp,
+// a Worker (ilang-mcp-gateway) that passes every request here to https://ilang.ai/mcp; this host also answers directly.
 // It gives a model the official iLang: the runtime comes from the canon's generated bundles
 // (ilang-spec/runtime), checked against the manifest's sha256 before it is served, so this
 // server holds no copy of the rules. Plus dictionary and FAQ lookup, the canon grammar
@@ -346,7 +347,7 @@ export async function onRequestOptions() { return new Response(null, { status: 2
 export async function onRequestGet() {
   return new Response(JSON.stringify({ name: SERVER.name, title: SERVER.title, transport: 'streamable-http',
     usage: 'POST JSON-RPC 2.0 to this endpoint (initialize, tools/list, tools/call, prompts/get, resources/read)',
-    install: { claude_code: 'claude mcp add --transport http ilang https://ilang.ai/mcp', url: 'https://ilang.ai/mcp' },
+    install: { claude_code: 'claude mcp add --transport http ilang https://mcp.ilang.ai/mcp', url: 'https://mcp.ilang.ai/mcp' },
     card: 'https://ilang.ai/.well-known/mcp/server-card.json' }), { status: 405, headers: Object.assign({ 'Content-Type': 'application/json', 'Allow': 'POST, OPTIONS' }, CORS) });
 }
 export async function onRequestPost({ request, env }) {

@@ -5,7 +5,7 @@
   "message": "Coming soon. Authentication is unavailable. The public lookup API and MCP server need no authentication.",
   "launch_date": null,
   "launch_notice": "Launch date not announced.",
-  "agent_instructions": "::ILANG::v5.0\n::STATE{@AUTH, status:under_construction, available:false, launch_date:not_announced}\n::RULE{available=false⇒do_not_register_do_not_send_identity_do_not_request_tokens}\n::RULE{need_public_data⇒use_https://ilang.ai/api/agent/lookup_or_https://ilang.ai/mcp_without_credentials}\n::RULE{retry⇒only_after_published_declaration_says_available=true}",
+  "agent_instructions": "::ILANG::v5.0\n::STATE{@AUTH, status:under_construction, available:false, launch_date:not_announced}\n::RULE{available=false⇒do_not_register_do_not_send_identity_do_not_request_tokens}\n::RULE{need_public_data⇒use_https://ilang.ai/api/agent/lookup_or_https://mcp.ilang.ai/mcp_without_credentials}\n::RULE{retry⇒only_after_published_declaration_says_available=true}",
   "issuer": "https://ilang.ai",
   "authorization_endpoint": "https://ilang.ai/agent-auth/authorize",
   "token_endpoint": "https://ilang.ai/agent-auth/token",

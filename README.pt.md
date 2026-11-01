@@ -8,7 +8,7 @@ iLang é um protocolo para IA, não uma língua que as pessoas precisem decorar.
 
 - **No chat:** copie o [runtime mais recente do iLang](https://runtime.ilang.app/ilang-latest.md), ou clique em “Copy latest iLang” em [ilang.ai](https://ilang.ai), e cole no ChatGPT, Claude, Gemini, DeepSeek, Qwen ou em qualquer outro assistente.
 - **No código:** `pip install ilang-protocol` ou `npm install ilang-protocol` e depois `messages = ilang.wrap(messages)`. O [carregador](https://github.com/ilang-ai/ilang) busca o runtime oficial, verifica-o e o adiciona a cada requisição.
-- **Com um cliente MCP:** conecte uma vez `https://ilang.ai/mcp` (Claude Code: `claude mcp add --transport http ilang https://ilang.ai/mcp`) e a sua IA carrega o iLang sozinha.
+- **Com um cliente MCP:** conecte uma vez `https://mcp.ilang.ai/mcp` (Claude Code: `claude mcp add --transport http ilang https://mcp.ilang.ai/mcp`) e a sua IA carrega o iLang sozinha.
 
 O que vem a seguir é para a IA, desenvolvedores, pesquisadores e quem audita o protocolo.
 

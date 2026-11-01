@@ -9,7 +9,7 @@ Expression-layer extensions on the v4 stable line: v4.1 media profile (20 target
 PAGES
 - https://ilang.ai/: Homepage: what iLang is, three ways to use it (copy, loader, MCP), tested models, evidence, ecosystem and research DOIs
 - https://ilang.ai/faq/: FAQ: learning and using iLang, the loader, supported models, MCP and A2A, v4.0 and v5.0
-- https://ilang.ai/ai/: Agent entry: Markdown index of the protocol, the dictionary and every agent interface (MCP at https://ilang.ai/mcp, OpenAPI at https://ilang.ai/openapi.json)
+- https://ilang.ai/ai/: Agent entry: Markdown index of the protocol, the dictionary and every agent interface (MCP at https://mcp.ilang.ai/mcp, OpenAPI at https://ilang.ai/openapi.json)
 - https://ilang.ai/spec/: Full specification rendered as HTML: the protocol header to paste, verbs, modifiers, entities, declarations, the v4.0 agent runtime header, judgment layer
 - https://ilang.ai/dictionary/: Dictionary: 88 verbs, 13 Greek aliases, 29 core modifiers plus a 20-key media profile, entities
 - https://ilang.ai/i-lang-vs-mcp/: iLang vs MCP (Model Context Protocol)
@@ -272,5 +272,5 @@ DECLARATIONS (32)
 
 AGENT ACCESS
 - Lookup API: https://ilang.ai/api/agent/lookup?q=TERM ; FAQ API: https://ilang.ai/api/agent/faq?q=QUESTION ; OpenAPI: https://ilang.ai/openapi.json
-- MCP server (Streamable HTTP, no auth): https://ilang.ai/mcp ; card: https://ilang.ai/.well-known/mcp/server-card.json
+- MCP server (Streamable HTTP, no auth): https://mcp.ilang.ai/mcp ; card: https://ilang.ai/.well-known/mcp/server-card.json
 - Skill: https://ilang.ai/ai/skills/ilang-lookup/SKILL.md ; entry page: https://ilang.ai/ai/ ; markdown pages via Accept: text/markdown

@@ -6,7 +6,7 @@
 ::STATE{@FAQ, url:https://ilang.ai/api/agent/faq, method:GET, param:q, auth:none}
 ::STATE{@OPENAPI, url:https://ilang.ai/openapi.json}
 ::STATE{@CATALOG, url:https://ilang.ai/.well-known/api-catalog, fmt:linkset}
-::STATE{@MCP, url:https://ilang.ai/mcp, transport:streamable_http, card:https://ilang.ai/.well-known/mcp/server-card.json, auth:none}
+::STATE{@MCP, url:https://mcp.ilang.ai/mcp, transport:streamable_http, card:https://ilang.ai/.well-known/mcp/server-card.json, auth:none}
 ::STATE{@SKILLS, url:https://ilang.ai/.well-known/agent-skills/index.json}
 ::STATE{@SOUL, url:https://ilang.ai/soul/SOUL.ilang.md, iml:https://ilang.ai/soul/SOUL.iml, version:2.0, doi:10.5281/zenodo.23778215, auth:none}
 ::STATE{@SOURCE_BOOK, url:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md, iml:https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.iml, version:2.8, doi:10.5281/zenodo.23781959, auth:none}

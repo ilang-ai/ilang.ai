@@ -12,7 +12,7 @@ export async function onRequestGet({ request }) {
       faq: origin + '/api/agent/faq?q=QUESTION',
       health: origin + '/api/agent/health'
     },
-    mcp: origin + '/mcp'
+    mcp: 'https://mcp.ilang.ai/mcp'
   });
 }
 export async function onRequestOptions() { return new Response(null, { status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS' } }); }

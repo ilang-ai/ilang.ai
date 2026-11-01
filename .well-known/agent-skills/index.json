@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Retrieve actual public information about the iLang protocol from ilang.ai: dictionary lookup, FAQ, and the two published documents SOUL 2.0 and Source Book 2.9, with rules for citing and never inventing terms.",
       "url": "https://ilang.ai/ai/skills/ilang-lookup/SKILL.md",
-      "digest": "sha256:a75f7b8677ebb8030915d87b79a15fb2cf9b96db9db6192226ff2c61e4f814ee"
+      "digest": "sha256:ab6bbd38ba345d306006672f9caea7549fee49a6b8b009b833f4e875c25fefd1"
     }
   ]
 }

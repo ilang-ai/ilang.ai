@@ -7,10 +7,10 @@
   },
   "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), its syntax and vocabulary alone (about 18,000 characters) for writing and checking iLang, the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.9, as files with version, DOI and sha256. Read-only, no authentication.",
   "protocolVersion": "2025-06-18",
-  "endpoint": "https://ilang.ai/mcp",
+  "endpoint": "https://mcp.ilang.ai/mcp",
   "transport": {
     "type": "streamable-http",
-    "url": "https://ilang.ai/mcp"
+    "url": "https://mcp.ilang.ai/mcp"
   },
   "capabilities": {
     "tools": {

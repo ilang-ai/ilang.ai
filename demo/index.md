@@ -223,7 +223,7 @@ BOOK.md:
 
 ## Run it yourself
 
-Paste Source Book 2.9 (https://ilang.ai/source-book/) into an agent app that has a shell, files and the web, give the agent a tutorial as text or one link, and it writes BOOK.md the same way. Or connect the iLang MCP (https://ilang.ai/mcp) and ask for the source_book prompt: the book comes filled in, and ilang_book_check runs the same validator. These runs used Source Book 2.8; 2.9, the current version, adds only the feedback entry.
+Paste Source Book 2.9 (https://ilang.ai/source-book/) into an agent app that has a shell, files and the web, give the agent a tutorial as text or one link, and it writes BOOK.md the same way. Or connect the iLang MCP (https://mcp.ilang.ai/mcp) and ask for the source_book prompt: the book comes filled in, and ilang_book_check runs the same validator. These runs used Source Book 2.8; 2.9, the current version, adds only the feedback entry.
 
 ## Feedback
 
