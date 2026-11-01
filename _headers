@@ -53,3 +53,6 @@
   X-Robots-Tag: noindex
 /llms-full.txt
   X-Robots-Tag: noindex
+/review/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=3600
