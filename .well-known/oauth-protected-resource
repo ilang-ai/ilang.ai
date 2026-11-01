@@ -4,7 +4,7 @@
   "capabilities_status": "planned_contract_only",
   "message": "Coming soon. Existing public lookup remains available without authentication.",
   "launch_date": null,
-  "resource": "https://ilang.ai",
+  "resource": "https://ilang.ai/agent-auth/resource",
   "planned_resource_endpoint": "https://ilang.ai/agent-auth/resource",
   "authorization_servers": [
     "https://ilang.ai"
