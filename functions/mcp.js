@@ -3,12 +3,12 @@
 // (ilang-spec/runtime), checked against the manifest's sha256 before it is served, so this
 // server holds no copy of the rules. Plus dictionary and FAQ lookup, the canon grammar
 // validator (the browser port that matches the Python reference byte for byte), and the two
-// published documents, SOUL 2.0 and Source Book 2.8, served as the files this site holds.
+// published documents, SOUL 2.0 and Source Book 2.9, served as the files this site holds.
 import { loadData, lookup, faq } from './_lib.js';
 import ILV from '../playground/ilang-validator.js';
 
 const PROTOCOL = '2025-06-18';
-const SERVER = { name: 'ilang', version: '2.1.2', title: 'iLang' };
+const SERVER = { name: 'ilang', version: '2.2.0', title: 'iLang' };
 const RAW = 'https://runtime.ilang.app/';
 const PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me ' +
   'or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
@@ -18,9 +18,10 @@ const PREAMBLE = 'You have loaded the official iLang runtime specification.\n\n'
 const INSTRUCTIONS = 'This server gives you the official iLang. Load it once per conversation, before you work: ' +
   'get the prompt "ilang" or call ilang_runtime, then use iLang internally. People do not need to learn or write it. ' +
   'The core runtime leaves some sections out and marks each one; when you need one, call ilang_full with its ' +
-  'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate. ' +
+  'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate. '
+  + 'To turn a tutorial into an executable engineering book, use the source_book prompt and check the book with ilang_book_check. ' +
   'Two published iLang documents are here as files: ilang_soul returns SOUL 2.0, a judgment layer for an AI\'s default persona; ' +
-  'ilang_source_book returns Source Book 2.8, the engineering book every iLang engineering book is anchored to. form=iml gives the IML 0.5 form.';
+  'ilang_source_book returns Source Book 2.9, the engineering book every iLang engineering book is anchored to. form=iml gives the IML 0.5 form.';
 const BIG = { 'anthropic/maxResultSizeChars': 250000 };
 
 // Annotations are written out in full on every tool, from what its handler does: ilang_runtime and
@@ -59,17 +60,26 @@ const TOOLS = [
       'Paste the text where the AI reads its instructions. form=iml returns the IML 0.5 form instead.',
     inputSchema: { type: 'object', properties: { form: { type: 'string', enum: ['ilang', 'iml'], description: 'ilang (default) or iml' } } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
-  { name: 'ilang_source_book', title: 'Source Book 2.8',
-    description: '[GET:@SOURCE_BOOK|whr=form]=>[Ω] Return Source Book 2.8, the engineering book every iLang engineering book is anchored to: pasted into an agent app that has a shell, files and the web, ' +
+  { name: 'ilang_source_book', title: 'Source Book 2.9',
+    description: '[GET:@SOURCE_BOOK|whr=form]=>[Ω] Return Source Book 2.9, the engineering book every iLang engineering book is anchored to: pasted into an agent app that has a shell, files and the web, ' +
       'and given a tutorial, the agent confirms the tutorial\'s numbers against official sources and writes BOOK.md, an English iLang book any agent can carry out. ' +
       'The text comes back as the file on ilang.ai/source-book/ (about 7,600 characters), followed by a JSON line with version, date, license, DOI, file url and the sha256 of the text served. form=iml returns the IML 0.5 form instead.',
     inputSchema: { type: 'object', properties: { form: { type: 'string', enum: ['ilang', 'iml'], description: 'ilang (default) or iml' } } },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+  { name: 'ilang_book_check', title: 'Check an engineering book',
+    description: '[CHEK:@BOOK|whr=rubric_A1_A2]=>[Ω] Run the Source Book\'s two code checks on an engineering book: A1, the text opens and closes with the ::ILANG::v5.0::ENGINEERING_BOOK marker (exactly two such lines), and A2, the canon grammar validator reports zero errors and zero warnings (strict). ' +
+      'Returns pass or fail per item with the validator\'s findings. For an agent that has no shell to run ilang_grammar_validator.py; same validator, same result.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'The full text of BOOK.md' } }, required: ['text'] },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
 ];
 const PROMPTS = [
   { name: 'ilang', title: 'Load iLang',
     description: 'Put the official iLang runtime in this conversation, verified against the canon. Nothing to paste.',
     arguments: [{ name: 'media', description: 'yes to add the image, video and audio extension', required: false }] },
+  { name: 'source_book', title: 'Write an engineering book from a tutorial',
+    description: 'Run Source Book 2.9 in this conversation: the published book comes in with your tutorial filled in; the model fetches, confirms the numbers, writes BOOK.md and checks it with ilang_book_check. The work runs on this conversation\'s own model and tools.',
+    arguments: [{ name: 'tutorial', description: 'The tutorial or methodology: pasted text or one link', required: false },
+                { name: 'lang', description: 'The language of the one-sentence reply to the user (default: the language of the tutorial)', required: false }] },
 ];
 const RESOURCES = [
   { uri: 'ilang://runtime/core', name: 'ilang-runtime-core', title: 'iLang runtime (core)', mimeType: 'text/markdown',
@@ -80,7 +90,7 @@ const RESOURCES = [
     description: 'Image, video and audio vocabulary, about 18,000 tokens' },
   { uri: 'ilang://products/soul', name: 'ilang-soul', title: 'SOUL 2.0', mimeType: 'text/markdown',
     description: 'A judgment layer for an AI\'s default persona, the published iLang document; ilang://products/soul/iml is the IML 0.5 form' },
-  { uri: 'ilang://products/source-book', name: 'ilang-source-book', title: 'Source Book 2.8', mimeType: 'text/markdown',
+  { uri: 'ilang://products/source-book', name: 'ilang-source-book', title: 'Source Book 2.9', mimeType: 'text/markdown',
     description: 'The engineering book every iLang engineering book is anchored to; ilang://products/source-book/iml is the IML 0.5 form' },
 ];
 
@@ -170,7 +180,20 @@ async function handle(msg, env, origin) {
   if (method === 'resources/list') return rpc(id, { resources: RESOURCES.concat([{ uri: origin + '/ai/data.json', name: 'ilang-data', mimeType: 'application/json', description: 'Full dictionary + FAQ dataset' }]) });
   try {
     if (method === 'prompts/get') {
-      if (!params || params.name !== 'ilang') return rpcErr(id, -32602, 'Unknown prompt: ' + (params && params.name));
+      const pname = params && params.name;
+      if (pname === 'source_book') {
+        const d = await product('ilang_source_book', 'ilang', env, origin);
+        const tutorial = String((params.arguments && params.arguments.tutorial) || '').trim();
+        const lang = String((params.arguments && params.arguments.lang) || '').trim() || 'the language of the tutorial';
+        const fill = 'FILL_METHOD: ' + (tutorial || 'not given yet: ask the user for the tutorial as text or one link, in one sentence, and stop until it arrives') +
+          '\nFILL_LANG: ' + lang + '\nFILL_FOLDER: your working folder';
+        const note = 'Run the engineering book below now, as its STEPs say, with your own web, file and shell tools. Where it says to run ' +
+          'ilang_grammar_validator.py and you have no shell, call the ilang_book_check tool with the full text of BOOK.md instead: it runs RUBRIC A1 and A2 ' +
+          'with the same validator on ilang.ai. The book is the published Source Book ' + d.meta.version + ' (sha256 ' + d.meta.sha256 + ', DOI ' + d.meta.doi + ').';
+        return rpc(id, { description: 'Source Book ' + d.meta.version + ' with the tutorial filled in',
+          messages: [{ role: 'user', content: { type: 'text', text: note + '\n\n' + d.text + '\n' + fill } }] });
+      }
+      if (pname !== 'ilang') return rpcErr(id, -32602, 'Unknown prompt: ' + pname);
       const media = yes(params.arguments && params.arguments.media);
       const core = await bundle('core');
       const body = await runtimeBlock(media);
@@ -199,6 +222,18 @@ async function handle(msg, env, origin) {
         if (typeof args.text !== 'string' || !args.text.trim()) return rpcErr(id, -32602, 'Invalid params: ilang_validate requires text, a non-empty string');
         const r = ILV.lint(args.text);
         return rpc(id, text(JSON.stringify({ mode: r.mode, counts: r.counts, findings: r.findings, validator: ILV.SOURCE })));
+      }
+      if (name === 'ilang_book_check') {
+        if (typeof args.text !== 'string' || !args.text.trim()) return rpcErr(id, -32602, 'Invalid params: ilang_book_check requires text, the full text of the book');
+        const book = args.text.replace(/\r\n?/g, '\n');
+        const markers = (book.match(/^::ILANG::v5\.0::ENGINEERING_BOOK$/gm) || []).length;
+        const r = ILV.lint(book);
+        const a1 = markers === 2, a2 = r.counts.errors === 0 && r.counts.warnings === 0;
+        return rpc(id, text(JSON.stringify({ pass: a1 && a2,
+          A1: { item: 'the book opens and closes with the marker', expect: 2, found: markers, pass: a1 },
+          A2: { item: 'the grammar validator reports zero errors in strict mode', errors: r.counts.errors, warnings: r.counts.warnings, pass: a2 },
+          findings: r.findings, validator: ILV.SOURCE,
+          note: 'A3, whether the book does the tutorial\'s job and nothing else, is for a person to decide.' })));
       }
       if (name === 'ilang_soul' || name === 'ilang_source_book') {
         const d = await product(name, args.form, env, origin);

@@ -2,7 +2,7 @@
   "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
   "serverInfo": {
     "name": "ilang",
-    "version": "2.1.2",
+    "version": "2.2.0",
     "title": "iLang"
   },
   "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.9, as files with version, DOI and sha256. Read-only, no authentication.",
@@ -93,6 +93,16 @@
         "idempotentHint": true,
         "openWorldHint": false
       }
+    },
+    {
+      "name": "ilang_book_check",
+      "description": "Run the Source Book's two code checks on an engineering book: A1, the marker opens and closes it; A2, the canon grammar validator reports zero errors and warnings. For agents without a shell.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
     }
   ],
   "documentation": "https://ilang.ai/ai/",
@@ -103,6 +113,10 @@
     {
       "name": "ilang",
       "description": "Put the official iLang runtime in the conversation."
+    },
+    {
+      "name": "source_book",
+      "description": "Bring Source Book 2.9 into the conversation with a tutorial filled in; the host's own model writes BOOK.md and checks it with ilang_book_check."
     }
   ],
   "resources": [
