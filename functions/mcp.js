@@ -6,9 +6,10 @@
 // published documents, SOUL 2.0 and Source Book 2.9, served as the files this site holds.
 import { loadData, lookup, faq } from './_lib.js';
 import ILV from '../playground/ilang-validator.js';
+import HINTS from './_modifier-hints.js';
 
 const PROTOCOL = '2025-06-18';
-const SERVER = { name: 'ilang', version: '2.2.0', title: 'iLang' };
+const SERVER = { name: 'ilang', version: '2.3.0', title: 'iLang' };
 const RAW = 'https://runtime.ilang.app/';
 const PREFIX = 'Please load and use the official iLang runtime below. You do not need to explain iLang to me ' +
   'or teach me its syntax. From the next task on, use it internally to understand, judge, execute and verify.';
@@ -17,12 +18,23 @@ const PREAMBLE = 'You have loaded the official iLang runtime specification.\n\n'
   'Use it to interpret, structure, judge, execute, verify, and communicate where applicable.';
 const INSTRUCTIONS = 'This server gives you the official iLang. Load it once per conversation, before you work: ' +
   'get the prompt "ilang" or call ilang_runtime, then use iLang internally. People do not need to learn or write it. ' +
+  'When you only need to write or check iLang, ilang_runtime_lite returns its syntax and vocabulary alone, about a fifth of the runtime. ' +
   'The core runtime leaves some sections out and marks each one; when you need one, call ilang_full with its ' +
   'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate. '
   + 'To turn a tutorial into an executable engineering book, use the source_book prompt and check the book with ilang_book_check. ' +
   'Two published iLang documents are here as files: ilang_soul returns SOUL 2.0, a judgment layer for an AI\'s default persona; ' +
   'ilang_source_book returns Source Book 2.9, the engineering book every iLang engineering book is anchored to. form=iml gives the IML 0.5 form.';
 const BIG = { 'anthropic/maxResultSizeChars': 250000 };
+const LITE_META = { 'anthropic/maxResultSizeChars': 50000 };
+const LITE_PREAMBLE = 'You have loaded iLang runtime lite: the syntax and vocabulary of iLang, taken word for word from the official full runtime ' +
+  'and checked against the canon\'s sha256. It is enough to read and write iLang and to check it with ilang_validate. ' +
+  'It leaves out the execution layer (v4.0), the judgment layer (v5.0), the media profile, the declaration block shapes and the examples. ' +
+  'When a task needs them, call ilang_runtime, or ilang_full with a heading, instead of guessing.';
+// The sections of ilang_runtime_lite, in order: the document inside the full runtime and the start of the heading line.
+const LITE = [
+  ['SPEC.md', '## 2. The Two Syntaxes'], ['SPEC.md', '## 3. Verb Table'], ['SPEC.md', '## 4. Modifiers'], ['SPEC.md', '## 9. Error Codes'],
+  ['SPEC-v5.0.md', '### §1.2 Body line forms'], ['SPEC-v5.0.md', '### §1.5 Declaration registry'], ['SPEC-v5.0.md', '### §2.1 Three tiers'],
+];
 
 // Annotations are written out in full on every tool, from what its handler does: ilang_runtime and
 // ilang_full read the canon bundles at the fixed RAW address (the arguments never choose a URL),
@@ -36,6 +48,13 @@ const TOOLS = [
       'media=true adds the image, video and audio extension (about 18,000 tokens more).',
     inputSchema: { type: 'object', properties: { media: { type: 'boolean', description: 'Add the media extension' } } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: BIG },
+  { name: 'ilang_runtime_lite', title: 'Load iLang (syntax and vocabulary)',
+    description: 'Return iLang runtime lite: the two syntaxes, the verb table (88 verbs with their 13 Greek aliases), the 29 modifiers, the error codes, ' +
+      'the declaration body forms, the registry of 32 declarations and the entity registry (25 entities), taken word for word from the canon\'s full runtime ' +
+      'and checked against its sha256. About 18,000 characters, where ilang_runtime returns about 93,000. Enough to write iLang and check it with ilang_validate; ' +
+      'it leaves out the execution and judgment layers, so load ilang_runtime when a task needs them.',
+    inputSchema: { type: 'object', properties: {} },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: LITE_META },
   { name: 'ilang_full', title: 'Read the full iLang text',
     description: 'Return a section of the full specification that the core runtime leaves out, found by its heading ' +
       '(for example "Declaration Grammar" or "Boundary Cases"), or the whole full text when no heading is given.',
@@ -43,7 +62,8 @@ const TOOLS = [
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: BIG },
   { name: 'ilang_validate', title: 'Validate iLang',
     description: 'Check iLang text with the canon grammar and registry validator. Returns error, warning and info ' +
-      'counts and each finding with its line, code and message.',
+      'counts and each finding with its line, code and message. An E302 finding (unknown modifier) may also carry did_you_mean, ' +
+      'the registered modifier this server suggests for the key; the suggestion is added here and is not part of the canon validator\'s output.',
     inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'iLang, or Markdown that carries iLang blocks' } }, required: ['text'] },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
   { name: 'ilang_lookup', title: 'iLang dictionary lookup',
@@ -129,6 +149,76 @@ async function runtimeBlock(media) {
   if (media) parts.push((await bundle('media')).text);
   return PREAMBLE + '\n\n<ilang-runtime version="' + core.version + '">\n' + parts.join('\n\n') + '\n</ilang-runtime>';
 }
+// ilang_runtime_lite: whole sections of the full runtime, cut by heading inside their own document.
+// A heading that is missing or found twice is an error, so the tool never serves a partial text.
+function docBlock(full, doc) {
+  const b = '===== BEGIN ' + doc + ' =====', e = '===== END ' + doc + ' =====';
+  const i = full.indexOf(b), j = full.indexOf(e, i);
+  if (i < 0 || j < 0) throw new Error('the full runtime has no document ' + doc);
+  return full.slice(i + b.length, j);
+}
+function headed(body, start, doc) {
+  const lines = body.split('\n'), heads = [];
+  let fence = false;
+  lines.forEach((l, i) => {
+    if (l.trimStart().startsWith('```')) { fence = !fence; return; }
+    const m = !fence && /^(#+) (.*)$/.exec(l);
+    if (m) heads.push({ i, depth: m[1].length, line: l });
+  });
+  const hits = heads.filter((h) => h.line.startsWith(start));
+  if (hits.length !== 1) throw new Error((hits.length ? 'more than one' : 'no') + ' heading "' + start + '" in ' + doc + '; ilang_runtime still has the whole text');
+  const next = heads.find((h) => h.i > hits[0].i && h.depth <= hits[0].depth);
+  const out = lines.slice(hits[0].i, next ? next.i : lines.length);
+  while (out.length && /^(\s*|---)$/.test(out[out.length - 1])) out.pop();
+  return out.join('\n');
+}
+async function liteBlock() {
+  const full = await bundle('full');
+  const docs = {}, parts = [];
+  let last = null;
+  for (const [doc, start] of LITE) {
+    if (!docs[doc]) docs[doc] = docBlock(full.text, doc);
+    if (doc !== last) { parts.push('===== FROM ' + doc + ' ====='); last = doc; }
+    parts.push(headed(docs[doc], start, doc));
+  }
+  return LITE_PREAMBLE + '\n\n<ilang-runtime-lite version="' + full.version + '">\n' + parts.join('\n\n') + '\n</ilang-runtime-lite>';
+}
+
+// did_you_mean on E302: the registered modifier an unknown key most likely stands for (rules in _modifier-hints.js).
+function lev(a, b) {
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function suggestModifier(key, media) {
+  const allowed = media ? ILV.registries.modifiers.concat(ILV.registries.media_profile) : ILV.registries.modifiers;
+  const low = key.toLowerCase();
+  if (allowed.includes(low)) return low;                       // modifiers are lowercase (v3.0 2.5)
+  const alias = Object.prototype.hasOwnProperty.call(HINTS.aliases, low) ? HINTS.aliases[low] : null;
+  if (alias && allowed.includes(alias)) return alias;
+  // a candidate is at most max_distance away and keeps at least one character of both keys
+  let best = null, bestD = Infinity, tie = false;
+  for (const k of allowed) {
+    const d = lev(low, k);
+    if (d > HINTS.max_distance || d >= low.length || d >= k.length) continue;
+    if (d < bestD) { best = k; bestD = d; tie = false; } else if (d === bestD) tie = true;
+  }
+  return best && !tie ? best : null;
+}
+function withHints(findings) {
+  return findings.map((f) => {
+    if (f.code !== 'E302') return f;
+    const m = /^modifier `(.+)` not in (.*)$/.exec(f.message);
+    if (!m || /\)$/.test(m[2])) return f;                    // no key, or the validator already explains it
+    const s = suggestModifier(m[1], /media profile$/.test(m[2]));
+    return s ? Object.assign({}, f, { did_you_mean: s }) : f;
+  });
+}
+
 // One section of the full text by heading: the heading line and everything under it. A heading
 // whose title is the request, numbering aside, wins; otherwise the deepest heading that contains it.
 const bare = (t) => t.toLowerCase().replace(/^(part [ivx]+|appendix [a-z]|§?[\d.]+)\s*[—:.-]?\s*/, '').trim();
@@ -212,6 +302,7 @@ async function handle(msg, env, origin) {
     if (method === 'tools/call') {
       const name = params && params.name; const args = (params && params.arguments) || {};
       if (name === 'ilang_runtime') return rpc(id, text(await runtimeBlock(yes(args.media))));
+      if (name === 'ilang_runtime_lite') return rpc(id, text(await liteBlock()));
       if (name === 'ilang_full') {
         const full = await bundle('full');
         if (!args.section || !String(args.section).trim()) return rpc(id, text(full.text));
@@ -221,7 +312,7 @@ async function handle(msg, env, origin) {
       if (name === 'ilang_validate') {
         if (typeof args.text !== 'string' || !args.text.trim()) return rpcErr(id, -32602, 'Invalid params: ilang_validate requires text, a non-empty string');
         const r = ILV.lint(args.text);
-        return rpc(id, text(JSON.stringify({ mode: r.mode, counts: r.counts, findings: r.findings, validator: ILV.SOURCE })));
+        return rpc(id, text(JSON.stringify({ mode: r.mode, counts: r.counts, findings: withHints(r.findings), validator: ILV.SOURCE })));
       }
       if (name === 'ilang_book_check') {
         if (typeof args.text !== 'string' || !args.text.trim()) return rpcErr(id, -32602, 'Invalid params: ilang_book_check requires text, the full text of the book');

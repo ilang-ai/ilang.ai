@@ -2,10 +2,10 @@
   "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
   "serverInfo": {
     "name": "ilang",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "title": "iLang"
   },
-  "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.9, as files with version, DOI and sha256. Read-only, no authentication.",
+  "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), its syntax and vocabulary alone (about 18,000 characters) for writing and checking iLang, the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.9, as files with version, DOI and sha256. Read-only, no authentication.",
   "protocolVersion": "2025-06-18",
   "endpoint": "https://ilang.ai/mcp",
   "transport": {
@@ -35,6 +35,16 @@
       }
     },
     {
+      "name": "ilang_runtime_lite",
+      "description": "Load the syntax and vocabulary of iLang alone (verbs, aliases, modifiers, entities, declaration forms, error codes), word for word from the canon, about a fifth of the runtime.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
       "name": "ilang_full",
       "description": "Read a section of the full specification that the core runtime leaves out, by heading.",
       "annotations": {
@@ -46,7 +56,7 @@
     },
     {
       "name": "ilang_validate",
-      "description": "Check iLang text with the canon grammar and registry validator.",
+      "description": "Check iLang text with the canon grammar and registry validator; an unknown modifier (E302) may come back with did_you_mean.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
