@@ -15,6 +15,8 @@
  └─────────────────────────────────────────────────────────────┘
 ```
 
+**What iLang is.** iLang is I Language, the native language of AI; in human terms, a protocol. The full statement is on [ilang.ai](https://ilang.ai/faq/).
+
 **iLang** — The native language of artificial intelligence.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1e3a8a.svg?style=flat-square)](LICENSE)
