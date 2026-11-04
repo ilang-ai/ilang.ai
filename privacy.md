@@ -3,7 +3,7 @@ Source: https://ilang.ai/privacy
 
 # Privacy Policy
 
-Last updated: May 25, 2026
+Last updated: November 3, 2026
 
 ## Who we are
 
@@ -11,7 +11,7 @@ iLang Inc. ("we", "us", "iLang") is a federally incorporated company in Canada. 
 
 ## What we collect
 
-Nothing. ilang.ai and all products under iLang Inc. do not collect, store, or share any personal information. No cookies, no analytics, no tracking scripts, no registration required, no advertising identifiers.
+Site usage statistics only. ilang.ai uses Google Analytics to count visits and see which pages are read. Google Analytics sets cookies and receives your IP address, browser and device type, and the pages you visit; Google processes this data under its own privacy policy. We do not ask for or store names, email addresses or payment details, require no registration, and use no advertising identifiers. You can block Google Analytics with your browser's tracking protection.
 
 ## Interactive services
 
