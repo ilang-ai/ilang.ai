@@ -15,6 +15,10 @@ Where each stands: the SOUL (https://ilang.ai/soul/); the source constitution, S
 
 You don't. iLang is a protocol for AI, not a language people have to memorise. Tell your AI what you want in your own words. To put iLang to work, copy the latest iLang into your AI or install the loader. The full specification is for AI, developers, researchers and anyone auditing the protocol.
 
+### How does my AI remember me?
+
+Through the memory layer. MODULE::MEMORY, carried by every runtime bundle, tells an AI that has loaded iLang to keep what it learns with you in a Git repository you hold: a profile, one file per memory, a hand-off note that says what was done, what comes next and what is unverified, and an encrypted vault for keys. The next session, in any tool, starts from the hand-off. If git is missing, the AI says so and offers to install it; it never installs without your yes. The product is Mem-Forever 2.1 (https://ilang.ai/memory/), and the template repository is github.com/ilang-ai/Mem-Forever.
+
 ### Do I need to write iLang?
 
 No. In normal use you never write a line of it. Your AI reads and writes iLang; you keep speaking naturally.

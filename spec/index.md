@@ -894,3 +894,25 @@ Related pages: [Playground](https://ilang.ai/playground/) · [Benchmark](https:/
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.
+
+## 17. References
+
+Appendix H of SPEC-v5.0.md is the references register; this list and the release metadata are generated from it.
+
+1. Zadeh, L. A. (1965). Fuzzy sets. Information and Control, 8(3), 338-353. https://doi.org/10.1016/S0019-9958(65)90241-X (foundation; header FOUNDATION, MODULE::DEFINITION MATH, Appendix G CONST-ZADEH)
+2. Wilson, E. B. (1927). Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association, 22(158), 209-212. https://doi.org/10.1080/01621459.1927.10502953 (instrument; Appendix G TRUST-WILSON-1, MODULE::ROUTING trust row, MODULE::ARCHITECTURE Layer C, header MATURITY intervals)
+3. Shewhart, W. A. (1930). Economic quality control of manufactured product. Bell System Technical Journal, 9(2), 364-389. https://doi.org/10.1002/j.1538-7305.1930.tb00373.x (instrument; MODULE::AXIOMS AXIOM:3 flag(action), Appendix G CONST-SPC-3SIGMA)
+4. Jaynes, E. T. (1957). Information theory and statistical mechanics. Physical Review, 106(4), 620-630. https://doi.org/10.1103/PhysRev.106.620 (foundation; Appendix G CONST-MAXENT, MODULE::ROUTING unknown dimension row, Part II §2 maximum entropy principle)
+5. Artzner, P., Delbaen, F., Eber, J.-M., Heath, D. (1999). Coherent measures of risk. Mathematical Finance, 9(3), 203-228. https://doi.org/10.1111/1467-9965.00068 (foundation; Part II §2 tail risk, Appendix G CONST-ES-975)
+6. Acerbi, C., Tasche, D. (2002). On the coherence of expected shortfall. Journal of Banking and Finance, 26(7), 1487-1503. https://doi.org/10.1016/S0378-4266(02)00283-2 (foundation; Part II §2 tail risk, Appendix G CONST-ES-975)
+7. Basel Committee on Banking Supervision (2019). Minimum capital requirements for market risk. Bank for International Settlements. https://www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk (instrument; Appendix G CONST-ES-975)
+8. Ismail, R., Jøsang, A. (2002). The beta reputation system. Proceedings of the 15th Bled Electronic Commerce Conference, paper 41. https://aisel.aisnet.org/bled2002/41/ (foundation; Appendix G WEIGHT-BETA-1)
+9. Jøsang, A., Ismail, R., Boyd, C. (2007). A survey of trust and reputation systems for online service provision. Decision Support Systems, 43(2), 618-644. https://doi.org/10.1016/j.dss.2005.05.019 (foundation; Appendix G WEIGHT-BETA-1)
+10. Lu, Y.-L., Song, J., Wang, W. (2025). A unified representation underlying the judgment of large language models. arXiv:2510.27328. https://doi.org/10.48550/arXiv.2510.27328 (related not endorsement; Appendix E, Part II §3 TWO-LAYER)
+11. Bai, Y., Kadavath, S., Kundu, S., et al. (2022). Constitutional AI: harmlessness from AI feedback. arXiv:2212.08073. https://doi.org/10.48550/arXiv.2212.08073 (contrast; MODULE::SOURCE, MODULE::AMENDMENT constitutional dominance, Part II §3 TWO-LAYER)
+12. Bai, Y., Jones, A., Ndousse, K., et al. (2022). Training a helpful and harmless assistant with reinforcement learning from human feedback. arXiv:2204.05862. https://doi.org/10.48550/arXiv.2204.05862 (contrast; MODULE::DEFINITION SCOPE, Part II §3 TWO-LAYER)
+13. Arditi, A., Obeso, O., Syed, A., et al. (2024). Refusal in language models is mediated by a single direction. Advances in Neural Information Processing Systems 37; arXiv:2406.11717. https://doi.org/10.48550/arXiv.2406.11717 (contrast; MODULE::BOUNDARIES, Part II §3 modes M7 M8, Appendix E)
+14. Yao, S., Zhao, J., Yu, D., et al. (2022). ReAct: synergizing reasoning and acting in language models. arXiv:2210.03629. https://doi.org/10.48550/arXiv.2210.03629 (contrast; SPEC.md §2 operation syntax, SPEC-v4.0-FINAL §4 task lifecycle, Part IV)
+15. Zhu, L. Q. (2026). ilang-conformance: a deterministic conformance test set for the I-Lang protocol, release 2.2.0 (goal-check). Zenodo. https://doi.org/10.5281/zenodo.23006027 (instrument; MODULE::PRODUCT PRODUCT-3)
+16. Zhu, L. Q. (2026). IML (I-Lang Machine Layer), the reference codec of IML 0.5. Zenodo concept record. https://doi.org/10.5281/zenodo.22823285 (instrument; MODULE::PRODUCT PRODUCT-2)
+17. Zhu, L. Q. (2026). Mem-Forever: a Git-native persistent memory layer for AI agents. Zenodo concept record. https://doi.org/10.5281/zenodo.22865160 (reference template; MODULE::MEMORY WHERE)

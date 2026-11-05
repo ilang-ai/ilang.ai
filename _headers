@@ -56,3 +56,5 @@
 /review/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: public, max-age=3600
+/memory/MEM-FOREVER.iml
+  Content-Type: text/plain; charset=utf-8

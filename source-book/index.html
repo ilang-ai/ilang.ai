@@ -21,6 +21,15 @@
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/source-book/">
+<meta name="citation_title" content="iLang Source Book 2.9: the engineering book every engineering book is anchored to">
+<meta name="citation_author" content="Zhu, Long Quan">
+<meta name="citation_author_orcid" content="0009-0004-4540-8082">
+<meta name="citation_publication_date" content="2026/10/30">
+<meta name="citation_doi" content="10.5281/zenodo.23824138">
+<meta name="citation_publisher" content="iLang Inc.">
+<meta name="citation_language" content="en">
+<meta name="citation_fulltext_html_url" content="https://ilang.ai/source-book/">
+<meta name="citation_abstract_html_url" content="https://ilang.ai/source-book/">
 <link rel="alternate" type="text/markdown" href="/source-book/index.md">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang Source Book 2.9","alternateName":"METHOD-TO-BOOK-MOTHER 2.9","version":"2.9","datePublished":"2026-10-30","inLanguage":"en","description":"The Source Book: the iLang engineering book every engineering book is anchored to. Give an agent a tutorial and it writes an executable iLang engineering book, BOOK.md, that any agent can run end to end. Shipped as an iLang document and as its IML 0.5 form, with four sample books.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/source-book/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/source-book","identifier":"10.5281/zenodo.23824138","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md","sha256":"20debddbb0b536eb1335495e3e8a15cf2989f164174f93c96909587efcab5503"},{"@type":"MediaObject","name":"METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml","sha256":"ea4d4ffc51350978cabc47ea24c1eade7ab78625c0f9f729fa0629e19f535676"},{"@type":"MediaObject","name":"run1-cloudflare-pages-source-book-2.4.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/source-book/samples/run1-cloudflare-pages-source-book-2.4.ilang.md","sha256":"87c1ab360204326c73d1b9a93aa74a71c291fec35c62e83fd569a5d8ea47d69d"},{"@type":"MediaObject","name":"run2-impact-source-book-2.5.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/source-book/samples/run2-impact-source-book-2.5.ilang.md","sha256":"cc96a39082cd67c278f8cd9daf0d27a795b815de68de6d44582f8472cdece169"},{"@type":"MediaObject","name":"run3-cloudflare-pages-source-book-2.6.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/source-book/samples/run3-cloudflare-pages-source-book-2.6.ilang.md","sha256":"cc7b88b05b8662bd7f3e9439bbaa2ea6939ee755e77b5f0ee20ee86c4f7250ec"},{"@type":"MediaObject","name":"run4-wechat-article-redfox-source-book-2.7.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/source-book/samples/run4-wechat-article-redfox-source-book-2.7.ilang.md","sha256":"4a54f076108497efb21e13fa5785c11814b0ecfeef3e498113452aa1cf888128"}]}</script>
@@ -78,14 +87,15 @@
     <a href="/spec/" style="--i:0">Specification</a>
     <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
     <a href="/soul/" style="--i:2">SOUL</a>
-    <a href="/dictionary/" style="--i:3">Dictionary</a>
-    <a href="/playground/" style="--i:4">Playground</a>
-    <a href="/ecosystem/" style="--i:5">Ecosystem</a>
-    <a href="/faq/" style="--i:6">FAQ</a>
-    <a href="/about/" style="--i:7">About</a>
-    <a href="/blog/" style="--i:8">Blog</a>
+    <a href="/memory/" style="--i:3">Memory</a>
+    <a href="/dictionary/" style="--i:4">Dictionary</a>
+    <a href="/playground/" style="--i:5">Playground</a>
+    <a href="/ecosystem/" style="--i:6">Ecosystem</a>
+    <a href="/faq/" style="--i:7">FAQ</a>
+    <a href="/about/" style="--i:8">About</a>
+    <a href="/blog/" style="--i:9">Blog</a>
     <span class="sep" aria-hidden="true"></span>
-    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:9">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:10">GitHub <span class="ext" aria-hidden="true">↗</span></a>
   </nav>
   <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
   <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
@@ -348,6 +358,7 @@
         <p class="footer-col-title">Build</p>
         <ul>
           <li><a href="/soul/">SOUL</a></li>
+          <li><a href="/memory/">Memory</a></li>
           <li><a href="/source-book/">Source Book</a></li>
           <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
           <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>

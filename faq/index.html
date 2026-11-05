@@ -45,6 +45,14 @@
     },
     {
       "@type": "Question",
+      "name": "How does my AI remember me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Through the memory layer. MODULE::MEMORY, carried by every runtime bundle, tells an AI that has loaded iLang to keep what it learns with you in a Git repository you hold: a profile, one file per memory, a hand-off note that says what was done, what comes next and what is unverified, and an encrypted vault for keys. The next session, in any tool, starts from the hand-off. If git is missing, the AI says so and offers to install it; it never installs without your yes. The product is Mem-Forever 2.1 (https://ilang.ai/memory/), and the template repository is github.com/ilang-ai/Mem-Forever."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Do I need to write iLang?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -207,14 +215,15 @@
     <a href="/spec/" style="--i:0">Specification</a>
     <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
     <a href="/soul/" style="--i:2">SOUL</a>
-    <a href="/dictionary/" style="--i:3">Dictionary</a>
-    <a href="/playground/" style="--i:4">Playground</a>
-    <a href="/ecosystem/" style="--i:5">Ecosystem</a>
-    <a href="/faq/" class="at" aria-current="page" style="--i:6">FAQ</a>
-    <a href="/about/" style="--i:7">About</a>
-    <a href="/blog/" style="--i:8">Blog</a>
+    <a href="/memory/" style="--i:3">Memory</a>
+    <a href="/dictionary/" style="--i:4">Dictionary</a>
+    <a href="/playground/" style="--i:5">Playground</a>
+    <a href="/ecosystem/" style="--i:6">Ecosystem</a>
+    <a href="/faq/" class="at" aria-current="page" style="--i:7">FAQ</a>
+    <a href="/about/" style="--i:8">About</a>
+    <a href="/blog/" style="--i:9">Blog</a>
     <span class="sep" aria-hidden="true"></span>
-    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:9">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:10">GitHub <span class="ext" aria-hidden="true">↗</span></a>
   </nav>
   <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
   <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
@@ -237,6 +246,10 @@
       <div class="faq-item">
         <h2>How do I learn iLang?</h2>
         <p>You don't. iLang is a protocol for AI, not a language people have to memorise. Tell your AI what you want in your own words. To put iLang to work, copy the latest iLang into your AI or install the loader. The full specification is for AI, developers, researchers and anyone auditing the protocol.</p>
+      </div>
+      <div class="faq-item">
+        <h2>How does my AI remember me?</h2>
+        <p>Through the memory layer. MODULE::MEMORY, carried by every runtime bundle, tells an AI that has loaded iLang to keep what it learns with you in a Git repository you hold: a profile, one file per memory, a hand-off note that says what was done, what comes next and what is unverified, and an encrypted vault for keys. The next session, in any tool, starts from the hand-off. If git is missing, the AI says so and offers to install it; it never installs without your yes. The product is <a href="/memory/" target="_blank" rel="noopener">Mem-Forever 2.1</a>, and the template repository is <a href="https://github.com/ilang-ai/Mem-Forever" target="_blank" rel="noopener">github.com/ilang-ai/Mem-Forever</a>.</p>
       </div>
       <div class="faq-item">
         <h2>Do I need to write iLang?</h2>
@@ -337,6 +350,7 @@
         <p class="footer-col-title">Build</p>
         <ul>
           <li><a href="/soul/">SOUL</a></li>
+          <li><a href="/memory/">Memory</a></li>
           <li><a href="/source-book/">Source Book</a></li>
           <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
           <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>

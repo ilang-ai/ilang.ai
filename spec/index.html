@@ -21,6 +21,15 @@
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/spec/">
+<meta name="citation_title" content="iLang Protocol Specification">
+<meta name="citation_author" content="Zhu, Long Quan">
+<meta name="citation_author_orcid" content="0009-0004-4540-8082">
+<meta name="citation_publication_date" content="2026/11/05">
+<meta name="citation_doi" content="10.5281/zenodo.23990622">
+<meta name="citation_publisher" content="iLang Inc.">
+<meta name="citation_language" content="en">
+<meta name="citation_fulltext_html_url" content="https://ilang.ai/spec/">
+<meta name="citation_abstract_html_url" content="https://ilang.ai/spec/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "name": "iLang v5.0 Specification", "description": "Complete specification of the iLang AI-native communication and judgment protocol v5.0. 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases, two syntaxes, 8 execution declarations, an 11-dimensional judgment vector, 4 axioms, three-layer architecture, and fuzzy-mathematical foundation.", "url": "https://ilang.ai/spec/", "version": "5.0", "author": {"@id": "https://ilang.ai/#organization"}, "datePublished": "2026-04-26", "dateModified": "2026-09-18", "license": "https://opensource.org/licenses/MIT"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use iLang Protocol","description":"Three steps to start using iLang. No install required.","step":[{"@type":"HowToStep","position":1,"name":"Copy the protocol header","text":"Copy the iLang v5.0 protocol header from ilang.ai/spec/. It contains 88 verbs, aliases, modifiers, rules, and the judgment layer."},{"@type":"HowToStep","position":2,"name":"Paste into a tested AI model","text":"Paste into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM. The first message activates the protocol."},{"@type":"HowToStep","position":3,"name":"Get precise results","text":"Write instructions in iLang syntax or natural language. AI follows structured intent with lower semantic loss."}]}</script>
@@ -42,14 +51,15 @@
     <a href="/spec/" class="at" aria-current="page" style="--i:0">Specification</a>
     <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
     <a href="/soul/" style="--i:2">SOUL</a>
-    <a href="/dictionary/" style="--i:3">Dictionary</a>
-    <a href="/playground/" style="--i:4">Playground</a>
-    <a href="/ecosystem/" style="--i:5">Ecosystem</a>
-    <a href="/faq/" style="--i:6">FAQ</a>
-    <a href="/about/" style="--i:7">About</a>
-    <a href="/blog/" style="--i:8">Blog</a>
+    <a href="/memory/" style="--i:3">Memory</a>
+    <a href="/dictionary/" style="--i:4">Dictionary</a>
+    <a href="/playground/" style="--i:5">Playground</a>
+    <a href="/ecosystem/" style="--i:6">Ecosystem</a>
+    <a href="/faq/" style="--i:7">FAQ</a>
+    <a href="/about/" style="--i:8">About</a>
+    <a href="/blog/" style="--i:9">Blog</a>
     <span class="sep" aria-hidden="true"></span>
-    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:9">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:10">GitHub <span class="ext" aria-hidden="true">↗</span></a>
   </nav>
   <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
   <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
@@ -820,6 +830,28 @@ STEP 3 — mode selection (by net_direction magnitude)
 
 <p style="margin-top:32px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to iLang</a> &nbsp;&middot;&nbsp; <a href="/mcp-vs-a2a/" style="color:var(--accent);font-weight:600">Compare with MCP &amp; A2A &rarr;</a> &nbsp;&middot;&nbsp; <a href="/dictionary/" style="color:var(--accent);font-weight:600">Browse the Dictionary &rarr;</a></p>
 
+<h2 id="s17-references">17. References</h2>
+<p>Appendix H of SPEC-v5.0.md is the references register: every work this specification takes its mathematics from, uses as a method, names as an implementation, or is positioned against, with the clauses that use it and the relation (foundation, instrument, contrast, related not endorsement, reference template). The list below is generated from it; the release metadata on Zenodo and in CITATION.cff is generated from the same register.</p>
+<ol class="refs">
+<li id="ref-001">Zadeh, L. A. (1965). Fuzzy sets. Information and Control, 8(3), 338-353 <a href="https://doi.org/10.1016/S0019-9958(65)90241-X" target="_blank" rel="noopener">doi.org/10.1016/S0019-9958(65)90241-X</a> <small>foundation; header FOUNDATION, MODULE::DEFINITION MATH, Appendix G CONST-ZADEH</small></li>
+<li id="ref-002">Wilson, E. B. (1927). Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association, 22(158), 209-212 <a href="https://doi.org/10.1080/01621459.1927.10502953" target="_blank" rel="noopener">doi.org/10.1080/01621459.1927.10502953</a> <small>instrument; Appendix G TRUST-WILSON-1, MODULE::ROUTING trust row, MODULE::ARCHITECTURE Layer C, header MATURITY intervals</small></li>
+<li id="ref-003">Shewhart, W. A. (1930). Economic quality control of manufactured product. Bell System Technical Journal, 9(2), 364-389 <a href="https://doi.org/10.1002/j.1538-7305.1930.tb00373.x" target="_blank" rel="noopener">doi.org/10.1002/j.1538-7305.1930.tb00373.x</a> <small>instrument; MODULE::AXIOMS AXIOM:3 flag(action), Appendix G CONST-SPC-3SIGMA</small></li>
+<li id="ref-004">Jaynes, E. T. (1957). Information theory and statistical mechanics. Physical Review, 106(4), 620-630 <a href="https://doi.org/10.1103/PhysRev.106.620" target="_blank" rel="noopener">doi.org/10.1103/PhysRev.106.620</a> <small>foundation; Appendix G CONST-MAXENT, MODULE::ROUTING unknown dimension row, Part II §2 maximum entropy principle</small></li>
+<li id="ref-005">Artzner, P., Delbaen, F., Eber, J.-M., Heath, D. (1999). Coherent measures of risk. Mathematical Finance, 9(3), 203-228 <a href="https://doi.org/10.1111/1467-9965.00068" target="_blank" rel="noopener">doi.org/10.1111/1467-9965.00068</a> <small>foundation; Part II §2 tail risk, Appendix G CONST-ES-975</small></li>
+<li id="ref-006">Acerbi, C., Tasche, D. (2002). On the coherence of expected shortfall. Journal of Banking and Finance, 26(7), 1487-1503 <a href="https://doi.org/10.1016/S0378-4266(02)00283-2" target="_blank" rel="noopener">doi.org/10.1016/S0378-4266(02)00283-2</a> <small>foundation; Part II §2 tail risk, Appendix G CONST-ES-975</small></li>
+<li id="ref-007">Basel Committee on Banking Supervision (2019). Minimum capital requirements for market risk. Bank for International Settlements <a href="https://www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk" target="_blank" rel="noopener">www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk</a> <small>instrument; Appendix G CONST-ES-975</small></li>
+<li id="ref-008">Ismail, R., Jøsang, A. (2002). The beta reputation system. Proceedings of the 15th Bled Electronic Commerce Conference, paper 41 <a href="https://aisel.aisnet.org/bled2002/41/" target="_blank" rel="noopener">aisel.aisnet.org/bled2002/41/</a> <small>foundation; Appendix G WEIGHT-BETA-1</small></li>
+<li id="ref-009">Jøsang, A., Ismail, R., Boyd, C. (2007). A survey of trust and reputation systems for online service provision. Decision Support Systems, 43(2), 618-644 <a href="https://doi.org/10.1016/j.dss.2005.05.019" target="_blank" rel="noopener">doi.org/10.1016/j.dss.2005.05.019</a> <small>foundation; Appendix G WEIGHT-BETA-1</small></li>
+<li id="ref-010">Lu, Y.-L., Song, J., Wang, W. (2025). A unified representation underlying the judgment of large language models. arXiv:2510.27328 <a href="https://doi.org/10.48550/arXiv.2510.27328" target="_blank" rel="noopener">doi.org/10.48550/arXiv.2510.27328</a> <small>related not endorsement; Appendix E, Part II §3 TWO-LAYER</small></li>
+<li id="ref-011">Bai, Y., Kadavath, S., Kundu, S., et al. (2022). Constitutional AI: harmlessness from AI feedback. arXiv:2212.08073 <a href="https://doi.org/10.48550/arXiv.2212.08073" target="_blank" rel="noopener">doi.org/10.48550/arXiv.2212.08073</a> <small>contrast; MODULE::SOURCE, MODULE::AMENDMENT constitutional dominance, Part II §3 TWO-LAYER</small></li>
+<li id="ref-012">Bai, Y., Jones, A., Ndousse, K., et al. (2022). Training a helpful and harmless assistant with reinforcement learning from human feedback. arXiv:2204.05862 <a href="https://doi.org/10.48550/arXiv.2204.05862" target="_blank" rel="noopener">doi.org/10.48550/arXiv.2204.05862</a> <small>contrast; MODULE::DEFINITION SCOPE, Part II §3 TWO-LAYER</small></li>
+<li id="ref-013">Arditi, A., Obeso, O., Syed, A., et al. (2024). Refusal in language models is mediated by a single direction. Advances in Neural Information Processing Systems 37; arXiv:2406.11717 <a href="https://doi.org/10.48550/arXiv.2406.11717" target="_blank" rel="noopener">doi.org/10.48550/arXiv.2406.11717</a> <small>contrast; MODULE::BOUNDARIES, Part II §3 modes M7 M8, Appendix E</small></li>
+<li id="ref-014">Yao, S., Zhao, J., Yu, D., et al. (2022). ReAct: synergizing reasoning and acting in language models. arXiv:2210.03629 <a href="https://doi.org/10.48550/arXiv.2210.03629" target="_blank" rel="noopener">doi.org/10.48550/arXiv.2210.03629</a> <small>contrast; SPEC.md §2 operation syntax, SPEC-v4.0-FINAL §4 task lifecycle, Part IV</small></li>
+<li id="ref-015">Zhu, L. Q. (2026). ilang-conformance: a deterministic conformance test set for the I-Lang protocol, release 2.2.0 (goal-check). Zenodo <a href="https://doi.org/10.5281/zenodo.23006027" target="_blank" rel="noopener">doi.org/10.5281/zenodo.23006027</a> <small>instrument; MODULE::PRODUCT PRODUCT-3</small></li>
+<li id="ref-016">Zhu, L. Q. (2026). IML (I-Lang Machine Layer), the reference codec of IML 0.5. Zenodo concept record <a href="https://doi.org/10.5281/zenodo.22823285" target="_blank" rel="noopener">doi.org/10.5281/zenodo.22823285</a> <small>instrument; MODULE::PRODUCT PRODUCT-2</small></li>
+<li id="ref-017">Zhu, L. Q. (2026). Mem-Forever: a Git-native persistent memory layer for AI agents. Zenodo concept record <a href="https://doi.org/10.5281/zenodo.22865160" target="_blank" rel="noopener">doi.org/10.5281/zenodo.22865160</a> <small>reference template; MODULE::MEMORY WHERE</small></li>
+</ol>
+
 </div></section>
 </main>
 
@@ -845,6 +877,7 @@ STEP 3 — mode selection (by net_direction magnitude)
         <p class="footer-col-title">Build</p>
         <ul>
           <li><a href="/soul/">SOUL</a></li>
+          <li><a href="/memory/">Memory</a></li>
           <li><a href="/source-book/">Source Book</a></li>
           <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
           <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
