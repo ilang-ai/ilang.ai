@@ -21,15 +21,6 @@
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/memory/">
-<meta name="citation_title" content="iLang Mem-Forever 2.1: the memory layer">
-<meta name="citation_author" content="Zhu, Long Quan">
-<meta name="citation_author_orcid" content="0009-0004-4540-8082">
-<meta name="citation_publication_date" content="2026/11/05">
-<meta name="citation_doi" content="10.5281/zenodo.23990622">
-<meta name="citation_publisher" content="iLang Inc.">
-<meta name="citation_language" content="en">
-<meta name="citation_fulltext_html_url" content="https://ilang.ai/memory/">
-<meta name="citation_abstract_html_url" content="https://ilang.ai/memory/">
 <link rel="alternate" type="text/markdown" href="/memory/index.md">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang Mem-Forever 2.1","alternateName":"Mem-Forever 2.1","version":"2.1","datePublished":"2026-11-05","inLanguage":"en","description":"The memory layer of iLang, written in iLang: an agent keeps what it learns with its owner in a Git repository the owner holds, with a hand-off at every milestone, review before merge and keys in an encrypted vault. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/memory/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever","identifier":"10.5281/zenodo.23990622","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"MEM-FOREVER.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/memory/MEM-FOREVER.ilang.md","sha256":"50ae0ebb239bd0b873f25a0f243a68cb46a590e38794af5c5efb3f1d205bcd86"},{"@type":"MediaObject","name":"MEM-FOREVER.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/memory/MEM-FOREVER.iml","sha256":"d8fc74f0f88747a13466f731d06af8424066efdd3825c3c3127c38c7822c3cb4"}]}</script>
@@ -103,7 +94,7 @@
 <h1>Mem-Forever 2.1</h1>
 <p class="sub">Mem-Forever is the memory layer of iLang: an iLang document that tells an AI agent how to keep what it learns with its owner, in a Git repository the owner holds. The repository has a profile of the owner, one file per memory, a hand-off note that says where the last session stopped, and an encrypted vault for keys. The next session, in any tool, starts from the hand-off. Nothing leaves the owner's repository; there is no server and no account.
 
-The protocol it implements is MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle carries, so an AI that has loaded iLang already knows the layout and the rules. This document is the product form: the same rules as one instruction block, with its IML form and its acceptance items. The template repository is [github.com/ilang-ai/Mem-Forever](https://github.com/ilang-ai/Mem-Forever) (concept DOI [10.5281/zenodo.22865160](https://doi.org/10.5281/zenodo.22865160)); its README is the engineering book, and `skills/mem-forever/SKILL.md` is the normative text for an agent that has the repository open.</p>
+It implements MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle carries, so an AI that has loaded iLang already knows the layout and the rules. This document is the product form: the same rules as one instruction block, with its IML form and its acceptance items. The template repository is github.com/ilang-ai/Mem-Forever; its README is the engineering book, and skills/mem-forever/SKILL.md is the normative text for an agent that has the repository open.</p>
 <p class="soul-labels"><span><b>Version</b> 2.1</span><span><b>Date</b> 2026-11-05</span><span><b>License</b> MIT</span><span><a class="lk" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.23990622">DOI 10.5281/zenodo.23990622</a></span><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever">ilang-spec / products / mem-forever</a><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/Mem-Forever">Template repository</a></p>
 </div></section>
 
@@ -210,7 +201,7 @@ RD@{BRAIN}pt=handoff/CURRENT.md RD@{BRAIN}pt=soul/ RD@{BRAIN}pt=memory/MEMORY.md
 <div><dt>A coding agent with the brain repository open</dt><dd>It already reads the repository's instruction file (CLAUDE.md, AGENTS.md, GEMINI.md, .cursorrules). Paste this block there, or let the template's own files stand; they say the same thing.</dd></div>
 <div><dt>A coding agent on another project</dt><dd>Paste this block into the instruction file it reads when it starts, and tell it where the brain repository is.</dd></div>
 <div><dt>A chat assistant with a connector</dt><dd>Paste this block into its custom or project instructions; connect the repository through the tool's GitHub or Drive connector.</dd></div>
-<div><dt>A chat assistant with no tools</dt><dd>It cannot read a repository. Give it one pasted message instead: the notation card and the hand-off, built by `python -X utf8 tools/brain.py paste` in the template repository.</dd></div>
+<div><dt>A chat assistant with no tools</dt><dd>It cannot read a repository. Give it one pasted message instead: the notation card and the hand-off, built by python -X utf8 tools/brain.py paste in the template repository.</dd></div>
 </dl>
 <p>Pasted into a chat, it covers that chat only. To have it every time, put it where instructions persist.</p>
 <h2 id="lines">Read it line by line</h2>
@@ -263,8 +254,8 @@ RD@{BRAIN}pt=handoff/CURRENT.md RD@{BRAIN}pt=soul/ RD@{BRAIN}pt=memory/MEMORY.md
 <h2 id="questions">Questions</h2>
 <div class="faq-list">
 <div class="faq-item"><h3>Where does my data go?</h3><p>Into your own Git repository and nowhere else. The template has no server, no account and no telemetry. The vault holds keys encrypted to your own public key; the private key never enters the repository.</p></div>
-<div class="faq-item"><h3>What does the agent do first?</h3><p>It reads `handoff/CURRENT.md` and tells you in two sentences what was done, what comes next and what is unverified. Then it reads your profile and the memory index, and only the memory files the task needs.</p></div>
-<div class="faq-item"><h3>Why is a hand-off from another model reviewed?</h3><p>Because it is a candidate, not the truth. The template's `brain.py handoff review` compares it block by block with the accepted one; a boundary that was deleted or weakened, a done item without evidence, a changed identifier or a silent drop is rejected, and the owner decides the rest.</p></div>
+<div class="faq-item"><h3>What does the agent do first?</h3><p>It reads handoff/CURRENT.md and tells you in two sentences what was done, what comes next and what is unverified. Then it reads your profile and the memory index, and only the memory files the task needs.</p></div>
+<div class="faq-item"><h3>Why is a hand-off from another model reviewed?</h3><p>Because it is a candidate, not the truth. The template's brain.py handoff review compares it block by block with the accepted one; a boundary that was deleted or weakened, a done item without evidence, a changed identifier or a silent drop is rejected, and the owner decides the rest.</p></div>
 <div class="faq-item"><h3>What happens without git?</h3><p>The agent says so and offers to install it (winget, brew or apt). It never installs anything without your yes.</p></div>
 <div class="faq-item"><h3>What is the score at the end?</h3><p>S is the iLang judgment layer's action score, reported to two decimals, from the vector the model perceived of what it did. The full ::JUDGE block, with the mode f_v5 computes, is written when you ask for it.</p></div>
 <div class="faq-item"><h3>Can I change it?</h3><p>Yes. The license is MIT. To check that your edit is still valid iLang, run the canon grammar validator in strict mode: ilang_grammar_validator.py in ilang-spec. The released text is the one whose sha256 the acceptance file names.</p></div>

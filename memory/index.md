@@ -2,7 +2,7 @@
 
 Mem-Forever is the memory layer of iLang: an iLang document that tells an AI agent how to keep what it learns with its owner, in a Git repository the owner holds. The repository has a profile of the owner, one file per memory, a hand-off note that says where the last session stopped, and an encrypted vault for keys. The next session, in any tool, starts from the hand-off. Nothing leaves the owner's repository; there is no server and no account.
 
-The protocol it implements is MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle carries, so an AI that has loaded iLang already knows the layout and the rules. This document is the product form: the same rules as one instruction block, with its IML form and its acceptance items. The template repository is [github.com/ilang-ai/Mem-Forever](https://github.com/ilang-ai/Mem-Forever) (concept DOI [10.5281/zenodo.22865160](https://doi.org/10.5281/zenodo.22865160)); its README is the engineering book, and `skills/mem-forever/SKILL.md` is the normative text for an agent that has the repository open.
+It implements MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle carries, so an AI that has loaded iLang already knows the layout and the rules. This document is the product form: the same rules as one instruction block, with its IML form and its acceptance items. The template repository is github.com/ilang-ai/Mem-Forever; its README is the engineering book, and skills/mem-forever/SKILL.md is the normative text for an agent that has the repository open.
 
 - Version 2.1, 2026-11-05, MIT. DOI 10.5281/zenodo.23990622. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever
 - Template repository: https://github.com/ilang-ai/Mem-Forever (concept DOI 10.5281/zenodo.22865160)
@@ -110,7 +110,7 @@ RD@{BRAIN}pt=handoff/CURRENT.md RD@{BRAIN}pt=soul/ RD@{BRAIN}pt=memory/MEMORY.md
 - A coding agent with the brain repository open: It already reads the repository's instruction file (CLAUDE.md, AGENTS.md, GEMINI.md, .cursorrules). Paste this block there, or let the template's own files stand; they say the same thing.
 - A coding agent on another project: Paste this block into the instruction file it reads when it starts, and tell it where the brain repository is.
 - A chat assistant with a connector: Paste this block into its custom or project instructions; connect the repository through the tool's GitHub or Drive connector.
-- A chat assistant with no tools: It cannot read a repository. Give it one pasted message instead: the notation card and the hand-off, built by `python -X utf8 tools/brain.py paste` in the template repository.
+- A chat assistant with no tools: It cannot read a repository. Give it one pasted message instead: the notation card and the hand-off, built by python -X utf8 tools/brain.py paste in the template repository.
 
 Pasted into a chat, it covers that chat only. To have it every time, put it where instructions persist.
 
@@ -211,9 +211,9 @@ Paste the iLang block, written for people and models. The IML block is the same 
 
 **Where does my data go?** Into your own Git repository and nowhere else. The template has no server, no account and no telemetry. The vault holds keys encrypted to your own public key; the private key never enters the repository.
 
-**What does the agent do first?** It reads `handoff/CURRENT.md` and tells you in two sentences what was done, what comes next and what is unverified. Then it reads your profile and the memory index, and only the memory files the task needs.
+**What does the agent do first?** It reads handoff/CURRENT.md and tells you in two sentences what was done, what comes next and what is unverified. Then it reads your profile and the memory index, and only the memory files the task needs.
 
-**Why is a hand-off from another model reviewed?** Because it is a candidate, not the truth. The template's `brain.py handoff review` compares it block by block with the accepted one; a boundary that was deleted or weakened, a done item without evidence, a changed identifier or a silent drop is rejected, and the owner decides the rest.
+**Why is a hand-off from another model reviewed?** Because it is a candidate, not the truth. The template's brain.py handoff review compares it block by block with the accepted one; a boundary that was deleted or weakened, a done item without evidence, a changed identifier or a silent drop is rejected, and the owner decides the rest.
 
 **What happens without git?** The agent says so and offers to install it (winget, brew or apt). It never installs anything without your yes.
 
