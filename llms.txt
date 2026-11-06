@@ -86,7 +86,7 @@ AI is moving from answering questions to acting for people. iLang starts from on
 - [Books](https://ilang.ai/books/): The two iLang books, with authors as Amazon lists them, pages and ASINs
 - [Prompt Compression](https://ilang.ai/prompt-compression/): What structured syntax actually saves: 169 tokens of real request against a 55-token chain, both texts published; the prompt structurer
 - [AI See](https://ilang.ai/ai-see/): Web-to-markdown proxy for LLMs, i.ilang.ai/{url}
-- [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token reduction test results
+- [Benchmark](https://ilang.ai/benchmark/): LLM recognition, execution, and token count test results
 - [Conformance](https://ilang.ai/conformance/): L0-L3 conformance levels and the requirements for each level
 - [Playground](https://ilang.ai/playground/): Convert iLang operation chains to IML and back, validate iLang documents with the canon grammar validator, count cl100k_base tokens; runs in the browser, input never leaves it
 - [Security](https://ilang.ai/security/): Verb risk classification and runtime security requirements
