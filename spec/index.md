@@ -320,7 +320,7 @@ Total: **88 verbs**. Full definitions with examples: [Dictionary →](https://il
 
 ## 4. Greek Aliases
 
-13 commonly-used verbs have single-character Greek aliases for maximum compression:
+13 commonly-used verbs have single-character Greek aliases:
 
 | Alias | Verb | Description |
 | --- | --- | --- |
@@ -856,7 +856,7 @@ iLang evolves as three layered generations. Each generation adds a layer without
 | v3.0 | 2026-04 | Communication baseline. 88 verbs, 29 core modifiers, 14 entities, 13 Greek aliases. Two syntaxes (operations + declarations). (Chapters 1-11.) |
 | v2.0 Dict | 2026-03 | 62 verbs, expanded reference with Greek aliases |
 | v2.0 Spec | 2026-03 | 52 verbs, first formal spec, published in book |
-| v1.0 | 2025 | Initial discovery, basic compression |
+| v1.0 | 2025 | Initial discovery |
 
 ## 15. Examples
 
