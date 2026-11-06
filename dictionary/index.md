@@ -3,7 +3,7 @@ Source: https://ilang.ai/dictionary/
 
 # iLang Verb Dictionary
 
-88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of iLang — the communication layer, unchanged since v3.0 and carried through v5.0.
+88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of iLang — the communication layer, unchanged since v3.0 and carried through v5.0. Each verb also carries a plain word (CHECK for CHEK) that the lookup API accepts, and a measured token cost in four public tokenizers; see Machine cost below.
 
 **Quick navigation:** [Data I/O](https://ilang.ai/dictionary/#data-i-o) · [Transform](https://ilang.ai/dictionary/#transform) · [Analysis](https://ilang.ai/dictionary/#analysis) · [Generation](https://ilang.ai/dictionary/#generation) · [Execute](https://ilang.ai/dictionary/#execute) · [Output](https://ilang.ai/dictionary/#output) · [Structure](https://ilang.ai/dictionary/#structure) · [Meta](https://ilang.ai/dictionary/#meta) · [Batch](https://ilang.ai/dictionary/#batch)
 
@@ -17,7 +17,7 @@ Read content from source
 
 WRIT
 
-Write content to destination
+Write content to destination (word: WRITE)
 
 [WRIT:@DST|path=output.md]
 
@@ -29,7 +29,7 @@ Fetch from URL or API
 
 DEL
 
-Delete content or file
+Delete content or file (word: DELETE)
 
 [DEL:@LOCAL|path=temp.txt]
 
@@ -53,13 +53,13 @@ Move content
 
 STRM
 
-Stream content progressively
+Stream content progressively (word: STREAM)
 
 [STRM:@SRC|path=large.csv]
 
 CACH
 
-Cache for reuse
+Cache for reuse (word: CACHE)
 
 [CACH:@PREV|path=q3data]
 
@@ -85,13 +85,13 @@ Execute command or script
 
 FMT
 
-Format output
+Format output (word: FORMAT)
 
 [FMT:@PREV|fmt=md]
 
 CONV
 
-Convert between formats
+Convert between formats (word: CONVERT)
 
 [CONV:@SRC|src=csv,dst=json]
 
@@ -115,7 +115,7 @@ Apply function to each item (alias: λ)
 
 FILT
 
-Filter by condition (alias: φ)
+Filter by condition (alias: φ; word: FILTER)
 
 [φ:@PREV|whr=score>80]
 
@@ -127,13 +127,13 @@ Sort by criteria (alias: ∇)
 
 DEDU
 
-Remove duplicates
+Remove duplicates (word: DEDUPE)
 
 [DEDU:@PREV|col=email]
 
 FLAT
 
-Flatten nested structure
+Flatten nested structure (word: FLATTEN)
 
 [FLAT:@PREV|dep=2]
 
@@ -145,37 +145,37 @@ Create nested structure
 
 CHNK
 
-Split into sized chunks
+Split into sized chunks (word: CHUNK)
 
 [CHNK:@PREV|cap=500]
 
 REDU
 
-Reduce to single value
+Reduce to single value (word: REDUCE)
 
 [REDU:@PREV|whr=sum]
 
 PIVT
 
-Pivot table transformation
+Pivot table transformation (word: PIVOT)
 
 [PIVT:@PREV|row=month,col=product]
 
 TRNS
 
-Transpose rows and columns
+Transpose rows and columns (word: TRANSPOSE)
 
 [TRNS:@PREV]
 
 ENCD
 
-Encode content
+Encode content (word: ENCODE)
 
 [ENCD:@PREV|fmt=base64]
 
 DECD
 
-Decode content
+Decode content (word: DECODE)
 
 [DECD:@PREV|fmt=base64]
 
@@ -187,25 +187,25 @@ Generate hash (alias: ξ)
 
 CMPR
 
-Compress content (alias: ζ)
+Compress content (alias: ζ; word: COMPRESS)
 
 [ζ:@PREV|fmt=gzip]
 
 EXPN
 
-Expand/decompress
+Expand/decompress (word: DECOMPRESS)
 
 [EXPN:@PREV]
 
 XLAT
 
-Translate language (alias: θ)
+Translate language (alias: θ; word: TRANSLATE)
 
 [θ:@PREV|lng=ja,ton=formal]
 
 REWR
 
-Rewrite content
+Rewrite content (word: REWRITE)
 
 [REWR:@PREV|ton=casual]
 
@@ -225,31 +225,31 @@ Scan for patterns
 
 MTCH
 
-Match against pattern
+Match against pattern (word: MATCH)
 
 [MTCH:@PREV|mch="\d{4}-\d{2}",typ=regex]
 
 CNT
 
-Count items
+Count items (word: COUNT)
 
 [CNT:@PREV]
 
 STAT
 
-Statistical summary (alias: μ)
+Statistical summary (alias: μ; word: STATS)
 
 [μ:@PREV]
 
 EVAL
 
-Evaluate quality or correctness
+Evaluate quality or correctness (word: EVALUATE)
 
 [EVAL:@PREV|whr=accuracy]
 
 SCOR
 
-Score or rate
+Score or rate (word: SCORE)
 
 [SCOR:@PREV|rng=1:10]
 
@@ -261,61 +261,61 @@ Rank by criteria
 
 TRND
 
-Identify trends
+Identify trends (word: TREND)
 
 [TRND:@PREV|grp=month]
 
 CORR
 
-Find correlations
+Find correlations (word: CORRELATE)
 
 [CORR:@PREV|col=price,demand]
 
 FRCS
 
-Forecast future values
+Forecast future values (word: FORECAST)
 
 [FRCS:@PREV|to="+6 months"]
 
 ANOM
 
-Detect anomalies
+Detect anomalies (word: ANOMALY)
 
 [ANOM:@PREV|whr="beyond 2 sigma"]
 
 SENT
 
-Sentiment analysis (alias: ψ)
+Sentiment analysis (alias: ψ; word: SENTIMENT)
 
 [ψ:@PREV]
 
 CLST
 
-Cluster similar items
+Cluster similar items (word: CLUSTER)
 
 [CLST:@PREV|lim=5]
 
 BNCH
 
-Benchmark comparison
+Benchmark comparison (word: BENCHMARK)
 
 [BNCH:@PREV|whr="baseline v2"]
 
 AUDT
 
-Audit for compliance
+Audit for compliance (word: AUDIT)
 
 [AUDT:@PREV|whr=gdpr]
 
 VALD
 
-Validate data
+Validate data (word: VALIDATE)
 
 [VALD:@PREV|src=schemas/user.json]
 
 CLSF
 
-Classify into categories
+Classify into categories (word: CLASSIFY)
 
 [CLSF:@PREV|typ="spam,ham"]
 
@@ -323,43 +323,43 @@ Classify into categories
 
 CREA
 
-Create new content
+Create new content (word: CREATE)
 
 [CREA|type=blog,topic=AI protocols]
 
 DRFT
 
-Draft initial version
+Draft initial version (word: DRAFT)
 
 [DRFT|type=email,ton=formal]
 
 EXPD
 
-Expand with more detail
+Expand with more detail (word: EXPAND)
 
 [EXPD:@PREV|len=2x]
 
 SHRT
 
-Shorten content
+Shorten content (word: SHORTEN)
 
 [SHRT:@PREV|len=3,sty=bullets]
 
 PARA
 
-Paraphrase
+Paraphrase (word: PARAPHRASE)
 
 [PARA:@PREV|ton=simple]
 
 STYL
 
-Apply style
+Apply style (word: STYLE)
 
 [STYL:@PREV|sty=academic]
 
 TMPL
 
-Apply template
+Apply template (word: TEMPLATE)
 
 [TMPL|name=meeting_notes]
 
@@ -371,13 +371,13 @@ Fill template with data
 
 EXTC
 
-Extract specific content
+Extract specific content (word: EXTRACT)
 
 [EXTC:@SRC|typ=email]
 
 GEN
 
-Generate from specification
+Generate from specification (word: GENERATE)
 
 [GEN|spec=api_endpoint]
 
@@ -391,13 +391,13 @@ Create execution plan
 
 DECI
 
-Make decision
+Make decision (word: DECIDE)
 
 [DECI:@PREV|whr="cost,speed"]
 
 CHEK
 
-Check status or validity
+Check status or validity (word: CHECK)
 
 [CHEK:@SRC|typ=syntax]
 
@@ -409,7 +409,7 @@ Fix errors
 
 DPLO
 
-Deploy to target
+Deploy to target (word: DEPLOY)
 
 [DPLO:@PREV|dst=production]
 
@@ -421,13 +421,13 @@ Save current state
 
 REVW
 
-Review and critique
+Review and critique (word: REVIEW)
 
 [REVW:@PREV|whr=security]
 
 LERN
 
-Learn from input
+Learn from input (word: LEARN)
 
 [LERN:@SRC|typ=feedback]
 
@@ -439,7 +439,7 @@ Test functionality
 
 PARS
 
-Parse structured content
+Parse structured content (word: PARSE)
 
 [PARS:@SRC|fmt=json]
 
@@ -459,25 +459,25 @@ Wait for condition
 
 OUT
 
-Final output (alias: Ω)
+Final output (alias: Ω; word: OUTPUT)
 
 [Ω]
 
 DISP
 
-Display formatted
+Display formatted (word: DISPLAY)
 
 [DISP:@PREV|fmt=chart]
 
 EXPT
 
-Export to file
+Export to file (word: EXPORT)
 
 [EXPT:@PREV|path=report.pdf]
 
 PRNT
 
-Print to console
+Print to console (word: PRINT)
 
 [PRNT:@PREV]
 
@@ -509,13 +509,13 @@ Add tags/labels
 
 GRP
 
-Group by criteria
+Group by criteria (word: GROUP)
 
 [GRP:@PREV|grp=department]
 
 EMBD
 
-Embed content
+Embed content (word: EMBED)
 
 [EMBD:@SRC|dst=@DST]
 
@@ -529,13 +529,13 @@ Show help
 
 DESC
 
-Describe content
+Describe content (word: DESCRIBE)
 
 [DESC:@PREV]
 
 INTR
 
-Introspect state
+Introspect state (word: INTROSPECT)
 
 [INTR:@SELF]
 
@@ -549,7 +549,7 @@ No operation
 
 BATC
 
-Batch operation (alias: Π)
+Batch operation (alias: Π; word: BATCH)
 
 [Π:READ|src=file1,file2,file3]
 
@@ -559,3 +559,18 @@ Full machine-readable spec: [github.com/ilang-ai/ilang-dict](https://github.com/
 
 ---
 Markdown rendering of the HTML page for agents; the HTML page is canonical.
+
+## Machine cost
+
+Every entry in the dictionary now carries a plain word (CHECK for CHEK, where for whr), accepted by the lookup API, and the number of tokens the bare symbol costs in four public tokenizers: OpenAI cl100k_base and o200k_base, DeepSeek-V3 and Qwen3. Measured 2026-11-06 with token_cost.py (https://github.com/ilang-ai/ilang-dict/blob/main/tools/token_cost.py); the columns are in train.csv and in https://ilang.ai/ai/data.json.
+
+| Symbols | cl100k | o200k | DeepSeek-V3 | Qwen3 |
+| --- | --- | --- | --- | --- |
+| `::` `=>` `\|` `{` `}` `[` `]` `@` | 1 token each | 1 | 1 | 1 |
+| `⇒` | 3 | 1 | 1 | 1 |
+| Greek aliases, share that is one token | 30% | 84% | 100% | 100% |
+| Verbs, share that is one token | 37% | 32% | 14% | 37% |
+| CHEK / CHECK | 2 / 1 | 2 / 1 | 2 / 1 | 2 / 1 |
+| whr / where | 2 / 1 | 2 / 1 | 2 / 1 | 2 / 1 |
+
+The structural symbols are the native units; a four-letter mnemonic is not. Several mnemonics cost more than the word they shorten, and line for line an iLang declaration costs about as many tokens as the same instruction written tersely in English or Chinese. iLang is not a compression format; the mnemonic is kept because the canon is frozen on it and the validator checks it, and the word is there so a model that writes the natural spelling still lands on the entry.

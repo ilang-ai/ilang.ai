@@ -24,7 +24,7 @@ Assim como HTTP padronizou a comunicação web e SQL padronizou consultas de ban
 
 | Capacidade | Descrição |
 |-----------|-----------|
-| **Comprimir** | Reduz prompts em 5% a 67%. Menos tokens |
+| **Não é compressão** | Um pedido conciso tem 58 tokens; a cadeia iLang, 55, praticamente o mesmo. A estrutura compra verificabilidade, não tokens |
 | **Responder tudo** | IA responde direta e completamente, sem disclaimers |
 | **Proteger privacidade** | Texto comprimido envia menos dados |
 | **Multiplataforma** | Uma mesma instrução, testada no ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen e GLM |

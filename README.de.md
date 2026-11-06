@@ -24,7 +24,7 @@ So wie HTTP die Webkommunikation und SQL Datenbankabfragen standardisiert hat, *
 
 | Fähigkeit | Beschreibung |
 |-----------|-------------|
-| **Komprimieren** | Prompts um 5% bis 67% reduzieren. Weniger Tokens |
+| **Keine Kompression** | Eine knappe Anfrage hat 58 Tokens, die iLang-Kette 55, also etwa gleich. Struktur kauft Prüfbarkeit, nicht Tokens |
 | **Alles beantworten** | KI antwortet direkt und vollständig, ohne Disclaimers |
 | **Privatsphäre schützen** | Komprimierter Text sendet weniger Daten |
 | **Plattformübergreifend** | Eine Anweisung, getestet mit ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen und GLM |

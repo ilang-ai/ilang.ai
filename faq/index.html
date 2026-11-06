@@ -128,7 +128,7 @@
       "name": "Can structured prompts reduce retries with AI?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on ilang.ai/prompt-compression/."
+        "text": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. That is where the gain is, not in token count: measured line by line across four public tokenizers (OpenAI cl100k_base and o200k_base, DeepSeek-V3, Qwen3), an iLang line costs about as many tokens as the same instruction written tersely in English or Chinese. The counts and both texts of a six-step request are on ilang.ai/prompt-compression/."
       }
     },
     {
@@ -141,10 +141,10 @@
     },
     {
       "@type": "Question",
-      "name": "What is prompt compression for LLMs?",
+      "name": "Does iLang compress prompts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words."
+        "text": "No. iLang is not a compression format. A terse six-step request is 58 tokens in English and 55 as an iLang chain (cl100k_base), and line for line iLang declarations cost about the same as terse English or Chinese in four public tokenizers. What iLang removes is ambiguity; what it adds is a form that code can check and execute. The measurements and both texts are on ilang.ai/prompt-compression/."
       }
     },
     {
@@ -289,15 +289,15 @@
       </div>
       <div class="faq-item">
         <h2>Can structured prompts reduce retries with AI?</h2>
-        <p>Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a>.</p>
+        <p>Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. That is where the gain is, not in token count: measured line by line across four public tokenizers (OpenAI cl100k_base and o200k_base, DeepSeek-V3, Qwen3), an iLang line costs about as many tokens as the same instruction written tersely in English or Chinese. The counts and both texts of a six-step request are on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a>.</p>
       </div>
       <div class="faq-item">
         <h2>Does iLang work with ChatGPT, Claude, and DeepSeek?</h2>
         <p>iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on <a href="/benchmark/">ilang.ai/benchmark/</a>, tests conducted May 2026.</p>
       </div>
       <div class="faq-item">
-        <h2>What is prompt compression for LLMs?</h2>
-        <p>Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.</p>
+        <h2>Does iLang compress prompts?</h2>
+        <p>No. iLang is not a compression format. A terse six-step request is 58 tokens in English and 55 as an iLang chain (cl100k_base), and line for line iLang declarations cost about the same as terse English or Chinese in four public tokenizers. What iLang removes is ambiguity; what it adds is a form that code can check and execute. The measurements and both texts are on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a>.</p>
       </div>
       <div class="faq-item">
         <h2>Is iLang free and open source?</h2>

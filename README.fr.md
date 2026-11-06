@@ -24,7 +24,7 @@ Tout comme HTTP a standardisé la communication web et SQL les requêtes de base
 
 | Capacité | Description |
 |----------|-------------|
-| **Comprimer** | Réduit les prompts de 5% à 67%. Moins de tokens, coût réduit |
+| **Pas de compression** | Une demande concise fait 58 tokens, la chaîne iLang 55, soit à peu près autant. La structure achète la vérifiabilité, pas des tokens |
 | **Répondre à tout** | L'IA répond directement et complètement, sans disclaimers |
 | **Protéger la vie privée** | Le texte comprimé envoie moins de données aux serveurs IA |
 | **Multiplateforme** | Une même instruction, testée sur ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen et GLM |

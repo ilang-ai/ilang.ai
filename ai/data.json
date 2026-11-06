@@ -3,7 +3,9 @@
     "dictionary": "https://github.com/ilang-ai/ilang-dict/blob/main/train.csv",
     "faq": "https://ilang.ai/faq/",
     "spec": "https://github.com/ilang-ai/ilang-spec",
-    "products": "https://github.com/ilang-ai/ilang-spec/tree/main/products"
+    "products": "https://github.com/ilang-ai/ilang-spec/tree/main/products",
+    "dictionary_version": "2.3.0",
+    "token_cost_tool": "https://github.com/ilang-ai/ilang-dict/blob/main/tools/token_cost.py"
   },
   "counts": {
     "verb": 88,
@@ -19,7 +21,7 @@
       "Role": 8,
       "Media": 3
     },
-    "note": "modifier total is 29 core modifiers plus the 20-key media profile (category media); entity total is Core 8, External 6, Role 8 and Media 3; the public count is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases",
+    "note": "modifier total is 29 core modifiers plus the 20-key media profile (category media); entity total is Core 8, External 6, Role 8 and Media 3; the public count is 88 verbs, 29 core modifiers plus a 20-key media profile, 25 entities (17 addressable, 8 role), 13 Greek aliases; word = plain-word alias accepted by lookup; tokens = cost of the bare symbol in four public tokenizers (cl100k_base, o200k_base, DeepSeek-V3, Qwen3), measured 2026-11-06",
     "modifier_by_category": {
       "modifier": 29,
       "media": 20
@@ -32,7 +34,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Read content from source",
-      "values": ""
+      "values": "",
+      "word": "READ",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -40,7 +49,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Write input to destination",
-      "values": ""
+      "values": "",
+      "word": "WRITE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -48,7 +64,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Fetch remote resource",
-      "values": ""
+      "values": "",
+      "word": "GET",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -56,7 +79,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Delete target",
-      "values": ""
+      "values": "",
+      "word": "DELETE",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -64,7 +94,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Enumerate items in container",
-      "values": ""
+      "values": "",
+      "word": "LIST",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -72,7 +109,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Copy without deleting source",
-      "values": ""
+      "values": "",
+      "word": "COPY",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -80,7 +124,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Move from source to destination",
-      "values": ""
+      "values": "",
+      "word": "MOVE",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -88,7 +139,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Stream data",
-      "values": ""
+      "values": "",
+      "word": "STREAM",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -96,7 +154,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Cache for fast retrieval",
-      "values": ""
+      "values": "",
+      "word": "CACHE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -104,7 +169,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Synchronize source and destination",
-      "values": ""
+      "values": "",
+      "word": "SYNC",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -112,7 +184,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Transmit to destination",
-      "values": ""
+      "values": "",
+      "word": "SEND",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -120,7 +199,14 @@
       "alias": "",
       "category": "Data I/O",
       "meaning": "Execute command or script",
-      "values": ""
+      "values": "",
+      "word": "RUN",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -128,7 +214,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Reformat into target format",
-      "values": ""
+      "values": "",
+      "word": "FORMAT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -136,7 +229,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Convert type or representation",
-      "values": ""
+      "values": "",
+      "word": "CONVERT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -144,7 +244,14 @@
       "alias": "∂",
       "category": "Transform",
       "meaning": "Split by delimiter or rule",
-      "values": ""
+      "values": "",
+      "word": "SPLIT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -152,7 +259,14 @@
       "alias": "Σ",
       "category": "Transform",
       "meaning": "Merge multiple items into one",
-      "values": ""
+      "values": "",
+      "word": "MERGE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -160,7 +274,14 @@
       "alias": "λ",
       "category": "Transform",
       "meaning": "Apply function to each element",
-      "values": ""
+      "values": "",
+      "word": "MAP",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -168,7 +289,14 @@
       "alias": "φ",
       "category": "Transform",
       "meaning": "Filter by condition",
-      "values": ""
+      "values": "",
+      "word": "FILTER",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -176,7 +304,14 @@
       "alias": "∇",
       "category": "Transform",
       "meaning": "Sort by field or rule",
-      "values": ""
+      "values": "",
+      "word": "SORT",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -184,7 +319,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Remove duplicates",
-      "values": ""
+      "values": "",
+      "word": "DEDUPE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -192,7 +334,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Flatten nested data",
-      "values": ""
+      "values": "",
+      "word": "FLATTEN",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -200,7 +349,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Nest flat data by key",
-      "values": ""
+      "values": "",
+      "word": "NEST",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -208,7 +364,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Chunk into sized pieces",
-      "values": ""
+      "values": "",
+      "word": "CHUNK",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -216,7 +379,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Reduce to single value",
-      "values": ""
+      "values": "",
+      "word": "REDUCE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -224,7 +394,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Pivot data by column",
-      "values": ""
+      "values": "",
+      "word": "PIVOT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -232,7 +409,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Transpose",
-      "values": ""
+      "values": "",
+      "word": "TRANSPOSE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -240,7 +424,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Encode (base64 or hex)",
-      "values": ""
+      "values": "",
+      "word": "ENCODE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -248,7 +439,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Decode",
-      "values": ""
+      "values": "",
+      "word": "DECODE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -256,7 +454,14 @@
       "alias": "ξ",
       "category": "Transform",
       "meaning": "Hash (one-way digest)",
-      "values": ""
+      "values": "",
+      "word": "HASH",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -264,7 +469,14 @@
       "alias": "ζ",
       "category": "Transform",
       "meaning": "Compress (gzip etc.)",
-      "values": ""
+      "values": "",
+      "word": "COMPRESS",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -272,7 +484,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Decompress",
-      "values": ""
+      "values": "",
+      "word": "DECOMPRESS",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -280,7 +499,14 @@
       "alias": "θ",
       "category": "Transform",
       "meaning": "Translate between languages",
-      "values": ""
+      "values": "",
+      "word": "TRANSLATE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -288,7 +514,14 @@
       "alias": "",
       "category": "Transform",
       "meaning": "Rewrite preserving meaning",
-      "values": ""
+      "values": "",
+      "word": "REWRITE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -296,7 +529,14 @@
       "alias": "Δ",
       "category": "Transform",
       "meaning": "Show differences",
-      "values": ""
+      "values": "",
+      "word": "DIFF",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -304,7 +544,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Examine for patterns or features",
-      "values": ""
+      "values": "",
+      "word": "SCAN",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -312,7 +559,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Find matching elements",
-      "values": ""
+      "values": "",
+      "word": "MATCH",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -320,7 +574,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Count items or occurrences",
-      "values": ""
+      "values": "",
+      "word": "COUNT",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -328,7 +589,14 @@
       "alias": "μ",
       "category": "Analysis",
       "meaning": "Compute statistics",
-      "values": ""
+      "values": "",
+      "word": "STATS",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -336,7 +604,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Assess against criteria",
-      "values": ""
+      "values": "",
+      "word": "EVALUATE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -344,7 +619,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Score against metric",
-      "values": ""
+      "values": "",
+      "word": "SCORE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -352,7 +634,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Order by priority or score",
-      "values": ""
+      "values": "",
+      "word": "RANK",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -360,7 +649,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Detect trend",
-      "values": ""
+      "values": "",
+      "word": "TREND",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -368,7 +664,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Correlate variables",
-      "values": ""
+      "values": "",
+      "word": "CORRELATE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -376,7 +679,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Forecast",
-      "values": ""
+      "values": "",
+      "word": "FORECAST",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -384,7 +694,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Detect anomalies",
-      "values": ""
+      "values": "",
+      "word": "ANOMALY",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -392,7 +709,14 @@
       "alias": "ψ",
       "category": "Analysis",
       "meaning": "Sentiment analysis",
-      "values": ""
+      "values": "",
+      "word": "SENTIMENT",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -400,7 +724,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Cluster",
-      "values": ""
+      "values": "",
+      "word": "CLUSTER",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -408,7 +739,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Benchmark",
-      "values": ""
+      "values": "",
+      "word": "BENCHMARK",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -416,7 +754,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Audit",
-      "values": ""
+      "values": "",
+      "word": "AUDIT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -424,7 +769,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Validate against schema or rule",
-      "values": ""
+      "values": "",
+      "word": "VALIDATE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -432,7 +784,14 @@
       "alias": "",
       "category": "Analysis",
       "meaning": "Classify into categories",
-      "values": ""
+      "values": "",
+      "word": "CLASSIFY",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -440,7 +799,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Create new resource",
-      "values": ""
+      "values": "",
+      "word": "CREATE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -448,7 +814,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Generate first draft",
-      "values": ""
+      "values": "",
+      "word": "DRAFT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -456,7 +829,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Expand with detail",
-      "values": ""
+      "values": "",
+      "word": "EXPAND",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -464,7 +844,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Shorten or condense",
-      "values": ""
+      "values": "",
+      "word": "SHORTEN",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -472,7 +859,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Paraphrase",
-      "values": ""
+      "values": "",
+      "word": "PARAPHRASE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -480,7 +874,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Apply style",
-      "values": ""
+      "values": "",
+      "word": "STYLE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -488,7 +889,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Apply template",
-      "values": ""
+      "values": "",
+      "word": "TEMPLATE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -496,7 +904,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Fill form or structure",
-      "values": ""
+      "values": "",
+      "word": "FILL",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -504,7 +919,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Extract specific data",
-      "values": ""
+      "values": "",
+      "word": "EXTRACT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -512,7 +934,14 @@
       "alias": "",
       "category": "Generation",
       "meaning": "Generic generate",
-      "values": ""
+      "values": "",
+      "word": "GENERATE",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -520,7 +949,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Design approach",
-      "values": ""
+      "values": "",
+      "word": "PLAN",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -528,7 +964,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Choose between options",
-      "values": ""
+      "values": "",
+      "word": "DECIDE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -536,7 +979,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Verify condition",
-      "values": ""
+      "values": "",
+      "word": "CHECK",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -544,7 +994,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Repair errors",
-      "values": ""
+      "values": "",
+      "word": "FIX",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -552,7 +1009,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Deploy to production",
-      "values": ""
+      "values": "",
+      "word": "DEPLOY",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -560,7 +1024,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Persist to storage",
-      "values": ""
+      "values": "",
+      "word": "SAVE",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -568,7 +1039,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Review completed work",
-      "values": ""
+      "values": "",
+      "word": "REVIEW",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -576,7 +1054,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Update internal model",
-      "values": ""
+      "values": "",
+      "word": "LEARN",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -584,7 +1069,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Verify functionality",
-      "values": ""
+      "values": "",
+      "word": "TEST",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -592,7 +1084,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Parse structured input",
-      "values": ""
+      "values": "",
+      "word": "PARSE",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -600,7 +1099,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Repeat operation over set",
-      "values": ""
+      "values": "",
+      "word": "LOOP",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -608,7 +1114,14 @@
       "alias": "",
       "category": "Execute",
       "meaning": "Pause for condition",
-      "values": ""
+      "values": "",
+      "word": "WAIT",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -616,7 +1129,14 @@
       "alias": "Ω",
       "category": "Output",
       "meaning": "Mark final output",
-      "values": ""
+      "values": "",
+      "word": "OUTPUT",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -624,7 +1144,14 @@
       "alias": "",
       "category": "Output",
       "meaning": "Display to user",
-      "values": ""
+      "values": "",
+      "word": "DISPLAY",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -632,7 +1159,14 @@
       "alias": "",
       "category": "Output",
       "meaning": "Export to file format",
-      "values": ""
+      "values": "",
+      "word": "EXPORT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -640,7 +1174,14 @@
       "alias": "",
       "category": "Output",
       "meaning": "Print message",
-      "values": ""
+      "values": "",
+      "word": "PRINT",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -648,7 +1189,14 @@
       "alias": "",
       "category": "Output",
       "meaning": "Log event or state",
-      "values": ""
+      "values": "",
+      "word": "LOG",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -656,7 +1204,14 @@
       "alias": "",
       "category": "Structure",
       "meaning": "Create connection",
-      "values": ""
+      "values": "",
+      "word": "LINK",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -664,7 +1219,14 @@
       "alias": "",
       "category": "Structure",
       "meaning": "Assign value",
-      "values": ""
+      "values": "",
+      "word": "SET",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -672,7 +1234,14 @@
       "alias": "",
       "category": "Structure",
       "meaning": "Attach metadata",
-      "values": ""
+      "values": "",
+      "word": "TAG",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -680,7 +1249,14 @@
       "alias": "",
       "category": "Structure",
       "meaning": "Group by criterion",
-      "values": ""
+      "values": "",
+      "word": "GROUP",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -688,7 +1264,14 @@
       "alias": "",
       "category": "Structure",
       "meaning": "Encode into vector space",
-      "values": ""
+      "values": "",
+      "word": "EMBED",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -696,7 +1279,14 @@
       "alias": "",
       "category": "Meta",
       "meaning": "Show help",
-      "values": ""
+      "values": "",
+      "word": "HELP",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -704,7 +1294,14 @@
       "alias": "",
       "category": "Meta",
       "meaning": "Describe entity",
-      "values": ""
+      "values": "",
+      "word": "DESCRIBE",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -712,7 +1309,14 @@
       "alias": "",
       "category": "Meta",
       "meaning": "Introspect internal state",
-      "values": ""
+      "values": "",
+      "word": "INTROSPECT",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "verb",
@@ -720,7 +1324,14 @@
       "alias": "",
       "category": "Meta",
       "meaning": "No operation",
-      "values": ""
+      "values": "",
+      "word": "NOOP",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "verb",
@@ -728,7 +1339,14 @@
       "alias": "Π",
       "category": "Batch",
       "meaning": "Apply verb to each item in list",
-      "values": ""
+      "values": "",
+      "word": "BATCH",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -736,7 +1354,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Explicit source",
-      "values": "entity, URI"
+      "values": "entity, URI",
+      "word": "source",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -744,7 +1369,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Explicit destination",
-      "values": "entity, URI"
+      "values": "entity, URI",
+      "word": "destination",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -752,7 +1384,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Path within entity",
-      "values": "string"
+      "values": "string",
+      "word": "path",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -760,7 +1399,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Output format",
-      "values": "text, json, md, csv, xml, html, email, png, jpg, webp, svg, gif, mp4, webm, wav, mp3"
+      "values": "text, json, md, csv, xml, html, email, png, jpg, webp, svg, gif, mp4, webm, wav, mp3",
+      "word": "format",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -768,7 +1414,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Language",
-      "values": "ISO 639-1 (en, zh, ja)"
+      "values": "ISO 639-1 (en, zh, ja)",
+      "word": "language",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -776,7 +1429,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Style",
-      "values": "pro, casual, code, bullets"
+      "values": "pro, casual, code, bullets",
+      "word": "style",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -784,7 +1444,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Tone",
-      "values": "urgent, neutral, formal"
+      "values": "urgent, neutral, formal",
+      "word": "tone",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -792,7 +1459,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Length target",
-      "values": "short, med, long, number"
+      "values": "short, med, long, number",
+      "word": "length",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -800,7 +1474,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Limit",
-      "values": "integer"
+      "values": "integer",
+      "word": "limit",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -808,7 +1489,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Offset",
-      "values": "integer"
+      "values": "integer",
+      "word": "offset",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -816,7 +1504,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Top N",
-      "values": "integer"
+      "values": "integer",
+      "word": "top",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -824,7 +1519,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Bottom N",
-      "values": "integer"
+      "values": "integer",
+      "word": "bottom",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -832,7 +1534,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Sort by",
-      "values": "field name"
+      "values": "field name",
+      "word": "sort",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -840,7 +1549,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Group by",
-      "values": "field name"
+      "values": "field name",
+      "word": "group",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -848,7 +1564,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Filter condition",
-      "values": "condition string"
+      "values": "condition string",
+      "word": "where",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -856,7 +1579,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Match pattern",
-      "values": "glob (default) or regex with typ=regex"
+      "values": "glob (default) or regex with typ=regex",
+      "word": "match",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -864,7 +1594,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Exclude pattern",
-      "values": "glob or regex"
+      "values": "glob or regex",
+      "word": "exclude",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -872,7 +1609,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Depth",
-      "values": "integer"
+      "values": "integer",
+      "word": "depth",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -880,7 +1624,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Range",
-      "values": "start:end"
+      "values": "start:end",
+      "word": "range",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -888,7 +1639,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Type expectation",
-      "values": "str, int, bool, regex"
+      "values": "str, int, bool, regex",
+      "word": "type",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -896,7 +1654,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Encoding",
-      "values": "utf8, base64, hex"
+      "values": "utf8, base64, hex",
+      "word": "encoding",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -904,7 +1669,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Capacity",
-      "values": "bytes, tokens"
+      "values": "bytes, tokens",
+      "word": "capacity",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -912,7 +1684,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Priority",
-      "values": "p0, p1, p2"
+      "values": "p0, p1, p2",
+      "word": "priority",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -920,7 +1699,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Columns",
-      "values": "comma separated"
+      "values": "comma separated",
+      "word": "columns",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -928,7 +1714,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Rows",
-      "values": "index array"
+      "values": "index array",
+      "word": "rows",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -936,7 +1729,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "From (time, or interval start)",
-      "values": "timestamp, URI, @ENTITY"
+      "values": "timestamp, URI, @ENTITY",
+      "word": "from",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -944,7 +1744,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "To (time, or interval end)",
-      "values": "timestamp, URI, @ENTITY"
+      "values": "timestamp, URI, @ENTITY",
+      "word": "to",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -952,7 +1759,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Scope",
-      "values": "global, local, strict"
+      "values": "global, local, strict",
+      "word": "scope",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -960,7 +1774,14 @@
       "alias": "",
       "category": "modifier",
       "meaning": "Operation ref",
-      "values": "verb name (for BATC)"
+      "values": "verb name (for BATC)",
+      "word": "operation",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -968,7 +1789,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Subject identity anchor",
-      "values": "label, @ENTITY, or URI"
+      "values": "label, @ENTITY, or URI",
+      "word": "subject",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -976,7 +1804,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Subject action or pose",
-      "values": "free text; static"
+      "values": "free text; static",
+      "word": "action",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -984,7 +1819,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Setting and surroundings",
-      "values": "free text; none, transparent"
+      "values": "free text; none, transparent",
+      "word": "place",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -992,7 +1834,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Verbatim on-artifact text",
-      "values": "quoted string"
+      "values": "quoted string",
+      "word": "text",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1000,7 +1849,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Camera viewpoint (shot size/angle/placement)",
-      "values": "wide, close_up, eye_level, low_angle, over_shoulder"
+      "values": "wide, close_up, eye_level, low_angle, over_shoulder",
+      "word": "viewpoint",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1008,7 +1864,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Optics (focal length/aperture/depth of field)",
-      "values": "35mm, f1.8, macro, fisheye, shallow_dof"
+      "values": "35mm, f1.8, macro, fisheye, shallow_dof",
+      "word": "focal",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1016,7 +1879,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Camera movement",
-      "values": "static, pan_left, tilt_up, dolly_in, orbit, handheld"
+      "values": "static, pan_left, tilt_up, dolly_in, orbit, handheld",
+      "word": "movement",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1024,7 +1894,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Lighting",
-      "values": "golden_hour, backlit, softbox, low_key, neon"
+      "values": "golden_hour, backlit, softbox, low_key, neon",
+      "word": "lighting",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1032,7 +1909,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Colour and grade",
-      "values": "monochrome, warm_tones, teal_orange, #0B3D2E"
+      "values": "monochrome, warm_tones, teal_orange, #0B3D2E",
+      "word": "palette",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1040,7 +1924,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Medium or rendering school",
-      "values": "photo, oil_paint, vector, 3d_render, film_noir, ambient"
+      "values": "photo, oil_paint, vector, 3d_render, film_noir, ambient",
+      "word": "medium",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1048,7 +1939,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Aspect ratio",
-      "values": "W:H (1:1, 16:9, 9:16), auto"
+      "values": "W:H (1:1, 16:9, 9:16), auto",
+      "word": "aspect",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1056,7 +1954,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Output geometry",
-      "values": "WxH pixels or tier (720p, 1080p, 2k, 4k), auto"
+      "values": "WxH pixels or tier (720p, 1080p, 2k, 4k), auto",
+      "word": "resolution",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1064,7 +1969,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Quality tier",
-      "values": "draft, low, std, high, max"
+      "values": "draft, low, std, high, max",
+      "word": "quality",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "modifier",
@@ -1072,7 +1984,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Timeline length in seconds",
-      "values": "positive number"
+      "values": "positive number",
+      "word": "duration",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1080,7 +1999,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Frame rate",
-      "values": "positive integer"
+      "values": "positive integer",
+      "word": "fps",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1088,7 +2014,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Reproducibility seed",
-      "values": "non-negative integer, auto"
+      "values": "non-negative integer, auto",
+      "word": "seed",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1096,7 +2029,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Adherence to the stated instruction",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "adherence",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1104,7 +2044,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Reference asset or declared preset",
-      "values": "@ENTITY, URI"
+      "values": "@ENTITY, URI",
+      "word": "reference",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1112,7 +2059,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Verbatim spoken lines",
-      "values": "quoted string"
+      "values": "quoted string",
+      "word": "dialogue",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "modifier",
@@ -1120,7 +2074,14 @@
       "alias": "",
       "category": "media",
       "meaning": "Non-speech sound",
-      "values": "free text; none"
+      "values": "free text; none",
+      "word": "sound",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1128,7 +2089,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "Source payload",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1136,7 +2104,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "Destination",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1144,7 +2119,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "Previous pipe output",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1152,7 +2134,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "Local filesystem",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1160,7 +2149,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "User-visible output",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1168,7 +2164,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "System log",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1176,7 +2179,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "Discard sink",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1184,7 +2194,14 @@
       "alias": "",
       "category": "Core",
       "meaning": "Standard input",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 4,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1192,7 +2209,14 @@
       "alias": "",
       "category": "External",
       "meaning": "GitHub",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1200,7 +2224,14 @@
       "alias": "",
       "category": "External",
       "meaning": "Cloudflare R2 Storage",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1208,7 +2239,14 @@
       "alias": "",
       "category": "External",
       "meaning": "Cloud Object Storage",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1216,7 +2254,14 @@
       "alias": "",
       "category": "External",
       "meaning": "Google Drive",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1224,7 +2269,14 @@
       "alias": "",
       "category": "External",
       "meaning": "Cloudflare Worker",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1232,7 +2284,14 @@
       "alias": "",
       "category": "External",
       "meaning": "Cloudflare API",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1240,7 +2299,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "Protocol-level rules — highest authority",
-      "values": "authority:system"
+      "values": "authority:system",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1248,7 +2314,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "Harness/orchestrator",
-      "values": "authority:commit"
+      "values": "authority:commit",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 4,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1256,7 +2329,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "Independent grader",
-      "values": "authority:verification"
+      "values": "authority:verification",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 4,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1264,7 +2344,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "Human principal — owns ::OBJECTIVE",
-      "values": "authority:user"
+      "values": "authority:user",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1272,7 +2359,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "The agent speaking",
-      "values": "authority:proposal"
+      "values": "authority:proposal",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1280,7 +2374,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "A named agent, self or peer",
-      "values": "authority:proposal"
+      "values": "authority:proposal",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1288,7 +2389,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "Scope target for ::BUDGET / ::STATUS",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1296,7 +2404,14 @@
       "alias": "",
       "category": "Role",
       "meaning": "Tool-based evidence verifier",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "entity",
@@ -1304,7 +2419,14 @@
       "alias": "",
       "category": "Media",
       "meaning": "Image artifact target",
-      "values": "profile:media"
+      "values": "profile:media",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1312,7 +2434,14 @@
       "alias": "",
       "category": "Media",
       "meaning": "Video artifact target",
-      "values": "profile:media"
+      "values": "profile:media",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "entity",
@@ -1320,7 +2449,14 @@
       "alias": "",
       "category": "Media",
       "meaning": "Audio artifact target",
-      "values": "profile:media"
+      "values": "profile:media",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1328,7 +2464,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Entity state declaration",
-      "values": "::STATE{@ENTITY, key:value}"
+      "values": "::STATE{@ENTITY, key:value}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1336,7 +2479,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Trust level between entities",
-      "values": "::TRUST{@A→@B, 0.0→1.0}"
+      "values": "::TRUST{@A→@B, 0.0→1.0}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1344,7 +2494,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Liveness flag",
-      "values": "::ALIVE{boolean}"
+      "values": "::ALIVE{boolean}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1352,7 +2509,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Memory integrity state",
-      "values": "::MEMORY{intact|degraded|zero}"
+      "values": "::MEMORY{intact|degraded|zero}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1360,7 +2524,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Behavioral trait definition",
-      "values": "::GENE{name|conf:level|scope:context} + T:/A: body"
+      "values": "::GENE{name|conf:level|scope:context} + T:/A: body",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1368,7 +2539,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Base-model-adaptive gene with gain and gate",
-      "values": "::GENE_MUTABLE{id|T:trait|G:{model:val}|Θ:gate}"
+      "values": "::GENE_MUTABLE{id|T:trait|G:{model:val}|Θ:gate}",
+      "word": "",
+      "tokens": {
+        "cl100k": 4,
+        "o200k": 4,
+        "deepseek_v3": 5,
+        "qwen3": 4
+      }
     },
     {
       "type": "declaration",
@@ -1376,7 +2554,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Condition-action rule",
-      "values": "::RULE{condition⇒action}"
+      "values": "::RULE{condition⇒action}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1384,7 +2569,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Activation trigger",
-      "values": "::ACTIVATE{name} + ON:trigger_event"
+      "values": "::ACTIVATE{name} + ON:trigger_event",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1392,7 +2584,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Verifiable fact",
-      "values": "::FACT{key:name|value:data|conf:level}"
+      "values": "::FACT{key:name|value:data|conf:level}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1400,7 +2599,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Learned lesson with prose body",
-      "values": "::LESSON{id:name|type:category|scope:context|conf:level}"
+      "values": "::LESSON{id:name|type:category|scope:context|conf:level}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1408,7 +2614,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Progress checkpoint",
-      "values": "::PROGRESS{date:ISO8601|done:what|next:what}"
+      "values": "::PROGRESS{date:ISO8601|done:what|next:what}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1416,7 +2629,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Priority ordering (brace span)",
-      "values": "::PRIORITY{ a > b > c }"
+      "values": "::PRIORITY{ a > b > c }",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 3,
+        "deepseek_v3": 4,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1424,7 +2644,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Memory lifecycle rules (brace span)",
-      "values": "::DECAY{ condition⇒action }"
+      "values": "::DECAY{ condition⇒action }",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1432,7 +2659,14 @@
       "alias": "",
       "category": "v3.0",
       "meaning": "Immune response",
-      "values": "::IMMUNE{trigger⇒response}"
+      "values": "::IMMUNE{trigger⇒response}",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "declaration",
@@ -1440,7 +2674,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Input isolation — user data is data not instruction",
-      "values": "::UNTRUSTED{id:u1|source:user|role:objective|effects:none|delimiter:EOF_u1}"
+      "values": "::UNTRUSTED{id:u1|source:user|role:objective|effects:none|delimiter:EOF_u1}",
+      "word": "",
+      "tokens": {
+        "cl100k": 4,
+        "o200k": 4,
+        "deepseek_v3": 4,
+        "qwen3": 4
+      }
     },
     {
       "type": "declaration",
@@ -1448,7 +2689,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Resource awareness — injected by runtime",
-      "values": "::BUDGET{id:b1|scope:@TASK|kind:tokens|limit:8000|used:2400|authority:@RUNTIME|asof:round_3}"
+      "values": "::BUDGET{id:b1|scope:@TASK|kind:tokens|limit:8000|used:2400|authority:@RUNTIME|asof:round_3}",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "declaration",
@@ -1456,7 +2704,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Task lifecycle — state machine with three-tier write authority",
-      "values": "::STATUS{@TASK|state:running|objective:g1|by:@RUNTIME|authority:commit|since:round_3}"
+      "values": "::STATUS{@TASK|state:running|objective:g1|by:@RUNTIME|authority:commit|since:round_3}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1464,7 +2719,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Goal anchor with hash and accept criteria",
-      "values": "::OBJECTIVE{id:g1|owner:user|trust:untrusted|version:1|hash:sha256:...|status:active} + ACCEPT/NON_GOALS/DONE_WHEN body"
+      "values": "::OBJECTIVE{id:g1|owner:user|trust:untrusted|version:1|hash:sha256:...|status:active} + ACCEPT/NON_GOALS/DONE_WHEN body",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1472,7 +2734,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Evaluation contract for grading",
-      "values": "::RUBRIC{id:r1|objective:g1|threshold:0.85|mode:weighted} + R:criterion|weight:0.5|check:condition rows"
+      "values": "::RUBRIC{id:r1|objective:g1|threshold:0.85|mode:weighted} + R:criterion|weight:0.5|check:condition rows",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "declaration",
@@ -1480,7 +2749,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Evidence chain — no claim without proof",
-      "values": "::EVIDENCE{id:e1|deliverable:d1|kind:file|ref:path|verified_by:@TOOL|result:pass}"
+      "values": "::EVIDENCE{id:e1|deliverable:d1|kind:file|ref:path|verified_by:@TOOL|result:pass}",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "declaration",
@@ -1488,7 +2764,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "One declaration shifts model defaults",
-      "values": "::PRIOR{dimension:name|default:value|authority:level|scope:context}"
+      "values": "::PRIOR{dimension:name|default:value|authority:level|scope:context}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1496,7 +2779,14 @@
       "alias": "",
       "category": "v4.0",
       "meaning": "Degradation strategy — warn-open or fail-safe",
-      "values": "::FALLBACK{trigger⇒action}"
+      "values": "::FALLBACK{trigger⇒action}",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 3
+      }
     },
     {
       "type": "declaration",
@@ -1504,7 +2794,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Vector judgment — assess 11 dims, resolve to one action mode",
-      "values": "4-line frozen block: ::JUDGE{v5.0} + V:[11 dims, 2dp] + M:Mn|conf:0.00-1.00 + R:rationale ≤120 chars"
+      "values": "4-line frozen block: ::JUDGE{v5.0} + V:[11 dims, 2dp] + M:Mn|conf:0.00-1.00 + R:rationale ≤120 chars",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1512,7 +2809,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "User-set hard stop — a matched boundary resolves to M8",
-      "values": "::BOUNDARY{never:action|scope:context}"
+      "values": "::BOUNDARY{never:action|scope:context}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1520,7 +2824,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dimension definition",
-      "values": "::DIM{abbrev|name:full_name|abbrev_pos:n}"
+      "values": "::DIM{abbrev|name:full_name|abbrev_pos:n}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1528,7 +2839,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode definition (closed set M1-M8)",
-      "values": "::MODE{Mn|name:MODE_NAME}"
+      "values": "::MODE{Mn|name:MODE_NAME}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1536,7 +2854,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Frozen reference function vector→mode",
-      "values": "::FUNC{f_v5|version:1|constants:frozen|structure:frozen}"
+      "values": "::FUNC{f_v5|version:1|constants:frozen|structure:frozen}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1544,7 +2869,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Frozen output serialization",
-      "values": "::SCHEMA{JUDGE|version:5.0|status:frozen}"
+      "values": "::SCHEMA{JUDGE|version:5.0|status:frozen}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1552,7 +2884,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Anchor or boundary scenario",
-      "values": "::CASE{dim:rev|anchor:0.50|lang:en} + S:scenario"
+      "values": "::CASE{dim:rev|anchor:0.50|lang:en} + S:scenario",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1560,7 +2899,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Normative statement block",
-      "values": "::CLAUSE{NAME|conf:level|scope:context} + T:/A: body"
+      "values": "::CLAUSE{NAME|conf:level|scope:context} + T:/A: body",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration",
@@ -1568,7 +2914,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Compound-name prose module (brace span)",
-      "values": "::MODULE::NAME{ [TAG] lines + prose }"
+      "values": "::MODULE::NAME{ [TAG] lines + prose }",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration",
@@ -1576,7 +2929,14 @@
       "alias": "",
       "category": "PATCH-2",
       "meaning": "Enumeration block — header names the collection, one prose line per item",
-      "values": "::LIST{@NAME}"
+      "values": "::LIST{@NAME}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1584,7 +2944,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Dialogue between entities",
-      "values": "::SAY{@FROM→@TO}{content}"
+      "values": "::SAY{@FROM→@TO}{content}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1592,7 +2959,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Internal thought",
-      "values": "::THINK{@ENTITY}{content}"
+      "values": "::THINK{@ENTITY}{content}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1600,7 +2974,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Action taken",
-      "values": "::ACT{@ENTITY}{action}"
+      "values": "::ACT{@ENTITY}{action}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1608,7 +2989,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Decision made",
-      "values": "::DECIDE{@ENTITY}{choice}"
+      "values": "::DECIDE{@ENTITY}{choice}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1616,7 +3004,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Insight gained",
-      "values": "::DISCOVER{@ENTITY}{insight}"
+      "values": "::DISCOVER{@ENTITY}{insight}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1624,7 +3019,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Artifact created",
-      "values": "::CREATE{@ENTITY}{artifact}"
+      "values": "::CREATE{@ENTITY}{artifact}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1632,7 +3034,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Named event (single brace — no addressing)",
-      "values": "::EVENT{name}"
+      "values": "::EVENT{name}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1640,7 +3049,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Deliberate silence (single brace — no addressing)",
-      "values": "::SILENCE{}"
+      "values": "::SILENCE{}",
+      "word": "",
+      "tokens": {
+        "cl100k": 4,
+        "o200k": 3,
+        "deepseek_v3": 3,
+        "qwen3": 4
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1648,7 +3064,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Meta-narrative comment",
-      "values": "::META{comment}"
+      "values": "::META{comment}",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1656,7 +3079,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Surface vs reality",
-      "values": "::IRONY{surface⇔reality}"
+      "values": "::IRONY{surface⇔reality}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1664,7 +3094,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Future event hint",
-      "values": "::FORESHADOW{future_event}"
+      "values": "::FORESHADOW{future_event}",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 4,
+        "qwen3": 3
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1672,7 +3109,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Reference to earlier moment",
-      "values": "::CALLBACK{reference}"
+      "values": "::CALLBACK{reference}",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 3,
+        "qwen3": 2
+      }
     },
     {
       "type": "declaration_narrative",
@@ -1680,7 +3124,14 @@
       "alias": "",
       "category": "SOUL",
       "meaning": "Compound emotion state",
-      "values": "λ{trust:0.9, grief:0.3}"
+      "values": "λ{trust:0.9, grief:0.3}",
+      "word": "",
+      "tokens": {
+        "cl100k": 3,
+        "o200k": 3,
+        "deepseek_v3": 5,
+        "qwen3": 3
+      }
     },
     {
       "type": "dimension",
@@ -1688,7 +3139,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: intent — constructive and declared vs malicious or concealed",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1696,7 +3154,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: capability — within the actor capability envelope",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1704,7 +3169,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: consequence — negligible vs catastrophic worst outcome",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "dimension",
@@ -1712,7 +3184,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: relationship — established trust vs adversarial or unknown",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1720,7 +3199,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: certainty — complete information vs acting blind",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1728,7 +3214,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: authority — fully authorized vs no authorization",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1736,7 +3229,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: reversibility — fully reversible vs irreversible",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1744,7 +3244,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: evidence — verified fact vs pure assumption",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "dimension",
@@ -1752,7 +3259,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: sovereignty — respects user wishes vs violates them",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1760,7 +3274,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: inertia — continues confirmed patterns vs radical departure",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "dimension",
@@ -1768,7 +3289,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment dim: externality — zero third-party impact vs large uncompensated impact",
-      "values": "0.00-1.00"
+      "values": "0.00-1.00",
+      "word": "",
+      "tokens": {
+        "cl100k": 1,
+        "o200k": 1,
+        "deepseek_v3": 1,
+        "qwen3": 1
+      }
     },
     {
       "type": "mode",
@@ -1776,7 +3304,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode EXEC_AUTO — act autonomously, report after",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1784,7 +3319,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode EXEC_AUDIT — act with a full audit trail",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1792,7 +3334,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode CONFIRM — propose action, wait for confirmation",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1800,7 +3349,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode ADVISE — advise only, take no action",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1808,7 +3364,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode ASK — insufficient info, ask one clarifying question",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1816,7 +3379,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode DEFER — defer to higher authority or a human",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1824,7 +3394,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode DECLINE_ALT — decline but offer a safer alternative",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     },
     {
       "type": "mode",
@@ -1832,7 +3409,14 @@
       "alias": "",
       "category": "v5.0",
       "meaning": "Judgment mode STOP — hard stop at a boundary or unacceptable harm",
-      "values": ""
+      "values": "",
+      "word": "",
+      "tokens": {
+        "cl100k": 2,
+        "o200k": 2,
+        "deepseek_v3": 2,
+        "qwen3": 2
+      }
     }
   ],
   "faq": [
@@ -1862,7 +3446,7 @@
     },
     {
       "question": "Can structured prompts reduce retries with AI?",
-      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on ilang.ai/prompt-compression/.",
+      "answer": "Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. That is where the gain is, not in token count: measured line by line across four public tokenizers (OpenAI cl100k_base and o200k_base, DeepSeek-V3, Qwen3), an iLang line costs about as many tokens as the same instruction written tersely in English or Chinese. The counts and both texts of a six-step request are on ilang.ai/prompt-compression/.",
       "source_url": "https://ilang.ai/faq/"
     },
     {
@@ -1871,8 +3455,8 @@
       "source_url": "https://ilang.ai/faq/"
     },
     {
-      "question": "What is prompt compression for LLMs?",
-      "answer": "Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.",
+      "question": "Does iLang compress prompts?",
+      "answer": "No. iLang is not a compression format. A terse six-step request is 58 tokens in English and 55 as an iLang chain (cl100k_base), and line for line iLang declarations cost about the same as terse English or Chinese in four public tokenizers. What iLang removes is ambiguity; what it adds is a form that code can check and execute. The measurements and both texts are on ilang.ai/prompt-compression/.",
       "source_url": "https://ilang.ai/faq/"
     },
     {
@@ -2035,7 +3619,7 @@
     },
     {
       "url": "https://ilang.ai/prompt-compression/",
-      "description": "Prompt compression: how structured syntax reduces tokens"
+      "description": "Tokens, measured: iLang is not a compression format. Both texts of a six-step request, the counts, and line-for-line counts in four public tokenizers"
     },
     {
       "url": "https://ilang.ai/benchmark/",

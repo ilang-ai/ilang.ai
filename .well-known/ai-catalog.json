@@ -26,7 +26,7 @@
       "url": "https://ilang.ai/openapi.json",
       "representativeQueries": [
         "look up an iLang modifier",
-        "find the FAQ answer about prompt compression",
+        "does iLang compress prompts",
         "is iLang open source"
       ]
     },

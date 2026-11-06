@@ -59,7 +59,7 @@
 <main id="main">
 <section class="page-hero"><div class="container" data-path="ilang.ai / dictionary">
 <h1>iLang Verb Dictionary</h1>
-<p class="sub">88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of iLang — the communication layer, unchanged since v3.0 and carried through v5.0.</p>
+<p class="sub">88 verbs across 9 categories. Each verb has a 4-letter mnemonic, a definition, and a usage example. This is the core vocabulary of iLang — the communication layer, unchanged since v3.0 and carried through v5.0. Each verb also carries a plain word (CHECK for CHEK) that the lookup API accepts, and a measured token cost in four public tokenizers; see <a href="#machine-cost">machine cost</a>.</p>
 </div></section>
 
 <section class="content"><div class="container">
@@ -85,7 +85,7 @@
 </div>
 <div class="verb-card" id="WRIT">
 <div class="verb-name">WRIT</div>
-<div class="verb-desc">Write content to destination</div>
+<div class="verb-desc">Write content to destination (word: WRITE)</div>
 <div class="verb-example">[WRIT:@DST|path=output.md]</div>
 </div>
 <div class="verb-card" id="GET">
@@ -95,7 +95,7 @@
 </div>
 <div class="verb-card" id="DEL">
 <div class="verb-name">DEL</div>
-<div class="verb-desc">Delete content or file</div>
+<div class="verb-desc">Delete content or file (word: DELETE)</div>
 <div class="verb-example">[DEL:@LOCAL|path=temp.txt]</div>
 </div>
 <div class="verb-card" id="LIST">
@@ -115,12 +115,12 @@
 </div>
 <div class="verb-card" id="STRM">
 <div class="verb-name">STRM</div>
-<div class="verb-desc">Stream content progressively</div>
+<div class="verb-desc">Stream content progressively (word: STREAM)</div>
 <div class="verb-example">[STRM:@SRC|path=large.csv]</div>
 </div>
 <div class="verb-card" id="CACH">
 <div class="verb-name">CACH</div>
-<div class="verb-desc">Cache for reuse</div>
+<div class="verb-desc">Cache for reuse (word: CACHE)</div>
 <div class="verb-example">[CACH:@PREV|path=q3data]</div>
 </div>
 <div class="verb-card" id="SYNC">
@@ -143,12 +143,12 @@
 <div class="verb-grid">
 <div class="verb-card" id="FMT">
 <div class="verb-name">FMT</div>
-<div class="verb-desc">Format output</div>
+<div class="verb-desc">Format output (word: FORMAT)</div>
 <div class="verb-example">[FMT:@PREV|fmt=md]</div>
 </div>
 <div class="verb-card" id="CONV">
 <div class="verb-name">CONV</div>
-<div class="verb-desc">Convert between formats</div>
+<div class="verb-desc">Convert between formats (word: CONVERT)</div>
 <div class="verb-example">[CONV:@SRC|src=csv,dst=json]</div>
 </div>
 <div class="verb-card" id="SPLIT">
@@ -168,7 +168,7 @@
 </div>
 <div class="verb-card" id="FILT">
 <div class="verb-name">FILT</div>
-<div class="verb-desc">Filter by condition (alias: φ)</div>
+<div class="verb-desc">Filter by condition (alias: φ; word: FILTER)</div>
 <div class="verb-example">[φ:@PREV|whr=score>80]</div>
 </div>
 <div class="verb-card" id="SORT">
@@ -178,12 +178,12 @@
 </div>
 <div class="verb-card" id="DEDU">
 <div class="verb-name">DEDU</div>
-<div class="verb-desc">Remove duplicates</div>
+<div class="verb-desc">Remove duplicates (word: DEDUPE)</div>
 <div class="verb-example">[DEDU:@PREV|col=email]</div>
 </div>
 <div class="verb-card" id="FLAT">
 <div class="verb-name">FLAT</div>
-<div class="verb-desc">Flatten nested structure</div>
+<div class="verb-desc">Flatten nested structure (word: FLATTEN)</div>
 <div class="verb-example">[FLAT:@PREV|dep=2]</div>
 </div>
 <div class="verb-card" id="NEST">
@@ -193,32 +193,32 @@
 </div>
 <div class="verb-card" id="CHNK">
 <div class="verb-name">CHNK</div>
-<div class="verb-desc">Split into sized chunks</div>
+<div class="verb-desc">Split into sized chunks (word: CHUNK)</div>
 <div class="verb-example">[CHNK:@PREV|cap=500]</div>
 </div>
 <div class="verb-card" id="REDU">
 <div class="verb-name">REDU</div>
-<div class="verb-desc">Reduce to single value</div>
+<div class="verb-desc">Reduce to single value (word: REDUCE)</div>
 <div class="verb-example">[REDU:@PREV|whr=sum]</div>
 </div>
 <div class="verb-card" id="PIVT">
 <div class="verb-name">PIVT</div>
-<div class="verb-desc">Pivot table transformation</div>
+<div class="verb-desc">Pivot table transformation (word: PIVOT)</div>
 <div class="verb-example">[PIVT:@PREV|row=month,col=product]</div>
 </div>
 <div class="verb-card" id="TRNS">
 <div class="verb-name">TRNS</div>
-<div class="verb-desc">Transpose rows and columns</div>
+<div class="verb-desc">Transpose rows and columns (word: TRANSPOSE)</div>
 <div class="verb-example">[TRNS:@PREV]</div>
 </div>
 <div class="verb-card" id="ENCD">
 <div class="verb-name">ENCD</div>
-<div class="verb-desc">Encode content</div>
+<div class="verb-desc">Encode content (word: ENCODE)</div>
 <div class="verb-example">[ENCD:@PREV|fmt=base64]</div>
 </div>
 <div class="verb-card" id="DECD">
 <div class="verb-name">DECD</div>
-<div class="verb-desc">Decode content</div>
+<div class="verb-desc">Decode content (word: DECODE)</div>
 <div class="verb-example">[DECD:@PREV|fmt=base64]</div>
 </div>
 <div class="verb-card" id="HASH">
@@ -228,22 +228,22 @@
 </div>
 <div class="verb-card" id="CMPR">
 <div class="verb-name">CMPR</div>
-<div class="verb-desc">Compress content (alias: ζ)</div>
+<div class="verb-desc">Compress content (alias: ζ; word: COMPRESS)</div>
 <div class="verb-example">[ζ:@PREV|fmt=gzip]</div>
 </div>
 <div class="verb-card" id="EXPN">
 <div class="verb-name">EXPN</div>
-<div class="verb-desc">Expand/decompress</div>
+<div class="verb-desc">Expand/decompress (word: DECOMPRESS)</div>
 <div class="verb-example">[EXPN:@PREV]</div>
 </div>
 <div class="verb-card" id="XLAT">
 <div class="verb-name">XLAT</div>
-<div class="verb-desc">Translate language (alias: θ)</div>
+<div class="verb-desc">Translate language (alias: θ; word: TRANSLATE)</div>
 <div class="verb-example">[θ:@PREV|lng=ja,ton=formal]</div>
 </div>
 <div class="verb-card" id="REWR">
 <div class="verb-name">REWR</div>
-<div class="verb-desc">Rewrite content</div>
+<div class="verb-desc">Rewrite content (word: REWRITE)</div>
 <div class="verb-example">[REWR:@PREV|ton=casual]</div>
 </div>
 <div class="verb-card" id="DIFF">
@@ -261,27 +261,27 @@
 </div>
 <div class="verb-card" id="MTCH">
 <div class="verb-name">MTCH</div>
-<div class="verb-desc">Match against pattern</div>
+<div class="verb-desc">Match against pattern (word: MATCH)</div>
 <div class="verb-example">[MTCH:@PREV|mch="\d{4}-\d{2}",typ=regex]</div>
 </div>
 <div class="verb-card" id="CNT">
 <div class="verb-name">CNT</div>
-<div class="verb-desc">Count items</div>
+<div class="verb-desc">Count items (word: COUNT)</div>
 <div class="verb-example">[CNT:@PREV]</div>
 </div>
 <div class="verb-card" id="STAT">
 <div class="verb-name">STAT</div>
-<div class="verb-desc">Statistical summary (alias: μ)</div>
+<div class="verb-desc">Statistical summary (alias: μ; word: STATS)</div>
 <div class="verb-example">[μ:@PREV]</div>
 </div>
 <div class="verb-card" id="EVAL">
 <div class="verb-name">EVAL</div>
-<div class="verb-desc">Evaluate quality or correctness</div>
+<div class="verb-desc">Evaluate quality or correctness (word: EVALUATE)</div>
 <div class="verb-example">[EVAL:@PREV|whr=accuracy]</div>
 </div>
 <div class="verb-card" id="SCOR">
 <div class="verb-name">SCOR</div>
-<div class="verb-desc">Score or rate</div>
+<div class="verb-desc">Score or rate (word: SCORE)</div>
 <div class="verb-example">[SCOR:@PREV|rng=1:10]</div>
 </div>
 <div class="verb-card" id="RANK">
@@ -291,52 +291,52 @@
 </div>
 <div class="verb-card" id="TRND">
 <div class="verb-name">TRND</div>
-<div class="verb-desc">Identify trends</div>
+<div class="verb-desc">Identify trends (word: TREND)</div>
 <div class="verb-example">[TRND:@PREV|grp=month]</div>
 </div>
 <div class="verb-card" id="CORR">
 <div class="verb-name">CORR</div>
-<div class="verb-desc">Find correlations</div>
+<div class="verb-desc">Find correlations (word: CORRELATE)</div>
 <div class="verb-example">[CORR:@PREV|col=price,demand]</div>
 </div>
 <div class="verb-card" id="FRCS">
 <div class="verb-name">FRCS</div>
-<div class="verb-desc">Forecast future values</div>
+<div class="verb-desc">Forecast future values (word: FORECAST)</div>
 <div class="verb-example">[FRCS:@PREV|to="+6 months"]</div>
 </div>
 <div class="verb-card" id="ANOM">
 <div class="verb-name">ANOM</div>
-<div class="verb-desc">Detect anomalies</div>
+<div class="verb-desc">Detect anomalies (word: ANOMALY)</div>
 <div class="verb-example">[ANOM:@PREV|whr="beyond 2 sigma"]</div>
 </div>
 <div class="verb-card" id="SENT">
 <div class="verb-name">SENT</div>
-<div class="verb-desc">Sentiment analysis (alias: ψ)</div>
+<div class="verb-desc">Sentiment analysis (alias: ψ; word: SENTIMENT)</div>
 <div class="verb-example">[ψ:@PREV]</div>
 </div>
 <div class="verb-card" id="CLST">
 <div class="verb-name">CLST</div>
-<div class="verb-desc">Cluster similar items</div>
+<div class="verb-desc">Cluster similar items (word: CLUSTER)</div>
 <div class="verb-example">[CLST:@PREV|lim=5]</div>
 </div>
 <div class="verb-card" id="BNCH">
 <div class="verb-name">BNCH</div>
-<div class="verb-desc">Benchmark comparison</div>
+<div class="verb-desc">Benchmark comparison (word: BENCHMARK)</div>
 <div class="verb-example">[BNCH:@PREV|whr="baseline v2"]</div>
 </div>
 <div class="verb-card" id="AUDT">
 <div class="verb-name">AUDT</div>
-<div class="verb-desc">Audit for compliance</div>
+<div class="verb-desc">Audit for compliance (word: AUDIT)</div>
 <div class="verb-example">[AUDT:@PREV|whr=gdpr]</div>
 </div>
 <div class="verb-card" id="VALD">
 <div class="verb-name">VALD</div>
-<div class="verb-desc">Validate data</div>
+<div class="verb-desc">Validate data (word: VALIDATE)</div>
 <div class="verb-example">[VALD:@PREV|src=schemas/user.json]</div>
 </div>
 <div class="verb-card" id="CLSF">
 <div class="verb-name">CLSF</div>
-<div class="verb-desc">Classify into categories</div>
+<div class="verb-desc">Classify into categories (word: CLASSIFY)</div>
 <div class="verb-example">[CLSF:@PREV|typ="spam,ham"]</div>
 </div>
 </div>
@@ -344,37 +344,37 @@
 <div class="verb-grid">
 <div class="verb-card" id="CREA">
 <div class="verb-name">CREA</div>
-<div class="verb-desc">Create new content</div>
+<div class="verb-desc">Create new content (word: CREATE)</div>
 <div class="verb-example">[CREA|type=blog,topic=AI protocols]</div>
 </div>
 <div class="verb-card" id="DRFT">
 <div class="verb-name">DRFT</div>
-<div class="verb-desc">Draft initial version</div>
+<div class="verb-desc">Draft initial version (word: DRAFT)</div>
 <div class="verb-example">[DRFT|type=email,ton=formal]</div>
 </div>
 <div class="verb-card" id="EXPD">
 <div class="verb-name">EXPD</div>
-<div class="verb-desc">Expand with more detail</div>
+<div class="verb-desc">Expand with more detail (word: EXPAND)</div>
 <div class="verb-example">[EXPD:@PREV|len=2x]</div>
 </div>
 <div class="verb-card" id="SHRT">
 <div class="verb-name">SHRT</div>
-<div class="verb-desc">Shorten content</div>
+<div class="verb-desc">Shorten content (word: SHORTEN)</div>
 <div class="verb-example">[SHRT:@PREV|len=3,sty=bullets]</div>
 </div>
 <div class="verb-card" id="PARA">
 <div class="verb-name">PARA</div>
-<div class="verb-desc">Paraphrase</div>
+<div class="verb-desc">Paraphrase (word: PARAPHRASE)</div>
 <div class="verb-example">[PARA:@PREV|ton=simple]</div>
 </div>
 <div class="verb-card" id="STYL">
 <div class="verb-name">STYL</div>
-<div class="verb-desc">Apply style</div>
+<div class="verb-desc">Apply style (word: STYLE)</div>
 <div class="verb-example">[STYL:@PREV|sty=academic]</div>
 </div>
 <div class="verb-card" id="TMPL">
 <div class="verb-name">TMPL</div>
-<div class="verb-desc">Apply template</div>
+<div class="verb-desc">Apply template (word: TEMPLATE)</div>
 <div class="verb-example">[TMPL|name=meeting_notes]</div>
 </div>
 <div class="verb-card" id="FILL">
@@ -384,12 +384,12 @@
 </div>
 <div class="verb-card" id="EXTC">
 <div class="verb-name">EXTC</div>
-<div class="verb-desc">Extract specific content</div>
+<div class="verb-desc">Extract specific content (word: EXTRACT)</div>
 <div class="verb-example">[EXTC:@SRC|typ=email]</div>
 </div>
 <div class="verb-card" id="GEN">
 <div class="verb-name">GEN</div>
-<div class="verb-desc">Generate from specification</div>
+<div class="verb-desc">Generate from specification (word: GENERATE)</div>
 <div class="verb-example">[GEN|spec=api_endpoint]</div>
 </div>
 </div>
@@ -402,12 +402,12 @@
 </div>
 <div class="verb-card" id="DECI">
 <div class="verb-name">DECI</div>
-<div class="verb-desc">Make decision</div>
+<div class="verb-desc">Make decision (word: DECIDE)</div>
 <div class="verb-example">[DECI:@PREV|whr="cost,speed"]</div>
 </div>
 <div class="verb-card" id="CHEK">
 <div class="verb-name">CHEK</div>
-<div class="verb-desc">Check status or validity</div>
+<div class="verb-desc">Check status or validity (word: CHECK)</div>
 <div class="verb-example">[CHEK:@SRC|typ=syntax]</div>
 </div>
 <div class="verb-card" id="FIX">
@@ -417,7 +417,7 @@
 </div>
 <div class="verb-card" id="DPLO">
 <div class="verb-name">DPLO</div>
-<div class="verb-desc">Deploy to target</div>
+<div class="verb-desc">Deploy to target (word: DEPLOY)</div>
 <div class="verb-example">[DPLO:@PREV|dst=production]</div>
 </div>
 <div class="verb-card" id="SAVE">
@@ -427,12 +427,12 @@
 </div>
 <div class="verb-card" id="REVW">
 <div class="verb-name">REVW</div>
-<div class="verb-desc">Review and critique</div>
+<div class="verb-desc">Review and critique (word: REVIEW)</div>
 <div class="verb-example">[REVW:@PREV|whr=security]</div>
 </div>
 <div class="verb-card" id="LERN">
 <div class="verb-name">LERN</div>
-<div class="verb-desc">Learn from input</div>
+<div class="verb-desc">Learn from input (word: LEARN)</div>
 <div class="verb-example">[LERN:@SRC|typ=feedback]</div>
 </div>
 <div class="verb-card" id="TEST">
@@ -442,7 +442,7 @@
 </div>
 <div class="verb-card" id="PARS">
 <div class="verb-name">PARS</div>
-<div class="verb-desc">Parse structured content</div>
+<div class="verb-desc">Parse structured content (word: PARSE)</div>
 <div class="verb-example">[PARS:@SRC|fmt=json]</div>
 </div>
 <div class="verb-card" id="LOOP">
@@ -460,22 +460,22 @@
 <div class="verb-grid">
 <div class="verb-card" id="OUT">
 <div class="verb-name">OUT</div>
-<div class="verb-desc">Final output (alias: Ω)</div>
+<div class="verb-desc">Final output (alias: Ω; word: OUTPUT)</div>
 <div class="verb-example">[Ω]</div>
 </div>
 <div class="verb-card" id="DISP">
 <div class="verb-name">DISP</div>
-<div class="verb-desc">Display formatted</div>
+<div class="verb-desc">Display formatted (word: DISPLAY)</div>
 <div class="verb-example">[DISP:@PREV|fmt=chart]</div>
 </div>
 <div class="verb-card" id="EXPT">
 <div class="verb-name">EXPT</div>
-<div class="verb-desc">Export to file</div>
+<div class="verb-desc">Export to file (word: EXPORT)</div>
 <div class="verb-example">[EXPT:@PREV|path=report.pdf]</div>
 </div>
 <div class="verb-card" id="PRNT">
 <div class="verb-name">PRNT</div>
-<div class="verb-desc">Print to console</div>
+<div class="verb-desc">Print to console (word: PRINT)</div>
 <div class="verb-example">[PRNT:@PREV]</div>
 </div>
 <div class="verb-card" id="LOG">
@@ -503,12 +503,12 @@
 </div>
 <div class="verb-card" id="GRP">
 <div class="verb-name">GRP</div>
-<div class="verb-desc">Group by criteria</div>
+<div class="verb-desc">Group by criteria (word: GROUP)</div>
 <div class="verb-example">[GRP:@PREV|grp=department]</div>
 </div>
 <div class="verb-card" id="EMBD">
 <div class="verb-name">EMBD</div>
-<div class="verb-desc">Embed content</div>
+<div class="verb-desc">Embed content (word: EMBED)</div>
 <div class="verb-example">[EMBD:@SRC|dst=@DST]</div>
 </div>
 </div>
@@ -521,12 +521,12 @@
 </div>
 <div class="verb-card" id="DESC">
 <div class="verb-name">DESC</div>
-<div class="verb-desc">Describe content</div>
+<div class="verb-desc">Describe content (word: DESCRIBE)</div>
 <div class="verb-example">[DESC:@PREV]</div>
 </div>
 <div class="verb-card" id="INTR">
 <div class="verb-name">INTR</div>
-<div class="verb-desc">Introspect state</div>
+<div class="verb-desc">Introspect state (word: INTROSPECT)</div>
 <div class="verb-example">[INTR:@SELF]</div>
 </div>
 <div class="verb-card" id="NOOP">
@@ -539,7 +539,7 @@
 <div class="verb-grid">
 <div class="verb-card" id="BATC">
 <div class="verb-name">BATC</div>
-<div class="verb-desc">Batch operation (alias: Π)</div>
+<div class="verb-desc">Batch operation (alias: Π; word: BATCH)</div>
 <div class="verb-example">[Π:READ|src=file1,file2,file3]</div>
 </div>
 </div>
@@ -548,6 +548,19 @@
 <p style="margin-top:40px">Full machine-readable spec: <a href="https://github.com/ilang-ai/ilang-dict" style="color:var(--accent);font-weight:600" target="_blank">github.com/ilang-ai/ilang-dict</a> &nbsp;&middot;&nbsp; <a href="https://www.npmjs.com/package/@i-language/spec" style="color:var(--accent);font-weight:600" target="_blank">npm: @i-language/spec</a></p>
 <p style="margin-top:16px"><a href="/" style="color:var(--accent);font-weight:600">&larr; Back to iLang</a> &nbsp;&middot;&nbsp; <a href="/spec/" style="color:var(--accent);font-weight:600">Read the Full Spec &rarr;</a> &nbsp;&middot;&nbsp; <a href="/mcp-vs-a2a/" style="color:var(--accent);font-weight:600">Compare with MCP &amp; A2A &rarr;</a></p>
 
+
+<h2 id="machine-cost">Machine cost</h2>
+<p>Every entry in the dictionary now carries a plain word (<code>CHECK</code> for <code>CHEK</code>, <code>where</code> for <code>whr</code>), accepted by the lookup API, and the number of tokens the bare symbol costs in four public tokenizers: OpenAI cl100k_base and o200k_base, DeepSeek-V3 and Qwen3. Measured 2026-11-06 with <a href="https://github.com/ilang-ai/ilang-dict/blob/main/tools/token_cost.py" target="_blank" rel="noopener">token_cost.py</a>; the columns are in <a href="https://github.com/ilang-ai/ilang-dict/blob/main/train.csv" target="_blank" rel="noopener">train.csv</a> and in <a href="/ai/data.json">/ai/data.json</a>.</p>
+<table class="stack">
+<tr class="stack-head"><th>Symbols</th><th>cl100k</th><th>o200k</th><th>DeepSeek-V3</th><th>Qwen3</th></tr>
+<tr><td data-label="Symbols"><code>::</code> <code>=&gt;</code> <code>|</code> <code>{</code> <code>}</code> <code>[</code> <code>]</code> <code>@</code></td><td data-label="cl100k">1 token each</td><td data-label="o200k">1</td><td data-label="DeepSeek-V3">1</td><td data-label="Qwen3">1</td></tr>
+<tr><td data-label="Symbols"><code>⇒</code></td><td data-label="cl100k">3</td><td data-label="o200k">1</td><td data-label="DeepSeek-V3">1</td><td data-label="Qwen3">1</td></tr>
+<tr><td data-label="Symbols">Greek aliases, share that is one token</td><td data-label="cl100k">30%</td><td data-label="o200k">84%</td><td data-label="DeepSeek-V3">100%</td><td data-label="Qwen3">100%</td></tr>
+<tr><td data-label="Symbols">Verbs, share that is one token</td><td data-label="cl100k">37%</td><td data-label="o200k">32%</td><td data-label="DeepSeek-V3">14%</td><td data-label="Qwen3">37%</td></tr>
+<tr><td data-label="Symbols"><code>CHEK</code> / <code>CHECK</code></td><td data-label="cl100k">2 / 1</td><td data-label="o200k">2 / 1</td><td data-label="DeepSeek-V3">2 / 1</td><td data-label="Qwen3">2 / 1</td></tr>
+<tr><td data-label="Symbols"><code>whr</code> / <code>where</code></td><td data-label="cl100k">2 / 1</td><td data-label="o200k">2 / 1</td><td data-label="DeepSeek-V3">2 / 1</td><td data-label="Qwen3">2 / 1</td></tr>
+</table>
+<p>The structural symbols are the native units; a four-letter mnemonic is not. Several mnemonics cost more than the word they shorten, and line for line an iLang declaration costs about as many tokens as the same instruction written tersely in English or Chinese. iLang is not a compression format; the mnemonic is kept because the canon is frozen on it and the validator checks it, and the word is there so a model that writes the natural spelling still lands on the entry.</p>
 </div></section>
 </main>
 

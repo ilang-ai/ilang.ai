@@ -10,9 +10,9 @@ export function lookup(data, q) {
   const n = norm(q); if (!n) return [];
   const exact = [], partial = [];
   for (const e of data.entries) {
-    const name = norm(e.name), alias = norm(e.alias);
-    if (name === n || alias === n || (n.endsWith('=') && name === n.slice(0, -1))) exact.push(e);
-    else if (name.includes(n) || (alias && alias === n) || norm(e.meaning).includes(n) || norm(e.category).includes(n)) partial.push(e);
+    const name = norm(e.name), alias = norm(e.alias), word = norm(e.word);
+    if (name === n || alias === n || (word && word === n) || (n.endsWith('=') && (name === n.slice(0, -1) || word === n.slice(0, -1)))) exact.push(e);
+    else if (name.includes(n) || (alias && alias === n) || (word && word.includes(n)) || norm(e.meaning).includes(n) || norm(e.category).includes(n)) partial.push(e);
   }
   return exact.concat(partial).slice(0, 20).map(e => Object.assign({}, e, { source_url: 'https://ilang.ai/dictionary/' }));
 }

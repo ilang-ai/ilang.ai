@@ -17,7 +17,7 @@ PAGES
 - https://ilang.ai/agent-communication/: Agent communication protocol: AI-to-AI communication in iLang, v4.0 handoff rules, seven-vendor handoff test
 - https://ilang.ai/human-ai-interaction/: Human-AI interaction: human-to-AI communication in iLang, the user in the authority order, ::UNTRUSTED input, three v5.0 modes, quick start
 - https://ilang.ai/books/: The two iLang books: authors, publisher, publication date, pages, ASINs
-- https://ilang.ai/prompt-compression/: Prompt compression: how structured syntax reduces tokens; the prompt structurer
+- https://ilang.ai/prompt-compression/: Tokens, measured: iLang is not a compression format. Both texts of a six-step request, the counts, and line-for-line counts in four public tokenizers; the prompt structurer
 - https://ilang.ai/benchmark/: Benchmark results across models
 - https://ilang.ai/conformance/: Conformance levels and how to claim them
 - https://ilang.ai/playground/: Playground: iLang to IML converter, grammar validator and cl100k_base token counter, all in the browser
@@ -42,13 +42,13 @@ Q: How is iLang different from A2A?
 A: A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes. iLang handles the instruction and behavioral layer: how agents understand tasks, follow constraints, and maintain behavioral consistency. They address different parts of the AI stack.
 
 Q: Can structured prompts reduce retries with AI?
-A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on ilang.ai/prompt-compression/.
+A: Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. That is where the gain is, not in token count: measured line by line across four public tokenizers (OpenAI cl100k_base and o200k_base, DeepSeek-V3, Qwen3), an iLang line costs about as many tokens as the same instruction written tersely in English or Chinese. The counts and both texts of a six-step request are on ilang.ai/prompt-compression/.
 
 Q: Does iLang work with ChatGPT, Claude, and DeepSeek?
 A: iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on ilang.ai/benchmark/, tests conducted May 2026.
 
-Q: What is prompt compression for LLMs?
-A: Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.
+Q: Does iLang compress prompts?
+A: No. iLang is not a compression format. A terse six-step request is 58 tokens in English and 55 as an iLang chain (cl100k_base), and line for line iLang declarations cost about the same as terse English or Chinese in four public tokenizers. What iLang removes is ambiguity; what it adds is a form that code can check and execute. The measurements and both texts are on ilang.ai/prompt-compression/.
 
 Q: Is iLang free and open source?
 A: Yes. iLang is MIT licensed. The specification, dictionary, and tools are all open source. You can use it, fork it, build products on it, with no royalties or approvals needed.
@@ -70,93 +70,93 @@ A: Yes. iLang Detect and iLang Humanizer are tools built on iLang, the protocol,
 
 VERBS (88)
 - READ (Data I/O): Read content from source
-- WRIT (Data I/O): Write input to destination
+- WRIT [word WRITE] (Data I/O): Write input to destination
 - GET (Data I/O): Fetch remote resource
-- DEL (Data I/O): Delete target
+- DEL [word DELETE] (Data I/O): Delete target
 - LIST (Data I/O): Enumerate items in container
 - COPY (Data I/O): Copy without deleting source
 - MOVE (Data I/O): Move from source to destination
-- STRM (Data I/O): Stream data
-- CACH (Data I/O): Cache for fast retrieval
+- STRM [word STREAM] (Data I/O): Stream data
+- CACH [word CACHE] (Data I/O): Cache for fast retrieval
 - SYNC (Data I/O): Synchronize source and destination
 - SEND (Data I/O): Transmit to destination
 - RUN (Data I/O): Execute command or script
-- FMT (Transform): Reformat into target format
-- CONV (Transform): Convert type or representation
+- FMT [word FORMAT] (Transform): Reformat into target format
+- CONV [word CONVERT] (Transform): Convert type or representation
 - SPLIT [alias ∂] (Transform): Split by delimiter or rule
 - MERGE [alias Σ] (Transform): Merge multiple items into one
 - MAP [alias λ] (Transform): Apply function to each element
-- FILT [alias φ] (Transform): Filter by condition
+- FILT [alias φ, word FILTER] (Transform): Filter by condition
 - SORT [alias ∇] (Transform): Sort by field or rule
-- DEDU (Transform): Remove duplicates
-- FLAT (Transform): Flatten nested data
+- DEDU [word DEDUPE] (Transform): Remove duplicates
+- FLAT [word FLATTEN] (Transform): Flatten nested data
 - NEST (Transform): Nest flat data by key
-- CHNK (Transform): Chunk into sized pieces
-- REDU (Transform): Reduce to single value
-- PIVT (Transform): Pivot data by column
-- TRNS (Transform): Transpose
-- ENCD (Transform): Encode (base64 or hex)
-- DECD (Transform): Decode
+- CHNK [word CHUNK] (Transform): Chunk into sized pieces
+- REDU [word REDUCE] (Transform): Reduce to single value
+- PIVT [word PIVOT] (Transform): Pivot data by column
+- TRNS [word TRANSPOSE] (Transform): Transpose
+- ENCD [word ENCODE] (Transform): Encode (base64 or hex)
+- DECD [word DECODE] (Transform): Decode
 - HASH [alias ξ] (Transform): Hash (one-way digest)
-- CMPR [alias ζ] (Transform): Compress (gzip etc.)
-- EXPN (Transform): Decompress
-- XLAT [alias θ] (Transform): Translate between languages
-- REWR (Transform): Rewrite preserving meaning
+- CMPR [alias ζ, word COMPRESS] (Transform): Compress (gzip etc.)
+- EXPN [word DECOMPRESS] (Transform): Decompress
+- XLAT [alias θ, word TRANSLATE] (Transform): Translate between languages
+- REWR [word REWRITE] (Transform): Rewrite preserving meaning
 - DIFF [alias Δ] (Transform): Show differences
 - SCAN (Analysis): Examine for patterns or features
-- MTCH (Analysis): Find matching elements
-- CNT (Analysis): Count items or occurrences
-- STAT [alias μ] (Analysis): Compute statistics
-- EVAL (Analysis): Assess against criteria
-- SCOR (Analysis): Score against metric
+- MTCH [word MATCH] (Analysis): Find matching elements
+- CNT [word COUNT] (Analysis): Count items or occurrences
+- STAT [alias μ, word STATS] (Analysis): Compute statistics
+- EVAL [word EVALUATE] (Analysis): Assess against criteria
+- SCOR [word SCORE] (Analysis): Score against metric
 - RANK (Analysis): Order by priority or score
-- TRND (Analysis): Detect trend
-- CORR (Analysis): Correlate variables
-- FRCS (Analysis): Forecast
-- ANOM (Analysis): Detect anomalies
-- SENT [alias ψ] (Analysis): Sentiment analysis
-- CLST (Analysis): Cluster
-- BNCH (Analysis): Benchmark
-- AUDT (Analysis): Audit
-- VALD (Analysis): Validate against schema or rule
-- CLSF (Analysis): Classify into categories
-- CREA (Generation): Create new resource
-- DRFT (Generation): Generate first draft
-- EXPD (Generation): Expand with detail
-- SHRT (Generation): Shorten or condense
-- PARA (Generation): Paraphrase
-- STYL (Generation): Apply style
-- TMPL (Generation): Apply template
+- TRND [word TREND] (Analysis): Detect trend
+- CORR [word CORRELATE] (Analysis): Correlate variables
+- FRCS [word FORECAST] (Analysis): Forecast
+- ANOM [word ANOMALY] (Analysis): Detect anomalies
+- SENT [alias ψ, word SENTIMENT] (Analysis): Sentiment analysis
+- CLST [word CLUSTER] (Analysis): Cluster
+- BNCH [word BENCHMARK] (Analysis): Benchmark
+- AUDT [word AUDIT] (Analysis): Audit
+- VALD [word VALIDATE] (Analysis): Validate against schema or rule
+- CLSF [word CLASSIFY] (Analysis): Classify into categories
+- CREA [word CREATE] (Generation): Create new resource
+- DRFT [word DRAFT] (Generation): Generate first draft
+- EXPD [word EXPAND] (Generation): Expand with detail
+- SHRT [word SHORTEN] (Generation): Shorten or condense
+- PARA [word PARAPHRASE] (Generation): Paraphrase
+- STYL [word STYLE] (Generation): Apply style
+- TMPL [word TEMPLATE] (Generation): Apply template
 - FILL (Generation): Fill form or structure
-- EXTC (Generation): Extract specific data
-- GEN (Generation): Generic generate
+- EXTC [word EXTRACT] (Generation): Extract specific data
+- GEN [word GENERATE] (Generation): Generic generate
 - PLAN (Execute): Design approach
-- DECI (Execute): Choose between options
-- CHEK (Execute): Verify condition
+- DECI [word DECIDE] (Execute): Choose between options
+- CHEK [word CHECK] (Execute): Verify condition
 - FIX (Execute): Repair errors
-- DPLO (Execute): Deploy to production
+- DPLO [word DEPLOY] (Execute): Deploy to production
 - SAVE (Execute): Persist to storage
-- REVW (Execute): Review completed work
-- LERN (Execute): Update internal model
+- REVW [word REVIEW] (Execute): Review completed work
+- LERN [word LEARN] (Execute): Update internal model
 - TEST (Execute): Verify functionality
-- PARS (Execute): Parse structured input
+- PARS [word PARSE] (Execute): Parse structured input
 - LOOP (Execute): Repeat operation over set
 - WAIT (Execute): Pause for condition
-- OUT [alias Ω] (Output): Mark final output
-- DISP (Output): Display to user
-- EXPT (Output): Export to file format
-- PRNT (Output): Print message
+- OUT [alias Ω, word OUTPUT] (Output): Mark final output
+- DISP [word DISPLAY] (Output): Display to user
+- EXPT [word EXPORT] (Output): Export to file format
+- PRNT [word PRINT] (Output): Print message
 - LOG (Output): Log event or state
 - LINK (Structure): Create connection
 - SET (Structure): Assign value
 - TAG (Structure): Attach metadata
-- GRP (Structure): Group by criterion
-- EMBD (Structure): Encode into vector space
+- GRP [word GROUP] (Structure): Group by criterion
+- EMBD [word EMBED] (Structure): Encode into vector space
 - HELP (Meta): Show help
-- DESC (Meta): Describe entity
-- INTR (Meta): Introspect internal state
+- DESC [word DESCRIBE] (Meta): Describe entity
+- INTR [word INTROSPECT] (Meta): Introspect internal state
 - NOOP (Meta): No operation
-- BATC [alias Π] (Batch): Apply verb to each item in list
+- BATC [alias Π, word BATCH] (Batch): Apply verb to each item in list
 
 MODIFIERS (29 core plus a 20-key media profile)
 - src (modifier): Explicit source values: entity, URI

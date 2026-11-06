@@ -1,4 +1,4 @@
-# iLang Benchmark: LLM Recognition, Execution, and Token Reduction Tests | Protocol Testing
+# iLang Benchmark: LLM Recognition, Execution, and Token Count Tests | Protocol Testing
 Source: https://ilang.ai/benchmark/
 
 # Benchmark
@@ -33,14 +33,14 @@ Each model is tested with identical prompts across five task categories. Tests a
 
 Scores are out of 5 tasks per category. Tests conducted May 2026 using default model settings. Results may vary with model updates.
 
-## Token reduction benchmark
+## Token count comparison
 
-Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice.
+iLang is not a compression format; the table is here because the question keeps coming up. Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice: against a terse rewrite it saves almost nothing.
 
-| Case | Natural language | iLang | Reduction | Text |
+| Case | Natural language | iLang | Difference | Text |
 | --- | --- | --- | --- | --- |
-| Six-step data request, written tersely | 58 tokens | 55 tokens | 5% | [on the compression page](https://ilang.ai/prompt-compression/) |
-| The same request, as people actually send it | 169 tokens | 55 tokens | 67% | [on the compression page](https://ilang.ai/prompt-compression/) |
+| Six-step data request, written tersely | 58 tokens | 55 tokens | 5% | [on the token page](https://ilang.ai/prompt-compression/) |
+| The same request, as people actually send it | 169 tokens | 55 tokens | 67% | [on the token page](https://ilang.ai/prompt-compression/) |
 | Five behavioural rules, natural language vs `::GENE{}` | 74 tokens | 65 tokens | 12% | below |
 
 Counted with OpenAI tiktoken, encoding cl100k_base. A terse rewrite of an instruction is already close to minimal, so the brackets and pipes of a chain cost about as much as the words they replace. The saving comes from the greetings, hedging and repetition that real prompts carry, and in a system prompt it is paid again on every turn.

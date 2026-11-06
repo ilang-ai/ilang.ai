@@ -118,7 +118,7 @@
 <tr class="stack-head"><th>Question</th><th>MCP</th><th>iLang</th></tr>
 <tr><td data-label="Question">Can I use it without writing code?</td><td data-label="MCP">No, requires server setup</td><td data-label="iLang">Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM</td></tr>
 <tr><td data-label="Question">Does it work across models?</td><td data-label="MCP">Depends on model support for MCP</td><td data-label="iLang">Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM</td></tr>
-<tr><td data-label="Question">Does it reduce token usage?</td><td data-label="MCP">Not its purpose</td><td data-label="iLang">67% on a request as people write it (169 to 55 tokens), 5% on a terse rewrite (58 to 55), texts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
+<tr><td data-label="Question">Does it reduce token usage?</td><td data-label="MCP">Not its purpose</td><td data-label="iLang">Not its purpose either. A terse request is 58 tokens in English and 55 as a chain (cl100k_base); line for line about the same in four public tokenizers. It reduces ambiguity, not tokens; counts on <a href="/prompt-compression/">ilang.ai/prompt-compression/</a></td></tr>
 <tr><td data-label="Question">Does it define AI behavior?</td><td data-label="MCP">No</td><td data-label="iLang">Yes, via <code>::GENE{}</code> declarations</td></tr>
 <tr><td data-label="Question">Is it open source?</td><td data-label="MCP">Yes (Anthropic)</td><td data-label="iLang">Yes (MIT license)</td></tr>
 </table>

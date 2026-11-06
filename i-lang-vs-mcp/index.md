@@ -50,7 +50,7 @@ MCP handles the database connection. iLang handles the instruction chain. Neithe
 | --- | --- | --- |
 | Can I use it without writing code? | No, requires server setup | Yes, paste text into ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen or GLM |
 | Does it work across models? | Depends on model support for MCP | Tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM |
-| Does it reduce token usage? | Not its purpose | 67% on a request as people write it (169 to 55 tokens), 5% on a terse rewrite (58 to 55), texts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
+| Does it reduce token usage? | Not its purpose | Not its purpose either. A terse request is 58 tokens in English and 55 as a chain (cl100k_base); line for line about the same in four public tokenizers. It reduces ambiguity, not tokens; counts on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/) |
 | Does it define AI behavior? | No | Yes, via `::GENE{}` declarations |
 | Is it open source? | Yes (Anthropic) | Yes (MIT license) |
 

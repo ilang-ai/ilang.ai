@@ -57,15 +57,15 @@ A2A (Agent-to-Agent Protocol) handles agent discovery and inter-agent handshakes
 
 ### Can structured prompts reduce retries with AI?
 
-Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. On a six-step request written the way people actually send it, the natural-language version is 169 tokens and the iLang chain is 55, a 67% reduction measured with tiktoken cl100k_base; written tersely the same instruction is 58 tokens and the reduction is 5%. Both texts are published on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/).
+Structured instructions typically reduce ambiguity, which often leads to fewer retries and less rework. That is where the gain is, not in token count: measured line by line across four public tokenizers (OpenAI cl100k_base and o200k_base, DeepSeek-V3, Qwen3), an iLang line costs about as many tokens as the same instruction written tersely in English or Chinese. The counts and both texts of a six-step request are on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/).
 
 ### Does iLang work with ChatGPT, Claude, and DeepSeek?
 
 iLang has been tested across ChatGPT, Claude, Gemini, DeepSeek, Kimi, Qwen and GLM. Results by model are published on [ilang.ai/benchmark/](https://ilang.ai/benchmark/), tests conducted May 2026.
 
-### What is prompt compression for LLMs?
+### Does iLang compress prompts?
 
-Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. iLang achieves this through structured verb-target-modifier syntax that eliminates natural language ambiguity, articles, and filler words.
+No. iLang is not a compression format. A terse six-step request is 58 tokens in English and 55 as an iLang chain (cl100k_base), and line for line iLang declarations cost about the same as terse English or Chinese in four public tokenizers. What iLang removes is ambiguity; what it adds is a form that code can check and execute. The measurements and both texts are on [ilang.ai/prompt-compression/](https://ilang.ai/prompt-compression/).
 
 ### Is iLang free and open source?
 

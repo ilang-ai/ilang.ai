@@ -13,9 +13,9 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iLang Benchmark: recognition, execution and token tests on 7 LLMs</title>
-<meta name="description" content="iLang on Claude, GPT, Gemini, DeepSeek, Kimi, Qwen and GLM: recognition, translation, execution, behavioral persistence and token reduction, measured.">
+<meta name="description" content="iLang on Claude, GPT, Gemini, DeepSeek, Kimi, Qwen and GLM: recognition, translation, execution, behavioral persistence and token counts, measured.">
 <meta property="og:title" content="iLang Benchmark: How Well Do LLMs Follow Structured Instructions?">
-<meta property="og:description" content="Benchmark results across 7 major LLMs. Recognition, execution, behavioral persistence, and token reduction data.">
+<meta property="og:description" content="Benchmark results across 7 major LLMs. Recognition, execution, behavioral persistence, and token count data.">
 <meta property="og:url" content="https://ilang.ai/benchmark/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
@@ -92,13 +92,13 @@
 
 <p style="color:var(--muted);font-size:14px;margin-top:8px">Scores are out of 5 tasks per category. Tests conducted May 2026 using default model settings. Results may vary with model updates.</p>
 
-<h2>Token reduction benchmark</h2>
-<p>Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice.</p>
+<h2>Token count comparison</h2>
+<p>iLang is not a compression format; the table is here because the question keeps coming up. Every figure below is a token count, not a word count or a character estimate, and the text behind each one is published so the count can be repeated. What structure saves depends almost entirely on what it is compared against, so the same request appears twice: against a terse rewrite it saves almost nothing.</p>
 <table class="stack">
-<tr class="stack-head"><th>Case</th><th>Natural language</th><th>iLang</th><th>Reduction</th><th>Text</th></tr>
-<tr><td data-label="Case">Six-step data request, written tersely</td><td data-label="Natural language">58 tokens</td><td data-label="iLang">55 tokens</td><td data-label="Reduction">5%</td><td data-label="Text"><a href="/prompt-compression/">on the compression page</a></td></tr>
-<tr><td data-label="Case">The same request, as people actually send it</td><td data-label="Natural language">169 tokens</td><td data-label="iLang">55 tokens</td><td data-label="Reduction">67%</td><td data-label="Text"><a href="/prompt-compression/">on the compression page</a></td></tr>
-<tr><td data-label="Case">Five behavioural rules, natural language vs <code>::GENE{}</code></td><td data-label="Natural language">74 tokens</td><td data-label="iLang">65 tokens</td><td data-label="Reduction">12%</td><td data-label="Text">below</td></tr>
+<tr class="stack-head"><th>Case</th><th>Natural language</th><th>iLang</th><th>Difference</th><th>Text</th></tr>
+<tr><td data-label="Case">Six-step data request, written tersely</td><td data-label="Natural language">58 tokens</td><td data-label="iLang">55 tokens</td><td data-label="Difference">5%</td><td data-label="Text"><a href="/prompt-compression/">on the token page</a></td></tr>
+<tr><td data-label="Case">The same request, as people actually send it</td><td data-label="Natural language">169 tokens</td><td data-label="iLang">55 tokens</td><td data-label="Difference">67%</td><td data-label="Text"><a href="/prompt-compression/">on the token page</a></td></tr>
+<tr><td data-label="Case">Five behavioural rules, natural language vs <code>::GENE{}</code></td><td data-label="Natural language">74 tokens</td><td data-label="iLang">65 tokens</td><td data-label="Difference">12%</td><td data-label="Text">below</td></tr>
 </table>
 
 <p style="color:var(--muted);font-size:14px;margin-top:8px">Counted with OpenAI tiktoken, encoding cl100k_base. A terse rewrite of an instruction is already close to minimal, so the brackets and pipes of a chain cost about as much as the words they replace. The saving comes from the greetings, hedging and repetition that real prompts carry, and in a system prompt it is paid again on every turn.</p>

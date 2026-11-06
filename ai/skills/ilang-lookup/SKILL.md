@@ -10,7 +10,7 @@ metadata:
 
 # ilang-lookup
 
-Use this skill when a question involves the iLang protocol: a verb, modifier, entity, declaration, version, or how iLang relates to MCP, A2A or prompt compression.
+Use this skill when a question involves the iLang protocol: a verb, modifier, entity, declaration, version, or how iLang relates to MCP, A2A or token cost.
 
 ## Endpoints (no authentication)
 

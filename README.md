@@ -423,7 +423,7 @@ Same result.
 =>[OUT]
 ```
 
-**−51% tokens** (counted with tiktoken cl100k_base). Same result.
+21 tokens against 43 (counted with tiktoken cl100k_base). The padding went; the chain is not a cheaper way to say a terse sentence, it is a form code can check. Same result.
 
 </td></tr>
 </table>

@@ -1,17 +1,17 @@
-# Prompt Compression for LLMs: Reduce Tokens with Structured Syntax | iLang Protocol
+# Tokens, measured: what structure costs and buys | iLang Protocol
 Source: https://ilang.ai/prompt-compression/
 
-# Prompt Compression for LLMs
+# Tokens, measured
 
-Natural language is expensive. Structured syntax conveys the same instructions in fewer tokens, with less ambiguity, at lower cost.
+iLang is not a compression format. This page shows what structure costs and what it buys, with every text and every count published so you can repeat them.
 
-## What is prompt compression?
+## What is being counted
 
-Prompt compression reduces the number of tokens needed to convey the same instructions to an AI model. Fewer tokens means faster processing, lower cost, more room in the context window for actual work, and often clearer instructions that lead to fewer retries.
+Every figure here is a token count from a named tokenizer, not a word count. Tokens are what a model reads and what an API bills, so the question "does structure save tokens" has a measurable answer, and the answer depends almost entirely on what the structure is compared with.
 
-## How iLang compresses prompts
+## The same request, three ways
 
-iLang achieves compression through structured syntax that eliminates the overhead of natural language: articles, filler words, hedging, and ambiguous phrasing.
+A six-step data request written tersely, the same request as people actually send it, and the iLang chain for both.
 
 ### Before: natural language, written tersely (49 words, 58 tokens)
 
@@ -30,16 +30,16 @@ Please read the sales data from the CSV file. Then filter it to only include rec
 =>[OUT]
 ```
 
-### Reduction
+### Counts
 
-| Metric | Natural language | iLang | Change |
+| Metric | Natural language | iLang | Difference |
 | --- | --- | --- | --- |
-| Tokens (cl100k_base) | 58 | 55 | -5% |
+| Tokens (cl100k_base) | 58 | 55 | 3 tokens |
 | Ambiguity | Multiple interpretations possible | One interpretation | Lower |
 
 Five per cent is the honest number for that comparison, and it is worth understanding why it is so small. The sentence above was written tersely, by someone who already knows what the chain has to say. Brackets, pipes and colons are not free: the tokenizer charges for them. On a short instruction that nobody pads, structure buys precision, not tokens.
 
-## Where compression matters most
+## Where the difference comes from
 
 ### Requests as people actually write them
 
@@ -49,25 +49,25 @@ Real requests are not terse. They open with a greeting, hedge every instruction,
 Hi! Hope you're doing well. I've got a quick favour to ask if you don't mind. So I have this sales data sitting in a CSV file and I was wondering if you could take a look at it for me? What I'm trying to do is basically narrow it down to just the bigger deals, so anything where the revenue is above 1000 I think. Once you've got that, could you please work out the summary statistics for me, broken down by region? I'd also really appreciate it if you could sort everything from highest revenue down to lowest, since that's how my manager likes to see it. And then if it's not too much trouble, please present the final result as a nice markdown table so I can paste it straight into our report. Thank you so much, really appreciate the help!
 ```
 
-That is 169 tokens against the same 55-token chain, a reduction of 67 per cent. Nothing about the chain changed. The greeting, the hedging and the thank-you are what disappeared, and they are what real prompts are made of.
+That is 169 tokens against the same 55-token chain. Nothing about the chain changed. The greeting, the hedging and the thank-you are what disappeared, and they are what real prompts are made of. Structure did not make the instruction cheaper; it made a padded request terse, and a terse one could have been written in plain words for about the same price.
 
 ### System prompts and behavioral rules
 
-System prompts run on every turn. A 500-token system prompt costs 500 tokens per message, so the saving is paid out again with every message rather than once. Rewriting a set of behavioral rules as structured `::GENE{}` definitions is a smaller cut than the conversational case, because rules are already written densely, but the cut recurs on every turn of the session.
+System prompts run on every turn, so whatever a rule costs is paid with every message. Rewriting a set of behavioral rules as `::GENE{}` lines costs about what the rules cost as dense sentences (74 against 65 tokens on the five-rule case on the benchmark page); what changes is that each rule becomes one line code can point at, test and remove.
 
 ### Long context sessions
 
-As context fills up, AI quality degrades. Compressed instructions leave more room for actual task content.
+As context fills up, quality degrades. A chain states the task without the padding, so more of the window is left for the work, but the chain itself is not smaller than a terse sentence.
 
 ### Per-token billing
 
-If you pay per token (API usage, cloud inference), every token in your system prompt is money spent on every single request. Compression directly reduces cost.
+If you pay per token, every token in a system prompt is paid on every request. Structure does not make a terse instruction cheaper; it removes the padding that most prompts carry and gives the rest a shape that can be checked.
 
 ## How it works technically
 
 iLang uses an 88-verb dictionary where each verb is a 3-5 character code (READ, FILT, STAT, FMT, OUT). Verbs chain with `=>`. Modifiers use `key=value` pairs. Targets use `@ENTITY` references. No articles, no prepositions, no filler.
 
-The compression comes from three sources:
+The padding that disappears comes from three places:
 
 | Source | Natural language overhead | iLang equivalent |
 | --- | --- | --- |
@@ -85,6 +85,20 @@ The same instruction, written as a sentence and written as a chain.
 | Read all .md files, merge into one, output result | [LIST:@LOCAL\|mch=*.md]=>[Π:READ]=>[Σ]=>[Ω] |
 | Shorten previous output into 3 professional bullet points | [SHRT:@PREV\|sty=bullets,len=3,ton=pro]=>[Ω] |
 | Translate to Japanese, formal tone, then format as table | [θ:@PREV\|lng=ja,ton=formal]=>[FMT\|fmt=csv]=>[Ω] |
+
+
+## Line for line, four tokenizers
+
+Short declarations, measured 2026-11-06 in OpenAI cl100k_base and o200k_base, DeepSeek-V3 and Qwen3 (the tokenizers that are public; Anthropic's is not). Each cell is iLang / Chinese / English.
+
+| Line | cl100k | o200k | DeepSeek-V3 | Qwen3 |
+| --- | --- | --- | --- | --- |
+| One `T:` line of a `::GENE{}` | 16 / 18 / 16 | 15 / 15 / 16 | 16 / 15 / 16 | 14 / 15 / 16 |
+| One `::RULE{}` | 16 / 18 / 12 | 14 / 11 / 12 | 18 / 8 / 12 | 14 / 9 / 12 |
+| One `::STATE{}` | 14 / 12 / 9 | 14 / 9 / 9 | 17 / 8 / 9 | 14 / 9 / 9 |
+| A four-step chain | 29 / 24 / 21 | 31 / 19 / 21 | 32 / 21 / 21 | 28 / 21 / 21 |
+
+The structural symbols (`::`, `=>`, `|`, brackets, `@`) are one token in all four tokenizers; the mnemonics are not, and an underscore-joined phrase splits into more pieces than the same words with spaces. So a line of iLang costs about what a terse sentence costs, sometimes a little more. The per-symbol counts are in the dictionary (https://ilang.ai/dictionary/#machine-cost).
 
 ## Try it
 
