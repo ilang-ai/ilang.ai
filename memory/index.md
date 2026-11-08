@@ -4,7 +4,7 @@ Mem-Forever is the memory layer of iLang: an iLang document that tells an AI age
 
 It implements MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle carries, so an AI that has loaded iLang already knows the layout and the rules. This document is the product form: the same rules as one instruction block, with its IML form and its acceptance items. The template repository is github.com/ilang-ai/Mem-Forever; its README is the engineering book, and skills/mem-forever/SKILL.md is the normative text for an agent that has the repository open.
 
-- Version 3.0, 2026-11-08, MIT. DOI 10.5281/zenodo.24048399. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever
+- Version 3.0, 2026-11-08, MIT. DOI 10.5281/zenodo.24048531. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever
 - Template repository: https://github.com/ilang-ai/Mem-Forever (concept DOI 10.5281/zenodo.22865160)
 - Files: https://ilang.ai/memory/MEM-FOREVER.ilang.md (sha256 ec08d9ded4c5b0b40f9a5e6abe921a07b844d9050340cf9f80bd12f0217db5c3), https://ilang.ai/memory/MEM-FOREVER.iml (sha256 fa537313b4d79fe163d0a373999c40d09a9b6f92f7048eeb2000a971123d10d9)
 
@@ -233,7 +233,7 @@ Paste the iLang block, written for people and models. The IML block is the same 
 
 **Can I change it?** Yes. The license is MIT. To check that your edit is still valid iLang, run the canon grammar validator in strict mode: ilang_grammar_validator.py in ilang-spec. The released text is the one whose sha256 the acceptance file names.
 
-**How does this relate to MODULE::MEMORY?** MODULE::MEMORY is the protocol, in the canon and in every runtime bundle: what memory is, when the hand-off is written, how a returned hand-off is judged and reviewed. This document is the product that implements it, and the template repository is the implementation you fork. Its SECRETS line still describes the 2.1 vault; the amendment that brings it to the ledger is proposed separately.
+**How does this relate to MODULE::MEMORY?** MODULE::MEMORY is the protocol, in the canon and in every runtime bundle: what memory is, when the hand-off is written, how a returned hand-off is judged and reviewed. This document is the product that implements it, and the template repository is the implementation you fork. Since 5.0.9 its WHERE and SECRETS lines name what this document describes: the ledger, the owner's turns kept verbatim, a key only when the work reaches its door, sealing only when pairing.
 
 ## Feedback
 
