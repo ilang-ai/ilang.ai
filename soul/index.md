@@ -3,7 +3,7 @@
 SOUL 2.0 is an iLang document that sets how an AI behaves by default. You set the direction; the AI does the work. It asks before anything it cannot undo. It marks claims verified, inferred, or unknown. It ends each task with a score.
 
 - Version 2.0, 2026-10-29, MIT. DOI 10.5281/zenodo.23778215. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/soul
-- Files: https://ilang.ai/soul/SOUL.ilang.md (sha256 9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1), https://ilang.ai/soul/SOUL.iml (sha256 f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e)
+- Files: https://ilang.ai/soul/SOUL.ilang.md (sha256 9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1), https://ilang.ai/soul/SOUL.iml (sha256 de358f8b855aab75cc07d16fa53f49a568b1ba4a4e365cf806fa49c31f6d214e)
 
 ## iLang
 
@@ -34,7 +34,7 @@ SOUL 2.0 is an iLang document that sets how an AI behaves by default. You set th
 Compiled by the reference codec of IML (https://github.com/ilang-ai/iml-protocol); it decompiles back to the iLang document byte for byte.
 
 ```
-#iml/0.5/7e29fae7f5ea
+#iml/0.6/ba5fde00dd69
 "::ILANG::v5.0"
 "[TYPE:persona][ID:ILANG-SOUL][VERSION:2.0][DATE:2026-10-29][LANG:en]"
 "[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]"

@@ -2,15 +2,6 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X32B7WW8Q9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X32B7WW8Q9');
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SOUL 2.0: a judgment layer for your AI's default persona | iLang</title>
 <meta name="description" content="SOUL 2.0: paste it into the instructions of any AI and it gets a judgment layer: evidence first, authority per item, host safety wins. In iLang and IML 0.5.">
@@ -32,7 +23,7 @@
 <meta name="citation_abstract_html_url" content="https://ilang.ai/soul/">
 <link rel="alternate" type="text/markdown" href="/soul/index.md">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang SOUL 2.0","alternateName":"SOUL 2.0","version":"2.0","datePublished":"2026-10-29","inLanguage":"en","description":"A judgment layer for an AI's default persona, written in iLang: paste it into the custom instructions of any AI. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/soul/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/soul","identifier":"10.5281/zenodo.23778215","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"SOUL.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/soul/SOUL.ilang.md","sha256":"9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1"},{"@type":"MediaObject","name":"SOUL.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/soul/SOUL.iml","sha256":"f2aca23303677f604074d1e4d02b46f2b3b813f8584acbcc8bafc80b36a80e8e"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang SOUL 2.0","alternateName":"SOUL 2.0","version":"2.0","datePublished":"2026-10-29","inLanguage":"en","description":"A judgment layer for an AI's default persona, written in iLang: paste it into the custom instructions of any AI. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/soul/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/soul","identifier":"10.5281/zenodo.23778215","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"SOUL.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/soul/SOUL.ilang.md","sha256":"9b22c7d5bbbcbca24db044cb5c9d2bb98b8e019b776a764e339b505d465a66f1"},{"@type":"MediaObject","name":"SOUL.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/soul/SOUL.iml","sha256":"de358f8b855aab75cc07d16fa53f49a568b1ba4a4e365cf806fa49c31f6d214e"}]}</script>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
@@ -134,7 +125,7 @@
 <h2 id="iml">IML 0.5</h2>
 <div class="code-win soul-win">
 <div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>SOUL.iml</span></div><button type="button" class="code-copy" data-copy="soul-iml">Copy</button></div>
-<pre id="soul-iml"><code>#iml/0.5/7e29fae7f5ea
+<pre id="soul-iml"><code>#iml/0.6/ba5fde00dd69
 "::ILANG::v5.0"
 "[TYPE:persona][ID:ILANG-SOUL][VERSION:2.0][DATE:2026-10-29][LANG:en]"
 "[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]"
@@ -156,7 +147,7 @@
 RD@USty=intent GTwh=evidence CKwh=authority PL CE CKwh=delivered LG SN@US $
 </code></pre>
 </div>
-<p class="soul-meta"><span>1881 characters</span><span>sha256 <code>f2aca23303677f60</code></span><a class="lk" target="_blank" rel="noopener" href="/soul/SOUL.iml">raw file</a><span>compiled by the reference codec of IML 0.5; decompiles back to the iLang file byte for byte</span></p>
+<p class="soul-meta"><span>1881 characters</span><span>sha256 <code>de358f8b855aab75</code></span><a class="lk" target="_blank" rel="noopener" href="/soul/SOUL.iml">raw file</a><span>compiled by the reference codec of IML 0.5; decompiles back to the iLang file byte for byte</span></p>
 <h2 id="paste">Where to paste it</h2>
 <dl class="soul-paste">
 <div><dt>A chat assistant</dt><dd>Paste it into its custom instructions, system prompt, or project instructions.</dd></div>
