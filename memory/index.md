@@ -58,7 +58,7 @@ It implements MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle 
 ::ILANG::v5.0
 ```
 
-## IML 0.5
+## IML 0.6
 
 Compiled by the reference codec of IML (https://github.com/ilang-ai/iml-protocol); it decompiles back to the iLang document byte for byte.
 
@@ -217,7 +217,7 @@ Line numbers are those of MEM-FOREVER.ilang.md.
 
 ## iLang or IML
 
-Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.5 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang text; the acceptance items check both ways.
+Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.6 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang text; the acceptance items check both ways.
 
 ## Questions
 

@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
-<meta name="keywords" content="iLang, iLang v5.0, AI-native protocol, AI communication, structured prompts, LLM interoperability, AI-to-AI, protocol specification, execution semantics, AI judgment layer, judgment vector, vector logic, AI alignment, fuzzy judgment, AI agent behavior, conformance levels, AI prompt engineering, MCP alternative, A2A alternative, judgment axis, valence-assent axis, interpretability, related work, arXiv 2510.27328">
+<meta name="keywords" content="iLang, iLang v5.0, AI-native protocol, AI communication, structured prompts, LLM interoperability, AI-to-AI, prompt compression, protocol specification, execution semantics, AI judgment layer, judgment vector, vector logic, AI alignment, fuzzy judgment, AI agent behavior, conformance levels, AI prompt engineering, MCP alternative, A2A alternative, judgment axis, valence-assent axis, interpretability, related work, arXiv 2510.27328">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="iLang is I Language">
 <meta name="twitter:description" content="iLang is I Language. The protocol agents understand each other by. Copy the latest iLang and paste it into your AI.">
@@ -458,7 +458,6 @@ footer li a:hover{color:var(--face-ink)}
     <a href="/spec/">Specification</a>
     <a href="/spec/#s13-judgment-layer-v5-0">Judgment</a>
     <a href="/soul/">SOUL</a>
-    <a href="/memory/" style="--i:0">Memory</a>
     <a href="/dictionary/">Dictionary</a>
     <a href="/playground/">Playground</a>
     <a href="/ecosystem/">Ecosystem</a>
@@ -509,8 +508,8 @@ footer li a:hover{color:var(--face-ink)}
 <wbr>[READ:@AGENT|<wbr>typ=intent]=&gt;<wbr>[VALD|<wbr>whr=grammar]=&gt;<wbr>[CHEK|<wbr>whr=authority]=&gt;<wbr>[RUN]=&gt;<wbr>[CHEK|<wbr>whr=DONE_WHEN]=&gt;<wbr>[SCOR]=&gt;<wbr>[SEND:@AGENT]=&gt;<wbr>[Ω]
 ::ILANG::v5.0
 </code></pre>
-      <p class="def-h">The same document in IML 0.5, the machine form</p>
-      <pre class="def-iml" id="def-iml"><code>#iml/0.5/7e29fae7f5ea
+      <p class="def-h">The same document in IML 0.6, the machine form</p>
+      <pre class="def-iml" id="def-iml"><code>#iml/0.6/ba5fde00dd69
 "::ILANG::v5.0"
 "<wbr>[TYPE:definition]<wbr>[ID:ILANG-DEFINITION]<wbr>[VERSION:1.0]<wbr>[DATE:2026-10-29]<wbr>[LANG:en]"
 :ST"@PROTOCOL,<wbr> name:iLang,<wbr> version:5.0,<wbr> status:released,<wbr> <span class="nb">genesis:2026-03-04, license:MIT"</span>
@@ -538,7 +537,7 @@ RD@AGty=intent VLwh=grammar CKwh=authority RN CKwh=DONE_WHEN SO SN@AG $
 <!-- ============ ARTIFACTS ============ -->
 <section class="sec wrap" id="artifacts">
   <h2 class="sec-title">Artifacts</h2>
-  <p class="sec-intro">Three iLang documents from the canon, pasted as written. Each page holds the file in iLang and in IML 0.5, with its DOI.</p>
+  <p class="sec-intro">Three iLang documents from the canon, pasted as written. Each page holds the file in iLang and in IML 0.6, with its DOI.</p>
   <ul class="idx art">
     <li><p class="nm"><a class="lk" target="_blank" rel="noopener" href="/soul/">SOUL 2.0</a></p><p class="mt"><span>free</span><span>any AI</span></p><p class="ds">A judgment layer for your AI's default persona. Paste it where the AI reads its instructions.</p><p class="ls"><a class="lk" target="_blank" rel="noopener" href="/soul/">Open</a><a class="lk" target="_blank" rel="noopener" href="/soul/SOUL.ilang.md">File</a></p></li>
     <li><p class="nm"><a class="lk" target="_blank" rel="noopener" href="/source-book/">Source Book 2.9</a></p><p class="mt"><span>agent app</span><span>your DeepSeek key</span></p><p class="ds">The engineering book every engineering book is anchored to. Paste it into an agent app, give it a tutorial, and it writes BOOK.md.</p><p class="ls"><a class="lk" target="_blank" rel="noopener" href="/source-book/">Open</a><a class="lk" target="_blank" rel="noopener" href="/source-book/METHOD-TO-BOOK-MOTHER-v2.8-2026-10-29.ilang.md">File</a></p></li>
@@ -770,7 +769,6 @@ RD@AGty=intent VLwh=grammar CKwh=authority RN CKwh=DONE_WHEN SO SN@AG $
         <p class="footer-col-title">Build</p>
         <ul>
           <li><a href="/soul/">SOUL</a></li>
-          <li><a href="/memory/">Memory</a></li>
           <li><a href="/source-book/">Source Book</a></li>
           <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
           <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>

@@ -3,7 +3,7 @@
 Source Book 2.9 is the engineering book every iLang engineering book is anchored to. Paste it into an agent app and give the agent a tutorial. The agent confirms the tutorial's numbers against official sources and writes BOOK.md, an English iLang book. Any agent can carry it out for you, end to end.
 
 - Version 2.9, 2026-10-30, MIT. DOI 10.5281/zenodo.23824138. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/source-book
-- Files: https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md (sha256 20debddbb0b536eb1335495e3e8a15cf2989f164174f93c96909587efcab5503), https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml (sha256 ea4d4ffc51350978cabc47ea24c1eade7ab78625c0f9f729fa0629e19f535676)
+- Files: https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.ilang.md (sha256 20debddbb0b536eb1335495e3e8a15cf2989f164174f93c96909587efcab5503), https://ilang.ai/source-book/METHOD-TO-BOOK-MOTHER-v2.9-2026-10-30.iml (sha256 59d1b95b4c9e909fcabc47ea24c1eade7ab78625c0f9f729fa0629e19f535676)
 
 ## iLang
 
@@ -75,12 +75,12 @@ Source Book 2.9 is the engineering book every iLang engineering book is anchored
 ::ILANG::v5.0::ENGINEERING_BOOK
 ```
 
-## IML 0.5
+## IML 0.6
 
 Compiled by the reference codec of IML (https://github.com/ilang-ai/iml-protocol); it decompiles back to the iLang document, the blank lines aside.
 
 ```
-#iml/0.5/7e29fae7f5ea
+#iml/0.6/ba5fde00dd69
 "::ILANG::v5.0::ENGINEERING_BOOK"
 "[TYPE:engineering_book]"
 "[ID:METHOD-TO-BOOK-MOTHER]"
@@ -183,7 +183,7 @@ Each book is the BOOK.md the agent saved, renamed and nothing else; the validato
 
 ## iLang or IML
 
-Paste the iLang block. It is written for people and models; it is what the agent reads. The IML block is the same document compiled for programs by the reference codec of IML 0.5, at github.com/ilang-ai/iml-protocol. It decompiles back to the iLang document, blank lines aside. Declaration names become two-character codes; the text inside braces is carried exactly. Use IML only when a program, not a chat, takes the file.
+Paste the iLang block. It is written for people and models; it is what the agent reads. The IML block is the same document compiled for programs by the reference codec of IML 0.6, at github.com/ilang-ai/iml-protocol. It decompiles back to the iLang document, blank lines aside. Declaration names become two-character codes; the text inside braces is carried exactly. Use IML only when a program, not a chat, takes the file.
 
 ## Questions
 

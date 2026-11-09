@@ -13,26 +13,17 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mem-Forever 3.2: the memory layer, your AI remembers you across sessions and tools | iLang</title>
-<meta name="description" content="Mem-Forever 3.2: your AI keeps what it learns with you in a Git repository you hold: a ledger of every door, a hand-off at every milestone, one review gate for every writer, a key only when the work reaches its door. In iLang and IML 0.5.">
+<meta name="description" content="Mem-Forever 3.2: your AI keeps what it learns with you in a Git repository you hold: a ledger of every door, a hand-off at every milestone, one review gate for every writer, a key only when the work reaches its door. In iLang and IML 0.6.">
 <meta property="og:title" content="iLang Mem-Forever 3.2">
-<meta property="og:description" content="The memory layer of iLang. Your AI remembers you across sessions, tools and models, in a Git repository you hold. iLang and IML 0.5 forms, each line explained.">
+<meta property="og:description" content="The memory layer of iLang. Your AI remembers you across sessions, tools and models, in a Git repository you hold. iLang and IML 0.6 forms, each line explained.">
 <meta property="og:url" content="https://ilang.ai/memory/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://ilang.ai/ilang-logo.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ilang.ai/memory/">
-<meta name="citation_title" content="iLang Mem-Forever 3.2: the memory layer">
-<meta name="citation_author" content="Zhu, Long Quan">
-<meta name="citation_author_orcid" content="0009-0004-4540-8082">
-<meta name="citation_publication_date" content="2026/11/08">
-<meta name="citation_doi" content="10.5281/zenodo.24067451">
-<meta name="citation_publisher" content="iLang Inc.">
-<meta name="citation_language" content="en">
-<meta name="citation_fulltext_html_url" content="https://ilang.ai/memory/">
-<meta name="citation_abstract_html_url" content="https://ilang.ai/memory/">
 <link rel="alternate" type="text/markdown" href="/memory/index.md">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang Mem-Forever 3.2","alternateName":"Mem-Forever 3.2","version":"3.2","datePublished":"2026-11-08","inLanguage":"en","description":"The memory layer of iLang, written in iLang: an agent keeps what it learns with its owner in a Git repository the owner holds, with a ledger of every door it can open, a hand-off at every milestone, review before every write and a key only when the work reaches its door. Shipped as an iLang document and as its IML 0.5 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/memory/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever","identifier":"10.5281/zenodo.24067451","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"MEM-FOREVER.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/memory/MEM-FOREVER.ilang.md","sha256":"24f41de1fe602bdfa10819a33d5256a82dbd88a917ac9d44d1d6a5313cb105d0"},{"@type":"MediaObject","name":"MEM-FOREVER.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/memory/MEM-FOREVER.iml","sha256":"4a073dfc2084f9c59252a75354379f78420fd18dae5afb076ddc40061382f753"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang Mem-Forever 3.2","alternateName":"Mem-Forever 3.2","version":"3.2","datePublished":"2026-11-08","inLanguage":"en","description":"The memory layer of iLang, written in iLang: an agent keeps what it learns with its owner in a Git repository the owner holds, with a ledger of every door it can open, a hand-off at every milestone, review before every write and a key only when the work reaches its door. Shipped as an iLang document and as its IML 0.6 form.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/memory/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever","identifier":"10.5281/zenodo.24067451","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"MEM-FOREVER.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/memory/MEM-FOREVER.ilang.md","sha256":"24f41de1fe602bdfa10819a33d5256a82dbd88a917ac9d44d1d6a5313cb105d0"},{"@type":"MediaObject","name":"MEM-FOREVER.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/memory/MEM-FOREVER.iml","sha256":"4a073dfc2084f9c59252a75354379f78420fd18dae5afb076ddc40061382f753"}]}</script>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
@@ -159,7 +150,7 @@ It implements MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle 
 </code></pre>
 </div>
 <p class="soul-meta"><span>5990 characters</span><span>sha256 <code>24f41de1fe602bdf</code></span><a class="lk" target="_blank" rel="noopener" href="/memory/MEM-FOREVER.ilang.md">raw file</a><span>iLang v5.0, canon grammar validator: 0 errors, strict</span></p>
-<h2 id="iml">IML 0.5</h2>
+<h2 id="iml">IML 0.6</h2>
 <div class="code-win soul-win">
 <div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>MEM-FOREVER.iml</span></div><button type="button" class="code-copy" data-copy="soul-iml">Copy</button></div>
 <pre id="soul-iml"><code>#iml/0.6/ba5fde00dd69
@@ -210,7 +201,7 @@ CK@{BRAIN}pt=env/ledger.env RD@{BRAIN}pt=handoff/CURRENT.md RD@{BRAIN}pt=soul/ R
 "::ILANG::v5.0"
 </code></pre>
 </div>
-<p class="soul-meta"><span>5871 characters</span><span>sha256 <code>4a073dfc2084f9c5</code></span><a class="lk" target="_blank" rel="noopener" href="/memory/MEM-FOREVER.iml">raw file</a><span>compiled by the reference codec of IML 0.5; decompiles back to the iLang file byte for byte</span></p>
+<p class="soul-meta"><span>5871 characters</span><span>sha256 <code>4a073dfc2084f9c5</code></span><a class="lk" target="_blank" rel="noopener" href="/memory/MEM-FOREVER.iml">raw file</a><span>compiled by the reference codec of IML 0.6; decompiles back to the iLang file byte for byte</span></p>
 <h2 id="paste">Where to paste it</h2>
 <dl class="soul-paste">
 <div><dt>A coding agent with the brain repository open</dt><dd>It already reads the repository's instruction file (CLAUDE.md, AGENTS.md, GEMINI.md, .cursorrules). Paste this block there, or let the template's own files stand; they say the same thing.</dd></div>
@@ -268,7 +259,7 @@ CK@{BRAIN}pt=env/ledger.env RD@{BRAIN}pt=handoff/CURRENT.md RD@{BRAIN}pt=soul/ R
 <li id="line-45"><span class="ln" aria-hidden="true">45</span><code>::ILANG::v5.0</code><p>The closing marker.</p></li>
 </ol>
 <h2 id="ilang-or-iml">iLang or IML</h2>
-<p>Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.5 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang text; the acceptance items check both ways.</p>
+<p>Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.6 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang text; the acceptance items check both ways.</p>
 <h2 id="questions">Questions</h2>
 <div class="faq-list">
 <div class="faq-item"><h3>Where does my data go?</h3><p>Into your own private Git repository and nowhere else. The template has no server, no account and no telemetry. Your keys sit in the ledger inside that repository, encoded at rest and reversible with the repository's own pepper and the tool and with nothing else (obfuscation against accidental exposure, not encryption), because for one person losing a key costs more than leaking one; they are sealed only when the brain is paired with someone who does not hold the repository, and you are always a recipient of anything sealed.</p></div>

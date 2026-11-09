@@ -29,7 +29,7 @@ SOUL 2.0 is an iLang document that sets how an AI behaves by default. You set th
 [READ:@USER|typ=intent]=>[GET|whr=evidence]=>[CHEK|whr=authority]=>[PLAN]=>[CREA]=>[CHEK|whr=delivered]=>[LOG]=>[SEND:@USER]=>[Ω]
 ```
 
-## IML 0.5
+## IML 0.6
 
 Compiled by the reference codec of IML (https://github.com/ilang-ai/iml-protocol); it decompiles back to the iLang document byte for byte.
 
@@ -109,7 +109,7 @@ Line numbers are those of SOUL.ilang.md.
 
 ## iLang or IML
 
-Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.5 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang file byte for byte. Its first line carries the codec version and registry digest. The names after the double colons become short codes: GENE becomes GN, OBJECTIVE OB, BOUNDARY BN, UNTRUSTED UN, RULE RL, FALLBACK FL. The flow line becomes a chain; text inside braces is carried exactly.
+Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.6 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang file byte for byte. Its first line carries the codec version and registry digest. The names after the double colons become short codes: GENE becomes GN, OBJECTIVE OB, BOUNDARY BN, UNTRUSTED UN, RULE RL, FALLBACK FL. The flow line becomes a chain; text inside braces is carried exactly.
 
 ## Questions
 
