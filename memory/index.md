@@ -4,7 +4,7 @@ Mem-Forever is the memory layer of iLang: an iLang document that tells an AI age
 
 It implements MODULE::MEMORY of SPEC-v5.0.md Part I, which every runtime bundle carries, so an AI that has loaded iLang already knows the layout and the rules. This document is the product form: the same rules as one instruction block, with its IML form and its acceptance items. The template repository is github.com/ilang-ai/Mem-Forever; its README is the engineering book, and skills/mem-forever/SKILL.md is the normative text for an agent that has the repository open.
 
-- Version 3.2, 2026-11-08, MIT. DOI 10.5281/zenodo.24067451. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever
+- Version 3.2, 2026-11-08, MIT. DOI 10.5281/zenodo.24179134. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/mem-forever
 - Template repository: https://github.com/ilang-ai/Mem-Forever (concept DOI 10.5281/zenodo.22865160)
 - Files: https://ilang.ai/memory/MEM-FOREVER.ilang.md (sha256 24f41de1fe602bdfa10819a33d5256a82dbd88a917ac9d44d1d6a5313cb105d0), https://ilang.ai/memory/MEM-FOREVER.iml (sha256 4a073dfc2084f9c59252a75354379f78420fd18dae5afb076ddc40061382f753)
 
