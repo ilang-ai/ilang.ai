@@ -213,6 +213,8 @@ Paste the iLang block, written for people and models. The IML block is the same 
 
 **What about video transitions?** Outside this product. SPEC-v4.1 §4.4.7 records transitions between shots as the business of a timeline profile that does not exist yet.
 
+**Where do my own series go?** To the dataset i-Lang/media-chain on Hugging Face (https://huggingface.co/datasets/i-Lang/media-chain): one folder per series, the files with the chain inside and the series document, opened as a pull request from the browser. A gate reads the chain back out of each file, runs the two validators, and merges what passes, with your words as written; what fails stays open with the failing line. CC BY 4.0.
+
 **Can I change it?** Yes. The license is MIT. To check that your edit is still valid iLang, run the canon grammar validator in strict mode and the judge validator on any JUDGE block: both are in ilang-spec. The released text is the one whose sha256 the acceptance file names.
 
 ## Feedback
