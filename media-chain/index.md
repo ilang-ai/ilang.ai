@@ -322,6 +322,8 @@ Both run the gates the canon defines and are recorded verbatim at research (http
 
 Want the files? https://github.com/ilang-ai/ilang-spec/tree/main/products/media-chain (the product, its IML form, the acceptance items, the demo series and the signed PNG files)
 
+Want the same chain inside a git commit? See Code Chain: https://ilang.ai/code-chain/
+
 Want the agent to keep the series? See Memory: https://ilang.ai/memory/
 
 Want a persona for the agent? See SOUL: https://ilang.ai/soul/

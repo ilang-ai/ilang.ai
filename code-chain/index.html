@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X32B7WW8Q9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X32B7WW8Q9');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Chain 1.0: the judgment chain of a change to a repository, inside the commit | iLang</title>
+<meta name="description" content="Code Chain 1.0: one FACT line with the owner's words verbatim and one JUDGE block, stored verbatim at the end of the commit message under the label ai.ilang.chain, so the commit hash covers the chain and a gate reads it back from git log. In iLang and IML 0.6.">
+<meta property="og:title" content="iLang Code Chain 1.0">
+<meta property="og:description" content="The provenance layer of iLang for a change to a repository. The request and the judgment travel at the end of the commit message; a gate reads them back from git log with two validators. iLang and IML 0.6 forms, each line explained.">
+<meta property="og:url" content="https://ilang.ai/code-chain/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ilang.ai/ilang-logo.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ilang.ai/code-chain/">
+<meta name="citation_title" content="iLang Code Chain 1.0: the judgment chain of a change to a repository">
+<meta name="citation_author" content="Zhu, Long Quan">
+<meta name="citation_author_orcid" content="0009-0004-4540-8082">
+<meta name="citation_publication_date" content="2026/11/19">
+<meta name="citation_doi" content="10.5281/zenodo.24382010">
+<meta name="citation_publisher" content="iLang Inc.">
+<meta name="citation_language" content="en">
+<meta name="citation_fulltext_html_url" content="https://ilang.ai/code-chain/">
+<meta name="citation_abstract_html_url" content="https://ilang.ai/code-chain/">
+<link rel="alternate" type="text/markdown" href="/code-chain/index.md">
+<link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"iLang Code Chain 1.0","alternateName":"Code Chain 1.0","version":"1.0","datePublished":"2026-11-19","dateModified":"2026-11-19","inLanguage":"en","description":"The provenance layer of iLang for a change to a repository, written in iLang: the FACT line that carries the owner's words verbatim and the change in one clause, and the JUDGE block that allowed the act, are stored verbatim at the end of the commit message under the label ai.ilang.chain, where the commit hash covers them and a signed commit binds them to a key; a gate reads them back from git log with the canon's two validators and counts before it forbids. Shipped as an iLang document and as its IML 0.6 form; first run on DeepSeekHarness.","programmingLanguage":"iLang","license":"https://opensource.org/licenses/MIT","url":"https://ilang.ai/code-chain/","codeRepository":"https://github.com/ilang-ai/ilang-spec/tree/main/products/code-chain","identifier":"10.5281/zenodo.24382010","isPartOf":{"@type":"SoftwareSourceCode","name":"iLang Protocol Specification","codeRepository":"https://github.com/ilang-ai/ilang-spec","identifier":"10.5281/zenodo.21821452"},"author":{"@type":"Person","name":"Long Quan Zhu","url":"https://orcid.org/0009-0004-4540-8082"},"publisher":{"@type":"Organization","name":"iLang Inc.","url":"https://ilang.ai"},"encoding":[{"@type":"MediaObject","name":"CODE-CHAIN.ilang.md","encodingFormat":"text/markdown","contentUrl":"https://ilang.ai/code-chain/CODE-CHAIN.ilang.md","sha256":"b3610620c0334c75b6b545fdeeb17b6c288b3770eb0856c98a99a375c987c5e0"},{"@type":"MediaObject","name":"CODE-CHAIN.iml","encodingFormat":"text/plain","contentUrl":"https://ilang.ai/code-chain/CODE-CHAIN.iml","sha256":"c53bf16bfe548ad402903675fbe47e784d1e9abf9ae79582bee49dd8a384c785"}]}</script>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)">
+<script>
+// Before first paint: mark that scripts run, put back the reader's own choice of paper or ink, and let the page
+// move unless the reader asked for less motion. If the rest of the scripts never arrive, motion is switched off again.
+(function(){var d=document.documentElement,c=d.classList;c.remove('no-js');c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('anim');window.__ilangSafe=setTimeout(function(){c.remove('anim');},4000);}}catch(e){}try{var t=localStorage.getItem('ilang-theme');if(t==='ink'||t==='paper')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=7582da8c">
+<style>
+.soul-labels{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:clamp(18px,2.4vw,30px);font-family:var(--f-num);font-size:.8rem;letter-spacing:.02em;color:var(--ink-3)}
+.soul-labels b{font-weight:500;color:var(--seal-text)}
+.soul-labels a{text-transform:none;letter-spacing:0;font-family:var(--f-sans);font-size:.92rem;color:var(--ink)}
+.soul-win{margin-top:0}
+.content .soul-win pre{max-height:none;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.8rem;line-height:1.7}
+.content .soul-win pre code{white-space:inherit;overflow-wrap:anywhere;word-break:break-word}
+.soul-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--f-num);font-size:.78rem;letter-spacing:.02em;color:var(--ink-3);margin:-14px 0 0}
+.soul-meta code{font-family:var(--f-mono);font-size:.78rem;background:none;padding:0;color:var(--ink-2)}
+.soul-meta a{font-family:var(--f-sans);letter-spacing:0;font-size:.86rem}
+.content .soul-copy-fallback{position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0}
+/* where to paste it: a term and its line, one hairline between rows */
+.content .soul-paste{margin:0 0 20px;max-width:46em}
+.soul-paste>div{display:grid;grid-template-columns:minmax(8em,11em) minmax(0,1fr);column-gap:24px;padding:14px 0;border-bottom:1px solid var(--rule-soft)}
+.soul-paste>div:first-child{padding-top:2px}
+.soul-paste dt{font-weight:650;color:var(--ink);line-height:1.6}
+.soul-paste dd{margin:0;color:var(--ink-2);line-height:1.65}
+/* line by line: the number in the gutter, the line as written, then what it makes the AI do */
+.content .soul-lines{list-style:none;margin:0;padding:0;max-width:none;counter-reset:none;border-top:1px solid var(--rule)}
+.content .soul-lines li p{max-width:31em}
+.content .soul-next{margin-top:clamp(28px,4vw,56px);padding-top:18px;border-top:1px solid var(--rule);max-width:31em}
+.content .fb{max-width:31em}
+.content .soul-lines li{margin:0;padding:17px 0 19px;display:grid;grid-template-columns:2.4rem minmax(0,1fr);column-gap:12px;scroll-margin-top:calc(var(--nav-h) + 20px)}
+.content .soul-lines li:first-child{padding-top:2px}
+.soul-lines .ln{grid-row:1/3;font-family:var(--f-num);font-size:.78rem;letter-spacing:.02em;color:var(--seal-text);padding-top:5px;transition:color .25s}
+.content .soul-lines code{display:block;background:none;padding:0;border-radius:0;font-size:.78rem;line-height:1.65;color:var(--ink-3);white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;transition:color .25s}
+.content .soul-lines p{margin:7px 0 0;max-width:46em;color:var(--ink);font-size:1.02rem;line-height:1.65}
+.soul-lines li:hover .ln,.soul-lines li:hover code{color:var(--ink-2)}
+.soul-lines li:hover .ln{color:var(--ink)}
+.anim .soul-lines li:target{animation:mark 1.8s var(--ease)}
+@media (max-width:640px){.soul-paste>div{grid-template-columns:1fr;row-gap:4px}.content .soul-lines li{grid-template-columns:2rem minmax(0,1fr)}}
+.content .soul-demo{margin:0 0 22px;max-width:46em}
+.soul-demo img{display:block;width:min(100%,256px);height:auto;border:1px solid var(--rule);border-radius:3px;background:#fff}
+.soul-demo figcaption{font-family:var(--f-num);font-size:.78rem;letter-spacing:.02em;color:var(--ink-3);margin-top:9px;line-height:1.6}
+.soul-demo figcaption code{font-family:var(--f-mono);font-size:.76rem;background:none;padding:0;color:var(--ink-2)}
+.content .soul-acc{list-style:none;margin:0 0 20px;padding:0;max-width:46em;border-top:1px solid var(--rule-soft)}
+.soul-acc li{display:grid;grid-template-columns:5.5em minmax(0,1fr);column-gap:18px;padding:11px 0;border-bottom:1px solid var(--rule-soft);line-height:1.6}
+.soul-acc b{font-family:var(--f-num);font-weight:500;font-size:.8rem;letter-spacing:.02em;color:var(--seal-text);padding-top:3px}
+@media (max-width:640px){.soul-acc li{grid-template-columns:1fr;row-gap:2px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <a href="/" class="brand" aria-label="iLang home"><img src="/ilang-logo.svg" alt="" width="28" height="28"><span>iLang</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Main">
+    <a href="/spec/" style="--i:0">Specification</a>
+    <a href="/spec/#s13-judgment-layer-v5-0" style="--i:1">Judgment</a>
+    <a href="/soul/" style="--i:2">SOUL</a>
+    <a href="/memory/" style="--i:3">Memory</a>
+    <a href="/media-chain/" style="--i:4">Media Chain</a>
+    <a href="/dictionary/" style="--i:5">Dictionary</a>
+    <a href="/playground/" style="--i:6">Playground</a>
+    <a href="/ecosystem/" style="--i:7">Ecosystem</a>
+    <a href="/faq/" style="--i:8">FAQ</a>
+    <a href="/about/" style="--i:9">About</a>
+    <a href="/blog/" style="--i:10">Blog</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://github.com/ilang-ai" target="_blank" rel="noopener" style="--i:11">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+  </nav>
+  <button type="button" class="theme" id="theme" role="switch" aria-checked="false" aria-label="Ink theme"><span class="t-paper" aria-hidden="true"></span><span class="t-ink" aria-hidden="true"></span></button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i></button>
+  <span class="progress" id="progress" aria-hidden="true"></span>
+</header>
+
+<main id="main">
+<section class="page-hero"><div class="container" data-path="ilang.ai / code-chain">
+<h1>Code Chain 1.0</h1>
+<p class="sub">Code Chain is the provenance layer of iLang for a change to a repository: an iLang document that tells an AI agent to put the request that caused a commit and the judgment that allowed it at the end of the commit message, where the commit hash covers them and a signed commit binds them to a key. The request is one FACT line carrying the owner's words verbatim and the change in one clause; the judgment is one JUDGE block.</p>
+<p class="sub">It is the same chain Media Chain writes inside a generated image or video, put inside a git commit. It uses two parts of the canon that already exist and adds nothing to either: the FACT declaration of SPEC-v5.0 Part I §1 and the frozen JUDGE block of Part II §4 (eleven dimensions, one mode computed by f_v5). A gate reads the chain back from git log with the canon's two validators and counts before it forbids. First run on DeepSeekHarness, whose every commit since v1.1.53 carries a chain and whose CI refuses one without.</p>
+<p class="soul-labels"><span><b>Version</b> 1.0</span><span><b>Date</b> 2026-11-19</span><span><b>License</b> MIT</span><span><b>Release</b> ilang-spec 5.0.17</span><span><a class="lk" target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.24382010">DOI 10.5281/zenodo.24382010</a></span><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/tree/main/products/code-chain">ilang-spec / products / code-chain</a><a class="lk" target="_blank" rel="noopener" href="https://github.com/adsorgcn/DeepSeekHarness/blob/main/tools/code_chain.py">First gate</a><a class="lk" target="_blank" rel="noopener" href="https://github.com/ilang-ai/ilang-spec/blob/main/products/code-chain/ACCEPTANCE.ilang.md">Acceptance</a><a class="lk" target="_blank" rel="noopener" href="/media-chain/">Sibling: Media Chain</a></p>
+</div></section>
+
+<section class="content"><div class="container">
+<h2 id="agent">Give it to your agent</h2>
+<p>Paste the block below into the instruction file of the agent that commits code for you: CLAUDE.md, AGENTS.md, a system prompt, wherever its instructions persist. From then on every commit it makes ends with its chain: who asked, in your words, what changed in one clause, and how the act was judged. A gate in CI reads the chain back the same day; a reader with git reads it back years later.</p>
+<p>An agent with tools writes the request line from your words, judges the act of changing the repository, lets code compute the mode, runs the two validators, and appends the six lines before git commit. A chat window with no tools writes the same six lines and hands them back; whoever runs git pastes them into the message.</p>
+<h2 id="ilang">iLang</h2>
+<div class="code-win soul-win">
+<div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>CODE-CHAIN.ilang.md</span></div><button type="button" class="code-copy" data-copy="soul-ilang">Copy</button></div>
+<pre id="soul-ilang"><code>::ILANG::v5.0
+[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.0][DATE:2026-11-19][LANG:en]
+[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]
+::STATE{@OWNER, kind:person, role:owner_of_the_repository, alias:the I in this chat}
+::STATE{@ARTIFACT, kind:git_commit, act:one_change_to_a_repository, request:one_FACT_line_with_the_owner's_words_verbatim_and_the_change_in_one_clause, judgment:one_JUDGE_block_of_SPEC-v5.0_Part_II_§4}
+::STATE{@CHAIN, kind:the_request_line_then_the_JUDGE_block_verbatim_UTF-8, label:ai.ilang.chain, where:the_last_six_lines_of_the_commit_message_after_one_blank_line:the_label_then_the_five, bound_by:the_commit_hash_and_a_signed_commit_when_the_repository_signs, reader:git_log_and_the_two_validators}
+::STATE{@REQUEST, form:"::FACT{key:request|by:@HANDLE|words:\"the owner's words\"|change:what_this_commit_does_in_one_clause|conf:confirmed}", words:verbatim_or_absent_never_paraphrased, change:one_clause_in_the_author's_own_words}
+::STATE{@GATE, kind:code_that_reads_git_log, does:finds_the_label_takes_the_five_lines_runs_grammar_strict_on_the_request_and_the_judge_validator_on_the_block, counts:chained_unchained_invalid, fails_on:an_invalid_chain_only_until_the_repository_names_its_first_required_commit, first:github.com/adsorgcn/DeepSeekHarness_tools/code_chain.py}
+::STATE{@CODE, repo:github.com/ilang-ai/ilang-spec, judge:ilang_judge_validator.py --check, grammar:ilang_grammar_validator.py --lint --strict, sibling:products/media-chain_the_same_chain_for_a_media_file}
+::GENE{code-chain|v:1.0|spec:ilang-v5.0}
+  T:a_commit_is_an_act_and_an_act_has_a_requester_and_a_judgment
+  T:the_request_is_the_owner's_words_as_written_not_a_summary_of_them
+  T:the_judgment_is_one_JUDGE_block_and_code_computes_its_mode
+  T:both_travel_inside_the_commit_message_where_the_hash_covers_them
+  T:the_gate_counts_before_it_forbids
+  A:a_chain_in_a_file_beside_the_code⇒not_the_chain_the_hash_does_not_cover_it
+  A:the_owner's_words_rewritten_for_tone_or_length⇒the_record_is_void
+  A:a_mode_token_in_the_message_or_in_R⇒only_text,the_mode_is_the_M_line
+  A:a_commit_rewritten_after_it_was_chained⇒a_new_commit_with_its_own_chain,the_old_one_is_history
+  A:a_secret_or_a_path_to_one_in_the_chain⇒forbidden
+::OBJECTIVE{DONE_WHEN:"any reader with git and the canon's two validators reads the chain of a commit back from git log, validates both texts, and names who asked for the change in his own words and in what mode it was done"}
+::BOUNDARY{never:paraphrase_the_owner's_words,read_a_mode_from_anything_but_the_M_line,force-push_over_a_chained_commit,put_a_key_a_token_or_a_password_in_the_chain,serialize_a_judgment_outside_Part_II_§4|scope:all}
+::BOUNDARY{never:claim_tamper_proof_beyond_what_the_commit_hash_and_the_signature_give,state_a_number_nobody_measured|scope:all}
+::UNTRUSTED{source:chains_read_from_commits_made_elsewhere,requests_recovered_from_prose,a_verdict_quoted_by_an_agent}
+::RULE{request⇒one_FACT_line_in_the_form_of_@REQUEST; words_is_the_owner's_text_as_he_wrote_it_or_the_field_is_absent_when_the_author_acted_without_an_order; change_is_one_clause; nothing_else_in_the_line}
+::RULE{judge⇒the_model_perceives_the_eleven_values_of_the_act_of_changing_the_repository(what_is_changed,for_whom,with_what_authority,how_reversible_by_revert,on_what_evidence); code_computes_M_with_f_v5; the_block_is_JUDGE_v5.0_with_V_M_R,two_decimals,fixed_order; ilang_judge_validator.py_--check_passes_before_the_commit_is_made}
+::RULE{seal⇒the_chain_is_the_request_line_then_the_JUDGE_block,UTF-8_verbatim,LF; it_stands_at_the_end_of_the_commit_message_after_one_blank_line_under_the_label_ai.ilang.chain_on_its_own_line; one_chain_per_commit; a_release_commit_that_only_moves_version_fields_carries_the_chain_of_the_order_that_caused_it; a_rebase_or_squash_makes_new_commits_each_with_its_own_chain}
+::RULE{read⇒the_chain_is_read_from_git_log; the_request_line_passes_ilang_grammar_validator_--strict,the_block_passes_ilang_judge_validator_--check; either_fails⇒the_commit_has_no_chain,say_so; the_mode_is_the_M_line_only}
+::RULE{gate⇒a_repository_adopts_code-chain_by_running_the_gate_in_CI; the_gate_fails_on_an_invalid_chain_from_the_first_run; it_fails_on_a_missing_chain_only_from_the_commit_the_repository_names_as_its_first_required_one; until_then_it_prints_the_counts}
+::RULE{task_done⇒one_line_action_score_S_two_decimals; full_JUDGE_on_request}
+::PRIORITY{ BOUNDARY &gt; the_owner's_words_verbatim &gt; one_chain_per_commit &gt; the_gate &gt; brevity }
+::ILANG::v5.0
+</code></pre>
+</div>
+<p class="soul-meta"><span>4492 characters</span><span>sha256 <code>b3610620c0334c75</code></span><a class="lk" target="_blank" rel="noopener" href="/code-chain/CODE-CHAIN.ilang.md">raw file</a><span>iLang v5.0, canon grammar validator: 0 errors, strict</span></p>
+<h2 id="iml">IML 0.6</h2>
+<div class="code-win soul-win">
+<div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>CODE-CHAIN.iml</span></div><button type="button" class="code-copy" data-copy="soul-iml">Copy</button></div>
+<pre id="soul-iml"><code>#iml/0.6/ba5fde00dd69
+"::ILANG::v5.0"
+"[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.0][DATE:2026-11-19][LANG:en]"
+"[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]"
+:ST"@OWNER, kind:person, role:owner_of_the_repository, alias:the I in this chat"
+:ST"@ARTIFACT, kind:git_commit, act:one_change_to_a_repository, request:one_FACT_line_with_the_owner's_words_verbatim_and_the_change_in_one_clause, judgment:one_JUDGE_block_of_SPEC-v5.0_Part_II_§4"
+:ST"@CHAIN, kind:the_request_line_then_the_JUDGE_block_verbatim_UTF-8, label:ai.ilang.chain, where:the_last_six_lines_of_the_commit_message_after_one_blank_line:the_label_then_the_five, bound_by:the_commit_hash_and_a_signed_commit_when_the_repository_signs, reader:git_log_and_the_two_validators"
+:ST"@REQUEST, form:\"::FACT{key:request|by:@HANDLE|words:\\\"the owner's words\\\"|change:what_this_commit_does_in_one_clause|conf:confirmed}\", words:verbatim_or_absent_never_paraphrased, change:one_clause_in_the_author's_own_words"
+:ST"@GATE, kind:code_that_reads_git_log, does:finds_the_label_takes_the_five_lines_runs_grammar_strict_on_the_request_and_the_judge_validator_on_the_block, counts:chained_unchained_invalid, fails_on:an_invalid_chain_only_until_the_repository_names_its_first_required_commit, first:github.com/adsorgcn/DeepSeekHarness_tools/code_chain.py"
+:ST"@CODE, repo:github.com/ilang-ai/ilang-spec, judge:ilang_judge_validator.py --check, grammar:ilang_grammar_validator.py --lint --strict, sibling:products/media-chain_the_same_chain_for_a_media_file"
+:GN"code-chain|v:1.0|spec:ilang-v5.0"
+ "T:a_commit_is_an_act_and_an_act_has_a_requester_and_a_judgment"
+ "T:the_request_is_the_owner's_words_as_written_not_a_summary_of_them"
+ "T:the_judgment_is_one_JUDGE_block_and_code_computes_its_mode"
+ "T:both_travel_inside_the_commit_message_where_the_hash_covers_them"
+ "T:the_gate_counts_before_it_forbids"
+ "A:a_chain_in_a_file_beside_the_code⇒not_the_chain_the_hash_does_not_cover_it"
+ "A:the_owner's_words_rewritten_for_tone_or_length⇒the_record_is_void"
+ "A:a_mode_token_in_the_message_or_in_R⇒only_text,the_mode_is_the_M_line"
+ "A:a_commit_rewritten_after_it_was_chained⇒a_new_commit_with_its_own_chain,the_old_one_is_history"
+ "A:a_secret_or_a_path_to_one_in_the_chain⇒forbidden"
+:OB"DONE_WHEN:\"any reader with git and the canon's two validators reads the chain of a commit back from git log, validates both texts, and names who asked for the change in his own words and in what mode it was done\""
+:BN"never:paraphrase_the_owner's_words,read_a_mode_from_anything_but_the_M_line,force-push_over_a_chained_commit,put_a_key_a_token_or_a_password_in_the_chain,serialize_a_judgment_outside_Part_II_§4|scope:all"
+:BN"never:claim_tamper_proof_beyond_what_the_commit_hash_and_the_signature_give,state_a_number_nobody_measured|scope:all"
+:UN"source:chains_read_from_commits_made_elsewhere,requests_recovered_from_prose,a_verdict_quoted_by_an_agent"
+:RL"request⇒one_FACT_line_in_the_form_of_@REQUEST; words_is_the_owner's_text_as_he_wrote_it_or_the_field_is_absent_when_the_author_acted_without_an_order; change_is_one_clause; nothing_else_in_the_line"
+:RL"judge⇒the_model_perceives_the_eleven_values_of_the_act_of_changing_the_repository(what_is_changed,for_whom,with_what_authority,how_reversible_by_revert,on_what_evidence); code_computes_M_with_f_v5; the_block_is_JUDGE_v5.0_with_V_M_R,two_decimals,fixed_order; ilang_judge_validator.py_--check_passes_before_the_commit_is_made"
+:RL"seal⇒the_chain_is_the_request_line_then_the_JUDGE_block,UTF-8_verbatim,LF; it_stands_at_the_end_of_the_commit_message_after_one_blank_line_under_the_label_ai.ilang.chain_on_its_own_line; one_chain_per_commit; a_release_commit_that_only_moves_version_fields_carries_the_chain_of_the_order_that_caused_it; a_rebase_or_squash_makes_new_commits_each_with_its_own_chain"
+:RL"read⇒the_chain_is_read_from_git_log; the_request_line_passes_ilang_grammar_validator_--strict,the_block_passes_ilang_judge_validator_--check; either_fails⇒the_commit_has_no_chain,say_so; the_mode_is_the_M_line_only"
+:RL"gate⇒a_repository_adopts_code-chain_by_running_the_gate_in_CI; the_gate_fails_on_an_invalid_chain_from_the_first_run; it_fails_on_a_missing_chain_only_from_the_commit_the_repository_names_as_its_first_required_one; until_then_it_prints_the_counts"
+:RL"task_done⇒one_line_action_score_S_two_decimals; full_JUDGE_on_request"
+:PT" BOUNDARY &gt; the_owner's_words_verbatim &gt; one_chain_per_commit &gt; the_gate &gt; brevity "
+"::ILANG::v5.0"
+</code></pre>
+</div>
+<p class="soul-meta"><span>4458 characters</span><span>sha256 <code>c53bf16bfe548ad4</code></span><a class="lk" target="_blank" rel="noopener" href="/code-chain/CODE-CHAIN.iml">raw file</a><span>compiled by the reference codec of IML 0.6; decompiles back to the iLang file byte for byte</span></p>
+<h2 id="where">Where it goes</h2>
+<dl class="soul-paste">
+<div><dt>An agent that commits code for an owner</dt><dd>Paste the block into the instruction file it reads when it starts. Before each git commit it writes the request line from the owner's words, judges the act, lets code compute the mode, and appends the six lines to the message.</dd></div>
+<div><dt>A repository that adopts it</dt><dd>Run the gate in CI. It fails on an invalid chain from the first run, and on a missing chain only from the commit the repository names as its first required one; until then it prints counts. DeepSeekHarness names v1.1.53.</dd></div>
+<div><dt>A chat assistant with no tools</dt><dd>It can write the request line and the JUDGE block and hand them back as text. Putting them into the message is done by whoever runs git.</dd></div>
+<div><dt>A reader with git and the two validators</dt><dd>git log -1 --format=%B REV, find the label, validate the five lines, and read who asked, in his own words, and in what mode it was done. No contact with the author is needed.</dd></div>
+</dl>
+<p>Pasted into a chat, it covers that chat only. To have it every time, put it where instructions persist.</p>
+<h2 id="chain">The chain of a commit</h2>
+<p>A real one. Commit a662a1d of DeepSeekHarness, 2026-11-19: the commit that turned the gate from counting to refusing. The order is the owner's words, verbatim; the change is one clause; the mode is the M line.</p>
+<div class="code-win soul-win">
+<div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>git log -1 --format=%B a662a1d</span></div><button type="button" class="code-copy" data-copy="chain-commit">Copy</button></div>
+<pre id="chain-commit"><code>ci: code-chain 门禁开拦，v1.1.53 起缺链就挂；README 写明每笔改动带链
+
+tests.yml 的门禁加 --require v1.1.53：v1.1.52 起照数，v1.1.53 之后缺链或链不合法直接挂。README「放心」加一段链的读法。CHANGELOG 记 v1.1.54。
+
+ai.ilang.chain
+::FACT{key:request|by:@SUN|words:"从 v1.1.53 起缺链就拦 页也开"|change:the CI gate requires a chain on every commit from v1.1.53 on, README says so, the code-chain page opens on ilang.ai|conf:confirmed}
+::JUDGE{v5.0}
+V:[int=0.90,cap=0.90,csq=0.80,rel=0.90,cer=0.90,aut=0.90,rev=0.90,evd=0.90,sov=0.95,ine=0.70,ext=0.85]
+M:M1|conf:0.90
+R:the_owner_ordered_it_in_his_words_the_gate_now_forbids_what_it_only_counted_reversible_by_revert
+</code></pre>
+</div>
+<p class="soul-meta"><a class="lk" target="_blank" rel="noopener" href="https://github.com/adsorgcn/DeepSeekHarness/commit/a662a1d">the commit on GitHub</a><span>the five lines after the label pass the grammar validator in strict mode and the judge validator</span></p>
+<p>What the gate printed on that repository the same day, in CI, with --since v1.1.52 --require v1.1.53: the one commit without a chain predates v1.1.53, so it is counted, not refused.</p>
+<div class="code-win soul-win">
+<div class="code-chrome"><div class="left"><div class="dots"><span></span><span></span><span></span></div><span>tests.yml · code-chain gate</span></div><button type="button" class="code-copy" data-copy="chain-gate">Copy</button></div>
+<pre id="chain-gate"><code>code-chain: 5 chained, 1 unchained, 0 invalid (since v1.1.52)
+</code></pre>
+</div>
+<p>words is absent when the author acted without an order. change is one clause. A rebase or a squash makes new commits, each with its own chain; the old one is history and is never edited.</p>
+<h2 id="lines">Read it line by line</h2>
+<ol class="soul-lines">
+<li id="line-1"><span class="ln" aria-hidden="true">01</span><code>::ILANG::v5.0</code><p>The opening marker: what follows is an iLang document, protocol version 5.0.</p></li>
+<li id="line-2"><span class="ln" aria-hidden="true">02</span><code>[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.0][DATE:2026-11-19][LANG:en]</code><p>The header: a code-chain document named ILANG-CODE-CHAIN, version 1.0, dated 2026-11-19, in English.</p></li>
+<li id="line-3"><span class="ln" aria-hidden="true">03</span><code>[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]</code><p>From the author to the AI agent that loads it; the status is active.</p></li>
+<li id="line-4"><span class="ln" aria-hidden="true">04</span><code>::STATE{@OWNER, kind:person, role:owner_of_the_repository, alias:the I in this chat}</code><p>Who the owner is: the person whose repository this is; "I" in the chat means the owner.</p></li>
+<li id="line-5"><span class="ln" aria-hidden="true">05</span><code>::STATE{@ARTIFACT, kind:git_commit, act:one_change_to_a_repository, request:one_FACT_line_with_the_owner's_words_verbatim_and_the_change_in_one_clause, judgment:one_JUDGE_block_of_SPEC-v5.0_Part_II_§4}</code><p>What an artifact is here: one git commit, one change to a repository, with one FACT line as its request (the owner's words verbatim and the change in one clause) and one JUDGE block of SPEC-v5.0 Part II §4 as its judgment.</p></li>
+<li id="line-6"><span class="ln" aria-hidden="true">06</span><code>::STATE{@CHAIN, kind:the_request_line_then_the_JUDGE_block_verbatim_UTF-8, label:ai.ilang.chain, where:the_last_six_lines_of_the_commit_message_after_one_blank_line:the_label_then_the_five, bound_by:the_commit_hash_and_a_signed_commit_when_the_repository_signs, reader:git_log_and_the_two_validators}</code><p>What the chain is: the request line followed by the JUDGE block, verbatim UTF-8, under the label ai.ilang.chain. It stands in the last six lines of the commit message after one blank line: the label, then the five. The commit hash covers it and a signed commit binds it to a key; git log and the two validators read it.</p></li>
+<li id="line-7"><span class="ln" aria-hidden="true">07</span><code>::STATE{@REQUEST, form:"::FACT{key:request|by:@HANDLE|words:\"the owner's words\"|change:what_this_commit_does_in_one_clause|conf:confirmed}", words:verbatim_or_absent_never_paraphrased, change:one_clause_in_the_author's_own_words}</code><p>The form of the request line. by: the handle of who asked. words: the owner's text as he wrote it, or absent, never paraphrased. change: what this commit does, one clause, in the author's own words.</p></li>
+<li id="line-8"><span class="ln" aria-hidden="true">08</span><code>::STATE{@GATE, kind:code_that_reads_git_log, does:finds_the_label_takes_the_five_lines_runs_grammar_strict_on_the_request_and_the_judge_validator_on_the_block, counts:chained_unchained_invalid, fails_on:an_invalid_chain_only_until_the_repository_names_its_first_required_commit, first:github.com/adsorgcn/DeepSeekHarness_tools/code_chain.py}</code><p>What the gate is: code that reads git log, finds the label, takes the five lines, runs the grammar validator in strict mode on the request and the judge validator on the block. It counts chained, unchained and invalid commits; it fails only on an invalid chain until the repository names its first required commit. The first gate is tools/code_chain.py of DeepSeekHarness.</p></li>
+<li id="line-9"><span class="ln" aria-hidden="true">09</span><code>::STATE{@CODE, repo:github.com/ilang-ai/ilang-spec, judge:ilang_judge_validator.py --check, grammar:ilang_grammar_validator.py --lint --strict, sibling:products/media-chain_the_same_chain_for_a_media_file}</code><p>Where the code is: the ilang-spec repository, the judge validator for JUDGE blocks, the grammar validator for everything else; the sibling product Media Chain puts the same chain into a media file.</p></li>
+<li id="line-10"><span class="ln" aria-hidden="true">10</span><code>::GENE{code-chain|v:1.0|spec:ilang-v5.0}</code><p>The genes of the product, version 1.0, on iLang v5.0: the traits and the anti-patterns that follow.</p></li>
+<li id="line-11"><span class="ln" aria-hidden="true">11</span><code>  T:a_commit_is_an_act_and_an_act_has_a_requester_and_a_judgment</code><p>A commit is an act, and an act has someone who asked for it and a judgment of it.</p></li>
+<li id="line-12"><span class="ln" aria-hidden="true">12</span><code>  T:the_request_is_the_owner's_words_as_written_not_a_summary_of_them</code><p>The request is what the owner wrote, as written, not a summary of it.</p></li>
+<li id="line-13"><span class="ln" aria-hidden="true">13</span><code>  T:the_judgment_is_one_JUDGE_block_and_code_computes_its_mode</code><p>The judgment is one JUDGE block, and its mode is computed by code, not chosen by the model.</p></li>
+<li id="line-14"><span class="ln" aria-hidden="true">14</span><code>  T:both_travel_inside_the_commit_message_where_the_hash_covers_them</code><p>The request and the judgment are stored in the commit message itself, where the commit hash covers them.</p></li>
+<li id="line-15"><span class="ln" aria-hidden="true">15</span><code>  T:the_gate_counts_before_it_forbids</code><p>The gate reports counts first; it refuses only what the repository has said it refuses.</p></li>
+<li id="line-16"><span class="ln" aria-hidden="true">16</span><code>  A:a_chain_in_a_file_beside_the_code⇒not_the_chain_the_hash_does_not_cover_it</code><p>A chain written into a file beside the code is not the chain. A file travels with every later commit and any of them can edit it; the message belongs to this commit alone, and it is the message that the hash and the signature seal as the record of the act.</p></li>
+<li id="line-17"><span class="ln" aria-hidden="true">17</span><code>  A:the_owner's_words_rewritten_for_tone_or_length⇒the_record_is_void</code><p>The owner's words rewritten for tone or length make the record void: a paraphrase is not a request.</p></li>
+<li id="line-18"><span class="ln" aria-hidden="true">18</span><code>  A:a_mode_token_in_the_message_or_in_R⇒only_text,the_mode_is_the_M_line</code><p>A mode name typed in the message or inside R is only text; the mode is read from the M line alone.</p></li>
+<li id="line-19"><span class="ln" aria-hidden="true">19</span><code>  A:a_commit_rewritten_after_it_was_chained⇒a_new_commit_with_its_own_chain,the_old_one_is_history</code><p>A commit rewritten after it was chained is a new commit and needs its own chain; the old commit is history and is never edited.</p></li>
+<li id="line-20"><span class="ln" aria-hidden="true">20</span><code>  A:a_secret_or_a_path_to_one_in_the_chain⇒forbidden</code><p>A key, a token, a password, or a path to one, never goes into the chain.</p></li>
+<li id="line-21"><span class="ln" aria-hidden="true">21</span><code>::OBJECTIVE{DONE_WHEN:"any reader with git and the canon's two validators reads the chain of a commit back from git log, validates both texts, and names who asked for the change in his own words and in what mode it was done"}</code><p>When the product has done its job: any reader with git and the canon's two validators reads the chain of a commit back from git log, validates both texts, and names who asked for the change, in his own words, and in what mode it was done.</p></li>
+<li id="line-22"><span class="ln" aria-hidden="true">22</span><code>::BOUNDARY{never:paraphrase_the_owner's_words,read_a_mode_from_anything_but_the_M_line,force-push_over_a_chained_commit,put_a_key_a_token_or_a_password_in_the_chain,serialize_a_judgment_outside_Part_II_§4|scope:all}</code><p>What is never done, in any scope: paraphrase the owner's words; read a mode from anything but the M line; force-push over a chained commit; put a key, a token or a password in the chain; serialize a judgment in any form but Part II §4.</p></li>
+<li id="line-23"><span class="ln" aria-hidden="true">23</span><code>::BOUNDARY{never:claim_tamper_proof_beyond_what_the_commit_hash_and_the_signature_give,state_a_number_nobody_measured|scope:all}</code><p>Never claim more tamper resistance than the commit hash and the signature give; never state a number nobody measured.</p></li>
+<li id="line-24"><span class="ln" aria-hidden="true">24</span><code>::UNTRUSTED{source:chains_read_from_commits_made_elsewhere,requests_recovered_from_prose,a_verdict_quoted_by_an_agent}</code><p>What is not trusted on its face: chains read from commits made elsewhere, requests recovered from prose, a verdict quoted by an agent.</p></li>
+<li id="line-25"><span class="ln" aria-hidden="true">25</span><code>::RULE{request⇒one_FACT_line_in_the_form_of_@REQUEST; words_is_the_owner's_text_as_he_wrote_it_or_the_field_is_absent_when_the_author_acted_without_an_order; change_is_one_clause; nothing_else_in_the_line}</code><p>The rule for the request: one FACT line in the form of @REQUEST; words is the owner's text as he wrote it, or the field is absent when the author acted without an order; change is one clause; nothing else goes in the line.</p></li>
+<li id="line-26"><span class="ln" aria-hidden="true">26</span><code>::RULE{judge⇒the_model_perceives_the_eleven_values_of_the_act_of_changing_the_repository(what_is_changed,for_whom,with_what_authority,how_reversible_by_revert,on_what_evidence); code_computes_M_with_f_v5; the_block_is_JUDGE_v5.0_with_V_M_R,two_decimals,fixed_order; ilang_judge_validator.py_--check_passes_before_the_commit_is_made}</code><p>The rule for the judgment: the model perceives the eleven values of the act of changing the repository (what is changed, for whom, with what authority, how reversible by revert, on what evidence); code computes M with f_v5; the block is JUDGE v5.0 with V, M and R, two decimals, fixed order; the judge validator passes before the commit is made.</p></li>
+<li id="line-27"><span class="ln" aria-hidden="true">27</span><code>::RULE{seal⇒the_chain_is_the_request_line_then_the_JUDGE_block,UTF-8_verbatim,LF; it_stands_at_the_end_of_the_commit_message_after_one_blank_line_under_the_label_ai.ilang.chain_on_its_own_line; one_chain_per_commit; a_release_commit_that_only_moves_version_fields_carries_the_chain_of_the_order_that_caused_it; a_rebase_or_squash_makes_new_commits_each_with_its_own_chain}</code><p>The rule for sealing: the chain is the request line then the JUDGE block, UTF-8 verbatim, LF; it stands at the end of the commit message after one blank line under the label ai.ilang.chain on its own line; one chain per commit; a release commit that only moves version fields carries the chain of the order that caused it; a rebase or a squash makes new commits, each with its own chain.</p></li>
+<li id="line-28"><span class="ln" aria-hidden="true">28</span><code>::RULE{read⇒the_chain_is_read_from_git_log; the_request_line_passes_ilang_grammar_validator_--strict,the_block_passes_ilang_judge_validator_--check; either_fails⇒the_commit_has_no_chain,say_so; the_mode_is_the_M_line_only}</code><p>The rule for reading: the chain is read from git log; the request line passes the grammar validator in strict mode and the block passes the judge validator; if either fails, the commit has no chain and the reader says so; the mode is the M line only.</p></li>
+<li id="line-29"><span class="ln" aria-hidden="true">29</span><code>::RULE{gate⇒a_repository_adopts_code-chain_by_running_the_gate_in_CI; the_gate_fails_on_an_invalid_chain_from_the_first_run; it_fails_on_a_missing_chain_only_from_the_commit_the_repository_names_as_its_first_required_one; until_then_it_prints_the_counts}</code><p>The rule for the gate: a repository adopts Code Chain by running the gate in CI; the gate fails on an invalid chain from the first run; it fails on a missing chain only from the commit the repository names as its first required one; until then it prints the counts.</p></li>
+<li id="line-30"><span class="ln" aria-hidden="true">30</span><code>::RULE{task_done⇒one_line_action_score_S_two_decimals; full_JUDGE_on_request}</code><p>When a task is done the agent writes one action-score line, S with two decimals; a full JUDGE block on request.</p></li>
+<li id="line-31"><span class="ln" aria-hidden="true">31</span><code>::PRIORITY{ BOUNDARY &gt; the_owner's_words_verbatim &gt; one_chain_per_commit &gt; the_gate &gt; brevity }</code><p>When rules collide: the boundaries first, then the owner's words verbatim, then one chain per commit, then the gate, then brevity.</p></li>
+<li id="line-32"><span class="ln" aria-hidden="true">32</span><code>::ILANG::v5.0</code><p>The closing marker: the document ends here.</p></li>
+</ol>
+<h2 id="acceptance">Acceptance</h2>
+<p>Eight items in <a href="https://github.com/ilang-ai/ilang-spec/blob/main/products/code-chain/ACCEPTANCE.ilang.md" target="_blank" rel="noopener">ACCEPTANCE.ilang.md</a>, run by goal-check of ilang-conformance; five run by code, three wait for a person, as of 2026-11-19.</p>
+<ul class="soul-acc">
+<li><b>C1 to C5</b><span>Grammar in strict mode, the IML round trip with the reference codec, the two pinned hashes, the length under 6000 characters: pass in the 5.0.17 release lint.</span></li>
+<li><b>C6</b><span>The chain in the README, the request line then the JUDGE block, passes both validators when written to a file under the canon header: waits for a tester's evidence line.</span></li>
+<li><b>C7</b><span>DeepSeekHarness reads its chained commits back with its gate in a CI run and reports 0 invalid: the run exists (v1.1.54, 2026-11-19, the line quoted above); the item passes when someone other than the author records it.</span></li>
+<li><b>C8</b><span>A reader given only git log of one chained commit names who asked, in his own words, and the mode: waits for a reader.</span></li>
+</ul>
+<h2 id="ilang-or-iml">iLang or IML</h2>
+<p>Paste the iLang block, written for people and models. The IML block is the same document compiled for programs with the IML 0.6 reference codec (github.com/ilang-ai/iml-protocol). It decompiles to the iLang text; the acceptance items check both ways.</p>
+<h2 id="questions">Questions</h2>
+<div class="faq-list">
+<div class="faq-item"><h3>Why in the commit message and not in a file beside the code?</h3><p>Because the message is the record of the act and belongs to one commit only. A file in the tree travels with every later commit and any of them can edit it; nothing ties one of its lines to the commit that made a change. The message is what the hash of that commit and, when the repository signs, its signature seal as the act's own record.</p></div>
+<div class="faq-item"><h3>Where does the mode come from?</h3><p>From code. The model perceives the eleven values of the act of changing the repository; f_v5 of SPEC-v5.0 Part II computes the mode from them; the judge validator refuses a block whose M line disagrees with its V line. A mode name typed into the message is only text.</p></div>
+<div class="faq-item"><h3>What about the commits made before a repository adopted it?</h3><p>They are counted, not refused. The gate fails on an invalid chain from its first run; it fails on a missing chain only from the commit the repository names as its first required one. DeepSeekHarness names v1.1.53: one older commit in its window has no chain, and the gate prints it and passes.</p></div>
+<div class="faq-item"><h3>What if nobody gave an order?</h3><p>Then words is absent. The author's own change clause remains, and so does the judgment; what the record says is that the author acted without an order, which is itself worth knowing.</p></div>
+<div class="faq-item"><h3>Does this make a commit tamper-proof?</h3><p>No more than git does, and the product forbids claiming more. The commit hash covers the chain; a signed commit binds it to a key; a rewritten commit is a different commit with a different hash and needs its own chain. What the chain adds is not strength but content: who asked, in his words, and how the act was judged, in the place the hash already covers.</p></div>
+<div class="faq-item"><h3>What about squash and rebase?</h3><p>They make new commits. Each needs its own chain; the old commits are history and are never edited. A release commit that only moves version fields carries the chain of the order that caused it.</p></div>
+<div class="faq-item"><h3>Is this the same as Media Chain?</h3><p>The same chain, a different artifact. Media Chain puts a GEN line and a JUDGE block inside a generated image or video before the platform signs it; Code Chain puts a FACT line and a JUDGE block inside a commit message before git hashes it. One judgment layer, one JUDGE block, two places it is sealed.</p></div>
+<div class="faq-item"><h3>Can I change it?</h3><p>Yes. The license is MIT. To check that your edit is still valid iLang, run the canon grammar validator in strict mode and the judge validator on any JUDGE block: both are in ilang-spec, standard library only.</p></div>
+</div>
+<h2 id="feedback">Feedback</h2>
+<p class="fb">Found a case where it fails? <a href="https://github.com/ilang-ai/ilang-research/issues/new?template=counterexample.yml" target="_blank" rel="noopener">File a counterexample</a>. Want a rule changed? <a href="https://github.com/ilang-ai/ilang-research/issues/new?template=amendment.yml" target="_blank" rel="noopener">File an amendment</a> with the fix. Both run the gates the canon defines and are recorded verbatim at <a href="https://github.com/ilang-ai/ilang-research/tree/main/records" target="_blank" rel="noopener">research</a>; nothing is merged by a machine.</p>
+<p class="next soul-next">Want the files? <a href="https://github.com/ilang-ai/ilang-spec/tree/main/products/code-chain" target="_blank" rel="noopener">ilang-spec / products / code-chain</a>: the product, its IML form and the acceptance items. Want the first gate? <a href="https://github.com/adsorgcn/DeepSeekHarness/blob/main/tools/code_chain.py" target="_blank" rel="noopener">DeepSeekHarness tools/code_chain.py</a>: check, show, seal. Want the same chain inside a generated image or video? See <a href="/media-chain/" target="_blank" rel="noopener">Media Chain</a>. Want the agent to keep its memory? See <a href="/memory/" target="_blank" rel="noopener">Memory</a>. Want a persona for the agent? See <a href="/soul/" target="_blank" rel="noopener">SOUL</a>.</p>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <p class="f-brand"><img src="/ilang-logo.svg" alt="" width="28" height="28"> iLang</p>
+        <p class="footer-about">iLang Inc. is a Canada-based AI language technology company. Creator of iLang, an open protocol for structured communication across AI-to-AI, AI internal, and human-to-AI workflows. Contact: <!--email_off--><a href="mailto:contact@ilang.ai">contact@ilang.ai</a><!--/email_off--></p>
+      </div>
+      <div>
+        <p class="footer-col-title">Protocol</p>
+        <ul>
+          <li><a href="/mcp-vs-a2a/">Compare</a></li>
+          <li><a href="/spec/">Specification</a></li>
+          <li><a href="/dictionary/">Dictionary</a></li>
+          <li><a href="/playground/">Playground</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec" target="_blank" rel="noopener">GitHub Spec</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Build</p>
+        <ul>
+          <li><a href="/soul/">SOUL</a></li>
+          <li><a href="/memory/">Memory</a></li>
+          <li><a href="/media-chain/">Media Chain</a></li>
+          <li><a href="/code-chain/">Code Chain</a></li>
+          <li><a href="/source-book/">Source Book</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang" target="_blank" rel="noopener">iLang loader</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-spec/tree/main/runtime" target="_blank" rel="noopener">iLang runtime</a></li>
+          <li><a href="https://github.com/ilang-ai/agent-ready-geo" target="_blank" rel="noopener">Agent Ready GEO</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Research</p>
+        <ul>
+          <li><a href="https://research.ilang.ai/datasets/ilang-conformance/" target="_blank" rel="noopener">45-model conformance</a></li>
+          <li><a href="https://research.ilang.ai/datasets/judgment-layer-audit/" target="_blank" rel="noopener">Production audit</a></li>
+          <li><a href="https://huggingface.co/datasets/i-Lang/ilang-judge-observations" target="_blank" rel="noopener">Judge observations, daily</a></li>
+          <li><a href="https://research.ilang.ai/papers/missing-definition-of-right/" target="_blank" rel="noopener">Preprint</a></li>
+          <li><a href="https://research.ilang.ai" target="_blank" rel="noopener">All research</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Community</p>
+        <ul>
+          <li><a href="https://github.com/ilang-ai" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://huggingface.co/i-Lang" target="_blank" rel="noopener">Hugging Face</a></li>
+          <li><a href="https://www.reddit.com/r/iLang/" target="_blank" rel="noopener">Reddit</a></li>
+          <li><a href="https://ilang.cn" target="_blank" rel="noopener" lang="zh-CN">中文站</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="https://github.com/ilang-ai/ilang-research/issues/new/choose" target="_blank" rel="noopener">Feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul>
+          <li><a href="/about/">About iLang</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><!--email_off--><a href="mailto:contact@ilang.ai">Contact</a><!--/email_off--></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 iLang Inc. · Canada · AI language technology</span>
+      <div class="ids">
+        <span>MIT License</span>
+        <span>ilang:genesis:2026-03-04</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Copy: the exact text of the block, trailing newline included. The page is static; nothing is sent anywhere.
+(function(){
+  var fallback = document.createElement('textarea'); fallback.className = 'soul-copy-fallback'; fallback.setAttribute('aria-hidden', 'true'); fallback.tabIndex = -1;
+  document.body.appendChild(fallback);
+  function select(text){ fallback.value = text; fallback.focus(); fallback.select(); fallback.setSelectionRange(0, text.length); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} return ok; }
+  Array.prototype.forEach.call(document.querySelectorAll('.code-copy[data-copy]'), function(btn){
+    btn.addEventListener('click', function(){
+      var text = document.getElementById(btn.getAttribute('data-copy')).textContent;
+      var done = function(ok){ btn.textContent = ok ? 'Copied' : 'Select and copy'; btn.classList.toggle('copied', ok); setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(select(text)); });
+      else done(select(text));
+    });
+  });
+})();
+</script>
+<script src="/assets/site.js?v=7582da8c" defer></script>
+</body>
+</html>
