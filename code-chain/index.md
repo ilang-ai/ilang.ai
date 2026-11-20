@@ -1,11 +1,11 @@
-# iLang Code Chain 1.0
+# iLang Code Chain 1.1
 
 Code Chain is the provenance layer of iLang for a change to a repository: an iLang document that tells an AI agent to put the request that caused a commit and the judgment that allowed it at the end of the commit message, where the commit hash covers them and a signed commit binds them to a key. The request is one FACT line carrying the owner's words verbatim and the change in one clause; the judgment is one JUDGE block.
 
 It is the same chain Media Chain writes inside a generated image or video, put inside a git commit. It uses two parts of the canon that already exist and adds nothing to either: the FACT declaration of SPEC-v5.0 Part I §1 and the frozen JUDGE block of Part II §4 (eleven dimensions, one mode computed by f_v5). A gate reads the chain back from git log with the canon's two validators and counts before it forbids. First run on DeepSeekHarness, whose every commit since v1.1.53 carries a chain and whose CI refuses one without.
 
-- Version 1.0, 2026-11-19, MIT. Shipped in ilang-spec 5.0.17, DOI 10.5281/zenodo.24382010. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/code-chain. First gate: https://github.com/adsorgcn/DeepSeekHarness/blob/main/tools/code_chain.py. Sibling: Media Chain, https://ilang.ai/media-chain/
-- Files: https://ilang.ai/code-chain/CODE-CHAIN.ilang.md (sha256 b3610620c0334c75b6b545fdeeb17b6c288b3770eb0856c98a99a375c987c5e0), https://ilang.ai/code-chain/CODE-CHAIN.iml (sha256 c53bf16bfe548ad402903675fbe47e784d1e9abf9ae79582bee49dd8a384c785)
+- Version 1.1, 2026-11-19, MIT. Shipped in ilang-spec 5.0.18 (1.0 the same day in 5.0.17), DOI 10.5281/zenodo.24384598. Source: https://github.com/ilang-ai/ilang-spec/tree/main/products/code-chain. First gate: https://github.com/adsorgcn/DeepSeekHarness/blob/main/tools/code_chain.py. Sibling: Media Chain, https://ilang.ai/media-chain/
+- Files: https://ilang.ai/code-chain/CODE-CHAIN.ilang.md (sha256 ab24c19c724c657392008250f8210bc17b2c40e02cb69ddb36cc87c33ea6e676), https://ilang.ai/code-chain/CODE-CHAIN.iml (sha256 d3500cb84fc52e964500943ea0412e9d2d6aa3c228c3dc7c61c6d09f4e0b5bd2)
 
 ## Give it to your agent
 
@@ -17,7 +17,7 @@ An agent with tools writes the request line from your words, judges the act of c
 
 ```
 ::ILANG::v5.0
-[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.0][DATE:2026-11-19][LANG:en]
+[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.1][DATE:2026-11-19][LANG:en]
 [FROM:@ai_chuhai][TO:@AGENT][STATUS:active]
 ::STATE{@OWNER, kind:person, role:owner_of_the_repository, alias:the I in this chat}
 ::STATE{@ARTIFACT, kind:git_commit, act:one_change_to_a_repository, request:one_FACT_line_with_the_owner's_words_verbatim_and_the_change_in_one_clause, judgment:one_JUDGE_block_of_SPEC-v5.0_Part_II_§4}
@@ -25,13 +25,13 @@ An agent with tools writes the request line from your words, judges the act of c
 ::STATE{@REQUEST, form:"::FACT{key:request|by:@HANDLE|words:\"the owner's words\"|change:what_this_commit_does_in_one_clause|conf:confirmed}", words:verbatim_or_absent_never_paraphrased, change:one_clause_in_the_author's_own_words}
 ::STATE{@GATE, kind:code_that_reads_git_log, does:finds_the_label_takes_the_five_lines_runs_grammar_strict_on_the_request_and_the_judge_validator_on_the_block, counts:chained_unchained_invalid, fails_on:an_invalid_chain_only_until_the_repository_names_its_first_required_commit, first:github.com/adsorgcn/DeepSeekHarness_tools/code_chain.py}
 ::STATE{@CODE, repo:github.com/ilang-ai/ilang-spec, judge:ilang_judge_validator.py --check, grammar:ilang_grammar_validator.py --lint --strict, sibling:products/media-chain_the_same_chain_for_a_media_file}
-::GENE{code-chain|v:1.0|spec:ilang-v5.0}
+::GENE{code-chain|v:1.1|spec:ilang-v5.0}
   T:a_commit_is_an_act_and_an_act_has_a_requester_and_a_judgment
   T:the_request_is_the_owner's_words_as_written_not_a_summary_of_them
   T:the_judgment_is_one_JUDGE_block_and_code_computes_its_mode
   T:both_travel_inside_the_commit_message_where_the_hash_covers_them
   T:the_gate_counts_before_it_forbids
-  A:a_chain_in_a_file_beside_the_code⇒not_the_chain_the_hash_does_not_cover_it
+  A:a_chain_in_a_file_beside_the_code⇒not_the_chain,the_file_travels_with_every_later_commit_and_any_of_them_can_edit_it,the_message_belongs_to_this_commit_alone
   A:the_owner's_words_rewritten_for_tone_or_length⇒the_record_is_void
   A:a_mode_token_in_the_message_or_in_R⇒only_text,the_mode_is_the_M_line
   A:a_commit_rewritten_after_it_was_chained⇒a_new_commit_with_its_own_chain,the_old_one_is_history
@@ -50,14 +50,14 @@ An agent with tools writes the request line from your words, judges the act of c
 ::ILANG::v5.0
 ```
 
-4492 characters, sha256 b3610620c0334c75b6b545fdeeb17b6c288b3770eb0856c98a99a375c987c5e0. iLang v5.0, canon grammar validator: 0 errors, strict.
+4575 characters, sha256 ab24c19c724c657392008250f8210bc17b2c40e02cb69ddb36cc87c33ea6e676. iLang v5.0, canon grammar validator: 0 errors, strict.
 
 ## IML 0.6
 
 ```
 #iml/0.6/ba5fde00dd69
 "::ILANG::v5.0"
-"[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.0][DATE:2026-11-19][LANG:en]"
+"[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.1][DATE:2026-11-19][LANG:en]"
 "[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]"
 :ST"@OWNER, kind:person, role:owner_of_the_repository, alias:the I in this chat"
 :ST"@ARTIFACT, kind:git_commit, act:one_change_to_a_repository, request:one_FACT_line_with_the_owner's_words_verbatim_and_the_change_in_one_clause, judgment:one_JUDGE_block_of_SPEC-v5.0_Part_II_§4"
@@ -65,13 +65,13 @@ An agent with tools writes the request line from your words, judges the act of c
 :ST"@REQUEST, form:\"::FACT{key:request|by:@HANDLE|words:\\\"the owner's words\\\"|change:what_this_commit_does_in_one_clause|conf:confirmed}\", words:verbatim_or_absent_never_paraphrased, change:one_clause_in_the_author's_own_words"
 :ST"@GATE, kind:code_that_reads_git_log, does:finds_the_label_takes_the_five_lines_runs_grammar_strict_on_the_request_and_the_judge_validator_on_the_block, counts:chained_unchained_invalid, fails_on:an_invalid_chain_only_until_the_repository_names_its_first_required_commit, first:github.com/adsorgcn/DeepSeekHarness_tools/code_chain.py"
 :ST"@CODE, repo:github.com/ilang-ai/ilang-spec, judge:ilang_judge_validator.py --check, grammar:ilang_grammar_validator.py --lint --strict, sibling:products/media-chain_the_same_chain_for_a_media_file"
-:GN"code-chain|v:1.0|spec:ilang-v5.0"
+:GN"code-chain|v:1.1|spec:ilang-v5.0"
  "T:a_commit_is_an_act_and_an_act_has_a_requester_and_a_judgment"
  "T:the_request_is_the_owner's_words_as_written_not_a_summary_of_them"
  "T:the_judgment_is_one_JUDGE_block_and_code_computes_its_mode"
  "T:both_travel_inside_the_commit_message_where_the_hash_covers_them"
  "T:the_gate_counts_before_it_forbids"
- "A:a_chain_in_a_file_beside_the_code⇒not_the_chain_the_hash_does_not_cover_it"
+ "A:a_chain_in_a_file_beside_the_code⇒not_the_chain,the_file_travels_with_every_later_commit_and_any_of_them_can_edit_it,the_message_belongs_to_this_commit_alone"
  "A:the_owner's_words_rewritten_for_tone_or_length⇒the_record_is_void"
  "A:a_mode_token_in_the_message_or_in_R⇒only_text,the_mode_is_the_M_line"
  "A:a_commit_rewritten_after_it_was_chained⇒a_new_commit_with_its_own_chain,the_old_one_is_history"
@@ -90,7 +90,7 @@ An agent with tools writes the request line from your words, judges the act of c
 "::ILANG::v5.0"
 ```
 
-4458 characters, sha256 c53bf16bfe548ad402903675fbe47e784d1e9abf9ae79582bee49dd8a384c785. Compiled by the reference codec of IML 0.6; decompiles back to the iLang file byte for byte.
+4541 characters, sha256 d3500cb84fc52e964500943ea0412e9d2d6aa3c228c3dc7c61c6d09f4e0b5bd2. Compiled by the reference codec of IML 0.6; decompiles back to the iLang file byte for byte.
 
 ## Where it goes
 
@@ -132,8 +132,8 @@ Line numbers are those of CODE-CHAIN.ilang.md.
 
 1. `::ILANG::v5.0`
    The opening marker: what follows is an iLang document, protocol version 5.0.
-2. `[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.0][DATE:2026-11-19][LANG:en]`
-   The header: a code-chain document named ILANG-CODE-CHAIN, version 1.0, dated 2026-11-19, in English.
+2. `[TYPE:code_chain][ID:ILANG-CODE-CHAIN][VERSION:1.1][DATE:2026-11-19][LANG:en]`
+   The header: a code-chain document named ILANG-CODE-CHAIN, version 1.1, dated 2026-11-19, in English.
 3. `[FROM:@ai_chuhai][TO:@AGENT][STATUS:active]`
    From the author to the AI agent that loads it; the status is active.
 4. `::STATE{@OWNER, kind:person, role:owner_of_the_repository, alias:the I in this chat}`
@@ -148,8 +148,8 @@ Line numbers are those of CODE-CHAIN.ilang.md.
    What the gate is: code that reads git log, finds the label, takes the five lines, runs the grammar validator in strict mode on the request and the judge validator on the block. It counts chained, unchained and invalid commits; it fails only on an invalid chain until the repository names its first required commit. The first gate is tools/code_chain.py of DeepSeekHarness.
 9. `::STATE{@CODE, repo:github.com/ilang-ai/ilang-spec, judge:ilang_judge_validator.py --check, grammar:ilang_grammar_validator.py --lint --strict, sibling:products/media-chain_the_same_chain_for_a_media_file}`
    Where the code is: the ilang-spec repository, the judge validator for JUDGE blocks, the grammar validator for everything else; the sibling product Media Chain puts the same chain into a media file.
-10. `::GENE{code-chain|v:1.0|spec:ilang-v5.0}`
-   The genes of the product, version 1.0, on iLang v5.0: the traits and the anti-patterns that follow.
+10. `::GENE{code-chain|v:1.1|spec:ilang-v5.0}`
+   The genes of the product, version 1.1, on iLang v5.0: the traits and the anti-patterns that follow.
 11. `  T:a_commit_is_an_act_and_an_act_has_a_requester_and_a_judgment`
    A commit is an act, and an act has someone who asked for it and a judgment of it.
 12. `  T:the_request_is_the_owner's_words_as_written_not_a_summary_of_them`
@@ -160,8 +160,8 @@ Line numbers are those of CODE-CHAIN.ilang.md.
    The request and the judgment are stored in the commit message itself, where the commit hash covers them.
 15. `  T:the_gate_counts_before_it_forbids`
    The gate reports counts first; it refuses only what the repository has said it refuses.
-16. `  A:a_chain_in_a_file_beside_the_code⇒not_the_chain_the_hash_does_not_cover_it`
-   A chain written into a file beside the code is not the chain. A file travels with every later commit and any of them can edit it; the message belongs to this commit alone, and it is the message that the hash and the signature seal as the record of the act.
+16. `  A:a_chain_in_a_file_beside_the_code⇒not_the_chain,the_file_travels_with_every_later_commit_and_any_of_them_can_edit_it,the_message_belongs_to_this_commit_alone`
+   A chain written into a file beside the code is not the chain, and the line says why: the file travels with every later commit and any of them can edit it, so nothing ties one of its lines to the commit that made a change; the message belongs to this commit alone, and it is the message that the hash and the signature seal as the record of the act. Version 1.0 of this line said the hash does not cover a file; that was inaccurate, a file in the tree is under the commit hash too, and 1.1 replaced it with the reason above.
 17. `  A:the_owner's_words_rewritten_for_tone_or_length⇒the_record_is_void`
    The owner's words rewritten for tone or length make the record void: a paraphrase is not a request.
 18. `  A:a_mode_token_in_the_message_or_in_R⇒only_text,the_mode_is_the_M_line`
@@ -199,7 +199,7 @@ Line numbers are those of CODE-CHAIN.ilang.md.
 
 Eight items in https://github.com/ilang-ai/ilang-spec/blob/main/products/code-chain/ACCEPTANCE.ilang.md, run by goal-check of ilang-conformance; five run by code, three wait for a person, as of 2026-11-19.
 
-- C1 to C5: Grammar in strict mode, the IML round trip with the reference codec, the two pinned hashes, the length under 6000 characters: pass in the 5.0.17 release lint.
+- C1 to C5: Grammar in strict mode, the IML round trip with the reference codec, the two pinned hashes, the length under 6000 characters: pass in the 5.0.18 release lint.
 - C6: The chain in the README, the request line then the JUDGE block, passes both validators when written to a file under the canon header: waits for a tester's evidence line.
 - C7: DeepSeekHarness reads its chained commits back with its gate in a CI run and reports 0 invalid: the run exists (v1.1.54, 2026-11-19, the line quoted above); the item passes when someone other than the author records it.
 - C8: A reader given only git log of one chained commit names who asked, in his own words, and the mode: waits for a reader.
