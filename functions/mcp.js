@@ -24,7 +24,7 @@ const INSTRUCTIONS = 'This server gives you the official iLang. Load it once per
   'heading instead of guessing. Look up terms with ilang_lookup and check iLang you write with ilang_validate. '
   + 'To turn a tutorial into an executable engineering book, use the source_book prompt and check the book with ilang_book_check. ' +
   'Two published iLang documents are here as files: ilang_soul returns SOUL 2.0, a judgment layer for an AI\'s default persona; ' +
-  'ilang_source_book returns Source Book 2.9, the engineering book every iLang engineering book is anchored to. form=iml gives the IML 0.5 form.';
+  'ilang_source_book returns Source Book 2.9, the engineering book every iLang engineering book is anchored to. form=iml gives the IML 0.6 form.';
 const BIG = { 'anthropic/maxResultSizeChars': 250000 };
 const LITE_META = { 'anthropic/maxResultSizeChars': 50000 };
 const LITE_PREAMBLE = 'You have loaded iLang runtime lite: the syntax and vocabulary of iLang, taken word for word from the official full runtime ' +
@@ -44,15 +44,15 @@ const LITE = [
 // None of them writes, sends or deletes anything, so a repeated call changes nothing.
 const TOOLS = [
   { name: 'ilang_runtime', title: 'Load iLang',
-    description: 'iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. Return the official iLang runtime, the working text of the specification (about 18,600 tokens), ' +
+    description: 'iLang is a specification between humans and AI: before the AI acts, it defines what that action is authorized to become; after, code checks whether it was done right. Return the official iLang runtime, the working text of the specification (about 27,800 tokens), ' +
       'verified against the canon\'s sha256. Load it once per conversation, then use iLang internally. ' +
-      'media=true adds the image, video and audio extension (about 18,000 tokens more).',
+      'media=true adds the image, video and audio extension (about 18,100 tokens more).',
     inputSchema: { type: 'object', properties: { media: { type: 'boolean', description: 'Add the media extension' } } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: BIG },
   { name: 'ilang_runtime_lite', title: 'Load iLang (syntax and vocabulary)',
     description: 'Return iLang runtime lite: the two syntaxes, the verb table (88 verbs with their 13 Greek aliases), the 29 modifiers, the error codes, ' +
       'the declaration body forms, the registry of 33 declarations and the entity registry (25 entities), taken word for word from the canon\'s full runtime ' +
-      'and checked against its sha256. About 18,000 characters, where ilang_runtime returns about 93,000. Enough to write iLang and check it with ilang_validate; ' +
+      'and checked against its sha256. About 18,000 characters, where ilang_runtime returns about 103,000. Enough to write iLang and check it with ilang_validate; ' +
       'it leaves out the execution and judgment layers, so load ilang_runtime when a task needs them.',
     inputSchema: { type: 'object', properties: {} },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: LITE_META },
@@ -78,13 +78,13 @@ const TOOLS = [
   { name: 'ilang_soul', title: 'SOUL 2.0',
     description: '[GET:@SOUL|whr=form]=>[Ω] Return SOUL 2.0, the published iLang document that sets how an AI behaves by default: a judgment layer for its default persona. ' +
       'The text comes back as the file on ilang.ai/soul/ (about 2,000 characters), followed by a JSON line with version, date, license, DOI, file url and the sha256 of the text served. ' +
-      'Paste the text where the AI reads its instructions. form=iml returns the IML 0.5 form instead.',
+      'Paste the text where the AI reads its instructions. form=iml returns the IML 0.6 form instead.',
     inputSchema: { type: 'object', properties: { form: { type: 'string', enum: ['ilang', 'iml'], description: 'ilang (default) or iml' } } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
   { name: 'ilang_source_book', title: 'Source Book 2.9',
     description: '[GET:@SOURCE_BOOK|whr=form]=>[Ω] Return Source Book 2.9, the engineering book every iLang engineering book is anchored to: pasted into an agent app that has a shell, files and the web, ' +
       'and given a tutorial, the agent confirms the tutorial\'s numbers against official sources and writes BOOK.md, an English iLang book any agent can carry out. ' +
-      'The text comes back as the file on ilang.ai/source-book/ (about 7,600 characters), followed by a JSON line with version, date, license, DOI, file url and the sha256 of the text served. form=iml returns the IML 0.5 form instead.',
+      'The text comes back as the file on ilang.ai/source-book/ (about 7,600 characters), followed by a JSON line with version, date, license, DOI, file url and the sha256 of the text served. form=iml returns the IML 0.6 form instead.',
     inputSchema: { type: 'object', properties: { form: { type: 'string', enum: ['ilang', 'iml'], description: 'ilang (default) or iml' } } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
   { name: 'ilang_book_check', title: 'Check an engineering book',
@@ -104,15 +104,15 @@ const PROMPTS = [
 ];
 const RESOURCES = [
   { uri: 'ilang://runtime/core', name: 'ilang-runtime-core', title: 'iLang runtime (core)', mimeType: 'text/markdown',
-    description: 'The working text of the specification a model loads, about 18,600 tokens' },
+    description: 'The working text of the specification a model loads, about 27,800 tokens' },
   { uri: 'ilang://runtime/full', name: 'ilang-runtime-full', title: 'iLang runtime (full)', mimeType: 'text/markdown',
-    description: 'The same three documents complete, about 27,000 tokens' },
+    description: 'The same three documents complete, about 53,200 tokens' },
   { uri: 'ilang://runtime/media', name: 'ilang-runtime-media', title: 'iLang media extension', mimeType: 'text/markdown',
-    description: 'Image, video and audio vocabulary, about 18,000 tokens' },
+    description: 'Image, video and audio vocabulary, about 18,100 tokens' },
   { uri: 'ilang://products/soul', name: 'ilang-soul', title: 'SOUL 2.0', mimeType: 'text/markdown',
-    description: 'A judgment layer for an AI\'s default persona, the published iLang document; ilang://products/soul/iml is the IML 0.5 form' },
+    description: 'A judgment layer for an AI\'s default persona, the published iLang document; ilang://products/soul/iml is the IML 0.6 form' },
   { uri: 'ilang://products/source-book', name: 'ilang-source-book', title: 'Source Book 2.9', mimeType: 'text/markdown',
-    description: 'The engineering book every iLang engineering book is anchored to; ilang://products/source-book/iml is the IML 0.5 form' },
+    description: 'The engineering book every iLang engineering book is anchored to; ilang://products/source-book/iml is the IML 0.6 form' },
 ];
 
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Accept, Mcp-Session-Id, MCP-Protocol-Version' };

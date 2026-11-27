@@ -3667,11 +3667,11 @@
     },
     {
       "url": "https://ilang.ai/soul/",
-      "description": "SOUL 2.0: a judgment layer for an AI's default persona; the iLang and IML 0.5 files with one-click copy, where to paste it, line by line, four questions, a feedback entry (counterexample and amendment forms at research)"
+      "description": "SOUL 2.0: a judgment layer for an AI's default persona; the iLang and IML 0.6 files with one-click copy, where to paste it, line by line, four questions, a feedback entry (counterexample and amendment forms at research)"
     },
     {
       "url": "https://ilang.ai/source-book/",
-      "description": "Source Book 2.9: the engineering book every iLang engineering book is anchored to; the iLang and IML 0.5 files, how to run it, what it writes, four sample runs, four questions, a feedback entry (counterexample and amendment forms at research)"
+      "description": "Source Book 2.9: the engineering book every iLang engineering book is anchored to; the iLang and IML 0.6 files, how to run it, what it writes, four sample runs, four questions, a feedback entry (counterexample and amendment forms at research)"
     }
   ],
   "schemas": [

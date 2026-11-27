@@ -51,19 +51,19 @@
   },
   "allOf": [
     {
-      "$comment": "S1 §4: @AGENT / @SELF -> authority:proposal",
+      "$comment": "S1 §4: @AGENT / @SELF -> authority:proposal. The writer fixes the tier whether or not authority is written, so the tier's states (S4) bind it either way",
       "if": {"required": ["by"], "properties": {"by": {"enum": ["@AGENT", "@SELF"]}}},
-      "then": {"properties": {"authority": {"const": "proposal"}}}
+      "then": {"properties": {"authority": {"const": "proposal"}, "state": {"enum": ["claimed_complete", "stopped", "blocked", "failed", "needs_revision"]}}}
     },
     {
-      "$comment": "S2 §4: @GRADER -> authority:verification",
+      "$comment": "S2 §4: @GRADER -> authority:verification. The writer fixes the tier whether or not authority is written, so the tier's states (S5) bind it either way",
       "if": {"required": ["by"], "properties": {"by": {"const": "@GRADER"}}},
-      "then": {"properties": {"authority": {"const": "verification"}}}
+      "then": {"properties": {"authority": {"const": "verification"}, "state": {"enum": ["verified_complete", "needs_revision"]}}}
     },
     {
-      "$comment": "S3 §4: @RUNTIME -> authority:commit",
+      "$comment": "S3 §4: @RUNTIME -> authority:commit. The writer fixes the tier whether or not authority is written, so the tier's states (S6) bind it either way",
       "if": {"required": ["by"], "properties": {"by": {"const": "@RUNTIME"}}},
-      "then": {"properties": {"authority": {"const": "commit"}}}
+      "then": {"properties": {"authority": {"const": "commit"}, "state": {"enum": ["complete", "running", "stopped"]}}}
     },
     {
       "$comment": "S4 §4: authority:proposal can write claimed_complete, stopped, blocked, failed, needs_revision",

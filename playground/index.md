@@ -7,7 +7,7 @@ Convert iLang operation chains to IML and back, validate iLang documents, and co
 
 ## Convert
 
-Write iLang operation chains, one per line, and read the IML beside them; edit the IML and the iLang follows. The converter is a port of the IML 0.6.1 reference codec ([ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol)), so whatever converts comes back unchanged. It converts chains; documents with declarations are converted by the reference codec.
+Write iLang operation chains, one per line, and read the IML beside them; edit the IML and the iLang follows. The converter is a port of the IML 0.6.2 reference codec ([ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol)), so whatever converts comes back unchanged. It converts chains; documents with declarations are converted by the reference codec.
 
 Every IML message starts with its version and registry digest, `#iml/0.6/ba5fde00dd69`, which is 15 cl100k_base tokens. For a single chain the IML message is therefore usually longer than the iLang line; the document form carries the header once for all chains. Measured figures for the full corpora are in the [IML measurement reports](https://github.com/ilang-ai/iml-protocol/tree/main/measurements).
 
@@ -19,7 +19,7 @@ Example, from the specification §10.1:
 
 ## Validate
 
-Paste an iLang document, such as an agent's SOUL file, and read what the canon grammar validator reports: errors, warnings and notes with their line and code. The validator is a port of `ilang_grammar_validator.py` at [ilang-ai/ilang-spec](https://github.com/ilang-ai/ilang-spec) commit 6f61b7f (release 5.0.19). A text whose first line is `::ILANG::v5.0` is read as a raw iLang document; any other text is read as Markdown, and its iLang lines and fenced blocks are checked.
+Paste an iLang document, such as an agent's SOUL file, and read what the canon grammar validator reports: errors, warnings and notes with their line and code. The validator is a port of `ilang_grammar_validator.py` at [ilang-ai/ilang-spec](https://github.com/ilang-ai/ilang-spec) commit c7ae253 (release 5.0.20). A text whose first line is `::ILANG::v5.0` is read as a raw iLang document; any other text is read as Markdown, and its iLang lines and fenced blocks are checked.
 
 ## Count
 

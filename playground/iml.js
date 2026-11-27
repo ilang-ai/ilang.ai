@@ -1,7 +1,7 @@
 /*
- * iml.js: the IML 0.6.1 codec for I-Lang operation chains, in the browser. Global IML.
+ * iml.js: the IML 0.6.2 codec for I-Lang operation chains, in the browser. Global IML.
  *
- * A port of github.com/ilang-ai/iml-protocol at commit afa86f8 (v0.6.1), chains only:
+ * A port of github.com/ilang-ai/iml-protocol at commit a8609f1 (v0.6.2), chains only:
  * iml/codec.py (compile, decompile, the chain surface of 0.6, 0.5, 0.4 and 0.3), iml/l2.py
  * (parse_L2, print_L2, the continuation join), iml/__main__.py (what `python -m iml
  * compile [--document]` and `python -m iml decompile` do with their input: leading byte
@@ -29,7 +29,7 @@
   "use strict";
 
   // ---------------------------------------------------------------- registry
-  // The three registry files at afa86f8 hold the same chain tables (verbs, aliases, keys, entities, value codes),
+  // The three registry files at a8609f1 hold the same chain tables (verbs, aliases, keys, entities, value codes),
   // embedded once below; a header carries the first 12 hex characters of the digest of the file its version names:
   // registry/iml-registry-0.6.json (canon d1d4367, ilang-spec 5.0.11), the header compile writes, digest
   // ba5fde00dd6998a6a212311798e6ae30800e330b72c2cbef1b02a97947c9bacb;
@@ -777,7 +777,13 @@
       ops.push(new Op(verb, target, mods, verbref));
       if (i >= n) break;
       if (text[i] === SEP) {
-        if (verb === "OUT") fail("E502", "`$` (OUT) may appear only as the last operation", i, idx);
+        // OUT before a further operation is E502. When nothing but spaces follows OUT to the end of the line,
+        // OUT is the last operation and the spaces are trailing spaces (SPEC-IML-0.4.md section 2.6): they fall
+        // through to the E300 they get after any other operation. (The reference's `sep != " "` arm is the
+        // 0.2 surface, which is not ported: SEP is always a space here.)
+        if (verb === "OUT" && /[^ ]/.test(text.slice(i, n))) {
+          fail("E502", "`$` (OUT) may appear only as the last operation", i, idx);
+        }
         i += 1;
         idx += 1;
         continue;
@@ -828,7 +834,7 @@
   // doc_read.read_document for a document of chains: a 0.6 or 0.5 header reads the document
   // layer, which the playground leaves to the reference codec (a declaration or a text
   // line is E502 PLAYGROUND_DOC); a 0.4 or 0.3 header carries chains only, and its refusal
-  // of such a line names the 0.5 header alone, the reference's wording at afa86f8
+  // of such a line names the 0.5 header alone, the reference's wording at a8609f1
   function readDocument(text, nl, version) {
     var full = DOCUMENT_LAYER.indexOf(version) >= 0, items = [], length = text.length, start = nl + 1, nl2, end, segEnd, c;
     while (start < length) {
@@ -1090,8 +1096,8 @@
   }
 
   return {
-    VERSION: "0.6.1",
-    COMMIT: "afa86f8",
+    VERSION: "0.6.2",
+    COMMIT: "a8609f1",
     HEADER: HEADER,
     DIGEST: DIGEST_06,
     DIGEST_05: DIGEST_05,

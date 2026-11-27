@@ -2,8 +2,8 @@
  * ilang-validator.js: the I-Lang grammar and registry validator, in the browser.
  *
  * Port of ilang_grammar_validator.py of github.com/ilang-ai/ilang-spec at commit
- * 6f61b7f8353fbbef21b31fec6f79a0a700e0646e, release 5.0.19 (file sha256
- * 640e4497a098af07c05be136043d15b998ff8af893b1e7f50686e10a334c22d6): the class
+ * c7ae2532e178ebd6e03db25727325f3f7a6e1e16, release 5.0.20 (file sha256
+ * 28bfacb314b3dee6c5d3b6529c861f41a663a83d180462c90b1f9e0c19400566): the class
  * Linter and everything it uses. ILV.lint(text) returns the findings Linter(path, text).run()
  * returns, in the same order, with the same level, line, code and message. The command line
  * (--canon, --selftest, --json, file walking) is not ported; like the Linter, lint() does
@@ -28,9 +28,9 @@
 
   var SOURCE = {
     repository: "https://github.com/ilang-ai/ilang-spec",
-    commit: "6f61b7f8353fbbef21b31fec6f79a0a700e0646e",
+    commit: "c7ae2532e178ebd6e03db25727325f3f7a6e1e16",
     file: "ilang_grammar_validator.py",
-    sha256: "640e4497a098af07c05be136043d15b998ff8af893b1e7f50686e10a334c22d6"
+    sha256: "28bfacb314b3dee6c5d3b6529c861f41a663a83d180462c90b1f9e0c19400566"
   };
 
   // ------------------------------------------------------ Python string semantics
@@ -386,7 +386,9 @@
   var RE_TAG_TEXT = new RegExp("^\\[[A-Z][A-Z0-9_\\-]*(?::[^\\[\\]]*)?\\](" + S + "+" + NS + DOT +
                                "*)?$");
   var RE_KEY = new RegExp("^([A-Za-z_][A-Za-z0-9_]*):(" + DOT + "*)$");
-  var RE_ENTITY_TOKEN = /(?<=[{:|,\u2192=])@([A-Za-z][A-Za-z0-9_\-]*)/g;
+  // a token may open with a digit (2.2 names a leading digit as an error), and it holds a hyphen
+  // only between letters or digits, so `@SRC->@DST` reads @SRC and an arrow is not a name
+  var RE_ENTITY_TOKEN = /(?<=[{:|,\u2192=])@([A-Za-z0-9][A-Za-z0-9_]*(?:-[A-Za-z0-9_]+)*)/g;
   var RE_ENTITY_OK = /^@[A-Z][A-Z0-9_]*$/;
   var RE_BRACKET_GROUPS = /\[([^\[\]]*)\]/g;
   var RE_FENCE = new RegExp("^" + S + "*```");
@@ -920,20 +922,81 @@
   Linter.prototype.consume_brace_span = function (i, name, rest, end) {
     // 1.1: a set-span (header ends with `{`) ends at the bare `}` line; a wrapped field
     // header (content after the opening brace) ends at the first line ending with `}`.
+    // The content lines are not parsed as a body, but the span switches no check off: see
+    // check_span_line. A wrapped header's closing line is content too.
     var wrapped = !rstrip(rest).endsWith("{");
+    var state = { last_op: false, opaque: null };
     for (var j = i + 1; j < end; j++) {
       var t = strip(this.lines[j]);
-      if (t === "}" || (wrapped && t.endsWith("}"))) return j + 1;
+      if (t === "}" || (wrapped && t.endsWith("}"))) {
+        if (t !== "}") this.check_span_line(j, name, t, state);
+        return j + 1;
+      }
+      this.check_span_line(j, name, t, state);
     }
     this.add(ERROR, i + 1, "E300", "::" + name + " brace span never closes");
     return end;
   };
 
+  // One content line s (stripped) of the ::NAME brace span (1.1). The checks that need no body
+  // form: entity names (2.2) on every line; the declaration registry on a line that opens a
+  // declaration; the operation tables on a chain, i.e. a line opening with a bracket group and
+  // holding `]=>`, or a `=>[` line right after one. Set lines (`a > b > c`), tag lines and prose
+  // are left alone, and the payload of an ::UNTRUSTED header inside the span stays opaque up to
+  // its delimiter line.
+  Linter.prototype.check_span_line = function (j, name, s, state) {
+    if (state.opaque !== null) {
+      if (s === state.opaque) state.opaque = null;
+      return;
+    }
+    var last_op = state.last_op;
+    state.last_op = false;
+    if (!s) return;
+    this.scan_entities(j, s);
+    if (s.startsWith("::")) {
+      var m = RE_DECL_HEAD.exec(s);
+      var decl = m ? m[1] : null;
+      if (TOLERATED_ANNOT.has(decl)) return;
+      if (decl === null || !(DECL_STRUCTURAL.has(decl) || DECL_NARRATIVE.has(decl) ||
+                             TERMINATORS.has(decl) || META_DECLS.has(decl))) {
+        this.add(ERROR, j + 1, "E300", "::" + (decl || "?") + " inside the ::" + name +
+                 " brace span is not in the declaration registry (33 structural + 13 narrative," +
+                 " PATCH-2 \u00a71.5/\u00a71.6)");
+      }
+      if (decl === "UNTRUSTED") {
+        var dm = RE_DELIMITER.exec(s);
+        if (dm) state.opaque = dm[1];
+      }
+      return;
+    }
+    var ms = mask_quoted(s);
+    if (s.startsWith("=>")) {
+      var after = ms.slice(2);                // ms[2:].lstrip().startswith("[")
+      if (last_op && after.charAt(indentOf(after)) === "[") {
+        this.check_operation(j, strip(s.slice(2)), true);
+        state.last_op = true;
+      }
+      return;
+    }
+    if (s.startsWith("[") && s.indexOf("](") < 0 && ms.indexOf("]=>") >= 0) {
+      this.check_operation(j, s, true);
+      state.last_op = true;
+    }
+  };
+
+  // The payload after the ::UNTRUSTED header on line j (1-based; j - 1 0-based): every line up to
+  // the first one equal to the delimiter once trimmed (Part III 1.7 form:opaque_payload). With no
+  // such line the payload runs to `end`, the end of the document or of the fenced block, and that
+  // is reported at WARN level.
   Linter.prototype.consume_opaque = function (j, delimiter, end) {
+    var header = j;
     while (j < end) {
       if (strip(this.lines[j]) === delimiter) return j + 1;
       j++;
     }
+    this.add(WARN, header, "E300", "::UNTRUSTED payload never closes: no line equals its delimiter `" +
+             delimiter + "`, so it runs to the end of the document or fenced block (SPEC-v4.0-FINAL" +
+             " \u00a71; Part III \u00a71.7)");
     return j;
   };
 
@@ -1170,16 +1233,22 @@
   };
 
   // -------------------------------------------------------------- entities
+  // 2.2 on every entity token in a structural position. A name that does not match
+  // @[A-Z][A-Z0-9_]* is an ERROR (a lowercase letter, a leading digit, mixed case), except a name
+  // whose only fault is a hyphen: that is a WARN (archived documents write @PATCH-1 and @PATCH-2).
   Linter.prototype.scan_entities = function (i, s) {
     var m;
     RE_ENTITY_TOKEN.lastIndex = 0;
     while ((m = RE_ENTITY_TOKEN.exec(s)) !== null) {
-      var name = "@" + m[1], c0 = m[1].charCodeAt(0);
-      if (c0 >= 97 && c0 <= 122) {           // group(1)[0].islower(): [A-Za-z] opens it
-        this.add(ERROR, i + 1, "E300", "entity `" + name + "` violates @[A-Z][A-Z0-9_]* (\u00a72.2)");
-      } else if (RE_ENTITY_OK.test(name)) {
+      var name = "@" + m[1];
+      if (RE_ENTITY_OK.test(name)) {
         this.stat_entities.add(name);
         if (!REGISTERED_ENTITIES.has(name)) setdefault(this.custom_entities, m[1], i + 1);
+      } else if (RE_ENTITY_OK.test(name.replace(/-/g, "_"))) {   // str.replace: every hyphen
+        this.add(WARN, i + 1, "E300", "entity `" + name + "` has a hyphen; \u00a72.2 writes entity names" +
+                 " as @[A-Z][A-Z0-9_]*, as in `" + name.replace(/-/g, "_") + "`");
+      } else {
+        this.add(ERROR, i + 1, "E300", "entity `" + name + "` violates @[A-Z][A-Z0-9_]* (\u00a72.2)");
       }
     }
   };

@@ -79,7 +79,7 @@ Every number here comes with its code and data under a DOI. We ask readers not t
 ## Built with iLang.
 
 - **iLang loader** (pip · npm, v1.1.1): The official iLang in every request, sha256-checked. [GitHub](https://github.com/ilang-ai/ilang) · [PyPI](https://pypi.org/project/ilang-protocol/) · [npm](https://www.npmjs.com/package/ilang-protocol)
-- **iLang runtime** (canon, 25k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
+- **iLang runtime** (canon, 28k tokens): What an AI loads, built by CI from the canon. [GitHub](https://github.com/ilang-ai/ilang-spec/tree/main/runtime) · [Manifest](https://runtime.ilang.app/manifest.json) · [Full text](https://ilang.ai/runtime/full)
 - **ilang-conformance** (benchmark, 320 cases): Deterministic scores for any model; 45 runs published. [GitHub](https://github.com/ilang-ai/ilang-conformance) · [Results](https://research.ilang.ai/datasets/ilang-conformance/)
 - **Playground** (browser, validator + IML): Validate, convert to IML, count tokens, all in your browser. [Open](https://ilang.ai/playground/)
 - **Agent Ready GEO** (agent skill, 100/100): Takes a website to 100/100 on isitagentready.com. [GitHub](https://github.com/ilang-ai/agent-ready-geo)

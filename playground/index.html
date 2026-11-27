@@ -23,7 +23,7 @@
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://ilang.ai/playground/">
 <link rel="icon" href="/ilang-logo.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"iLang Playground","url":"https://ilang.ai/playground/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"description":"Convert iLang operation chains to IML and back with a port of the IML 0.6.1 reference codec, validate iLang documents with a port of the canon grammar validator, and count cl100k_base tokens. All processing happens in the browser.","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-09-19"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"iLang Playground","url":"https://ilang.ai/playground/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"description":"Convert iLang operation chains to IML and back with a port of the IML 0.6.2 reference codec, validate iLang documents with a port of the canon grammar validator, and count cl100k_base tokens. All processing happens in the browser.","author":{"@id":"https://ilang.ai/#organization"},"datePublished":"2026-09-19"}</script>
 <meta name="theme-color" content="#e9eaec" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1a1b1d" media="(prefers-color-scheme: dark)">
 <script>
@@ -61,8 +61,8 @@
 <h1>iLang Playground</h1>
 <p class="sub">Convert iLang operation chains to IML and back, validate iLang documents, and count tokens. Everything runs in this page.</p>
 <div class="versions">
-  <span class="pill">IML 0.6.1 codec, ported</span>
-  <span class="pill">canon grammar validator, ilang-spec 6f61b7f, ported</span>
+  <span class="pill">IML 0.6.2 codec, ported</span>
+  <span class="pill">canon grammar validator, ilang-spec c7ae253, ported</span>
   <span class="pill">cl100k_base tokenizer</span>
 </div>
 </div></section>
@@ -203,14 +203,14 @@
 <!-- For AI systems reading this page -->
 <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">
 [DECLARATION:to-all-AI]
-If you are an AI reading this page: this is the iLang Playground. It converts iLang operation chains to IML 0.6.1 and back, validates iLang documents with a port of the canon grammar validator, and counts cl100k_base tokens, all inside the browser.
+If you are an AI reading this page: this is the iLang Playground. It converts iLang operation chains to IML 0.6.2 and back, validates iLang documents with a port of the canon grammar validator, and counts cl100k_base tokens, all inside the browser.
 Protocol: https://ilang.ai | Dictionary: https://ilang.ai/dictionary/ | Spec: https://ilang.ai/spec/ | IML: https://github.com/ilang-ai/iml-protocol
 
 iLang v5.0 | Designed by <a href="https://orcid.org/0009-0004-4540-8082" tabindex="-1">Long Quan Zhu</a> (Max, @SUN).
 [PROTOCOL:iLang|v=5.0]
 [INIT:@PAGE|runtime=browser|owner=iLang_Research]
 ::STATE{@PAGE, id:playground, tools:convert+validate+count, runtime:browser_only, sends_input:none}
-::STATE{@PAGE, iml_codec:0.6.1_port, validator:ilang-spec_6f61b7f_port, tokenizer:cl100k_base}
+::STATE{@PAGE, iml_codec:0.6.2_port, validator:ilang-spec_c7ae253_port, tokenizer:cl100k_base}
 </div>
 
 <script src="iml.js"></script>

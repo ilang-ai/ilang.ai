@@ -5,7 +5,7 @@
     "version": "2.3.0",
     "title": "iLang"
   },
-  "description": "Gives a model the official iLang: the runtime a model loads (about 18,600 tokens, verified against the canon's sha256), its syntax and vocabulary alone (about 18,000 characters) for writing and checking iLang, the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.9, as files with version, DOI and sha256. Read-only, no authentication.",
+  "description": "Gives a model the official iLang: the runtime a model loads (about 27,800 tokens, verified against the canon's sha256), its syntax and vocabulary alone (about 18,000 characters) for writing and checking iLang, the full text for any section it leaves out, the canon grammar validator, lookup over the dictionary and the ilang.ai FAQ, and the two published iLang documents, SOUL 2.0 and Source Book 2.9, as files with version, DOI and sha256. Read-only, no authentication.",
   "protocolVersion": "2025-06-18",
   "endpoint": "https://mcp.ilang.ai/mcp",
   "transport": {
@@ -86,7 +86,7 @@
     },
     {
       "name": "ilang_soul",
-      "description": "Return SOUL 2.0, a judgment layer for an AI's default persona, as the published iLang file with version, date, DOI and sha256; form=iml for the IML 0.5 form.",
+      "description": "Return SOUL 2.0, a judgment layer for an AI's default persona, as the published iLang file with version, date, DOI and sha256; form=iml for the IML 0.6 form.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -96,7 +96,7 @@
     },
     {
       "name": "ilang_source_book",
-      "description": "Return Source Book 2.9, the engineering book every iLang engineering book is anchored to, as the published iLang file with version, date, DOI and sha256; form=iml for the IML 0.5 form.",
+      "description": "Return Source Book 2.9, the engineering book every iLang engineering book is anchored to, as the published iLang file with version, date, DOI and sha256; form=iml for the IML 0.6 form.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
