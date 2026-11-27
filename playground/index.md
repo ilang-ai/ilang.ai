@@ -19,7 +19,7 @@ Example, from the specification §10.1:
 
 ## Validate
 
-Paste an iLang document, such as an agent's SOUL file, and read what the canon grammar validator reports: errors, warnings and notes with their line and code. The validator is a port of `ilang_grammar_validator.py` at [ilang-ai/ilang-spec](https://github.com/ilang-ai/ilang-spec) commit 7805aa2 (release 5.0.18). A text whose first line is `::ILANG::v5.0` is read as a raw iLang document; any other text is read as Markdown, and its iLang lines and fenced blocks are checked.
+Paste an iLang document, such as an agent's SOUL file, and read what the canon grammar validator reports: errors, warnings and notes with their line and code. The validator is a port of `ilang_grammar_validator.py` at [ilang-ai/ilang-spec](https://github.com/ilang-ai/ilang-spec) commit 6f61b7f (release 5.0.19). A text whose first line is `::ILANG::v5.0` is read as a raw iLang document; any other text is read as Markdown, and its iLang lines and fenced blocks are checked.
 
 ## Count
 

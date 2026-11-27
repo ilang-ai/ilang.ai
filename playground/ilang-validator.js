@@ -2,9 +2,8 @@
  * ilang-validator.js: the I-Lang grammar and registry validator, in the browser.
  *
  * Port of ilang_grammar_validator.py of github.com/ilang-ai/ilang-spec at commit
- * 7805aa20823cfd880d1ecb78093d073a38723c14, release 5.0.18 (file sha256
- * 259868d15556f6627cf28348c34fb8209526444b18c3836950c308726cf2d733, the copy
- * ilang-ai/iml-protocol pins in canon/): the class
+ * 6f61b7f8353fbbef21b31fec6f79a0a700e0646e, release 5.0.19 (file sha256
+ * 640e4497a098af07c05be136043d15b998ff8af893b1e7f50686e10a334c22d6): the class
  * Linter and everything it uses. ILV.lint(text) returns the findings Linter(path, text).run()
  * returns, in the same order, with the same level, line, code and message. The command line
  * (--canon, --selftest, --json, file walking) is not ported; like the Linter, lint() does
@@ -29,9 +28,9 @@
 
   var SOURCE = {
     repository: "https://github.com/ilang-ai/ilang-spec",
-    commit: "7805aa20823cfd880d1ecb78093d073a38723c14",
+    commit: "6f61b7f8353fbbef21b31fec6f79a0a700e0646e",
     file: "ilang_grammar_validator.py",
-    sha256: "259868d15556f6627cf28348c34fb8209526444b18c3836950c308726cf2d733"
+    sha256: "640e4497a098af07c05be136043d15b998ff8af893b1e7f50686e10a334c22d6"
   };
 
   // ------------------------------------------------------ Python string semantics
@@ -1137,6 +1136,15 @@
       var media = TIER4.has(target) || this.image_layers.has(target);
       var allowed = media ? MEDIA_MODIFIERS : MODIFIERS;
       var where = media ? "the 29-key core registry or the 20-key media profile" : "the 29-key registry";
+      // v3.0 4: one `|` opens the modifiers, commas separate them. The pieces after a second `|`
+      // are still read below, so an unknown key is still E302.
+      var bar2 = bar + 1;
+      while (bar2 < ge && ms.charCodeAt(bar2) !== 124) bar2++;
+      if (bar2 < ge) {
+        this.add(WARN, lineno, "E300", "operation `" + head + "` has a second `|` after the one that opens its " +
+                 "modifiers; modifiers are separated by commas, as in `|fmt=json,len=short` (v3.0 \u00a74), and a " +
+                 "value that holds a `|` is written in quotes (v3.0 \u00a72.4)");
+      }
       // mods = rest.split("|", 1)[1], cut on `|` and `,`; a piece without `=` continues a value
       for (var start = bar + 1, k = bar + 1; k <= ge; k++) {
         if (k < ge && ms.charCodeAt(k) !== 124 && ms.charCodeAt(k) !== 44) continue;
