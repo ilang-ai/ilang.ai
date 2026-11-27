@@ -51,7 +51,7 @@ const TOOLS = [
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: BIG },
   { name: 'ilang_runtime_lite', title: 'Load iLang (syntax and vocabulary)',
     description: 'Return iLang runtime lite: the two syntaxes, the verb table (88 verbs with their 13 Greek aliases), the 29 modifiers, the error codes, ' +
-      'the declaration body forms, the registry of 32 declarations and the entity registry (25 entities), taken word for word from the canon\'s full runtime ' +
+      'the declaration body forms, the registry of 33 declarations and the entity registry (25 entities), taken word for word from the canon\'s full runtime ' +
       'and checked against its sha256. About 18,000 characters, where ilang_runtime returns about 93,000. Enough to write iLang and check it with ilang_validate; ' +
       'it leaves out the execution and judgment layers, so load ilang_runtime when a task needs them.',
     inputSchema: { type: 'object', properties: {} },

@@ -2,8 +2,9 @@
  * ilang-validator.js: the I-Lang grammar and registry validator, in the browser.
  *
  * Port of ilang_grammar_validator.py of github.com/ilang-ai/ilang-spec at commit
- * 127ba56f4eb1f35c2951d4aec4b7bd22831119ff (file sha256 3c29df9089401fed742bb6448c6c7dc7
- * b72c811cdd90eca05696d7b6db62f4ad, the copy ilang-ai/iml-protocol pins in canon/): the class
+ * 7805aa20823cfd880d1ecb78093d073a38723c14, release 5.0.18 (file sha256
+ * 259868d15556f6627cf28348c34fb8209526444b18c3836950c308726cf2d733, the copy
+ * ilang-ai/iml-protocol pins in canon/): the class
  * Linter and everything it uses. ILV.lint(text) returns the findings Linter(path, text).run()
  * returns, in the same order, with the same level, line, code and message. The command line
  * (--canon, --selftest, --json, file walking) is not ported; like the Linter, lint() does
@@ -28,9 +29,9 @@
 
   var SOURCE = {
     repository: "https://github.com/ilang-ai/ilang-spec",
-    commit: "127ba56f4eb1f35c2951d4aec4b7bd22831119ff",
+    commit: "7805aa20823cfd880d1ecb78093d073a38723c14",
     file: "ilang_grammar_validator.py",
-    sha256: "3c29df9089401fed742bb6448c6c7dc7b72c811cdd90eca05696d7b6db62f4ad"
+    sha256: "259868d15556f6627cf28348c34fb8209526444b18c3836950c308726cf2d733"
   };
 
   // ------------------------------------------------------ Python string semantics
@@ -325,7 +326,7 @@
                           "FACT LESSON PROGRESS PRIORITY DECAY IMMUNE");
   var REGISTRY_V4 = words("UNTRUSTED BUDGET STATUS OBJECTIVE RUBRIC EVIDENCE PRIOR FALLBACK");
   var REGISTRY_V5 = words("JUDGE BOUNDARY DIM MODE FUNC SCHEMA CASE CLAUSE MODULE");
-  var REGISTRY_AMEND = ["LIST"];
+  var REGISTRY_AMEND = ["LIST", "EXCLUDE"];
   var DECL_STRUCTURAL = new Set(REGISTRY_V3.concat(REGISTRY_V4, REGISTRY_V5, REGISTRY_AMEND));
 
   var DECL_NARRATIVE = new Set(words("SAY THINK ACT DECIDE DISCOVER CREATE EVENT SILENCE " +
@@ -850,7 +851,7 @@
         return i + 1;
       }
       this.add(ERROR, i + 1, "E300", "::" + name + " is not in the declaration registry " +
-               "(32 structural + 13 narrative, PATCH-2 \u00a71.5/\u00a71.6)");
+               "(33 structural + 13 narrative, PATCH-2 \u00a71.5/\u00a71.6)");
     }
     this.stat_declarations++;
 
