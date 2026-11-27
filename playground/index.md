@@ -7,9 +7,9 @@ Convert iLang operation chains to IML and back, validate iLang documents, and co
 
 ## Convert
 
-Write iLang operation chains, one per line, and read the IML beside them; edit the IML and the iLang follows. The converter is a port of the IML 0.5.1 reference codec ([ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol)), so whatever converts comes back unchanged. It converts chains; documents with declarations are converted by the reference codec.
+Write iLang operation chains, one per line, and read the IML beside them; edit the IML and the iLang follows. The converter is a port of the IML 0.6.1 reference codec ([ilang-ai/iml-protocol](https://github.com/ilang-ai/iml-protocol)), so whatever converts comes back unchanged. It converts chains; documents with declarations are converted by the reference codec.
 
-Every IML message starts with its version and registry digest, `#iml/0.5/7e29fae7f5ea`, which is 17 cl100k_base tokens. For a single chain the IML message is therefore longer than the iLang line; the document form carries the header once for all chains. Measured figures for the full corpora are in the [IML measurement reports](https://github.com/ilang-ai/iml-protocol/tree/main/measurements).
+Every IML message starts with its version and registry digest, `#iml/0.6/ba5fde00dd69`, which is 15 cl100k_base tokens. For a single chain the IML message is therefore usually longer than the iLang line; the document form carries the header once for all chains. Measured figures for the full corpora are in the [IML measurement reports](https://github.com/ilang-ai/iml-protocol/tree/main/measurements).
 
 Example, from the specification §10.1:
 

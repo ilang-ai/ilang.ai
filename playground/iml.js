@@ -1,18 +1,21 @@
 /*
- * iml.js: the IML 0.5.1 codec for I-Lang operation chains, in the browser. Global IML.
+ * iml.js: the IML 0.6.1 codec for I-Lang operation chains, in the browser. Global IML.
  *
- * A port of github.com/ilang-ai/iml-protocol at commit 6d696d0 (v0.5.1), chains only:
- * iml/codec.py (compile, decompile, the 0.5, 0.4 and 0.3 chain surface), iml/l2.py
+ * A port of github.com/ilang-ai/iml-protocol at commit afa86f8 (v0.6.1), chains only:
+ * iml/codec.py (compile, decompile, the chain surface of 0.6, 0.5, 0.4 and 0.3), iml/l2.py
  * (parse_L2, print_L2, the continuation join), iml/__main__.py (what `python -m iml
  * compile [--document]` and `python -m iml decompile` do with their input: leading byte
  * order marks, CRLF, blank lines, the line an error is reported at), the chain part of
- * iml/doc_parse.py and iml/doc_read.py (how a document's lines are told apart), and
- * registry/iml-registry-0.5.json (embedded below). Outputs and errors (code, message,
- * line, offset, operation) are the reference codec's for every chain input.
+ * iml/doc_parse.py and iml/doc_read.py (how a document's lines are told apart), and the
+ * chain tables of registry/iml-registry-0.6.json (embedded below). Compile writes the 0.6
+ * header; decompile reads a 0.6, 0.5, 0.4 or 0.3 header, each with the digest its version
+ * carries. Outputs and errors (code, message, line, offset, operation) are the reference
+ * codec's for every chain input.
  *
- * Not ported: declarations and text lines (the document layer of 0.5) and the 0.2 surface.
- * A line that is not an operation chain is E502 with PLAYGROUND_DOC below; the reference
- * codec converts it (github.com/ilang-ai/iml-protocol).
+ * Not ported: declarations and text lines (the document layer of 0.6 and 0.5), the 0.2
+ * surface and the command line's --version. A line that is not an operation chain is E502
+ * with PLAYGROUND_DOC below; the reference codec converts it (github.com/ilang-ai/iml-protocol).
+ * A 0.2 header is E502 with PLAYGROUND_02; the reference codec reads it with --version 0.2.
  *
  * Offsets are 0-based code point offsets, as the Python codec counts them: into the
  * joined chain text for a message compile, into the input for a document compile or
@@ -26,8 +29,15 @@
   "use strict";
 
   // ---------------------------------------------------------------- registry
-  // registry/iml-registry-0.5.json at 6d696d0 (canon 127ba56), digest 7e29fae7f5eab384fd1588c23ac9860dbb387e5d66bd1be71343d0bc728d61ba;
-  // 0.4, 0.3 and 0.2 headers carry the chain registry's digest 88d05d0839c1a2002abdb6f6be3c9846c2990496ce655b738d874217cc78c03f.
+  // The three registry files at afa86f8 hold the same chain tables (verbs, aliases, keys, entities, value codes),
+  // embedded once below; a header carries the first 12 hex characters of the digest of the file its version names:
+  // registry/iml-registry-0.6.json (canon d1d4367, ilang-spec 5.0.11), the header compile writes, digest
+  // ba5fde00dd6998a6a212311798e6ae30800e330b72c2cbef1b02a97947c9bacb;
+  // registry/iml-registry-0.5.json (canon 127ba56, kept byte for byte), a 0.5 header, digest
+  // 7e29fae7f5eab384fd1588c23ac9860dbb387e5d66bd1be71343d0bc728d61ba;
+  // registry/iml-registry-0.2.json (canon 127ba56, kept byte for byte), the chain registry of 0.4, 0.3 and 0.2 headers,
+  // digest 88d05d0839c1a2002abdb6f6be3c9846c2990496ce655b738d874217cc78c03f.
+  var DIGEST_06 = "ba5fde00dd6998a6a212311798e6ae30800e330b72c2cbef1b02a97947c9bacb";
   var DIGEST_05 = "7e29fae7f5eab384fd1588c23ac9860dbb387e5d66bd1be71343d0bc728d61ba";
   var DIGEST_CHAIN = "88d05d0839c1a2002abdb6f6be3c9846c2990496ce655b738d874217cc78c03f";
   // the 88 verbs in registry order, NAME:ROOT (OUT has no root)
@@ -69,7 +79,7 @@
     "WORKER:WR CF:CF SYSTEM:SY RUNTIME:RN GRADER:GR USER:US SELF:SL AGENT:AG TASK:TS TOOL:TL IMG:IM",
     "VID:VD AUD:AD"
   ].join(" ");
-  // value_codes: every key's table is empty in 0.5 (a `~code` value is E303)
+  // value_codes: every key's table is empty in the three files (a `~code` value is E303)
 
   // ------------------------------------------------------ Python 3.13 tables
   // str.isspace() (also `\s` of Python re): 9-d 1c-20 85 a0 1680 2000-200a 2028-2029 202f 205f 3000
@@ -152,7 +162,7 @@
     "2f800-2fa1d 30000-3134a 31350-323af e0100-e01ef"
   ].join(" ");
 
-  var HEADER = "#iml/0.5/" + DIGEST_05.slice(0, 12);
+  var HEADER = "#iml/0.6/" + DIGEST_06.slice(0, 12);
   var PLAYGROUND_DOC = "the playground converts operation chains; documents with declarations need the reference" +
     " codec (github.com/ilang-ai/iml-protocol)";
   var PLAYGROUND_02 = "the 0.2 surface is read by the reference codec (--version 0.2)";
@@ -174,7 +184,8 @@
     var name = aliasMap.has(spelling) ? aliasMap.get(spelling) : spelling;
     return verbSet.has(name) ? name : null;
   }
-  function digestFor(version) { return version === "0.5" ? DIGEST_05 : DIGEST_CHAIN; }
+  // Registry.digest_for: the 0.6 file's digest for a 0.6 header, the frozen 0.5 file's for 0.5, the chain digest below
+  function digestFor(version) { return version === "0.6" ? DIGEST_06 : version === "0.5" ? DIGEST_05 : DIGEST_CHAIN; }
 
   // ------------------------------------------------------------ Python behaviour
   // str.isspace() of one UTF-16 code unit (no astral character is whitespace)
@@ -562,10 +573,10 @@
     return ops;
   }
 
-  // ----------------------------------------------------- compile (codec.py, 0.5)
+  // ----------------------------------------------------- compile (codec.py, 0.6)
   var PHI = "@", DOLLAR = "$", SEP = " ";
 
-  function imlBareable(content) { // codec.iml_bareable on the 0.5 surface
+  function imlBareable(content) { // codec.iml_bareable on the 0.6 surface
     if (!content || "~@\"$".indexOf(content[0]) >= 0) return false;
     for (var k = 0; k < content.length; k++) {
       var c = content.charCodeAt(k);
@@ -592,7 +603,7 @@
     return imlBareable(val.text) ? val.text : quote(val.text);
   }
 
-  // codec._compile_chain on the 0.5 surface (the AST comes from parseL2)
+  // codec._compile_chain on the 0.6 surface (the AST comes from parseL2)
   function compileChain(ops) {
     var last = ops.length - 1, parts = [], idx, op, s, kvs, k;
     if (!ops.length) fail("E300", "a chain carries at least one operation", null, 0);
@@ -633,10 +644,11 @@
     return parts.join(SEP);
   }
 
-  // --------------------------------------------------- decompile (codec.py, 0.5)
+  // --------------------------------------------------- decompile (codec.py, 0.6)
   var RE_HEADER = /^#iml\/([0-9]+\.[0-9]+)\/([0-9a-f]{12})( |$)/;
   var RE_DOCUMENT_FIRST_LINE = /^#iml\/[0-9]+\.[0-9]+\/[0-9a-f]{12}(?:\r\n|\n|$)/;
-  var READS = ["0.5", "0.4", "0.3"];
+  var READS = ["0.6", "0.5", "0.4", "0.3"];   // codec.SURFACES["0.6"].reads, in the order the reference names them
+  var DOCUMENT_LAYER = ["0.6", "0.5"];        // registry.DOCUMENT_LAYER_VERSIONS: headers that carry a declaration registry's digest
   var QUOTE = '"';
 
   function isDocument(text) { return RE_DOCUMENT_FIRST_LINE.test(text); }
@@ -646,7 +658,7 @@
     var version = m[1];
     if (READS.indexOf(version) < 0) {
       if (version === "0.2") fail("E502", PLAYGROUND_02, 5);
-      fail("E502", "unsupported IML version " + version + " (this decoder reads 0.5, 0.4, 0.3)", 5);
+      fail("E502", "unsupported IML version " + version + " (this decoder reads " + READS.join(", ") + ")", 5);
     }
     var want = digestFor(version).slice(0, 12);
     if (m[2] !== want) {
@@ -689,7 +701,7 @@
     return [rootVerb.get(ref), j];
   }
 
-  // codec._scan_chain on the 0.5 surface: one chain from text[i:n]
+  // codec._scan_chain on the 0.6 surface: one chain from text[i:n]
   function scanChain(text, i, n) {
     var ops = [], idx = 0, c, verb, target, verbref, r;
     for (;;) {
@@ -775,7 +787,7 @@
     return ops;
   }
 
-  // codec.decompile with the default reader (0.5; 0.4 and 0.3 headers too). Returns the
+  // codec.decompile with the default reader (0.6; 0.5, 0.4 and 0.3 headers too). Returns the
   // chains: one for a message, one per line for a document of chains.
   function decompileText(text) {
     if (!text.startsWith("#iml/")) fail("E502", "no IML header (`" + HEADER + "` expected)", 0);
@@ -798,26 +810,27 @@
         fail("E300", "empty chain", i);
       }
       if (text[i] === QUOTE || text[i] === ":") {
-        if (m[1] === "0.5") {
+        if (DOCUMENT_LAYER.indexOf(m[1]) >= 0) {
           fail("E502", "declarations and text lines exist only in the document form (the header alone" +
             " on its first line); a message carries one chain", i);
         }
-        fail("E502", "declarations and text lines need a 0.5 header (this message's header is version " + m[1] + ")", i);
+        fail("E502", "declarations and text lines need a 0.6 or 0.5 header (this message's header is version " + m[1] + ")", i);
       }
       return [scanChain(text, i, lineEnd)];
     }
     if (nl < 0) {
-      fail("E300", "header alone: a document carries at least one " + (m[1] === "0.5" ? "item" : "chain") +
+      fail("E300", "header alone: a document carries at least one " + (DOCUMENT_LAYER.indexOf(m[1]) >= 0 ? "item" : "chain") +
         " line after the header", length);
     }
     return readDocument(text, nl, m[1]);
   }
 
-  // doc_read.read_document for a document of chains: a 0.5 header reads the document
+  // doc_read.read_document for a document of chains: a 0.6 or 0.5 header reads the document
   // layer, which the playground leaves to the reference codec (a declaration or a text
-  // line is E502 PLAYGROUND_DOC); a 0.4 or 0.3 header carries chains only
+  // line is E502 PLAYGROUND_DOC); a 0.4 or 0.3 header carries chains only, and its refusal
+  // of such a line names the 0.5 header alone, the reference's wording at afa86f8
   function readDocument(text, nl, version) {
-    var full = version === "0.5", items = [], length = text.length, start = nl + 1, nl2, end, segEnd, c;
+    var full = DOCUMENT_LAYER.indexOf(version) >= 0, items = [], length = text.length, start = nl + 1, nl2, end, segEnd, c;
     while (start < length) {
       nl2 = text.indexOf("\n", start);
       end = nl2 < 0 ? length : nl2;
@@ -1077,10 +1090,11 @@
   }
 
   return {
-    VERSION: "0.5.1",
-    COMMIT: "6d696d0",
+    VERSION: "0.6.1",
+    COMMIT: "afa86f8",
     HEADER: HEADER,
-    DIGEST: DIGEST_05,
+    DIGEST: DIGEST_06,
+    DIGEST_05: DIGEST_05,
     CHAIN_DIGEST: DIGEST_CHAIN,
     PLAYGROUND_DOC: PLAYGROUND_DOC,
     PLAYGROUND_02: PLAYGROUND_02,
